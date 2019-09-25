@@ -7,8 +7,10 @@ Lowdefy assumes some application default parameters. These defaults parameters c
 
 
 These default parameters are:
-
-```json
+- `countryDialCode`: _String_ - Default: "1" - The default country dial used on the phone number block. 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "defaults": {
@@ -17,9 +19,10 @@ These default parameters are:
   }
 }
 ```
-
+<!--YAML-->
 ```yaml
 config:
   defaults:
     countryDialCode: '1'
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->

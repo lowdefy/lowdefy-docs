@@ -4,11 +4,11 @@ title: User Authentication
 sidebar_label: User Authentication
 ---
 
-Lowdefy uses Amazon Cognito User Pools to manage user authentication into a Lowdefy app. Authentication settings can be defined in the deployment Lowdefy.json file by setting the `auth` object attributes in `config`.
+Lowdefy uses Amazon Cognito User Pools to manage user authentication into a Lowdefy app. Authentication settings can be defined in the deployment `lowdefy.json` file by setting the `auth` object attributes in `config`.
 
 ## Usernames and Sign In
 
-For Lowdefy apps each application user is registered using their email address as username. Users can belong to multiple Lowdefy apps with the same user email / username, however, it must be noted that each Lowdefy app maintains its own Cognito User Pool, thus users who have access to multiple apps will have to maintain passwords for each app account individually. Each Lowdefy app is also hosted on individual domains.
+For Lowdefy apps each application user is registered using their email address as username. Users can belong to multiple Lowdefy apps with the same user email / username, however, each Lowdefy app maintains its own Cognito User Pool, thus users who have access to multiple apps will have to maintain passwords for each app account individually. Each Lowdefy app is also hosted on individual domains.
 
 ## Settings
 
@@ -17,8 +17,9 @@ For Lowdefy apps each application user is registered using their email address a
 The default authentication settings for Lowdefy apps are chosen as reasonable defaults to allow users to set up apps quickly, while maintaining strong security practices.
 
 These default settings are:
-
-```json
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "auth": {
@@ -37,7 +38,7 @@ These default settings are:
   }
 }
 ```
-
+<!--YAML-->
 ```yaml
 config:
   auth:
@@ -55,12 +56,14 @@ config:
     createUsers: admin_invite
     advanced: false
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Passwords
 
 Application user passwords can be configured by setting the `password` object in the `config.auth` settings. The following fields can be configured:
-
-```json
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "auth": {
@@ -72,7 +75,7 @@ Application user passwords can be configured by setting the `password` object in
   }
 }
 ```
-
+<!--YAML-->
 ```yaml
 config:
   auth:
@@ -84,6 +87,7 @@ config:
         - numbers
         - special_characters
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Password settings
 
@@ -97,8 +101,9 @@ config:
 ### MFA
 
 Application MFA settings can be configured by configuring the `mfa` object in the `config.auth` settings. The following fields can be configured:
-
-```json
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "auth": {
@@ -111,15 +116,17 @@ Application MFA settings can be configured by configuring the `mfa` object in th
   }
 }
 ```
-
+<!--YAML-->
 ```yaml
 config:
   auth:
     mfa:
-      enforce: "off" | "optional" | "on"
+      enforce: off | optional | on
       method: totp | sms # additional charges for SMS
       newDeviceOnly: true | false,
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### MFA Parameters
 
@@ -136,30 +143,36 @@ config:
 
 ### Creating New Users
 
-Two options exists for adding new users into an Lowdefy app. A user can be added by admin invite via the in app User Admin console, or via user self registration or sign up. By default users are added by user administrators. Self registration can be enabled by setting the `createUsers` field to `'self_sign_up'` in the `config.auth` settings. To allow any registered user to invite new user onto the user pool, set `createUsers` to `any_user_invite`.
+Three options exists for adding new users into an Lowdefy app. A user can be invited by an administrator with the User Admin role, a user can be invited by any other user in the app, or users can sign up themselves.
 
-```json
+
+By default users can only be invited by User Admins. To allow any registered user to invite a new user, set `createUsers` to `any_user_invite`. Self registration can be enabled by setting the `createUsers` field to `self_sign_up` in the `config.auth` settings. 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "auth": {
-      "createUsers": "admin_invite" | "self_sign_up" | "any_user_invite"
+      "createUsers": "admin_invite" | "any_user_invite" | "self_sign_up"
     }
   }
 }
 ```
-
+<!--YAML-->
 ```yaml
 config:
   auth:
-    createUsers: admin_invite | self_sign_up | any_user_invite
+    createUsers: admin_invite | any_user_invite | self_sign_up 
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Creating Users Parameters
 
 - createUsers: _(String)_ Allowed values are:
   - `"admin_invite"`: User administrators can invite new users to the app. No public users can sign up.
-  - `"self_sign_up"`: Anyone can sign up/register for the app without an invitation, from the sign in page.
   - `"any_user_invite"`: Any registered user can invite anyone to register.
+  - `"self_sign_up"`: Anyone can sign up/register for the app without an invitation, from the sign in page. Users will also be able to invite other users.
+
 
 ### Advanced Security
 
@@ -174,8 +187,9 @@ Amazon Cognito can detect if a user’s credentials (user name and password) hav
 #### Adaptive Authentication
 
 For each sign-in attempt, Amazon Cognito generates a risk score for how likely the sign-in request is to be from a compromised source. This risk score is based on many factors, including whether it detects a new device, user location, or IP address. It will then require second factor authentication in response to an increased risk level.
-
-```json
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "auth": {
@@ -184,12 +198,13 @@ For each sign-in attempt, Amazon Cognito generates a risk score for how likely t
   }
 }
 ```
-
+<!--YAML-->
 ```yaml
 config:
   auth:
     advanced: true | false
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Advanced Security Parameters
 
@@ -199,4 +214,4 @@ config:
 
 ### Federated Authentication
 
-// Future work.
+On our roadmap.

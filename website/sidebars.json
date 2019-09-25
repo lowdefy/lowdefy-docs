@@ -8,16 +8,17 @@
       "concepts/lowdefy-file",
       "concepts/references",
       "concepts/groups",
-      "concepts/connections",
       "concepts/layout",
+      "concepts/pages",
+      "concepts/blocks",
+      "concepts/connections",
       "concepts/how-it-works"
     ],
     "Configuration": [
       "config/auth",
       "config/users",
       "config/theme",
-      "config/defaults",
-      "config/git"
+      "config/defaults"
     ]
   }
 }
