@@ -3,14 +3,14 @@ id: groups
 title: Groups and Roles
 sidebar_label: Groups and Roles
 ---
-Lowdefy groups grant granular user access to resources in the application. These groups are configured in the `groups` section of the deployment lowdefy.json file. Users are placed in a group via the group admin console in a specific Lowdefy to gain access.
+Lowdefy groups grant granular user access to resources in the application. These groups are configured in the `groups` section of the deployment `lowdefy.json` file. Users are placed in a group via the group admin console in a specific Lowdefy to gain access.
 
 Lowdefy roles grant permissions within the application. These roles are given to a specific user via the user admin console in a specific Lowdefy deployment.
 
 
 ## Groups
 
-Groups are defined as a tree structure in the groups section of the `lowdefy.json` file. This structure can have more than one groups at the root level. The tree structure, analogous to a file folder structure, ensures no circular refs are created.  
+Groups are defined as a tree structure in the groups section of the `lowdefy.json` file. This structure can have more than one groups at the root level. The tree structure, analogous to a file folder structure, ensures no circular references are created.  
 
 A group can provide access to pages in the application, but can also provide access to other groups. The user in a group gains all the access given by all sub-groups.
 
@@ -19,12 +19,13 @@ A user can be in more than one group, but they can not be a member of any of sub
 
 ### Group IDs
 
-Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy.md#_lowdefy_id_).
+Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy-file.md#_lowdefy_id_).
 
 ### Groups Definition
 
-
-```json
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "id": "lowdefy_id",
   "properties": {
@@ -39,6 +40,7 @@ Each group should be given a unique id. This group id should be a valid Lowdefy 
   ]
 }
 ```
+<!--YAML-->
 ```yaml
 id: lowdefy_id
 properties: 
@@ -49,21 +51,61 @@ groups:
 pageIds:
   - # Array of page ids
 ```
-
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Group Settings
 
-- `id`: _[lowdefy_id](lowdefy.md#_lowdefy_id_)_ - REQUIRED - Unique ID for the group (character restriction).
+- `id`: _[lowdefy_id](lowdefy-file.md#_lowdefy_id_)_ - REQUIRED - Unique ID for the group (character restriction).
 - `properties`: _object_
   - `title`: _string_ - A title for the group. Default is the group id
   - `description`: _string_ - A description of the group and access it provides. Empty if not specified
 - `groups`: _[ group ]_ - An Array of group objects defining sub-groups of the group. Users will gain the access of all sub-groups of the group. Empty if not specified
-- `pageIds`: _[ string ]_ - A Array of page ids that the group provides access to. Empty if not specified
+- `pageIds`: _[ string ]_ - An Array of page ids that the group provides access to. Empty if not specified
 
 ### Example
 
-Consider a Lowdefy application with the following `lowdefy.yaml` file.
-
+Consider a Lowdefy application with the following configuration file.
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
+// lowdefy.json
+{
+  "groups": [
+    {
+      "id": "executives",
+      "pageIds": [ "executive_report" ],
+      "groups": [
+        {
+          "id": "sales",
+          "pageIds": [ "sales_report" ],
+          "groups": [
+            {
+              "id": "sales_north_america",
+              "pageIds": [ "sales_north_america_report" ]
+            },
+            {
+              "id": "sales_europe",
+              "pageIds": [ "sales_europe_report" ]
+            }
+          ]
+        },
+        {
+          "id": "marketing",
+          "pageIds": [ "marketing_report" ]
+        }
+      ]
+    }
+  ],
+  "pages": [
+    { "_ref": "executive_report" },
+    { "_ref": "sales_report" },
+    { "_ref": "sales_north_america_report" },
+    { "_ref": "sales_europe_report" },
+    { "_ref": "marketing_report" }
+  ]
+}
+```
+<!--YAML-->
 ```yaml
 # lowdefy.yaml
 groups:
@@ -87,16 +129,18 @@ groups:
               - sales_europe_report
       -
         id: marketing
-         pageIds:
+        pageIds:
           - marketing_report
     
 pages:
-  - $ref/executive_report
-  - $ref/sales_report
-  - $ref/sales_north_america_report
-  - $ref/sales_europe_report
-  - $ref/marketing_report
+  - _ref: executive_report
+  - _ref: sales_report
+  - _ref: sales_north_america_report
+  - _ref: sales_europe_report
+  - _ref: marketing_report
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 This will allow users to view pages in the application as follows:
 
@@ -143,7 +187,25 @@ If the group admin has the `User Admin` role, they can invite new users. If the 
 ### Example
 
 Consider the following group structure:
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
+{
+  "groups": [
+    {
+      "id": "national",
+      "pageIds": [ "national_report" ],
+      "groups": [
+        {
+          "id": "region",
+          "pageIds": [ "region_report" ]
+        }
+      ]
+    }
+  ]
+}
+```
+<!--YAML-->
 ```yaml
 groups:
  -
@@ -155,8 +217,9 @@ groups:
       id: region
       pageIds: 
         - region_report
-
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 `User A` is in group `national` and has the role `Group Admin` for the group `region`. This means that `User A` can view both the `national_report` and the `region_report` and can add other users in the Lowdefy deployment to the `region` group to access the `region_report`.
 
