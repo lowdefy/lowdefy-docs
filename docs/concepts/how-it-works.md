@@ -4,6 +4,8 @@ title: How It Works
 sidebar_label: How It Works
 ---
 
+Lowdefy apps are defined in a Github repositories, and are then deployed into its own Amazon Web Services (AWS) account. The deployed application consists of a Single Page App (SPA) front end, served by content delivery network (CDN), with a serverless graphql backend. The front end serves content in the form of _blocks_ and routes requests through the graphql backed to your source or data _connections_. 
+
 ## Separate AWS Accounts and Data Retention
 
 Each Lowdefy application is deployed in its own AWS account for maximum security and data separation. Lowdefy never stores any data passing to and from your connections. We only cache your repository code in the deployment AWS account. 

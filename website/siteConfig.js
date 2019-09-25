@@ -29,7 +29,9 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'start/introduction', label: 'Docs' }
+    { href: 'https://github.com/lowdefy/lowdefy-docs', label: 'Contribute' },
+    { href: 'https://lowdefy.com', label: 'Try Now' }
+
   ],
   /* path to images for header/footer */
   headerIcon: 'img/box_white_250.png',
