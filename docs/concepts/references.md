@@ -20,16 +20,17 @@ page_index.json
 ```
 
 With files
-
-`lowdefy.json/yaml`
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
 ```json5
+// lowdefy.json
 {
   "config": {
     "theme": {
-      "titles": {
-        "app": "My app"
+      "pages": {
+        "home": {
+          "title": "My app"
+        }
       }
     }
   },
@@ -43,51 +44,42 @@ With files
 ```
 <!--YAML-->
 ```yaml
+# lowdefy.yaml
+
 config:
   theme:
-    titles:
-      app: My app
+    pages:
+      home:
+        title: My app
 
 groups:
   _ref: groups.yaml
 
-pages:
-  _ref: page_index.json
+pages: _ref: page_index.json
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-`groups.json/yaml`
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
 ```json5
+// groups.json
 {
   "id": "group_1",
   "properties": {
     "title": "Group 1"
   },
   "pageIds": ["page_1"]
-},
-{
-  "id": "group_2",
-  "properties": {
-    "title": "Group 2"
-  },
-  "pageIds": ["page_2"]
 }
 ```
 <!--YAML-->
 ```yaml
+// groups.yaml
 - 
   id: group_1
   properties:
     title: Group 1
   pages:
     - page_1
-- 
-  id: group_2
-    title: Group 2
-  pages:
-    - page_2
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -95,88 +87,88 @@ pages:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
 ```json5
+// page_index.json
 [
   { "_ref": "pages/page_1.json" },
-  { "_ref": "pages/page_2.json" },
 ]
 ```
 <!--YAML-->
 ```yaml
+# page_index.yaml
 -
   _ref: pages/page_1.yaml
 -
   _ref: pages/page_2.yaml
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-```yaml
-# 
-[
-  "$ref/pages/page_1.yaml",
-  "$ref/pages/page_2.yaml"
-]
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
+// page_1.json
+{
+  "id": "page_1",
+  "properties": {
+    "title": "Page 1"
+  },
+  "blocks": [
+    // list of page_1 blocks
+  ]
+}
 ```
-
+<!--YAML-->
 ```yaml
 # page_1.yaml
-id: page_1
-title: Page 1
-components:
-  -  # list of page_1 components
-```
 
-```yaml
-# page_2.yaml
-id: page_2
-title: Page 2
-components:
-  -  # list of page_2 components
+id: page_1
+properties:
+  title: Page 1
+blocks:
+  -  # list of page_1 blocks
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
 
 The resulting configuration will be
 
-```json
+<!--DOCUSAURUS_CODE_TABS-->
+<!--JSON-->
+```json5
 {
   "config": {
     "theme": {
-      "titles": {
-        "app": "My app"
+      "pages": {
+        "home": {
+          "title": "My app"
+        }
       }
     }
   },
   "groups": [
     {
       "id": "group_1",
-      "title": "Group 1",
-      "description": "Description for Group 1",
-      "pages": [
-        "page_1"
-      ]
-    },
-    {
-      "id": "group_2",
-      "title": "Group 2",
-      "description": "Description for Group 2",
-      "pages": [
-        "page_2"
-      ]
+      "properties": {
+        "title": "Group 1"
+      },
+      "pageIds": ["page_1"]
     }
   ],
   "pages": [
     {
       "id": "page_1",
-      "title": "Page 1",
-      "components": [
-        // list of page_1 components
-      ]
-    },
-    {
-      "id": "page_2",
-      "title": "Page 2",
-      "components": [
-        // list of page_2 components
+      "properties": {
+        "title": "Page 1"
+      },
+      "blocks": [
+        // list of page_1 blocks
       ]
     }
   ]      
 }      
 ```
+<!--YAML-->
+```yaml
+
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
