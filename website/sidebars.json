@@ -1,18 +1,23 @@
 {
   "docs": {
+    "Getting Started": [
+      "start/introduction",
+      "start/quick-start"
+    ],
     "Concepts": [
-      "introduction",
-      "lowdefy_file",
-      "groups",
-      "connections",
-      "layout"
+      "concepts/lowdefy-file",
+      "concepts/references",
+      "concepts/groups",
+      "concepts/connections",
+      "concepts/layout",
+      "concepts/how-it-works"
     ],
     "Configuration": [
-      "auth",
-      "users",
-      "theme",
-      "defaults",
-      "git"
+      "config/auth",
+      "config/users",
+      "config/theme",
+      "config/defaults",
+      "config/git"
     ]
   }
 }

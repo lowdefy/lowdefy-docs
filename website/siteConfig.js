@@ -9,14 +9,12 @@
 // site configuration options.
 
 // List of projects/orgs using your project for the users page.
-const users = [
 
-];
 
 const siteConfig = {
   title: '', // Title for your website.
   tagline: 'Build stuff fast',
-  url: 'https://www.lowdefy.com', // Your website URL
+  url: 'https://docs.lowdefy.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
@@ -31,12 +29,8 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'introduction', label: 'Docs' }
+    { doc: 'start/introduction', label: 'Docs' }
   ],
-
-  // If you have users set above, you add it here:
-  users,
-
   /* path to images for header/footer */
   headerIcon: 'img/box_white_250.png',
   footerIcon: 'img/color_bg_100.png',
@@ -67,8 +61,9 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'Github',
+    theme: 'atom-one-dark',
   },
+  usePrism: ['json5', 'yaml'],
 
   // Add custom scripts here that would be placed in <script> tags.
   scripts: ['https://buttons.github.io/buttons.js'],
@@ -84,7 +79,7 @@ const siteConfig = {
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.
-  // docsSideNavCollapsible: true,
+  docsSideNavCollapsible: true,
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
