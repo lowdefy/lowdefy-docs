@@ -6,6 +6,13 @@
       "groups",
       "connections",
       "layout"
+    ],
+    "Configuration": [
+      "auth",
+      "users",
+      "theme",
+      "defaults",
+      "git"
     ]
   }
 }
