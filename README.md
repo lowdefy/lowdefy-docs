@@ -1,5 +1,5 @@
 
-Our docs can be read at https://docs.lowdefy.com.
+Our docs can be read at https://docs.lowdefy.com, built using https://docusaurus.io
 
 # Contributing
 

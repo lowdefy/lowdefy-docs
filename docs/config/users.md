@@ -1,7 +1,7 @@
 ---
 id: users
-title: User Profile
-sidebar_label: User Profile
+title: User Attributes
+sidebar_label: User Attributes
 ---
 
 Lowdefy manages application user registration and authentication, but also provides the ability to define custom user attributes which can be referenced in the data context.
