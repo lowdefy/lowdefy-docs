@@ -10,6 +10,8 @@ Lowdefy roles grant permissions within the application. These roles are given to
 
 ## Groups
 
+If no groups are defined, all users of the app have access to all pages in the application.
+
 Groups are defined as a tree structure in the groups section of the `lowdefy.json` file. This structure can have more than one groups at the root level. The tree structure, analogous to a file folder structure, ensures no circular references are created.  
 
 A group can provide access to pages in the application, but can also provide access to other groups. The user in a group gains all the access given by all sub-groups.
@@ -20,47 +22,6 @@ A user can be in more than one group, but they can not be a member of any of sub
 ### Group IDs
 
 Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy-file.md#_lowdefy_id_).
-
-### Groups Definition
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JSON-->
-```json5
-{
-  "id": "lowdefy_id",
-  "properties": {
-    "title": "string",
-    "description": "string",
-  },
-  "groups": [
-    \\ list of sub-group objects
-  ],
-  "pageIds": [
-    \\ list of page_ids
-  ]
-}
-```
-<!--YAML-->
-```yaml
-id: lowdefy_id
-properties: 
-  title: string
-  description: string
-groups:
-  - # Array of sub-group objects
-pageIds:
-  - # Array of page ids
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-#### Group Settings
-
-- `id`: _[lowdefy_id](lowdefy-file.md#_lowdefy_id_)_ - REQUIRED - Unique ID for the group (character restriction).
-- `properties`: _object_
-  - `title`: _string_ - A title for the group. Default is the group id
-  - `description`: _string_ - A description of the group and access it provides. Empty if not specified
-- `groups`: _[ group ]_ - An Array of group objects defining sub-groups of the group. Users will gain the access of all sub-groups of the group. Empty if not specified
-- `pageIds`: _[ string ]_ - An Array of page ids that the group provides access to. Empty if not specified
 
 ### Example
 

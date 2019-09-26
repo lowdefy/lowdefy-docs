@@ -19,6 +19,11 @@
       "config/users",
       "config/theme",
       "config/defaults"
+    ],
+    "Definitions": [
+      "definitions/group",
+      "definitions/page"
     ]
+    
   }
 }
