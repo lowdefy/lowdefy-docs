@@ -12,7 +12,7 @@ Requests to a connection are defined in the requests section of a page. These re
 
 ## Connections 
 
-Connections are defined in the `conections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file#_lowdefy_id_).
+Connections are defined in the `conections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->

@@ -8,8 +8,7 @@ The pages of a Lowdefy app are defined in the pages section of the `lowdefy.json
 
 ### Page IDs
 
-Each page should be given a unique id. This page id should be a valid Lowdefy id, as defined [here](lowdefy-file.md#_lowdefy_id_).
-
+Each page should be given a unique id. This page id should be a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
 
 ### Properties
 

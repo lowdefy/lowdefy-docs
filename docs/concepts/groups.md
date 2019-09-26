@@ -21,7 +21,7 @@ A user can be in more than one group, but they can not be a member of any of sub
 
 ### Group IDs
 
-Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy-file.md#_lowdefy_id_).
+Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
 
 ### Example
 

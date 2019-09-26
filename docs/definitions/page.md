@@ -42,7 +42,7 @@ requests:
 
 #### Page Settings
 
-- `id`: _[lowdefy_id](lowdefy-file.md#_lowdefy_id_)_ - **REQUIRED** - Unique ID for the page.
+- `id`: _[lowdefy_id](lowdefy-file#names-and-ids)_ - **REQUIRED** - Unique ID for the page.
 - `properties`: _object_
   - `title`: _string_ - A title for the page. Default is the page id.
   - `description`: _string_ - A description of the page. Empty if not specified

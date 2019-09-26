@@ -35,7 +35,7 @@ pageIds:
 
 #### Group Settings
 
-- `id`: _[lowdefy_id](lowdefy-file.md#_lowdefy_id_)_ - **REQUIRED** - Unique ID for the group.
+- `id`: _[lowdefy_id](lowdefy-file#names-and-ids)_ - **REQUIRED** - Unique ID for the group.
 - `properties`: _object_
   - `title`: _string_ - A title for the group. Default is the group id
   - `description`: _string_ - A description of the group and access it provides. Empty if not specified
