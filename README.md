@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/87d8b0a5-c2f2-4544-86e6-0fb3a5007c96/deploy-status)](https://app.netlify.com/sites/reverent-hypatia-92c8ec/deploys)
 
-Our docs can be read at https://docs.lowdefy.com, built using [Docusaurus](https://docusaurus.io) and deployed with [Netlify](https://www.netlify.com).
+Our docs can be read at https://docs.lowdefy.com, built using [Docusaurus](https://docusaurus.io) and deployed with [Netlify](https://www.netlify.com). Search by [Algolia DocSearch](https://community.algolia.com/docsearch/).
 
 # Contributing
 

@@ -83,6 +83,11 @@ const siteConfig = {
   // Expand/collapse the links and subcategories under categories.
   docsSideNavCollapsible: true,
 
+  algolia: {
+    apiKey: process.env.ALGOLIA_API_KEY,
+    indexName: process.env.ALGOLIA_INDEX,
+    algoliaOptions: {} // Optional, if provided by Algolia
+  },
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
 
