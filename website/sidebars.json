@@ -35,10 +35,15 @@
           "blocks/input/switch_input",
           "blocks/input/slider_input",
           "blocks/input/checkbox_input",
+          "blocks/input/select_input",
+          "blocks/input/multiple_select_input",
           "blocks/input/radio_input",
           "blocks/input/radio_button_input",
-          "blocks/input/select_input",
-          "blocks/input/multiple_select_input"
+          "blocks/input/date_input",
+          "blocks/input/date_time_input",
+          "blocks/input/week_input",
+          "blocks/input/month_input",
+          "blocks/input/date_range_input"
         ]
       }
     ] 
