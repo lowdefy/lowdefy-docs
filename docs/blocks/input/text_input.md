@@ -4,13 +4,12 @@ title: Text Input
 sidebar_label: Text Input
 ---
 
-Input field that takes text inputs from the user and changes the path name in [`_state`](concepts/lowdefy-file.md) to a string value.
-
+Text box form input field. The input to this field is saved in [`state`](concepts/state.md), at the path name of the field.
 - Output data types: _String_
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#_lowdefy_name_).
+The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "text_input"
@@ -42,7 +41,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 ## Component properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the text input box if `true`.
-- `placeholder` : [_NunjucksTemplate_](concepts/lowdefy-file.md#_nunjucks_template_) - Placeholder inside text input box to show message before user types input.
+- `placeholder` : _String_ - Placeholder inside text input box to show message before user types input.
 - `defaultValue` : _String_ - Default value for text input box to be set on page load.
 - `prefixIcon` :  _String_ - Ant Icon to prefix the input box, should be a valid [Ant icon reference](https://ant.design/components/icon/).
 - `suffixIcon` :  _String_ - Ant Icon to suffix the input box, should be a valid [Ant icon reference](https://ant.design/components/icon/).

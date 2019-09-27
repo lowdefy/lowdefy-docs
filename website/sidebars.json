@@ -11,6 +11,7 @@
       "concepts/layout",
       "concepts/pages",
       "concepts/blocks",
+      "concepts/state",
       "concepts/connections",
       "concepts/how-it-works"
     ],
@@ -19,6 +20,10 @@
       "config/users",
       "config/theme",
       "config/defaults"
+    ],
+    "Definitions": [
+      "definitions/group",
+      "definitions/page"
     ],
     "Blocks": [
       {
@@ -36,11 +41,6 @@
           "blocks/input/multiple_select_input"
         ]
       }
-    ],
-    "Definitions": [
-      "definitions/group",
-      "definitions/page"
-    ]
-    
+    ] 
   }
 }
