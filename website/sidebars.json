@@ -36,6 +36,7 @@
           "blocks/input/multiple_select_input"
         ]
       }
+    ],
     "Definitions": [
       "definitions/group",
       "definitions/page"
