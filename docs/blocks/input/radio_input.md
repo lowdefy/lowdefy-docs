@@ -4,7 +4,7 @@ title: Radio Input
 sidebar_label: Radio Input
 ---
 
-Radio block form input field. Allows a user to select a single value from a set of options. Values can be any any primitive type. 
+Radio block form input field. Allows a user to select a single value from a set of options. Values can be any primitive type. 
 The input to this field is saved as an array in [`state`](concepts/state.md), at the path name of the field.
 - Output data types: An array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 
