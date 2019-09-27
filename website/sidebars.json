@@ -13,6 +13,7 @@
       "concepts/blocks",
       "concepts/state",
       "concepts/connections",
+      "concepts/operators",
       "concepts/how-it-works"
     ],
     "Configuration": [
