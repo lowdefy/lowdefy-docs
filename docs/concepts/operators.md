@@ -7,7 +7,7 @@ sidebar_label: Operators
 Operators can be used to perform actions like get a value from `state` or the current user, define a date, test a condition, calculate a value, perform transformations on data or substitute values into a template.
 
 
-Operators are inspired by the MongoDb Query Language (MQL). Operators are defined in `JSON/YAML` configuration as a object, with a single key which is the name of the operator, and parameters which are the value of the key. the names of operators start with a underscore.
+Operators are inspired by the MongoDB Query Language (MQL). Operators are defined in `JSON/YAML` configuration as a object, with a single key which is the name of the operator, and parameters which are the value of the key. the names of operators start with a underscore.
 
 Operators are evaluated from the most nested properties of the object (from the inside out). 
 
@@ -145,9 +145,9 @@ properties:
 - `_state`: Get a value from the page state.
 - `_user`: Get a attribute from the current user.
 - `_date`: Create a _Date_.
-- `_mql_test`: Execute a MongoDb Query Language query test against the current page state. 
-- `_mql_aggregate`: Execute a MongoDb Aggregation on a JSON Array.
-- `_mql_expr`: Calculate a MongoDb Query Language expression, using the page state. 
+- `_mql_test`: Execute a MongoDB Query Language query test against the current page state. 
+- `_mql_aggregate`: Execute a MongoDB Aggregation on a JSON Array.
+- `_mql_expr`: Calculate a MongoDB Query Language expression, using the page state. 
 - `_nunjucks`: Render a Nunjucks template.
 - `_secret`: Retrieve a secret from the secret store (Only in connections).
 - `_ref`: Reference another file in the project repository.
