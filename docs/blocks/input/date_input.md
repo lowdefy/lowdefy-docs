@@ -22,12 +22,15 @@ Dates can be input by a user either as a [JavaScript parsable date string](https
 <!--JSON-->
 ```json5
 {
-    "my_date": { "_state": { "predefined_date" } }
+    "my_date": {
+        "_state": "predefined_date"
+    }
 }
 ```
 <!--YAML-->
 ```yaml
-    my_date: { _state: { predefined_date } }
+    my_date:
+        _state: predefined_date
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -36,16 +39,22 @@ Dates can be input by a user either as a [JavaScript parsable date string](https
 <!--JSON-->
 ```json5
 {
-    "my_date": { "_date": { "now" } },
+    "my_date": {
+        "_date": "now"
+    },
     //OR
-    "my_date": { "_date": { "1955-11-12" } }
+    "my_date": {
+        "_date": "1955-11-12"
+    }
 }
 ```
 <!--YAML-->
 ```yaml
-    my_date: { _date: { now } },
+    my_date:
+        _date:  now
     #OR
-    my_date: { _date: { 1955-11-12 } }
+    my_date:
+        _date: 1955-11-12
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
