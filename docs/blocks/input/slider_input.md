@@ -10,7 +10,7 @@ Slider block that changes the path name in [`_state`](concepts/lowdefy-file.md) 
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#_lowdefy_name_).
+The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "slider_input"
