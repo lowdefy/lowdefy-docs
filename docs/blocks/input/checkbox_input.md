@@ -13,7 +13,7 @@ The input to this field is saved as an array in [`state`](concepts/state.md), at
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "checkbox_input"
@@ -40,7 +40,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 ## Component properties
 
-- `disabled`: _Boolean_ - Default: `false` - Disables the checkbox if `true`.
+- `disabled` : _Boolean_ - Default: `false` - Disables the checkbox if `true`.
 - `defaultValue`:  _[ Primitive ]_ - An array of default values for the checkbox to be set on page load. Can be an array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 - `options`: _[ Primitive ]_ **|** _[ Object ]_ - **REQUIRED** - An array of either primitive types or objects.
   - _Primitive_ - The value will be shown as the label.

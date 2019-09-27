@@ -9,7 +9,7 @@ Text box form input field. The input to this field is saved in [`state`](concept
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "text_input"

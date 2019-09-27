@@ -9,7 +9,7 @@ Slider form input field. Allows the user to select a number value at a interval 
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "slider_input"
@@ -49,7 +49,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 ## Component properties
 
-- `disabled`: _Boolean_ - Default: `false` - Disables the slider component if `true`.
+- `disabled` : _Boolean_ - Default: `false` - Disables the slider component if `true`.
 - `disableIcons`: _Boolean_ - Default: `false` - Hides `iconMin` and `iconMax` when `true`.
 - `showMarks`: _Boolean_  - Default: `true` - Shows marks at specified `min`, `max` and `step` values when `true`.
 - `tooltipVisible`: _Boolean_ - Default: `undefined` - Always shows a tooltip with the current value of the slider when `true` and never shows the tooltip when `false`. If `tooltipVisible` is undefined (the default value) the tooltip only shows when dragging slider.

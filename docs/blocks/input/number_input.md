@@ -9,7 +9,7 @@ Number box form input field. The input to this field is saved in [`state`](conce
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "number_input"
