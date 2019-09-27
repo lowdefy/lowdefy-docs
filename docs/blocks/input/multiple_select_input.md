@@ -4,19 +4,20 @@ title: Multiple Select Input
 sidebar_label: Multiple Select Input
 ---
 
-Multiple select block that changes the path name in [`_state`](concepts/lowdefy-file.md) to an array of the values selected by the user.
-
->Other selector blocks are [checkbox_input](checkbox_input.md), [select_input](select_input.md), [radio_input](radio_input.md) and [radio_button_input](radio_button_input.md)
+Drop down selector form input field. Allows a user to select multiple values from a set of options. Values can be any primitive type.
+The input to this field is saved as an array in [`state`](concepts/state.md), at the path name of the field.
 
 - Output data types: An array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 
+>Other selector blocks are [checkbox_input](checkbox_input.md), [multiple_select_input](multiple_select_input.md), [radio_input](radio_input.md) and [radio_button_input](radio_button_input.md)
+
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#_lowdefy_name_).
+The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids).
 
 - `name`
 - `type`: "multiple_select_input"
-- `options`
+- `properties.options`
 
 ## Default component settings
 <!--DOCUSAURUS_CODE_TABS-->
@@ -48,7 +49,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 ## Component properties
 
 - `disabled`: _Boolean_ - Default: `false` - Disables the multiple selector if `true`.
-- `placeholder` : [_NunjucksTemplate_](concepts/lowdefy-file.md#_nunjucks_template_) - Default: `Select item` - Placeholder text inside multiple selector to show message before user types input.
+- `placeholder` : _String_ - Default: `Select item` - Placeholder text inside multiple selector to show message before user types input.
 - `defaultValue`: _[ Primitive ]_ - An array of default values for multiple selector to be set on page load. Can be an array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 - `suffixIcon` :  _String_ - Ant Icon at the drop-down position of the selector, should be a valid [Ant icon reference](https://ant.design/components/icon/).
 - `size` : _Enum_ - Default: `default` - Size of the multiple selector.

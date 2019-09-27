@@ -4,15 +4,12 @@ title: Select Input
 sidebar_label: Select Input
 ---
 
-Drop down selector form input field. Allows a user to select a single value from a set of options. Values can be any primitive type. 
-The input to this field is saved as an array in [`state`](concepts/state.md), at the path name of the field.
-- Output data types: An array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
-
-Select block that changes the path name in [`_state`](concepts/lowdefy-file.md) to the value selected by the user.
-
->Other selector blocks are [checkbox_input](checkbox_input.md), [multiple_select_input](multiple_select_input.md), [radio_input](radio_input.md) and [radio_button_input](radio_button_input.md)
+Drop down selector form input field. Allows a user to select a single value from a set of options. Values can be any primitive type.
+The input to this field is saved as a primitive type in [`state`](concepts/state.md), at the path name of the field.
 
 - Output data types: Any primitive type (_String_, _Boolean_, _Number_, _Date_).
+
+>Other selector blocks are [checkbox_input](checkbox_input.md), [multiple_select_input](multiple_select_input.md), [radio_input](radio_input.md) and [radio_button_input](radio_button_input.md)
 
 ## Required fields
 
