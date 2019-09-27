@@ -4,13 +4,12 @@ title: Number Input
 sidebar_label: Number Input
 ---
 
-Input field that takes number inputs from the user and changes the path name in [`_state`](concepts/lowdefy-file.md) to a number value.
-
+Number box form input field. The input to this field is saved in [`state`](concepts/state.md), at the path name of the field.
 - Output data types: _Number_
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#_lowdefy_name_).
+The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "number_input"
@@ -39,8 +38,8 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 ## Component properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the number input box if `true`.
-- `placeholder` : [_NunjucksTemplate_](concepts/lowdefy-file.md#nunjucks_template) - Placeholder inside number input box to show message before user types input.
-- `formatter`: [_NunjucksTemplate_](concepts/lowdefy-file.md#nunjucks_template) - Format the number input a format in the input box, eg: `"${{value}}"` to show `$5`.
+- `placeholder` : _String_ - Placeholder inside number input box to show message before user types input.
+- `formatter`: _String_ - Format the number input a format in the input box, eg: `"${{value}}"` to show `$5`.
 - `defaultValue` : _Number_ - Default value for number input box to be set on page load.
 - `minimum` : _Number_ - Minimum value user is allowed to input.
 - `maximum` : _Number_ - Maximum value user is allowed to input.

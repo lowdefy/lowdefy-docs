@@ -4,7 +4,13 @@ title: Radio Button Input
 sidebar_label: Radio Button Input
 ---
 
-Radio button block that changes the path name in [`_state`](concepts/lowdefy-file.md) to the value selected by the user. Similar to [radio_input](radio_input.md) except for its appearance, which is in button form instead of radio selector form.
+
+Radio block form input field. Similar to [radio_input](radio_input.md) except for its appearance, which is a row button instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. 
+The input to this field is saved as an array in [`state`](concepts/state.md), at the path name of the field.
+- Output data types: An array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
+
+
+Radio button block that changes the path name in [`_state`](concepts/lowdefy-file.md) to the value selected by the user. .
 
 >Other selector blocks are [checkbox_input](checkbox_input.md), [select_input](select_input.md), [multiple_select_input](multiple_select_input.md) and [radio_input](radio_input.md)
 
@@ -12,11 +18,11 @@ Radio button block that changes the path name in [`_state`](concepts/lowdefy-fil
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#_lowdefy_name_).
+The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "radio_button"
-- `options`
+- `properties.options`
 
 ## Default component settings
 <!--DOCUSAURUS_CODE_TABS-->
