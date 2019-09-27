@@ -43,7 +43,8 @@
           "blocks/input/date_time_input",
           "blocks/input/week_input",
           "blocks/input/month_input",
-          "blocks/input/date_range_input"
+          "blocks/input/date_range_input",
+          "blocks/input/label"
         ]
       }
     ] 
