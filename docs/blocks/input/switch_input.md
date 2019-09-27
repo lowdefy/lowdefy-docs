@@ -4,8 +4,7 @@ title: Switch Input
 sidebar_label: Switch Input
 ---
 
-Input field that changes the path name in [`_state`](concepts/lowdefy-file.md) to a boolean value.
-
+On/off switch form input field. The input to this field is saved in [`state`](concepts/state.md), at the path name of the field.
 - Output data types: _Boolean_
 
 ## Required fields

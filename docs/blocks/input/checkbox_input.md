@@ -4,11 +4,11 @@ title: Checkbox Input
 sidebar_label: Checkbox Input
 ---
 
-Check box block that changes the path name in [`_state`](concepts/lowdefy-file.md) to an array of the values selected by the user.
+Check box form input field. Allows a user to select multiple values from a set of options. Values can be any any primitive type. 
+The input to this field is saved as an array in [`state`](concepts/state.md), at the path name of the field.
+- Output data types: An array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 
 >Other selector blocks are [select_input](select_input.md), [multiple_select_input](multiple_select_input.md), [radio_input](radio_input.md) and [radio_button_input](radio_button_input.md)
-
-- Output data types: An array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 
 ## Required fields
 
@@ -16,7 +16,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 - `name`
 - `type`: "checkbox_input"
-- `options`
+- `properties.options`
 
 ## Default component settings
 <!--DOCUSAURUS_CODE_TABS-->

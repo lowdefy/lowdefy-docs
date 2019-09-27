@@ -4,8 +4,7 @@ title: Slider Input
 sidebar_label: Slider Input
 ---
 
-Slider block that changes the path name in [`_state`](concepts/lowdefy-file.md) to the number value selected on the slider.
-
+Slider form input field. Allows the user to select a number value at a interval between a minimum and maximum value. The input to this field is saved in [`state`](concepts/state.md), at the path name of the field.
 - Output data types: _Number_
 
 ## Required fields
