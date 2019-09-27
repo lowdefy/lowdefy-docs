@@ -5,7 +5,7 @@ sidebar_label: Radio Button Input
 ---
 
 
-Radio block form input field. Similar to [radio_input](radio_input.md) except for its appearance, which is a row button instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type.
+Radio block form input field. Similar to [radio_input](radio_input.md) except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type.
 The input to this field is saved as a primitive type in [`state`](concepts/state.md), at the path name of the field.
 
 - Output data types: Any primitive type (_String_, _Boolean_, _Number_, _Date_).
