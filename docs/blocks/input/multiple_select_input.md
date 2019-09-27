@@ -13,7 +13,7 @@ The input to this field is saved as an array in [`state`](concepts/state.md), at
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids).
 
 - `name`
 - `type`: "multiple_select_input"
@@ -48,7 +48,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 ## Component properties
 
-- `disabled`: _Boolean_ - Default: `false` - Disables the multiple selector if `true`.
+- `disabled` : _Boolean_ - Default: `false` - Disables the multiple selector if `true`.
 - `placeholder` : _String_ - Default: `Select item` - Placeholder text inside multiple selector to show message before user types input.
 - `defaultValue`: _[ Primitive ]_ - An array of default values for multiple selector to be set on page load. Can be an array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 - `suffixIcon` :  _String_ - Ant Icon at the drop-down position of the selector, should be a valid [Ant icon reference](https://ant.design/components/icon/).

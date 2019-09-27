@@ -14,7 +14,7 @@ The input to this field is saved as a primitive type in [`state`](concepts/state
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "radio_button"
@@ -45,7 +45,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 ## Component properties
 
-- `disabled`: _Boolean_ - Default: `false` - Disables the radio button if `true`.
+- `disabled` : _Boolean_ - Default: `false` - Disables the radio button if `true`.
 - `defaultValue`: _Primitive_ - Default value for radio button to be set on page load. Can be of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 - `buttonStyle`: _Enum_ - Default: `solid` - Style in which the radio buttons will be rendered.
   - `solid` - _String_

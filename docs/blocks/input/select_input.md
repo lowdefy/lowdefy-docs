@@ -13,7 +13,7 @@ The input to this field is saved as a primitive type in [`state`](concepts/state
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "select_input"
@@ -49,7 +49,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 ## Component properties
 
-- `disabled`: _Boolean_ - Default: `false` - Disables the selector if `true`.
+- `disabled` : _Boolean_ - Default: `false` - Disables the selector if `true`.
 - `placeholder` : [_NunjucksTemplate_](concepts/lowdefy-file.md#_nunjucks_template_) - Default: `Select item` - Placeholder text inside selector to show message before user types input.
 - `defaultValue`: _Primitive_ - Default value for selector to be set on page load. Can be of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 - `suffixIcon` :  _String_ - Ant Icon at the drop-down position of the selector, should be a valid [Ant icon reference](https://ant.design/components/icon/).

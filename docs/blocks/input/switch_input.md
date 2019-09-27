@@ -9,7 +9,7 @@ On/off switch form input field. The input to this field is saved in [`state`](co
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [lowdefy_name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
 
 - `name`
 - `type`: "switch_input"
@@ -37,7 +37,7 @@ The value defined for the `name` of the component should be a valid [lowdefy_nam
 
 ## Component properties
 
-- `disabled`: _Boolean_ - Default: `false` - Disables the switch component if `true`.
+- `disabled` : _Boolean_ - Default: `false` - Disables the switch component if `true`.
 - `defaultValue` : _Boolean_ - Default value for switch to be set on page load.
 - `checkedIcon` : _String_ - Ant Icon to show when the switch is checked (`true`), should be a valid [Ant icon reference](https://ant.design/components/icon/).
 - `uncheckedIcon` : _String_ - Ant Icon to show when the switch is unchecked (`false`), should be a valid [Ant icon reference](https://ant.design/components/icon/).
