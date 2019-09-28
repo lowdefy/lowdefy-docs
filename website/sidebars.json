@@ -2,7 +2,8 @@
   "docs": {
     "Getting Started": [
       "start/introduction",
-      "start/quick-start"
+      "start/quick-start",
+      "start/how-it-works"
     ],
     "Concepts": [
       "concepts/lowdefy-file",
@@ -13,8 +14,7 @@
       "concepts/blocks",
       "concepts/state",
       "concepts/connections",
-      "concepts/operators",
-      "concepts/how-it-works"
+      "concepts/operators"
     ],
     "Configuration": [
       "config/auth",
