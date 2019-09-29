@@ -2,8 +2,19 @@
 
 Our docs can be read at https://docs.lowdefy.com, built using [Docusaurus](https://docusaurus.io) and deployed with [Netlify](https://www.netlify.com). Search by [Algolia DocSearch](https://community.algolia.com/docsearch/).
 
-# Contributing
+# Goal
 
+People that learn new methods desire:
+1. To understand
+2. To master
+3. To remember
+
+Anything change that improves one of these is granted priority.
+
+This is done to support our mission:
+Increase developer productivity and reduce the need for a high developer skills.
+
+# Contributing
 Notice anything out of place with our docs? We welcome any contributions to make our docs better for everyone.
 
 You can help by:
