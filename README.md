@@ -9,7 +9,7 @@ People that learn new methods desire:
 2. To master
 3. To remember
 
-Anything change that improves one of these is granted priority.
+Any change that improves one of these is granted priority.
 
 This is done to support our mission:
 Increase developer productivity and reduce the need for a high developer skills.
