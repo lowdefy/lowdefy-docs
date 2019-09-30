@@ -18,7 +18,7 @@ Lowdefy applications offer granular group based user access control, giving the 
 
 Lowdefy runs on a serverless architecture. This allows for a very low running cost if the app is not used, fast scaling to handle a large spike in usage and error recovery and redundancy.
 
-## Github
+## Github Integration
 
 Lowdefy applications are deployed similarly to Netlify websites. Once a commit is made on a tracked branch, those changes are carried over to the application. Some changes, like changes to the properties of a table or form can be updated immediately, while less frequent changes, like changing the password policy, theme or adding custom block or connection types require a software build.
 

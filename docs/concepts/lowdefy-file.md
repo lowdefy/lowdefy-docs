@@ -4,7 +4,7 @@ title: Lowdefy Configuration File
 sidebar_label: Lowdefy Configuration File
 ---
 
-The configuration of a Lowdefy application is written in a JSON or YAML file called `lowdefy.json/yaml`, in the root directory of the project repository. YAML files will be parsed using (node yaml module), and then converted into JSON.
+The configuration of a Lowdefy application is written in a JSON or YAML file called `lowdefy.json/yaml`, in the root directory of the GitHub project repository. YAML files are parsed using (node yaml module), and then converted into JSON.
 
 ## File structure
 <!--DOCUSAURUS_CODE_TABS-->

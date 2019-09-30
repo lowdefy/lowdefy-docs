@@ -4,7 +4,7 @@ title: References
 sidebar_label: References
 ---
 
-Other JSON or YAML files in the project repository can be referenced in the `lowdefy.json` file, or in any of the referenced files, using the `"_ref"` operator. This allows the configuration to be split into a logical structure, and allows the reuse of configurations/block. A reference is written using an object with a key `"_ref"`, and a value which is a directory path to the file required. When a file is referenced, the contents of that file will be written into the file where the reference was made.
+Other JSON or YAML files in the project repository can be referenced in the `lowdefy.json` file, or in any of the referenced files, using the `"_ref"` [operator](operators.md). This allows the configuration to be split into a logical structure, and allows the reuse of configurations/block. A reference is written using an object with a key `"_ref"`, and a value which is a directory path to the file required. When a file is referenced, the contents of that file will be written into the file where the reference was made.
 
 ### Example
 
