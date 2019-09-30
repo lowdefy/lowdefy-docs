@@ -21,6 +21,10 @@ A block is a front end component like a chart, table or form component. Each blo
 
 A connection is a link to an outside service, like a database or REST API. Secrets for these connections are stored securely using AWS Secrets Manager, and never stored in the project repository. The various connection types support different requests, like database queries or API calls.
 
+## GitHub Integration
+
+Lowdefy apps live in a GitHub repository, as `JSON` or `YAML` configuration files. If changes are made to the files in the repository, the app is updated accordingly.
+
 ## Get Started
 
 **The easiest way to get started with Lowdefy is to follow the [quick start guide](https://docs.lowdefy.com/docs/start/quick-start) and fiddle with the blocks. We'd love to know if you are surprised by the simplicity** 🚀
