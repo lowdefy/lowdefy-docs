@@ -17,7 +17,7 @@ The following user attributes and are mandatory defaults for all users, but but 
     "users": {
       "userAttributes": [
         {
-          "type": "text",
+          "type": "text_input",
           "name": "email",
           "properties": {
             "label": "Email",  // configurable
@@ -32,7 +32,7 @@ The following user attributes and are mandatory defaults for all users, but but 
           }
         },
         {
-          "type": "password",
+          "type": "password_input",
           "name": "password",
           "properties": {
             "label": "Password", // configurable
@@ -68,7 +68,7 @@ The following user attributes and are mandatory defaults for all users, but but 
           }
         },
         {
-          "type": "text",
+          "type": "text_input",
           "name": "firstName",
           "properties": {
             "label": "First Name", // configurable
@@ -78,7 +78,7 @@ The following user attributes and are mandatory defaults for all users, but but 
           }
         },
         {
-          "type": "text",
+          "type": "text_input",
           "name": "lastName",
           "properties": {
             "label": "Last Name", // configurable
@@ -166,7 +166,7 @@ These user attributes are loaded by default and settings can be customized as in
 
 Custom user attributes can be defined which allow app users and administrators to save user information to the deployment storage.
 
-These custom user attributes can be defined by adding field blocks to the `userAttributes` array. The additional `profile` property on these field components is used to indicate users are able to edit that attribute on their profile page. Fields which does not have this `profile` property can only be changed by administrators.
+These custom user attributes can be defined by adding field blocks to the `userAttributes` array. The additional `profile` property on these input blocks is used to indicate users are able to edit that attribute on their profile page. Fields which does not have this `profile` property can only be changed by administrators.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
 ```json5
@@ -175,7 +175,7 @@ These custom user attributes can be defined by adding field blocks to the `userA
     "users": {
       "userAttributes": [
         {
-          "type": "date", // Optional attribute set by user on profile
+          "type": "date_input", // Optional attribute set by user on profile
           "name": "birthdate",
           "properties": {
             "label": "Birthdate",
@@ -185,7 +185,7 @@ These custom user attributes can be defined by adding field blocks to the `userA
           }
         },
         {
-          "type": "text", // Compulsory attribute set by administrator
+          "type": "text_input", // Compulsory attribute set by administrator
           "name": "employee_number",
           "properties": {
             "label": "Employee Number",

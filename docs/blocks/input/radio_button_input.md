@@ -102,7 +102,7 @@ The value defined for the `name` of the component should be a valid [Lowdefy nam
 ```json5
 {
   "name": "my_radio_button",
-  "type": "radio_button",
+  "type": "radio_button_input",
   "visible": true,
   "properties": {
     "defaultValue": "A",
