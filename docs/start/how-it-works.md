@@ -34,6 +34,6 @@ Lowdefy applications use the Ant Design design system. We expose all Ant Design 
 
 ## Custom Blocks and Connections (on our road map)
 
-A custom block is a React component that receives properties and data. The component is defined in the project repository, and is included in the build of the web app front end. NPM dependencies con also be included.
+A custom block is a React component that receives properties and data. The component is defined in the project repository, and is included in the build of the web app front end. NPM dependencies can also be included.
 
 A custom connection is a Node.js method running in AWS Lambda, executed by events like front end requests. These functions can connect to the internet or execute custom logic.
