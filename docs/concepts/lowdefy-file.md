@@ -19,7 +19,7 @@ The configuration of a Lowdefy application is written in a JSON or YAML file cal
     // list of group objects
   ],
   "pages": [
-    // list of group objects
+    // list of page objects
   ]
 }
 ```
