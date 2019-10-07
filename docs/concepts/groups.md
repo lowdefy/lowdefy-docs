@@ -12,7 +12,7 @@ Lowdefy roles grant permissions within the application. These roles are given to
 
 If no groups are defined, all users of the app have access to all pages in the application.
 
-Groups are defined as a tree structure in the groups section of the `lowdefy.json` file. This structure can have more than one groups at the root level. The tree structure, analogous to a file folder structure, ensures no circular references are created.  
+Groups are defined as a tree structure in the groups section of the `lowdefy.json` file. This structure can have more than one group at the root level. The tree structure, analogous to a file folder structure, ensures no circular references are created.  
 
 A group can provide access to pages in the application, but can also provide access to other groups. The user in a group gains all the access given by all sub-groups.
 
