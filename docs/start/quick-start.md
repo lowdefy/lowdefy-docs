@@ -16,6 +16,16 @@ GitHub is a Git repository hosting service. A Git repository can be thought of a
 
 Go to our [demo repository](https://github.com/lowdefy/lowdefy-demo) on GitHub, and click the fork button. Then choose your profile, and a copy of our demo repository will be created in your demo account. You can now make changes here as you please.
 
+## Sign Up For MongoDB Atlas
+
+Go to [MongoDB Atlas](https://www.mongodb.com/cloud) and click Try Free, and follow the steps. You can deploy a sandbox database for free.
+
+MongoDB works great with Lowdefy, it is easy to use and has powerful reporting capabilities.
+
+## Load the Sample Dataset
+
+The demo account uses the MongoDB Atlas sample dataset, which can be loaded int your sandbox cluster.
+
 ## Create a Lowdefy Account
 
 Go to [lowdefy.com](https://github.com/lowdefy/lowdefy-demo) and create an account.
@@ -28,10 +38,10 @@ Follow the instructions to link the repository you have just cloned and deploy y
 
 (Coming Soon)
 
-## Sign Up For MongoDB Atlas
-
-## Load the Sample Dataset
-
 ## Link Your Database to Your App
 
+(Coming Soon)
+
 ## Log In
+
+(Coming Soon)

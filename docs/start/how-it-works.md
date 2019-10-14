@@ -18,7 +18,7 @@ Lowdefy applications offer granular group based user access control, giving the 
 
 Lowdefy runs on a serverless architecture. This allows for a very low running cost if the app is not used, fast scaling to handle a large spike in usage and error recovery and redundancy.
 
-## Github
+## Github Integration
 
 Lowdefy applications are deployed similarly to Netlify websites. Once a commit is made on a tracked branch, those changes are carried over to the application. Some changes, like changes to the properties of a table or form can be updated immediately, while less frequent changes, like changing the password policy, theme or adding custom block or connection types require a software build.
 
@@ -34,6 +34,6 @@ Lowdefy applications use the Ant Design design system. We expose all Ant Design 
 
 ## Custom Blocks and Connections (on our road map)
 
-A custom block is a React component that receives properties and data. The component is defined in the project repository, and is included in the build of the web app front end. NPM dependencies con also be included.
+A custom block is a React component that receives properties and data. The component is defined in the project repository, and is included in the build of the web app front end. NPM dependencies can also be included.
 
 A custom connection is a Node.js method running in AWS Lambda, executed by events like front end requests. These functions can connect to the internet or execute custom logic.
