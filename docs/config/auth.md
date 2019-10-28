@@ -138,7 +138,7 @@ config:
 
 - `method`: _(String)_ Allowed values are:
   - `"totp"`: Multifactor authentication using a Time-based One Time Password like Google Authenticator.
-  - `"sms"`: Multifactor authentication using SMS messages. Additional charges are levied for using SMS"s.
+  - `"sms"`: Multifactor authentication using SMS messages. Additional charges are levied for using SMS's.
 - `newDeviceOnly`: _(Boolean)_ MFA is only required if users sign in with a new device. If set, user devices will be tracked by Amazon Cognito. MFA `"enforce"` should be set to `"optional"` or `"on"`
 
 ### Creating New Users
@@ -178,7 +178,7 @@ config:
 
 Amazon Cognito advanced security can be enabled by setting the `advanced` field in `config.auth` settings to `true`. For more information on advanced security, see: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html
 
-The features provided by Cognito Advanced Security are following:
+The features provided by Cognito Advanced Security are the following:
 
 #### Checking for Compromised Credentials
 

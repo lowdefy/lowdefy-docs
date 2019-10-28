@@ -8,7 +8,7 @@ Lowdefy manages application user registration and authentication, but also provi
 
 ## Standard User Attributes
 
-The following user attributes and are mandatory defaults for all users, but but can be configured as indicated:
+The following user attributes are mandatory defaults for all users, but but can be configured as indicated:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
 ```json5

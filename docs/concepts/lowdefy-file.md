@@ -39,7 +39,7 @@ pages:
 
 ## Lowdefy Objects
 
-Since the the configuration of a Lowdefy application consists of different objects, like [`pages`](concepts/pages.md), [`groups`](concepts/groups.md), [`blocks`](concepts/blocks.md), [`connections`](concepts/connections.md#connections) and [`requests`](concepts/connections.md#requests). 
+Since the configuration of a Lowdefy application consists of different objects, like [`pages`](concepts/pages.md), [`groups`](concepts/groups.md), [`blocks`](concepts/blocks.md), [`connections`](concepts/connections.md#connections) and [`requests`](concepts/connections.md#requests).
 
 ### Names and IDs
 
