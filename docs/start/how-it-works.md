@@ -4,11 +4,11 @@ title: How It Works
 sidebar_label: How It Works
 ---
 
-Lowdefy apps are defined in a Github repositories, and are then deployed into its own Amazon Web Services (AWS) account. The deployed application consists of a Single Page App (SPA) front end, served by content delivery network (CDN), with a serverless graphql backend. The front end serves content in the form of _blocks_ and routes requests through the graphql backed to your source or data _connections_. 
+Lowdefy apps are defined in a Github repositories, and are then deployed into its own Amazon Web Services (AWS) account. The deployed application consists of a Single Page App (SPA) front end, served by content delivery network (CDN), with a serverless graphql backend. The front end serves content in the form of _blocks_ and routes requests through the graphql backed to your source or data _connections_.
 
 ## Separate AWS Accounts and Data Retention
 
-Each Lowdefy application is deployed in its own AWS account for maximum security and data separation. Lowdefy never stores any data passing to and from your connections. We only cache your repository code in the deployment AWS account. 
+Each Lowdefy application is deployed in its own AWS account for maximum security and data separation. Lowdefy never stores any data passing to and from your connections. We only cache your repository code in the deployment AWS account.
 
 ## User access control
 
@@ -18,7 +18,7 @@ Lowdefy applications offer granular group based user access control, giving the 
 
 Lowdefy runs on a serverless architecture. This allows for a very low running cost if the app is not used, fast scaling to handle a large spike in usage and error recovery and redundancy.
 
-## Github Integration
+## GitHub Integration
 
 Lowdefy applications are deployed similarly to Netlify websites. Once a commit is made on a tracked branch, those changes are carried over to the application. Some changes, like changes to the properties of a table or form can be updated immediately, while less frequent changes, like changing the password policy, theme or adding custom block or connection types require a software build.
 
