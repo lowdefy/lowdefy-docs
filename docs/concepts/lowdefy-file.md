@@ -4,7 +4,7 @@ title: Lowdefy Configuration File
 sidebar_label: Lowdefy Configuration File
 ---
 
-The configuration of a Lowdefy application is written in a JSON or YAML file called `lowdefy.json/yaml`, in the root directory of the GitHub project repository. YAML files are parsed using (node yaml module), and then converted into JSON.
+The configuration of a Lowdefy application is written in a JSON or YAML file called `lowdefy.json/yaml`, in the root directory of the GitHub project repository. YAML files are parsed (using node yaml module) and then converted into JSON.
 
 ## File structure
 <!--DOCUSAURUS_CODE_TABS-->
@@ -16,10 +16,10 @@ The configuration of a Lowdefy application is written in a JSON or YAML file cal
     // config object
   },
   "groups": [
-    // config object
+    // list of group objects
   ],
   "pages": [
-    // config object
+    // list of page objects
   ]
 }
 ```
@@ -39,7 +39,7 @@ pages:
 
 ## Lowdefy Objects
 
-Since the the configuration of a Lowdefy application consists of different objects, like [`pages`](concepts/pages.md), [`groups`](concepts/groups.md), [`blocks`](concepts/blocks.md), [`connections`](concepts/connections.md#connections) and [`requests`](concepts/connections.md#requests). 
+Since the configuration of a Lowdefy application consists of different objects, like [`pages`](concepts/pages.md), [`groups`](concepts/groups.md), [`blocks`](concepts/blocks.md), [`connections`](concepts/connections.md#connections) and [`requests`](concepts/connections.md#requests).
 
 ### Names and IDs
 
