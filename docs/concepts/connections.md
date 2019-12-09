@@ -6,13 +6,13 @@ sidebar_label: Connections and Requests
 
 Lowdefy applications connect to other services like databases and REST APIs using connections and requests.
 
-A connection to a external service is set up as a connection object in the `connections` section of the deployment `lowdefy.json` file. In this object properties of the connection like the url endpoint and secrets are defined. Each type of connection has its own properties.
+A connection to a external service is set up as a connection object in the `connections` section of the deployment `lowdefy.json` file. In this object, properties of the connection like the url endpoint and secrets are defined. Each type of connection has its own properties.
 
 Requests to a connection are defined in the requests section of a page. These requests are specific requests to the connections, like a read or update operation on a database, or an api call for external data.
 
 ## Connections 
 
-Connections are defined in the `conections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
+Connections are defined in the `connections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
