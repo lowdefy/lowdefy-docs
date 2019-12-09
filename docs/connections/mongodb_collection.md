@@ -4,14 +4,11 @@ title: MongoDB Collection
 sidebar_label: MongoDB Collection
 ---
 
-The `mongodb_collection` connection sets up a connection to a MongoDB deployment. A [connection URI](https://docs.mongodb.com/manual/reference/connection-string/index.html) with authentication credentials (username and password) is required. The URI can be in the standard or dns seedlist (srv) formats. Since the connection URI contains authentication secrets, it should be stored using the [`_secret`](operators/secret.md) operator, and not be committed to the project repository. Alternatively, the entire properties object for the connection can be stored using the `_secret` operator.
+The `mongodb_collection` connection sets up a connection to a MongoDB deployment. A [connection URI](https://docs.mongodb.com/manual/reference/connection-string/index.html) with authentication credentials (username and password) is required. The URI can be in the standard or dns seedlist (srv) formats. Connections are defined on a collection level, since this allows for read/write access control on a per collection level. Access control can also be managed using the roles in the database.
 
+>Since the connection URI contains authentication secrets, it should be stored using the [`_secret`](operators/secret.md) operator, and not be committed to the project repository. Alternatively, the entire properties object for the connection can be stored using the `_secret` operator.
 
-Connections are defined on a collection level, since this allows for read/write access control on a per collection level.
-
->Access control can also be managed using the roles in the database.
-
-## Required fields
+## Required Fields
 
 The connection `id` should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids).
 
@@ -20,7 +17,7 @@ The connection `id` should be a valid [Lowdefy name](concepts/lowdefy-file.md#na
 - `properties.databaseUri`
 - `properties.collection`
 
-## Default component settings
+## Default Connection Settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -54,13 +51,13 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Connection properties
+## Connection Properties
 
-- `databaseUri` : _String_ - **REQUIRED** - Connection uri string for the MongoDb deployment. Should be stored using the [_secret](operators/secret.md) operator
-- `databaseName` : _String_ - Default: Database specified in connection string - The name of the database in the MongoDB deployment.
-- `collection` : _String_ - **REQUIRED** - The name of the MongoDB collection.
-- `read` : _Boolean_ - Default: `true` - Allow read operations like find on the collection.
-- `write` - _Boolean_ - Default: `false` - Allow write operations like find or update on the collection.
+- `databaseUri`: _String_ - **REQUIRED** - Connection uri string for the MongoDb deployment. Should be stored using the [_secret](operators/secret.md) operator.
+- `databaseName`: _String_ - Default: Database specified in connection string - The name of the database in the MongoDB deployment.
+- `collection`: _String_ - **REQUIRED** - The name of the MongoDB collection.
+- `read`: _Boolean_ - Default: `true` - Allow read operations like find on the collection.
+- `write`: _Boolean_ - Default: `false` - Allow write operations like find or update on the collection.
 
 ## Allowed Requests
 

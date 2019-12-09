@@ -46,6 +46,6 @@
         ]
       }
     ],
-    "Connections": ["connections/mongodb_collection"]
+    "Connections": ["connections/axios_http","connections/mongodb_collection"]
   }
 }
