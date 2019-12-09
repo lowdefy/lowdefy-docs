@@ -22,10 +22,7 @@
       "config/theme",
       "config/defaults"
     ],
-    "Definitions": [
-      "definitions/group",
-      "definitions/page"
-    ],
+    "Definitions": ["definitions/group", "definitions/page"],
     "Blocks": [
       {
         "type": "subcategory",
@@ -48,6 +45,7 @@
           "blocks/input/label"
         ]
       }
-    ] 
+    ],
+    "Connections": ["connections/mongodb_collection"]
   }
 }
