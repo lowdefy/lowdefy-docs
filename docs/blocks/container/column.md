@@ -4,7 +4,7 @@ title: Column
 sidebar_label: Column
 ---
 
-A column block is a container which renders child blocks into a new grid. Use a column block to group a set of blocks into a single column in the rendered grid which is very useful for group block visibility.
+A column block is a container which renders child blocks into a new grid without applying any additional styling. Use a column block to group a set of blocks into a single column in the rendered grid which is very useful for group block visibility.
 
 ## Required fields
 

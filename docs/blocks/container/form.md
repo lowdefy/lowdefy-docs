@@ -4,7 +4,7 @@ title: Form
 sidebar_label: Form
 ---
 
-A form block is a container which renders child blocks into a new grid and provides the ability to assign form label settings to the set of child blocks. Note that a form block is not required to create use input components as any input component will propagate to __State__ regardless of the parent block.
+A form block is a container which renders child blocks into a new grid and provides the ability to assign form label settings to the set of child blocks. Note that a form block is not required to create use input components as any input component will propagate to [`state`](concepts/state.md) regardless of the parent block.
 
 ## Required fields
 
