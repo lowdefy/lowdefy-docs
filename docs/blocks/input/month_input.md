@@ -18,7 +18,7 @@ The value defined for the `name` of the block should be a valid [lowdefy_name](c
 - `name`
 - `type`: "month_input"
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -52,7 +52,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the month picker if `true`.
 - `placeholder` : _String_ - Default: `Select Month` - Placeholder inside the date picker to show message before user picks a month.
