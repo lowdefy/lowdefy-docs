@@ -4,13 +4,12 @@ title: List
 sidebar_label: List
 ---
 
-A list block handles the use of indexed array variables in [`state`](concepts/state.md) and provides functionality to add, remove or control an items position in the array. This functionality is useful when managing a list of items for both display and input blocks.
+A list block handles the use of indexed array variables in [`state`](concepts/state.md) and provides functionality to add, remove or control an item's position in the array. This functionality is useful when managing a list of items for both display and input blocks.
 
 ## Required fields
 
-- `type`: "modal"
+- `type`: "list"
 - `name`: _String_ - A valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids).
-- `visible`: _Boolean_ - Used to control when the modal should be displayed.
 - `blocks`: _Array_ - A list of sub-blocks rendered as the list's content for each item in the [`state`](concepts/state.md) value array.
   
 > List child blocks are indicated with `$` index name notation. For example, `my_list.$` will evaluate as  `my_list.0`, `my_list.1`, ... `my_list.n` for an list of primitive values.
@@ -53,9 +52,9 @@ A list block handles the use of indexed array variables in [`state`](concepts/st
 
 - `addButtonTitle` : _String_ - Default: `"Add Item"` - Add button title.
 - `noDataTitle` : _String_ - Default: `"No Items"` - Text to show when the list is empty.
-- 'addToFront' : _Boolean_ - Default: `false` - New items are added to the front of the array when clicking the add item button.
-- 'hideAddButton' : _Boolean_ - Default: `false` - Hide the add button, use when new items should not be added to the list.
-- 'hideRemoveButton' : _Boolean_ - Default: `false` - Hide the remove button, use when items should not be removed from the list.
+- `addToFront` : _Boolean_ - Default: `false` - New items are added to the front of the array when clicking the add item button.
+- `hideAddButton` : _Boolean_ - Default: `false` - Hide the add button, use when new items should not be added to the list.
+- `hideRemoveButton` : _Boolean_ - Default: `false` - Hide the remove button, use when items should not be removed from the list.
   
 <!-- ## Block actions TODO
 
