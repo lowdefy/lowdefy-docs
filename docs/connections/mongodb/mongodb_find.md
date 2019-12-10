@@ -56,7 +56,7 @@ properties:
   - `projection`: _Object_ - The fields to return in the query. Object of fields to either include or exclude (one of, not both), `{'a':1, 'b': 1}` or `{'a': 0, 'b': 0}`.
   - `skip`: _Integer_ - Set to skip N documents ahead in your query (useful for pagination).
   - `hint`: _Object_ - Tell the query to use specific indexes in the query. Object of indexes to use, `{'_id':1}`.
-  - `comment`: _String_ - Add a comment to make the profiler logs simpler.
+  - `comment`: _String_ - Add a [comment](https://docs.mongodb.com/manual/reference/operator/query/comment/index.html) to the query. These comments are visible in the MongoDB profile log, making them easier to interpret.
   - `readPreference`: _String_ **|** _Object_ - The preferred read preference.
   - `maxTimeMS`: _Integer_ - Number of milliseconds to wait before aborting the query.
   - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.

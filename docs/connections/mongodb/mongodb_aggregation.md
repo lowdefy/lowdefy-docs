@@ -51,11 +51,11 @@ properties:
 - `pipeline`: _Array_ - **REQUIRED** - Array containing all the aggregation framework commands for the execution.
 - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#aggregate) for more information. Supported settings are:
   - `readPreference`: _String_ **|** _Object_ - The preferred read preference.
-  - `allowDiskUse`: _Boolean_ - Default: `false` - Lets the server know if it can use disk to store temporary results for the aggregation.
+  - `allowDiskUse`: _Boolean_ - Default: `false` - Allow disk use on the MongoDB server to store temporary results for the aggregation.
   - `maxTimeMS`: _Integer_ - Specifies a cumulative time limit in milliseconds for processing operations on the cursor.
   - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher.
   - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
-  - `comment`: _String_ - Add a comment to an aggregation command.
+  - `comment`: _String_ - Add a [comment](https://docs.mongodb.com/manual/reference/operator/query/comment/index.html) to the aggregation. These comments are visible in the MongoDB profile log, making them easier to interpret.
   - `hint`: _String_ **|** _Object_ - Add an index selection hint to an aggregation command.
 
 
