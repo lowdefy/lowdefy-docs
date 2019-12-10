@@ -19,7 +19,7 @@ The value defined for the `name` of the block should be a valid [Lowdefy name](c
 - `type`: "radio_button_input"
 - `properties.options`
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -47,7 +47,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the radio button if `true`.
 - `defaultValue`: _Primitive_ - Default value for radio button to be set on page load. Can be of any primitive type (_String_, _Boolean_, _Number_, _Date_).
