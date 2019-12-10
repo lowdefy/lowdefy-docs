@@ -63,6 +63,25 @@
         ]
       }
     ],
-    "Connections": ["connections/axios_http","connections/mongodb_collection"]
+    "Connections": [
+      {
+        "type": "subcategory",
+        "label": "Axios HTTP",
+        "ids": [
+          "connections/axios_http"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "MongoDB",
+        "ids": [
+          "connections/mongodb/mongodb_collection",
+          "connections/mongodb/mongodb_aggregation",
+          "connections/mongodb/mongodb_find",
+          "connections/mongodb/mongodb_find_one",
+          "connections/mongodb/mongodb_insert_one",
+          "connections/mongodb/mongodb_update_one"
+        ]
+      }]
   }
 }

@@ -1,7 +1,7 @@
 ---
 id: mongodb_collection
-title: MongoDB Collection
-sidebar_label: MongoDB Collection
+title: MongoDB Collection Connection
+sidebar_label: Connection: Collection
 ---
 
 The `mongodb_collection` connection sets up a connection to a MongoDB deployment. A [connection URI](https://docs.mongodb.com/manual/reference/connection-string/index.html) with authentication credentials (username and password) is required. The URI can be in the standard or dns seedlist (srv) formats. Connections are defined on a collection level, since this allows for read/write access control on a per collection level. Access control can also be managed using the roles in the database.
@@ -40,7 +40,7 @@ The connection `id` should be a valid [Lowdefy name](concepts/lowdefy-file.md#na
 
 ```yaml
 id: required
-type: mongodb_collection,
+type: mongodb_collection
 properties:
   databaseUri: required
   databaseName: default from connection string
@@ -61,14 +61,14 @@ properties:
 
 ## Allowed Requests
 
-- [`mongodb_aggregation`](requests/mongodb_aggregation.md): Run a MongoDB aggregation pipeline.
-- [`mongodb_find`](requests/mongodb_find.md): Run a MongoDB find query.
-- [`mongodb_find_one`](requests/mongodb_find_one.md): Run a MongoDB find one query.
+- [`mongodb_aggregation`](connections/mongodb/mongodb_aggregation.md): Run a MongoDB aggregation pipeline.
+- [`mongodb_find`](connections/mongodb/mongodb_find.md): Run a MongoDB find query.
+- [`mongodb_find_one`](connections/mongodb/mongodb_find_one.md): Run a MongoDB find one query.
 
-## Allowed Requests
+## Allowed Mutations
 
-- [`mongodb_insert_one`](requests/mongodb_insert_one.md): Insert a document into the database.
-- [`mongodb_update_one`](requests/mongodb_update_one.md): Update a document into the database.
+- [`mongodb_insert_one`](connections/mongodb/mongodb_insert_one.md): Insert a document into the database.
+- [`mongodb_update_one`](connections/mongodb/mongodb_update_one.md): Update a document into the database.
 
 ### Example
 
@@ -80,6 +80,7 @@ properties:
   "connections": [
     {
       "id": "mongodb_stores",
+      "type": "mongodb_collection",
       "properties": {
         "databaseUri": {
           "_secret": "my_uri"
@@ -92,6 +93,7 @@ properties:
     },
     {
       "id": "mongodb_logs",
+      "type": "mongodb_collection",
       "properties": {
         "databaseUri": {
           "_secret": "my_uri"
@@ -104,6 +106,7 @@ properties:
     },
     {
       "id": "mongodb_orders",
+      "type": "mongodb_collection",
       "properties": {
         "_secret": "my_orders_database"
       },
@@ -117,6 +120,7 @@ properties:
 ```yaml
 connections:
   - id: mongodb_stores
+    type: mongodb_collection
     properties:
       databaseUri:
         _secret: my_uri
@@ -125,6 +129,7 @@ connections:
       read: true
       write: false
   - id: mongodb_logs
+    type: mongodb_collection
     properties:
       databaseUri:
         _secret: my_uri
@@ -133,6 +138,7 @@ connections:
       read: false
       write: true
   - id: mongodb_orders
+    type: mongodb_collection
     properties:
       _secret: my_orders_database
 ```
