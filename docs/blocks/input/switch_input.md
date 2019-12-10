@@ -15,7 +15,7 @@ The value defined for the `name` of the block should be a valid [Lowdefy name](c
 - `name`
 - `type`: "switch_input"
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -41,7 +41,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the switch block if `true`.
 - `defaultValue` : _Boolean_ - Default value for switch to be set on page load.
