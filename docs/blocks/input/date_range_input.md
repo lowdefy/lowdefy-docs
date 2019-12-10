@@ -18,7 +18,7 @@ The value defined for the `name` of the block should be a valid [Lowdefy name](c
 - `name`
 - `type`: "date_range_input"
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -56,7 +56,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the date range picker if `true`.
 - `placeholder` : [ _String_ ] - Default: `[ 'Start Date', 'End Date' ]` - Array with placeholder text to show in the date picker for the start and end of the date range.
