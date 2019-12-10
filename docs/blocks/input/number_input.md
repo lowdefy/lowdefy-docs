@@ -4,82 +4,98 @@ title: Number Input
 sidebar_label: Number Input
 ---
 
-Number box form input field. The input to this field is saved in [`state`](concepts/state.md), at the path name of the field.
+Number input block. The input to this field is saved in [`state`](concepts/state.md), at the path name of the block.
+
 - Output data types: _Number_
 
 ## Required fields
 
-The value defined for the `name` of the component should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids)).
+The value defined for the `name` of the block should be a valid [Lowdefy name](concepts/lowdefy-file.md#names-and-ids).
 
 - `name`
 - `type`: "number_input"
 
-## Default component settings
+## Default block settings
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
+
 ```json5
 {
   "visible": true,
   "properties": {
     "disabled": false,
-    "size": "default"
-  }
+    "size": "default",
+  },
 }
 ```
+
 <!--YAML-->
+
 ```yaml
-  visible: true
-  properties:
-    disabled: false
-    size: default
+visible: true
+properties:
+  disabled: false
+  size: default
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
-- `disabled` : _Boolean_ - Default: `false` - Disables the number input box if `true`.
-- `placeholder` : _String_ - Placeholder inside number input box to show message before user types input.
-- `formatter`: _String_ - Format the number input a format in the input box, eg: `"${{value}}"` to show `$5`.
-- `defaultValue` : _Number_ - Default value for number input box to be set on page load.
+- `disabled` : _Boolean_ - Default: `false` - Disables the number input block if `true`.
+- `placeholder` : _String_ - Placeholder inside number input block to show message before user types input.
+- `defaultValue` : _Number_ - Default value for number input block to be set on page load.
 - `minimum` : _Number_ - Minimum value user is allowed to input.
 - `maximum` : _Number_ - Maximum value user is allowed to input.
-- `size` : _Enum_ - Default: `default` - Size of the input box.
+- `step` : _Number_ - Default: `1` - Step size by which the current value is increased or decreased.
+- `precision` : _Integer_ - Number of decimals to round to. If `precision` is not defined but a decimal `step` size is, the precision will adapt to those decimal spaces.
+- `prefix` : _String_ - Text or symbol to prefix the value in the input block, eg. '\$' to show dollar values.
+- `suffix` : _String_ - Text or symbol to suffix the value in the input block, eg. '%' to show percentage values.
+- `size` : _Enum_ - Default: `default` - Size of the input block.
   - `large` - _String_
   - `default` - _String_
   - `small` - _String_
-- `precision` : _Integer_ - Number of decimals to round to.
+- `allowClear` : _Boolean_ - Default: `true` - Allows the user to clear their number input if `true`.
 
 ### Example
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
+
 ```json5
 {
   "name": "my_number_input",
   "type": "number_input",
-  "visible": true,
   "properties": {
-    "placeholder": "Placeholder text using nunjucks template {{ data_field }}",
-    "formatter": "{{value}} %",
+    "placeholder": "Please enter a percentage in intervals of 5",
     "defaultValue": 0,
     "minimum": 0,
     "maximum": 100,
+    "step": 5,
+    "precision": 0,
+    "suffix": "%",
     "size": "large",
-    "precision": 1
-  }
+    "allowClear": false,
+  },
 }
 ```
+
 <!--YAML-->
+
 ```yaml
-  name: my_number_input
-  type: number_input
-  visible: true
-  properties:
-    placeholder: "Placeholder text using nunjucks template {{ data_field }}"
-    formatter: "{{value}} %"
-    defaultValue: 0
-    minimum: 0
-    maximum: 100
-    size: large
-    precision: 1
+name: my_number_input
+type: number_input
+properties:
+  placeholder: Please enter a percentage in intervals of 5
+  defaultValue: 0
+  minimum: 0
+  maximum: 100
+  step: 5
+  precision: 0
+  suffix: '%'
+  size: large
+  allowClear: false
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
