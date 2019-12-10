@@ -19,7 +19,7 @@ The value defined for the `name` of the block should be a valid [Lowdefy name](c
 - `type`: "select_input"
 - `properties.options`
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -57,7 +57,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the selector if `true`.
 - `placeholder` : _String_ - Default: `Select item` - Placeholder text inside selector to show message before user types input.
