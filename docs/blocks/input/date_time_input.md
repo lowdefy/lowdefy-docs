@@ -18,7 +18,7 @@ The value defined for the `name` of the block should be a valid [Lowdefy name](c
 - `name`
 - `type`: "date_time_input"
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -62,7 +62,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the date time picker if `true`.
 - `placeholder` : _String_ - Default: `Select Date & Time` - Placeholder inside the date picker to show message before user picks a date and time.
