@@ -43,13 +43,13 @@ A form block is a container which renders child blocks into a new grid and provi
 - `hideRequiredMark` : _Boolean_ - Default: `false` - Hide the required mark for all input blocks with labels in child blocks.
 - `labelCol` : _Object_ - Define label column settings to apply to all input items with labels in child blocks.
 - `wrapperCol` : _Object_ - Define block wrapper column settings to apply to all input in child blocks.
-- `labelAlign` : _Enum_ - Default: `right` - Text align of label for all input items with labels in child blocks.
-  - `right` - _String_
-  - `left` - _String_
-- `layout` : _Enum_ - Default: `horizontal` - Define form layout flow direction.
-  - `horizontal` - _String_
-  - `vertical` - _String_
-  - `inline` - _String_
+- `labelAlign` : _Enum_ - Default: `"right"` - Text align of label for all input items with labels in child blocks.
+  - `"right"` - _String_
+  - `"left"` - _String_
+- `layout` : _Enum_ - Default: `"horizontal"` - Define form layout flow direction.
+  - `"horizontal"` - _String_
+  - `"vertical"` - _String_
+  - `"inline"` - _String_
 
 ## Example
 

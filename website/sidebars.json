@@ -39,6 +39,13 @@
       },
       {
         "type": "subcategory",
+        "label": "List Blocks",
+        "ids": [
+          "blocks/list/list"
+        ]
+      },
+      {
+        "type": "subcategory",
         "label": "Input Blocks",
         "ids": [
           "blocks/input/text_input",

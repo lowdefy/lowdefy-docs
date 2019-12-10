@@ -46,9 +46,9 @@ Similar to a column block, a card block is a single rectangular container which 
 - `bordered` : _Boolean_ - Default: `true` - Toggles rendering of the border around the card.
 - `hoverable` : _Boolean_ - Default: `false` - Lift up when hovering card.
 - `inner` : _Boolean_ - Default: `false` - Inner card style type.
-- `size` : _Enum_ - Default: `default` - Size of the card block.
-  - `default` - _String_
-  - `small` - _String_
+- `size` : _Enum_ - Default: `"default"` - Size of the card block.
+  - `"default"` - _String_
+  - `"small"` - _String_
 
 ## Example
 

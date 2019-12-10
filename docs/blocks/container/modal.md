@@ -52,7 +52,7 @@ A modal block is a modal popup container which renders child blocks into a new g
 ## Block properties
 
 - `okText` : _String_ - Default: `"Ok"` - Ok button text.
-- `cancelText` : _String_ - Default: `Cancel` - Cancel button text.
+- `cancelText` : _String_ - Default: `"Cancel"` - Cancel button text.
 - `width` : _Number_ / _String_ - Default: `520` - Modal pixel width or percentage width of window.
 - `centered` : _Boolean_ - Default: `false` - Centered modal on window.
 - `closable` : _Boolean_ - Default: `true` - Whether a close (x) button is visible on top right of the modal dialog or not.
