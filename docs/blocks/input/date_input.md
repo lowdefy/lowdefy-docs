@@ -73,7 +73,7 @@ The value defined for the `name` of the component should be a valid [Lowdefy nam
 - `name`
 - `type`: "date_input"
 
-## Default component settings
+## Default block settings
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--JSON-->
@@ -109,7 +109,7 @@ properties:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Component properties
+## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the date picker if `true`.
 - `placeholder` : _String_ - Default: `Select Date` - Placeholder inside the date picker to show message before user picks a date.
