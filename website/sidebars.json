@@ -26,6 +26,16 @@
     "Blocks": [
       {
         "type": "subcategory",
+        "label": "Container Blocks",
+        "ids": [
+          "blocks/container/column",
+          "blocks/container/card",
+          "blocks/container/form",
+          "blocks/container/modal"
+        ]
+      },
+      {
+        "type": "subcategory",
         "label": "Input Blocks",
         "ids": [
           "blocks/input/text_input",
