@@ -1,0 +1,181 @@
+id: page10
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Multiple Select Input
+      description_content: |
+        Drop down selector input block. Allows a user to select multiple values from a set of options. Values can be any primitive type.
+        The input to this field is saved as an array in `state`, at the path name of the block.
+      block_type: multiple_select_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.allowClear
+          type: switch_input
+          defaultValue: false
+          label:
+            title: allowClear
+            extra: Allow the user to clear the selected value, sets the value to null.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.clearIcon
+          type: text_input
+          defaultValue: close-circle
+          label:
+            title: clearIcon
+            extra: Ant Icon at far right position of the selector, when allowClear is set to true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disables the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: select_options_type_card
+          type: card
+          blocks:
+            - name: select_options_type
+              type: radio_button_input
+              label:
+                title: Options Type
+                extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
+              defaultValue: Primitive
+              properties:
+                size: small
+                options:
+                  - Primitive
+                  - Label Value
+        - name: block.properties.options
+          type: list
+          required: true
+          label:
+            title: options
+          blocks:
+            - name: block.properties.options.$
+              type: text_input
+              defaultValue: Option
+              visible:
+                _mql_test:
+                  select_options_type:
+                    $eq: Primitive
+              properties:
+                size: small
+            - name: block.properties.options.$.label
+              type: text_input
+              defaultValue: Label
+              label:
+                title: label
+                extra: Label shown to user.
+                labelSpan: 4
+              visible:
+                _mql_test:
+                  select_options_type:
+                    $eq: Label Value
+              properties:
+                size: small
+            - name: block.properties.options.$.value
+              type: text_input
+              defaultValue: Value
+              label:
+                title: value
+                extra: Value selected.
+                labelSpan: 4
+              visible:
+                _mql_test:
+                  select_options_type:
+                    $eq: Label Value
+              properties:
+                size: small
+        - name: block.properties.placeholder
+          type: text_input
+          defaultValue: Select items
+          label:
+            title: placeholder
+            extra: Placeholder text inside the block to show message before user types input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.selectedIcon
+          type: text_input
+          defaultValue: check
+          label:
+            title: selectedIcon
+            extra: Ant Icon showing when a selection is made in the drop-down list.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.showArrow
+          type: switch_input
+          defaultValue: true
+          label:
+            title: showArrow
+            extra: Shows the default down arrow at the drop-down position of the selector when true and hides it when false.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.showSearch
+          type: switch_input
+          defaultValue: true
+          label:
+            title: showSearch
+            extra: Make the selector options searchable.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - large
+              - default
+              - small
+        - name: block.properties.suffixIcon
+          type: text_input
+          defaultValue: down
+          label:
+            title: suffixIcon
+            extra: Ant Icon at the drop-down position of the selector.
+            labelSpan: 4
+          properties:
+            size: small
+      code_template: |
+        #### JSON
+        ```json
+        {
+          "name": "block_name",
+          "type": "multiple_select_input",
+          "label": {
+            "colon": {{ block.label.colon }},
+            "extra": "{{ block.label.extra }}",
+            "labelSpan": {{ block.label.labelSpan }},
+            "title": "{{ block.label.title }}",
+          },
+          "properties": {
+            "clearIcon": "{{ block.properties.clearIcon }}",
+            "allowClear": {{ block.properties.allowClear }},
+            "disabled": {{ block.properties.disabled }},
+            "options": {{ block.properties.options }}
+            "placeholder": "{{ block.properties.placeholder }}",
+            "selectedIcon": "{{ block.properties.selectedIcon }}",
+            "showArrow": {{ block.properties.showArrow }},
+            "showSearch": {{ block.properties.showSearch }},
+            "size": "{{ block.properties.size }}",
+            "suffixIcon": "{{ block.properties.suffixIcon }}",
+          }
+        }
+        ```

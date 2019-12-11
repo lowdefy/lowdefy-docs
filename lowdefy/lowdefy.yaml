@@ -1,0 +1,42 @@
+layout:
+  menu:
+    type: side_menu
+    properties:
+      autoCollapse: true
+    links:
+      - name: blocks
+        type: menu_group
+        properties:
+          title: Blocks
+          icon: build
+        links:
+          - name: blocks_input
+            type: menu_group
+            properties:
+              title: Input
+            links:
+              - name: text_input
+                type: menu_link
+                pageId: page1
+                properties:
+                  title: Text Input
+              - name: multiple_select_input
+                type: menu_link
+                pageId: page10
+                properties:
+                  title: Multiple Select Input
+          - name: blocks_display
+            type: menu_group
+            properties:
+              title: Display
+            links:
+              - name: statistic
+                type: menu_link
+                pageId: page2
+                properties:
+                  title: Statistic
+
+pages:
+  - _ref: blocks/input/text_input.yaml
+  - _ref: blocks/input/multiple_select_input.yaml
+  - _ref: blocks/display/statistic.yaml

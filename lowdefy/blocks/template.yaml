@@ -1,27 +1,97 @@
 - name: card_display
   type: card
   blocks:
+    - name: title
+      type: markdown
+      properties:
+        content:
+          _nunjucks:
+            template: "### {{ title }}"
+            on:
+              title:
+                _var: block_name
+
     - name: description
       type: markdown
       properties:
         content:
           _var: description_content
-    - name: spacer
-      type: column
-      box:
-        width: 8
-    - _var: block
-    - name: properties_description
-      type: markdown
-      properties:
-        content: "#### Properties"
-    - name: properties_col
+    - name: options_form
       type: column
       blocks:
-        _var: properties_form
-    - name: settings
+        _var: options_form
+    - name: block_column
+      type: column
+      box:
+        width: 10
+      blocks:
+        - name: s1
+          type: column
+          box:
+            minHeight: "100px"
+        - name: s2
+          type: column
+          box:
+            width: 2
+        - name: block_wrap2
+          type: column
+          box:
+            width: 20
+          blocks:
+            - name: block_name
+              type:
+                _var: block_type
+              visible:
+                _state: block.visible
+              label:
+                _state: block.label
+              properties:
+                _state: block.properties
+        - name: s3
+          type: column
+          box:
+            minHeight: "100px"
+    - name: settings_card
+      type: card
+      box:
+        width: 14
+        height: 14
+      blocks:
+        - name: visible_description
+          type: markdown
+          properties:
+            content: "#### visible:"
+        - name: block.visible
+          type: switch_input
+          defaultValue: true
+          label:
+            extra: Toggle if block is visible and has a value in state.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: label_description
+          type: markdown
+          visible:
+            _var: label
+          properties:
+            content: "#### label:"
+        - name: label_form
+          type: column
+          visible:
+            _var: label
+          blocks:
+            _var: label_form
+        - name: properties_description
+          type: markdown
+          properties:
+            content: "#### properties:"
+        - name: properties_form
+          type: column
+          blocks:
+            _var: properties_form
+    - name: settings_json
       type: markdown
       properties:
         content:
           _nunjucks:
-            _var: json_template
+            _var: code_template
