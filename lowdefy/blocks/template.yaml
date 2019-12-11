@@ -1,0 +1,27 @@
+- name: card_display
+  type: card
+  blocks:
+    - name: description
+      type: markdown
+      properties:
+        content:
+          _var: description_content
+    - name: spacer
+      type: column
+      box:
+        width: 8
+    - _var: block
+    - name: properties_description
+      type: markdown
+      properties:
+        content: "#### Properties"
+    - name: properties_col
+      type: column
+      blocks:
+        _var: properties_form
+    - name: settings
+      type: markdown
+      properties:
+        content:
+          _nunjucks:
+            _var: json_template
