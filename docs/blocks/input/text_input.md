@@ -51,6 +51,9 @@ properties:
 - `prefix` : _String_ - Prefix text for the input block, priority over prefixIcon.
 - `suffix` : _String_ - Suffix text for the input block, priority over suffixIcon.
 - `size` : _Enum_ - Default: `default` - Size of the input block.
+  - `large` - _String_
+  - `default` - _String_
+  - `small` - _String_
 - `rows` : _Integer_ - Number of `rows` in input block, should be greater or equal to 1. Defining rows disables any `prefix`, `prefixIcon`, `suffix` or `suffixIcon` that was defined.
 - `autoRows` : _Enum_ - Automatically extend the input block number of rows for longer input lengths, a minimum and maximum number of rows can be specified. Defining `autoRows` disables any `prefix`, `prefixIcon`, `suffix` or `suffixIcon` that was defined.
   - `true` - _Boolean_
@@ -58,11 +61,8 @@ properties:
   - _Object_
     - `minRows`: _Integer_ - Minimum number of rows input block can be adjusted to.
     - `maxRows`: _Integer_ - Maximum number of rows the input block can be adjusted to.
-  - `large` - _String_
-  - `default` - _String_
-  - `small` - _String_
 - `autoFocus` : _Boolean_ - Autofocus to input block.
-- `allowClear` : _Boolean_ - Default: `true` - Allows the user to clear their text input if `true`.
+- `allowClear` : _Boolean_ - Default: `false` - Allows the user to clear their text input if `true`.
 
 ### Example
 
