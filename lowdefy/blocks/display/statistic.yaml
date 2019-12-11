@@ -1,0 +1,208 @@
+id: page2
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Statistic
+      description_content: |
+        A statistic header block.
+      block_type: statistic
+      label: false
+      properties_form:
+        - name: select_value_type_card
+          type: card
+          blocks:
+            - name: select_value_type
+              type: radio_button_input
+              label:
+                title: value Type
+                extra: The display value can be either a String or a Number.
+              defaultValue: Number
+              properties:
+                size: small
+                options:
+                  - Number
+                  - String
+        - name: block.properties.value_n
+          type: number_input
+          label:
+            title: value
+            extra: Display number value.
+            labelSpan: 6
+          visible:
+            _mql_test:
+              select_value_type: Number
+          properties:
+            size: small
+          actions:
+            onChange:
+              - set():
+                  block.properties.value:
+                    _state: block.properties.value_n
+        - name: block.properties.value_t
+          type: text_input
+          label:
+            title: value
+            extra: Display text value.
+            labelSpan: 6
+          visible:
+            _mql_test:
+              select_value_type: String
+          properties:
+            size: small
+          actions:
+            onChange:
+              - set():
+                  block.properties.value:
+                    _state: block.properties.value_t
+        - name: block.properties.decimalSeparator
+          type: text_input
+          defaultValue: "."
+          label:
+            title: decimalSeparator
+            extra: Decimal separator.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.formatter.type
+          type: select_input
+          defaultValue: default
+          label:
+            title: formatter.type
+            extra: Type of formatter to apply to value.
+            labelSpan: 8
+          properties:
+            size: small
+            options:
+              - default
+              - date
+              - humanizeDuration
+        - name: block.properties.formatter.properties.format
+          type: text_input
+          label:
+            title: formatter.properties.format
+            extra: Moment.js date format
+            labelSpan: 8
+          visible:
+            _mql_test:
+              block.properties.formatter.type: date
+          properties:
+            size: small
+            options:
+              - default
+              - date
+              - humanizeDuration
+        - name: block.properties.groupSeparator
+          type: text_input
+          defaultValue: ","
+          label:
+            title: groupSeparator
+            extra: Group separator.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.precision
+          type: number_input
+          defaultValue: 2
+          label:
+            title: precision
+            extra: Number of decimals to display.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.prefix
+          type: text_input
+          label:
+            title: prefix
+            extra: Prefix text, priority over prefixIcon.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.prefixIcon
+          type: text_input
+          label:
+            title: prefixIcon
+            extra: Ant Icon prefix.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.suffix
+          type: text_input
+          label:
+            title: suffix
+            extra: Suffix text, priority over suffixIcon.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.suffixIcon
+          type: text_input
+          label:
+            title: suffixIcon
+            extra: Ant Icon suffix.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.title
+          type: text_input
+          label:
+            title: title
+            extra: Display title.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: block.properties.valueStyle_input
+          type: text_input
+          box:
+            width: 22
+          label:
+            title: valueStyle
+            extra: CSS style properties. Should be in JSON format.
+            labelSpan: 4
+          properties:
+            rows: 5
+            size: small
+        - name: apply_valueStyle_button
+          type: button
+          box:
+            width: 2
+          label:
+            title: ""
+          properties:
+            block: false
+            shape: circle
+            icon: reload
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties.valueStyle:
+                    _parse:
+                      _state: block.properties.valueStyle_input
+
+
+      code_template: |
+        #### JSON
+        ```json
+        {
+          "name": "block_name",
+          "type": "multiple_select_input",
+          "label": {
+            "title": "{{ block.label.title }}",
+            "colon": {{ block.label.colon }},
+            "extra": "{{ block.label.extra }}",
+            "labelSpan": {{ block.label.labelSpan }},
+          },
+          "properties": {
+            "disabled": {{ block.properties.disabled }},
+            "placeholder": "{{ block.properties.placeholder }}",
+            "size": "{{ block.properties.size }}",
+            "showArrow": {{ block.properties.showArrow }},
+            "showSearch": {{ block.properties.showSearch }},
+            "selectedIcon": "{{ block.properties.selectedIcon }}",
+            "suffixIcon": "{{ block.properties.suffixIcon }}",
+            "allowClear": {{ block.properties.allowClear }},
+            "clearIcon": "{{ block.properties.clearIcon }}",
+            "options": {{ block.properties.options }}
+          }
+        }
+        ```

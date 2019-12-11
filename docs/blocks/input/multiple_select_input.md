@@ -62,7 +62,7 @@ properties:
 ## Block properties
 
 - `disabled` : _Boolean_ - Default: `false` - Disables the multiple selector if `true`.
-- `placeholder` : _String_ - Default: `Select item` - Placeholder text inside multiple selector to show message before user types input.
+- `placeholder` : _String_ - Default: `Select item(s)` - Placeholder text inside multiple selector to show message before user types input.
 - `defaultValue`: _[ Primitive ]_ - An array of default values for multiple selector to be set on page load. Can be an array of any primitive type (_String_, _Boolean_, _Number_, _Date_).
 - `size` : _Enum_ - Default: `default` - Size of the multiple selector.
   - `large` - _String_
