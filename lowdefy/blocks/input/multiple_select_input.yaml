@@ -65,8 +65,7 @@ blocks:
               defaultValue: Option
               visible:
                 _mql_test:
-                  select_options_type:
-                    $eq: Primitive
+                  select_options_type: Primitive
               properties:
                 size: small
             - name: block.properties.options.$.label
@@ -78,8 +77,7 @@ blocks:
                 labelSpan: 4
               visible:
                 _mql_test:
-                  select_options_type:
-                    $eq: Label Value
+                  select_options_type: Label Value
               properties:
                 size: small
             - name: block.properties.options.$.value
@@ -91,8 +89,7 @@ blocks:
                 labelSpan: 4
               visible:
                 _mql_test:
-                  select_options_type:
-                    $eq: Label Value
+                  select_options_type: Label Value
               properties:
                 size: small
         - name: block.properties.placeholder

@@ -1,0 +1,48 @@
+- name: card_display
+  type: card
+  blocks:
+    - name: title
+      type: markdown
+      properties:
+        content:
+          _nunjucks:
+            template: "### {{ title }}"
+            on:
+              title:
+                _var: block_name
+
+    - name: description
+      type: markdown
+      properties:
+        content:
+          _var: description_content
+    - name: block_name
+      type:
+        _var: block_type
+      visible:
+        _state: block.visible
+      properties:
+        _state: block.properties
+    - name: settings_card
+      type: card
+      blocks:
+        - name: block.properties_input
+          type: text_input
+          label:
+            title: properties
+          properties:
+            rows: 30
+        - name: apply_properties_button
+          type: button
+          label:
+            title: "Apply"
+          properties:
+            block: false
+            icon: reload
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties:
+                    _parse:
+                      _state: block.properties_input

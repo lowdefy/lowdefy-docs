@@ -35,8 +35,14 @@ layout:
                 pageId: page2
                 properties:
                   title: Statistic
+              - name: amcharts_4_xy
+                type: menu_link
+                pageId: page3
+                properties:
+                  title: amCharts 4 XY
 
 pages:
   - _ref: blocks/input/text_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/display/statistic.yaml
+  - _ref: blocks/display/amcharts_4_xy.yaml

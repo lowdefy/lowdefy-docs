@@ -16,10 +16,6 @@
       properties:
         content:
           _var: description_content
-    - name: options_form
-      type: column
-      blocks:
-        _var: options_form
     - name: block_column
       type: column
       box:
@@ -55,7 +51,7 @@
       type: card
       box:
         width: 14
-        height: 14
+        height: 11
       blocks:
         - name: visible_description
           type: markdown

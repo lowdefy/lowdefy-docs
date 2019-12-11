@@ -35,8 +35,7 @@ blocks:
           defaultValue: false
           visible:
             _mql_test:
-              select_autoRows_type:
-                $eq: Boolean
+              select_autoRows_type: Boolean
           properties:
             size: small
         - name: block.properties.autoRows.minRows
@@ -47,8 +46,7 @@ blocks:
             labelSpan: 6
           visible:
             _mql_test:
-              select_autoRows_type:
-                $eq: Object
+              select_autoRows_type: Object
           properties:
             size: small
         - name: block.properties.autoRows.maxRows
@@ -59,8 +57,7 @@ blocks:
             labelSpan: 6
           visible:
             _mql_test:
-              select_autoRows_type:
-                $eq: Object
+              select_autoRows_type: Object
           properties:
             size: small
         - name: block.properties.autoFocus
