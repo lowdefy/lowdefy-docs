@@ -1,0 +1,71 @@
+id: page4
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      description_content: |
+        ### Multiple Select Input
+
+        Drop down selector input block. Allows a user to select multiple values from a set of options. Values can be any primitive type.
+        The input to this field is saved as an array in `state`, at the path name of the block.
+      block:
+        name: multiple_select_input
+        type: multiple_select_input
+        box:
+          width: 8
+        properties:
+          options:
+            _state: block.properties.options
+          disabled:
+            _state: block.properties.disabled
+      properties_form:
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title:
+              _nunjucks: disabled
+        - name: select_options_type
+          type: radio_button_input
+          label:
+            title: Options Type
+          defaultValue: true
+          properties:
+            options:
+              - label: "Primitive"
+                value: true
+              - label: "Label Value"
+                value: false
+        - name: block.properties.options
+          type: list
+          label:
+            title: Options
+          defaultValue: ["A", "B"]
+          blocks:
+            - name: block.properties.options.$
+              type: text_input
+              visible:
+                _state: select_options_type
+            - name: block.properties.options.$.label
+              type: text_input
+              label:
+                title: Label
+              visible:
+                _not:
+                  _state: select_options_type
+            - name: block.properties.options.$.value
+              type: text_input
+              label:
+                title: Value
+              visible:
+                _not:
+                  _state: select_options_type
+      json_template: |
+        ```json
+        {
+          "properties": {
+            "disabled": {{ block.properties.disabled }},
+            "options": {{ block.properties.options }}
+          }
+        }
+        ```
