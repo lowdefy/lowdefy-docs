@@ -47,6 +47,7 @@ blocks:
             size: small
         - name: block.properties.precision
           type: number_input
+          defaultValue: 0
           label:
             title: precision
             extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
@@ -69,6 +70,7 @@ blocks:
               - small
         - name: block.properties.step
           type: number_input
+          defaultValue: 1
           label:
             title: step
             extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
@@ -76,29 +78,8 @@ blocks:
           properties:
             size: small
             precision: 2
-      code_template: |
-        #### JSON
-        ```json
-        {
-          "name": "block_name",
-          "type": "multiple_select_input",
-          "label": {
-            "title": "{{ block.label.title }}",
-            "colon": {{ block.label.colon }},
-            "extra": "{{ block.label.extra }}",
-            "labelSpan": {{ block.label.labelSpan }},
-          },
-          "properties": {
-            "disabled": {{ block.properties.disabled }},
-            "placeholder": "{{ block.properties.placeholder }}",
-            "size": "{{ block.properties.size }}",
-            "showArrow": {{ block.properties.showArrow }},
-            "showSearch": {{ block.properties.showSearch }},
-            "selectedIcon": "{{ block.properties.selectedIcon }}",
-            "suffixIcon": "{{ block.properties.suffixIcon }}",
-            "allowClear": {{ block.properties.allowClear }},
-            "clearIcon": "{{ block.properties.clearIcon }}",
-            "options": {{ block.properties.options }}
-          }
-        }
-        ```
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+        ###### onPressEnter
+        Triggered when enter is pressed while block is focused.
