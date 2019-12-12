@@ -4,6 +4,17 @@ layout:
     properties:
       autoCollapse: true
     links:
+      - name: concepts
+        type: menu_group
+        properties:
+          title: Concepts
+          icon: bulb
+        links:
+          - name: operators
+            type: menu_link
+            pageId: page4
+            properties:
+              title: Operators
       - name: blocks
         type: menu_group
         properties:
@@ -42,6 +53,7 @@ layout:
                   title: amCharts 4 XY
 
 pages:
+  - _ref: concepts/operators.yaml
   - _ref: blocks/input/text_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/display/statistic.yaml
