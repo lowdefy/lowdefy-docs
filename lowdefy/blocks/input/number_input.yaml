@@ -65,9 +65,9 @@ blocks:
           properties:
             size: small
             options:
-              - large
-              - default
               - small
+              - default
+              - large
         - name: block.properties.step
           type: number_input
           defaultValue: 1

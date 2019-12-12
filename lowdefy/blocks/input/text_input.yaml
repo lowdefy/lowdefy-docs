@@ -17,7 +17,7 @@ blocks:
           defaultValue: false
           label:
             title: autoFocus
-            extra: Autofocus to the block.
+            extra: Autofocus to the block on page load.
             labelSpan: 4
           properties:
             size: small
@@ -129,9 +129,9 @@ blocks:
           properties:
             size: small
             options:
-              - large
-              - default
               - small
+              - default
+              - large
         - name: block.properties.suffix
           type: text_input
           label:

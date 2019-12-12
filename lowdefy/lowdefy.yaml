@@ -36,6 +36,11 @@ layout:
                 pageId: page5
                 properties:
                   title: Number Input
+              - name: switch_input
+                type: menu_link
+                pageId: page6
+                properties:
+                  title: Switch Input
               - name: multiple_select_input
                 type: menu_link
                 pageId: page10
@@ -61,6 +66,7 @@ pages:
   - _ref: concepts/operators.yaml
   - _ref: blocks/input/text_input.yaml
   - _ref: blocks/input/number_input.yaml
+  - _ref: blocks/input/switch_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml
