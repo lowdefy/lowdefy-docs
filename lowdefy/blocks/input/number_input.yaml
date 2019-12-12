@@ -12,6 +12,15 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small
         - name: block.properties.disabled
           type: switch_input
           defaultValue: false
