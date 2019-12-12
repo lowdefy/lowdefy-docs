@@ -46,6 +46,11 @@ layout:
                 pageId: page7
                 properties:
                   title: Slider Input
+              - name: date_input
+                type: menu_link
+                pageId: page8
+                properties:
+                  title: Date Input
               - name: multiple_select_input
                 type: menu_link
                 pageId: page10
@@ -73,6 +78,7 @@ pages:
   - _ref: blocks/input/number_input.yaml
   - _ref: blocks/input/switch_input.yaml
   - _ref: blocks/input/slider_input.yaml
+  - _ref: blocks/input/date_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml

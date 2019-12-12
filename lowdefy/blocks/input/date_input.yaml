@@ -1,0 +1,94 @@
+id: page8
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Date Input
+      description_content: |
+        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block..
+      block_type: date_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.allowClear
+          type: switch_input
+          defaultValue: false
+          label:
+            title: allowClear
+            extra: Allow the user to clear their input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small 
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.format
+          type: text_input
+          default: YYYY-MM-DD
+          label:
+            title: format
+            extra: Format in which to parse the date value, eg. "DD MMMM YYYY" will parse a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.placeholder
+          type: text_input
+          default: Select Date
+          label:
+            title: placeholder
+            extra: Placeholder text inside the block before user types input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.showToday
+          type: switch_input
+          defaultValue: true
+          label:
+            title: showToday
+            extra: Shows a button to easily select the current date if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
+        - name: block.properties.suffixIcon
+          type: text_input
+          default: calender
+          label:
+            title: suffixIcon
+            extra: Ant Icon at the right-hand side of the date picker,.
+            labelSpan: 4
+          properties:
+            size: small
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
