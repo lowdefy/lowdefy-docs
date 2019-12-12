@@ -1,0 +1,104 @@
+id: page5
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Number Input
+      description_content: |
+        Number input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: number_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disables the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.min
+          type: number_input
+          label:
+            title: min
+            extra: Minimum value allowed by the block.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.max
+          type: number_input
+          label:
+            title: max
+            extra: Maximum value allowed by the block.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.placeholder
+          type: text_input
+          label:
+            title: placeholder
+            extra: Placeholder text inside the block to show message before user types input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.precision
+          type: number_input
+          label:
+            title: precision
+            extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+            labelSpan: 4
+          properties:
+            size: small
+            max: 100
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - large
+              - default
+              - small
+        - name: block.properties.step
+          type: number_input
+          label:
+            title: step
+            extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+            labelSpan: 4
+          properties:
+            size: small
+            precision: 2
+      code_template: |
+        #### JSON
+        ```json
+        {
+          "name": "block_name",
+          "type": "multiple_select_input",
+          "label": {
+            "title": "{{ block.label.title }}",
+            "colon": {{ block.label.colon }},
+            "extra": "{{ block.label.extra }}",
+            "labelSpan": {{ block.label.labelSpan }},
+          },
+          "properties": {
+            "disabled": {{ block.properties.disabled }},
+            "placeholder": "{{ block.properties.placeholder }}",
+            "size": "{{ block.properties.size }}",
+            "showArrow": {{ block.properties.showArrow }},
+            "showSearch": {{ block.properties.showSearch }},
+            "selectedIcon": "{{ block.properties.selectedIcon }}",
+            "suffixIcon": "{{ block.properties.suffixIcon }}",
+            "allowClear": {{ block.properties.allowClear }},
+            "clearIcon": "{{ block.properties.clearIcon }}",
+            "options": {{ block.properties.options }}
+          }
+        }
+        ```

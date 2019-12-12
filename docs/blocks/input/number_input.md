@@ -50,13 +50,10 @@ properties:
 - `maximum` : _Number_ - Maximum value user is allowed to input.
 - `step` : _Number_ - Default: `1` - Step size by which the current value is increased or decreased.
 - `precision` : _Integer_ - Number of decimals to round to. If `precision` is not defined but a decimal `step` size is, the precision will adapt to those decimal spaces.
-- `prefix` : _String_ - Text or symbol to prefix the value in the input block, eg. '\$' to show dollar values.
-- `suffix` : _String_ - Text or symbol to suffix the value in the input block, eg. '%' to show percentage values.
 - `size` : _Enum_ - Default: `default` - Size of the input block.
   - `large` - _String_
   - `default` - _String_
   - `small` - _String_
-- `allowClear` : _Boolean_ - Default: `true` - Allows the user to clear their number input if `true`.
 
 ### Example
 
