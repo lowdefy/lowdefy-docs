@@ -1,8 +1,6 @@
 layout:
   menu:
-    type: side_menu
-    properties:
-      autoCollapse: true
+    type: primary_side_menu
     links:
       - name: concepts
         type: menu_group
@@ -48,12 +46,12 @@ layout:
                   title: Slider
               - name: checkbox_input
                 type: menu_link
-                pageId: page1
+                pageId: checkbox_input
                 properties:
                   title: Checkbox
               - name: select_input
                 type: menu_link
-                pageId: page2
+                pageId: select_input
                 properties:
                   title: Select
               - name: multiple_select_input
@@ -63,12 +61,12 @@ layout:
                   title: Multiple Select
               - name: radio_input
                 type: menu_link
-                pageId: page3
+                pageId: radio_input
                 properties:
                   title: Radio
               - name: radio_button_input
                 type: menu_link
-                pageId: page4
+                pageId: radio_button_input
                 properties:
                   title: Radio Button
               - name: date_input
@@ -76,6 +74,27 @@ layout:
                 pageId: date_input
                 properties:
                   title: Date
+              - name: date_time_input
+                type: menu_link
+                pageId: date_time_input
+                properties:
+                  title: Date Time
+              - name: week_input
+                type: menu_link
+                pageId: week_input
+                properties:
+                  title: Week
+              - name: month_input
+                type: menu_link
+                pageId: month_input
+                properties:
+                  title: Month
+              - name: date_range_input
+                type: menu_link
+                pageId: date_range_input
+                properties:
+                  title: Date Range
+
           - name: blocks_display
             type: menu_group
             properties:
@@ -104,5 +123,9 @@ pages:
   - _ref: blocks/input/radio_input.yaml
   - _ref: blocks/input/radio_button_input.yaml
   - _ref: blocks/input/date_input.yaml
+  - _ref: blocks/input/date_time_input.yaml
+  - _ref: blocks/input/week_input.yaml
+  - _ref: blocks/input/month_input.yaml
+  - _ref: blocks/input/date_range_input.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml

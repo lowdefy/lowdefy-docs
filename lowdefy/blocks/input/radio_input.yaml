@@ -1,4 +1,4 @@
-id: page3
+id: radio_input
 initialState:
   block: 
     properties:

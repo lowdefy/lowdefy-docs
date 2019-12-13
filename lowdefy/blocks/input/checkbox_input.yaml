@@ -1,4 +1,4 @@
-id: page1
+id: checkbox_input
 initialState:
   block: 
     properties:
