@@ -110,6 +110,16 @@ layout:
                 pageId: amcharts_4_xy
                 properties:
                   title: amCharts 4 XY
+              - name: button
+                type: menu_link
+                pageId: page10
+                properties:
+                  title: Button
+              - name: anchor
+                type: menu_link
+                pageId: page9
+                properties:
+                  title: Anchor
 
 pages:
   - _ref: concepts/operators.yaml
@@ -129,3 +139,5 @@ pages:
   - _ref: blocks/input/date_range_input.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml
+  - _ref: blocks/display/button.yaml
+  - _ref: blocks/display/anchor.yaml
