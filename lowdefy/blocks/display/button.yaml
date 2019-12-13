@@ -1,0 +1,104 @@
+id: page10
+properties:
+  title: Button
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Button
+      description_content: |
+        Button block.
+      block_type: button
+      label: true
+      label_form:
+        _ref:
+          blocks/title_label.yaml
+      properties_form:
+        - name: block.properties.block
+          type: switch_input
+          defaultValue: false
+          label:
+            title: block
+            extra: Fit the button's width to its parent container width.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the button if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.ghost
+          type: switch_input
+          defaultValue: false
+          label:
+            title: ghost
+            extra: Make the button's background transparent when true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.href
+          type: text_input
+          label:
+            title: href
+            extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.icon
+          type: text_input
+          label:
+            title: icon
+            extra: Ant Icon to shown on the button.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.shape
+          type: radio_button_input
+          defaultValue: square
+          label:
+            title: shape
+            extra: Shape of the button.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - circle
+              - round
+              - square
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the button.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
+        - name: block.properties.type
+          type: radio_button_input
+          defaultValue: primary
+          label:
+            title: type
+            extra: The button type.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - primary
+              - default
+              - dashed
+              - danger
+              - link
+
+      available_actions_description: |
+        ###### onClick
+        Triggered when the button is clicked.
