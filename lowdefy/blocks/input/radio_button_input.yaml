@@ -1,4 +1,4 @@
-id: page1
+id: page4
 initialState:
   block: 
     properties:
@@ -7,17 +7,29 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Checkbox Input
+      block_name: Radio Button Input
       description_content: |
-        Checkbox block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in state, at the path name of the block.
+        Radio button input block. Similar to radio_input except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
 
-        >Other selector blocks are select_input, multiple_select_input, radio_input and radio_button_input
-      block_type: checkbox_input
+        >Other selector blocks are checkbox_input, select_input, multiple_select_input and radio_input
+      block_type: radio_button_input
       label: true
       label_form:
         _ref:
           blocks/label.yaml
       properties_form:
+        - name: block.properties.buttonStyle
+          type: radio_button_input
+          defaultValue: solid
+          label:
+            title: buttonStyle
+            extra: Style of the selected option button.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - solid
+              - outline
         - name: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -91,6 +103,19 @@ blocks:
                   select_options_type: Label Value
               properties:
                 size: small
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
 
       available_actions_description: |
         ###### onChange

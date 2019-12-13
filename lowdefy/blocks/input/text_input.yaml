@@ -12,7 +12,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-          - name: block.properties.allowClear
+        - name: block.properties.allowClear
           type: switch_input
           defaultValue: false
           label:

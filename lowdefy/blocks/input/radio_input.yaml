@@ -1,4 +1,4 @@
-id: page1
+id: page3
 initialState:
   block: 
     properties:
@@ -7,12 +7,12 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Checkbox Input
+      block_name: Radio Input
       description_content: |
-        Checkbox block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in state, at the path name of the block.
+        Radio input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
 
-        >Other selector blocks are select_input, multiple_select_input, radio_input and radio_button_input
-      block_type: checkbox_input
+        >Other selector blocks are checkbox_input, select_input, multiple_select_input and radio_button_input
+      block_type: radio_input
       label: true
       label_form:
         _ref:

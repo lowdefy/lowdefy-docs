@@ -61,6 +61,16 @@ layout:
                 pageId: multiple_select_input
                 properties:
                   title: Multiple Select
+              - name: radio_input
+                type: menu_link
+                pageId: page3
+                properties:
+                  title: Radio
+              - name: radio_button_input
+                type: menu_link
+                pageId: page4
+                properties:
+                  title: Radio Button
               - name: date_input
                 type: menu_link
                 pageId: date_input
@@ -91,6 +101,8 @@ pages:
   - _ref: blocks/input/checkbox_input.yaml
   - _ref: blocks/input/select_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
+  - _ref: blocks/input/radio_input.yaml
+  - _ref: blocks/input/radio_button_input.yaml
   - _ref: blocks/input/date_input.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml
