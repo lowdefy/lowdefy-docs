@@ -1,4 +1,4 @@
-id: page1
+id: text_input
 blocks:
   _ref:
     path: blocks/template.yaml
