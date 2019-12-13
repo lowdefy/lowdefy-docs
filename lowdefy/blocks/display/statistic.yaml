@@ -1,4 +1,4 @@
-id: page2
+id: statistic
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -150,7 +150,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.valueStyle_input
+        - name: valueStyle_input
           type: text_input
           box:
             width: 22
@@ -177,7 +177,7 @@ blocks:
               - set():
                   block.properties.valueStyle:
                     _parse:
-                      _state: block.properties.valueStyle_input
+                      _state: valueStyle_input
 
 
       code_template: |

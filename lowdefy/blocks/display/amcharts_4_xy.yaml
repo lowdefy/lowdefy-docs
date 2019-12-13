@@ -1,4 +1,4 @@
-id: page3
+id: amcharts_4_xy
 initialState:
   block:
     properties:
@@ -20,45 +20,45 @@ initialState:
           dataFields:
             categoryX: x
             valueY: "y"
-    properties_input: |
-      {
-        "data": [
-          {
-            "x": "a",
-            "y": 1
-          },
-          {
-            "x": "b",
-            "y": 2
-          },
-          {
-            "x": "c",
-            "y": 3
+  properties_input: |
+    {
+      "data": [
+        {
+          "x": "a",
+          "y": 1
+        },
+        {
+          "x": "b",
+          "y": 2
+        },
+        {
+          "x": "c",
+          "y": 3
+        }
+      ],
+      "xAxes": [
+        {
+          "type": "CategoryAxis",
+          "dataFields": {
+            "category": "x"
           }
-        ],
-        "xAxes": [
-          {
-            "type": "CategoryAxis",
-            "dataFields": {
-              "category": "x"
-            }
+        }
+      ],
+      "yAxes": [
+        {
+          "type": "ValueAxis"
+        }
+      ],
+      "series": [
+        {
+          "type": "ColumnSeries",
+          "dataFields": {
+            "categoryX": "x",
+            "valueY": "y"
           }
-        ],
-        "yAxes": [
-          {
-            "type": "ValueAxis"
-          }
-        ],
-        "series": [
-          {
-            "type": "ColumnSeries",
-            "dataFields": {
-              "categoryX": "x",
-              "valueY": "y"
-            }
-          }
-        ]
-      } 
+        }
+      ]
+    } 
 blocks:
   _ref:
     path: blocks/raw_template.yaml

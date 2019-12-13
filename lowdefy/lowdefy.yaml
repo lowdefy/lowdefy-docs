@@ -4,6 +4,17 @@ layout:
     properties:
       autoCollapse: true
     links:
+      - name: concepts
+        type: menu_group
+        properties:
+          title: Concepts
+          icon: bulb
+        links:
+          - name: operators
+            type: menu_link
+            pageId: operators
+            properties:
+              title: Operators
       - name: blocks
         type: menu_group
         properties:
@@ -17,12 +28,32 @@ layout:
             links:
               - name: text_input
                 type: menu_link
-                pageId: page1
+                pageId: text_input
                 properties:
                   title: Text Input
+              - name: number_input
+                type: menu_link
+                pageId: number_input
+                properties:
+                  title: Number Input
+              - name: switch_input
+                type: menu_link
+                pageId: switch_input
+                properties:
+                  title: Switch Input
+              - name: slider_input
+                type: menu_link
+                pageId: slider_input
+                properties:
+                  title: Slider Input
+              - name: date_input
+                type: menu_link
+                pageId: date_input
+                properties:
+                  title: Date Input
               - name: multiple_select_input
                 type: menu_link
-                pageId: page10
+                pageId: multiple_select_input
                 properties:
                   title: Multiple Select Input
           - name: blocks_display
@@ -32,17 +63,22 @@ layout:
             links:
               - name: statistic
                 type: menu_link
-                pageId: page2
+                pageId: statistic
                 properties:
                   title: Statistic
               - name: amcharts_4_xy
                 type: menu_link
-                pageId: page3
+                pageId: amcharts_4_xy
                 properties:
                   title: amCharts 4 XY
 
 pages:
+  - _ref: concepts/operators.yaml
   - _ref: blocks/input/text_input.yaml
+  - _ref: blocks/input/number_input.yaml
+  - _ref: blocks/input/switch_input.yaml
+  - _ref: blocks/input/slider_input.yaml
+  - _ref: blocks/input/date_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml

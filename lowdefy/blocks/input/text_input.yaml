@@ -1,4 +1,4 @@
-id: page1
+id: text_input
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,6 +12,15 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small
         - name: select_autoRows_type_card
           type: card
           blocks:
@@ -19,7 +28,7 @@ blocks:
               type: radio_button_input
               label:
                 title: autoRows Type
-                extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.
+                extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
               defaultValue: Boolean
               properties:
                 size: small
@@ -30,7 +39,7 @@ blocks:
           type: switch_input
           label:
             title: autoRows
-            extra: Automatically extend the input block number of rows for longer input lengths, a minimum and maximum number of rows can be specified. Defining autoRows disables any prefix or suffix defined.
+            extra: Automatically extend the block number of rows.
             labelSpan: 4
           defaultValue: false
           visible:
@@ -42,7 +51,7 @@ blocks:
           type: number_input
           label:
             title: autoRows.minRows
-            extra: Minimum number of rows input block can be adjusted to.
+            extra: Minimum number of rows the block can be.
             labelSpan: 6
           visible:
             _mql_test:
@@ -53,20 +62,11 @@ blocks:
           type: number_input
           label:
             title: autoRows.maxRows
-            extra: Maximum number of rows input block can be adjusted to.
+            extra: Maximum number of rows the block can be.
             labelSpan: 6
           visible:
             _mql_test:
               select_autoRows_type: Object
-          properties:
-            size: small
-        - name: block.properties.autoFocus
-          type: switch_input
-          defaultValue: false
-          label:
-            title: autoFocus
-            extra: Autofocus to the block.
-            labelSpan: 4
           properties:
             size: small
         - name: block.properties.allowClear
@@ -83,7 +83,7 @@ blocks:
           defaultValue: false
           label:
             title: disabled
-            extra: Disables the block if true.
+            extra: Disable the block if true.
             labelSpan: 4
           properties:
             size: small
@@ -91,7 +91,7 @@ blocks:
           type: text_input
           label:
             title: placeholder
-            extra: Placeholder text inside the block to show message before user types input.
+            extra: Placeholder text inside the block before user types input.
             labelSpan: 4
           properties:
             size: small
@@ -129,9 +129,9 @@ blocks:
           properties:
             size: small
             options:
-              - large
-              - default
               - small
+              - default
+              - large
         - name: block.properties.suffix
           type: text_input
           label:
@@ -148,29 +148,8 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-      code_template: |
-        #### JSON
-        ```json
-        {
-          "name": "block_name",
-          "type": "multiple_select_input",
-          "label": {
-            "title": "{{ block.label.title }}",
-            "colon": {{ block.label.colon }},
-            "extra": "{{ block.label.extra }}",
-            "labelSpan": {{ block.label.labelSpan }},
-          },
-          "properties": {
-            "disabled": {{ block.properties.disabled }},
-            "placeholder": "{{ block.properties.placeholder }}",
-            "size": "{{ block.properties.size }}",
-            "showArrow": {{ block.properties.showArrow }},
-            "showSearch": {{ block.properties.showSearch }},
-            "selectedIcon": "{{ block.properties.selectedIcon }}",
-            "suffixIcon": "{{ block.properties.suffixIcon }}",
-            "allowClear": {{ block.properties.allowClear }},
-            "clearIcon": "{{ block.properties.clearIcon }}",
-            "options": {{ block.properties.options }}
-          }
-        }
-        ```
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+        ##### onPressEnter
+        Triggered when enter is pressed while block is focused.

@@ -1,0 +1,73 @@
+id: switch_input
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Switch Input
+      description_content: |
+        On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: switch_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.checkedIcon
+          type: text_input
+          label:
+            title: checkedIcon
+            extra: Ant Icon to shown when switch is checked (true).
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.disableIcons
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disableIcons
+            extra: Disables icons for checked and unchecked state.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+        - name: block.properties.uncheckedIcon
+          type: text_input
+          label:
+            title: uncheckedIcon
+            extra: Ant Icon to shown when switch is unchecked (false).
+            labelSpan: 4
+          properties:
+            size: small
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.

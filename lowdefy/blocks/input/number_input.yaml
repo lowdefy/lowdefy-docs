@@ -1,0 +1,94 @@
+id: number_input
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Number Input
+      description_content: |
+        Number input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: number_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disables the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.min
+          type: number_input
+          label:
+            title: min
+            extra: Minimum value allowed by the block.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.max
+          type: number_input
+          label:
+            title: max
+            extra: Maximum value allowed by the block.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.placeholder
+          type: text_input
+          label:
+            title: placeholder
+            extra: Placeholder text inside the block to show message before user types input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.precision
+          type: number_input
+          defaultValue: 0
+          label:
+            title: precision
+            extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+            labelSpan: 4
+          properties:
+            size: small
+            max: 100
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
+        - name: block.properties.step
+          type: number_input
+          defaultValue: 1
+          label:
+            title: step
+            extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+            labelSpan: 4
+          properties:
+            size: small
+            precision: 2
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+        ###### onPressEnter
+        Triggered when enter is pressed while block is focused.

@@ -1,4 +1,4 @@
-id: page10
+id: multiple_select_input
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -138,9 +138,9 @@ blocks:
           properties:
             size: small
             options:
-              - large
-              - default
               - small
+              - default
+              - large
         - name: block.properties.suffixIcon
           type: text_input
           defaultValue: down

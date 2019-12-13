@@ -85,9 +85,13 @@
           type: column
           blocks:
             _var: properties_form
-    - name: settings_json
-      type: markdown
-      properties:
-        content:
-          _nunjucks:
-            _var: code_template
+        - name: actions_description
+          type: markdown
+          properties:
+            content: "#### actions:"
+        - name: available_actions_description
+          type: markdown
+          properties:
+            content:
+              _var:
+                available_actions_description

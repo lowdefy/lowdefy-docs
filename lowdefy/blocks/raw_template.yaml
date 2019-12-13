@@ -16,17 +16,24 @@
       properties:
         content:
           _var: description_content
-    - name: block_name
-      type:
-        _var: block_type
-      visible:
-        _state: block.visible
-      properties:
-        _state: block.properties
+    - name: block_card
+      type: card
+      box:
+        width: 14
+      blocks:
+        - name: block_name
+          type:
+            _var: block_type
+          visible:
+            _state: block.visible
+          properties:
+            _state: block.properties
     - name: settings_card
       type: card
+      box:
+        width: 10
       blocks:
-        - name: block.properties_input
+        - name: properties_input
           type: text_input
           label:
             title: properties
@@ -45,4 +52,4 @@
               - set():
                   block.properties:
                     _parse:
-                      _state: block.properties_input
+                      _state: properties_input
