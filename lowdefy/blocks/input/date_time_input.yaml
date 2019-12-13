@@ -1,4 +1,6 @@
 id: date_time_input
+properties:
+  title: Date Time
 blocks:
   _ref:
     path: blocks/template.yaml

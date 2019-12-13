@@ -1,4 +1,6 @@
 id: statistic
+properties:
+  title: Statistic
 blocks:
   _ref:
     path: blocks/template.yaml

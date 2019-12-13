@@ -1,4 +1,6 @@
 id: date_range_input
+properties:
+  title: Date Range
 initialState:
   block:
     properties:

@@ -1,4 +1,6 @@
 id: number_input
+properties:
+  title: Number
 blocks:
   _ref:
     path: blocks/template.yaml

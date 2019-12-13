@@ -1,4 +1,6 @@
 id: radio_button_input
+properties:
+  title: Radio Button
 initialState:
   block: 
     properties:

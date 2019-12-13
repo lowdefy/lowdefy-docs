@@ -1,4 +1,6 @@
 id: slider_input
+properties:
+  title: Slider
 blocks:
   _ref:
     path: blocks/template.yaml

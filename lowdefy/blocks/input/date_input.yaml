@@ -1,4 +1,6 @@
 id: date_input
+properties:
+  title: Date
 blocks:
   _ref:
     path: blocks/template.yaml

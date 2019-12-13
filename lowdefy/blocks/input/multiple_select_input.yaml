@@ -1,4 +1,6 @@
 id: multiple_select_input
+properties:
+  title: Multiple Select
 blocks:
   _ref:
     path: blocks/template.yaml

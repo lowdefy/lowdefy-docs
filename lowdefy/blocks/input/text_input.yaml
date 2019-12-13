@@ -1,4 +1,6 @@
 id: text_input
+properties:
+  title: Text
 blocks:
   _ref:
     path: blocks/template.yaml

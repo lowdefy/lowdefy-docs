@@ -1,4 +1,6 @@
 id: radio_input
+properties:
+  title: Radio
 initialState:
   block: 
     properties:

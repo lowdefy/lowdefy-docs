@@ -1,4 +1,6 @@
 id: select_input
+properties:
+  title: Select
 blocks:
   _ref:
     path: blocks/template.yaml

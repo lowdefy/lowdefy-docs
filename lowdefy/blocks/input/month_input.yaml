@@ -1,4 +1,6 @@
 id: month_input
+properties:
+  title: Month
 blocks:
   _ref:
     path: blocks/template.yaml
