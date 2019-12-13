@@ -165,32 +165,3 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-      available_actions_description: |
-        ###### onChange
-        Triggered when value is changed.
-      code_template: |
-        #### JSON
-        ```json
-        {
-          "name": "block_name",
-          "type": "multiple_select_input",
-          "label": {
-            "colon": {{ block.label.colon }},
-            "extra": "{{ block.label.extra }}",
-            "labelSpan": {{ block.label.labelSpan }},
-            "title": "{{ block.label.title }}",
-          },
-          "properties": {
-            "clearIcon": "{{ block.properties.clearIcon }}",
-            "allowClear": {{ block.properties.allowClear }},
-            "disabled": {{ block.properties.disabled }},
-            "options": {{ block.properties.options }}
-            "placeholder": "{{ block.properties.placeholder }}",
-            "selectedIcon": "{{ block.properties.selectedIcon }}",
-            "showArrow": {{ block.properties.showArrow }},
-            "showSearch": {{ block.properties.showSearch }},
-            "size": "{{ block.properties.size }}",
-            "suffixIcon": "{{ block.properties.suffixIcon }}",
-          }
-        }
-        ```
