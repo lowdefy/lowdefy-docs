@@ -80,7 +80,7 @@ blocks:
               defaultValue: false
               label:
                 title: disabled
-                extra: Disable the block if true.
+                extra: Disable the option if true.
                 labelSpan: 4
               visible:
                 _mql_test:

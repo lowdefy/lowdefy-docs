@@ -51,6 +51,11 @@ layout:
                 pageId: page1
                 properties:
                   title: Checkbox
+              - name: select_input
+                type: menu_link
+                pageId: page2
+                properties:
+                  title: Select
               - name: multiple_select_input
                 type: menu_link
                 pageId: multiple_select_input
@@ -84,6 +89,7 @@ pages:
   - _ref: blocks/input/switch_input.yaml
   - _ref: blocks/input/slider_input.yaml
   - _ref: blocks/input/checkbox_input.yaml
+  - _ref: blocks/input/select_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/input/date_input.yaml
   - _ref: blocks/display/statistic.yaml
