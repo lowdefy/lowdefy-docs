@@ -1,4 +1,6 @@
 id: switch_input
+properties:
+  title: Switch
 blocks:
   _ref:
     path: blocks/template.yaml

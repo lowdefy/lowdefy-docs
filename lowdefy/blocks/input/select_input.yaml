@@ -1,16 +1,16 @@
-id: multiple_select_input
+id: select_input
 properties:
-  title: Multiple Select
+  title: Select
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Multiple Select Input
+      block_name: Select Input
       description_content: |
-        Drop down selector input block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in `state`, at the path name of the block.
+        Drop down selector input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
 
         >Other selector blocks are checkbox_input, multiple_select_input, radio_input and radio_button_input
-      block_type: multiple_select_input
+      block_type: select_input
       label: true
       label_form:
         _ref:
@@ -39,7 +39,7 @@ blocks:
           defaultValue: close-circle
           label:
             title: clearIcon
-            extra: Ant Icon at far right position of the selector, when allowClear is set to true.
+            extra: Ant Icon at far right position of the selector, shown when user is given option to clear input.
             labelSpan: 4
           properties:
             size: small
@@ -118,19 +118,10 @@ blocks:
                 size: small
         - name: block.properties.placeholder
           type: text_input
-          defaultValue: Select items
+          defaultValue: Select item
           label:
             title: placeholder
-            extra: Placeholder text inside the block to show message before user selects input.
-            labelSpan: 4
-          properties:
-            size: small
-        - name: block.properties.selectedIcon
-          type: text_input
-          defaultValue: check
-          label:
-            title: selectedIcon
-            extra: Ant Icon showing when a selection is made in the drop-down list.
+            extra: Placeholder text inside the block before user selects input.
             labelSpan: 4
           properties:
             size: small
@@ -140,6 +131,15 @@ blocks:
           label:
             title: showArrow
             extra: Show the suffix icon at the drop-down position of the selector.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.showSearch
+          type: switch_input
+          defaultValue: true
+          label:
+            title: showSearch
+            extra: Make the selector options searchable.
             labelSpan: 4
           properties:
             size: small
@@ -165,3 +165,6 @@ blocks:
             labelSpan: 4
           properties:
             size: small
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.

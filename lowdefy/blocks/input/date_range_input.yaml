@@ -1,16 +1,22 @@
-id: date_input
+id: date_range_input
 properties:
-  title: Date
+  title: Date Range
+initialState:
+  block:
+    properties:
+      placeholder:
+        - Start Date
+        - End Date
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Input
+      block_name: Date Range Input
       description_content: |
-        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+        Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
 
-        >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
-      block_type: date_input
+        >Other date type blocks are date_input, date_time_input, week_input and month_input.
+      block_type: date_range_input
       label: true
       label_form:
         _ref:
@@ -53,20 +59,26 @@ blocks:
           properties:
             size: small
         - name: block.properties.placeholder
-          type: text_input
-          defaultValue: Select Date
+          type: list
+          required: true
           label:
             title: placeholder
-            extra: Placeholder text inside the block before user selects input.
-            labelSpan: 4
           properties:
-            size: small
-        - name: block.properties.showToday
-          type: switch_input
-          defaultValue: true
+            hideAddButton: true
+            hideRemoveButton: true
+          blocks:
+            - name: block.properties.placeholder.$
+              type: text_input
+              label:
+                extra: Placeholder text inside the block before user types input.
+              properties:
+                size: small
+        - name: block.properties.separator
+          type: text_input
+          defaultValue: "~"
           label:
-            title: showToday
-            extra: Shows a button to easily select the current date if true.
+            title: separator
+            extra: Separator symbol shown between start and end date inputs.
             labelSpan: 4
           properties:
             size: small
@@ -85,10 +97,10 @@ blocks:
               - large
         - name: block.properties.suffixIcon
           type: text_input
-          default: calendar
+          defaultValue: calendar
           label:
             title: suffixIcon
-            extra: Ant Icon at the right-hand side of the date picker,.
+            extra: Ant Icon at the right-hand side of the date picker.
             labelSpan: 4
           properties:
             size: small

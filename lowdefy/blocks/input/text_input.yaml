@@ -1,4 +1,6 @@
 id: text_input
+properties:
+  title: Text
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,6 +14,15 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
+        - name: block.properties.allowClear
+          type: switch_input
+          defaultValue: false
+          label:
+            title: allowClear
+            extra: Allow the user to clear their input.
+            labelSpan: 4
+          properties:
+            size: small
         - name: block.properties.autoFocus
           type: switch_input
           defaultValue: false
@@ -67,15 +78,6 @@ blocks:
           visible:
             _mql_test:
               select_autoRows_type: Object
-          properties:
-            size: small
-        - name: block.properties.allowClear
-          type: switch_input
-          defaultValue: false
-          label:
-            title: allowClear
-            extra: Allow the user to clear their input.
-            labelSpan: 4
           properties:
             size: small
         - name: block.properties.disabled
