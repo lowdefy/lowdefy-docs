@@ -9,7 +9,10 @@ blocks:
       description_content: |
         A statistic header block.
       block_type: statistic
-      label: false
+      label: true
+      label_form:
+        _ref:
+          blocks/title_label.yaml
       properties_form:
         - name: select_value_type_card
           type: card
@@ -141,14 +144,6 @@ blocks:
           label:
             title: suffixIcon
             extra: Ant Icon suffix.
-            labelSpan: 6
-          properties:
-            size: small
-        - name: block.properties.title
-          type: text_input
-          label:
-            title: title
-            extra: Display title.
             labelSpan: 6
           properties:
             size: small
