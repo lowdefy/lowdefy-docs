@@ -1,0 +1,157 @@
+id: text_input
+properties:
+  title: Text
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Text Input
+      description_content: |
+        Text input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: text_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.allowClear
+          type: switch_input
+          defaultValue: false
+          label:
+            title: allowClear
+            extra: Allow the user to clear their input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: select_autoRows_type_card
+          type: card
+          blocks:
+            - name: select_autoRows_type
+              type: radio_button_input
+              label:
+                title: autoRows Type
+                extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
+              defaultValue: Boolean
+              properties:
+                size: small
+                options:
+                  - Boolean
+                  - Object
+        - name: block.properties.autoRows
+          type: switch_input
+          label:
+            title: autoRows
+            extra: Automatically extend the block number of rows.
+            labelSpan: 4
+          defaultValue: false
+          visible:
+            _mql_test:
+              select_autoRows_type: Boolean
+          properties:
+            size: small
+        - name: block.properties.autoRows.minRows
+          type: number_input
+          label:
+            title: autoRows.minRows
+            extra: Minimum number of rows the block can be.
+            labelSpan: 6
+          visible:
+            _mql_test:
+              select_autoRows_type: Object
+          properties:
+            size: small
+        - name: block.properties.autoRows.maxRows
+          type: number_input
+          label:
+            title: autoRows.maxRows
+            extra: Maximum number of rows the block can be.
+            labelSpan: 6
+          visible:
+            _mql_test:
+              select_autoRows_type: Object
+          properties:
+            size: small
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.placeholder
+          type: text_input
+          label:
+            title: placeholder
+            extra: Placeholder text inside the block before user types input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.prefix
+          type: text_input
+          label:
+            title: prefix
+            extra: Prefix text for the block, priority over prefixIcon.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.prefixIcon
+          type: text_input
+          label:
+            title: prefixIcon
+            extra: Ant Icon to prefix the block.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.rows
+          type: number_input
+          label:
+            title: rows
+            extra: Number of rows in the block, should be greater or equal to 1. Defining rows disables any prefix.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
+        - name: block.properties.suffix
+          type: text_input
+          label:
+            title: suffix
+            extra: Suffix text for the block, priority over suffixIcon.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.suffixIcon
+          type: text_input
+          label:
+            title: suffixIcon
+            extra: Ant Icon to suffix the block.
+            labelSpan: 4
+          properties:
+            size: small
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+        ##### onPressEnter
+        Triggered when enter is pressed while block is focused.

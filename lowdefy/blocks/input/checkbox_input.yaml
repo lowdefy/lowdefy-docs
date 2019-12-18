@@ -1,0 +1,99 @@
+id: checkbox_input
+initialState:
+  block: 
+    properties:
+      options: ['Option 1', 'Option 2']
+properties:
+  title: Checkbox
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Checkbox Input
+      description_content: |
+        Checkbox block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in state, at the path name of the block.
+
+        >Other selector blocks are select_input, multiple_select_input, radio_input and radio_button_input
+      block_type: checkbox_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: select_options_type_card
+          type: card
+          blocks:
+            - name: select_options_type
+              type: radio_button_input
+              label:
+                title: Options Type
+                extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
+              defaultValue: Primitive
+              properties:
+                size: small
+                options:
+                  - Primitive
+                  - Label Value
+        - name: block.properties.options
+          type: list
+          required: true
+          label:
+            title: options
+          blocks:
+            - name: block.properties.options.$
+              type: text_input
+              defaultValue: Option
+              visible:
+                _mql_test:
+                  select_options_type: Primitive
+              properties:
+                size: small
+            - name: block.properties.options.$.label
+              type: text_input
+              defaultValue: Label
+              label:
+                title: label
+                extra: Label shown to user.
+                labelSpan: 4
+              visible:
+                _mql_test:
+                  select_options_type: Label Value
+              properties:
+                size: small
+            - name: block.properties.options.$.value
+              type: text_input
+              defaultValue: Value
+              label:
+                title: value
+                extra: Value selected.
+                labelSpan: 4
+              visible:
+                _mql_test:
+                  select_options_type: Label Value
+              properties:
+                size: small
+            - name: block.properties.options.$.disabled
+              type: switch_input
+              defaultValue: false
+              label:
+                title: disabled
+                extra: Disable the option if true.
+                labelSpan: 4
+              visible:
+                _mql_test:
+                  select_options_type: Label Value
+              properties:
+                size: small
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.

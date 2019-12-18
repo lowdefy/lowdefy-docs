@@ -1,0 +1,89 @@
+id: week_input
+properties:
+  title: Week
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Week Input
+      description_content: |
+        Week picker input block. Allows a user to select a specific week from a calender form. The input to this field is saved as a Date type in state, at the path name of the block. The first day of the week is Sunday.
+
+        >Other date type blocks are date_input, date_time_input, month_input and date_range_input.
+      block_type: week_input
+      label: true
+      label_form:
+        _ref:
+          blocks/label.yaml
+      properties_form:
+        - name: block.properties.allowClear
+          type: switch_input
+          defaultValue: false
+          label:
+            title: allowClear
+            extra: Allow the user to clear their input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          label:
+            title: autoFocus
+            extra: Autofocus to the block on page load.
+            labelSpan: 4
+          properties:
+            size: small 
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the block if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.format
+          type: text_input
+          defaultValue: YYYY-wo
+          label:
+            title: format
+            extra: Format in which to format the date value, eg. "wo-YYYY" will format a date value of 1999-12-26 as "52nd-1999". The format has to conform to moment.js formats.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.placeholder
+          type: text_input
+          defaultValue: Select Week
+          label:
+            title: placeholder
+            extra: Placeholder text inside the block before user types input.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the block.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
+        - name: block.properties.suffixIcon
+          type: text_input
+          defaultValue: calendar
+          label:
+            title: suffixIcon
+            extra: Ant Icon at the right-hand side of the date picker,.
+            labelSpan: 4
+          properties:
+            size: small
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.

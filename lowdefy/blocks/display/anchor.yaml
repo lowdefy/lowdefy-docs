@@ -1,0 +1,128 @@
+id: page9
+properties:
+  title: Anchor
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Anchor
+      description_content: |
+        Anchor block. Creates a clickable icon and/ or text.
+      block_type: anchor
+      label: true
+      label_form:
+        _ref:
+          blocks/title_label.yaml
+      properties_form:
+        - name: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          label:
+            title: disabled
+            extra: Disable the anchor if true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.icon
+          type: text_input
+          label:
+            title: icon
+            extra: Ant Icon to show on the anchor.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: block.properties.iconTheme
+          type: radio_button_input
+          defaultValue: outlined
+          label:
+            title: iconTheme
+            extra: The theme variant of the icon.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - filled
+              - outlined
+              - twoTone
+        - name: block.properties.iconTwoToneColor
+          type: text_input
+          visible:
+            _mql_test:
+              block.properties.iconTheme: twoTone
+          label:
+            title: iconTwoToneColor
+            extra: Primary color of the twoTone icon.
+            labelSpan: 6
+          properties:
+            size: small
+        - name: iconStyle_input
+          type: text_input
+          defaultValue: '{}'
+          box:
+            width: 22
+          label:
+            title: iconStyle
+            extra: Icon CSS style properties. Should be in JSON format.
+            labelSpan: 4
+          properties:
+            rows: 5
+            size: small
+        - name: apply_iconStyle_button
+          type: button
+          box:
+            width: 2
+          label:
+            title: ""
+          properties:
+            block: false
+            shape: circle
+            icon: reload
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties.iconStyle:
+                    _parse:
+                      _state: iconStyle_input
+        - name: block.properties.strong
+          type: switch_input
+          defaultValue: false
+          label:
+            title: strong
+            extra: Makes the text bold when true.
+            labelSpan: 4
+          properties:
+            size: small
+        - name: style_input
+          type: text_input
+          defaultValue: '{}'
+          box:
+            width: 22
+          label:
+            title: style
+            extra: CSS style properties. Should be in JSON format.
+            labelSpan: 4
+          properties:
+            rows: 5
+            size: small
+        - name: apply_style_button
+          type: button
+          box:
+            width: 2
+          label:
+            title: ""
+          properties:
+            block: false
+            shape: circle
+            icon: reload
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties.style:
+                    _parse:
+                      _state: style_input
+
+      available_actions_description: |
+        ###### onClick
+        Triggered when the button is clicked.
