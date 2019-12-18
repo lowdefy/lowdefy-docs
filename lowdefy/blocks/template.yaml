@@ -27,7 +27,7 @@
             title: Block
           properties:
             size: small
-          blocks:           
+          blocks:
             - name: s2
               type: column
               box:
@@ -61,7 +61,7 @@
                     template: |
                       ```json
                       {
-                        "block_name": {{ value }}
+                        "block_name": {{ value | safe }}
                       }
                       ```
                     on:
@@ -118,5 +118,4 @@
           type: markdown
           properties:
             content:
-              _var:
-                available_actions_description
+              _var: available_actions_description
