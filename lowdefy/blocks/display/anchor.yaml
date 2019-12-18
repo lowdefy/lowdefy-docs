@@ -14,7 +14,7 @@ blocks:
         _ref:
           blocks/title_label.yaml
       properties_form:
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -23,7 +23,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.icon
+        - id: block.properties.icon
           type: text_input
           label:
             title: icon
@@ -31,7 +31,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.iconTheme
+        - id: block.properties.iconTheme
           type: radio_button_input
           defaultValue: outlined
           label:
@@ -44,7 +44,7 @@ blocks:
               - filled
               - outlined
               - twoTone
-        - name: block.properties.iconTwoToneColor
+        - id: block.properties.iconTwoToneColor
           type: text_input
           visible:
             _mql_test:
@@ -55,7 +55,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: iconStyle_input
+        - id: iconStyle_input
           type: text_input
           defaultValue: '{}'
           box:
@@ -67,7 +67,7 @@ blocks:
           properties:
             rows: 5
             size: small
-        - name: apply_iconStyle_button
+        - id: apply_iconStyle_button
           type: button
           box:
             width: 2
@@ -84,7 +84,7 @@ blocks:
                   block.properties.iconStyle:
                     _parse:
                       _state: iconStyle_input
-        - name: block.properties.strong
+        - id: block.properties.strong
           type: switch_input
           defaultValue: false
           label:
@@ -93,7 +93,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: style_input
+        - id: style_input
           type: text_input
           defaultValue: '{}'
           box:
@@ -105,7 +105,7 @@ blocks:
           properties:
             rows: 5
             size: small
-        - name: apply_style_button
+        - id: apply_style_button
           type: button
           box:
             width: 2

@@ -2,115 +2,115 @@ layout:
   menu:
     type: primary_side_menu
     links:
-      - name: concepts
+      - id: concepts
         type: menu_group
         properties:
           title: Concepts
           icon: bulb
         links:
-          - name: operators
+          - id: operators
             type: menu_link
             pageId: operators
             properties:
               title: Operators
-      - name: blocks_input
+      - id: blocks_input
         type: menu_group
         properties:
           title: Input Blocks
           icon: form
         links:
-          - name: text_input
+          - id: text_input
             type: menu_link
             pageId: text_input
             properties:
               title: Text
-          - name: number_input
+          - id: number_input
             type: menu_link
             pageId: number_input
             properties:
               title: Number
-          - name: switch_input
+          - id: switch_input
             type: menu_link
             pageId: switch_input
             properties:
               title: Switch
-          - name: slider_input
+          - id: slider_input
             type: menu_link
             pageId: slider_input
             properties:
               title: Slider
-          - name: checkbox_input
+          - id: checkbox_input
             type: menu_link
             pageId: checkbox_input
             properties:
               title: Checkbox
-          - name: select_input
+          - id: select_input
             type: menu_link
             pageId: select_input
             properties:
               title: Select
-          - name: multiple_select_input
+          - id: multiple_select_input
             type: menu_link
             pageId: multiple_select_input
             properties:
               title: Multiple Select
-          - name: radio_input
+          - id: radio_input
             type: menu_link
             pageId: radio_input
             properties:
               title: Radio
-          - name: radio_button_input
+          - id: radio_button_input
             type: menu_link
             pageId: radio_button_input
             properties:
               title: Radio Button
-          - name: date_input
+          - id: date_input
             type: menu_link
             pageId: date_input
             properties:
               title: Date
-          - name: date_time_input
+          - id: date_time_input
             type: menu_link
             pageId: date_time_input
             properties:
               title: Date Time
-          - name: week_input
+          - id: week_input
             type: menu_link
             pageId: week_input
             properties:
               title: Week
-          - name: month_input
+          - id: month_input
             type: menu_link
             pageId: month_input
             properties:
               title: Month
-          - name: date_range_input
+          - id: date_range_input
             type: menu_link
             pageId: date_range_input
             properties:
               title: Date Range
-      - name: blocks_display
+      - id: blocks_display
         type: menu_group
         properties:
           title: Display Blocks
           icon: picture
         links:
-          - name: statistic
+          - id: statistic
             type: menu_link
             pageId: statistic
             properties:
               title: Statistic
-          - name: amcharts_4_xy
+          - id: amcharts_4_xy
             type: menu_link
             pageId: amcharts_4_xy
             properties:
               title: amCharts 4 XY
-          - name: button
+          - id: button
             type: menu_link
             pageId: page10
             properties:
               title: Button
-          - name: anchor
+          - id: anchor
             type: menu_link
             pageId: page9
             properties:

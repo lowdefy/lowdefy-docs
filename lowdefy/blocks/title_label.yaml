@@ -1,8 +1,8 @@
-- name: block.label.title
+- id: block.label.title
   type: text_input
   label:
     title: title
-    extra: Title to describe the input component, if no label is specified the lowdefy_path_name is displayed.
+    extra: Title to describe the input component.
     labelSpan: 4
   properties:
     size: small

@@ -14,7 +14,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-        - name: block.properties.autoFocus
+        - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           label:
@@ -23,7 +23,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -32,7 +32,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.disableIcons
+        - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
           label:
@@ -41,7 +41,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.iconMin
+        - id: block.properties.iconMin
           type: text_input
           defaultValue: frown-o
           label:
@@ -50,7 +50,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.iconMax
+        - id: block.properties.iconMax
           type: text_input
           defaultValue: smile-o
           label:
@@ -59,7 +59,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.min
+        - id: block.properties.min
           type: number_input
           defaultValue: 0
           label:
@@ -68,7 +68,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.max
+        - id: block.properties.max
           type: number_input
           defaultValue: 10
           label:
@@ -77,7 +77,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.notApplicableLabel
+        - id: block.properties.notApplicableLabel
           type: text_input
           defaultValue: N/A
           label:
@@ -86,7 +86,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.showDots
+        - id: block.properties.showDots
           type: switch_input
           defaultValue: true
           label:
@@ -95,7 +95,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.showMarks
+        - id: block.properties.showMarks
           type: switch_input
           defaultValue: true
           label:
@@ -104,7 +104,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.step
+        - id: block.properties.step
           type: number_input
           defaultValue: 1
           label:
@@ -113,7 +113,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.tooltipVisible
+        - id: block.properties.tooltipVisible
           type: radio_button_input
           defaultValue: onClick
           label:

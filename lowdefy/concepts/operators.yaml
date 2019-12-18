@@ -1,9 +1,9 @@
 id: operators
 blocks:
-  - name: card
+  - id: card
     type: card
     blocks:
-      - name: markdown
+      - id: markdown
         type: markdown
         properties:
           content: |
@@ -31,11 +31,11 @@ blocks:
               "type": "page",
               "blocks": [
                 {
-                  "name": "block_1",
+                  "id": "block_1",
                   "type": "text_input"
                 },
                 {
-                  "name": "block_2",
+                  "id": "block_2",
                   "type": "text_input",
                   "properties": {
                     "placeholder": { "_state": "block_1" }
@@ -50,10 +50,10 @@ blocks:
             type: page
             blocks:
             - 
-              name: block_1
+              id: block_1
               type: text_input
             - 
-              name: block_2
+              id: block_2
               type: text_input
               properties:
                 placeholder:
@@ -70,7 +70,7 @@ blocks:
               "type": "page",
               "blocks": [
                 {
-                  "name": "select_value",
+                  "id": "select_value",
                   "type": "select_input",
                   "properties": {
                     "options": [
@@ -82,7 +82,7 @@ blocks:
               ],
               "requests": [
                 {
-                  "name": "query_on_value",
+                  "id": "query_on_value",
                   "type": "mongodb_query",
                   "connectionId": "my_mongodb_collection",
                   "watch": [
@@ -101,7 +101,7 @@ blocks:
             type: page
             blocks:
             - 
-              name: select_value
+              id: select_value
               type: select_input
               properties:
                 options:
@@ -109,7 +109,7 @@ blocks:
                 - B
             requests:
             - 
-              name: query_on_value
+              id: query_on_value
               type: mongodb_query
               connectionId: my_mongodb_collection
               watch:
@@ -127,7 +127,7 @@ blocks:
             <!--JSON-->
             ```json5
             {
-              "name": "select_date",
+              "id": "select_date",
               "type": "date_input",
               "properties": {
                 "defaultValue": { "_date": "now" }
@@ -136,7 +136,7 @@ blocks:
             ```
             <!--YAML-->
             ```yaml
-            name: select_date
+            id: select_date
             type: date_input
             properties:
               default:

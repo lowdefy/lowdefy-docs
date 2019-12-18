@@ -14,7 +14,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-        - name: block.properties.autoFocus
+        - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           label:
@@ -23,7 +23,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.checkedIcon
+        - id: block.properties.checkedIcon
           type: text_input
           label:
             title: checkedIcon
@@ -31,7 +31,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -40,7 +40,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.disableIcons
+        - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
           label:
@@ -49,7 +49,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.size
+        - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           label:
@@ -61,7 +61,7 @@ blocks:
             options:
               - small
               - default
-        - name: block.properties.uncheckedIcon
+        - id: block.properties.uncheckedIcon
           type: text_input
           label:
             title: uncheckedIcon
