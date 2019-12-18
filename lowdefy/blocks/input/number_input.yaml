@@ -23,6 +23,14 @@ blocks:
             labelSpan: 4
           properties:
             size: small
+        - name: block.properties.decimalSeparator
+          type: text_input
+          label:
+            title: decimalSeparator
+            extra: Decimal separator.
+            labelSpan: 4
+          properties:
+            size: small
         - name: block.properties.disabled
           type: switch_input
           defaultValue: false
