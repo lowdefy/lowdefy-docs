@@ -1,0 +1,23 @@
+[
+  {
+    "$addFields": {
+      "week": {
+        "$dateFromParts": {
+          "isoWeekYear": { "$isoWeekYear": "$capture_date" },
+          "isoWeek": { "$isoWeek": "$capture_date" }
+        }
+      }
+    }
+  },
+  {
+    "$group": {
+      "_id": {"_state": "group_by"},
+      "sales": { "$sum": "$sales" }
+    }
+  },
+  {
+    "$sort": {
+      "week": 1
+    }
+  }
+]
