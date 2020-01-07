@@ -22,7 +22,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-        - name: block.properties.allowClear
+        - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           label:
@@ -31,7 +31,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.autoFocus
+        - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           label:
@@ -40,7 +40,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small 
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -49,7 +49,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.format
+        - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD
           label:
@@ -58,7 +58,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.placeholder
+        - id: block.properties.placeholder
           type: list
           required: true
           label:
@@ -67,13 +67,13 @@ blocks:
             hideAddButton: true
             hideRemoveButton: true
           blocks:
-            - name: block.properties.placeholder.$
+            - id: block.properties.placeholder.$
               type: text_input
               label:
                 extra: Placeholder text inside the block before user types input.
               properties:
                 size: small
-        - name: block.properties.separator
+        - id: block.properties.separator
           type: text_input
           defaultValue: "~"
           label:
@@ -82,7 +82,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.size
+        - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           label:
@@ -95,7 +95,7 @@ blocks:
               - small
               - default
               - large
-        - name: block.properties.suffixIcon
+        - id: block.properties.suffixIcon
           type: text_input
           defaultValue: calendar
           label:

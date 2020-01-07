@@ -3,7 +3,7 @@ properties:
   title: Multiple Select
 blocks:
   _ref:
-    path: blocks/template.yaml
+    path: blocks/options_template.yaml
     vars:
       block_name: Multiple Select Input
       description_content: |
@@ -16,7 +16,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-        - name: block.properties.allowClear
+        - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           label:
@@ -25,7 +25,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.autoFocus
+        - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           label:
@@ -34,7 +34,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.clearIcon
+        - id: block.properties.clearIcon
           type: text_input
           defaultValue: close-circle
           label:
@@ -43,7 +43,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -52,10 +52,10 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: select_options_type_card
+        - id: select_options_type_card
           type: card
           blocks:
-            - name: select_options_type
+            - id: select_options_type
               type: radio_button_input
               label:
                 title: Options Type
@@ -66,13 +66,13 @@ blocks:
                 options:
                   - Primitive
                   - Label Value
-        - name: block.properties.options
+        - id: block.properties.options
           type: list
           required: true
           label:
             title: options
           blocks:
-            - name: block.properties.options.$
+            - id: block.properties.options.$.primitive
               type: text_input
               defaultValue: Option
               visible:
@@ -80,7 +80,7 @@ blocks:
                   select_options_type: Primitive
               properties:
                 size: small
-            - name: block.properties.options.$.label
+            - id: block.properties.options.$.label
               type: text_input
               defaultValue: Label
               label:
@@ -92,7 +92,7 @@ blocks:
                   select_options_type: Label Value
               properties:
                 size: small
-            - name: block.properties.options.$.value
+            - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
               label:
@@ -104,7 +104,7 @@ blocks:
                   select_options_type: Label Value
               properties:
                 size: small
-            - name: block.properties.options.$.disabled
+            - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
               label:
@@ -116,7 +116,7 @@ blocks:
                   select_options_type: Label Value
               properties:
                 size: small
-        - name: block.properties.placeholder
+        - id: block.properties.placeholder
           type: text_input
           defaultValue: Select items
           label:
@@ -125,7 +125,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.selectedIcon
+        - id: block.properties.selectedIcon
           type: text_input
           defaultValue: check
           label:
@@ -134,7 +134,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.showArrow
+        - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
           label:
@@ -143,7 +143,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.size
+        - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           label:
@@ -156,7 +156,7 @@ blocks:
               - small
               - default
               - large
-        - name: block.properties.suffixIcon
+        - id: block.properties.suffixIcon
           type: text_input
           defaultValue: down
           label:
@@ -165,3 +165,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.

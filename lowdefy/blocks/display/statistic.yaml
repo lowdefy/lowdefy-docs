@@ -14,10 +14,10 @@ blocks:
         _ref:
           blocks/title_label.yaml
       properties_form:
-        - name: select_value_type_card
+        - id: select_value_type_card
           type: card
           blocks:
-            - name: select_value_type
+            - id: select_value_type
               type: radio_button_input
               label:
                 title: value Type
@@ -28,7 +28,8 @@ blocks:
                 options:
                   - Number
                   - String
-        - name: block.properties.value_n
+        - id: value_number
+          field: block.properties.value
           type: number_input
           label:
             title: value
@@ -39,12 +40,8 @@ blocks:
               select_value_type: Number
           properties:
             size: small
-          actions:
-            onChange:
-              - set():
-                  block.properties.value:
-                    _state: block.properties.value_n
-        - name: block.properties.value_t
+        - id: value_text
+          field: block.properties.value
           type: text_input
           label:
             title: value
@@ -55,12 +52,7 @@ blocks:
               select_value_type: String
           properties:
             size: small
-          actions:
-            onChange:
-              - set():
-                  block.properties.value:
-                    _state: block.properties.value_t
-        - name: block.properties.decimalSeparator
+        - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
           label:
@@ -69,7 +61,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.formatter.type
+        - id: block.properties.formatter.type
           type: select_input
           defaultValue: default
           label:
@@ -82,7 +74,7 @@ blocks:
               - default
               - date
               - humanizeDuration
-        - name: block.properties.formatter.properties.format
+        - id: block.properties.formatter.properties.format
           type: text_input
           label:
             title: formatter.properties.format
@@ -97,7 +89,7 @@ blocks:
               - default
               - date
               - humanizeDuration
-        - name: block.properties.groupSeparator
+        - id: block.properties.groupSeparator
           type: text_input
           defaultValue: ","
           label:
@@ -106,7 +98,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.precision
+        - id: block.properties.precision
           type: number_input
           defaultValue: 2
           label:
@@ -115,7 +107,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.prefix
+        - id: block.properties.prefix
           type: text_input
           label:
             title: prefix
@@ -123,7 +115,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.prefixIcon
+        - id: block.properties.prefixIcon
           type: text_input
           label:
             title: prefixIcon
@@ -131,7 +123,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.suffix
+        - id: block.properties.suffix
           type: text_input
           label:
             title: suffix
@@ -139,7 +131,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: block.properties.suffixIcon
+        - id: block.properties.suffixIcon
           type: text_input
           label:
             title: suffixIcon
@@ -147,7 +139,7 @@ blocks:
             labelSpan: 6
           properties:
             size: small
-        - name: valueStyle_input
+        - id: valueStyle_input
           type: text_input
           box:
             width: 22
@@ -158,7 +150,7 @@ blocks:
           properties:
             rows: 5
             size: small
-        - name: apply_valueStyle_button
+        - id: apply_valueStyle_button
           type: button
           box:
             width: 2
@@ -181,7 +173,7 @@ blocks:
         #### JSON
         ```json
         {
-          "name": "block_name",
+          "id": "block_name",
           "type": "multiple_select_input",
           "label": {
             "title": "{{ block.label.title }}",

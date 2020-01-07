@@ -45,7 +45,24 @@
                   label:
                     _state: block.label
                   properties:
-                    _state: block.properties
+                    _if:
+                      test:
+                        _eq:
+                          - _state: select_options_type
+                          - Primitive
+                      then:
+                        _get:
+                          key: '0'
+                          on:
+                            _mql_aggregate:
+                              pipeline:
+                                - $addFields:
+                                    options: $options.primitive
+                              on:
+                                - _state: block.properties
+                      else:
+                        _state: block.properties
+                        
         - id: state_card
           type: card
           label:
@@ -119,13 +136,3 @@
           properties:
             content:
               _var: available_actions_description
-    - id: examples_card
-      type: card
-      label:
-        title: Examples
-      properties:
-        size: small
-      blocks:
-        _var: examples
-
-      

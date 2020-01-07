@@ -14,7 +14,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-        - name: block.properties.autoFocus
+        - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           label:
@@ -23,7 +23,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.decimalSeparator
+        - id: block.properties.decimalSeparator
           type: text_input
           label:
             title: decimalSeparator
@@ -31,7 +31,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -40,7 +40,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.min
+        - id: block.properties.min
           type: number_input
           label:
             title: min
@@ -48,7 +48,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.max
+        - id: block.properties.max
           type: number_input
           label:
             title: max
@@ -56,7 +56,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.placeholder
+        - id: block.properties.placeholder
           type: text_input
           label:
             title: placeholder
@@ -64,7 +64,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.precision
+        - id: block.properties.precision
           type: number_input
           defaultValue: 0
           label:
@@ -74,7 +74,7 @@ blocks:
           properties:
             size: small
             max: 100
-        - name: block.properties.size
+        - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           label:
@@ -87,7 +87,7 @@ blocks:
               - small
               - default
               - large
-        - name: block.properties.step
+        - id: block.properties.step
           type: number_input
           defaultValue: 1
           label:

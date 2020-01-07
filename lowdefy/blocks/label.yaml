@@ -1,4 +1,4 @@
-- name: block.label.colon
+- id: block.label.colon
   type: switch_input
   defaultValue: true
   label:
@@ -7,7 +7,7 @@
     labelSpan: 4
   properties:
     size: small
-- name: block.label.extra
+- id: block.label.extra
   type: text_input
   label:
     title: extra
@@ -15,7 +15,7 @@
     labelSpan: 4
   properties:
     size: small
-- name: block.label.labelSpan
+- id: block.label.labelSpan
   type: number_input
   label:
     title: labelSpan
@@ -23,7 +23,7 @@
     labelSpan: 4
   properties:
     size: small
-- name: block.label.title
+- id: block.label.title
   type: text_input
   label:
     title: title

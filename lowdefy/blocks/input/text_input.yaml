@@ -14,7 +14,7 @@ blocks:
         _ref:
           blocks/label.yaml
       properties_form:
-        - name: block.properties.allowClear
+        - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           label:
@@ -23,7 +23,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.autoFocus
+        - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           label:
@@ -32,10 +32,10 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: select_autoRows_type_card
+        - id: select_autoRows_type_card
           type: card
           blocks:
-            - name: select_autoRows_type
+            - id: select_autoRows_type
               type: radio_button_input
               label:
                 title: autoRows Type
@@ -46,7 +46,7 @@ blocks:
                 options:
                   - Boolean
                   - Object
-        - name: block.properties.autoRows
+        - id: block.properties.autoRows
           type: switch_input
           label:
             title: autoRows
@@ -58,7 +58,7 @@ blocks:
               select_autoRows_type: Boolean
           properties:
             size: small
-        - name: block.properties.autoRows.minRows
+        - id: block.properties.autoRows.minRows
           type: number_input
           label:
             title: autoRows.minRows
@@ -69,7 +69,7 @@ blocks:
               select_autoRows_type: Object
           properties:
             size: small
-        - name: block.properties.autoRows.maxRows
+        - id: block.properties.autoRows.maxRows
           type: number_input
           label:
             title: autoRows.maxRows
@@ -80,7 +80,7 @@ blocks:
               select_autoRows_type: Object
           properties:
             size: small
-        - name: block.properties.disabled
+        - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           label:
@@ -89,7 +89,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.placeholder
+        - id: block.properties.placeholder
           type: text_input
           label:
             title: placeholder
@@ -97,7 +97,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.prefix
+        - id: block.properties.prefix
           type: text_input
           label:
             title: prefix
@@ -105,7 +105,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.prefixIcon
+        - id: block.properties.prefixIcon
           type: text_input
           label:
             title: prefixIcon
@@ -113,7 +113,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.rows
+        - id: block.properties.rows
           type: number_input
           label:
             title: rows
@@ -121,7 +121,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.size
+        - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           label:
@@ -134,7 +134,7 @@ blocks:
               - small
               - default
               - large
-        - name: block.properties.suffix
+        - id: block.properties.suffix
           type: text_input
           label:
             title: suffix
@@ -142,7 +142,7 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - name: block.properties.suffixIcon
+        - id: block.properties.suffixIcon
           type: text_input
           label:
             title: suffixIcon
@@ -150,6 +150,154 @@ blocks:
             labelSpan: 4
           properties:
             size: small
+      examples:
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: text_input
+              box:
+                width: 12
+              label:
+                title: Text input
+            - id: example_1_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "text_input",
+                    "label": {
+                      "title": "Text input"
+                    }
+                  }
+                  ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: text_input
+              box:
+                width: 12
+              label:
+                title: Auto Rows
+              properties:
+                autoRows: true
+            - id: example_2_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "text_input",
+                    "label": {
+                      "title": "Auto Rows"
+                    },
+                    "properties": {
+                      "autoRows": true
+                    }
+
+                  }
+                  ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: text_input
+              box:
+                width: 12
+              properties:
+                placeholder: Placeholder
+            - id: example_3_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "text_input",
+                    "properties": {
+                      "placeholder": "Placeholder"
+                    }
+
+                  }
+                  ```
+        - id: example_4_card
+          type: card
+          blocks:
+            - id: example_4
+              type: text_input
+              box:
+                width: 12
+              label:
+                extra: Prefix and suffix text
+              properties:
+                prefix: The cat
+                suffix: the rat.
+                placeholder: chased
+            - id: example_4_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_4",
+                    "type": "text_input",
+                    "label": {
+                      "extra": "Prefix and suffix text"
+                    },
+                    "properties": {
+                      "prefix": "The cat",
+                      "suffix": "the rat.",
+                      "placeholder": "chased"
+                    }
+
+                  }
+                  ```
+        - id: example_5_card
+          type: card
+          blocks:
+            - id: example_5
+              type: text_input
+              box:
+                width: 12
+              label:
+                title: First Name
+                labelSpan: 5
+              properties:
+                suffixIcon: user
+                placeholder: Your name
+            - id: example_5_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_5",
+                    "type": "text_input",
+                    "label": {
+                      "title": "First Name"
+                    },
+                    "properties": {
+                      "suffixIcon": "user",
+                      "placeholder": "Your name"
+                    }
+
+                  }
+                  ```
+
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.

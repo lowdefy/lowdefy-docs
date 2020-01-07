@@ -1,7 +1,7 @@
-- name: card_display
+- id: card_display
   type: card
   blocks:
-    - name: title
+    - id: title
       type: markdown
       properties:
         content:
@@ -11,35 +11,35 @@
               title:
                 _var: block_name
 
-    - name: description
+    - id: description
       type: markdown
       properties:
         content:
           _var: description_content
-    - name: block_card
+    - id: block_card
       type: card
       box:
         width: 14
       blocks:
-        - name: block_name
+        - id: block_name
           type:
             _var: block_type
           visible:
             _state: block.visible
           properties:
             _state: block.properties
-    - name: settings_card
+    - id: settings_card
       type: card
       box:
         width: 10
       blocks:
-        - name: properties_input
+        - id: properties_input
           type: text_input
           label:
             title: properties
           properties:
             rows: 30
-        - name: apply_properties_button
+        - id: apply_properties_button
           type: button
           label:
             title: "Apply"
