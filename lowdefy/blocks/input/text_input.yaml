@@ -194,11 +194,11 @@ blocks:
                 content: |
                   ```json
                   {
-                    "id": "example_1",
+                    "id": "example_2",
                     "type": "text_input",
                     "label": {
                       "title": "Auto Rows"
-                    }
+                    },
                     "properties": {
                       "autoRows": true
                     }
@@ -222,7 +222,7 @@ blocks:
                 content: |
                   ```json
                   {
-                    "id": "example_1",
+                    "id": "example_3",
                     "type": "text_input",
                     "properties": {
                       "placeholder": "Placeholder"
@@ -237,8 +237,12 @@ blocks:
               type: text_input
               box:
                 width: 12
+              label:
+                extra: Prefix and suffix text
               properties:
-                : Placeholder
+                prefix: The cat
+                suffix: the rat.
+                placeholder: chased
             - id: example_4_code
               type: markdown
               box:
@@ -247,10 +251,48 @@ blocks:
                 content: |
                   ```json
                   {
-                    "id": "example_1",
+                    "id": "example_4",
                     "type": "text_input",
+                    "label": {
+                      "extra": "Prefix and suffix text"
+                    },
                     "properties": {
-                      "placeholder": "Placeholder"
+                      "prefix": "The cat",
+                      "suffix": "the rat.",
+                      "placeholder": "chased"
+                    }
+
+                  }
+                  ```
+        - id: example_5_card
+          type: card
+          blocks:
+            - id: example_5
+              type: text_input
+              box:
+                width: 12
+              label:
+                title: First Name
+                labelSpan: 5
+              properties:
+                suffixIcon: user
+                placeholder: Your name
+            - id: example_5_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_5",
+                    "type": "text_input",
+                    "label": {
+                      "title": "First Name"
+                    },
+                    "properties": {
+                      "suffixIcon": "user",
+                      "placeholder": "Your name"
                     }
 
                   }
