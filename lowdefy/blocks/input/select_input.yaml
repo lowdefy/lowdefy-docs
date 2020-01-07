@@ -3,7 +3,7 @@ properties:
   title: Select
 blocks:
   _ref:
-    path: blocks/template.yaml
+    path: blocks/options_template.yaml
     vars:
       block_name: Select Input
       description_content: |
@@ -72,7 +72,7 @@ blocks:
           label:
             title: options
           blocks:
-            - id: block.properties.options.$
+            - id: block.properties.options.$.primitive
               type: text_input
               defaultValue: Option
               visible:
