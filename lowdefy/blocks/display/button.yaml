@@ -16,7 +16,7 @@ blocks:
       properties_form:
         - id: block.properties.block
           type: switch_input
-          defaultValue: false
+          defaultValue: true
           label:
             title: block
             extra: Fit the button's width to its parent container width.
