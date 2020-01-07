@@ -150,6 +150,112 @@ blocks:
             labelSpan: 4
           properties:
             size: small
+      examples:
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: text_input
+              box:
+                width: 12
+              label:
+                title: Text input
+            - id: example_1_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "text_input",
+                    "label": {
+                      "title": "Text input"
+                    }
+                  }
+                  ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: text_input
+              box:
+                width: 12
+              label:
+                title: Auto Rows
+              properties:
+                autoRows: true
+            - id: example_2_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "text_input",
+                    "label": {
+                      "title": "Auto Rows"
+                    }
+                    "properties": {
+                      "autoRows": true
+                    }
+
+                  }
+                  ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: text_input
+              box:
+                width: 12
+              properties:
+                placeholder: Placeholder
+            - id: example_3_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "text_input",
+                    "properties": {
+                      "placeholder": "Placeholder"
+                    }
+
+                  }
+                  ```
+        - id: example_4_card
+          type: card
+          blocks:
+            - id: example_4
+              type: text_input
+              box:
+                width: 12
+              properties:
+                : Placeholder
+            - id: example_4_code
+              type: markdown
+              box:
+                width: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "text_input",
+                    "properties": {
+                      "placeholder": "Placeholder"
+                    }
+
+                  }
+                  ```
+
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.

@@ -119,3 +119,13 @@
           properties:
             content:
               _var: available_actions_description
+    - id: examples_card
+      type: card
+      label:
+        title: Examples
+      properties:
+        size: small
+      blocks:
+        _var: examples
+
+      
