@@ -28,7 +28,8 @@ blocks:
                 options:
                   - Number
                   - String
-        - id: block.properties.value_n
+        - id: value_number
+          field: block.properties.value
           type: number_input
           label:
             title: value
@@ -39,12 +40,8 @@ blocks:
               select_value_type: Number
           properties:
             size: small
-          actions:
-            onChange:
-              - set():
-                  block.properties.value:
-                    _state: block.properties.value_n
-        - id: block.properties.value_t
+        - id: value_text
+          field: block.properties.value
           type: text_input
           label:
             title: value
@@ -55,11 +52,6 @@ blocks:
               select_value_type: String
           properties:
             size: small
-          actions:
-            onChange:
-              - set():
-                  block.properties.value:
-                    _state: block.properties.value_t
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
