@@ -1,4 +1,6 @@
 id: operators
+properties:
+  title: Operators
 blocks:
   - id: card
     type: card
@@ -7,7 +9,7 @@ blocks:
         type: markdown
         properties:
           content: |
-            ### Operators
+            # Operators
 
             Operators can be used to perform actions like get a value from `state` or the current user, define a date, test a condition, calculate a value, perform transformations on data or substitute values into a template.
 
@@ -16,11 +18,11 @@ blocks:
 
             Operators are evaluated from the most nested properties of the object (from the inside out). 
 
-            ## Examples
+            ### Examples
 
-            ### Get a Value From State
+            #### Get a Value From State
 
-            The `_state` operator gets a value from the page [`state`](state.md). 
+            The `_state` operator gets a value from the page [`state`](state). 
 
             This can be used to make a text box where the placeholder text is equal to the value of another text box.
             <!--DOCUSAURUS_CODE_TABS-->
@@ -120,7 +122,7 @@ blocks:
             <!--END_DOCUSAURUS_CODE_TABS-->
 
 
-            ### Dates
+            #### Dates
 
             The `_date` operator can be used to create _Date_ objects. For example, the default value of a `date_input` block can be made the current date.
             <!--DOCUSAURUS_CODE_TABS-->
@@ -145,7 +147,7 @@ blocks:
             <!--END_DOCUSAURUS_CODE_TABS-->
 
 
-            ## Defined Operators
+            ### Defined Operators
 
             - `_state`: Get a value from the page state.
             - `_user`: Get a attribute from the current user.

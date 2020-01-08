@@ -2,12 +2,78 @@ layout:
   menu:
     type: primary_side_menu
     links:
+      - id: start
+        type: menu_group
+        properties:
+          title: Getting Started
+          icon: rocket
+        links:
+          - id: introduction
+            type: menu_link
+            pageId: introduction
+            properties:
+              title: Introduction
+          - id: quick-start
+            type: menu_link
+            pageId: quick-start
+            properties:
+              title: Quick Start
+          - id: how-it-works
+            type: menu_link
+            pageId: how-it-works
+            properties:
+              title: How It Works
       - id: concepts
         type: menu_group
         properties:
           title: Concepts
           icon: bulb
         links:
+          - id: lowdefy-file
+            type: menu_link
+            pageId: lowdefy-file
+            properties:
+              title: Lowdefy Configuration File
+          - id: references
+            type: menu_link
+            pageId: references
+            properties:
+              title: References
+          - id: groups
+            type: menu_link
+            pageId: groups
+            properties:
+              title: Groups and Roles
+          - id: layout
+            type: menu_link
+            pageId: layout
+            properties:
+              title: Layout and Menu
+          - id: pages
+            type: menu_link
+            pageId: pages
+            properties:
+              title: Pages
+          - id: blocks
+            type: menu_link
+            pageId: blocks
+            properties:
+              title: Blocks
+          - id: state
+            type: menu_link
+            pageId: state
+            properties:
+              title: State
+          - id: connections
+            type: menu_link
+            pageId: connections
+            properties:
+              title: Connections
+          - id: requests-mutations
+            type: menu_link
+            pageId: requests-mutations
+            properties:
+              title: Requests and Mutations
           - id: operators
             type: menu_link
             pageId: operators
@@ -117,6 +183,18 @@ layout:
               title: Anchor
 
 pages:
+  - _ref: start/introduction.yaml
+  - _ref: start/quick-start.yaml
+  - _ref: start/how-it-works.yaml
+  - _ref: concepts/blocks.yaml
+  - _ref: concepts/connections.yaml
+  - _ref: concepts/groups.yaml
+  - _ref: concepts/layout.yaml
+  - _ref: concepts/lowdefy-file.yaml
+  - _ref: concepts/pages.yaml
+  - _ref: concepts/references.yaml
+  - _ref: concepts/requests-mutations.yaml
+  - _ref: concepts/state.yaml
   - _ref: concepts/operators.yaml
   - _ref: blocks/input/text_input.yaml
   - _ref: blocks/input/number_input.yaml
@@ -136,3 +214,4 @@ pages:
   - _ref: blocks/display/amcharts_4_xy.yaml
   - _ref: blocks/display/button.yaml
   - _ref: blocks/display/anchor.yaml
+  - _ref: page1.yaml
