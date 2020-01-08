@@ -1,0 +1,166 @@
+id: requests-mutations
+properties:
+  title: Requests and Mutations
+blocks:
+  - id: card
+    type: card
+    blocks:
+      - id: markdown
+        type: markdown
+        properties:
+          content: |
+            # Requests and Mutations
+          
+            You can set up interactions with external services in your Lowdefy app using requests and mutations.
+
+            Requests are used to load data from an external service. They are executed when a page is loaded, and can be executed again when the page state changes.
+
+            Requests can be called at any field in a blocks properties using the [`_request`](operators/request.md). The response from the request will be populated into the field where the request was reference. The response from a request can be further transformed using operators like [`_mql_aggregate`](operators/request.md). Requests are defined in the requests section of a [page](concepts/pages.md).
+
+
+            Mutations are used to modify data on external service, like to insert a new entry into a database. Mutations are executed by a block, as a result of a specific event like a button click or keypress. They are defined in the mutations section of a [page](concepts/pages.md), and referenced using the [`_mutate`](operators/mutate.md) operator.
+
+            Requests are executed in parallel, while mutations are executed in the order they are received.
+            Requests can be defined in the `requests` section of a Lowdefy page. Each request type is linked to a connection, for example a MongoDB query (`mongodb_find`) can only be performed on a `mongodb_collection` connection.
+
+            ## Examples
+
+            Defining requests on a page.
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            {
+              "requests": [
+                {
+                  "name": "save",
+                  "type": "mongodb_insert",
+                  "connectionId": "foo_sales",
+                  "properties": {
+                    "pipeline": [
+                      { "$addFields": {
+                          "capture_date" : { "_date": "now" },
+                          "agent": { "_user": "id" },
+                          "agent_name": { "_user": "fullName" },
+                          "manager": { "_user": "manager" }
+                      } }
+                    ]
+                  }
+
+                },
+                {
+                  "name": "agg_movies_by_year",
+                  "type": "mongodb_aggregation",
+                  "connectionId": "mongodb_mflix_movies",
+                  "properties": {
+                    "pipeline": [
+                      {
+                        "$group": {
+                          "_id": { "$dateFromParts": { "year": { "$year": "$released" } } },
+                          "count": { "$sum": 1 },
+                          "avg_imdb": { "$avg": "$imdb.rating" }
+                        }
+                      },
+                      {
+                        "$addFields": {
+                          "year": "$id"  
+                        }
+                      },
+                      {
+                        "$sort": {
+                          "year": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+                {
+                  "name": "restApiGet",
+                  "type": "https_get",
+                  "connectionId": "api_tmdb",
+                  "properties": {
+                    "headers": {
+                      "x-my-header": "hello"
+                    },
+                    "urlPath": "/movies/id/{_state.movieId}"
+                  }
+                },
+                {
+                  "name": "graphql_post",
+                  "type": "https_post",
+                  "connectionId": "api_tmdb",
+                  "properties": {
+                    "urlPath": "/graphql",
+                    "headers": {
+                      "ContentType": "Application/Json"
+                    },
+                    "body": {
+                      "query": "{ user( id: $user){ id name } }",
+                      "variables": {
+                        "id": { "_state": "userId" }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+            ```
+            <!--YAML-->
+            ```yaml
+            requests:
+              -
+                name: save
+                  type: mongodb_insert
+                  connectionId: foo_sales
+                  properties:
+                    pipeline:
+                    - "$addFields":
+                        capture_date:
+                          _date: now
+                        agent:
+                          _user: id
+                        agent_name:
+                          _user: fullName
+                        manager:
+                          _user: manager
+              -
+                name: agg_movies_by_year
+                type: mongodb_aggregation
+                connectionId: mongodb_mflix_movies
+                properties:
+                  pipeline:
+                  - "$group":
+                      _id:
+                        "$dateFromParts":
+                          year:
+                            "$year": "$released"
+                      count:
+                        "$sum": 1
+                      avg_imdb:
+                        "$avg": "$imdb.rating"
+                  - "$addFields":
+                      year: "$id"
+                  - "$sort":
+                      year: 1
+              -
+              name: restApiGet
+                type: https_get
+                connectionId: api_tmdb
+                properties:
+                  headers:
+                    x-my-header: hello
+                  urlPath: "/movies/id/{_state.movieId}"
+              -
+                name: graphql_post
+                type: https_post
+                connectionId: api_tmdb
+                properties:
+                  urlPath: "/graphql"
+                  headers:
+                    ContentType: Application/Json
+                  body:
+                    query: "{ user( id: $user){ id name } }"
+                    variables:
+                      id:
+                        _state: userId
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->

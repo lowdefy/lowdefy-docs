@@ -1,0 +1,12 @@
+id: blocks
+properties:
+  title: Blocks
+blocks:
+  - id: card
+    type: card
+    blocks:
+      - id: markdown
+        type: markdown
+        properties:
+          content: |
+            # Blocks

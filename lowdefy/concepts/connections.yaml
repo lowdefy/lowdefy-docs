@@ -1,0 +1,157 @@
+id: connections
+properties:
+  title: Connections 
+blocks:
+  - id: card
+    type: card
+    blocks:
+      - id: markdown
+        type: markdown
+        properties:
+          content: |
+            # Connections
+            
+            Lowdefy applications connect to other services like databases and REST APIs using connections, requests and mutations.
+
+            The configuration of a connection to a external service is set up as a connection object in the `connections` section of the deployment `lowdefy.json` file. Here secrets like API keys, and connection information like urls or hostnames are specified.
+
+            [Requests or mutations](requests-mutations.md) work on a connection that is the correct type (a `mongodb_find` request needs a `mongodb_collection` connection), and are specific calls to the external service, like a read or update operation on a database, or an api call for external data.
+
+            ## Connections
+
+            Connections are defined in the `connections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
+
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            // lowdefy.json
+            "connections": [
+              {
+                "id": "lowdefy_id",
+                "type": "connection_type",
+                "properties": {
+                  // connection properties
+                }
+              }
+            ]
+            ```
+            <!--YAML-->
+            ```yaml
+            # lowdefy.yaml
+            connections:
+              -
+                id: lowdefy_id
+                type: connection_type
+                properties:
+                  # connection properties
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->
+
+            ### Connection Secrets
+
+            Connections normally require sensitive secrets like passwords and access keys that should not be openly distributed or committed in repositories. The `"_secret"` operator allows secrets to be accessed from the deployment's secure secret store. These secrets can be managed from the controller application.
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            {
+              "id": "lowdefy_id",
+              "type": "connection_type",
+              "properties": {
+                "password" : { "_secret": "my_secret_id" }
+              }
+            }
+            ```
+            <!--YAML-->
+            ```yaml
+            id: lowdefy_id
+            type: connection_type
+            properties:
+              password:
+                _secret: my_secret_id
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->
+
+
+            ### Connection types
+
+            Currently supported connection types are:
+
+            - HTTP/HTTPS requests [`https`](link)
+            - MongoDB collections [`mongodb_collection`](link)
+
+            ## Examples
+
+            Defining connections
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            {
+              "connections": [
+                {
+                  "id": "mongodb_mflix_comments",
+                  "type": "mongodb_collection",
+                  "properties": {
+                    "databaseURI": { "_secret": "mongodb_mflix_uri" },
+                    "collection": "comments",
+                    "read": true,
+                    "write": true
+                  }
+                },
+                {
+                  "id": "mongodb_mflix_movies",
+                  "type": "mongodb_collection",
+                  "properties": {
+                    "databaseURI": { "_secret": "mongodb_mflix_uri" },
+                    "collection": "movies",
+                    "read": true,
+                    "write": false
+                  }
+                },
+                {
+                  "id": "api_tmdb",
+                  "type": "https",
+                  "properties": {
+                    "headers": {
+                      "Authorization": { "_secret": "tmdb_api_key" }
+                    } ,
+                    "baseUrl": "https://api.themoviedb.org/3",
+                    "allowMethods": ["get", "post"]
+                  }
+                }
+              ]
+            }
+            ```
+            <!--YAML-->
+            ```yaml
+            connections:
+            -
+              id: mongodb_mflix_comments
+              type: mongodb_collection
+              properties:
+                databaseURI:
+                  _secret: mongodb_mflix_uri
+                collection: comments
+                read: true
+                write: true
+            -
+              id: mongodb_mflix_movies
+              type: mongodb_collection
+              properties:
+                databaseURI:
+                  _secret: mongodb_mflix_uri
+                collection: movies
+                read: true
+                write: false
+            -
+              id: api_tmdb
+              type: https
+              properties:
+                headers:
+                  Authorization:
+                    _secret: tmdb_api_key
+                baseUrl: https://api.themoviedb.org/3
+                allowMethods:
+                - get
+                - post
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->
