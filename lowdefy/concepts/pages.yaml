@@ -15,7 +15,7 @@ blocks:
 
             ### Page IDs
 
-            Each page should be given a unique id. This page id should be a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
+            Each page should be given a unique id. This page id should be a valid Lowdefy id, as defined [here](lowdefy-file).
 
             ### Properties
 

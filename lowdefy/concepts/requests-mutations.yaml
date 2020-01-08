@@ -15,10 +15,10 @@ blocks:
 
             Requests are used to load data from an external service. They are executed when a page is loaded, and can be executed again when the page state changes.
 
-            Requests can be called at any field in a blocks properties using the [`_request`](operators/request.md). The response from the request will be populated into the field where the request was reference. The response from a request can be further transformed using operators like [`_mql_aggregate`](operators/request.md). Requests are defined in the requests section of a [page](concepts/pages.md).
+            Requests can be called at any field in a blocks properties using the [`_request`](request) operator. The response from the request will be populated into the field where the request was reference. The response from a request can be further transformed using operators like [`_mql_aggregate`](mql_aggregate). Requests are defined in the requests section of a [page](pages).
 
 
-            Mutations are used to modify data on external service, like to insert a new entry into a database. Mutations are executed by a block, as a result of a specific event like a button click or keypress. They are defined in the mutations section of a [page](concepts/pages.md), and referenced using the [`_mutate`](operators/mutate.md) operator.
+            Mutations are used to modify data on external service, like to insert a new entry into a database. Mutations are executed by a block, as a result of a specific event like a button click or keypress. They are defined in the mutations section of a [page](pages), and referenced using the [`_mutate`](mutate) operator.
 
             Requests are executed in parallel, while mutations are executed in the order they are received.
             Requests can be defined in the `requests` section of a Lowdefy page. Each request type is linked to a connection, for example a MongoDB query (`mongodb_find`) can only be performed on a `mongodb_collection` connection.

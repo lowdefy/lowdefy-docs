@@ -214,3 +214,4 @@ pages:
   - _ref: blocks/display/amcharts_4_xy.yaml
   - _ref: blocks/display/button.yaml
   - _ref: blocks/display/anchor.yaml
+  - _ref: page1.yaml

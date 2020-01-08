@@ -15,11 +15,11 @@ blocks:
 
             The configuration of a connection to a external service is set up as a connection object in the `connections` section of the deployment `lowdefy.json` file. Here secrets like API keys, and connection information like urls or hostnames are specified.
 
-            [Requests or mutations](requests-mutations.md) work on a connection that is the correct type (a `mongodb_find` request needs a `mongodb_collection` connection), and are specific calls to the external service, like a read or update operation on a database, or an api call for external data.
+            [Requests or mutations](requests-mutations) work on a connection that is the correct type (a `mongodb_find` request needs a `mongodb_collection` connection), and are specific calls to the external service, like a read or update operation on a database, or an api call for external data.
 
             ## Connections
 
-            Connections are defined in the `connections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
+            Connections are defined in the `connections` section of the deployment `lowdefy.json` file. Each connection should have a unique connection id, that is a valid Lowdefy id, as defined [here](lowdefy-file).
 
             <!--DOCUSAURUS_CODE_TABS-->
             <!--JSON-->

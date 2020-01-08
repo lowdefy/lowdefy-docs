@@ -29,7 +29,7 @@ blocks:
 
             ### Group IDs
 
-            Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy-file#names-and-ids).
+            Each group should be given a unique id. This group id should be a valid Lowdefy id, as defined [here](lowdefy-file).
 
             ### Example
 

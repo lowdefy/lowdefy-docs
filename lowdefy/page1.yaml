@@ -1,0 +1,22 @@
+id: page1
+blocks:
+  - id: c
+    type: card
+    blocks:
+    - id: disp
+      type: statistic
+      properties:
+        value:
+          _state: field
+    - id: a
+      field: field
+      type: text_input
+    - id: b
+      field: field
+      type: text_input
+    - id: button
+      type: button
+      actions:
+        onClick:
+          - set():
+              field: 9

@@ -22,7 +22,7 @@ blocks:
 
             #### Get a Value From State
 
-            The `_state` operator gets a value from the page [`state`](state.md). 
+            The `_state` operator gets a value from the page [`state`](state). 
 
             This can be used to make a text box where the placeholder text is equal to the value of another text box.
             <!--DOCUSAURUS_CODE_TABS-->
