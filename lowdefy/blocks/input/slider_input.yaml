@@ -83,7 +83,7 @@ blocks:
           label:
             title: notApplicableLabel
             extra: Label shown at the null value of the slider.
-            labelSpan: 4
+            labelSpan: 6
           properties:
             size: small
         - id: block.properties.showDots
