@@ -81,7 +81,7 @@ blocks:
             size: small
         - id: block.properties.secondStep
           type: number_input
-          defaultValue: 5
+          defaultValue: 30
           label:
             title: secondStep
             extra: Second intervals to show in the time selector.
