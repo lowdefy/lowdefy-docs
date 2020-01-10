@@ -1,0 +1,33 @@
+id: page2
+properties:
+  title: Card
+initialState:
+  width_subblock_1: 24
+  visible_subblock_1: true
+  width_subblock_2: 24
+  visible_subblock_2: true
+  width_subblock_3: 12
+  visible_subblock_3: true
+  width_subblock_4: 12
+  visible_subblock_4: true
+  width_subblock_5: 8
+  visible_subblock_5: false
+  width_subblock_6: 16
+  visible_subblock_6: false
+blocks:
+  _ref:
+    path: blocks/container_template.yaml
+    vars:
+      block_name: Card
+      description_content: |
+        A card container.
+      block_type: card
+      label: true
+      label_form:
+        _ref:
+          blocks/title_label.yaml
+      properties_form:
+        - id: no_properties
+          type: markdown
+          properties:
+            content: This block does not have any properties.

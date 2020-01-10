@@ -181,6 +181,22 @@ layout:
             pageId: page9
             properties:
               title: Anchor
+      - id: blocks_container
+        type: menu_group
+        properties:
+          title: Container Blocks
+          icon: container
+        links:
+          - id: card
+            type: menu_link
+            pageId: page2
+            properties:
+              title: Card
+          - id: column
+            type: menu_link
+            pageId: page3
+            properties:
+              title: Column
 
 pages:
   - _ref: start/introduction.yaml
@@ -214,4 +230,6 @@ pages:
   - _ref: blocks/display/amcharts_4_xy.yaml
   - _ref: blocks/display/button.yaml
   - _ref: blocks/display/anchor.yaml
+  - _ref: blocks/container/card.yaml
+  - _ref: blocks/container/column.yaml
   - _ref: page1.yaml
