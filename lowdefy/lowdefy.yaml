@@ -197,6 +197,11 @@ layout:
             pageId: page3
             properties:
               title: Column
+          - id: tabs
+            type: menu_link
+            pageId: page4
+            properties:
+              title: Tabs
 
 pages:
   - _ref: start/introduction.yaml
@@ -232,4 +237,5 @@ pages:
   - _ref: blocks/display/anchor.yaml
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/column.yaml
+  - _ref: blocks/container/tabs.yaml
   - _ref: page1.yaml

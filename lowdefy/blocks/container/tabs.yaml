@@ -1,0 +1,145 @@
+id: page4
+properties:
+  title: Tabs
+initialState:
+  width_subblock_1: 24
+  visible_subblock_1: true
+  width_subblock_2: 12
+  visible_subblock_2: true
+  width_subblock_3: 12
+  visible_subblock_3: true
+  width_subblock_4: 24
+  visible_subblock_4: true
+  width_subblock_5: 8
+  visible_subblock_5: true
+  width_subblock_6: 16
+  visible_subblock_6: true
+  block: 
+    properties:
+      tabs:
+        - key: content1
+          title: content1
+        - key: content2
+          title: content2     
+
+blocks:
+  _ref:
+    path: blocks/container_template_block_object.yaml
+    vars:
+      block_name: Tabs
+      description_content: |
+        A tabs container.
+      block_type: tabs
+      label: true
+      label_form:
+        - id: no_label
+          type: markdown
+          properties:
+            content: This block does not have a label.
+      properties_form:
+        - id: activeKey
+          type: text_input
+          label:
+            title: activeKey
+            extra: Current TabPane's key.
+            labelSpan: 4
+          properties:
+            size: small
+        - id: defaultActiveKey
+          type: text_input
+          defaultValue: content1
+          label:
+            title: defaultActiveKey
+            extra: Initial active TabPane's key, if activeKey is not set.
+            labelSpan: 6
+          properties:
+            size: small
+        - id: animated
+          type: switch_input
+          defaultValue: true
+          label:
+            title: animated
+            extra: 	Whether to change tabs with animation. Only works while tabPosition id top or bottom.
+            labelSpan: 4
+          properties:
+            size: small
+        - id: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          label:
+            title: size
+            extra: Size of the tabs.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - small
+              - default
+              - large
+        - id: block.properties.tabPosition
+          type: radio_button_input
+          defaultValue: top
+          label:
+            title: tabPosition
+            extra: Position of the tabs.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - top
+              - right
+              - bottom
+              - left
+        - id: block.properties.tabs
+          type: list
+          label:
+            title: tabs
+          blocks:
+            - id: block.properties.tabs.$.title
+              type: text_input
+              defaultValue: title
+              label:
+                title: title
+                extra: Title of the tab.
+                labelSpan: 4
+              properties:
+                size: small
+            - id: block.properties.tabs.$.key
+              type: text_input
+              defaultValue: key
+              label:
+                title: key
+                extra: Key of the tab.
+                labelSpan: 4 
+              properties:
+                size: small
+            - id: block.properties.tabs.$.icon
+              type: text_input
+              label:
+                title: icon
+                extra: Ant Icon to show in title.
+                labelSpan: 4
+              properties:
+                size: small
+            - id: block.properties.tabs.$.disabled
+              type: switch_input
+              defaultValue: false
+              label:
+                title: disabled
+                extra: Disable the tab if true.
+                labelSpan: 4
+              properties:
+                size: small                
+        - id: block.properties.tabType
+          type: radio_button_input
+          defaultValue: line
+          label:
+            title: tabType
+            extra: Type of tabs.
+            labelSpan: 4
+          properties:
+            size: small
+            options:
+              - line
+              - card
+              - editable-card
