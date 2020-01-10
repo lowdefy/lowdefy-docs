@@ -90,6 +90,11 @@ layout:
             pageId: text_input
             properties:
               title: Text
+          - id: text_area_input
+            type: menu_link
+            pageId: page8
+            properties:
+              title: Text Area
           - id: number_input
             type: menu_link
             pageId: number_input
@@ -197,6 +202,7 @@ pages:
   - _ref: concepts/state.yaml
   - _ref: concepts/operators.yaml
   - _ref: blocks/input/text_input.yaml
+  - _ref: blocks/input/text_area_input.yaml
   - _ref: blocks/input/number_input.yaml
   - _ref: blocks/input/switch_input.yaml
   - _ref: blocks/input/slider_input.yaml
