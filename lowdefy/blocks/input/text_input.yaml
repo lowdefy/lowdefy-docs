@@ -195,6 +195,7 @@ blocks:
                 width: 12
               label:
                 title: First Name
+                extra: Place label next to block and add suffix icon.
                 labelSpan: 5
               properties:
                 suffixIcon: user
@@ -210,7 +211,9 @@ blocks:
                     "id": "example_4",
                     "type": "text_input",
                     "label": {
-                      "title": "First Name"
+                      "title": "First Name",
+                      "extra": "Place label next to block and add suffix icon."
+                      "labelSpan": 5
                     },
                     "properties": {
                       "suffixIcon": "user",

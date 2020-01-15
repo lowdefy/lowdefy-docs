@@ -29,6 +29,7 @@ blocks:
             title: checkedIcon
             extra: Ant Icon to shown when switch is checked (true).
             labelSpan: 4
+          defaultValue: check
           properties:
             size: small
         - id: block.properties.disabled
@@ -67,9 +68,100 @@ blocks:
             title: uncheckedIcon
             extra: Ant Icon to shown when switch is unchecked (false).
             labelSpan: 4
+          defaultValue: close
           properties:
             size: small
 
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: switch_input
+                box:
+                  width: 12
+                label:
+                  title: Switch input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "switch_input",
+                      "label": {
+                        "title": "Switch input"
+                      }
+                    }
+                    ```
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: switch_input
+                box:
+                  width: 12
+                label:
+                  title: Icons
+                  extra: Custom checked and unchecked icons.
+                properties:
+                  checkedIcon: like
+                  uncheckedIcon: dislike
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "switch_input",
+                      "label": {
+                        "title": "Icons",
+                        "extra": "Custom checked and unchecked icons."
+                      },
+                      "properties": {
+                        "checkedIcon": "like",
+                        "uncheckedIcon": "dislike"
+                      }
+                    }
+                    ```
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: switch_input
+                box:
+                  width: 12
+                label:
+                  title: Disable Icons
+                  extra: Hide the checked and unchecked icons.
+                properties:
+                  disableIcons: true
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "switch_input",
+                      "label": {
+                        "title": "Disable Icons",
+                        "extra": "Hide the checked and unchecked icons."
+                      },
+                      "properties": {
+                        "disableIcons": true
+                      }
+                    }
+                    ```

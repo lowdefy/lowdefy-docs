@@ -25,6 +25,7 @@ blocks:
             size: small
         - id: block.properties.decimalSeparator
           type: text_input
+          defaultValue: "."
           label:
             title: decimalSeparator
             extra: Decimal separator.
@@ -102,3 +103,93 @@ blocks:
         Triggered when value is changed.
         ###### onPressEnter
         Triggered when enter is pressed while block is focused.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: number_input
+                box:
+                  width: 12
+                label:
+                  title: Number input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "number_input",
+                      "label": {
+                        "title": "Number input"
+                      }
+                    }
+                    ```
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: number_input
+                box:
+                  width: 12
+                label:
+                  title: Decimal separator
+                defaultValue: 3.14
+                properties:
+                  decimalSeparator: ","
+                  precision: 2
+                  step: 0.01
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "number_input",
+                      "label": {
+                        "title": "Decimal separator"
+                      },
+                      "defaultValue": 3.14,
+                      "properties": {
+                        "decimalSeparator": ",",
+                        "precision": 2,
+                        "step": 0.01
+                      }
+                    }
+                    ```
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: number_input
+                box:
+                  width: 12
+                label:
+                  title: Placeholder
+                properties:
+                  placeholder: π
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "number_input",
+                      "label": {
+                        "title": "Placeholder"
+                      },
+                      "properties": {
+                        "placeholder": "π"
+                      }
+                    }
+                    ```

@@ -96,3 +96,95 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: date_input
+                box:
+                  width: 12
+                label:
+                  title: Date input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "date_input",
+                      "label": {
+                        "title": "Date input"
+                      }
+                    }
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: date_input
+                box:
+                  width: 12
+                label:
+                  title: showToday and suffixIcon
+                  extra: Disable Today button and change the suffix icon.
+                properties:
+                  showToday: false
+                  suffixIcon: filter
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "date_input",
+                      "label": {
+                        "title": "showToday and suffixIcon",
+                        "extra": "Disable Today button and change the suffix icon"
+                      },
+                      "properties": {
+                        "showToday": false,
+                        "suffixIcon": "filter"
+                      }
+                    }
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: date_input
+                box:
+                  width: 12
+                label:
+                  title: Date format
+                  extra: Default date and custom date format.
+                defaultValue: 
+                  _date: 1993-02-02
+                properties:
+                  format: D MMMM YYYY
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "date_input",
+                      "label": {
+                        "title": "Date format",
+                        "extra": "Default date and custom date format."
+                      },
+                      "defaultValue": { 
+                        "_date": "1993-02-02" 
+                      },
+                      "properties": {
+                        "format": "D MMMM YYYY"
+                      }
+                    }
