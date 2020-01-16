@@ -56,7 +56,7 @@ blocks:
           properties:
             size: small
         - id: iconStyle_input
-          type: text_input
+          type: text_area_input
           defaultValue: '{}'
           box:
             width: 22
@@ -94,7 +94,7 @@ blocks:
           properties:
             size: small
         - id: style_input
-          type: text_input
+          type: text_area_input
           defaultValue: '{}'
           box:
             width: 22
@@ -125,4 +125,210 @@ blocks:
 
       available_actions_description: |
         ###### onClick
-        Triggered when the button is clicked.
+        Triggered when the anchor is clicked.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1_block_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_1_title
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ##### Basic anchor
+                  - id: example_1
+                    type: anchor
+                    box:
+                      width: 24
+                    label:
+                      title: Click here
+              - id: example_1_code_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_1_code
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ```json
+                        {
+                          "id": "example_1",
+                          "type": "anchor",
+                          "label": {
+                            "title": "Click here"
+                          }
+                        }
+                        ```
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2_block_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_2_title
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ##### Bold text
+                  - id: example_2
+                    type: anchor
+                    box:
+                      width: 12
+                    label:
+                      title: Click here
+                    properties:
+                      strong: true
+              - id: example_2_code_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_2_code
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ```json
+                        {
+                          "id": "example_2",
+                          "type": "anchor",
+                          "label": {
+                            "title": "Click here"
+                          },
+                          "properties": {
+                            "strong": true
+                          }
+                        }
+                        ```
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3_block_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_3_title
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ##### Custom text and icon style
+                  - id: example_3
+                    type: anchor
+                    box:
+                      width: 12
+                    label:
+                      title: Click here
+                    properties:
+                      icon: fire
+                      style:
+                        color: red
+                        font-size: 18
+              - id: example_3_code_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_3_code
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ```json
+                        {
+                          "id": "example_3",
+                          "type": "anchor",
+                          "label": {
+                            "title": "Click here"
+                          },
+                          "properties": {
+                            "icon": "fire",
+                            "iconTheme": "twoTone",
+                            "iconTwoToneColor": "red",
+                            "style": {
+                              "color": "red",
+                              "font-size": 18
+                            }
+                          }
+                        }
+                        ```
+          - id: example_4_card
+            type: card
+            blocks:
+              - id: example_4_block_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_4_title
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ##### Style text and icon separately
+                  - id: example_4
+                    type: anchor
+                    box:
+                      width: 12
+                    label:
+                      title: Click here
+                    properties:
+                      icon: fire
+                      iconTheme: filled
+                      iconStyle:
+                        color: orange
+                        font-size: 30
+                      style:
+                        color: "#000000"
+                        font-size: 16
+              - id: example_4_code_column
+                type: column
+                box:
+                  width: 12
+                blocks:
+                  - id: example_4_code
+                    type: markdown
+                    box:
+                      width: 24
+                    properties:
+                      content: |
+                        ```json
+                        {
+                          "id": "example_4",
+                          "type": "anchor",
+                          "label": {
+                            "title": "Click here"
+                          },
+                          "properties": {
+                            "icon": "fire",
+                            "iconTheme": "filled",
+                            "iconStyle": {
+                              "color": "orange",
+                              "font-size": 30
+                            },
+                            "style": {
+                              "color": "#000000",
+                              "font-size": 16
+                            }
+                          }
+                        }
+                        ```
