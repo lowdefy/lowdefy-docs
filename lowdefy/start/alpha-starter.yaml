@@ -60,20 +60,3 @@ blocks:
               It is limited at the moment, so please give us a shout whenever you get stuck! 
               We know that there are lots of ways to improve on what we have built, please share your ideas and frustrations so we can learn and prioritize the best ones first - we are trying to build something super useful ✨ all feedback is valuable. 
 
-            ### Extra NB:
-              Until we turn on app authentication, only specific set of page ids are loaded onto the public user profile:
-              These page ids include:
-              ```
-                page1
-                page2
-                page3
-                page4
-                page5
-                page6
-                page7
-                page8
-                page9
-                page10 
-              ``` 
-              Create your pages with one of these ids for now and let us know if you need more. 
-              Again, sorry, this is inconvenient and will be sorted as the authentication update is published.

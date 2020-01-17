@@ -216,6 +216,7 @@ layout:
 pages:
   - _ref: start/introduction.yaml
   - _ref: start/quick-start.yaml
+  - _ref: start/alpha-starter.yaml
   - _ref: start/how-it-works.yaml
   - _ref: concepts/blocks.yaml
   - _ref: concepts/connections.yaml

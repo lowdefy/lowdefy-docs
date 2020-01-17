@@ -97,7 +97,7 @@ blocks:
                 box:
                   width: 12
                 label:
-                  title: Week input
+                  title: Month input
               - id: example_1_code
                 type: markdown
                 box:
