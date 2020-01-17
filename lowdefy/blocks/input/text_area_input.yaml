@@ -1,14 +1,14 @@
-id: text_input
+id: page8
 properties:
-  title: Text
+  title: Text Area
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Text Input
+      block_name: Text Area Input
       description_content: |
-        Text input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: text_input
+        Text area input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: text_area_input
       label: true
       label_form:
         _ref:
@@ -32,6 +32,54 @@ blocks:
             labelSpan: 4
           properties:
             size: small
+        - id: select_autoRows_type_card
+          type: card
+          blocks:
+            - id: select_autoRows_type
+              type: radio_button_input
+              label:
+                title: autoRows Type
+                extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
+              defaultValue: Boolean
+              properties:
+                size: small
+                options:
+                  - Boolean
+                  - Object
+        - id: block.properties.autoRows
+          type: switch_input
+          label:
+            title: autoRows
+            extra: Automatically extend the block number of rows.
+            labelSpan: 4
+          defaultValue: false
+          visible:
+            _mql_test:
+              select_autoRows_type: Boolean
+          properties:
+            size: small
+        - id: block.properties.autoRows.minRows
+          type: number_input
+          label:
+            title: autoRows.minRows
+            extra: Minimum number of rows the block can be.
+            labelSpan: 6
+          visible:
+            _mql_test:
+              select_autoRows_type: Object
+          properties:
+            size: small
+        - id: block.properties.autoRows.maxRows
+          type: number_input
+          label:
+            title: autoRows.maxRows
+            extra: Maximum number of rows the block can be.
+            labelSpan: 6
+          visible:
+            _mql_test:
+              select_autoRows_type: Object
+          properties:
+            size: small
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -49,51 +97,12 @@ blocks:
             labelSpan: 4
           properties:
             size: small
-        - id: block.properties.prefix
-          type: text_input
+        - id: block.properties.rows
+          type: number_input
           label:
-            title: prefix
-            extra: Prefix text for the block, priority over prefixIcon.
+            title: rows
+            extra: Number of rows of text area.
             labelSpan: 4
-          properties:
-            size: small
-        - id: block.properties.prefixIcon
-          type: text_input
-          label:
-            title: prefixIcon
-            extra: Ant Icon to prefix the block.
-            labelSpan: 4
-          properties:
-            size: small
-        - id: block.properties.size
-          type: radio_button_input
-          defaultValue: default
-          label:
-            title: size
-            extra: Size of the block.
-            labelSpan: 4
-          properties:
-            size: small
-            options:
-              - small
-              - default
-              - large
-        - id: block.properties.suffix
-          type: text_input
-          label:
-            title: suffix
-            extra: Suffix text for the block, priority over suffixIcon.
-            labelSpan: 4
-          properties:
-            size: small
-        - id: block.properties.suffixIcon
-          type: text_input
-          label:
-            title: suffixIcon
-            extra: Ant Icon to suffix the block.
-            labelSpan: 4
-          properties:
-            size: small
 
       available_actions_description: |
         ###### onChange
@@ -101,17 +110,16 @@ blocks:
         ##### onPressEnter
         Triggered when enter is pressed while block is focused.
 
-
       examples:
         - id: example_1_card
           type: card
           blocks:
             - id: example_1
-              type: text_input
+              type: text_area_input
               box:
                 width: 12
               label:
-                title: Text input
+                title: Text Area input
             - id: example_1_code
               type: markdown
               box:
@@ -121,9 +129,9 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "text_input",
+                    "type": "text_area_input",
                     "label": {
-                      "title": "Text input"
+                      "title": "Text Area input"
                     }
                   }
                   ```
@@ -131,7 +139,7 @@ blocks:
           type: card
           blocks:
             - id: example_2
-              type: text_input
+              type: text_area_input
               box:
                 width: 12
               properties:
@@ -145,26 +153,22 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "text_input",
+                    "type": "text_area_input",
                     "properties": {
                       "placeholder": "Placeholder"
                     }
-
                   }
-                  ```
         - id: example_3_card
           type: card
           blocks:
             - id: example_3
-              type: text_input
+              type: text_area_input
+              label:
+                title: Rows
               box:
                 width: 12
-              label:
-                extra: Prefix and suffix text
               properties:
-                prefix: The cat
-                suffix: the rat.
-                placeholder: chased
+                rows: 5
             - id: example_3_code
               type: markdown
               box:
@@ -174,31 +178,27 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "text_input",
+                    "type": "text_area_input",
                     "label": {
-                      "extra": "Prefix and suffix text"
+                      "title": "Rows"
                     },
                     "properties": {
-                      "prefix": "The cat",
-                      "suffix": "the rat.",
-                      "placeholder": "chased"
+                      "rows": 5
                     }
-
                   }
-                  ```
         - id: example_4_card
           type: card
           blocks:
             - id: example_4
-              type: text_input
+              type: text_area_input
+              label:
+                title: Auto Rows
               box:
                 width: 12
-              label:
-                title: First Name
-                labelSpan: 5
               properties:
-                suffixIcon: user
-                placeholder: Your name
+                autoRows:
+                  minRows: 3
+                  maxRows: 6
             - id: example_4_code
               type: markdown
               box:
@@ -208,14 +208,14 @@ blocks:
                   ```json
                   {
                     "id": "example_4",
-                    "type": "text_input",
+                    "type": "text_area_input",
                     "label": {
-                      "title": "First Name"
+                      "title": Auto "Rows"
                     },
                     "properties": {
-                      "suffixIcon": "user",
-                      "placeholder": "Your name"
+                      "autoRows": {
+                        "minRows": 3,
+                        "maxRows": 6
+                      }
                     }
-
                   }
-                  ```
