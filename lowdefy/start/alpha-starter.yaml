@@ -13,7 +13,7 @@ blocks:
 
             ### 1. Install npm
               To run the Lowdefy cli you need to install npm [(What is npm?)](https://www.npmjs.com/get-npm). 
-              In short, npm is a package manger for Node.js, and by installing Node.js, npm is also installed.
+              In short, npm is a package manager for Node.js, and by installing Node.js, npm is also installed.
               Download and install Node.js from https://nodejs.org/en/download/
 
             ### 2. Install a git client
@@ -58,7 +58,7 @@ blocks:
               Have fun, for more info checkout our docs:
               https://docs.lowdefy.com
               It is limited at the moment, so please give us a shout whenever you get stuck! 
-              We know that there is lots of ways to improve on what we have build, please share your ideas and frustrations so we can learn and prioritize the best ones first - we are trying to build something super useful ✨ all feedback is valuable. 
+              We know that there are lots of ways to improve on what we have built, please share your ideas and frustrations so we can learn and prioritize the best ones first - we are trying to build something super useful ✨ all feedback is valuable. 
 
             ### Extra NB:
               Until we turn on app authentication, only specific set of page ids are loaded onto the public user profile:
