@@ -27,18 +27,18 @@ blocks:
             ### 4. Rum npm install 🏃‍♂️
               In the command line, run:
               ```
-              npm install -g
+              npm install -g @lowdefy/cli
               ```
               This will install the Lowdefy cli on your machine so you can run the Lowdefy cli in any folder.
               Note: For more advanced users, you can also locally install npm into the project folder.
 
             ### 5. Open your Lowdefy app url in a browser
-              Open Lowdefy app url in a browser and you should see a "Welcome to Lowdefy 🚀".
+              Open Lowdefy app url in a browser and you should see "Welcome to Lowdefy 🚀".
 
             ### 6. Run the Lowdefy cli with your provided endpoint
               In the command line, navigate to your project folder and run: 
               ```
-              lowdefy -e (paster your endpoint here)
+              lowdefy -e (paste your endpoint here)
               ```
               
             ### 7. Refresh your Lowdefy browser window 🤩
