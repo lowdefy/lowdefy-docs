@@ -97,3 +97,145 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: radio_input
+                box:
+                  width: 12
+                label:
+                  title: Primitive options
+                properties:
+                  options:
+                    - A
+                    - B
+                    - C
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "radio_input",
+                      "label": {
+                        "title": "Primitive options"
+                      },
+                      "properties": {
+                        "options": [ "A", "B", "C" ]
+                      }
+                    }
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: radio_input
+                box:
+                  width: 12
+                label:
+                  title: Object options
+                  extra: Value-Label object options and default value.
+                defaultValue:
+                  - C
+                properties:
+                  options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                    - value: C
+                      label: Celeborn
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "radio_input",
+                      "label": {
+                        "title": "Object options",
+                        "extra": "Value-Label object options and default value."
+                      },
+                      "defaultValue": "C",
+                      "properties": {
+                        "options": [
+                          {
+                            "value": "A",
+                            "label": "Aragorn"
+                          },
+                          {
+                            "value": "B",
+                            "label": "Boromir"
+                          },
+                          {
+                            "value": "C",
+                            "label": "Celebron"
+                          }
+                        ]
+                      }
+                    }
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: radio_input
+                box:
+                  width: 12
+                label:
+                  title: Disable options
+                  extra: Disable individual options.
+                properties:
+                  options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                      disabled: true
+                    - value: C
+                      label: Celeborn
+                    - value: D
+                      label: Denethor
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "radio_input",
+                      "label": {
+                        "title": "Disable options",
+                        "extra": "Disable individual options."
+                      },
+                      "properties": {
+                        "options": [
+                          {
+                            "value": "A",
+                            "label": "Aragorn"
+                          },
+                          {
+                            "value": "B",
+                            "label": "Boromir",
+                            "disabled": true
+                          },
+                          {
+                            "value": "C",
+                            "label": "Celebron"
+                          },
+                          {
+                            "value": "D",
+                            "label": "Denethor"
+                          }
+                        ]
+                      }
+                    }

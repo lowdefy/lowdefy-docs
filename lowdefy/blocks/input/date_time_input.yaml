@@ -141,3 +141,131 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: date_time_input
+                box:
+                  width: 12
+                label:
+                  title: Date Time input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "date_time_input",
+                      "label": {
+                        "title": "Date Time input"
+                      }
+                    }
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: date_time_input
+                box:
+                  width: 12
+                label:
+                  title: showToday and suffixIcon
+                  extra: Disable now button and change the suffix icon.
+                properties:
+                  showToday: false
+                  suffixIcon: clock-circle
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "date_time_input",
+                      "label": {
+                        "title": "showToday and suffixIcon",
+                        "extra": "Disable now button and change the suffix icon"
+                      },
+                      "properties": {
+                        "showToday": false,
+                        "suffixIcon": "clock-cirlce"
+                      }
+                    }
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: date_time_input
+                box:
+                  width: 12
+                label:
+                  title: Date format
+                  extra: Default date and custom date format.
+                defaultValue: 
+                  _date: 1993-02-02T06:00:00
+                properties:
+                  format: HH:mm | D MMMM YYYY
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "date_time_input",
+                      "label": {
+                        "title": "Date format",
+                        "extra": "Default date and custom date format."
+                      },
+                      "defaultValue": { 
+                        "_date": "1993-02-02T06:00:00" 
+                      },
+                      "properties": {
+                        "format": "HH:mm | D MMMM YYYY"
+                      }
+                    }
+          - id: example_4_card
+            type: card
+            blocks:
+              - id: example_4
+                type: date_time_input
+                box:
+                  width: 12
+                label:
+                  title: Time steps
+                  extra: Change the time step intervals.
+                properties:
+                  hourStep: 2
+                  minuteStep: 10
+                  secondStep: 15
+                  timeFormat: HH:mm:ss
+              - id: example_4_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_4",
+                      "type": "date_time_input",
+                      "label": {
+                        "title": "Time steps",
+                        "extra": "Change the time step intervals."
+                      },
+                      "properties": {
+                        "hourStep": 2,
+                        "minuteStep": 10,
+                        "secondStep": 15,
+                        "timeFormat": "HH:mm:ss"
+                      }
+                    }

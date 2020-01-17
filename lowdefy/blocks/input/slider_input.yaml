@@ -131,3 +131,120 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: slider_input
+                box:
+                  width: 12
+                label:
+                  title: Slider input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "slider_input",
+                      "label": {
+                        "title": "Slider input"
+                      }
+                    }
+                    ```
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: slider_input
+                box:
+                  width: 12
+                label:
+                  title: Icons
+                properties:
+                  iconMin: dislike
+                  iconMax: like
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "slider_input",
+                      "label": {
+                        "title": "Icons"
+                      },
+                      "properties": {
+                        "iconMin": "dislike",
+                        "iconMax": "like"
+                      }
+                    }
+                    ```
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: slider_input
+                box:
+                  width: 12
+                label:
+                  title: Disable Icons
+                properties:
+                  disableIcons: true
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "slider_input",
+                      "label": {
+                        "title": "Disable Icons"
+                      },
+                      "properties": {
+                        "disableIcons": true
+                      }
+                    }
+                    ```
+          - id: example_4_card
+            type: card
+            blocks:
+              - id: example_4
+                type: slider_input
+                box:
+                  width: 12
+                label:
+                  title: No Marks or Dots
+                properties:
+                  showDots: false
+                  showMarks: false
+              - id: example_4_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_4",
+                      "type": "slider_input",
+                      "label": {
+                        "title": "No Marks or Dots"
+                      },
+                      "properties": {
+                        "showDots": false,
+                        "showMarks": false
+                      }
+                    }
+                    ```

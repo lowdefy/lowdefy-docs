@@ -15,7 +15,7 @@ blocks:
       description_content: |
         Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
 
-        >Other date type blocks are date_input, date_time_input, week_input and month_input.
+        >Other date type blocks are date_range_input, date_time_input, week_input and month_input.
       block_type: date_range_input
       label: true
       label_form:
@@ -108,3 +108,101 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: date_range_input
+                box:
+                  width: 12
+                label:
+                  title: Date input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "date_range_input",
+                      "label": {
+                        "title": "Date input"
+                      }
+                    }
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: date_range_input
+                box:
+                  width: 12
+                label:
+                  title: Placeholder, separator and suffix icon
+                  extra: Custom placeholder, separator and suffix icon.
+                properties:
+                  placeholder: 
+                    - From the start
+                    - the end
+                  separator: to
+                  suffixIcon: thunderbolt
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "date_range_input",
+                      "label": {
+                        "title": "Placeholder, separator and suffix icon",
+                        "extra": "Custom placeholder, separator and suffix icon."
+                      },
+                      "properties": {
+                        "placeholder": [ "From the start", "the end" ],
+                        "separator": "to",
+                        "suffixIcon": "thunderbolt"
+                      }
+                    }
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: date_range_input
+                box:
+                  width: 12
+                label:
+                  title: Date format
+                  extra: Default date and custom date format.
+                defaultValue: 
+                   - _date: 1955-11-12
+                   - _date: 1985-10-26
+                properties:
+                  format: D MMMM YYYY
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "date_range_input",
+                      "label": {
+                        "title": "Date format",
+                        "extra": "Default date and custom date format."
+                      },
+                      "defaultValue": [
+                        { "_date": "1955-11-12" },
+                        { "_date": "1985-10-26" }
+                      ],
+                      "properties": {
+                        "format": "D MMMM YYYY"
+                      }
+                    }

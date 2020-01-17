@@ -9,7 +9,7 @@ blocks:
       description_content: |
         Week picker input block. Allows a user to select a specific week from a calender form. The input to this field is saved as a Date type in state, at the path name of the block. The first day of the week is Sunday.
 
-        >Other date type blocks are date_input, date_time_input, month_input and date_range_input.
+        >Other date type blocks are week_input, date_time_input, month_input and date_range_input.
       block_type: week_input
       label: true
       label_form:
@@ -87,3 +87,95 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+          - id: example_1_card
+            type: card
+            blocks:
+              - id: example_1
+                type: week_input
+                box:
+                  width: 12
+                label:
+                  title: Week input
+              - id: example_1_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_1",
+                      "type": "week_input",
+                      "label": {
+                        "title": "Week input"
+                      }
+                    }
+          - id: example_2_card
+            type: card
+            blocks:
+              - id: example_2
+                type: week_input
+                box:
+                  width: 12
+                label:
+                  title: Placeholder and suffix icon
+                  extra: Custom placeholder and suffix icon.
+                properties:
+                  placeholder: Pick a week
+                  suffixIcon: fire
+              - id: example_2_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_2",
+                      "type": "week_input",
+                      "label": {
+                        "title": "Placeholder and suffix icon",
+                        "extra": "Custom placeholder and suffix icon."
+                      },
+                      "properties": {
+                        "placeholder": "Pick a week",
+                        "suffixIcon": "fire"
+                      }
+                    }
+          - id: example_3_card
+            type: card
+            blocks:
+              - id: example_3
+                type: week_input
+                box:
+                  width: 12
+                label:
+                  title: Date format
+                  extra: Default date and custom date format.
+                defaultValue: 
+                  _date: 1993-02-01
+                properties:
+                  format: wo of YYYY
+              - id: example_3_code
+                type: markdown
+                box:
+                  width: 12
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "id": "example_3",
+                      "type": "week_input",
+                      "label": {
+                        "title": "Date format",
+                        "extra": "Default date and custom date format."
+                      },
+                      "defaultValue": { 
+                        "_date": "1993-02-01" 
+                      },
+                      "properties": {
+                        "format": "wo of YYYY"
+                      }
+                    }
