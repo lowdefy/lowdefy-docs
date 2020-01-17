@@ -59,7 +59,7 @@ blocks:
           defaultValue: true
           label:
             title: animated
-            extra: 	Whether to change tabs with animation. Only works while tabPosition id top or bottom.
+            extra: 	Whether to change tabs with animation. Only works while tabPosition is top or bottom.
             labelSpan: 4
           properties:
             size: small
