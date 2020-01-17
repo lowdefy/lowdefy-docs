@@ -13,11 +13,16 @@ layout:
             pageId: introduction
             properties:
               title: Introduction
-          - id: quick-start
+          - id: alpha-start
             type: menu_link
-            pageId: quick-start
+            pageId: alpha-starter
             properties:
-              title: Quick Start
+              title: Alpha Starter
+          # - id: quick-start
+          #   type: menu_link
+          #   pageId: quick-start
+          #   properties:
+          #     title: Quick Start
           - id: how-it-works
             type: menu_link
             pageId: how-it-works
@@ -39,11 +44,11 @@ layout:
             pageId: references
             properties:
               title: References
-          - id: groups
-            type: menu_link
-            pageId: groups
-            properties:
-              title: Groups and Roles
+          # - id: groups
+          #   type: menu_link
+          #   pageId: groups
+          #   properties:
+          #     title: Groups and Roles
           - id: layout
             type: menu_link
             pageId: layout
