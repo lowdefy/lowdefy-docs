@@ -19,11 +19,13 @@ blocks:
             ```json5
             // lowdefy.json
             {
-              "config": {
-                // config object
-              },
-              "groups": [
-                // list of group objects
+              "layout": {
+                "menu": [
+                  // list of menu items
+                ]
+              }
+              "connections": [
+                // list of external data connections
               ],
               "pages": [
                 // list of page objects
@@ -33,11 +35,13 @@ blocks:
             <!--YAML-->
             ```yaml
             # lowdefy.yaml
-            config:
-              # config object
-            groups:
-              -
-                # list of group objects
+            layout:
+              menu:
+                -
+                  # list of menu items
+            connections:
+              - 
+                # list of external data connections
             pages:
               -
                 # list of page objects
@@ -46,11 +50,12 @@ blocks:
 
             ## Lowdefy Objects
 
-            Since the configuration of a Lowdefy application consists of different objects, like [`pages`](pages), [`groups`](groups), [`blocks`](blocks), [`connections`](connections) and [`requests`](requests-mutations).
+            Since the configuration of a Lowdefy application consists of different objects, like [`pages`](pages), [`blocks`](blocks), [`connections`](connections) and [`requests`](requests-mutations).
 
-            ### Names and IDs
+            ### Lowdefy ids
 
-            Most Lowdefy objects require either a `name` or `id`, which is used to identify this object. The object requires an id if that id should be unique across the app. Names can be duplicated. Names and ids should comply with the following restrictions:
+            All Lowdefy objects require an `id`, which is used to identify this object.
+            Ids should comply to the following rules:
 
             - It should be a string.
             - It may only consist of the characters `a-z, A-Z, 0-9, and _`.
@@ -58,10 +63,11 @@ blocks:
             - It may not start with a number.
             - It must contain at least one non-numeric character.
             - It may not start with `"lowdefy"` (Not case sensitive).
+            - For objects on a page, the id needs to be unique. All other objects require a globally unique id.
 
             ### Object Types
 
-            Most Lowdefy objects require a type. Objects like `groups` do not require a type since they can only have one type.
+            Most Lowdefy objects require a type. Some object like `pages` do not require a type since they can only have one type.
 
             ### Default Values
 
@@ -72,4 +78,6 @@ blocks:
 
             ### Path to a Object
 
-            Any Lowdefy object can be referenced to by its path in the `lowdefy.json` file. This is often used to report where an error has occurred. 
+            Any Lowdefy object can be referenced to by its path in the `lowdefy.json` file. This is often used to report where an error has occurred.
+            See Lowdefy references for more details.
+

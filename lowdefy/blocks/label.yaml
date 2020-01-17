@@ -29,5 +29,6 @@
     title: title
     extra: Title to describe the input component, if no label is specified the lowdefy_path_name is displayed.
     labelSpan: 4
+  defaultValue: block_id
   properties:
     size: small

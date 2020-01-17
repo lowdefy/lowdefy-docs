@@ -1,0 +1,231 @@
+- id: card_display
+  type: card
+  blocks:
+    - id: title
+      type: markdown
+      properties:
+        content:
+          _nunjucks:
+            template: "### {{ title }}"
+            on:
+              title:
+                _var: block_name
+
+    - id: description
+      type: markdown
+      properties:
+        content:
+          _var: description_content
+    - id: c1
+      type: column
+      box:
+        width: 10
+      blocks:
+        - id: block_card
+          type: card
+          label:
+            title: Block
+          properties:
+            size: small
+          blocks:
+            - id: s2
+              type: column
+              box:
+                width: 2
+            - id: block_wrap2
+              type: column
+              box:
+                width: 20
+              blocks:
+                - id: block_name
+                  type:
+                    _var: block_type
+                  visible:
+                    _state: block.visible
+                  label:
+                    _state: block.label
+                  properties:
+                    _state: block.properties
+                  blocks:
+                    - id: subblock_1
+                      type: button
+                      label:
+                        title: '1'
+                      visible:
+                        _state: visible_subblock_1
+                      box:
+                        width:
+                          _state: width_subblock_1
+                    - id: subblock_2
+                      type: button
+                      label:
+                        title: '2'
+                      visible:
+                        _state: visible_subblock_2
+                      box:
+                        width:
+                          _state: width_subblock_2
+                    - id: subblock_3
+                      type: button
+                      label:
+                        title: '3'
+                      visible:
+                        _state: visible_subblock_3
+                      box:
+                        width:
+                          _state: width_subblock_3
+                    - id: subblock_4
+                      type: button
+                      label:
+                        title: '4'
+                      visible:
+                        _state: visible_subblock_4
+                      box:
+                        width:
+                          _state: width_subblock_4
+                    - id: subblock_5
+                      type: button
+                      label:
+                        title: '5'
+                      visible:
+                        _state: visible_subblock_5
+                      box:
+                        width:
+                          _state: width_subblock_5
+                    - id: subblock_6
+                      type: button
+                      label:
+                        title: '6'
+                      visible:
+                        _state: visible_subblock_6
+                      box:
+                        width:
+                          _state: width_subblock_6
+
+
+    - id: settings_card
+      type: card
+      label:
+        title: Settings
+      box:
+        width: 14
+        height: 11
+      properties:
+        size: small
+      blocks:
+        - id: visible_description
+          type: markdown
+          properties:
+            content: "#### visible:"
+        - id: block.visible
+          type: switch_input
+          defaultValue: true
+          label:
+            extra: Toggle if block is visible and has a value in state.
+            labelSpan: 4
+          properties:
+            size: small
+        - id: label_description
+          type: markdown
+          properties:
+            content: "#### label:"
+        - id: label_form
+          type: column
+          blocks:
+            _var: label_form
+        - id: properties_description
+          type: markdown
+          properties:
+            content: "#### properties:"
+        - id: properties_form
+          type: column
+          blocks:
+            _var: properties_form
+    - id: subblocks_card
+      type: card
+      label:
+        title: Sub-blocks
+      blocks:
+        - id: width_subblock_1
+          type: number_input
+          box:
+            width: 6
+          label:
+            title: Block 1 Width
+        - id: visible_subblock_1
+          type: switch_input
+          box:
+            width: 6
+          label:
+            title: Block 1 Visible
+        - id: width_subblock_2
+          type: number_input
+          box:
+            width: 6
+          label:
+            title: Block 2 Width
+        - id: visible_subblock_2
+          type: switch_input
+          box:
+            width: 6
+          label:
+            title: Block 2 Visible
+        - id: width_subblock_3
+          type: number_input
+          box:
+            width: 6
+          label:
+            title: Block 3 Width
+        - id: visible_subblock_3
+          type: switch_input
+          box:
+            width: 6
+          label:
+            title: Block 3 Visible
+        - id: width_subblock_4
+          type: number_input
+          box:
+            width: 6
+          label:
+            title: Block 4 Width
+        - id: visible_subblock_4
+          type: switch_input
+          box:
+            width: 6
+          label:
+            title: Block 4 Visible
+        - id: width_subblock_5
+          type: number_input
+          box:
+            width: 6
+          label:
+            title: Block 5 Width
+        - id: visible_subblock_5
+          type: switch_input
+          box:
+            width: 6
+          label:
+            title: Block 5 Visible
+        - id: width_subblock_6
+          type: number_input
+          box:
+            width: 6
+          label:
+            title: Block 6 Width
+        - id: visible_subblock_6
+          type: switch_input
+          box:
+            width: 6
+          label:
+            title: Block 6 Visible
+
+    - id: examples_card
+      type: card
+      label:
+        title: Examples
+      properties:
+        size: small
+      blocks:
+        _var: examples
+
+      
