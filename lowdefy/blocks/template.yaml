@@ -37,7 +37,7 @@
               box:
                 width: 20
               blocks:
-                - id: block_name
+                - id: block_id
                   type:
                     _var: block_type
                   visible:
@@ -61,13 +61,13 @@
                     template: |
                       ```json
                       {
-                        "block_name": {{ value | safe }}
+                        "block_id": {{ value | safe }}
                       }
                       ```
                     on:
                       value:
                         _stringify:
-                          _state: block_name
+                          _state: block_id
     - id: settings_card
       type: card
       label:
