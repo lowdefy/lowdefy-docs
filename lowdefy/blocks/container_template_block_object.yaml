@@ -37,7 +37,7 @@
               box:
                 width: 20
               blocks:
-                - id: block_name
+                - id: block_id
                   type:
                     _var: block_type
                   visible:
