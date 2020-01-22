@@ -1,104 +1,117 @@
-id: button
+id: page6
 properties:
-  title: Button
+  title: Skeleton
+initialState:
+  block:
+    properties:
+      active: true
+      avatar: false
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Button
+      block_name: Skeleton
       description_content: |
-        Button block.
-      block_type: button
+        Skeleton block.
+      block_type: skeleton
       label: true
       label_form:
         _ref:
           blocks/title_label.yaml
       properties_form:
-        - id: block.properties.block
+        - id: block.properties.active
           type: switch_input
           defaultValue: true
           label:
-            title: block
-            extra: Fit the button's width to its parent container width.
+            title: active
+            extra: Show animation effect.
             labelSpan: 4
           properties:
             size: small
-        - id: block.properties.disabled
+        - id: skeleton_avatar_type_card
+          type: card
+          blocks:
+            - id: skeleton_avatar_type
+              type: radio_button_input
+              label:
+                title: Avatar Type
+                extra: Skeleton avatar can either be a boolean or an object with size and shape properties.
+              defaultValue: Boolean
+              properties:
+                size: small
+                options:
+                  - Boolean
+                  - Object
+              actions:
+                onChange:
+                  - set():
+                      block:
+                        properties:
+                          avatar:
+                            _if:
+                              test:
+                                _eq:
+                                  - _state: skeleton_avatar_type
+                                  - Boolean
+                              then:
+                                _state: block.properties.avatar_b
+                              else:
+                                _state: block.properties.avatar_o
+        - id: block.properties.avatar_b
           type: switch_input
           defaultValue: false
+          visible:
+            _mql_test:
+              skeleton_avatar_type: Boolean
           label:
-            title: disabled
-            extra: Disable the button if true.
+            title: avatar
+            extra: Show avatar placeholder.
             labelSpan: 4
           properties:
             size: small
-        - id: block.properties.ghost
-          type: switch_input
-          defaultValue: false
-          label:
-            title: ghost
-            extra: Make the button's background transparent when true.
-            labelSpan: 4
-          properties:
-            size: small
-        - id: block.properties.href
-          type: text_input
-          label:
-            title: href
-            extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
-            labelSpan: 4
-          properties:
-            size: small
-        - id: block.properties.icon
-          type: text_input
-          label:
-            title: icon
-            extra: Ant Icon to shown on the button.
-            labelSpan: 4
-          properties:
-            size: small
-        - id: block.properties.shape
+          actions:
+            onChange:
+              - set():
+                  block.properties.avatar: 
+                    _state: block.properties.avatar_b
+        - id: block.properties.avatar_o.shape
           type: radio_button_input
-          defaultValue: square
           label:
-            title: shape
-            extra: Shape of the button.
+            title: avatar.shape
+            extra: The shape of the avatar.
             labelSpan: 4
+          visible:
+            _mql_test:
+              skeleton_avatar_type: Object
+          defaultValue: square
           properties:
             size: small
             options:
               - circle
-              - round
               - square
-        - id: block.properties.size
-          type: radio_button_input
-          defaultValue: default
+          actions:
+            onChange:
+              - set():
+                  block.properties.avatar: 
+                    _state: block.properties.avatar_o
+        - id: block.properties.paragraph
+          type: switch_input
+          defaultValue: true
           label:
-            title: size
-            extra: Size of the button.
+            title: paragraph
+            extra: Show paragraph placeholder.
             labelSpan: 4
           properties:
             size: small
-            options:
-              - small
-              - default
-              - large
-        - id: block.properties.type
-          type: radio_button_input
-          defaultValue: primary
+        - id: block.properties.title
+          type: switch_input
+          defaultValue: true
           label:
-            title: type
-            extra: The button type.
+            title: title
+            extra: Show title placeholder.
             labelSpan: 4
           properties:
             size: small
-            options:
-              - primary
-              - default
-              - dashed
-              - danger
-              - link
-
       available_actions_description: |
         ###### onClick
         Triggered when the button is clicked.
@@ -118,13 +131,11 @@ blocks:
                       width: 24
                     properties:
                       content: |
-                        ##### Basic button
+                        ##### Basic skeleton
                   - id: example_1
-                    type: button
+                    type: skeleton
                     box:
                       width: 24
-                    label:
-                      title: Click here
               - id: example_1_code_column
                 type: column
                 box:
@@ -139,9 +150,7 @@ blocks:
                         ```json
                         {
                           "id": "example_1",
-                          "type": "button",
-                          "label": {
-                            "title": "Click here"
+                          "type": "skeleton"
                           }
                         }
                         ```
@@ -159,17 +168,13 @@ blocks:
                       width: 24
                     properties:
                       content: |
-                        ##### None block and ghost button with icon
+                        ##### No animation
                   - id: example_2
-                    type: button
+                    type: skeleton
                     box:
                       width: 24
-                    label:
-                      title: Click here
                     properties:
-                      block: false
-                      ghost: true
-                      icon: rocket
+                      active: false
               - id: example_2_code_column
                 type: column
                 box:
@@ -184,14 +189,10 @@ blocks:
                         ```json
                         {
                           "id": "example_2",
-                          "type": "button",
-                          "label": {
-                            "title": "Click here"
-                          },
+                          "type": "skeleton",
                           "properties": {
-                            "block": false,
-                            "ghost": true,
-                            "icon": "rocket"
+                            "active": false
+                          }
                           }
                         }
                         ```
@@ -209,18 +210,14 @@ blocks:
                       width: 24
                     properties:
                       content: |
-                        ##### Round and type danger
+                        ##### Show avatar and hide title
                   - id: example_3
-                    type: button
+                    type: skeleton
                     box:
                       width: 24
-                    label:
-                      title: Click here
                     properties:
-                      block: false
-                      icon: warning
-                      shape: round
-                      type: danger
+                      avatar: true
+                      title: false
               - id: example_3_code_column
                 type: column
                 box:
@@ -235,15 +232,11 @@ blocks:
                         ```json
                         {
                           "id": "example_3",
-                          "type": "button",
-                          "label": {
-                            "title": "Click here"
-                          },
+                          "type": "skeleton",
                           "properties": {
-                            "block": false,
-                            "icon": "warning",
-                            "shape": "round",
-                            "type": "danger"
+                            "avatar": true,
+                            "title": false
+                          }
                           }
                         }
                         ```

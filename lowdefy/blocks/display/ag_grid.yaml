@@ -1,0 +1,69 @@
+id: page7
+properties:
+  title: ag-Grid 
+blocks:
+  - id: card
+    type: card
+    blocks:
+      - id: markdown
+        type: markdown
+        properties:
+          content: |
+            # ag-Grid
+            
+            An ag-Grid block is a datagrid table which renders data in rows and columns. See the [ag-Grid documentation](https://www.ag-grid.com/documentation-main/documentation.php) for more details.
+
+            ## Required fields
+
+            - `type`: "ag_grid"
+            - `name`: _String_ - A valid [Lowdefy name](concepts/lowdefy-file).
+            - `properties.rowData`
+
+            ## Default block settings
+
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+
+            ```json5
+            {
+              "visible": true,
+              "box": {
+                "height": 10
+              },
+              "properties": {
+                "disabled": false,
+                "theme": "normal",
+                "rowSelection": "single",
+              },
+            }
+            ```
+
+            <!--YAML-->
+
+            ```yaml
+            visible: true
+            box:
+              height: 10
+            properties:
+              disabled: false
+              theme: normal
+              rowSelection: single
+            ```
+
+            <!--END_DOCUSAURUS_CODE_TABS-->
+
+            ## Block properties
+
+            - `rowData` : _[ Object ]_ - **REQUIRED** - An array of data objects with the fields and values you want to render in the agGrid block.
+            - `columnDefs`: _[ Object ]_ - **REQUIRED** - An array of data objects in which the columns are defined. Various properties for each column can be set in their column definition object.
+              - `headerName` : _String_ -
+            - `defaultColDefs` : _Object_ -
+            - `rowSelection` : _Enum_ - Default: `single` - Selection methods for rows.
+              - `single` : _String_ - Select one row at a time.
+              - `multiple` : _String_ - Select multiple rows at a time.
+            - `headerHeight` : _Integer_ - Default: `25` - The height for the row containing the column label header.
+            - `rowHeight` : _Integer_ - Default: `25` - Default row height in pixels.
+            - `pagination` : _Boolean_ - Default: `false` - Pagination is enabled when `true` ***##Better explanation required***
+            - `animateRows` : _Boolean_ - Default: `true` - Show row animation when sorting or dragging rows and columns.
+            - `pinnedTopRowData` : _[ Object ]_ - Data to be displayed as the pinned top rows in the grid.
+            - `pinnedBottomRowData` : _[ Object ]_ - Data to be displayed as the pinned bottom rows in the grid.
