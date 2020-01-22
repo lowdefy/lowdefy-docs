@@ -16,29 +16,28 @@ blocks:
       block_type: skeleton
       label: true
       label_form:
-        _ref:
-          blocks/title_label.yaml
+        _ref: blocks/title_label.yaml
       properties_form:
         - id: block.properties.active
           type: switch_input
           defaultValue: true
-          label:
-            title: active
-            extra: Show animation effect.
-            labelSpan: 4
           properties:
+            title: active
             size: small
+            label:
+              extra: Show animation effect.
+              span: 4
         - id: skeleton_avatar_type_card
           type: card
           blocks:
             - id: skeleton_avatar_type
               type: radio_button_input
-              label:
-                title: Avatar Type
-                extra: Skeleton avatar can either be a boolean or an object with size and shape properties.
               defaultValue: Boolean
               properties:
+                title: Avatar Type
                 size: small
+                label:
+                  extra: Skeleton avatar can either be a boolean or an object with size and shape properties.
                 options:
                   - Boolean
                   - Object
@@ -63,180 +62,180 @@ blocks:
           visible:
             _mql_test:
               skeleton_avatar_type: Boolean
-          label:
-            title: avatar
-            extra: Show avatar placeholder.
-            labelSpan: 4
           properties:
+            title: avatar
             size: small
+            label:
+              extra: Show avatar placeholder.
+              span: 4
           actions:
             onChange:
               - set():
-                  block.properties.avatar: 
+                  block.properties.avatar:
                     _state: block.properties.avatar_b
         - id: block.properties.avatar_o.shape
           type: radio_button_input
-          label:
-            title: avatar.shape
-            extra: The shape of the avatar.
-            labelSpan: 4
           visible:
             _mql_test:
               skeleton_avatar_type: Object
           defaultValue: square
           properties:
+            title: avatar.shape
             size: small
+            label:
+              extra: The shape of the avatar.
+              span: 4
             options:
               - circle
               - square
           actions:
             onChange:
               - set():
-                  block.properties.avatar: 
+                  block.properties.avatar:
                     _state: block.properties.avatar_o
         - id: block.properties.paragraph
           type: switch_input
           defaultValue: true
-          label:
-            title: paragraph
-            extra: Show paragraph placeholder.
-            labelSpan: 4
           properties:
+            title: paragraph
             size: small
+            label:
+              extra: Show paragraph placeholder.
+              span: 4
         - id: block.properties.title
           type: switch_input
           defaultValue: true
-          label:
-            title: title
-            extra: Show title placeholder.
-            labelSpan: 4
           properties:
+            title: title
             size: small
+            label:
+              extra: Show title placeholder.
+              span: 4
       available_actions_description: |
         ###### onClick
         Triggered when the button is clicked.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1_block_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_1_title
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ##### Basic skeleton
-                  - id: example_1
-                    type: skeleton
-                    box:
-                      width: 24
-              - id: example_1_code_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_1_code
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ```json
-                        {
-                          "id": "example_1",
-                          "type": "skeleton"
-                          }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1_block_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_1_title
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ##### Basic skeleton
+                - id: example_1
+                  type: skeleton
+                  box:
+                    span: 24
+            - id: example_1_code_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_1_code
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ```json
+                      {
+                        "id": "example_1",
+                        "type": "skeleton"
                         }
-                        ```
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2_block_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_2_title
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ##### No animation
-                  - id: example_2
-                    type: skeleton
-                    box:
-                      width: 24
-                    properties:
-                      active: false
-              - id: example_2_code_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_2_code
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ```json
-                        {
-                          "id": "example_2",
-                          "type": "skeleton",
-                          "properties": {
-                            "active": false
-                          }
-                          }
+                      }
+                      ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2_block_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_2_title
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ##### No animation
+                - id: example_2
+                  type: skeleton
+                  box:
+                    span: 24
+                  properties:
+                    active: false
+            - id: example_2_code_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_2_code
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ```json
+                      {
+                        "id": "example_2",
+                        "type": "skeleton",
+                        "properties": {
+                          "active": false
                         }
-                        ```
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3_block_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_3_title
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ##### Show avatar and hide title
-                  - id: example_3
-                    type: skeleton
-                    box:
-                      width: 24
-                    properties:
-                      avatar: true
-                      title: false
-              - id: example_3_code_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_3_code
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ```json
-                        {
-                          "id": "example_3",
-                          "type": "skeleton",
-                          "properties": {
-                            "avatar": true,
-                            "title": false
-                          }
-                          }
                         }
-                        ```
+                      }
+                      ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3_block_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_3_title
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ##### Show avatar and hide title
+                - id: example_3
+                  type: skeleton
+                  box:
+                    span: 24
+                  properties:
+                    avatar: true
+                    title: false
+            - id: example_3_code_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_3_code
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ```json
+                      {
+                        "id": "example_3",
+                        "type": "skeleton",
+                        "properties": {
+                          "avatar": true,
+                          "title": false
+                        }
+                        }
+                      }
+                      ```

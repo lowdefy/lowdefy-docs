@@ -11,79 +11,78 @@ blocks:
       block_type: number_input
       label: true
       label_form:
-        _ref:
-          blocks/label.yaml
+        _ref: blocks/label.yaml
       properties_form:
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          label:
-            title: autoFocus
-            extra: Autofocus to the block on page load.
-            labelSpan: 4
           properties:
+            title: autoFocus
             size: small
+            label:
+              extra: Autofocus to the block on page load.
+              span: 4
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
-          label:
-            title: decimalSeparator
-            extra: Decimal separator.
-            labelSpan: 4
           properties:
+            title: decimalSeparator
             size: small
+            label:
+              extra: Decimal separator.
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disables the block if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disables the block if true.
+              span: 4
         - id: block.properties.min
           type: number_input
-          label:
-            title: min
-            extra: Minimum value allowed by the block.
-            labelSpan: 4
           properties:
+            title: min
             size: small
+            label:
+              extra: Minimum value allowed by the block.
+              span: 4
         - id: block.properties.max
           type: number_input
-          label:
-            title: max
-            extra: Maximum value allowed by the block.
-            labelSpan: 4
           properties:
+            title: max
             size: small
+            label:
+              extra: Maximum value allowed by the block.
+              span: 4
         - id: block.properties.placeholder
           type: text_input
-          label:
-            title: placeholder
-            extra: Placeholder text inside the block to show message before user types input.
-            labelSpan: 4
           properties:
+            title: placeholder
             size: small
+            label:
+              extra: Placeholder text inside the block to show message before user types input.
+              span: 4
         - id: block.properties.precision
           type: number_input
           defaultValue: 0
-          label:
-            title: precision
-            extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
-            labelSpan: 4
           properties:
+            title: precision
             size: small
             max: 100
+            label:
+              extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+              span: 4
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          label:
-            title: size
-            extra: Size of the block.
-            labelSpan: 4
           properties:
+            title: size
             size: small
+            label:
+              extra: Size of the block.
+              span: 4
             options:
               - small
               - default
@@ -91,13 +90,13 @@ blocks:
         - id: block.properties.step
           type: number_input
           defaultValue: 1
-          label:
-            title: step
-            extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
-            labelSpan: 4
           properties:
+            title: step
             size: small
             precision: 2
+            label:
+              extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+              span: 4
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -105,91 +104,85 @@ blocks:
         Triggered when enter is pressed while block is focused.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1
-                type: number_input
-                box:
-                  width: 12
-                label:
-                  title: Number input
-              - id: example_1_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_1",
-                      "type": "number_input",
-                      "label": {
-                        "title": "Number input"
-                      }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: number_input
+              box:
+                span: 12
+              properties:
+                title: Number input
+            - id: example_1_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "number_input",
+                    "properties": {
+                      "title": "Number input"
                     }
-                    ```
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2
-                type: number_input
-                box:
-                  width: 12
-                label:
-                  title: Decimal separator
-                defaultValue: 3.14
-                properties:
-                  decimalSeparator: ","
-                  precision: 2
-                  step: 0.01
-              - id: example_2_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "number_input",
-                      "label": {
-                        "title": "Decimal separator"
-                      },
-                      "defaultValue": 3.14,
-                      "properties": {
-                        "decimalSeparator": ",",
-                        "precision": 2,
-                        "step": 0.01
-                      }
+                  }
+                  ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: number_input
+              box:
+                span: 12
+              defaultValue: 3.14
+              properties:
+                title: Decimal separator
+                decimalSeparator: ","
+                precision: 2
+                step: 0.01
+            - id: example_2_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "number_input",
+                    "defaultValue": 3.14,
+                    "properties": {
+                      "title": "Decimal separator"
+                      "decimalSeparator": ",",
+                      "precision": 2,
+                      "step": 0.01
                     }
-                    ```
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3
-                type: number_input
-                box:
-                  width: 12
-                label:
-                  title: Placeholder
-                properties:
-                  placeholder: π
-              - id: example_3_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "number_input",
-                      "label": {
-                        "title": "Placeholder"
-                      },
-                      "properties": {
-                        "placeholder": "π"
-                      }
+                  }
+                  ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: number_input
+              box:
+                span: 12
+              properties:
+                title: Placeholder
+                placeholder: π
+            - id: example_3_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "number_input",
+                    "properties": {
+                      "title": "Placeholder"
+                      "placeholder": "π"
                     }
-                    ```
+                  }
+                  ```

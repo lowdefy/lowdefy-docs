@@ -1,8 +1,8 @@
 id: checkbox_input
 initialState:
-  block: 
+  block:
     properties:
-      options: ['Option 1', 'Option 2']
+      options: ["Option 1", "Option 2"]
 properties:
   title: Checkbox
 blocks:
@@ -17,36 +17,36 @@ blocks:
       block_type: checkbox_input
       label: true
       label_form:
-        _ref:
-          blocks/label.yaml
+        _ref: blocks/label.yaml
       properties_form:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the block if true.
-            labelSpan: 4
+
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the block if true.
+              span: 4
         - id: select_options_type_card
           type: card
           blocks:
             - id: select_options_type
               type: radio_button_input
-              label:
-                title: Options Type
-                extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
               defaultValue: Primitive
               properties:
+                title: Options Type
                 size: small
+                label:
+                  extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
                   - Label Value
         - id: block.properties.options
           type: list
           required: true
-          label:
+          properties:
             title: options
           blocks:
             - id: block.properties.options.$.primitive
@@ -60,182 +60,179 @@ blocks:
             - id: block.properties.options.$.label
               type: text_input
               defaultValue: Label
-              label:
-                title: label
-                extra: Label shown to user.
-                labelSpan: 4
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
+                title: label
                 size: small
+                label:
+                  extra: Label shown to user.
+                  span: 4
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
-              label:
-                title: value
-                extra: Value selected.
-                labelSpan: 4
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
+                title: value
                 size: small
+                label:
+                  extra: Value selected.
+                  span: 4
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
-              label:
-                title: disabled
-                extra: Disable the option if true.
-                labelSpan: 4
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
+                title: disabled
                 size: small
+                label:
+                  extra: Disable the option if true.
+                  span: 4
 
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1
-                type: checkbox_input
-                box:
-                  width: 12
-                label:
-                  title: Primitive options
-                properties:
-                  options:
-                    - A
-                    - B
-                    - C
-              - id: example_1_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_1",
-                      "type": "checkbox_input",
-                      "label": {
-                        "title": "Primitive options"
-                      },
-                      "properties": {
-                        "options": [ "A", "B", "C" ]
-                      }
-                    }
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2
-                type: checkbox_input
-                box:
-                  width: 12
-                label:
-                  title: Object options
-                  extra: Value-Label object options and default value.
-                defaultValue:
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: checkbox_input
+              box:
+                span: 12
+              properties:
+                title: Primitive options
+                options:
+                  - A
+                  - B
                   - C
-                properties:
-                  options:
-                    - value: A
-                      label: Aragorn
-                    - value: B
-                      label: Boromir
-                    - value: C
-                      label: Celeborn
-              - id: example_2_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "checkbox_input",
+            - id: example_1_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "checkbox_input",
+                    "properties": {
+                      "title": "Primitive options"
+                      "options": [ "A", "B", "C" ]
+                    }
+                  }
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: checkbox_input
+              box:
+                span: 12
+              defaultValue:
+                - C
+              properties:
+                title: Object options
+                label:
+                  extra: Value-Label object options and default value.
+                options:
+                  - value: A
+                    label: Aragorn
+                  - value: B
+                    label: Boromir
+                  - value: C
+                    label: Celeborn
+            - id: example_2_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "checkbox_input",
+                    "defaultValue": [ "C" ],
+                    "properties": {
+                      "title": "Object options",
                       "label": {
-                        "title": "Object options",
                         "extra": "Value-Label object options and default value."
                       },
-                      "defaultValue": [ "C" ],
-                      "properties": {
-                        "options": [
-                          {
-                            "value": "A",
-                            "label": "Aragorn"
-                          },
-                          {
-                            "value": "B",
-                            "label": "Boromir"
-                          },
-                          {
-                            "value": "C",
-                            "label": "Celebron"
-                          }
-                        ]
-                      }
+                      "options": [
+                        {
+                          "value": "A",
+                          "label": "Aragorn"
+                        },
+                        {
+                          "value": "B",
+                          "label": "Boromir"
+                        },
+                        {
+                          "value": "C",
+                          "label": "Celebron"
+                        }
+                      ]
                     }
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3
-                type: checkbox_input
-                box:
-                  width: 12
+                  }
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: checkbox_input
+              box:
+                span: 12
+              properties:
+                title: Disable options
                 label:
-                  title: Disable options
                   extra: Disable individual options.
-                properties:
-                  options:
-                    - value: A
-                      label: Aragorn
-                    - value: B
-                      label: Boromir
-                      disabled: true
-                    - value: C
-                      label: Celeborn
-                    - value: D
-                      label: Denethor
-              - id: example_3_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_3",
-                      "type": "checkbox_input",
+                options:
+                  - value: A
+                    label: Aragorn
+                  - value: B
+                    label: Boromir
+                    disabled: true
+                  - value: C
+                    label: Celeborn
+                  - value: D
+                    label: Denethor
+            - id: example_3_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "checkbox_input",
+                    "properties": {
+                      "title": "Disable options",
                       "label": {
-                        "title": "Disable options",
                         "extra": "Disable individual options."
                       },
-                      "properties": {
-                        "options": [
-                          {
-                            "value": "A",
-                            "label": "Aragorn"
-                          },
-                          {
-                            "value": "B",
-                            "label": "Boromir",
-                            "disabled": true
-                          },
-                          {
-                            "value": "C",
-                            "label": "Celebron"
-                          },
-                          {
-                            "value": "D",
-                            "label": "Denethor"
-                          }
-                        ]
-                      }
+                      "options": [
+                        {
+                          "value": "A",
+                          "label": "Aragorn"
+                        },
+                        {
+                          "value": "B",
+                          "label": "Boromir",
+                          "disabled": true
+                        },
+                        {
+                          "value": "C",
+                          "label": "Celebron"
+                        },
+                        {
+                          "value": "D",
+                          "label": "Denethor"
+                        }
+                      ]
                     }
+                  }

@@ -11,96 +11,95 @@ blocks:
       block_type: text_input
       label: true
       label_form:
-        _ref:
-          blocks/label.yaml
+        _ref: blocks/label.yaml
       properties_form:
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
-          label:
-            title: allowClear
-            extra: Allow the user to clear their input.
-            labelSpan: 4
           properties:
+            title: allowClear
             size: small
+            label:
+              extra: Allow the user to clear their input.
+              span: 4
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          label:
-            title: autoFocus
-            extra: Autofocus to the block on page load.
-            labelSpan: 4
           properties:
+            title: autoFocus
             size: small
+            label:
+              extra: Autofocus to the block on page load.
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the block if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the block if true.
+              span: 4
         - id: block.properties.placeholder
           type: text_input
-          label:
-            title: placeholder
-            extra: Placeholder text inside the block before user types input.
-            labelSpan: 4
           properties:
+            title: placeholder
             size: small
+            label:
+              extra: Placeholder text inside the block before user types input.
+              span: 4
         - id: block.properties.prefix
           type: text_input
-          label:
-            title: prefix
-            extra: Prefix text for the block, priority over prefixIcon.
-            labelSpan: 4
           properties:
+            title: prefix
             size: small
+            label:
+              extra: Prefix text for the block, priority over prefixIcon.
+              span: 4
         - id: block.properties.prefixIcon
           type: text_input
-          label:
-            title: prefixIcon
-            extra: Ant Icon to prefix the block.
-            labelSpan: 4
           properties:
+            title: prefixIcon
             size: small
+            label:
+              extra: Ant Icon to prefix the block.
+              span: 4
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          label:
-            title: size
-            extra: Size of the block.
-            labelSpan: 4
+
           properties:
+            title: size
             size: small
+            label:
+              extra: Size of the block.
+              span: 4
             options:
               - small
               - default
               - large
         - id: block.properties.suffix
           type: text_input
-          label:
-            title: suffix
-            extra: Suffix text for the block, priority over suffixIcon.
-            labelSpan: 4
           properties:
+            title: suffix
             size: small
+            label:
+              extra: Suffix text for the block, priority over suffixIcon.
+              span: 4
         - id: block.properties.suffixIcon
           type: text_input
-          label:
-            title: suffixIcon
-            extra: Ant Icon to suffix the block.
-            labelSpan: 4
           properties:
+            title: suffixIcon
             size: small
+            label:
+              extra: Ant Icon to suffix the block.
+              span: 4
 
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
         ##### onPressEnter
         Triggered when enter is pressed while block is focused.
-
 
       examples:
         - id: example_1_card
@@ -109,20 +108,20 @@ blocks:
             - id: example_1
               type: text_input
               box:
-                width: 12
-              label:
+                span: 12
+              properties:
                 title: Text input
             - id: example_1_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_1",
                     "type": "text_input",
-                    "label": {
+                    "properties": {
                       "title": "Text input"
                     }
                   }
@@ -133,13 +132,13 @@ blocks:
             - id: example_2
               type: text_input
               box:
-                width: 12
+                span: 12
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
@@ -158,30 +157,30 @@ blocks:
             - id: example_3
               type: text_input
               box:
-                width: 12
-              label:
-                extra: Prefix and suffix text
+                span: 12
               properties:
+                label:
+                  extra: Prefix and suffix text
                 prefix: The cat
                 suffix: the rat.
                 placeholder: chased
             - id: example_3_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_3",
                     "type": "text_input",
-                    "label": {
-                      "extra": "Prefix and suffix text"
-                    },
                     "properties": {
                       "prefix": "The cat",
                       "suffix": "the rat.",
-                      "placeholder": "chased"
+                      "placeholder": "chased",
+                      "label": {
+                        "extra": "Prefix and suffix text"
+                      },
                     }
 
                   }
@@ -192,33 +191,32 @@ blocks:
             - id: example_4
               type: text_input
               box:
-                width: 12
-              label:
-                title: First Name
-                extra: Place label next to block and add suffix icon.
-                labelSpan: 5
+                span: 12
               properties:
+                title: First Name
                 suffixIcon: user
                 placeholder: Your name
+                label:
+                  extra: Place label next to block and add suffix icon.
+                  span: 5
             - id: example_4_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_4",
                     "type": "text_input",
-                    "label": {
-                      "title": "First Name",
-                      "extra": "Place label next to block and add suffix icon."
-                      "labelSpan": 5
-                    },
                     "properties": {
+                      "title": "First Name",
                       "suffixIcon": "user",
-                      "placeholder": "Your name"
+                      "placeholder": "Your name",
+                      "label": {
+                        "extra": "Place label next to block and add suffix icon."
+                        "span": 5
+                      },
                     }
-
                   }
                   ```

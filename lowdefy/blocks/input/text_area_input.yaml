@@ -11,98 +11,98 @@ blocks:
       block_type: text_area_input
       label: true
       label_form:
-        _ref:
-          blocks/label.yaml
+        _ref: blocks/label.yaml
       properties_form:
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
-          label:
-            title: allowClear
-            extra: Allow the user to clear their input.
-            labelSpan: 4
           properties:
+            title: allowClear
             size: small
+            label:
+              extra: Allow the user to clear their input.
+              span: 4
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          label:
-            title: autoFocus
-            extra: Autofocus to the block on page load.
-            labelSpan: 4
           properties:
+            title: autoFocus
             size: small
+            label:
+              extra: Autofocus to the block on page load.
+              span: 4
         - id: select_autoRows_type_card
           type: card
           blocks:
             - id: select_autoRows_type
               type: radio_button_input
-              label:
-                title: autoRows Type
-                extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
               defaultValue: Boolean
               properties:
+                title: autoRows Type
                 size: small
+                label:
+                  extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
                 options:
                   - Boolean
                   - Object
         - id: block.properties.autoRows
           type: switch_input
-          label:
-            title: autoRows
-            extra: Automatically extend the block number of rows.
-            labelSpan: 4
           defaultValue: false
           visible:
             _mql_test:
               select_autoRows_type: Boolean
           properties:
+            title: autoRows
             size: small
+            label:
+              extra: Automatically extend the block number of rows.
+              span: 4
         - id: block.properties.autoRows.minRows
           type: number_input
-          label:
-            title: autoRows.minRows
-            extra: Minimum number of rows the block can be.
-            labelSpan: 6
           visible:
             _mql_test:
               select_autoRows_type: Object
           properties:
+            title: autoRows.minRows
             size: small
+            label:
+              extra: Minimum number of rows the block can be.
+              span: 6
         - id: block.properties.autoRows.maxRows
           type: number_input
-          label:
-            title: autoRows.maxRows
-            extra: Maximum number of rows the block can be.
-            labelSpan: 6
           visible:
             _mql_test:
               select_autoRows_type: Object
           properties:
+            title: autoRows.maxRows
             size: small
+            label:
+              extra: Maximum number of rows the block can be.
+              span: 6
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the block if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the block if true.
+              span: 4
         - id: block.properties.placeholder
           type: text_input
-          label:
-            title: placeholder
-            extra: Placeholder text inside the block before user types input.
-            labelSpan: 4
           properties:
+            title: placeholder
             size: small
+            label:
+              extra: Placeholder text inside the block before user types input.
+              span: 4
         - id: block.properties.rows
           type: number_input
-          label:
+          properties:
             title: rows
-            extra: Number of rows of text area.
-            labelSpan: 4
+            label:
+              extra: Number of rows of text area.
+              span: 4
 
       available_actions_description: |
         ###### onChange
@@ -117,20 +117,20 @@ blocks:
             - id: example_1
               type: text_area_input
               box:
-                width: 12
-              label:
+                span: 12
+              properties:
                 title: Text Area input
             - id: example_1_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_1",
                     "type": "text_area_input",
-                    "label": {
+                    "properties": {
                       "title": "Text Area input"
                     }
                   }
@@ -141,13 +141,13 @@ blocks:
             - id: example_2
               type: text_area_input
               box:
-                width: 12
+                span: 12
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
@@ -163,29 +163,29 @@ blocks:
           blocks:
             - id: example_3
               type: text_area_input
-              label:
-                title: Rows
-                extra: Define fixed number of rows for text area.
               box:
-                width: 12
+                span: 12
               properties:
+                title: Rows
                 rows: 5
+                label:
+                  extra: Define fixed number of rows for text area.
             - id: example_3_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_3",
                     "type": "text_area_input",
-                    "label": {
-                      "title": "Rows",
-                      "extra": "Define fixed number of rows for text area."
-                    },
                     "properties": {
-                      "rows": 5
+                      "title": "Rows",
+                      "rows": 5,
+                      "label": {
+                        "extra": "Define fixed number of rows for text area."
+                      },
                     }
                   }
         - id: example_4_card
@@ -193,30 +193,30 @@ blocks:
           blocks:
             - id: example_4
               type: text_area_input
-              label:
-                title: Auto Rows
-                extra: Automatically adjust text area size based on content.
               box:
-                width: 12
+                span: 12
               properties:
+                title: Auto Rows
+                label:
+                  extra: Automatically adjust text area size based on content.
                 autoRows:
                   minRows: 3
                   maxRows: 6
             - id: example_4_code
               type: markdown
               box:
-                width: 12
+                span: 12
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_4",
                     "type": "text_area_input",
-                    "label": {
-                      "title": Auto "Rows",
-                      "extra": "Automatically adjust text area size based on content."
-                    },
                     "properties": {
+                      "title": Auto "Rows",
+                      "label": {
+                        "extra": "Automatically adjust text area size based on content."
+                      },
                       "autoRows": {
                         "minRows": 3,
                         "maxRows": 6

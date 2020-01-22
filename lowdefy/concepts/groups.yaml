@@ -10,7 +10,7 @@ blocks:
         properties:
           content: |
             # Groups and Roles
-            
+
             Lowdefy groups grant granular user access to resources in the application. These groups are configured in the `groups` section of the deployment `lowdefy.json` file. Users are placed in a group via the group admin console in a specific Lowdefy to gain access.
 
             Lowdefy roles grant permissions within the application. These roles are given to a specific user via the user admin console in a specific Lowdefy deployment.
