@@ -67,10 +67,10 @@
     - id: settings_card
       type: card
       box:
-        title: Settings
         span: 14
         maxHeight: 600
       properties:
+        title: Settings
         size: small
       blocks:
         - id: visible_description
