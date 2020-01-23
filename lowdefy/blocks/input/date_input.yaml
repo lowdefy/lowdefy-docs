@@ -12,73 +12,81 @@ blocks:
         >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
       block_type: date_input
       label: true
-      label_form:
-        _ref:
-          blocks/label.yaml
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
-          label:
-            title: allowClear
-            extra: Allow the user to clear their input.
-            labelSpan: 4
           properties:
+            title: allowClear
             size: small
+            label:
+              extra: Allow the user to clear their input.
+              span: 4
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          label:
-            title: autoFocus
-            extra: Autofocus to the block on page load.
-            labelSpan: 4
           properties:
-            size: small 
+            title: autoFocus
+            size: small
+            label:
+              extra: Autofocus to the block on page load.
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the block if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the block if true.
+              span: 4
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD
-          label:
-            title: format
-            extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
-            labelSpan: 4
           properties:
+            title: format
             size: small
+            label:
+              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+              span: 4
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Date
-          label:
-            title: placeholder
-            extra: Placeholder text inside the block before user selects input.
-            labelSpan: 4
           properties:
+            title: placeholder
             size: small
+            label:
+              extra: Placeholder text inside the block before user selects input.
+              span: 4
         - id: block.properties.showToday
           type: switch_input
           defaultValue: true
-          label:
-            title: showToday
-            extra: Shows a button to easily select the current date if true.
-            labelSpan: 4
           properties:
+            title: showToday
             size: small
+            label:
+              extra: Shows a button to easily select the current date if true.
+              span: 4
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          label:
-            title: size
-            extra: Size of the block.
-            labelSpan: 4
           properties:
+            title: size
             size: small
+            label:
+              extra: Size of the block.
+              span: 4
             options:
               - small
               - default
@@ -86,105 +94,105 @@ blocks:
         - id: block.properties.suffixIcon
           type: text_input
           default: calendar
-          label:
-            title: suffixIcon
-            extra: Ant Icon at the right-hand side of the date picker,.
-            labelSpan: 4
           properties:
+            title: suffixIcon
             size: small
+            label:
+              extra: Ant Icon at the right-hand side of the date picker,.
+              span: 4
 
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1
-                type: date_input
-                box:
-                  width: 12
-                label:
-                  title: Date input
-              - id: example_1_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_1",
-                      "type": "date_input",
-                      "label": {
-                        "title": "Date input"
-                      }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: date_input
+              box:
+                span: 12
+              properties:
+                title: Date input
+            - id: example_1_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "date_input",
+                    "properties": {
+                      "title": "Date input"
                     }
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2
-                type: date_input
-                box:
-                  width: 12
+                  }
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: date_input
+              box:
+                span: 12
+              properties:
+                title: showToday and suffixIcon
+                showToday: false
+                suffixIcon: filter
                 label:
-                  title: showToday and suffixIcon
                   extra: Disable Today button and change the suffix icon.
-                properties:
-                  showToday: false
-                  suffixIcon: filter
-              - id: example_2_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "date_input",
+            - id: example_2_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "date_input",
+                    "properties": {
+                      "title": "showToday and suffixIcon",
+                      "showToday": false,
+                      "suffixIcon": "filter",
                       "label": {
-                        "title": "showToday and suffixIcon",
                         "extra": "Disable Today button and change the suffix icon"
-                      },
-                      "properties": {
-                        "showToday": false,
-                        "suffixIcon": "filter"
                       }
                     }
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3
-                type: date_input
-                box:
-                  width: 12
+                  }
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: date_input
+              box:
+                span: 12
+              defaultValue:
+                _date: 1993-02-02
+              properties:
+                title: Date format
+                format: D MMMM YYYY
                 label:
-                  title: Date format
                   extra: Default date and custom date format.
-                defaultValue: 
-                  _date: 1993-02-02
-                properties:
-                  format: D MMMM YYYY
-              - id: example_3_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_3",
-                      "type": "date_input",
+            - id: example_3_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "date_input",
+                    "defaultValue": { 
+                      "_date": "1993-02-02" 
+                    },
+                    "properties": {
+                      "title": "Date format",
+                      "format": "D MMMM YYYY",
                       "label": {
-                        "title": "Date format",
                         "extra": "Default date and custom date format."
-                      },
-                      "defaultValue": { 
-                        "_date": "1993-02-02" 
-                      },
-                      "properties": {
-                        "format": "D MMMM YYYY"
                       }
                     }
+                  }

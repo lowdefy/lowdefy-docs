@@ -2,12 +2,18 @@ id: radio_button_input
 properties:
   title: Radio Button
 initialState:
-  block: 
+  block:
     properties:
-      options: ['Option 1', 'Option 2']
+      options:
+        - primitive: Option 1
+          value: Value1
+          label: Label 1
+        - primitive: Option 2
+          value: Value2
+          label: Label 2
 blocks:
   _ref:
-    path: blocks/options_template.yaml
+    path: blocks/template.yaml
     vars:
       block_name: Radio Button Input
       description_content: |
@@ -16,41 +22,65 @@ blocks:
         >Other selector blocks are checkbox_input, select_input, multiple_select_input and radio_input
       block_type: radio_button_input
       label: true
-      label_form:
-        _ref:
-          blocks/label.yaml
+      properties_transform:
+        _if:
+          test:
+            _eq:
+              - _state: select_options_type
+              - Primitive
+          then:
+            _get:
+              key: "0"
+              on:
+                _mql_aggregate:
+                  pipeline:
+                    - $addFields:
+                        options: $options.primitive
+                  on:
+                    - _state: block.properties
+          else:
+            _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.buttonStyle
           type: radio_button_input
           defaultValue: solid
-          label:
-            title: buttonStyle
-            extra: Style of the selected option button.
-            labelSpan: 4
           properties:
+            title: buttonStyle
             size: small
+            label:
+              extra: Style of the selected option button.
+              span: 4
             options:
               - solid
               - outline
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the block if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the block if true.
+              span: 4
         - id: select_options_type_card
           type: card
           blocks:
             - id: select_options_type
               type: radio_button_input
-              label:
-                title: Options Type
-                extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
               defaultValue: Primitive
               properties:
+                title: Options Type
+                label:
+                  extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 size: small
                 options:
                   - Primitive
@@ -58,7 +88,7 @@ blocks:
         - id: block.properties.options
           type: list
           required: true
-          label:
+          properties:
             title: options
           blocks:
             - id: block.properties.options.$.primitive
@@ -72,48 +102,48 @@ blocks:
             - id: block.properties.options.$.label
               type: text_input
               defaultValue: Label
-              label:
-                title: label
-                extra: Label shown to user.
-                labelSpan: 4
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
+                title: label
                 size: small
+                label:
+                  extra: Label shown to user.
+                  span: 4
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
-              label:
-                title: value
-                extra: Value selected.
-                labelSpan: 4
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
+                title: value
                 size: small
+                label:
+                  extra: Value selected.
+                  span: 4
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
-              label:
-                title: disabled
-                extra: Disable the option if true.
-                labelSpan: 4
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
+                title: disabled
                 size: small
+                label:
+                  extra: Disable the option if true.
+                  span: 4
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          label:
-            title: size
-            extra: Size of the block.
-            labelSpan: 4
           properties:
+            title: size
             size: small
+            label:
+              extra: Size of the block.
+              span: 4
             options:
               - small
               - default
@@ -124,144 +154,141 @@ blocks:
         Triggered when value is changed.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1
-                type: radio_button_input
-                box:
-                  width: 12
-                label:
-                  title: Primitive options
-                properties:
-                  options:
-                    - A
-                    - B
-                    - C
-              - id: example_1_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_1",
-                      "type": "radio_button_input",
-                      "label": {
-                        "title": "Primitive options"
-                      },
-                      "properties": {
-                        "options": [ "A", "B", "C" ]
-                      }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: radio_button_input
+              box:
+                span: 12
+              properties:
+                title: Primitive options
+                options:
+                  - A
+                  - B
+                  - C
+            - id: example_1_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "radio_button_input",
+                    "properties": {
+                      "title": "Primitive options"
+                      "options": [ "A", "B", "C" ]
                     }
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2
-                type: radio_button_input
-                box:
-                  width: 12
+                  }
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: radio_button_input
+              box:
+                span: 12
+              properties:
+                title: Object options
                 label:
-                  title: Object options
                   extra: Value-Label object options and disable individual options.
-                properties:
-                  options:
-                    - value: A
-                      label: Aragorn
-                    - value: B
-                      label: Boromir
-                      disabled: true
-                    - value: C
-                      label: Celeborn
-                    - value: D
-                      label: Denethor
-              - id: example_2_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "radio_button_input",
+                options:
+                  - value: A
+                    label: Aragorn
+                  - value: B
+                    label: Boromir
+                    disabled: true
+                  - value: C
+                    label: Celeborn
+                  - value: D
+                    label: Denethor
+            - id: example_2_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "radio_button_input",
+                    "properties": {
+                      "title": "Object options",
                       "label": {
-                        "title": "Object options",
                         "extra": "Value-Label object options and disable individual options."
                       },
-                      "properties": {
-                        "options": [
-                          {
-                            "value": "A",
-                            "label": "Aragorn"
-                          },
-                          {
-                            "value": "B",
-                            "label": "Boromir",
-                            "disabled": true
-                          },
-                          {
-                            "value": "C",
-                            "label": "Celebron"
-                          },
-                          {
-                            "value": "D",
-                            "label": "Denethor"
-                          }
-                        ]
-                      }
+                      "options": [
+                        {
+                          "value": "A",
+                          "label": "Aragorn"
+                        },
+                        {
+                          "value": "B",
+                          "label": "Boromir",
+                          "disabled": true
+                        },
+                        {
+                          "value": "C",
+                          "label": "Celebron"
+                        },
+                        {
+                          "value": "D",
+                          "label": "Denethor"
+                        }
+                      ]
                     }
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3
-                type: radio_button_input
-                box:
-                  width: 12
+                  }
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: radio_button_input
+              box:
+                span: 12
+              defaultValue: B
+              properties:
+                title: Button style
                 label:
-                  title: Button style
                   extra: Change button style to outline.
-                defaultValue: B
-                properties:
-                  buttonStyle: outline
-                  options:
-                    - value: A
-                      label: Aragorn
-                    - value: B
-                      label: Boromir
-                    - value: C
-                      label: Celeborn
-              - id: example_3_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_3",
-                      "type": "radio_button_input",
+                buttonStyle: outline
+                options:
+                  - value: A
+                    label: Aragorn
+                  - value: B
+                    label: Boromir
+                  - value: C
+                    label: Celeborn
+            - id: example_3_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "radio_button_input",
+                    "defaultValue": "B",
+                    "properties": {
+                      "title": "Button style",
+                      "buttonStyle": "outline",
                       "label": {
-                        "title": "Button style",
                         "extra": "Change button style to outline."
                       },
-                      "defaultValue": "B",
-                      "properties": {
-                        "buttonStyle": "outline",
-                        "options": [
-                          {
-                            "value": "A",
-                            "label": "Aragorn"
-                          },
-                          {
-                            "value": "B",
-                            "label": "Boromir"
-                          },
-                          {
-                            "value": "C",
-                            "label": "Celebron"
-                          }
-                        ]
-                      }
+                      "options": [
+                        {
+                          "value": "A",
+                          "label": "Aragorn"
+                        },
+                        {
+                          "value": "B",
+                          "label": "Boromir"
+                        },
+                        {
+                          "value": "C",
+                          "label": "Celebron"
+                        }
+                      ]
                     }
+                  }

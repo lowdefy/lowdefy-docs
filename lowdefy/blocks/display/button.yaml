@@ -9,63 +9,71 @@ blocks:
       description_content: |
         Button block.
       block_type: button
-      label: true
-      label_form:
-        _ref:
-          blocks/title_label.yaml
+      label: false
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.block
           type: switch_input
           defaultValue: true
-          label:
-            title: block
-            extra: Fit the button's width to its parent container width.
-            labelSpan: 4
           properties:
+            title: block
             size: small
+            label:
+              extra: Fit the button's span to its parent container span.
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the button if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the button if true.
+              span: 4
         - id: block.properties.ghost
           type: switch_input
           defaultValue: false
-          label:
-            title: ghost
-            extra: Make the button's background transparent when true.
-            labelSpan: 4
           properties:
+            title: ghost
             size: small
+            label:
+              extra: Make the button's background transparent when true.
+              span: 4
         - id: block.properties.href
           type: text_input
-          label:
-            title: href
-            extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
-            labelSpan: 4
           properties:
+            title: href
             size: small
+            label:
+              extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
+              span: 4
         - id: block.properties.icon
           type: text_input
-          label:
-            title: icon
-            extra: Ant Icon to shown on the button.
-            labelSpan: 4
           properties:
+            title: icon
             size: small
+            label:
+              extra: Ant Icon to shown on the button.
+              span: 4
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: square
-          label:
-            title: shape
-            extra: Shape of the button.
-            labelSpan: 4
           properties:
+            title: shape
             size: small
+            label:
+              extra: Shape of the button.
+              span: 4
             options:
               - circle
               - round
@@ -73,12 +81,12 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          label:
-            title: size
-            extra: Size of the button.
-            labelSpan: 4
           properties:
+            title: size
             size: small
+            label:
+              extra: Size of the button.
+              span: 4
             options:
               - small
               - default
@@ -86,12 +94,12 @@ blocks:
         - id: block.properties.type
           type: radio_button_input
           defaultValue: primary
-          label:
-            title: type
-            extra: The button type.
-            labelSpan: 4
           properties:
+            title: type
             size: small
+            label:
+              extra: The button type.
+              span: 4
             options:
               - primary
               - default
@@ -104,146 +112,140 @@ blocks:
         Triggered when the button is clicked.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1_block_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_1_title
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ##### Basic button
-                  - id: example_1
-                    type: button
-                    box:
-                      width: 24
-                    label:
-                      title: Click here
-              - id: example_1_code_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_1_code
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ```json
-                        {
-                          "id": "example_1",
-                          "type": "button",
-                          "label": {
-                            "title": "Click here"
-                          }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1_block_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_1_title
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ##### Basic button
+                - id: example_1
+                  type: button
+                  box:
+                    span: 24
+                  properties:
+                    title: Click here
+            - id: example_1_code_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_1_code
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ```json
+                      {
+                        "id": "example_1",
+                        "type": "button",
+                        "properties": {
+                          "title": "Click here"
                         }
-                        ```
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2_block_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_2_title
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ##### None block and ghost button with icon
-                  - id: example_2
-                    type: button
-                    box:
-                      width: 24
-                    label:
-                      title: Click here
-                    properties:
-                      block: false
-                      ghost: true
-                      icon: rocket
-              - id: example_2_code_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_2_code
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ```json
-                        {
-                          "id": "example_2",
-                          "type": "button",
-                          "label": {
-                            "title": "Click here"
-                          },
-                          "properties": {
-                            "block": false,
-                            "ghost": true,
-                            "icon": "rocket"
-                          }
+                      }
+                      ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2_block_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_2_title
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ##### None block and ghost button with icon
+                - id: example_2
+                  type: button
+                  box:
+                    span: 24
+                  properties:
+                    title: Click here
+                    block: false
+                    ghost: true
+                    icon: rocket
+            - id: example_2_code_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_2_code
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ```json
+                      {
+                        "id": "example_2",
+                        "type": "button",
+                        "properties": {
+                          "title": "Click here"
+                          "block": false,
+                          "ghost": true,
+                          "icon": "rocket"
                         }
-                        ```
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3_block_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_3_title
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ##### Round and type danger
-                  - id: example_3
-                    type: button
-                    box:
-                      width: 24
-                    label:
-                      title: Click here
-                    properties:
-                      block: false
-                      icon: warning
-                      shape: round
-                      type: danger
-              - id: example_3_code_column
-                type: column
-                box:
-                  width: 12
-                blocks:
-                  - id: example_3_code
-                    type: markdown
-                    box:
-                      width: 24
-                    properties:
-                      content: |
-                        ```json
-                        {
-                          "id": "example_3",
-                          "type": "button",
-                          "label": {
-                            "title": "Click here"
-                          },
-                          "properties": {
-                            "block": false,
-                            "icon": "warning",
-                            "shape": "round",
-                            "type": "danger"
-                          }
+                      }
+                      ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3_block_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_3_title
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ##### Round and type danger
+                - id: example_3
+                  type: button
+                  box:
+                    span: 24
+                  properties:
+                    title: Click here
+                    block: false
+                    icon: warning
+                    shape: round
+                    type: danger
+            - id: example_3_code_column
+              type: column
+              box:
+                span: 12
+              blocks:
+                - id: example_3_code
+                  type: markdown
+                  box:
+                    span: 24
+                  properties:
+                    content: |
+                      ```json
+                      {
+                        "id": "example_3",
+                        "type": "button",
+                        "properties": {
+                          "title": "Click here"
+                          "block": false,
+                          "icon": "warning",
+                          "shape": "round",
+                          "type": "danger"
                         }
-                        ```
+                      }
+                      ```

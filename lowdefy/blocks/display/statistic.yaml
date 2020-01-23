@@ -9,82 +9,90 @@ blocks:
       description_content: |
         A statistic header block.
       block_type: statistic
-      label: true
-      label_form:
-        _ref:
-          blocks/title_label.yaml
+      label: false
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: select_value_type_card
           type: card
           blocks:
             - id: select_value_type
               type: radio_button_input
-              label:
-                title: value Type
-                extra: The display value can be either a String or a Number.
               defaultValue: Number
               properties:
+                title: value Type
                 size: small
+                label:
+                  extra: The display value can be either a String or a Number.
                 options:
                   - Number
                   - String
         - id: value_number
           field: block.properties.value
           type: number_input
-          label:
-            title: value
-            extra: Display number value.
-            labelSpan: 6
           visible:
             _mql_test:
               select_value_type: Number
           properties:
+            title: value
             size: small
+            label:
+              xtra: Display number value.
+              span: 6
         - id: value_text
           field: block.properties.value
           type: text_input
-          label:
-            title: value
-            extra: Display text value.
-            labelSpan: 6
           visible:
             _mql_test:
               select_value_type: String
           properties:
+            title: value
             size: small
+            label:
+              extra: Display text value.
+              span: 6
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
-          label:
-            title: decimalSeparator
-            extra: Decimal separator.
-            labelSpan: 6
           properties:
+            title: decimalSeparator
             size: small
+            label:
+              extra: Decimal separator.
+              span: 6
         - id: block.properties.formatter.type
           type: select_input
           defaultValue: default
-          label:
-            title: formatter.type
-            extra: Type of formatter to apply to value.
-            labelSpan: 8
           properties:
+            title: formatter.type
             size: small
+            label:
+              extra: Type of formatter to apply to value.
+              span: 8
             options:
               - default
               - date
               - humanizeDuration
         - id: block.properties.formatter.properties.format
           type: text_input
-          label:
-            title: formatter.properties.format
-            extra: Moment.js date format
-            labelSpan: 8
           visible:
             _mql_test:
               block.properties.formatter.type: date
           properties:
+            title: formatter.properties.format
             size: small
+            label:
+              extra: Moment.js date format
+              span: 8
             options:
               - default
               - date
@@ -92,72 +100,72 @@ blocks:
         - id: block.properties.groupSeparator
           type: text_input
           defaultValue: ","
-          label:
-            title: groupSeparator
-            extra: Group separator.
-            labelSpan: 6
           properties:
+            title: groupSeparator
             size: small
+            label:
+              extra: Group separator.
+              span: 6
         - id: block.properties.precision
           type: number_input
           defaultValue: 2
-          label:
-            title: precision
-            extra: Number of decimals to display.
-            labelSpan: 6
           properties:
+            title: precision
             size: small
+            label:
+              extra: Number of decimals to display.
+              span: 6
         - id: block.properties.prefix
           type: text_input
-          label:
-            title: prefix
-            extra: Prefix text, priority over prefixIcon.
-            labelSpan: 6
           properties:
+            title: prefix
             size: small
+            label:
+              extra: Prefix text, priority over prefixIcon.
+              span: 6
         - id: block.properties.prefixIcon
           type: text_input
-          label:
-            title: prefixIcon
-            extra: Ant Icon prefix.
-            labelSpan: 6
           properties:
+            title: prefixIcon
             size: small
+            label:
+              extra: Ant Icon prefix.
+              span: 6
         - id: block.properties.suffix
           type: text_input
-          label:
-            title: suffix
-            extra: Suffix text, priority over suffixIcon.
-            labelSpan: 6
           properties:
+            title: suffix
             size: small
+            label:
+              extra: Suffix text, priority over suffixIcon.
+              span: 6
         - id: block.properties.suffixIcon
           type: text_input
-          label:
-            title: suffixIcon
-            extra: Ant Icon suffix.
-            labelSpan: 6
+
           properties:
+            title: suffixIcon
             size: small
+            label:
+              extra: Ant Icon suffix.
+              span: 6
         - id: valueStyle_input
           type: text_area_input
           box:
-            width: 22
-          label:
-            title: valueStyle
-            extra: CSS style properties. Should be in JSON format.
-            labelSpan: 4
-          defaultValue: '{}'
+            span: 22
+          defaultValue: "{}"
           properties:
+            title: valueStyle
             rows: 5
             size: small
+            label:
+              extra: CSS style properties. Should be in JSON format.
+              span: 4
         - id: apply_valueStyle_button
           type: button
           box:
-            width: 2
-          label:
-            title: ""
+            span: 2
           properties:
+            title: ""
             block: false
             shape: circle
             icon: reload
@@ -173,219 +181,200 @@ blocks:
         ###### No available actions.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1
-                type: statistic
-                box:
-                  width: 12
-                label:
-                  title: Statistic
-                properties:
-                  value: 1000
-              - id: example_1_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_1",
-                      "type": "statistic",
-                      "label": {
-                        "title": "Statistic"
-                      },
-                      "properties": {
-                        "value": 1000
-                      }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: statistic
+              box:
+                span: 12
+              properties:
+                title: Statistic
+                value: 1000
+            - id: example_1_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "statistic",
+                    "properties": {
+                      "title": "Statistic"
+                      "value": 1000
                     }
-                    ```
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2
-                type: statistic
-                box:
-                  width: 12
-                label:
-                  title: Decimal, group separators and precision
-                properties:
-                  value: 1000.9999
-                  decimalSeparator: ","
-                  groupSeparator: " "
-                  precision: 2
-              - id: example_2_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "statistic",
-                      "label": {
-                        "title": "Statistic",
-                      },
-                      "properties":{
-                        "value": 1000.9999,
-                        "decimalSeparator": ",",
-                        "groupSeparator": " ",
-                        "precision": 2
-                      }
+                  }
+                  ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: statistic
+              box:
+                span: 12
+              properties:
+                title: Decimal, group separators and precision
+                value: 1000.9999
+                decimalSeparator: ","
+                groupSeparator: " "
+                precision: 2
+            - id: example_2_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "statistic",
+                    "properties":{
+                      "title": "Statistic",
+                      "value": 1000.9999,
+                      "decimalSeparator": ",",
+                      "groupSeparator": " ",
+                      "precision": 2
                     }
-                    ```
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3
-                type: statistic
-                box:
-                  width: 12
-                label:
-                  title: Prefix and suffix
-                properties:
-                  value: 1000
-                  prefix: $
-                  suffixIcon: shopping-cart
-              - id: example_3_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_3",
-                      "type": "statistic",
-                      "label": {
-                        "title": "Prefix and suffix",
-                      },
-                      "properties":{
-                        "value": 1000,
-                        "prefix": "$",
-                        "suffixIcon": "shopping-cart"
-                      }
+                  }
+                  ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: statistic
+              box:
+                span: 12
+              properties:
+                title: Prefix and suffix
+                value: 1000
+                prefix: $
+                suffixIcon: shopping-cart
+            - id: example_3_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "statistic",
+                    "properties":{
+                      "title": "Prefix and suffix",
+                      "value": 1000,
+                      "prefix": "$",
+                      "suffixIcon": "shopping-cart"
                     }
-                    ```
-          - id: example_4_card
-            type: card
-            blocks:
-              - id: example_4
-                type: statistic
-                box:
-                  width: 12
-                label:
-                  title: Date formatter
-                properties:
-                  value: 1999-12-31
-                  formatter:
-                    type: date
-                    properties:
-                      format: D MMMM YYYY
+                  }
+                  ```
+        - id: example_4_card
+          type: card
+          blocks:
+            - id: example_4
+              type: statistic
+              box:
+                span: 12
+              properties:
+                title: Date formatter
+                value: 1999-12-31
+                formatter:
+                  type: date
+                  properties:
+                    format: D MMMM YYYY
 
-              - id: example_4_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_4",
-                      "type": "statistic",
-                      "label": {
-                        "title": "Date formatter",
-                      },
-                      "properties":{
-                        "value": "1999-12-31",
-                        "formatter":{
-                          "type": "date",
-                          "properties":{
-                            "format": "D MMMM YYYY"
-                          }
+            - id: example_4_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_4",
+                    "type": "statistic",
+                    "properties":{
+                      "title": "Date formatter",
+                      "value": "1999-12-31",
+                      "formatter":{
+                        "type": "date",
+                        "properties":{
+                          "format": "D MMMM YYYY"
                         }
                       }
                     }
-                    ```
-          - id: example_5_card
-            type: card
-            blocks:
-              - id: example_5
-                type: statistic
-                box:
-                  width: 12
-                label:
-                  title: Duration formatter
-                properties:
-                  value: 1000000000
-                  formatter:
-                    type: humanizeDuration
+                  }
+                  ```
+        - id: example_5_card
+          type: card
+          blocks:
+            - id: example_5
+              type: statistic
+              box:
+                span: 12
+              properties:
+                title: Duration formatter
+                value: 1000000000
+                formatter:
+                  type: humanizeDuration
 
-              - id: example_5_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_5",
-                      "type": "statistic",
-                      "label": {
-                        "title": "Duration formatter",
-                      },
-                      "properties":{
-                        "value": 1000000000, // value should be milliseconds
-                        "formatter":{
-                          "type": "humanizeDuration"
-                        }
+            - id: example_5_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_5",
+                    "type": "statistic",
+                    "properties":{
+                      "title": "Duration formatter",
+                      "value": 1000000000, // value should be milliseconds
+                      "formatter":{
+                        "type": "humanizeDuration"
                       }
                     }
-                    ```
-          - id: example_6_card
-            type: card
-            blocks:
-              - id: example_6
-                type: statistic
-                box:
-                  width: 12
-                label:
-                  title: Value style
-                properties:
-                  value: 1000
-                  prefixIcon: rise
-                  suffix: "%"
-                  valueStyle:
-                    color: green
-                    font-weight: bold
-                    font-size: 40
+                  }
+                  ```
+        - id: example_6_card
+          type: card
+          blocks:
+            - id: example_6
+              type: statistic
+              box:
+                span: 12
+              properties:
+                title: Value style
+                value: 1000
+                prefixIcon: rise
+                suffix: "%"
+                valueStyle:
+                  color: green
+                  font-weight: bold
+                  font-size: 40
 
-              - id: example_6_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_6",
-                      "type": "statistic",
-                      "label": {
-                        "title": "Value style",
-                      },
-                      "properties":{
-                        "value": 1000,
-                        "prefixIcon": "rise",
-                        "suffix": "%",
-                        "valueStyle":{
-                          "color": "green",
-                          "font-weight": "bold",
-                          "font-size": 40
-                        }
+            - id: example_6_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_6",
+                    "type": "statistic",
+                    "properties":{
+                      "title": "Value style",
+                      "value": 1000,
+                      "prefixIcon": "rise",
+                      "suffix": "%",
+                      "valueStyle":{
+                        "color": "green",
+                        "font-weight": "bold",
+                        "font-size": 40
                       }
                     }
-                    ```
-
+                  }
+                  ```

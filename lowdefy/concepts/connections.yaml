@@ -1,6 +1,6 @@
 id: connections
 properties:
-  title: Connections 
+  title: Connections
 blocks:
   - id: card
     type: card
@@ -10,7 +10,7 @@ blocks:
         properties:
           content: |
             # Connections
-            
+
             Lowdefy applications connect to other services like databases and REST APIs using connections, requests and mutations.
 
             The configuration of a connection to a external service is set up as a connection object in the `connections` section of the deployment `lowdefy.json` file. Here secrets like API keys, and connection information like urls or hostnames are specified.

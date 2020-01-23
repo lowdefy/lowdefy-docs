@@ -1,9 +1,0 @@
-- id: block.label.title
-  type: text_input
-  label:
-    title: title
-    extra: Title to describe the block.
-    labelSpan: 4
-  defaultValue: block_id
-  properties:
-    size: small

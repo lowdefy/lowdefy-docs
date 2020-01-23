@@ -10,158 +10,166 @@ blocks:
         On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: switch_input
       label: true
-      label_form:
-        _ref:
-          blocks/label.yaml
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          label:
-            title: autoFocus
-            extra: Autofocus to the block on page load.
-            labelSpan: 4
           properties:
+            title: autoFocus
             size: small
+            label:
+              extra: Autofocus to the block on page load.
+              span: 4
         - id: block.properties.checkedIcon
           type: text_input
-          label:
-            title: checkedIcon
-            extra: Ant Icon to shown when switch is checked (true).
-            labelSpan: 4
           defaultValue: check
           properties:
+            title: checkedIcon
             size: small
+            label:
+              extra: Ant Icon to shown when switch is checked (true).
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          label:
-            title: disabled
-            extra: Disable the block if true.
-            labelSpan: 4
           properties:
+            title: disabled
             size: small
+            label:
+              extra: Disable the block if true.
+              span: 4
         - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
-          label:
-            title: disableIcons
-            extra: Disables icons for checked and unchecked state.
-            labelSpan: 4
           properties:
+            title: disableIcons
             size: small
+            label:
+              extra: Disables icons for checked and unchecked state.
+              span: 4
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          label:
-            title: size
-            extra: Size of the block.
-            labelSpan: 4
           properties:
             size: small
+            title: size
+            label:
+              extra: Size of the block.
+              span: 4
             options:
               - small
               - default
         - id: block.properties.uncheckedIcon
           type: text_input
-          label:
-            title: uncheckedIcon
-            extra: Ant Icon to shown when switch is unchecked (false).
-            labelSpan: 4
           defaultValue: close
           properties:
+            title: uncheckedIcon
             size: small
+            label:
+              extra: Ant Icon to shown when switch is unchecked (false).
+              span: 4
 
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
 
       examples:
-          - id: example_1_card
-            type: card
-            blocks:
-              - id: example_1
-                type: switch_input
-                box:
-                  width: 12
-                label:
-                  title: Switch input
-              - id: example_1_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_1",
-                      "type": "switch_input",
-                      "label": {
-                        "title": "Switch input"
-                      }
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1
+              type: switch_input
+              box:
+                span: 12
+              properties:
+                title: Switch input
+            - id: example_1_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "switch_input",
+                    "properties": {
+                      "title": "Switch input"
                     }
-                    ```
-          - id: example_2_card
-            type: card
-            blocks:
-              - id: example_2
-                type: switch_input
-                box:
-                  width: 12
+                  }
+                  ```
+        - id: example_2_card
+          type: card
+          blocks:
+            - id: example_2
+              type: switch_input
+              box:
+                span: 12
+              properties:
+                title: Icons
+                checkedIcon: like
+                uncheckedIcon: dislike
                 label:
-                  title: Icons
                   extra: Custom checked and unchecked icons.
-                properties:
-                  checkedIcon: like
-                  uncheckedIcon: dislike
-              - id: example_2_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_2",
-                      "type": "switch_input",
+            - id: example_2_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "switch_input",
+                    "properties": {
+                      "title": "Icons",
+                      "checkedIcon": "like",
+                      "uncheckedIcon": "dislike",
                       "label": {
-                        "title": "Icons",
                         "extra": "Custom checked and unchecked icons."
-                      },
-                      "properties": {
-                        "checkedIcon": "like",
-                        "uncheckedIcon": "dislike"
                       }
                     }
-                    ```
-          - id: example_3_card
-            type: card
-            blocks:
-              - id: example_3
-                type: switch_input
-                box:
-                  width: 12
+                  }
+                  ```
+        - id: example_3_card
+          type: card
+          blocks:
+            - id: example_3
+              type: switch_input
+              box:
+                span: 12
+              properties:
+                title: Disable Icons
+                disableIcons: true
                 label:
-                  title: Disable Icons
                   extra: Hide the checked and unchecked icons.
-                properties:
-                  disableIcons: true
-              - id: example_3_code
-                type: markdown
-                box:
-                  width: 12
-                properties:
-                  content: |
-                    ```json
-                    {
-                      "id": "example_3",
-                      "type": "switch_input",
+            - id: example_3_code
+              type: markdown
+              box:
+                span: 12
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "switch_input",
+                    "properties": {
+                      "title": "Disable Icons",
+                      "disableIcons": true,
                       "label": {
-                        "title": "Disable Icons",
                         "extra": "Hide the checked and unchecked icons."
-                      },
-                      "properties": {
-                        "disableIcons": true
                       }
                     }
-                    ```
+                  }
+                  ```
