@@ -4,10 +4,16 @@ properties:
 initialState:
   block:
     properties:
-      options: ["Option 1", "Option 2"]
+      options:
+        - primitive: Option 1
+          value: Value1
+          label: Label 1
+        - primitive: Option 2
+          value: Value2
+          label: Label 2
 blocks:
   _ref:
-    path: blocks/options_template.yaml
+    path: blocks/template.yaml
     vars:
       block_name: Radio Input
       description_content: |
@@ -16,9 +22,34 @@ blocks:
         >Other selector blocks are checkbox_input, select_input, multiple_select_input and radio_button_input
       block_type: radio_input
       label: true
-      label_form:
-        _ref: blocks/label.yaml
+      properties_transform:
+        _if:
+          test:
+            _eq:
+              - _state: select_options_type
+              - Primitive
+          then:
+            _get:
+              key: "0"
+              on:
+                _mql_aggregate:
+                  pipeline:
+                    - $addFields:
+                        options: $options.primitive
+                  on:
+                    - _state: block.properties
+          else:
+            _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false

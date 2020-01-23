@@ -10,9 +10,18 @@ blocks:
         Text input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: text_input
       label: true
-      label_form:
-        _ref: blocks/label.yaml
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
@@ -67,7 +76,6 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-
           properties:
             title: size
             size: small

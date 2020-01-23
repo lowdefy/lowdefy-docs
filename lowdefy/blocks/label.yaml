@@ -1,34 +1,37 @@
-- id: block.label.colon
-  type: switch_input
-  defaultValue: true
+- id: label_description
+  type: markdown
+  box:
+    span: 4
   properties:
-    title: colon
-    size: small
-    label:
-      extra: Postfix the label with a colon.
-      span: 4
-- id: block.label.extra
-  type: text_input
-  properties:
-    title: extra
-    size: small
-    label:
-      extra: Add additional description tag to the label.
-      span: 4
-- id: block.label.span
-  type: number_input
-  properties:
-    title: span
-    size: small
-    label:
-      extra: When set will render the label inline with the input component, control the label width by setting a number between 0 and 24.
-      span: 4
-- id: block.label.title
-  type: text_input
-  defaultValue: block_id
-  properties:
-    title: title
-    size: small
-    label:
-      extra: Title to describe the input component, if no label is specified the lowdefy_path_name is displayed.
-      span: 4
+    content: "<div style='text-align: right;'>label:</div>"
+- id: label_form_items_2
+  type: column
+  box:
+    span: 20
+    padding: "20px 0 0 0"
+  blocks:
+    - id: block.properties.label.colon
+      type: switch_input
+      defaultValue: true
+      properties:
+        title: colon
+        size: small
+        label:
+          extra: Postfix the label with a colon.
+          span: 2
+    - id: block.properties.label.extra
+      type: text_input
+      properties:
+        title: extra
+        size: small
+        label:
+          extra: Add additional description tag to the label.
+          span: 2
+    - id: block.properties.label.span
+      type: number_input
+      properties:
+        title: span
+        size: small
+        label:
+          extra: When set will render the label inline with the input component, control the label width by setting a number between 0 and 24.
+          span: 2

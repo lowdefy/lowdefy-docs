@@ -9,10 +9,19 @@ blocks:
       description_content: |
         Button block.
       block_type: button
-      label: true
-      label_form:
-        _ref: blocks/title_label.yaml
+      label: false
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.block
           type: switch_input
           defaultValue: true

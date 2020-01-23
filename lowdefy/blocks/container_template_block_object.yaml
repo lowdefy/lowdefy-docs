@@ -107,7 +107,6 @@
       type: card
       box:
         span: 14
-        height: 500
       properties:
         title: Settings
         size: small
@@ -124,14 +123,6 @@
             label:
               extra: Toggle if block is visible and has a value in state.
               span: 4
-        - id: label_description
-          type: markdown
-          properties:
-            content: "#### label:"
-        - id: label_form
-          type: column
-          blocks:
-            _var: label_form
         - id: properties_description
           type: markdown
           properties:
@@ -140,6 +131,12 @@
           type: column
           blocks:
             _var: properties_form
+        - id: label_form
+          type: column
+          visible:
+            _var: label
+          blocks:
+            _ref: blocks/label.yaml
     - id: subblocks_card
       type: card
       properties:

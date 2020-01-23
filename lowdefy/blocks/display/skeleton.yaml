@@ -14,10 +14,19 @@ blocks:
       description_content: |
         Skeleton block.
       block_type: skeleton
-      label: true
-      label_form:
-        _ref: blocks/title_label.yaml
+      label: false
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: switch_input
+          defaultValue: true
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Show title placeholder.
+              span: 4
         - id: block.properties.active
           type: switch_input
           defaultValue: true

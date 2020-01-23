@@ -22,11 +22,7 @@ blocks:
       description_content: |
         A container that does not have any formatting.
       block_type: column
-      label_form:
-        - id: no_label
-          type: markdown
-          properties:
-            content: This block does not have a label.
+      label: false
       properties_form:
         - id: no_properties
           type: markdown

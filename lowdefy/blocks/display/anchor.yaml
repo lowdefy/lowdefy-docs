@@ -9,10 +9,19 @@ blocks:
       description_content: |
         Anchor block. Creates a clickable icon and/ or text.
       block_type: anchor
-      label: true
-      label_form:
-        _ref: blocks/title_label.yaml
+      label: false
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false

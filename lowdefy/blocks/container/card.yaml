@@ -22,12 +22,14 @@ blocks:
       description_content: |
         A card container.
       block_type: card
-      label: true
-      label_form:
-        _ref:
-          blocks/title_label.yaml
+      label: false
       properties_form:
-        - id: no_properties
-          type: markdown
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
           properties:
-            content: This block does not have any properties.
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4

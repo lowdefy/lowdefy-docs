@@ -12,9 +12,18 @@ blocks:
         >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
       block_type: date_input
       label: true
-      label_form:
-        _ref: blocks/label.yaml
+      properties_transform:
+        _state: block.properties
       properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
+              span: 4
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
