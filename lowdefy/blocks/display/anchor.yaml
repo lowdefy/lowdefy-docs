@@ -1,4 +1,5 @@
 id: anchor
+public: true
 properties:
   title: Anchor
 blocks:

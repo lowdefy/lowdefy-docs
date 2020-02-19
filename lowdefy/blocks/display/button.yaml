@@ -1,4 +1,5 @@
 id: button
+public: true
 properties:
   title: Button
 blocks:

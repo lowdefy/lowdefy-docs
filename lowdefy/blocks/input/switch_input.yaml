@@ -1,4 +1,5 @@
 id: switch_input
+public: true
 properties:
   title: Switch
 blocks:

@@ -1,4 +1,5 @@
 id: statistic
+public: true
 properties:
   title: Statistic
 blocks:

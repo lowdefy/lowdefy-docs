@@ -1,4 +1,5 @@
 id: select_input
+public: true
 properties:
   title: Select
 initialState:

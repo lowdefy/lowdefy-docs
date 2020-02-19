@@ -1,4 +1,5 @@
 id: date_time_input
+public: true
 properties:
   title: Date Time
 blocks:

@@ -1,4 +1,5 @@
 id: page7
+public: true
 properties:
   title: ag-Grid 
 blocks:
