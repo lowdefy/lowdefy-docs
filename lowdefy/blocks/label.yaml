@@ -5,7 +5,7 @@
   properties:
     content: "<div style='text-align: right;'>label:</div>"
 - id: label_form_items_2
-  type: column
+  type: grid
   box:
     span: 20
     padding: "20px 0 0 0"

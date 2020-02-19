@@ -22,7 +22,7 @@ blocks:
       block_name: Card
       description_content: |
         A container that does not have any formatting.
-      block_type: column
+      block_type: grid
       label: false
       properties_form:
         - id: no_properties

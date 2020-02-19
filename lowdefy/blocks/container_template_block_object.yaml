@@ -17,7 +17,7 @@
         content:
           _var: description_content
     - id: c1
-      type: column
+      type: grid
       box:
         span: 10
       blocks:
@@ -28,11 +28,11 @@
             size: small
           blocks:
             - id: s2
-              type: column
+              type: grid
               box:
                 span: 2
             - id: block_wrap2
-              type: column
+              type: grid
               box:
                 span: 20
               blocks:
@@ -128,11 +128,11 @@
           properties:
             content: "#### properties:"
         - id: properties_form
-          type: column
+          type: grid
           blocks:
             _var: properties_form
         - id: label_form
-          type: column
+          type: grid
           visible:
             _var: label
           blocks:

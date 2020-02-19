@@ -130,7 +130,7 @@ blocks:
           type: card
           blocks:
             - id: example_1_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -146,7 +146,7 @@ blocks:
                   box:
                     span: 24
             - id: example_1_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -167,7 +167,7 @@ blocks:
           type: card
           blocks:
             - id: example_2_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -185,7 +185,7 @@ blocks:
                   properties:
                     active: false
             - id: example_2_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -209,7 +209,7 @@ blocks:
           type: card
           blocks:
             - id: example_3_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -228,7 +228,7 @@ blocks:
                     avatar: true
                     title: false
             - id: example_3_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
