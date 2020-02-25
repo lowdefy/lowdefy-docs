@@ -51,6 +51,15 @@ blocks:
             label:
               extra: Make the button's background transparent when true.
               span: 2
+        - id: block.properties.hideTitle
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: hideTitle
+            size: small
+            label:
+              extra: Hide the buttons title.
+              span: 2
         - id: block.properties.href
           type: text_input
           properties:
