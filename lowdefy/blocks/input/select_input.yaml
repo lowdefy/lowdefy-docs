@@ -51,7 +51,7 @@ blocks:
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
@@ -60,7 +60,7 @@ blocks:
             size: small
             label:
               extra: Allow the user to clear the selected value, sets the value to null.
-              span: 4
+              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
@@ -69,7 +69,7 @@ blocks:
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 4
+              span: 2
         - id: block.properties.clearIcon
           type: text_input
           defaultValue: close-circle
@@ -78,7 +78,7 @@ blocks:
             size: small
             label:
               extra: Ant Icon at far right position of the selector, shown when user is given option to clear input.
-              span: 4
+              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -87,7 +87,7 @@ blocks:
             size: small
             label:
               extra: Disables the block if true.
-              span: 4
+              span: 2
         - id: select_options_type_card
           type: card
           blocks:
@@ -127,7 +127,7 @@ blocks:
                 size: small
                 label:
                   extra: Label shown to user.
-                  span: 4
+                  span: 2
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
@@ -139,7 +139,7 @@ blocks:
                 size: small
                 label:
                   extra: Value selected.
-                  span: 4
+                  span: 2
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
@@ -151,7 +151,7 @@ blocks:
                 size: small
                 label:
                   extra: Disable the option if true.
-                  span: 4
+                  span: 2
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select item
@@ -160,7 +160,7 @@ blocks:
             size: small
             label:
               extra: Placeholder text inside the block before user selects input.
-              span: 4
+              span: 2
         - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
@@ -169,7 +169,7 @@ blocks:
             size: small
             label:
               extra: Show the suffix icon at the drop-down position of the selector.
-              span: 4
+              span: 2
         - id: block.properties.showSearch
           type: switch_input
           defaultValue: false
@@ -178,7 +178,7 @@ blocks:
             size: small
             label:
               extra: Make the selector options searchable.
-              span: 4
+              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
@@ -187,7 +187,7 @@ blocks:
             size: small
             label:
               extra: Size of the block.
-              span: 4
+              span: 2
             options:
               - small
               - default
@@ -200,7 +200,7 @@ blocks:
             size: small
             label:
               extra: Ant Icon at the drop-down position of the selector.
-              span: 4
+              span: 2
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -212,7 +212,7 @@ blocks:
             - id: example_1
               type: select_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Primitive options
                 options:
@@ -222,7 +222,7 @@ blocks:
             - id: example_1_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -240,7 +240,7 @@ blocks:
             - id: example_2
               type: select_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Object options
                 allowClear: true
@@ -260,7 +260,7 @@ blocks:
             - id: example_2_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -301,7 +301,7 @@ blocks:
             - id: example_3
               type: select_input
               box:
-                span: 12
+                span: 6
               defaultValue: B
               properties:
                 title: Change icons
@@ -320,7 +320,7 @@ blocks:
             - id: example_3_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -358,7 +358,7 @@ blocks:
             - id: example_4
               type: select_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Search options
                 showSearch: true
@@ -392,7 +392,7 @@ blocks:
             - id: example_4_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json

@@ -31,7 +31,7 @@ blocks:
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
@@ -40,7 +40,7 @@ blocks:
             size: small
             label:
               extra: Allow the user to clear their input.
-              span: 4
+              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
@@ -49,7 +49,7 @@ blocks:
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 4
+              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -58,7 +58,7 @@ blocks:
             size: small
             label:
               extra: Disable the block if true.
-              span: 4
+              span: 2
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD
@@ -67,7 +67,7 @@ blocks:
             size: small
             label:
               extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
-              span: 4
+              span: 2
         - id: block.properties.placeholder
           type: list
           required: true
@@ -90,7 +90,7 @@ blocks:
             size: small
             label:
               extra: Separator symbol shown between start and end date inputs.
-              span: 4
+              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
@@ -99,7 +99,7 @@ blocks:
             size: small
             label:
               extra: Size of the block.
-              span: 4
+              span: 2
             options:
               - small
               - default
@@ -112,7 +112,7 @@ blocks:
             size: small
             label:
               extra: Ant Icon at the right-hand side of the date picker.
-              span: 4
+              span: 2
 
       available_actions_description: |
         ###### onChange
@@ -125,13 +125,13 @@ blocks:
             - id: example_1
               type: date_range_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Date input
             - id: example_1_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -148,7 +148,7 @@ blocks:
             - id: example_2
               type: date_range_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Placeholder, separator and suffix icon
                 label:
@@ -161,7 +161,7 @@ blocks:
             - id: example_2_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -184,7 +184,7 @@ blocks:
             - id: example_3
               type: date_range_input
               box:
-                span: 12
+                span: 6
               defaultValue:
                 - _date: 1955-11-12
                 - _date: 1985-10-26
@@ -196,7 +196,7 @@ blocks:
             - id: example_3_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json

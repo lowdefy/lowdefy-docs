@@ -19,7 +19,7 @@
     - id: c1
       type: grid
       box:
-        span: 10
+        span: 5
       blocks:
         - id: block_card
           type: card
@@ -30,11 +30,11 @@
             - id: s2
               type: grid
               box:
-                span: 2
+                span: 1
             - id: block_wrap2
               type: grid
               box:
-                span: 20
+                span: 10
               blocks:
                 - id: block_id
                   type:
@@ -106,7 +106,7 @@
     - id: settings_card
       type: card
       box:
-        span: 14
+        span: 7
       properties:
         title: Settings
         size: small
@@ -122,7 +122,7 @@
             size: small
             label:
               extra: Toggle if block is visible and has a value in state.
-              span: 4
+              span: 2
         - id: properties_description
           type: markdown
           properties:
@@ -145,73 +145,73 @@
         - id: span_subblock_1
           type: number_input
           box:
-            span: 6
+            span: 3
           properties:
-            title: Block 1 Width
+            title: Block 1 Span
         - id: visible_subblock_1
           type: switch_input
           box:
-            span: 6
+            span: 3
           properties:
             title: Block 1 Visible
         - id: span_subblock_2
           type: number_input
           box:
-            span: 6
+            span: 3
           properties:
-            title: Block 2 Width
+            title: Block 2 Span
         - id: visible_subblock_2
           type: switch_input
           box:
-            span: 6
+            span: 3
           properties:
             title: Block 2 Visible
         - id: span_subblock_3
           type: number_input
           box:
-            span: 6
+            span: 3
           properties:
-            title: Block 3 Width
+            title: Block 3 Span
         - id: visible_subblock_3
           type: switch_input
           box:
-            span: 6
+            span: 3
           properties:
             title: Block 3 Visible
         - id: span_subblock_4
           type: number_input
           box:
-            span: 6
+            span: 3
           properties:
-            title: Block 4 Width
+            title: Block 4 Span
         - id: visible_subblock_4
           type: switch_input
           box:
-            span: 6
+            span: 3
           properties:
             title: Block 4 Visible
         - id: span_subblock_5
           type: number_input
           box:
-            span: 6
+            span: 3
           properties:
-            title: Block 5 Width
+            title: Block 5 Span
         - id: visible_subblock_5
           type: switch_input
           box:
-            span: 6
+            span: 3
           properties:
             title: Block 5 Visible
         - id: span_subblock_6
           type: number_input
           box:
-            span: 6
+            span: 3
           properties:
-            title: Block 6 Width
+            title: Block 6 Span
         - id: visible_subblock_6
           type: switch_input
           box:
-            span: 6
+            span: 3
           properties:
             title: Block 6 Visible
 

@@ -28,7 +28,7 @@ blocks:
             size: small
             label:
               extra: Show title placeholder.
-              span: 4
+              span: 2
         - id: block.properties.active
           type: switch_input
           defaultValue: true
@@ -37,7 +37,7 @@ blocks:
             size: small
             label:
               extra: Show animation effect.
-              span: 4
+              span: 2
         - id: skeleton_avatar_type_card
           type: card
           blocks:
@@ -78,7 +78,7 @@ blocks:
             size: small
             label:
               extra: Show avatar placeholder.
-              span: 4
+              span: 2
           actions:
             onChange:
               - set():
@@ -95,7 +95,7 @@ blocks:
             size: small
             label:
               extra: The shape of the avatar.
-              span: 4
+              span: 2
             options:
               - circle
               - square
@@ -112,7 +112,7 @@ blocks:
             size: small
             label:
               extra: Show paragraph placeholder.
-              span: 4
+              span: 2
         - id: block.properties.title
           type: switch_input
           defaultValue: true
@@ -121,7 +121,7 @@ blocks:
             size: small
             label:
               extra: Show title placeholder.
-              span: 4
+              span: 2
       available_actions_description: |
         ###### onClick
         Triggered when the button is clicked.
@@ -133,28 +133,22 @@ blocks:
             - id: example_1_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### Basic skeleton
                 - id: example_1
                   type: skeleton
-                  box:
-                    span: 24
             - id: example_1_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json
@@ -170,30 +164,24 @@ blocks:
             - id: example_2_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### No animation
                 - id: example_2
                   type: skeleton
-                  box:
-                    span: 24
                   properties:
                     active: false
             - id: example_2_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json
@@ -212,31 +200,25 @@ blocks:
             - id: example_3_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### Show avatar and hide title
                 - id: example_3
                   type: skeleton
-                  box:
-                    span: 24
                   properties:
                     avatar: true
                     title: false
             - id: example_3_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json

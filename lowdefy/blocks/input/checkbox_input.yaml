@@ -52,7 +52,7 @@ blocks:
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -61,7 +61,7 @@ blocks:
             size: small
             label:
               extra: Disable the block if true.
-              span: 4
+              span: 2
         - id: select_options_type_card
           type: card
           blocks:
@@ -102,7 +102,7 @@ blocks:
                 size: small
                 label:
                   extra: Label shown to user.
-                  span: 4
+                  span: 2
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
@@ -114,7 +114,7 @@ blocks:
                 size: small
                 label:
                   extra: Value selected.
-                  span: 4
+                  span: 2
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
@@ -126,7 +126,7 @@ blocks:
                 size: small
                 label:
                   extra: Disable the option if true.
-                  span: 4
+                  span: 2
 
       available_actions_description: |
         ###### onChange
@@ -139,7 +139,7 @@ blocks:
             - id: example_1
               type: checkbox_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Primitive options
                 options:
@@ -149,7 +149,7 @@ blocks:
             - id: example_1_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -167,7 +167,7 @@ blocks:
             - id: example_2
               type: checkbox_input
               box:
-                span: 12
+                span: 6
               defaultValue:
                 - C
               properties:
@@ -184,7 +184,7 @@ blocks:
             - id: example_2_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -219,7 +219,7 @@ blocks:
             - id: example_3
               type: checkbox_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Disable options
                 label:
@@ -237,7 +237,7 @@ blocks:
             - id: example_3_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json

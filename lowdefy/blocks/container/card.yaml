@@ -4,17 +4,17 @@ public: true
 properties:
   title: Card
 initialState:
-  width_subblock_1: 24
+  span_subblock_1: 12
   visible_subblock_1: true
-  width_subblock_2: 24
+  spansubblock_2: 12
   visible_subblock_2: true
-  width_subblock_3: 12
+  span_subblock_3: 6
   visible_subblock_3: true
-  width_subblock_4: 12
+  span_subblock_4: 6
   visible_subblock_4: true
-  width_subblock_5: 8
+  span_subblock_5: 4
   visible_subblock_5: false
-  width_subblock_6: 16
+  span_subblock_6: 8
   visible_subblock_6: false
 blocks:
   _ref:
@@ -34,4 +34,4 @@ blocks:
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              span: 2

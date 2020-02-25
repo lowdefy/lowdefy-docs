@@ -1,13 +1,13 @@
 - id: label_description
   type: markdown
   box:
-    span: 4
+    span: 2
   properties:
     content: "<div style='text-align: right;'>label:</div>"
 - id: label_form_items_2
   type: grid
   box:
-    span: 20
+    span: 10
     padding: "20px 0 0 0"
   blocks:
     - id: block.properties.label.colon
@@ -18,7 +18,7 @@
         size: small
         label:
           extra: Postfix the label with a colon.
-          span: 2
+          span: 1
     - id: block.properties.label.extra
       type: text_input
       properties:
@@ -26,7 +26,7 @@
         size: small
         label:
           extra: Add additional description tag to the label.
-          span: 2
+          span: 1
     - id: block.properties.label.span
       type: number_input
       properties:
@@ -34,4 +34,4 @@
         size: small
         label:
           extra: When set will render the label inline with the input component, control the label width by setting a number between 0 and 24.
-          span: 2
+          span: 1
