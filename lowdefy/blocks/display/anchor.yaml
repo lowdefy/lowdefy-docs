@@ -139,7 +139,7 @@ blocks:
         - id: example_1_card
           type: card
           blocks:
-            - id: example_1_block_column
+            - id: example_1_block_grid
               type: grid
               box:
                 span: 12
@@ -157,7 +157,7 @@ blocks:
                     span: 24
                   properties:
                     title: Click here
-            - id: example_1_code_column
+            - id: example_1_code_grid
               type: grid
               box:
                 span: 12
@@ -180,7 +180,7 @@ blocks:
         - id: example_2_card
           type: card
           blocks:
-            - id: example_2_block_column
+            - id: example_2_block_grid
               type: grid
               box:
                 span: 12
@@ -199,7 +199,7 @@ blocks:
                   properties:
                     title: Click here
                     strong: true
-            - id: example_2_code_column
+            - id: example_2_code_grid
               type: grid
               box:
                 span: 12
@@ -223,7 +223,7 @@ blocks:
         - id: example_3_card
           type: card
           blocks:
-            - id: example_3_block_column
+            - id: example_3_block_grid
               type: grid
               box:
                 span: 12
@@ -245,7 +245,7 @@ blocks:
                     style:
                       color: red
                       font-size: 18
-            - id: example_3_code_column
+            - id: example_3_code_grid
               type: grid
               box:
                 span: 12
@@ -275,7 +275,7 @@ blocks:
         - id: example_4_card
           type: card
           blocks:
-            - id: example_4_block_column
+            - id: example_4_block_grid
               type: grid
               box:
                 span: 12
@@ -301,7 +301,7 @@ blocks:
                     style:
                       color: "#000000"
                       font-size: 16
-            - id: example_4_code_column
+            - id: example_4_code_grid
               type: grid
               box:
                 span: 12

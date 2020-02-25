@@ -2,7 +2,7 @@ id: page3
 type: page_sider_menu
 public: true
 properties:
-  title: Column
+  title: Grid
 initialState:
   width_subblock_1: 24
   visible_subblock_1: true
@@ -22,7 +22,7 @@ blocks:
     vars:
       block_name: Card
       description_content: |
-        A container that does not have any formatting.
+        A grid is a container that does not have any formatting, it creates a new grid that blocks can be placed in.
       block_type: grid
       label: false
       properties_form:
