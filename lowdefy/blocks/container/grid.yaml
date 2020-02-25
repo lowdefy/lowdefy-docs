@@ -1,19 +1,20 @@
 id: page3
+type: page_sider_menu
 public: true
 properties:
-  title: Column
+  title: Grid
 initialState:
-  width_subblock_1: 24
+  span_subblock_1: 12
   visible_subblock_1: true
-  width_subblock_2: 24
+  span_subblock_2: 12
   visible_subblock_2: true
-  width_subblock_3: 12
+  span_subblock_3: 6
   visible_subblock_3: true
-  width_subblock_4: 12
+  span_subblock_4: 6
   visible_subblock_4: true
-  width_subblock_5: 8
+  span_subblock_5: 4
   visible_subblock_5: false
-  width_subblock_6: 16
+  span_subblock_6: 8
   visible_subblock_6: false
 blocks:
   _ref:
@@ -21,7 +22,7 @@ blocks:
     vars:
       block_name: Card
       description_content: |
-        A container that does not have any formatting.
+        A grid is a container that does not have any formatting, it creates a new grid that blocks can be placed in.
       block_type: grid
       label: false
       properties_form:

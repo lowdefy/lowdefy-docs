@@ -1,4 +1,5 @@
 id: amcharts_4_xy
+type: page_sider_menu
 public: true
 properties:
   title: amCharts 4 XY

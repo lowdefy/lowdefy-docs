@@ -1,4 +1,6 @@
 id: connections
+type: page_sider_menu
+public: true
 properties:
   title: Connections
 blocks:

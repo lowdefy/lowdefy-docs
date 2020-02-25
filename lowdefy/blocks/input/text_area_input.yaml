@@ -1,4 +1,5 @@
 id: page8
+type: page_sider_menu
 public: true
 properties:
   title: Text Area
@@ -21,8 +22,8 @@ blocks:
             title: title
             size: small
             label:
-              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
@@ -31,7 +32,7 @@ blocks:
             size: small
             label:
               extra: Allow the user to clear their input.
-              span: 4
+              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
@@ -40,7 +41,7 @@ blocks:
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 4
+              span: 2
         - id: select_autoRows_type_card
           type: card
           blocks:
@@ -66,7 +67,7 @@ blocks:
             size: small
             label:
               extra: Automatically extend the block number of rows.
-              span: 4
+              span: 2
         - id: block.properties.autoRows.minRows
           type: number_input
           visible:
@@ -97,7 +98,7 @@ blocks:
             size: small
             label:
               extra: Disable the block if true.
-              span: 4
+              span: 2
         - id: block.properties.placeholder
           type: text_input
           properties:
@@ -105,14 +106,14 @@ blocks:
             size: small
             label:
               extra: Placeholder text inside the block before user types input.
-              span: 4
+              span: 2
         - id: block.properties.rows
           type: number_input
           properties:
             title: rows
             label:
               extra: Number of rows of text area.
-              span: 4
+              span: 2
 
       available_actions_description: |
         ###### onChange
@@ -127,13 +128,13 @@ blocks:
             - id: example_1
               type: text_area_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Text Area input
             - id: example_1_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -151,13 +152,13 @@ blocks:
             - id: example_2
               type: text_area_input
               box:
-                span: 12
+                span: 6
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -174,7 +175,7 @@ blocks:
             - id: example_3
               type: text_area_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Rows
                 rows: 5
@@ -183,7 +184,7 @@ blocks:
             - id: example_3_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -204,7 +205,7 @@ blocks:
             - id: example_4
               type: text_area_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Auto Rows
                 label:
@@ -215,7 +216,7 @@ blocks:
             - id: example_4_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json

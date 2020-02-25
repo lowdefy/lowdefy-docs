@@ -19,7 +19,7 @@
     - id: block_card
       type: card
       box:
-        span: 14
+        span: 7
       blocks:
         - id: block_name
           type:
@@ -31,10 +31,10 @@
     - id: settings_card
       type: card
       box:
-        span: 10
+        span: 5
       blocks:
         - id: properties_input
-          type: text_input
+          type: text_area_input
           properties:
             title: properties
             rows: 30

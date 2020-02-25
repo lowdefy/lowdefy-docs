@@ -19,7 +19,7 @@
     - id: c1
       type: grid
       box:
-        span: 10
+        span: 5
       blocks:
         - id: block_card
           type: card
@@ -30,11 +30,11 @@
             - id: s2
               type: grid
               box:
-                span: 2
+                span: 1
             - id: block_wrap2
               type: grid
               box:
-                span: 20
+                span: 10
               blocks:
                 - id: block_id
                   type:
@@ -67,8 +67,7 @@
     - id: settings_card
       type: card
       box:
-        span: 14
-        maxHeight: 600
+        span: 7
       properties:
         title: Settings
         size: small
@@ -83,7 +82,7 @@
           properties:
             label:
               extra: Toggle if block is visible and has a value in state.
-              span: 4
+              span: 2
             size: small
         - id: properties_description
           type: markdown

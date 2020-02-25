@@ -1,4 +1,5 @@
 id: month_input
+type: page_sider_menu
 public: true
 properties:
   title: Month
@@ -23,8 +24,8 @@ blocks:
             title: title
             size: small
             label:
-              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
@@ -33,7 +34,7 @@ blocks:
             size: small
             label:
               extra: Allow the user to clear their input.
-              span: 4
+              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
@@ -42,7 +43,7 @@ blocks:
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 4
+              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -51,7 +52,7 @@ blocks:
             size: small
             label:
               extra: Disable the block if true.
-              span: 4
+              span: 2
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM
@@ -60,7 +61,7 @@ blocks:
             size: small
             label:
               extra: Format in which to format the date value, eg. "MMMM YYYY" will format a date value of 1999-12-31 as "December 1999". The format has to conform to moment.js formats.
-              span: 4
+              span: 2
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Month
@@ -69,7 +70,7 @@ blocks:
             size: small
             label:
               extra: Placeholder text inside the block before user types input.
-              span: 4
+              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
@@ -79,7 +80,7 @@ blocks:
             size: small
             label:
               extra: Size of the block.
-              span: 4
+              span: 2
             options:
               - small
               - default
@@ -92,7 +93,7 @@ blocks:
             size: small
             label:
               extra: Ant Icon at the right-hand side of the date picker,.
-              span: 4
+              span: 2
 
       available_actions_description: |
         ###### onChange
@@ -105,13 +106,13 @@ blocks:
             - id: example_1
               type: month_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Month input
             - id: example_1_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -128,7 +129,7 @@ blocks:
             - id: example_2
               type: month_input
               box:
-                span: 12
+                span: 6
               properties:
                 title: Placeholder and suffix icon
                 placeholder: Pick a month
@@ -138,7 +139,7 @@ blocks:
             - id: example_2_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json
@@ -160,7 +161,7 @@ blocks:
             - id: example_3
               type: month_input
               box:
-                span: 12
+                span: 6
               defaultValue:
                 _date: 1993-02-01
               properties:
@@ -171,7 +172,7 @@ blocks:
             - id: example_3_code
               type: markdown
               box:
-                span: 12
+                span: 6
               properties:
                 content: |
                   ```json

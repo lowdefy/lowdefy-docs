@@ -1,19 +1,20 @@
 id: page4
+type: page_sider_menu
 public: true
 properties:
   title: Tabs
 initialState:
-  span_subblock_1: 24
+  span_subblock_1: 12
   visible_subblock_1: true
-  span_subblock_2: 12
+  span_subblock_2: 6
   visible_subblock_2: true
-  span_subblock_3: 12
+  span_subblock_3: 6
   visible_subblock_3: true
-  span_subblock_4: 24
+  span_subblock_4: 12
   visible_subblock_4: true
-  span_subblock_5: 8
+  span_subblock_5: 4
   visible_subblock_5: true
-  span_subblock_6: 16
+  span_subblock_6: 8
   visible_subblock_6: true
   block:
     properties:
@@ -40,8 +41,8 @@ blocks:
             title: title
             size: small
             label:
-              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              span: 2
         - id: activeKey
           type: text_input
           properties:
@@ -49,7 +50,7 @@ blocks:
             size: small
             label:
               extra: Current TabPane's key.
-              span: 4
+              span: 2
         - id: defaultActiveKey
           type: text_input
           defaultValue: content1
@@ -58,7 +59,7 @@ blocks:
             size: small
             label:
               extra: Initial active TabPane's key, if activeKey is not set.
-              span: 6
+              span: 3
         - id: animated
           type: switch_input
           defaultValue: true
@@ -67,7 +68,7 @@ blocks:
             size: small
             label:
               extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
-              span: 4
+              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
@@ -76,7 +77,7 @@ blocks:
             size: small
             label:
               extra: Size of the tabs.
-              span: 4
+              span: 2
             options:
               - small
               - default
@@ -90,7 +91,7 @@ blocks:
             size: small
             label:
               extra: Position of the tabs.
-              span: 4
+              span: 2
             options:
               - top
               - right
@@ -109,7 +110,7 @@ blocks:
                 size: small
                 label:
                   extra: Title of the tab.
-                  span: 4
+                  span: 2
             - id: block.properties.tabs.$.key
               type: text_input
               defaultValue: key
@@ -118,7 +119,7 @@ blocks:
                 size: small
                 label:
                   extra: Key of the tab.
-                  span: 4
+                  span: 2
             - id: block.properties.tabs.$.icon
               type: text_input
               properties:
@@ -126,7 +127,7 @@ blocks:
                 size: small
                 label:
                   extra: Ant Icon to show in title.
-                  span: 4
+                  span: 2
             - id: block.properties.tabs.$.disabled
               type: switch_input
               defaultValue: false
@@ -135,7 +136,7 @@ blocks:
                 size: small
                 label:
                   extra: Disable the tab if true.
-                  span: 4
+                  span: 2
         - id: block.properties.tabType
           type: radio_button_input
           defaultValue: line
@@ -144,7 +145,7 @@ blocks:
             size: small
             label:
               extra: Type of tabs.
-              span: 4
+              span: 2
             options:
               - line
               - card

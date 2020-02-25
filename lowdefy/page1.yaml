@@ -1,4 +1,5 @@
 id: page1
+type: page_header_menu
 blocks:
   - id: c
     type: card

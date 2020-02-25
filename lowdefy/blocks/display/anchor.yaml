@@ -1,4 +1,5 @@
 id: anchor
+type: page_sider_menu
 public: true
 properties:
   title: Anchor
@@ -21,8 +22,8 @@ blocks:
             title: title
             size: small
             label:
-              extra: Title to describe the input component, if no title is specified the lowdefy_path_name is displayed.
-              span: 4
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -31,7 +32,7 @@ blocks:
             size: small
             label:
               extra: Disable the anchor if true.
-              span: 4
+              span: 2
         - id: block.properties.icon
           type: text_input
           properties:
@@ -39,7 +40,7 @@ blocks:
             size: small
             label:
               extra: Ant Icon to show on the anchor.
-              span: 4
+              span: 2
         - id: block.properties.iconTheme
           type: radio_button_input
           defaultValue: outlined
@@ -48,7 +49,7 @@ blocks:
             size: small
             label:
               extra: The theme variant of the icon.
-              span: 4
+              span: 2
             options:
               - filled
               - outlined
@@ -63,23 +64,23 @@ blocks:
             size: small
             label:
               extra: Primary color of the twoTone icon.
-              span: 6
+              span: 3
         - id: iconStyle_input
           type: text_area_input
           defaultValue: "{}"
           box:
-            span: 22
+            span: 11
           properties:
             title: iconStyle
             rows: 5
             size: small
             label:
               extra: Icon CSS style properties. Should be in JSON format.
-              span: 4
+              span: 2
         - id: apply_iconStyle_button
           type: button
           box:
-            span: 2
+            span: 1
           properties:
             title: ""
             block: false
@@ -100,23 +101,23 @@ blocks:
             size: small
             label:
               extra: Makes the text bold when true.
-              span: 4
+              span: 2
         - id: style_input
           type: text_area_input
           defaultValue: "{}"
           box:
-            span: 22
+            span: 11
           properties:
             title: style
             rows: 5
             size: small
             label:
               extra: CSS style properties. Should be in JSON format.
-              span: 4
+              span: 2
         - id: apply_style_button
           type: button
           box:
-            span: 2
+            span: 1
           properties:
             title: ""
             block: false
@@ -138,33 +139,27 @@ blocks:
         - id: example_1_card
           type: card
           blocks:
-            - id: example_1_block_column
+            - id: example_1_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### Basic anchor
                 - id: example_1
                   type: anchor
-                  box:
-                    span: 24
                   properties:
                     title: Click here
-            - id: example_1_code_column
+            - id: example_1_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json
@@ -179,34 +174,30 @@ blocks:
         - id: example_2_card
           type: card
           blocks:
-            - id: example_2_block_column
+            - id: example_2_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### Bold text
                 - id: example_2
                   type: anchor
                   box:
-                    span: 12
+                    span: 6
                   properties:
                     title: Click here
                     strong: true
-            - id: example_2_code_column
+            - id: example_2_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json
@@ -222,37 +213,33 @@ blocks:
         - id: example_3_card
           type: card
           blocks:
-            - id: example_3_block_column
+            - id: example_3_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### Custom text and icon style
                 - id: example_3
                   type: anchor
                   box:
-                    span: 12
+                    span: 6
                   properties:
                     title: Click here
                     icon: fire
                     style:
                       color: red
                       font-size: 18
-            - id: example_3_code_column
+            - id: example_3_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json
@@ -274,22 +261,20 @@ blocks:
         - id: example_4_card
           type: card
           blocks:
-            - id: example_4_block_column
+            - id: example_4_block_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_4_title
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ##### Style text and icon separately
                 - id: example_4
                   type: anchor
                   box:
-                    span: 12
+                    span: 6
                   properties:
                     title: Click here
                     icon: fire
@@ -300,15 +285,13 @@ blocks:
                     style:
                       color: "#000000"
                       font-size: 16
-            - id: example_4_code_column
+            - id: example_4_code_grid
               type: grid
               box:
-                span: 12
+                span: 6
               blocks:
                 - id: example_4_code
                   type: markdown
-                  box:
-                    span: 24
                   properties:
                     content: |
                       ```json

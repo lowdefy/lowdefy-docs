@@ -1,6 +1,6 @@
-layout:
-  menu:
-    type: primary_side_menu
+
+menus:
+  - id: default
     links:
       - id: start
         type: menu_group
@@ -212,11 +212,11 @@ layout:
             pageId: page2
             properties:
               title: Card
-          - id: column
+          - id: grid
             type: menu_link
             pageId: page3
             properties:
-              title: Column
+              title: Grid
           - id: tabs
             type: menu_link
             pageId: page4
@@ -260,6 +260,6 @@ pages:
   - _ref: blocks/display/ag_grid.yaml
   - _ref: blocks/display/skeleton.yaml
   - _ref: blocks/container/card.yaml
-  - _ref: blocks/container/column.yaml
+  - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml
   - _ref: page1.yaml

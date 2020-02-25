@@ -1,4 +1,6 @@
 id: blocks
+type: page_sider_menu
+public: true
 properties:
   title: Blocks
 blocks:
