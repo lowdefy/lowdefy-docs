@@ -1,0 +1,151 @@
+id: collapse
+type: page_sider_menu
+public: true
+properties:
+  title: Collapse
+initialState:
+  span_subblock_1: 12
+  visible_subblock_1: true
+  span_subblock_2: 6
+  visible_subblock_2: true
+  span_subblock_3: 6
+  visible_subblock_3: true
+  span_subblock_4: 12
+  visible_subblock_4: true
+  span_subblock_5: 4
+  visible_subblock_5: true
+  span_subblock_6: 8
+  visible_subblock_6: true
+  block:
+    properties:
+      panels:
+        - key: content1
+          title: content1
+        - key: content2
+          title: content2
+
+blocks:
+  _ref:
+    path: blocks/container_template_block_object.yaml
+    vars:
+      block_name: Collapse
+      description_content: |
+        A container with collapsible panels.
+      block_type: collapse
+      label: false
+      properties_form:
+        - id: block.properties.accordion
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: accordion
+            size: small
+            label:
+              extra: If true, only one panel is open at a time.
+              span: 2
+        - id: block.properties.activeKey
+          type: text_input
+          properties:
+            title: activeKey
+            size: small
+            label:
+              extra: Current Panel's key.
+              span: 2
+        - id: block.properties.bordered
+          type: switch_input
+          defaultValue: true
+          properties:
+            title: bordered
+            size: small
+            label:
+              extra: 	Toggles rendering of the border around the collapse block.
+              span: 2
+        - id: block.properties.defaultActiveKey
+          type: text_input
+          defaultValue: content1
+          properties:
+            title: defaultActiveKey
+            size: small
+            label:
+              extra: Initial active Panel's key, if activeKey is not set.
+              span: 3
+        - id: block.properties.destroyInactivePanel
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: destroyInactivePanel
+            size: small
+            label:
+              extra: Destroy Inactive Panel.
+              span: 2
+        - id: block.properties.expandIcon
+          type: text_input
+          defaultValue: down
+          properties:
+            title: expandIcon
+            size: small
+            label:
+              extra: Expand icon. Should be the name of a Ant Design icon.
+              span: 2
+        - id: block.properties.expandIconPosition
+          type: radio_button_input
+          defaultValue: left
+          properties:
+            title: expandIconPosition
+            size: small
+            label:
+              extra: Set position of expand icon.
+              span: 2
+            options:
+              - left
+              - right
+        - id: block.properties.forceRender
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: forceRender
+            size: small
+            label:
+              extra: Force render for all panels.
+              span: 2
+        - id: block.properties.panels
+          type: list
+          properties:
+            title: tabs
+          blocks:
+            - id: block.properties.panels.$.header
+              type: text_input
+              defaultValue: header
+              properties:
+                title: title
+                size: small
+                label:
+                  extra: Title of the panel.
+                  span: 2
+            - id: block.properties.panels.$.key
+              type: text_input
+              defaultValue: key
+              properties:
+                title: key
+                size: small
+                label:
+                  extra: Key of the panel.
+                  span: 2
+            - id: block.properties.panels.$.disabled
+              type: switch_input
+              defaultValue: false
+              properties:
+                title: disabled
+                size: small
+                label:
+                  extra: Disable the panel if true.
+                  span: 2
+        - id: block.properties.showArrow
+          type: switch_input
+          defaultValue: true
+          properties:
+            title: showArrow
+            size: small
+            label:
+              extra: Show expand icon.
+              span: 2

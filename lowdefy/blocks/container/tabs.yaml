@@ -34,15 +34,6 @@ blocks:
       block_type: tabs
       label: false
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          properties:
-            title: title
-            size: small
-            label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: activeKey
           type: text_input
           properties:

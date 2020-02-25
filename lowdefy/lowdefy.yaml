@@ -232,6 +232,11 @@ menus:
             pageId: tabs
             properties:
               title: Tabs
+          - id: collapse
+            type: menu_link
+            pageId: collapse
+            properties:
+              title: Collapse
 
 pages:
   - _ref: start/introduction.yaml
@@ -274,4 +279,5 @@ pages:
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml
+  - _ref: blocks/container/collapse.yaml
   - _ref: page1.yaml
