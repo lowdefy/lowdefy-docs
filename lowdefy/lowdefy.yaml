@@ -97,7 +97,7 @@ menus:
               title: Text
           - id: text_area_input
             type: menu_link
-            pageId: page8
+            pageId: text_area_input
             properties:
               title: Text Area
           - id: number_input
@@ -193,12 +193,12 @@ menus:
               title: Anchor
           - id: ag_grid
             type: menu_link
-            pageId: page7
+            pageId: ag_grid
             properties:
               title: ag-Grid
           - id: skeleton
             type: menu_link
-            pageId: page6
+            pageId: skeleton
             properties:
               title: Skeleton
       - id: blocks_container
@@ -209,17 +209,17 @@ menus:
         links:
           - id: card
             type: menu_link
-            pageId: page2
+            pageId: card
             properties:
               title: Card
           - id: grid
             type: menu_link
-            pageId: page3
+            pageId: grid
             properties:
               title: Grid
           - id: tabs
             type: menu_link
-            pageId: page4
+            pageId: tabs
             properties:
               title: Tabs
 
