@@ -1,0 +1,91 @@
+id: divider
+type: page_sider_menu
+public: true
+properties:
+  title: Divider
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Divider
+      description_content: |
+        A divider line. Can be used horizontally or vertically.
+      block_type: divider
+      label: false
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.content
+          type: text_input
+          properties:
+            title: content
+            size: small
+            label:
+              extra: Divider text content
+              span: 2
+        - id: block.properties.dashed
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: dashed
+            size: small
+            label:
+              extra: Whether line is dashed
+              span: 2
+        - id: block.properties.orientation
+          type: radio_button_input
+          defaultValue: center
+          properties:
+            title: orientation
+            size: small
+            label:
+              extra: Position of title inside divider.
+              span: 2
+            options:
+              - center
+              - left
+              - right
+        - id: style_input
+          type: text_area_input
+          box:
+            span: 11
+          defaultValue: "{}"
+          properties:
+            title: style
+            rows: 5
+            size: small
+            label:
+              extra: CSS style properties. Should be in JSON format.
+              span: 2
+        - id: apply_style_button
+          type: button
+          box:
+            span: 1
+          properties:
+            title: ""
+            block: false
+            shape: circle
+            icon: reload
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties.style:
+                    _parse:
+                      _state: style_input
+        - id: block.properties.type
+          type: radio_button_input
+          defaultValue: horizontal
+          properties:
+            title: type
+            size: small
+            label:
+              extra: Direction type of divider.
+              span: 2
+            options:
+              - horizontal
+              - vertical
+
+      available_actions_description: |
+        ###### No available actions.
+

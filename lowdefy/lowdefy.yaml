@@ -211,6 +211,11 @@ menus:
             pageId: skeleton
             properties:
               title: Skeleton
+          - id: divider
+            type: menu_link
+            pageId: divider
+            properties:
+              title: Divider
       - id: blocks_container
         type: menu_group
         properties:
@@ -276,6 +281,7 @@ pages:
   - _ref: blocks/display/anchor.yaml
   - _ref: blocks/display/ag_grid.yaml
   - _ref: blocks/display/skeleton.yaml
+  - _ref: blocks/display/divider.yaml
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml
