@@ -1,4 +1,5 @@
 id: checkbox_input
+type: page_sider_menu
 public: true
 initialState:
   block:

@@ -1,4 +1,6 @@
 id: requests-mutations
+type: page_sider_menu
+public: true
 properties:
   title: Requests and Mutations
 blocks:

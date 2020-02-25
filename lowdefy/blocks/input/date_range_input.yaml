@@ -1,4 +1,5 @@
 id: date_range_input
+type: page_sider_menu
 public: true
 properties:
   title: Date Range

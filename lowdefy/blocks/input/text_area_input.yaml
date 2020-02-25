@@ -1,4 +1,5 @@
 id: page8
+type: page_sider_menu
 public: true
 properties:
   title: Text Area

@@ -1,4 +1,6 @@
 id: alpha-starter
+type: page_sider_menu
+public: true
 properties:
   title: Lowdefy Starter
 blocks:

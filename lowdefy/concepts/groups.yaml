@@ -1,4 +1,6 @@
 id: groups
+type: page_sider_menu
+public: true
 properties:
   title: Groups and Roles
 blocks:

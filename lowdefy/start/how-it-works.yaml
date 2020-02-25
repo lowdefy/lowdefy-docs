@@ -1,4 +1,6 @@
 id: how-it-works
+type: page_sider_menu
+public: true
 properties:
   title: How It Works
 blocks:

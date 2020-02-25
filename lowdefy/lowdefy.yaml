@@ -1,6 +1,6 @@
-layout:
-  menu:
-    type: primary_side_menu
+
+menus:
+  - id: default
     links:
       - id: start
         type: menu_group

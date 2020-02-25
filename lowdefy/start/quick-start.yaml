@@ -1,4 +1,6 @@
 id: quick-start
+type: page_sider_menu
+public: true
 properties:
   title: Quick Start
 blocks:

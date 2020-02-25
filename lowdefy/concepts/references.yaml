@@ -1,4 +1,6 @@
 id: references
+type: page_sider_menu
+public: true
 properties:
   title: References
 blocks:
