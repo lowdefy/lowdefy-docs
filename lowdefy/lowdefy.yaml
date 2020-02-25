@@ -171,6 +171,16 @@ menus:
           title: Display Blocks
           icon: picture
         links:
+          - id: paragraph
+            type: menu_link
+            pageId: paragraph
+            properties:
+              title: Paragraph
+          - id: title
+            type: menu_link
+            pageId: title
+            properties:
+              title: Title
           - id: statistic
             type: menu_link
             pageId: statistic
@@ -253,6 +263,8 @@ pages:
   - _ref: blocks/input/week_input.yaml
   - _ref: blocks/input/month_input.yaml
   - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/display/paragraph.yaml
+  - _ref: blocks/display/title.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml
   - _ref: blocks/display/button.yaml
