@@ -1,4 +1,5 @@
 id: page4
+public: true
 properties:
   title: Tabs
 initialState:

@@ -1,4 +1,5 @@
 id: slider_input
+public: true
 properties:
   title: Slider
 blocks:

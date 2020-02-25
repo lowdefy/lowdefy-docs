@@ -1,4 +1,5 @@
 id: month_input
+public: true
 properties:
   title: Month
 blocks:

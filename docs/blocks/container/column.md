@@ -44,7 +44,7 @@ A column block is a container which renders child blocks into a new grid without
 <!--YAML-->
 ```yaml
   name: my_column
-  type: column
+  type: grid
   visible: true
   blocks:
     - ... list of column child blocks

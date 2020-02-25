@@ -1,4 +1,5 @@
 id: week_input
+public: true
 properties:
   title: Week
 blocks:

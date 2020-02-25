@@ -1,4 +1,5 @@
 id: anchor
+public: true
 properties:
   title: Anchor
 blocks:
@@ -138,7 +139,7 @@ blocks:
           type: card
           blocks:
             - id: example_1_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -156,7 +157,7 @@ blocks:
                   properties:
                     title: Click here
             - id: example_1_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -179,7 +180,7 @@ blocks:
           type: card
           blocks:
             - id: example_2_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -198,7 +199,7 @@ blocks:
                     title: Click here
                     strong: true
             - id: example_2_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -222,7 +223,7 @@ blocks:
           type: card
           blocks:
             - id: example_3_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -244,7 +245,7 @@ blocks:
                       color: red
                       font-size: 18
             - id: example_3_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -274,7 +275,7 @@ blocks:
           type: card
           blocks:
             - id: example_4_block_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:
@@ -300,7 +301,7 @@ blocks:
                       color: "#000000"
                       font-size: 16
             - id: example_4_code_column
-              type: column
+              type: grid
               box:
                 span: 12
               blocks:

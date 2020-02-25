@@ -1,4 +1,5 @@
 id: radio_input
+public: true
 properties:
   title: Radio
 initialState:

@@ -37,7 +37,7 @@ blocks:
 
             ### Route
 
-            A page will be available on the url route `/page/{pageID}`. The page will be viewable by any user who has access to that page, even if it isn't listed in the menu.
+            A page will be available on the url route `/en/page/{pageID}`. The page will be viewable by any user who has access to that page, even if it isn't listed in the menu.
 
             ### Public Pages
 

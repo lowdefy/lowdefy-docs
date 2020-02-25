@@ -1,4 +1,5 @@
 id: multiple_select_input
+public: true
 properties:
   title: Multiple Select
 initialState:

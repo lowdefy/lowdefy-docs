@@ -1,4 +1,5 @@
 id: number_input
+public: true
 properties:
   title: Number
 blocks:
