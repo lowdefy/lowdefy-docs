@@ -44,6 +44,25 @@
           _nunjucks:
             template: |
               ```json
+              {
+                "block_id": {{ value | safe }}
+              }
+              ```
+            on:
+              value:
+                _stringify:
+                  _state: block_id
+    - id: setup_divider
+      type: divider
+      properties:
+        title: Block Setup
+    - id: setup_markdown
+      type: markdown
+      properties:
+        content:
+          _nunjucks:
+            template: |
+              ```json
               {{ value | safe }}
               ```
             on:
@@ -62,6 +81,7 @@
   type: card
   box:
     span: 6
+    height: 680
   properties:
     title: Settings
     size: small
@@ -69,7 +89,7 @@
     - id: card_inner
       type: grid
       box:
-        height: 500
+        height: 600
       blocks:
         - id: visible_description
           type: markdown
