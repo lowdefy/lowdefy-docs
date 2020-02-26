@@ -111,7 +111,7 @@ blocks:
         - id: block.properties.panels
           type: list
           properties:
-            title: tabs
+            title: panels
           blocks:
             - id: block.properties.panels.$.header
               type: text_input
