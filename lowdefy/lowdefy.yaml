@@ -171,6 +171,16 @@ menus:
           title: Display Blocks
           icon: picture
         links:
+          - id: paragraph
+            type: menu_link
+            pageId: paragraph
+            properties:
+              title: Paragraph
+          - id: title
+            type: menu_link
+            pageId: title
+            properties:
+              title: Title
           - id: statistic
             type: menu_link
             pageId: statistic
@@ -201,6 +211,16 @@ menus:
             pageId: skeleton
             properties:
               title: Skeleton
+          - id: divider
+            type: menu_link
+            pageId: divider
+            properties:
+              title: Divider
+          - id: avatar
+            type: menu_link
+            pageId: avatar
+            properties:
+              title: Avatar
       - id: blocks_container
         type: menu_group
         properties:
@@ -222,6 +242,11 @@ menus:
             pageId: tabs
             properties:
               title: Tabs
+          - id: collapse
+            type: menu_link
+            pageId: collapse
+            properties:
+              title: Collapse
 
 pages:
   - _ref: start/introduction.yaml
@@ -253,13 +278,18 @@ pages:
   - _ref: blocks/input/week_input.yaml
   - _ref: blocks/input/month_input.yaml
   - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/display/paragraph.yaml
+  - _ref: blocks/display/title.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml
   - _ref: blocks/display/button.yaml
   - _ref: blocks/display/anchor.yaml
   - _ref: blocks/display/ag_grid.yaml
   - _ref: blocks/display/skeleton.yaml
+  - _ref: blocks/display/divider.yaml
+  - _ref: blocks/display/avatar.yaml
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml
+  - _ref: blocks/container/collapse.yaml
   - _ref: page1.yaml

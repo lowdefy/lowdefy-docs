@@ -1,0 +1,148 @@
+id: title
+type: page_sider_menu
+public: true
+properties:
+  title: Title
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Title
+      description_content: |
+        A title component. Corresponds to html h1, h2, h3 and h4 elements
+      block_type: title
+      label: false
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.code
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: code
+            size: small
+            label:
+              extra: Apply code style
+              span: 2
+        - id: block.properties.content
+          type: text_input
+          defaultValue: Title
+          properties:
+            title: content
+            size: small
+            label:
+              extra: Title text content
+              span: 2
+        - id: block.properties.copyable
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: copyable
+            size: small
+            label:
+              extra: Provide copy text button
+              span: 2
+        - id: block.properties.delete
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: delete
+            size: small
+            label:
+              extra: Apply deleted style
+              span: 2
+        - id: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: disabled
+            size: small
+            label:
+              extra: Apply disabled style
+              span: 2
+        - id: block.properties.ellipsis
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: ellipsis
+            size: small
+            label:
+              extra: Display ellipsis when text overflows
+              span: 2
+        - id: block.properties.level
+          type: radio_button_input
+          defaultValue: 1
+          properties:
+            title: level
+            size: small
+            label:
+              extra: Set title type. Matches with h1, h2, h3 and h4
+              span: 2
+            options:
+              - 1
+              - 2
+              - 3
+              - 4
+        - id: block.properties.mark
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: mark
+            size: small
+            label:
+              extra: Apply marked style
+              span: 2
+        - id: style_input
+          type: text_area_input
+          box:
+            span: 11
+          defaultValue: "{}"
+          properties:
+            title: style
+            rows: 5
+            size: small
+            label:
+              extra: CSS style properties. Should be in JSON format.
+              span: 2
+        - id: apply_style_button
+          type: button
+          box:
+            span: 1
+          properties:
+            title: ""
+            block: false
+            shape: circle
+            icon: reload
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties.style:
+                    _parse:
+                      _state: style_input
+        - id: block.properties.type
+          type: select_input
+          properties:
+            allowClear: true
+            title: type
+            size: small
+            label:
+              extra: Content type.
+              span: 2
+            options:
+              - secondary
+              - warning
+              - danger
+        - id: block.properties.underline
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: underline
+            size: small
+            label:
+              extra: Apply underline style
+              span: 2
+
+      available_actions_description: |
+        ###### No available actions.
+
