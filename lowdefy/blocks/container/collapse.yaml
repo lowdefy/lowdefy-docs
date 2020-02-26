@@ -85,7 +85,7 @@ blocks:
             title: expandIcon
             size: small
             label:
-              extra: Expand icon. Should be the name of a Ant Design icon.
+              extra: Expand icon. Should be the name of an Ant Design icon.
               span: 2
         - id: block.properties.expandIconPosition
           type: radio_button_input

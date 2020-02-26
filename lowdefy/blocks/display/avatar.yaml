@@ -1,0 +1,78 @@
+id: avatar
+type: page_sider_menu
+public: true
+properties:
+  title: Avatar
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Avatar
+      description_content: |
+        Avatars can be used to represent people or objects. It supports images, Icons, or letters.
+      block_type: avatar
+      label: false
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.alt
+          type: text_input
+          properties:
+            title: alt
+            size: small
+            label:
+              extra: This attribute defines the alternative text describing the image
+              span: 2
+        - id: block.properties.content
+          type: text_input
+          properties:
+            title: content
+            size: small
+            label:
+              extra: Text to display inside avatar
+              span: 2
+        - id: block.properties.icon
+          type: text_input
+          properties:
+            title: icon
+            size: small
+            label:
+              extra: Name of an Ant Design icon
+              span: 2
+        - id: block.properties.shape
+          type: radio_button_input
+          defaultValue: circle
+          properties:
+            title: shape
+            size: small
+            label:
+              extra: Shape of the avatar
+              span: 2
+            options:
+              - circle
+              - square
+        - id: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          properties:
+            title: size
+            size: small
+            label:
+              extra: Size of the avatar
+              span: 2
+            options:
+              - default
+              - small
+              - large
+        - id: block.properties.src
+          type: text_input
+          properties:
+            title: src
+            size: small
+            label:
+              extra: "The address of the image for an image avatar. You can use '_user: picture' for this"
+              span: 2
+
+      available_actions_description: |
+        ###### No available actions.
+
