@@ -3,6 +3,10 @@ type: page_sider_menu
 public: true
 properties:
   title: How It Works
+  breadcrumb:
+    list:
+      - Getting Started
+      - How It Works
 blocks:
   - id: card
     type: card

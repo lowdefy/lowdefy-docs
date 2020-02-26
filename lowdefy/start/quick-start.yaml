@@ -3,6 +3,10 @@ type: page_sider_menu
 public: true
 properties:
   title: Quick Start
+  breadcrumb:
+    list:
+      - Getting Started
+      - Quick Start
 blocks:
   - id: card
     type: card

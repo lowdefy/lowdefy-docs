@@ -86,6 +86,7 @@ blocks:
             block: false
             shape: circle
             icon: reload
+            size: small
             type: primary
           actions:
             onClick:
@@ -123,6 +124,7 @@ blocks:
             block: false
             shape: circle
             icon: reload
+            size: small
             type: primary
           actions:
             onClick:

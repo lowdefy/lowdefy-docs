@@ -35,3 +35,109 @@ blocks:
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
               span: 2
+        - id: block.properties.bordered
+          type: switch_input
+          defaultValue: true
+          properties:
+            title: bordered
+            size: small
+            label:
+              extra: Toggles rendering of the border around the card.
+              span: 2 
+        - id: block.properties.hoverable
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: hoverable
+            size: small
+            label:
+              extra: Lift up when hovering card.
+              span: 2
+        - id: block.properties.loading
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: loading
+            size: small
+            label:
+              extra: Shows a loading indicator while the contents of the card are being fetched.
+              span: 2
+        - id: block.properties.inner
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: inner
+            size: small
+            label:
+              extra: Change the card style to inner.
+              span: 2
+        - id: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          properties:
+            title: size
+            size: small
+            options:
+              - default
+              - small
+            label:
+              extra: Size of the card.
+              span: 2
+        - id: head_style_input
+          type: text_area_input
+          box:
+            span: 11
+          defaultValue: "{}"
+          properties:
+            title: headStyle
+            rows: 5
+            size: small
+            label:
+              extra: CSS style properties. Should be in JSON format.
+              span: 2
+        - id: apply_header_style_button
+          type: button
+          box:
+            span: 1
+          properties:
+            title: ""
+            block: false
+            shape: circle
+            icon: reload
+            type: primary
+            size: small
+          actions:
+            onClick:
+              - set():
+                  block.properties.headStyle:
+                    _parse:
+                      _state: head_style_input
+        - id: body_style_input
+          type: text_area_input
+          box:
+            span: 11
+          defaultValue: "{}"
+          properties:
+            title: bodyStyle
+            rows: 5
+            size: small
+            label:
+              extra: CSS style properties. Should be in JSON format.
+              span: 2
+        - id: apply_body_style_button
+          type: button
+          box:
+            span: 1
+          properties:
+            title: ""
+            block: false
+            shape: circle
+            icon: reload
+            size: small
+            type: primary
+          actions:
+            onClick:
+              - set():
+                  block.properties.bodyStyle:
+                    _parse:
+                      _state: body_style_input

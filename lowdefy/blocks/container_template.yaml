@@ -1,113 +1,133 @@
-- id: card_display
+- id: card_title
   type: card
   blocks:
     - id: title
-      type: markdown
+      type: title
       properties:
+        level: 2
         content:
-          _nunjucks:
-            template: "### {{ title }}"
-            on:
-              title:
-                _var: block_name
-
+          _var: block_name
     - id: description
       type: markdown
       properties:
         content:
           _var: description_content
-    - id: c1
+
+- id: c1
+  type: grid
+  box:
+    span: 6
+  blocks:
+    - id: block_divider
+      type: divider
+      properties:
+        title: Block
+    - id: block_wrap2
       type: grid
       box:
-        span: 5
+        span: 12
       blocks:
-        - id: block_card
-          type: card
+        - id: block_name
+          type:
+            _var: block_type
+          visible:
+            _state: block.visible
           properties:
-            title: Block
-            size: small
+            _state: block.properties
           blocks:
-            - id: s2
-              type: grid
+            - id: subblock_1
+              type: button
+              properties:
+                title: "1"
+              visible:
+                _state: visible_subblock_1
               box:
-                span: 1
-            - id: block_wrap2
-              type: grid
+                span:
+                  _state: span_subblock_1
+            - id: subblock_2
+              type: button
+              properties:
+                title: "2"
+              visible:
+                _state: visible_subblock_2
               box:
-                span: 10
-              blocks:
-                - id: block_name
+                span:
+                  _state: span_subblock_2
+            - id: subblock_3
+              type: button
+              properties:
+                title: "3"
+              visible:
+                _state: visible_subblock_3
+              box:
+                span:
+                  _state: span_subblock_3
+            - id: subblock_4
+              type: button
+              properties:
+                title: "4"
+              visible:
+                _state: visible_subblock_4
+              box:
+                span:
+                  _state: span_subblock_4
+            - id: subblock_5
+              type: button
+              properties:
+                title: "5"
+              visible:
+                _state: visible_subblock_5
+              box:
+                span:
+                  _state: span_subblock_5
+            - id: subblock_6
+              type: button
+              properties:
+                title: "6"
+              visible:
+                _state: visible_subblock_6
+              box:
+                span:
+                  _state: span_subblock_6
+    - id: state_divider
+      type: divider
+      properties:
+        title: State
+    - id: state_markdown
+      type: markdown
+      properties:
+        content:
+          _nunjucks:
+            template: |
+              ```json
+              {{ value | safe }}
+              ```
+            on:
+              value:
+                _stringify:
+                  id: block_id
                   type:
                     _var: block_type
                   visible:
                     _state: block.visible
                   properties:
                     _state: block.properties
-                  blocks:
-                    - id: subblock_1
-                      type: button
-                      properties:
-                        title: "1"
-                      visible:
-                        _state: visible_subblock_1
-                      box:
-                        span:
-                          _state: span_subblock_1
-                    - id: subblock_2
-                      type: button
-                      properties:
-                        title: "2"
-                      visible:
-                        _state: visible_subblock_2
-                      box:
-                        span:
-                          _state: span_subblock_2
-                    - id: subblock_3
-                      type: button
-                      properties:
-                        title: "3"
-                      visible:
-                        _state: visible_subblock_3
-                      box:
-                        span:
-                          _state: span_subblock_3
-                    - id: subblock_4
-                      type: button
-                      properties:
-                        title: "4"
-                      visible:
-                        _state: visible_subblock_4
-                      box:
-                        span:
-                          _state: span_subblock_4
-                    - id: subblock_5
-                      type: button
-                      properties:
-                        title: "5"
-                      visible:
-                        _state: visible_subblock_5
-                      box:
-                        span:
-                          _state: span_subblock_5
-                    - id: subblock_6
-                      type: button
-                      properties:
-                        title: "6"
-                      visible:
-                        _state: visible_subblock_6
-                      box:
-                        span:
-                          _state: span_subblock_6
+    - id: block_divider_end
+      type: divider
 
-    - id: settings_card
-      type: card
+- id: settings_card
+  type: card
+  box:
+    span: 6
+  properties:
+    title: Settings
+    size: small
+  blocks:
+    - id: card_inner
+      type: grid
       box:
-        span: 7
         height: 500
-      properties:
-        title: Settings
-        size: small
-      blocks:
+      blocks:        
         - id: visible_description
           type: markdown
           properties:
@@ -126,6 +146,8 @@
             content: "#### properties:"
         - id: properties_form
           type: grid
+          box:
+            gridGap: 0
           blocks:
             _var: properties_form
         - id: label_form
@@ -134,88 +156,102 @@
             _var: label
           blocks:
             _ref: blocks/label.yaml
-    - id: subblocks_card
-      type: card
-      properties:
-        title: Sub-blocks
-      blocks:
-        - id: span_subblock_1
-          type: number_input
-          box:
-            span: 3
-          properties:
-            title: Block 1 Span
-        - id: visible_subblock_1
-          type: switch_input
-          box:
-            span: 3
-          properties:
-            title: Block 1 Visible
-        - id: span_subblock_2
-          type: number_input
-          box:
-            span: 3
-          properties:
-            title: Block 2 Span
-        - id: visible_subblock_2
-          type: switch_input
-          box:
-            span: 3
-          properties:
-            title: Block 2 Visible
-        - id: span_subblock_3
-          type: number_input
-          box:
-            span: 3
-          properties:
-            title: Block 3 Span
-        - id: visible_subblock_3
-          type: switch_input
-          box:
-            span: 3
-          properties:
-            title: Block 3 Visible
-        - id: span_subblock_4
-          type: number_input
-          box:
-            span: 3
-          properties:
-            title: Block 4 Span
-        - id: visible_subblock_4
-          type: switch_input
-          box:
-            span: 3
-          properties:
-            title: Block 4 Visible
-        - id: span_subblock_5
-          type: number_input
-          box:
-            span: 3
-          properties:
-            title: Block 5 Span
-        - id: visible_subblock_5
-          type: switch_input
-          box:
-            span: 3
-          properties:
-            title: Block 5 Visible
-        - id: span_subblock_6
-          type: number_input
-          box:
-            span: 3
-          properties:
-            title: Block 6 Span
-        - id: visible_subblock_6
-          type: switch_input
-          box:
-            span: 3
-          properties:
-            title: Block 6 Visible
 
-    - id: examples_card
-      type: card
+- id: subblocks_card
+  type: card
+  properties:
+    size: small
+    title: Sub-blocks
+  blocks:
+    - id: span_subblock_1
+      type: number_input
+      box:
+        span: 2
       properties:
-        title: Examples
+        title: Block 1 Span
         size: small
-      blocks:
-        _var: examples
+    - id: visible_subblock_1
+      type: switch_input
+      box:
+        span: 2
+      properties:
+        title: Block 1 Visible
+        size: small
+    - id: span_subblock_2
+      type: number_input
+      box:
+        span: 2
+      properties:
+        title: Block 2 Span
+        size: small
+    - id: visible_subblock_2
+      type: switch_input
+      box:
+        span: 2
+      properties:
+        title: Block 2 Visible
+        size: small
+    - id: span_subblock_3
+      type: number_input
+      box:
+        span: 2
+      properties:
+        size: small
+        title: Block 3 Span
+    - id: visible_subblock_3
+      type: switch_input
+      box:
+        span: 2
+      properties:
+        title: Block 3 Visible
+        size: small
+    - id: span_subblock_4
+      type: number_input
+      box:
+        span: 2
+      properties:
+        title: Block 4 Span
+        size: small
+    - id: visible_subblock_4
+      type: switch_input
+      box:
+        span: 2
+      properties:
+        title: Block 4 Visible
+        size: small
+    - id: span_subblock_5
+      type: number_input
+      box:
+        span: 2
+      properties:
+        title: Block 5 Span
+        size: small
+    - id: visible_subblock_5
+      type: switch_input
+      box:
+        span: 2
+      properties:
+        title: Block 5 Visible
+        size: small
+    - id: span_subblock_6
+      type: number_input
+      box:
+        span: 2
+      properties:
+        title: Block 6 Span
+        size: small
+    - id: visible_subblock_6
+      type: switch_input
+      box:
+        span: 2
+      properties:
+        size: small
+        title: Block 6 Visible
+
+- id: examples_card
+  type: card
+  properties:
+    title: Examples
+    size: small
+  blocks:
+    _var: examples

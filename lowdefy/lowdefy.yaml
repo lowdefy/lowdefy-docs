@@ -17,7 +17,7 @@ menus:
             type: menu_link
             pageId: alpha-starter
             properties:
-              title: Alpha Starter
+              title: Quick Start
           # - id: quick-start
           #   type: menu_link
           #   pageId: quick-start
