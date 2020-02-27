@@ -20,9 +20,9 @@ initialState:
     properties:
       panels:
         - key: content1
-          title: content1
+          header: Title 1
         - key: content2
-          title: content2
+          header: Title 2
 
 blocks:
   _ref:
@@ -118,7 +118,7 @@ blocks:
               type: text_input
               defaultValue: header
               properties:
-                title: title
+                title: header
                 size: small
                 label:
                   extra: Title of the panel.
