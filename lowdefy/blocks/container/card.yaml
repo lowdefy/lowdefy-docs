@@ -25,6 +25,7 @@ blocks:
         A card container.
       block_type: card
       label: false
+      kind: container
       properties_form:
         - id: block.properties.title
           type: text_input
@@ -83,61 +84,17 @@ blocks:
             label:
               extra: Size of the card.
               span: 2
-        - id: head_style_input
-          type: text_area_input
-          box:
-            span: 11
-          defaultValue: "{}"
-          properties:
-            title: headStyle
-            rows: 5
-            size: small
-            label:
-              extra: CSS style properties. Should be in JSON format.
-              span: 2
-        - id: apply_header_style_button
-          type: button
-          box:
-            span: 1
-          properties:
-            title: ""
-            block: false
-            shape: circle
-            icon: reload
-            type: primary
-            size: small
-          actions:
-            onClick:
-              - set():
-                  block.properties.headStyle:
-                    _parse:
-                      _state: head_style_input
-        - id: body_style_input
-          type: text_area_input
-          box:
-            span: 11
-          defaultValue: "{}"
-          properties:
-            title: bodyStyle
-            rows: 5
-            size: small
-            label:
-              extra: CSS style properties. Should be in JSON format.
-              span: 2
-        - id: apply_body_style_button
-          type: button
-          box:
-            span: 1
-          properties:
-            title: ""
-            block: false
-            shape: circle
-            icon: reload
-            size: small
-            type: primary
-          actions:
-            onClick:
-              - set():
-                  block.properties.bodyStyle:
-                    _parse:
-                      _state: body_style_input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: head_style_grid
+              style_id: head_style_input
+              button_id: apply_header_style_button
+              field_name: headStyle
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: body_style_grid
+              style_id: body_style_input
+              button_id: apply_body_style_button
+              field_name: bodyStyle

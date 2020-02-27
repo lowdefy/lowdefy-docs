@@ -12,6 +12,7 @@ blocks:
         Text input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: text_input
       label: true
+      kind: input
       properties_transform:
         _state: block.properties
       properties_form:

@@ -25,33 +25,12 @@ blocks:
         A grid is a container that does not have any formatting, it creates a new grid that blocks can be placed in.
       block_type: grid
       label: false
+      kind: container
       properties_form:
-        - id: style_input
-          type: text_area_input
-          box:
-            span: 11
-          defaultValue: "{}"
-          properties:
-            title: style
-            rows: 5
-            size: small
-            label:
-              extra: CSS style properties. Should be in JSON format.
-              span: 2
-        - id: apply_style_button
-          type: button
-          box:
-            span: 1
-          properties:
-            size: small
-            title: ""
-            block: false
-            shape: circle
-            icon: reload
-            type: primary
-          actions:
-            onClick:
-              - set():
-                  block.properties.style:
-                    _parse:
-                      _state: style_input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style

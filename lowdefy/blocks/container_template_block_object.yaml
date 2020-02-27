@@ -95,62 +95,81 @@
                     _state: span_subblock_6
     - id: state_divider
       type: divider
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
       properties:
         title: State
-    - id: state_markdown
-      type: markdown
-      properties:
-        content:
-          _nunjucks:
-            template: |
-              ```json
-              {
-                "block_id": {{ value | safe }}
-              }
-              ```
-            on:
-              value:
-                _stringify:
-                  _state: block_id
+    - id: state_card
+      type: card
+      properties: 
+        size: small
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+      blocks:
+        - id: state_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {
+                    "block_id": {{ value | safe }}
+                  }
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      _state: block_id
     - id: setup_divider
       type: divider
       properties:
         title: Block Setup
-    - id: setup_markdown
-      type: markdown
-      properties:
-        content:
-          _nunjucks:
-            template: |
-              ```json
-              {{ value | safe }}
-              ```
-            on:
-              value:
-                _stringify:
-                  id: block_id
-                  type:
-                    _var: block_type
-                  visible:
-                    _state: block.visible
-                  properties:
-                    _state: block.properties
-    - id: block_divider_end
-      type: divider
-
-- id: settings_card
-  type: card
+    - id: setup_card
+      type: card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      visible:
+                        _state: block.visible
+                      properties:
+                        _state: block.properties
+- id: settings_grid
+  type: grid
   box:
     span: 6
-    height: 680
-  properties:
-    title: Settings
-    size: small
   blocks:
-    - id: settings_grid
-      type: grid
+    - id: settings_divider
+      type: divider
+      properties:
+        title: Settings
+    - id: settings_card
+      type: card
       box:
-        height: 600
+        height: 80vh
+      properties:
+        size: small
       blocks:
         - id: visible_description
           type: markdown
@@ -271,10 +290,11 @@
         size: small
         title: Block 6 Visible
 
-- id: examples_card
-  type: card
+- id: examples_divider
+  type: divider
   properties:
     title: Examples
-    size: small
+- id: examples_grid
+  type: grid
   blocks:
     _var: examples

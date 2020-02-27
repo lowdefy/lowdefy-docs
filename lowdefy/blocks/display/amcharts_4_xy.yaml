@@ -67,6 +67,7 @@ blocks:
   _ref:
     path: blocks/raw_template.yaml
     vars:
+      kind: display
       block_name: amCharts 4 XY
       description_content: |
         amCharts 4 XY chart

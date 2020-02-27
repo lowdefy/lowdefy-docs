@@ -20,6 +20,7 @@ blocks:
         >Other date type blocks are date_range_input, date_time_input, week_input and month_input.
       block_type: date_range_input
       label: true
+      kind: input
       properties_transform:
         _state: block.properties
       properties_form:

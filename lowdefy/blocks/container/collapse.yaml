@@ -33,6 +33,7 @@ blocks:
         A container with collapsible panels.
       block_type: collapse
       label: false
+      kind: container
       properties_form:
         - id: block.properties.accordion
           type: switch_input
@@ -58,7 +59,7 @@ blocks:
             title: bordered
             size: small
             label:
-              extra: 	Toggles rendering of the border around the collapse block.
+              extra: Toggles rendering of the border around the collapse block.
               span: 2
         - id: block.properties.defaultActiveKey
           type: text_input
