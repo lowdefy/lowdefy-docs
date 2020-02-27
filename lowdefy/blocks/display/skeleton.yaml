@@ -17,6 +17,7 @@ blocks:
         Skeleton block.
       block_type: skeleton
       label: false
+      kind: display
       properties_transform:
         _state: block.properties
       properties_form:

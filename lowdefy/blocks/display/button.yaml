@@ -12,6 +12,7 @@ blocks:
         Button block.
       block_type: button
       label: false
+      kind: display
       properties_transform:
         _state: block.properties
       properties_form:

@@ -24,6 +24,7 @@ blocks:
         >Other selector blocks are checkbox_input, select_input, multiple_select_input and radio_input
       block_type: radio_button_input
       label: true
+      kind: input
       properties_transform:
         _if:
           test:

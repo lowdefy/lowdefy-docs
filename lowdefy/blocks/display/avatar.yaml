@@ -12,6 +12,7 @@ blocks:
         Avatars can be used to represent people or objects. It supports images, Icons, or letters.
       block_type: avatar
       label: false
+      kind: display
       properties_transform:
         _state: block.properties
       properties_form:

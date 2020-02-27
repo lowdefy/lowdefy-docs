@@ -12,6 +12,7 @@ blocks:
         A title component. Corresponds to html h1, h2, h3 and h4 elements
       block_type: title
       label: false
+      kind: display
       properties_transform:
         _state: block.properties
       properties_form:
@@ -92,34 +93,13 @@ blocks:
             label:
               extra: Apply marked style
               span: 2
-        - id: style_input
-          type: text_area_input
-          box:
-            span: 11
-          defaultValue: "{}"
-          properties:
-            title: style
-            rows: 5
-            size: small
-            label:
-              extra: CSS style properties. Should be in JSON format.
-              span: 2
-        - id: apply_style_button
-          type: button
-          box:
-            span: 1
-          properties:
-            title: ""
-            block: false
-            shape: circle
-            icon: reload
-            type: primary
-          actions:
-            onClick:
-              - set():
-                  block.properties.style:
-                    _parse:
-                      _state: style_input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style
         - id: block.properties.type
           type: select_input
           properties:

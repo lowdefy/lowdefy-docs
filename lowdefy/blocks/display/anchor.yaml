@@ -12,6 +12,7 @@ blocks:
         Anchor block. Creates a clickable icon and/ or text.
       block_type: anchor
       label: false
+      kind: display
       properties_transform:
         _state: block.properties
       properties_form:
@@ -65,34 +66,13 @@ blocks:
             label:
               extra: Primary color of the twoTone icon.
               span: 3
-        - id: iconStyle_input
-          type: text_area_input
-          defaultValue: "{}"
-          box:
-            span: 11
-          properties:
-            title: iconStyle
-            rows: 5
-            size: small
-            label:
-              extra: Icon CSS style properties. Should be in JSON format.
-              span: 2
-        - id: apply_iconStyle_button
-          type: button
-          box:
-            span: 1
-          properties:
-            title: ""
-            block: false
-            shape: circle
-            icon: reload
-            type: primary
-          actions:
-            onClick:
-              - set():
-                  block.properties.iconStyle:
-                    _parse:
-                      _state: iconStyle_input
+        - _ref: 
+          path: blocks/style_object_template.yaml
+          vars:
+            grid_id: iconStyle_grid
+            style_id: iconStyle_input
+            button_id: apply_iconStyle_button
+            field_name: iconStyle
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
@@ -102,34 +82,13 @@ blocks:
             label:
               extra: Makes the text bold when true.
               span: 2
-        - id: style_input
-          type: text_area_input
-          defaultValue: "{}"
-          box:
-            span: 11
-          properties:
-            title: style
-            rows: 5
-            size: small
-            label:
-              extra: CSS style properties. Should be in JSON format.
-              span: 2
-        - id: apply_style_button
-          type: button
-          box:
-            span: 1
-          properties:
-            title: ""
-            block: false
-            shape: circle
-            icon: reload
-            type: primary
-          actions:
-            onClick:
-              - set():
-                  block.properties.style:
-                    _parse:
-                      _state: style_input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style
 
       available_actions_description: |
         ###### onClick

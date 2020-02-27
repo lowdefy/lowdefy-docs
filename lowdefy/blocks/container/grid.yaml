@@ -20,13 +20,17 @@ blocks:
   _ref:
     path: blocks/container_template.yaml
     vars:
-      block_name: Card
+      block_name: Grid
       description_content: |
         A grid is a container that does not have any formatting, it creates a new grid that blocks can be placed in.
       block_type: grid
       label: false
+      kind: container
       properties_form:
-        - id: no_properties
-          type: markdown
-          properties:
-            content: This block does not have any properties.
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style

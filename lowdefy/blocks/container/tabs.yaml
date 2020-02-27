@@ -33,6 +33,7 @@ blocks:
         A tabs container.
       block_type: tabs
       label: false
+      kind: container
       properties_form:
         - id: activeKey
           type: text_input

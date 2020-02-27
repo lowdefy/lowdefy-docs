@@ -2,74 +2,113 @@
   type: card
   blocks:
     - id: title
-      type: markdown
+      type: title
       properties:
+        level: 2
         content:
-          _nunjucks:
-            template: "### {{ title }}"
-            on:
-              title:
-                _var: block_name
-
+          _var: block_name
     - id: description
       type: markdown
       properties:
         content:
           _var: description_content
-    - id: c1
+- id: c1
+  type: grid
+  box:
+    span: 6
+  blocks:
+    - id: block_divider
+      type: divider
+      properties:
+        title: Block
+    - id: block_wrap2
       type: grid
       box:
-        span: 5
+        span: 12
       blocks:
-        - id: block_card
-          type: card
+        - id: block_id
+          type:
+            _var: block_type
+          visible:
+            _state: block.visible
           properties:
-            title: Block
-            size: small
-          blocks:
-            - id: s2
-              type: grid
-              box:
-                span: 1
-            - id: block_wrap2
-              type: grid
-              box:
-                span: 10
-              blocks:
-                - id: block_id
-                  type:
-                    _var: block_type
-                  visible:
-                    _state: block.visible
-                  properties:
-                    _var: properties_transform
-        - id: state_card
-          type: card
+            _var: properties_transform
+    - id: state_divider
+      type: divider
+      properties:
+        title: State
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+    - id: state_card
+      type: card
+      properties: 
+        size: small
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+      blocks:
+        - id: state_markdown
+          type: markdown
           properties:
-            title: State
-            size: small
-          blocks:
-            - id: state_markdown
-              type: markdown
-              properties:
-                content:
-                  _nunjucks:
-                    template: |
-                      ```json
-                      {
-                        "block_id": {{ value | safe }}
-                      }
-                      ```
-                    on:
-                      value:
-                        _stringify:
-                          _state: block_id
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {
+                    "block_id": {{ value | safe }}
+                  }
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      _state: block_id
+    - id: setup_divider
+      type: divider
+      properties:
+        title: Block Setup
+    - id: setup_card
+      type: card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      visible:
+                        _state: block.visible
+                      properties:
+                        _state: block.properties
+- id: settings_grid
+  type: grid
+  box:
+    span: 6
+  blocks:
+    - id: settings_divider
+      type: divider
+      properties:
+        title: Settings
     - id: settings_card
       type: card
       box:
-        span: 7
+        height: 80vh
       properties:
-        title: Settings
         size: small
       blocks:
         - id: visible_description
@@ -90,6 +129,8 @@
             content: "#### properties:"
         - id: properties_form
           type: grid
+          box:
+            gridGap: 0
           blocks:
             _var: properties_form
         - id: label_form
@@ -107,10 +148,11 @@
           properties:
             content:
               _var: available_actions_description
-    - id: examples_card
-      type: card
-      properties:
-        title: Examples
-        size: small
-      blocks:
-        _var: examples
+- id: examples_divider
+  type: divider
+  properties:
+    title: Examples
+- id: examples_grid
+  type: grid
+  blocks:
+    _var: examples

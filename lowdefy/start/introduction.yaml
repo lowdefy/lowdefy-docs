@@ -3,6 +3,10 @@ type: page_sider_menu
 public: true
 properties:
   title: Introduction
+  breadcrumb:
+    list:
+      - Getting Started
+      - Introduction
 blocks:
   - id: card
     type: card
@@ -20,7 +24,6 @@ blocks:
             To do this, we automate and standardize all elements between what your users interacts with, _blocks_, and your data _connections_.
 
             Everything on Lowdefy is standard in, standard out. So you do not have to stress about keeping all the bits in the right place.
-
 
             ### Blocks
 
