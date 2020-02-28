@@ -5,7 +5,9 @@ properties:
   title: amCharts 4 XY
 actions:
   onInit:
-    - set():
+    - id: initialize_state 
+      type: set()
+      params:
         block:
           properties:
             data:

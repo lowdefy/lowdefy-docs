@@ -47,7 +47,9 @@
             type: primary
           actions:
             onClick:
-              - set():
+              - id: apply_properties
+                type: set()
+                params:
                   block.properties:
                     _parse:
                       _state: properties_input

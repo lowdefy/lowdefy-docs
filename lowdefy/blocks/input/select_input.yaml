@@ -5,7 +5,9 @@ properties:
   title: Select
 actions:
   onInit:
-    - set():
+    - id: initialize_state 
+      type: set()
+      params:
         block:
           properties:
             options:

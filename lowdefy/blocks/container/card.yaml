@@ -5,7 +5,9 @@ properties:
   title: Card
 actions:
   onInit:
-    - set():
+    - id: initialize_state 
+      type: set()
+      params:
         span_subblock_1: 12
         visible_subblock_1: true
         spansubblock_2: 12

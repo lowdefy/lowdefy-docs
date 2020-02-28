@@ -3,7 +3,9 @@ type: page_sider_menu
 public: true
 actions:
   onInit:
-    - set():
+    - id: initialize_state 
+      type: set()
+      params:
         block:
           properties:
             options:

@@ -38,7 +38,9 @@ blocks:
       type: primary
     actions:
       onClick:
-        - set():
+        - id: apply_style
+          type: set()
+          params:
             block.properties.style:
               _parse:
                 _state:

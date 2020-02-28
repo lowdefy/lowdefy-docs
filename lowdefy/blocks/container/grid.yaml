@@ -5,7 +5,9 @@ properties:
   title: Grid
 actions:
   onInit:
-    - set():
+    - id: initialize_state 
+      type: set()
+      params:
         span_subblock_1: 12
         visible_subblock_1: true
         span_subblock_2: 12
