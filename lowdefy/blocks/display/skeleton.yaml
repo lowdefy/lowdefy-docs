@@ -40,19 +40,6 @@ blocks:
                     - _state: block.properties
           else:
             _state: block.properties
-          # _get:
-          #   key: "0.block.properties"
-          #   on:
-          #     _mql_aggregate:
-          #       pipeline:
-          #         - $addFields:
-          #             block.properties.avatar:
-          #               $cond:
-          #                 - $eq:
-          #                   - $skeleton_avatar_type
-          #                   - Boolean
-          #                 - $block.properties.avatar_b
-          #                 - $block.properties.avatar_o
       properties_form:
         - id: block.properties.title
           type: switch_input
