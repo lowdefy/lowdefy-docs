@@ -21,10 +21,8 @@
       type: divider
       properties:
         title: Block
-    - id: block_wrap2
+    - id: block_grid
       type: grid
-      box:
-        span: 12
       blocks:
         - id: block_id
           type:

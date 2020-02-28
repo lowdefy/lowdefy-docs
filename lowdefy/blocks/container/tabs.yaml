@@ -3,25 +3,29 @@ type: page_sider_menu
 public: true
 properties:
   title: Tabs
-initialState:
-  span_subblock_1: 12
-  visible_subblock_1: true
-  span_subblock_2: 6
-  visible_subblock_2: true
-  span_subblock_3: 6
-  visible_subblock_3: true
-  span_subblock_4: 12
-  visible_subblock_4: true
-  span_subblock_5: 4
-  visible_subblock_5: true
-  span_subblock_6: 8
-  visible_subblock_6: true
-  block:
-    properties:
-      tabs:
-        - key: content1
-          title: content1
-        - key: content2
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        span_subblock_1: 12
+        visible_subblock_1: true
+        span_subblock_2: 6
+        visible_subblock_2: true
+        span_subblock_3: 6
+        visible_subblock_3: true
+        span_subblock_4: 12
+        visible_subblock_4: true
+        span_subblock_5: 4
+        visible_subblock_5: true
+        span_subblock_6: 8
+        visible_subblock_6: true
+        block:
+          properties:
+            tabs:
+              - key: content1
+                title: content1
+              - key: content2
           title: content2
 
 blocks:

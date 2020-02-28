@@ -3,16 +3,20 @@ type: page_sider_menu
 public: true
 properties:
   title: Multiple Select
-initialState:
-  block:
-    properties:
-      options:
-        - primitive: Option 1
-          value: Value1
-          label: Label 1
-        - primitive: Option 2
-          value: Value2
-          label: Label 2
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        block:
+          properties:
+            options:
+              - primitive: Option 1
+                value: Value1
+                label: Label 1
+              - primitive: Option 2
+                value: Value2
+                label: Label 2
 blocks:
   _ref:
     path: blocks/template.yaml

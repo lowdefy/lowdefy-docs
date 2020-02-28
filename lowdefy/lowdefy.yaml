@@ -292,4 +292,3 @@ pages:
   - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml
   - _ref: blocks/container/collapse.yaml
-  - _ref: page1.yaml

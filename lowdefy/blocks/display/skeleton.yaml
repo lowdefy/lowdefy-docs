@@ -3,11 +3,15 @@ type: page_sider_menu
 public: true
 properties:
   title: Skeleton
-initialState:
-  block:
-    properties:
-      active: true
-      avatar: false
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        block:
+          properties:
+            active: true
+            avatar: false
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -19,7 +23,23 @@ blocks:
       label: false
       kind: display
       properties_transform:
-        _state: block.properties
+        _if:
+          test:
+            _eq:
+              - _state: skeleton_avatar_type
+              - Boolean
+          then:
+            _get:
+              key: "0"
+              on:
+                _mql_aggregate:
+                  pipeline:
+                    - $addFields:
+                        avatar: $avatar.boolean
+                  on:
+                    - _state: block.properties
+          else:
+            _state: block.properties
       properties_form:
         - id: block.properties.title
           type: switch_input
@@ -53,22 +73,7 @@ blocks:
                 options:
                   - Boolean
                   - Object
-              actions:
-                onChange:
-                  - set():
-                      block:
-                        properties:
-                          avatar:
-                            _if:
-                              test:
-                                _eq:
-                                  - _state: skeleton_avatar_type
-                                  - Boolean
-                              then:
-                                _state: block.properties.avatar_b
-                              else:
-                                _state: block.properties.avatar_o
-        - id: block.properties.avatar_b
+        - id: block.properties.avatar.boolean
           type: switch_input
           defaultValue: false
           visible:
@@ -80,12 +85,7 @@ blocks:
             label:
               extra: Show avatar placeholder.
               span: 2
-          actions:
-            onChange:
-              - set():
-                  block.properties.avatar:
-                    _state: block.properties.avatar_b
-        - id: block.properties.avatar_o.shape
+        - id: block.properties.avatar.shape
           type: radio_button_input
           visible:
             _mql_test:
@@ -100,11 +100,6 @@ blocks:
             options:
               - circle
               - square
-          actions:
-            onChange:
-              - set():
-                  block.properties.avatar:
-                    _state: block.properties.avatar_o
         - id: block.properties.paragraph
           type: switch_input
           defaultValue: true

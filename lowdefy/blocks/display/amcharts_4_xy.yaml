@@ -3,66 +3,70 @@ type: page_sider_menu
 public: true
 properties:
   title: amCharts 4 XY
-initialState:
-  block:
-    properties:
-      data:
-        - x: a
-          "y": 1
-        - x: b
-          "y": 2
-        - x: c
-          "y": 3
-      xAxes:
-        - type: CategoryAxis
-          dataFields:
-            category: x
-      yAxes:
-        - type: ValueAxis
-      series:
-        - type: ColumnSeries
-          dataFields:
-            categoryX: x
-            valueY: "y"
-  properties_input: |
-    {
-      "data": [
-        {
-          "x": "a",
-          "y": 1
-        },
-        {
-          "x": "b",
-          "y": 2
-        },
-        {
-          "x": "c",
-          "y": 3
-        }
-      ],
-      "xAxes": [
-        {
-          "type": "CategoryAxis",
-          "dataFields": {
-            "category": "x"
-          }
-        }
-      ],
-      "yAxes": [
-        {
-          "type": "ValueAxis"
-        }
-      ],
-      "series": [
-        {
-          "type": "ColumnSeries",
-          "dataFields": {
-            "categoryX": "x",
-            "valueY": "y"
-          }
-        }
-      ]
-    } 
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        block:
+          properties:
+            data:
+              - x: a
+                "y": 1
+              - x: b
+                "y": 2
+              - x: c
+                "y": 3
+            xAxes:
+              - type: CategoryAxis
+                dataFields:
+                  category: x
+            yAxes:
+              - type: ValueAxis
+            series:
+              - type: ColumnSeries
+                dataFields:
+                  categoryX: x
+                  valueY: "y"
+        properties_input: |
+          {
+            "data": [
+              {
+                "x": "a",
+                "y": 1
+              },
+              {
+                "x": "b",
+                "y": 2
+              },
+              {
+                "x": "c",
+                "y": 3
+              }
+            ],
+            "xAxes": [
+              {
+                "type": "CategoryAxis",
+                "dataFields": {
+                  "category": "x"
+                }
+              }
+            ],
+            "yAxes": [
+              {
+                "type": "ValueAxis"
+              }
+            ],
+            "series": [
+              {
+                "type": "ColumnSeries",
+                "dataFields": {
+                  "categoryX": "x",
+                  "valueY": "y"
+                }
+              }
+            ]
+          } 
 blocks:
   _ref:
     path: blocks/raw_template.yaml

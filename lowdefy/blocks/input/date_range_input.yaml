@@ -3,12 +3,16 @@ type: page_sider_menu
 public: true
 properties:
   title: Date Range
-initialState:
-  block:
-    properties:
-      placeholder:
-        - Start Date
-        - End Date
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        block:
+          properties:
+            placeholder:
+              - Start Date
+              - End Date
 blocks:
   _ref:
     path: blocks/template.yaml
