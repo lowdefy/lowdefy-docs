@@ -1,16 +1,18 @@
 id: checkbox_input
 type: page_sider_menu
 public: true
-initialState:
-  block:
-    properties:
-      options:
-        - primitive: Option 1
-          value: Value1
-          label: Label 1
-        - primitive: Option 2
-          value: Value2
-          label: Label 2
+actions:
+  onInit:
+    - set():
+        block:
+          properties:
+            options:
+              - primitive: Option 1
+                value: Value1
+                label: Label 1
+              - primitive: Option 2
+                value: Value2
+                label: Label 2
 
 properties:
   title: Checkbox

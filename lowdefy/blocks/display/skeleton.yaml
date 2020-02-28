@@ -3,11 +3,13 @@ type: page_sider_menu
 public: true
 properties:
   title: Skeleton
-initialState:
-  block:
-    properties:
-      active: true
-      avatar: false
+actions:
+  onInit:
+    - set():
+        block:
+          properties:
+            active: true
+            avatar: false
 blocks:
   _ref:
     path: blocks/template.yaml

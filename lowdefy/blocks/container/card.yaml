@@ -3,19 +3,21 @@ type: page_sider_menu
 public: true
 properties:
   title: Card
-initialState:
-  span_subblock_1: 12
-  visible_subblock_1: true
-  spansubblock_2: 12
-  visible_subblock_2: true
-  span_subblock_3: 6
-  visible_subblock_3: true
-  span_subblock_4: 6
-  visible_subblock_4: true
-  span_subblock_5: 4
-  visible_subblock_5: false
-  span_subblock_6: 8
-  visible_subblock_6: false
+actions:
+  onInit:
+    - set():
+        span_subblock_1: 12
+        visible_subblock_1: true
+        spansubblock_2: 12
+        visible_subblock_2: true
+        span_subblock_3: 6
+        visible_subblock_3: true
+        span_subblock_4: 6
+        visible_subblock_4: true
+        span_subblock_5: 4
+        visible_subblock_5: false
+        span_subblock_6: 8
+        visible_subblock_6: false
 blocks:
   _ref:
     path: blocks/container_template.yaml
