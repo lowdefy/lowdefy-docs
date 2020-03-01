@@ -1,0 +1,76 @@
+id: icon
+type: page_sider_menu
+public: true
+properties:
+  title: Icon
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Icon
+      description_content: |
+        A Icon component. Render Ant Design and other icons
+      block_type: icon
+      label: false
+      kind: display
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.name
+          type: text_input
+          defaultValue: Fire
+          properties:
+            title: name
+            size: small
+            label:
+              extra: Name of icon to be displayed
+              span: 2
+        - id: block.properties.theme
+          type: radio_button_input
+          defaultValue: Outlined
+          properties:
+            title: theme
+            size: small
+            options: ["Outlined", "Filled", "TwoTone"]
+            label:
+              extra: Icon theme style
+              span: 2
+        - id: block.properties.rotate
+          type: number_input
+          defaultValue: 0
+          properties:
+            title: rotate
+            size: small
+            label:
+              extra: Number of degrees to rotate the icon
+              span: 2
+        - id: block.properties.spin
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: spin
+            size: small
+            label:
+              extra: Continuously spin icon with animation
+              span: 2
+        - id: block.properties.twoToneColor
+          type: text_input
+          defaultValue: "#08c"
+          properties:
+            title: twoToneColor
+            size: small
+            label:
+              extra: Primary two-tone color. Only supported with two-tone theme.
+              span: 2
+        
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style
+
+      available_actions_description: |
+        - onClick
+
