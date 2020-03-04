@@ -99,7 +99,7 @@ blocks:
                 title: label
                 size: small
                 label:
-                  extra: Label shown to user.
+                  extra: Label shown to user
             - id: block.properties.items.$.value
               type: text_input
               defaultValue: Value
@@ -109,16 +109,16 @@ blocks:
                 title: value
                 size: small
                 label:
-                  extra: Value selected.
+                  extra: Value selected
             - id: block.properties.items.$.span
               type: number_input
               box:
                 span: 4
               properties:
-                title: value
+                title: span
                 size: small
                 label:
-                  extra: Item label span.
+                  extra: Number of columns for this item to span
 
 
       available_actions_description: |
