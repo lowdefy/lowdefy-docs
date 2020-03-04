@@ -221,6 +221,11 @@ menus:
             pageId: avatar
             properties:
               title: Avatar
+          - id: descriptions
+            type: menu_link
+            pageId: descriptions
+            properties:
+              title: Descriptions
       - id: blocks_container
         type: menu_group
         properties:
@@ -288,6 +293,7 @@ pages:
   - _ref: blocks/display/skeleton.yaml
   - _ref: blocks/display/divider.yaml
   - _ref: blocks/display/avatar.yaml
+  - _ref: blocks/display/descriptions.yaml
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml
