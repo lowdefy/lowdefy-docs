@@ -10,7 +10,7 @@ blocks:
       block_name: Descriptions
       description_content: |
         Display multiple read-only fields in groups. Commonly used to display a detailed list of data.
-      block_type: description
+      block_type: descriptions
       label: false
       kind: display
       properties_transform:
