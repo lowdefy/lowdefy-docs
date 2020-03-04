@@ -36,7 +36,7 @@ blocks:
               span: 2
         - id: block.properties.column
           type: number_input
-          defaultValue: 2
+          defaultValue: 3
           properties:
             title: column
             size: small
@@ -77,6 +77,13 @@ blocks:
             label:
               extra: To include a colon in list items
               span: 2
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style
         - id: block.properties.items
           type: list
           required: true
@@ -86,28 +93,33 @@ blocks:
             - id: block.properties.items.$.label
               type: text_input
               defaultValue: Label
+              box:
+                span: 4
               properties:
                 title: label
                 size: small
                 label:
-                  extra: Label shown to user.
-                  span: 2
+                  extra: Label shown to user
             - id: block.properties.items.$.value
               type: text_input
               defaultValue: Value
+              box:
+                span: 4
               properties:
                 title: value
                 size: small
                 label:
-                  extra: Value selected.
-                  span: 2
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
+                  extra: Value selected
+            - id: block.properties.items.$.span
+              type: number_input
+              box:
+                span: 4
+              properties:
+                title: span
+                size: small
+                label:
+                  extra: Number of columns for this item to span
+
 
       available_actions_description: |
         ###### No available actions.
