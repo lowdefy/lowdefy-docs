@@ -1,0 +1,114 @@
+id: descriptions
+type: page_sider_menu
+public: true
+properties:
+  title: Descriptions
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Descriptions
+      description_content: |
+        Display multiple read-only fields in groups. Commonly used to display a detailed list of data.
+      block_type: description
+      label: false
+      kind: display
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: The title of the description list, placed at the top
+              span: 2
+        - id: block.properties.bordered
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: bordered
+            size: small
+            label:
+              extra: Whether to display the border
+              span: 2
+        - id: block.properties.column
+          type: number_input
+          defaultValue: 2
+          properties:
+            title: column
+            size: small
+            label:
+              extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}"
+              span: 2
+        - id: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          properties:
+            title: size
+            size: small
+            label:
+              extra: Size of the list
+              span: 2
+            options:
+              - small
+              - middle
+              - default
+        - id: block.properties.layout
+          type: radio_button_input
+          defaultValue: default
+          properties:
+            title: layout
+            size: small
+            label:
+              extra: Define description layout
+              span: 2
+            options:
+              - horizontal
+              - vertical
+        - id: block.properties.colon
+          type: switch_input
+          defaultValue: true
+          properties:
+            title: colon
+            size: small
+            label:
+              extra: To include a colon in list items
+              span: 2
+        - id: block.properties.items
+          type: list
+          required: true
+          properties:
+            title: items
+          blocks:
+            - id: block.properties.items.$.label
+              type: text_input
+              defaultValue: Label
+              properties:
+                title: label
+                size: small
+                label:
+                  extra: Label shown to user.
+                  span: 2
+            - id: block.properties.items.$.value
+              type: text_input
+              defaultValue: Value
+              properties:
+                title: value
+                size: small
+                label:
+                  extra: Value selected.
+                  span: 2
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style
+
+      available_actions_description: |
+        ###### No available actions.
+
