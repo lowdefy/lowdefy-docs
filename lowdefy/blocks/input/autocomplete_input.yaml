@@ -1,0 +1,190 @@
+id: autocomplete_input
+type: page_sider_menu
+public: true
+properties:
+  title: Auto Complete
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        block:
+          properties:
+            options:
+              - primitive: Option 1
+                value: Value1
+                label: Label 1
+              - primitive: Option 2
+                value: Value2
+                label: Label 2
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Auto Complete Input
+      description_content: |
+        Auto complete input block. Allows a user to select a single value from a set of options, or type in a value not in the set list of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+
+        >Other selector blocks are checkbox_input, select_input, multiple_select_input, radio_input and radio_button_input
+      block_type: autocomplete_input
+      label: true
+      kind: input
+      properties_transform:
+        _if:
+          test:
+            _eq:
+              - _state: select_options_type
+              - Primitive
+          then:
+            _get:
+              key: "0"
+              on:
+                _mql_aggregate:
+                  pipeline:
+                    - $addFields:
+                        options: $options.primitive
+                  on:
+                    - _state: block.properties
+          else:
+            _state: block.properties
+      properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              span: 2
+        - id: block.properties.allowClear
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: allowClear
+            size: small
+            label:
+              extra: Allow the user to clear the selected value, sets the value to null.
+              span: 2
+        - id: block.properties.autoFocus
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: autoFocus
+            size: small
+            label:
+              extra: Autofocus to the block on page load.
+              span: 2
+        - id: block.properties.backfill
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: backfill
+            size: small
+            label:
+              extra: Backfill selected item the input when using keyboard
+              span: 2
+        - id: block.properties.defaultActiveFirstOption
+          type: switch_input
+          defaultValue: true
+          properties:
+            title: defaultActiveFirstOption
+            size: small
+            label:
+              extra: Whether active first option by default.
+              span: 4
+        - id: block.properties.defaultOpen
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: defaultOpen
+            size: small
+            label:
+              extra: Initial open state of dropdown.
+              span: 2
+        - id: block.properties.disabled
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: disabled
+            size: small
+            label:
+              extra: Disables the block if true.
+              span: 2
+        - id: select_options_type_card
+          type: card
+          blocks:
+            - id: select_options_type
+              type: radio_button_input
+              defaultValue: Primitive
+              properties:
+                title: Options Type
+                size: small
+                label:
+                  extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
+                options:
+                  - Primitive
+                  - Label Value
+        - id: block.properties.options
+          type: list
+          required: true
+          properties:
+            title: options
+          blocks:
+            - id: block.properties.options.$.primitive
+              type: text_input
+              defaultValue: Option
+              visible:
+                _mql_test:
+                  select_options_type: Primitive
+              properties:
+                size: small
+            - id: block.properties.options.$.label
+              type: text_input
+              defaultValue: Label
+              visible:
+                _mql_test:
+                  select_options_type: Label Value
+              properties:
+                title: label
+                size: small
+                label:
+                  extra: Label shown to user.
+                  span: 2
+            - id: block.properties.options.$.value
+              type: text_input
+              defaultValue: Value
+              visible:
+                _mql_test:
+                  select_options_type: Label Value
+              properties:
+                title: value
+                size: small
+                label:
+                  extra: Value selected.
+                  span: 2
+        - id: block.properties.placeholder
+          type: text_input
+          defaultValue: Select item
+          properties:
+            title: placeholder
+            size: small
+            label:
+              extra: Placeholder text inside the block before user selects input.
+              span: 2
+        - id: block.properties.size
+          type: radio_button_input
+          defaultValue: default
+          properties:
+            title: size
+            size: small
+            label:
+              extra: Size of the block.
+              span: 2
+            options:
+              - small
+              - default
+              - large
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.

@@ -130,6 +130,11 @@ menus:
             pageId: multiple_select_input
             properties:
               title: Multiple Select
+          - id: autocomplete_input
+            type: menu_link
+            pageId: autocomplete_input
+            properties:
+              title: Auto Complete
           - id: radio_input
             type: menu_link
             pageId: radio_input
@@ -281,6 +286,7 @@ pages:
   - _ref: blocks/input/checkbox_input.yaml
   - _ref: blocks/input/select_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
+  - _ref: blocks/input/autocomplete_input.yaml
   - _ref: blocks/input/radio_input.yaml
   - _ref: blocks/input/radio_button_input.yaml
   - _ref: blocks/input/date_input.yaml
