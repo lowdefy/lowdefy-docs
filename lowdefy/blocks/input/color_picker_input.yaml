@@ -1,0 +1,91 @@
+id: color_picker_input
+type: page_sider_menu
+public: true
+properties:
+  title: Color Picker
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        block:
+          properties:
+            colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Color Picker Input
+      description_content: |
+        Color picker input block. Allows a user to select a color as a hex string. Different types of pickers are available.
+      block_type: color_picker_input
+      label: true
+      kind: input
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          properties:
+            title: title
+            size: small
+            label:
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              span: 2
+        - id: block.properties.circleSize
+          type: number_input
+          defaultValue: 28
+          properties:
+            title: circleSize
+            size: small
+            label:
+              extra: Pixel value for circle size, only available for type circle.
+              span: 2
+        - id: block.properties.circleSpacing
+          type: number_input
+          defaultValue: 14
+          properties:
+            title: circleSpacing
+            size: small
+            label:
+              extra: Pixel value for spacing between circles, only available for type circle.
+              span: 2
+        - id: block.properties.colors
+          type: list
+          properties:
+            title: colors            
+          blocks:
+            - id: block.properties.colors.$
+              type: text_input
+              defaultValue: '#000000'
+        - id: block.properties.type
+          type: radio_button_input
+          defaultValue: circle
+          properties:
+            title: type
+            size: small
+            label:
+              extra: Type of picker.
+              span: 2
+            options:
+              - block
+              - chrome
+              - circle
+              - twitter
+        - id: block.properties.width
+          type: text_input
+          defaultValue: 252px
+          properties:
+            title: width
+            size: small
+            label:
+              extra: Pixel value for picker width.
+              span: 2
+      available_actions_description: |
+        ###### onChangeComplete
+        Triggered when value is changed. Only fires once drag action has been completed.
+
+      examples:
+
+         
