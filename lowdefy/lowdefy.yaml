@@ -165,6 +165,11 @@ menus:
             pageId: date_range_input
             properties:
               title: Date Range
+          - id: color_picker_input
+            type: menu_link
+            pageId: color_picker_input
+            properties:
+              title: Color Picker
       - id: blocks_display
         type: menu_group
         properties:
@@ -283,6 +288,7 @@ pages:
   - _ref: blocks/input/week_input.yaml
   - _ref: blocks/input/month_input.yaml
   - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/input/color_picker_input.yaml
   - _ref: blocks/display/paragraph.yaml
   - _ref: blocks/display/title.yaml
   - _ref: blocks/display/statistic.yaml
