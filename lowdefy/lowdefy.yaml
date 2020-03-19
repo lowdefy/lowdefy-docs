@@ -130,6 +130,11 @@ menus:
             pageId: multiple_select_input
             properties:
               title: Multiple Select
+          - id: autocomplete_input
+            type: menu_link
+            pageId: autocomplete_input
+            properties:
+              title: Auto Complete
           - id: radio_input
             type: menu_link
             pageId: radio_input
@@ -165,6 +170,11 @@ menus:
             pageId: date_range_input
             properties:
               title: Date Range
+          - id: color_picker_input
+            type: menu_link
+            pageId: color_picker_input
+            properties:
+              title: Color Picker
       - id: blocks_display
         type: menu_group
         properties:
@@ -226,6 +236,11 @@ menus:
             pageId: avatar
             properties:
               title: Avatar
+          - id: descriptions
+            type: menu_link
+            pageId: descriptions
+            properties:
+              title: Descriptions
       - id: blocks_container
         type: menu_group
         properties:
@@ -276,6 +291,7 @@ pages:
   - _ref: blocks/input/checkbox_input.yaml
   - _ref: blocks/input/select_input.yaml
   - _ref: blocks/input/multiple_select_input.yaml
+  - _ref: blocks/input/autocomplete_input.yaml
   - _ref: blocks/input/radio_input.yaml
   - _ref: blocks/input/radio_button_input.yaml
   - _ref: blocks/input/date_input.yaml
@@ -283,6 +299,7 @@ pages:
   - _ref: blocks/input/week_input.yaml
   - _ref: blocks/input/month_input.yaml
   - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/input/color_picker_input.yaml
   - _ref: blocks/display/paragraph.yaml
   - _ref: blocks/display/title.yaml
   - _ref: blocks/display/icon.yaml
@@ -294,6 +311,7 @@ pages:
   - _ref: blocks/display/skeleton.yaml
   - _ref: blocks/display/divider.yaml
   - _ref: blocks/display/avatar.yaml
+  - _ref: blocks/display/descriptions.yaml
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/grid.yaml
   - _ref: blocks/container/tabs.yaml

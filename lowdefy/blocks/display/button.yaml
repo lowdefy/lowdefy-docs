@@ -52,6 +52,15 @@ blocks:
             label:
               extra: Make the button's background transparent when true.
               span: 2
+        - id: block.properties.hideActionLoading
+          type: switch_input
+          defaultValue: false
+          properties:
+            title: hideActionLoading
+            size: small
+            label:
+              extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
+              span: 2
         - id: block.properties.hideTitle
           type: switch_input
           defaultValue: false
