@@ -11,12 +11,8 @@ actions:
         block:
           properties:
             options:
-              - primitive: Option 1
-                value: Value1
-                label: Label 1
-              - primitive: Option 2
-                value: Value2
-                label: Label 2
+              - Option 1
+              - Option 2
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -30,23 +26,7 @@ blocks:
       label: true
       kind: input
       properties_transform:
-        _if:
-          test:
-            _eq:
-              - _state: select_options_type
-              - Primitive
-          then:
-            _get:
-              key: "0"
-              on:
-                _mql_aggregate:
-                  pipeline:
-                    - $addFields:
-                        options: $options.primitive
-                  on:
-                    - _state: block.properties
-          else:
-            _state: block.properties
+        _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
@@ -75,15 +55,6 @@ blocks:
             label:
               extra: Autofocus to the block on page load.
               span: 2
-        - id: block.properties.backfill
-          type: switch_input
-          defaultValue: false
-          properties:
-            title: backfill
-            size: small
-            label:
-              extra: Backfill selected item the input when using keyboard
-              span: 2
         - id: block.properties.defaultActiveFirstOption
           type: switch_input
           defaultValue: true
@@ -91,7 +62,7 @@ blocks:
             title: defaultActiveFirstOption
             size: small
             label:
-              extra: Whether active first option by default.
+              extra: Makes the first option in the selection list active when true.
               span: 4
         - id: block.properties.defaultOpen
           type: switch_input
@@ -111,58 +82,16 @@ blocks:
             label:
               extra: Disables the block if true.
               span: 2
-        - id: select_options_type_card
-          type: card
-          blocks:
-            - id: select_options_type
-              type: radio_button_input
-              defaultValue: Primitive
-              properties:
-                title: Options Type
-                size: small
-                label:
-                  extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
-                options:
-                  - Primitive
-                  - Label Value
         - id: block.properties.options
           type: list
           required: true
           properties:
             title: options
           blocks:
-            - id: block.properties.options.$.primitive
+            - id: block.properties.options.$
               type: text_input
-              defaultValue: Option
-              visible:
-                _mql_test:
-                  select_options_type: Primitive
               properties:
                 size: small
-            - id: block.properties.options.$.label
-              type: text_input
-              defaultValue: Label
-              visible:
-                _mql_test:
-                  select_options_type: Label Value
-              properties:
-                title: label
-                size: small
-                label:
-                  extra: Label shown to user.
-                  span: 2
-            - id: block.properties.options.$.value
-              type: text_input
-              defaultValue: Value
-              visible:
-                _mql_test:
-                  select_options_type: Label Value
-              properties:
-                title: value
-                size: small
-                label:
-                  extra: Value selected.
-                  span: 2
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select item
