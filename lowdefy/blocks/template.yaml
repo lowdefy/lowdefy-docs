@@ -113,10 +113,10 @@
             header: 'properties:'
           - key: actions
             header: 'actions:'
-          - key: visible
-            header: 'visible:'
           - key: required
             header: 'required:'
+          - key: visible
+            header: 'visible:'
       blocks:
         visible:
           - id: block.visible

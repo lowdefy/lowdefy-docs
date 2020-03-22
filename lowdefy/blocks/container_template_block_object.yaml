@@ -155,6 +155,7 @@
                         _state: block.visible
                       properties:
                         _state: block.properties
+
 - id: settings_grid
   type: grid
   box:
@@ -164,41 +165,49 @@
       type: divider
       properties:
         title: Settings
-    - id: settings_card
-      type: card
-      box:
-        height: 80vh
+    - id: block_collapse
+      type: collapse
       properties:
-        size: small
+        defaultActiveKey: properties
+        panels:
+          - key: properties
+            header: 'properties:'
+          - key: actions
+            header: 'actions:'
+          - key: visible
+            header: 'visible:'
       blocks:
-        - id: visible_description
-          type: markdown
-          properties:
-            content: "#### visible:"
-        - id: block.visible
-          type: switch_input
-          defaultValue: true
-          properties:
-            size: small
-            label:
-              extra: Toggle if block is visible and has a value in state.
-              span: 2
-        - id: properties_description
-          type: markdown
-          properties:
-            content: "#### properties:"
-        - id: properties_form
-          type: grid
-          box:
-            gridGap: 0
-          blocks:
-            _var: properties_form
-        - id: label_form
-          type: grid
-          visible:
-            _var: label
-          blocks:
-            _ref: blocks/label.yaml
+        visible:
+          - id: block.visible
+            type: switch_input
+            defaultValue: true
+            properties:
+              title: visible
+              label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
+
+        properties:
+          - id: properties_form
+            type: grid
+            box:
+              gridGap: 0
+            blocks:
+              _var: properties_form
+          - id: label_form
+            type: grid
+            visible:
+              _var: label
+            blocks:
+              _ref: blocks/label.yaml
+        actions:
+          - id: available_actions_description
+            type: markdown
+            properties:
+              content:
+                _var: available_actions_description
+
 - id: subblocks_card
   type: card
   properties:
