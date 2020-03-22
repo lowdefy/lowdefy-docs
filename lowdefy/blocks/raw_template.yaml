@@ -43,7 +43,7 @@
           properties:
             title: "Apply"
             block: false
-            icon: reload
+            icon: ReloadOutlined
             type: primary
           actions:
             onClick:

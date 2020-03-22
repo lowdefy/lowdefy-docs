@@ -68,14 +68,13 @@ blocks:
             label:
               extra: Prefix text for the block, priority over prefixIcon.
               span: 2
-        - id: block.properties.prefixIcon
-          type: text_input
-          properties:
-            title: prefixIcon
-            size: small
-            label:
-              extra: Ant Icon to prefix the block.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.prefixIcon
+              icon_field_name: prefixIcon
+              icon_description: Icon to prefix the text input.
+
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
@@ -97,14 +96,12 @@ blocks:
             label:
               extra: Suffix text for the block, priority over suffixIcon.
               span: 2
-        - id: block.properties.suffixIcon
-          type: text_input
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon to suffix the block.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              icon_description: Icon to suffix the text input.
 
       available_actions_description: |
         ###### onChange
@@ -205,7 +202,7 @@ blocks:
                 span: 6
               properties:
                 title: First Name
-                suffixIcon: user
+                suffixIcon: UserOutlined
                 placeholder: Your name
                 label:
                   extra: Place label next to block and add suffix icon.
@@ -222,7 +219,7 @@ blocks:
                     "type": "text_input",
                     "properties": {
                       "title": "First Name",
-                      "suffixIcon": "user",
+                      "suffixIcon": "UserOutlined",
                       "placeholder": "Your name",
                       "label": {
                         "extra": "Place label next to block and add suffix icon."

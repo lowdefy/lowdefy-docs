@@ -32,14 +32,12 @@ blocks:
             label:
               extra: Text to display inside avatar
               span: 2
-        - id: block.properties.icon
-          type: text_input
-          properties:
-            title: icon
-            size: small
-            label:
-              extra: Name of an Ant Design icon
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.icon
+              icon_field_name: icon
+              icon_description: Icon to be used in avatar.
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: circle

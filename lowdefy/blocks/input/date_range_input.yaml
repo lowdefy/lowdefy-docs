@@ -109,15 +109,14 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.suffixIcon
-          type: text_input
-          defaultValue: calendar
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon at the right-hand side of the date picker.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the date-range input.
+
 
       available_actions_description: |
         ###### onChange
@@ -162,7 +161,7 @@ blocks:
                   - From the start
                   - the end
                 separator: to
-                suffixIcon: thunderbolt
+                suffixIcon: ThunderboltOutlined
             - id: example_2_code
               type: markdown
               box:
@@ -177,7 +176,7 @@ blocks:
                       "title": "Placeholder, separator and suffix icon",
                       "placeholder": [ "From the start", "the end" ],
                       "separator": "to",
-                      "suffixIcon": "thunderbolt",
+                      "suffixIcon": "ThunderboltOutlined",
                       "label": {
                         "extra": "Custom placeholder, separator and suffix icon."
                       }

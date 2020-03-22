@@ -83,15 +83,13 @@ blocks:
             label:
               extra: Destroy Inactive Panel.
               span: 2
-        - id: block.properties.expandIcon
-          type: text_input
-          defaultValue: down
-          properties:
-            title: expandIcon
-            size: small
-            label:
-              extra: Expand icon. Should be the name of an Ant Design icon.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.expandIcon
+              icon_field_name: expandIcon
+              default_icon: RightOutlined
+              icon_description: Icon to show as expand option.
         - id: block.properties.expandIconPosition
           type: radio_button_input
           defaultValue: left
@@ -100,7 +98,7 @@ blocks:
             size: small
             label:
               extra: Set position of expand icon.
-              span: 2
+              span: 4
             options:
               - left
               - right

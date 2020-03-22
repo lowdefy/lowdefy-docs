@@ -16,19 +16,9 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.theme
-          type: radio_button_input
-          defaultValue: Outlined
-          properties:
-            title: theme
-            size: small
-            options: ["Outlined", "Filled", "TwoTone"]
-            label:
-              extra: Icon theme style
-              span: 2
         - id: block.properties.name
           type: select_input
-          defaultValue: Fire
+          defaultValue: FireOutlined
           properties:
             title: name
             size: small
@@ -37,13 +27,7 @@ blocks:
               extra: Name of icon to be displayed
               span: 2
             options:
-              _mql_aggregate:
-                pipeline:
-                  - $match: 
-                      themes:
-                        _state: block.properties.theme
-                on:
-                  _ref: blocks/all_icons.yaml
+              _global: all_icons
         - id: block.properties.rotate
           type: number_input
           defaultValue: 0
@@ -63,14 +47,23 @@ blocks:
               extra: Continuously spin icon with animation
               span: 2
         - id: block.properties.twoToneColor
-          type: text_input
+          type: color_picker_input
           defaultValue: "#08c"
           properties:
             title: twoToneColor
             size: small
+            type: twitter
             label:
               extra: Primary two-tone color, only supported with two-tone theme
               span: 4
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_grid
+              style_id: style_input
+              button_id: apply_style_button
+              field_name: style
+
         - id: block.properties.disableLoadingIcon
           type: switch_input
           defaultValue: false
@@ -89,14 +82,7 @@ blocks:
             label:
               extra: While loading after the icon has been clicked, don't show the loading message
               span: 4
-        
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
+
 
       available_actions_description: |
         - onClick
