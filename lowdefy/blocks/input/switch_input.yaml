@@ -62,7 +62,7 @@ blocks:
             size: small
             label:
               extra: Text to shown when switch is checked (true).
-              span: 2
+              span: 3
         - id: block.properties.uncheckedText
           type: text_input
           properties:
@@ -70,7 +70,7 @@ blocks:
             size: small
             label:
               extra: Text to shown when switch is unchecked (true).
-              span: 2
+              span: 3
         - _ref:
             path: blocks/icon_template.yaml
             vars:

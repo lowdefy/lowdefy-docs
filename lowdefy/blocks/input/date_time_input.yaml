@@ -78,18 +78,18 @@ blocks:
           properties:
             title: minuteStep
             size: small
-          label:
-            extra: Minute intervals to show in the time selector.
-            span: 2
+            label:
+              extra: Minute intervals to show in the time selector.
+              span: 2
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Date & Time
           properties:
             title: placeholder
             size: small
-          label:
-            extra: Placeholder text inside the block before user selects input.
-            span: 2
+            label:
+              extra: Placeholder text inside the block before user selects input.
+              span: 2
         - id: block.properties.secondStep
           type: number_input
           defaultValue: 30
