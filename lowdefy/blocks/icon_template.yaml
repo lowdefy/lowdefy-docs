@@ -1,0 +1,109 @@
+id: 
+  _var: icon_id
+type: select_input
+defaultValue: 
+  _var: default_icon
+properties:
+  title:
+    _var: icon_field_name
+  size: small
+  showSearch: true
+  allowClear: true
+  options:
+    _global: all_icons
+  label:
+    span: 2
+    extra:
+      _if:
+        test: 
+          _not: 
+            _var: icon_description
+        then: Name of icon to be displayed.
+        else: 
+          _var: icon_description
+
+# id: 
+#   _var: grid_id
+# type: grid
+# box:
+#   gridGap: 0
+# blocks:
+  # - id: 
+  #     _var: icon_switch_id
+  #   type: switch_input
+  #   default: true
+  #   properties:
+  #     title: ''
+  #     size: small
+  #     checkedText: '""'
+  #     uncheckedText: '{}'
+
+
+  # - id: 
+  #     _var: icon_name_id
+  #   type: select_input
+  #   visible:
+  #     _state:
+  #       _var: icon_switch_id
+  #   defaultValue: FireOutlined
+  #   properties:
+  #     title: name
+  #     size: small
+  #     showSearch: true
+  #     label:
+  #       extra: Name of icon to be displayed
+  #       span: 2
+  #     options:
+  #       _global: all_icons
+  # - id: 
+  #     _var: icon_rotate_id
+  #   type: number_input
+  #   visible:
+  #     _state:
+  #       _var: icon_switch_id
+  #   defaultValue: 0
+  #   properties:
+  #     title: rotate
+  #     size: small
+  #     label:
+  #       extra: Number of degrees to rotate the icon
+  #       span: 2
+  # - id:
+  #     _var: icon_spin_id
+  #   type: switch_input
+  #   visible:
+  #     _state:
+  #       _var: icon_switch_id
+  #   defaultValue: false
+  #   properties:
+  #     title: spin
+  #     size: small
+  #     label:
+  #       extra: Continuously spin icon with animation
+  #       span: 2
+  # - id:
+  #     _var: icon_twoToneColor_id
+  #   type: color_picker_input
+  #   visible:
+  #     _state:
+  #       _var: icon_switch_id
+  #   defaultValue: "#08c"
+  #   properties:
+  #     title: twoToneColor
+  #     size: small
+  #     type: twitter
+  #     label:
+  #       extra: Primary two-tone color, only supported with two-tone theme
+  #       span: 4
+  # - _ref: 
+  #     path: blocks/style_object_template.yaml
+  #     vars:
+  #       notVisible:
+  #         _var: icon_switch_id
+  #       grid_id: 
+  #         _var: icon_style_grid
+  #       style_id: 
+  #         _var: icon_style_id
+  #       button_id: 
+  #         _var: icon_apply_style_button
+  #       field_name: icon
