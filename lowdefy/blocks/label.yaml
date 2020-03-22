@@ -5,7 +5,7 @@
   properties:
     panels:
       - key: label
-        header: 'label:'
+        title: 'label:'
   blocks:
     label:
       - id: block.properties.label.colon

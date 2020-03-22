@@ -171,11 +171,11 @@
         defaultActiveKey: properties
         panels:
           - key: properties
-            header: 'properties:'
+            title: 'properties:'
           - key: actions
-            header: 'actions:'
+            title: 'actions:'
           - key: visible
-            header: 'visible:'
+            title: 'visible:'
       blocks:
         visible:
           - id: block.visible
