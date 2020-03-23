@@ -34,15 +34,6 @@ blocks:
             label:
               extra: Autofocus to the block on page load.
               span: 2
-        - id: block.properties.checkedIcon
-          type: text_input
-          defaultValue: check
-          properties:
-            title: checkedIcon
-            size: small
-            label:
-              extra: Ant Icon to shown when switch is checked (true).
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -51,15 +42,6 @@ blocks:
             size: small
             label:
               extra: Disable the block if true.
-              span: 2
-        - id: block.properties.disableIcons
-          type: switch_input
-          defaultValue: false
-          properties:
-            title: disableIcons
-            size: small
-            label:
-              extra: Disables icons for checked and unchecked state.
               span: 2
         - id: block.properties.size
           type: radio_button_input
@@ -73,15 +55,36 @@ blocks:
             options:
               - small
               - default
-        - id: block.properties.uncheckedIcon
+        - id: block.properties.checkedText
           type: text_input
-          defaultValue: close
           properties:
-            title: uncheckedIcon
+            title: checkedText
             size: small
             label:
-              extra: Ant Icon to shown when switch is unchecked (false).
+              extra: Text to shown when switch is checked (true).
               span: 3
+        - id: block.properties.uncheckedText
+          type: text_input
+          properties:
+            title: uncheckedText
+            size: small
+            label:
+              extra: Text to shown when switch is unchecked (true).
+              span: 3
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.checkedIcon
+              icon_field_name: checkedIcon
+              default_icon: CheckOutlined
+              icon_description: Icon to shown when switch is checked (true).
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.uncheckedIcon
+              icon_field_name: uncheckedIcon
+              default_icon: CloseOutlined
+              icon_description: Icon to shown when switch is unchecked (false).
 
       available_actions_description: |
         ###### onChange
@@ -121,8 +124,8 @@ blocks:
                 span: 6
               properties:
                 title: Icons
-                checkedIcon: like
-                uncheckedIcon: dislike
+                checkedIcon: LikeOutlined
+                uncheckedIcon: DislikeOutlined
                 label:
                   extra: Custom checked and unchecked icons.
             - id: example_2_code
@@ -137,8 +140,8 @@ blocks:
                     "type": "switch_input",
                     "properties": {
                       "title": "Icons",
-                      "checkedIcon": "like",
-                      "uncheckedIcon": "dislike",
+                      "checkedIcon": "LikeOutlined",
+                      "uncheckedIcon": "DislikeOutlined",
                       "label": {
                         "extra": "Custom checked and unchecked icons."
                       }
@@ -153,8 +156,9 @@ blocks:
               box:
                 span: 6
               properties:
-                title: Disable Icons
-                disableIcons: true
+                title: No Icons
+                checkedText: ""
+                uncheckedText: ""
                 label:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code
@@ -168,8 +172,9 @@ blocks:
                     "id": "example_3",
                     "type": "switch_input",
                     "properties": {
-                      "title": "Disable Icons",
-                      "disableIcons": true,
+                      "title": "No Icons",
+                      "checkedText": "",
+                      "uncheckedText": "",
                       "label": {
                         "extra": "Hide the checked and unchecked icons."
                       }

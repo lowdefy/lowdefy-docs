@@ -1,4 +1,6 @@
-
+global:
+  all_icons:
+    _ref: blocks/all_icons.yaml
 menus:
   - id: default
     links:
@@ -6,7 +8,7 @@ menus:
         type: menu_group
         properties:
           title: Getting Started
-          icon: rocket
+          icon: RocketOutlined
         links:
           - id: introduction
             type: menu_link
@@ -32,7 +34,7 @@ menus:
         type: menu_group
         properties:
           title: Concepts
-          icon: bulb
+          icon: BulbOutlined
         links:
           - id: lowdefy-file
             type: menu_link
@@ -88,7 +90,7 @@ menus:
         type: menu_group
         properties:
           title: Input Blocks
-          icon: form
+          icon: FormOutlined
         links:
           - id: text_input
             type: menu_link
@@ -179,7 +181,7 @@ menus:
         type: menu_group
         properties:
           title: Display Blocks
-          icon: picture
+          icon: PictureOutlined
         links:
           - id: paragraph
             type: menu_link
@@ -191,6 +193,11 @@ menus:
             pageId: title
             properties:
               title: Title
+          - id: icon
+            type: menu_link
+            pageId: icon
+            properties:
+              title: Icon
           - id: statistic
             type: menu_link
             pageId: statistic
@@ -240,7 +247,7 @@ menus:
         type: menu_group
         properties:
           title: Container Blocks
-          icon: container
+          icon: ContainerOutlined
         links:
           - id: card
             type: menu_link
@@ -297,6 +304,7 @@ pages:
   - _ref: blocks/input/color_picker_input.yaml
   - _ref: blocks/display/paragraph.yaml
   - _ref: blocks/display/title.yaml
+  - _ref: blocks/display/icon.yaml
   - _ref: blocks/display/statistic.yaml
   - _ref: blocks/display/amcharts_4_xy.yaml
   - _ref: blocks/display/button.yaml

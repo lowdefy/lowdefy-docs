@@ -43,6 +43,7 @@ blocks:
             label:
               extra: Disable the block if true.
               span: 2
+
         - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
@@ -52,24 +53,21 @@ blocks:
             label:
               extra: Hides minimum and maximum icons.
               span: 2
-        - id: block.properties.iconMin
-          type: text_input
-          defaultValue: frown-o
-          properties:
-            title: iconMin
-            size: small
-            label:
-              extra: Ant Icon to the left of the minimum side of the slider.
-              span: 2
-        - id: block.properties.iconMax
-          type: text_input
-          defaultValue: smile-o
-          properties:
-            title: iconMax
-            size: small
-            label:
-              extra: Ant Icon to the right of the maximum side of the slider.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.minIcon
+              icon_field_name: minIcon
+              default_icon: FrownOutlined
+              icon_description: Icon to the left of the minimum side of the slider.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.maxIcon
+              icon_field_name: maxIcon 
+              default_icon: SmileOutlined
+              icon_description: Icon to the right of the minimum side of the slider.
+
         - id: block.properties.min
           type: number_input
           defaultValue: 0
@@ -96,7 +94,7 @@ blocks:
             size: small
             label:
               extra: Label shown at the null value of the slider.
-              span: 6
+              span: 3
         - id: block.properties.showDots
           type: switch_input
           defaultValue: true
@@ -132,7 +130,7 @@ blocks:
             size: small
             label:
               extra: When tooltip should be visible.
-              span: 2
+              span: 3
             options:
               - never
               - onClick
@@ -176,8 +174,8 @@ blocks:
                 span: 6
               properties:
                 title: Icons
-                iconMin: dislike
-                iconMax: like
+                minIcon: DislikeFilled
+                maxIcon: LikeFilled
             - id: example_2_code
               type: markdown
               box:
@@ -188,10 +186,11 @@ blocks:
                   {
                     "id": "example_2",
                     "type": "slider_input",
+                    "defaultValue": 4,
                     "properties": {
-                      "title": "Icons"
-                      "iconMin": "dislike",
-                      "iconMax": "like"
+                      "title": "Icons",
+                      "minIcon": "DislikeFilled",
+                      "maxIcon": "LikeFilled"
                     }
                   }
                   ```
@@ -216,7 +215,7 @@ blocks:
                     "id": "example_3",
                     "type": "slider_input",
                     "properties": {
-                      "title": "Disable Icons"
+                      "title": "Disable Icons",
                       "disableIcons": true
                     }
                   }
@@ -243,9 +242,35 @@ blocks:
                     "id": "example_4",
                     "type": "slider_input",
                     "properties": {
-                      "title": "No Marks or Dots"
+                      "title": "No Marks or Dots",
                       "showDots": false,
                       "showMarks": false
                     }
                   }
                   ```
+        - id: example_5_card
+          type: card
+          blocks:
+            - id: example_5
+              type: slider_input
+              defaultValue: 4
+              box:
+                span: 6
+              properties:
+                title: Default Value
+            - id: example_5_code
+              type: markdown
+              box:
+                span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_5",
+                    "type": "slider_input",
+                    "defaultValue": 4,
+                    "properties": {
+                      "title": "Default Value",
+                    }
+                  }
+                    ```

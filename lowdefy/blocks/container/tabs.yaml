@@ -116,14 +116,12 @@ blocks:
                 label:
                   extra: Key of the tab.
                   span: 2
-            - id: block.properties.tabs.$.icon
-              type: text_input
-              properties:
-                title: icon
-                size: small
-                label:
-                  extra: Ant Icon to show in title.
-                  span: 2
+            - _ref:
+                path: blocks/icon_template.yaml
+                vars:
+                  icon_id: block.properties.tabs.$.icon
+                  icon_field_name: icon
+                  icon_description: Icon to show in tab title.
             - id: block.properties.tabs.$.disabled
               type: switch_input
               defaultValue: false

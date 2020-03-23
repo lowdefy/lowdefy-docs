@@ -50,7 +50,7 @@ blocks:
             size: small
             label:
               extra: Display number value.
-              span: 3
+              span: 2
         - id: value_text
           field: block.properties.value
           type: text_input
@@ -62,7 +62,7 @@ blocks:
             size: small
             label:
               extra: Display text value.
-              span: 3
+              span: 2
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
@@ -80,7 +80,7 @@ blocks:
             size: small
             label:
               extra: Type of formatter to apply to value.
-              span: 4
+              span: 3
             options:
               - default
               - date
@@ -95,7 +95,7 @@ blocks:
             size: small
             label:
               extra: Moment.js date format
-              span: 4
+              span: 3
             options:
               - default
               - date
@@ -117,7 +117,7 @@ blocks:
             size: small
             label:
               extra: Number of decimals to display.
-              span: 3
+              span: 2
         - id: block.properties.prefix
           type: text_input
           properties:
@@ -125,15 +125,14 @@ blocks:
             size: small
             label:
               extra: Prefix text, priority over prefixIcon.
-              span: 3
-        - id: block.properties.prefixIcon
-          type: text_input
-          properties:
-            title: prefixIcon
-            size: small
-            label:
-              extra: Ant Icon prefix.
-              span: 3
+              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.prefixIcon
+              icon_field_name: prefixIcon
+              icon_description: Icon to prefix statistic.
+
         - id: block.properties.suffix
           type: text_input
           properties:
@@ -141,16 +140,13 @@ blocks:
             size: small
             label:
               extra: Suffix text, priority over suffixIcon.
-              span: 3
-        - id: block.properties.suffixIcon
-          type: text_input
-
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon suffix.
-              span: 3
+              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              icon_description: Icon to suffix statistic.
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
@@ -232,7 +228,7 @@ blocks:
                 title: Prefix and suffix
                 value: 1000
                 prefix: $
-                suffixIcon: shopping-cart
+                suffixIcon: ShoppingCartOutlined
             - id: example_3_code
               type: markdown
               box:
@@ -247,7 +243,7 @@ blocks:
                       "title": "Prefix and suffix",
                       "value": 1000,
                       "prefix": "$",
-                      "suffixIcon": "shopping-cart"
+                      "suffixIcon": "ShoppingCartOutlined"
                     }
                   }
                   ```
@@ -330,7 +326,7 @@ blocks:
               properties:
                 title: Value style
                 value: 1000
-                prefixIcon: rise
+                prefixIcon: RiseOutlined
                 suffix: "%"
                 valueStyle:
                   color: green
@@ -350,7 +346,7 @@ blocks:
                     "properties":{
                       "title": "Value style",
                       "value": 1000,
-                      "prefixIcon": "rise",
+                      "prefixIcon": "RiseOutlined",
                       "suffix": "%",
                       "valueStyle":{
                         "color": "green",

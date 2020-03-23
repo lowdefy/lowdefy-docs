@@ -78,18 +78,18 @@ blocks:
           properties:
             title: minuteStep
             size: small
-          label:
-            extra: Minute intervals to show in the time selector.
-            span: 2
+            label:
+              extra: Minute intervals to show in the time selector.
+              span: 2
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Date & Time
           properties:
             title: placeholder
             size: small
-          label:
-            extra: Placeholder text inside the block before user selects input.
-            span: 2
+            label:
+              extra: Placeholder text inside the block before user selects input.
+              span: 2
         - id: block.properties.secondStep
           type: number_input
           defaultValue: 30
@@ -130,15 +130,14 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.suffixIcon
-          type: text_input
-          defaultValue: calendar
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon at the right-hand side of the date picker.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the date-time input.
+
         - id: block.properties.timeFormat
           type: text_input
           defaultValue: HH:mm
@@ -187,7 +186,7 @@ blocks:
               properties:
                 title: showToday and suffixIcon
                 showToday: false
-                suffixIcon: clock-circle
+                suffixIcon: ClockCircleOutlined
                 label:
                   extra: Disable now button and change the suffix icon.
             - id: example_2_code
@@ -203,7 +202,7 @@ blocks:
                     "properties": {
                       "title": "showToday and suffixIcon",
                       "showToday": false,
-                      "suffixIcon": "clock-cirlce",
+                      "suffixIcon": "ClockCircleOutlined",
                       "label": {
                         "extra": "Disable now button and change the suffix icon"
                       }

@@ -94,15 +94,13 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.suffixIcon
-          type: text_input
-          default: calendar
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon at the right-hand side of the date picker,.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the date input.
 
       available_actions_description: |
         ###### onChange
@@ -142,7 +140,7 @@ blocks:
               properties:
                 title: showToday and suffixIcon
                 showToday: false
-                suffixIcon: filter
+                suffixIcon: FilterOutlined
                 label:
                   extra: Disable Today button and change the suffix icon.
             - id: example_2_code
@@ -158,7 +156,7 @@ blocks:
                     "properties": {
                       "title": "showToday and suffixIcon",
                       "showToday": false,
-                      "suffixIcon": "filter",
+                      "suffixIcon": "FilterOutlined",
                       "label": {
                         "extra": "Disable Today button and change the suffix icon"
                       }

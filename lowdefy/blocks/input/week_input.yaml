@@ -85,15 +85,14 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.suffixIcon
-          type: text_input
-          defaultValue: calendar
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon at the right-hand side of the date picker,.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the week input.
+
 
       available_actions_description: |
         ###### onChange
@@ -135,7 +134,7 @@ blocks:
                 label:
                   extra: Custom placeholder and suffix icon.
                 placeholder: Pick a week
-                suffixIcon: fire
+                suffixIcon: FireOutlined
             - id: example_2_code
               type: markdown
               box:
@@ -149,7 +148,7 @@ blocks:
                     "properties": {
                       "title": "Placeholder and suffix icon",
                       "placeholder": "Pick a week",
-                      "suffixIcon": "fire",
+                      "suffixIcon": "FireOutlined",
                       "label": {
                         "extra": "Custom placeholder and suffix icon."
                       },

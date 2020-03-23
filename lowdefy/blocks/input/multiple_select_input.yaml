@@ -75,15 +75,14 @@ blocks:
             label:
               extra: Autofocus to the block on page load.
               span: 2
-        - id: block.properties.clearIcon
-          type: text_input
-          defaultValue: close-circle
-          properties:
-            title: clearIcon
-            size: small
-            label:
-              extra: Ant Icon at far right position of the selector, when allowClear is set to true.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.clearIcon
+              icon_field_name: clearIcon
+              default_icon: CloseCircleOutlined
+              icon_description: Icon on right-hand side of the selector, when allowClear is set to true.
+
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -166,15 +165,13 @@ blocks:
             label:
               extra: Placeholder text inside the block to show message before user selects input.
               span: 2
-        - id: block.properties.selectedIcon
-          type: text_input
-          defaultValue: check
-          properties:
-            title: selectedIcon
-            size: small
-            label:
-              extra: Ant Icon showing when a selection is made in the drop-down list.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.selectedIcon
+              icon_field_name: selectedIcon
+              default_icon: CheckOutlined
+              icon_description: Icon showing when a selection is made in the drop-down list.
         - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
@@ -197,15 +194,13 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.suffixIcon
-          type: text_input
-          defaultValue: down
-          properties:
-            title: suffixIcon
-            size: small
-            label:
-              extra: Ant Icon at the drop-down position of the selector.
-              span: 2
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
+              default_icon: DownOutlined
+              icon_description: Icon at the drop-down position of the selector.
 
       available_actions_description: |
         ###### onChange
@@ -315,7 +310,7 @@ blocks:
                 allowClear: true
                 clearIcon: delete
                 selectedIcon: fire
-                suffixIcon: ellipsis
+                suffixIcon: EllipsisOutlined
                 label:
                   extra: Custom suffix, clear and selected icons and default value.
                 options:
@@ -344,7 +339,7 @@ blocks:
                       "allowClear": true,
                       "clearIcon": "delete",
                       "selectedIcon": "fire",
-                      "suffixIcon": "ellipsis",
+                      "suffixIcon": "EllipsisOutlined",
                       "options": [
                         {
                           "value": "A",

@@ -34,45 +34,14 @@ blocks:
             label:
               extra: Disable the anchor if true.
               span: 2
-        - id: block.properties.icon
-          type: text_input
-          properties:
-            title: icon
-            size: small
-            label:
-              extra: Ant Icon to show on the anchor.
-              span: 2
-        - id: block.properties.iconTheme
-          type: radio_button_input
-          defaultValue: outlined
-          properties:
-            title: iconTheme
-            size: small
-            label:
-              extra: The theme variant of the icon.
-              span: 2
-            options:
-              - filled
-              - outlined
-              - twoTone
-        - id: block.properties.iconTwoToneColor
-          type: text_input
-          visible:
-            _mql_test:
-              block.properties.iconTheme: twoTone
-          properties:
-            title: iconTwoToneColor
-            size: small
-            label:
-              extra: Primary color of the twoTone icon.
-              span: 3
-        - _ref: 
-          path: blocks/style_object_template.yaml
-          vars:
-            grid_id: iconStyle_grid
-            style_id: iconStyle_input
-            button_id: apply_iconStyle_button
-            field_name: iconStyle
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.icon
+              icon_field_name: icon
+              default_icon: FireOutlined
+              icon_description: Icon to prefix anchor.
+
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
@@ -188,10 +157,11 @@ blocks:
                     span: 6
                   properties:
                     title: Click here
-                    icon: fire
-                    style:
-                      color: red
-                      font-size: 18
+                    icon: 
+                      name: RocketTwoTone
+                      style:
+                        color: red
+                        font-size: 18
             - id: example_3_code_grid
               type: grid
               box:
@@ -206,13 +176,13 @@ blocks:
                         "id": "example_3",
                         "type": "anchor",
                         "properties": {
-                          "title": "Click here"
-                          "icon": "fire",
-                          "iconTheme": "twoTone",
-                          "iconTwoToneColor": "red",
-                          "style": {
-                            "color": "red",
-                            "font-size": 18
+                          "title": "Click here",
+                          "icon": {
+                            "name": "RocketTwoTone",
+                            "style": {
+                              "color": "red",
+                              "font-size": 18
+                            }
                           }
                         }
                       }
@@ -236,11 +206,11 @@ blocks:
                     span: 6
                   properties:
                     title: Click here
-                    icon: fire
-                    iconTheme: filled
-                    iconStyle:
-                      color: orange
-                      font-size: 30
+                    icon: 
+                      name: FireFilled
+                      style:
+                        color: orange
+                        font-size: 30
                     style:
                       color: "#000000"
                       font-size: 16
@@ -258,12 +228,13 @@ blocks:
                         "id": "example_4",
                         "type": "anchor",
                         "properties": {
-                          "title": "Click here"
-                          "icon": "fire",
-                          "iconTheme": "filled",
-                          "iconStyle": {
-                            "color": "orange",
-                            "font-size": 30
+                          "title": "Click here",
+                          "icon": {
+                            "name": "FireFilled",
+                            "style": {
+                              "color": "orange",
+                              "font-size": 30
+                            }
                           },
                           "style": {
                             "color": "#000000",
