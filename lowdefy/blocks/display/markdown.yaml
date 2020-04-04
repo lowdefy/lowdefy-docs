@@ -1,0 +1,60 @@
+id: markdown
+type: page_sider_menu
+public: true
+properties:
+  title: Markdown
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Markdown
+      description_content: |
+        Render markdown text content. For more details on markdown syntax see: [Markdown cheat sheet](https://guides.github.com/features/mastering-markdown/)
+      block_type: markdown
+      label: false
+      kind: display
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.content
+            type: text_area_input
+            defaultValue: |
+              ## Lorem ipsum dolor sit amet
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus magna fringilla urna porttitor rhoncus dolor. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget. Praesent semper feugiat nibh sed pulvinar proin. Dui accumsan sit amet nulla facilisi morbi tempus. 
+              
+              Nisl purus in mollis nunc. Pellentesque habitant morbi tristique senectus et. Nunc scelerisque viverra mauris in. Nunc id cursus metus aliquam eleifend mi in nulla. Neque convallis a cras semper. Ut porttitor leo a diam sollicitudin tempor id. Congue eu consequat ac felis donec et. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Velit egestas dui id ornare arcu odio. Nunc sed blandit libero volutpat sed cras ornare. 
+              
+              Fames ac turpis egestas integer. Id velit ut tortor pretium viverra suspendisse potenti nullam. Feugiat nisl pretium fusce id velit. Amet commodo nulla facilisi nullam vehicula.
+            css:
+              label:
+                --span: 2
+            properties:
+              title: description
+              size: small
+              rows: 7
+              label:
+                extra: Text content in markdown syntax format
+        - id: block.properties.escapeHtml
+          type: switch_input
+          css:
+            label:
+              --span: 2
+          properties:
+            title: escapeHtml
+            size: small
+            label:
+              extra: Escape HTML content in markdown
+
+      available_actions_description: |
+        ###### No available actions.
+

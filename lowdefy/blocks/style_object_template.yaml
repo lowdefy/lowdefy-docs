@@ -4,16 +4,20 @@ type: grid
 visible:
   _not:
     _var: notVisible
-box:
-  gridGap: 0
+css:
+  content:
+    --gap: 0
 blocks:
   - id:
       _var: style_id
     type: text_area_input
-    box:
-      span: 11
-      sm:
-        span: 11
+    css:
+      block:
+        --span: 11
+        sm:
+          --span: 11
+      label:
+        --span: 2
     defaultValue: "{}"
     properties:
       title:
@@ -22,16 +26,16 @@ blocks:
       size: small
       label:
         extra: CSS Object style properties. Should be in JSON format.
-        span: 2
   - id: 
       _var: button_id
     type: button
-    box:
-      span: 1
-      margin: '10px 0 0 -30px'
-      sm:
-        span: 1
-        margin: '35px 0 0 -30px'
+    css:
+      block:
+        --span: 1
+        margin: '10px 0 0 -30px'
+        sm:
+          --span: 1
+          margin: '35px 0 0 -30px'
     properties:
       title: ""
       block: false
@@ -44,7 +48,7 @@ blocks:
         - id: apply_style
           type: set()
           params:
-            block.properties.style:
+            block.css:
               _parse:
                 _state:
                   _var: style_id

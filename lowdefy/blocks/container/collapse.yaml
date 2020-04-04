@@ -30,7 +30,7 @@ actions:
 
 blocks:
   _ref:
-    path: blocks/container_template_block_object.yaml
+    path: blocks/gird_template_block_object.yaml
     vars:
       block_name: Collapse
       description_content: |
@@ -42,47 +42,57 @@ blocks:
         - id: block.properties.accordion
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: accordion
             size: small
             label:
               extra: If true, only one panel is open at a time.
-              span: 2
         - id: block.properties.activeKey
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: activeKey
             size: small
             label:
               extra: Current Panel's key.
-              span: 2
         - id: block.properties.bordered
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: bordered
             size: small
             label:
               extra: Toggles rendering of the border around the collapse block.
-              span: 2
         - id: block.properties.defaultActiveKey
           type: text_input
           defaultValue: content1
+          css:
+            label:
+              --span: 2
           properties:
             title: defaultActiveKey
             size: small
             label:
               extra: Initial active Panel's key, if activeKey is not set.
-              span: 3
         - id: block.properties.destroyInactivePanel
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: destroyInactivePanel
             size: small
             label:
               extra: Destroy Inactive Panel.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -93,62 +103,75 @@ blocks:
         - id: block.properties.expandIconPosition
           type: radio_button_input
           defaultValue: left
+          css:
+            label:
+              --span: 2
           properties:
             title: expandIconPosition
             size: small
             label:
               extra: Set position of expand icon.
-              span: 4
             options:
               - left
               - right
         - id: block.properties.forceRender
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: forceRender
             size: small
             label:
               extra: Force render for all panels.
-              span: 2
         - id: block.properties.panels
           type: list
           properties:
-            title: panels
+            title: 'panels:'
+            size: small
           blocks:
             - id: block.properties.panels.$.title
               type: text_input
               defaultValue: title
+              css:
+                label:
+                  --span: 2
               properties:
                 title: title
                 size: small
                 label:
                   extra: Title of the panel.
-                  span: 2
             - id: block.properties.panels.$.key
               type: text_input
               defaultValue: key
+              css:
+                label:
+                  --span: 2
               properties:
                 title: key
                 size: small
                 label:
                   extra: Key of the panel.
-                  span: 2
             - id: block.properties.panels.$.disabled
               type: switch_input
               defaultValue: false
+              css:
+                label:
+                  --span: 2
               properties:
                 title: disabled
                 size: small
                 label:
                   extra: Disable the panel if true.
-                  span: 2
         - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: showArrow
             size: small
             label:
               extra: Show expand icon.
-              span: 2

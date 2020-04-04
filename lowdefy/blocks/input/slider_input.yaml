@@ -13,46 +13,91 @@ blocks:
       block_type: slider_input
       label: true
       kind: input
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_label_grid
+              style_id: css_label_input
+              button_id: css_label_button
+              field_name: label
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_input_grid
+              style_id: css_input_input
+              button_id: css_input_button
+              field_name: input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_maxIcon_grid
+              style_id: css_maxIcon_input
+              button_id: css_maxIcon_button
+              field_name: maxIcon
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_minIcon_grid
+              style_id: css_minIcon_input
+              button_id: css_minIcon_button
+              field_name: minIcon
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: autoFocus
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disable the block if true.
-              span: 2
-
         - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disableIcons
             size: small
             label:
               extra: Hides minimum and maximum icons.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -71,66 +116,80 @@ blocks:
         - id: block.properties.min
           type: number_input
           defaultValue: 0
+          css:
+            label:
+              --span: 2
           properties:
             title: min
             size: small
             label:
               extra: The minimum value of the slider.
-              span: 2
         - id: block.properties.max
           type: number_input
           defaultValue: 10
+          css:
+            label:
+              --span: 2
           properties:
             title: max
             size: small
             label:
               extra: The maximum value of the slider.
-              span: 2
         - id: block.properties.notApplicableLabel
           type: text_input
           defaultValue: N/A
+          css:
+            label:
+              --span: 3
           properties:
             title: notApplicableLabel
             size: small
             label:
               extra: Label shown at the null value of the slider.
-              span: 3
         - id: block.properties.showDots
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: showDots
             size: small
             label:
               extra: Shows dots at values between step values when true.
-              span: 2
         - id: block.properties.showMarks
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: showMarks
             size: small
             label:
               extra: Shows values at specified min, max and step values.
-              span: 2
         - id: block.properties.step
           type: number_input
           defaultValue: 1
+          css:
+            label:
+              --span: 2
           properties:
             title: step
             size: small
             label:
               extra: The size of the step between values, has to be values greater than 0.
-              span: 2
         - id: block.properties.tooltipVisible
           type: radio_button_input
           defaultValue: onClick
+          css:
+            label:
+              --span: 3
           properties:
             title: tooltipVisible
             size: small
             label:
               extra: When tooltip should be visible.
-              span: 3
             options:
               - never
               - onClick
@@ -146,14 +205,16 @@ blocks:
           blocks:
             - id: example_1
               type: slider_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Slider input
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -170,16 +231,18 @@ blocks:
           blocks:
             - id: example_2
               type: slider_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Icons
                 minIcon: DislikeFilled
                 maxIcon: LikeFilled
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -199,15 +262,17 @@ blocks:
           blocks:
             - id: example_3
               type: slider_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Disable Icons
                 disableIcons: true
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -225,16 +290,18 @@ blocks:
           blocks:
             - id: example_4
               type: slider_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: No Marks or Dots
                 showDots: false
                 showMarks: false
             - id: example_4_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -254,14 +321,16 @@ blocks:
             - id: example_5
               type: slider_input
               defaultValue: 4
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Default Value
             - id: example_5_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json

@@ -14,8 +14,9 @@
           _var: description_content
 - id: c1
   type: grid
-  box:
-    span: 6
+  css:
+    block:
+      --span: 6
   blocks:
     - id: block_divider
       type: divider
@@ -27,6 +28,8 @@
         - id: block_id
           type:
             _var: block_type
+          css:
+            _var: css_transform
           visible:
             _state: block.visible
           required:
@@ -97,8 +100,9 @@
                         _state: block.properties
 - id: settings_grid
   type: grid
-  box:
-    span: 6
+  css:
+    block:
+      --span: 6
   blocks:
     - id: settings_divider
       type: divider
@@ -109,6 +113,8 @@
       properties:
         defaultActiveKey: properties
         panels:
+          - key: css
+            title: 'css:'
           - key: properties
             title: 'properties:'
           - key: actions
@@ -118,6 +124,14 @@
           - key: visible
             title: 'visible:'
       blocks:
+        css:
+          - id: css_form
+            type: grid
+            css:
+              content:
+                --gap: 0
+            blocks:
+              _var: css_form
         visible:
           - id: block.visible
             type: switch_input
@@ -142,8 +156,9 @@
         properties:
           - id: properties_form
             type: grid
-            box:
-              gridGap: 0
+            css:
+              content:
+                --gap: 0
             blocks:
               _var: properties_form
           - id: label_form

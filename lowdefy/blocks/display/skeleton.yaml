@@ -44,21 +44,25 @@ blocks:
         - id: block.properties.title
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Show title placeholder.
-              span: 2
         - id: block.properties.active
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: active
             size: small
             label:
               extra: Show animation effect.
-              span: 2
         - id: skeleton_avatar_type_card
           type: card
           blocks:
@@ -76,6 +80,9 @@ blocks:
         - id: block.properties.avatar.boolean
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           visible:
             _mql_test:
               skeleton_avatar_type: Boolean
@@ -84,9 +91,11 @@ blocks:
             size: small
             label:
               extra: Show avatar placeholder.
-              span: 2
         - id: block.properties.avatar.shape
           type: radio_button_input
+          css:
+            label:
+              --span: 2
           visible:
             _mql_test:
               skeleton_avatar_type: Object
@@ -96,28 +105,31 @@ blocks:
             size: small
             label:
               extra: The shape of the avatar.
-              span: 2
             options:
               - circle
               - square
         - id: block.properties.paragraph
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: paragraph
             size: small
             label:
               extra: Show paragraph placeholder.
-              span: 2
         - id: block.properties.title
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Show title placeholder.
-              span: 2
       available_actions_description: |
         ###### onClick
         Triggered when the button is clicked.
@@ -128,8 +140,9 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -140,8 +153,9 @@ blocks:
                   type: skeleton
             - id: example_1_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -159,8 +173,9 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
@@ -173,8 +188,9 @@ blocks:
                     active: false
             - id: example_2_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -195,8 +211,9 @@ blocks:
           blocks:
             - id: example_3_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -210,8 +227,9 @@ blocks:
                     title: false
             - id: example_3_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown

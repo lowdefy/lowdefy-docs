@@ -13,75 +13,90 @@ blocks:
       block_type: icon
       label: false
       kind: display
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.name
           type: select_input
           defaultValue: FireOutlined
+          css:
+            label:
+              --span: 2
           properties:
             title: name
             size: small
             showSearch: true
             label:
               extra: Name of icon to be displayed
-              span: 2
             options:
               _global: all_icons
         - id: block.properties.rotate
           type: number_input
           defaultValue: 0
+          css:
+            label:
+              --span: 2
           properties:
             title: rotate
             size: small
             label:
               extra: Number of degrees to rotate the icon
-              span: 2
         - id: block.properties.spin
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: spin
             size: small
             label:
               extra: Continuously spin icon with animation
-              span: 2
         - id: block.properties.twoToneColor
           type: color_picker_input
           defaultValue: "#08c"
+          css:
+            label:
+              --span: 4
           properties:
             title: twoToneColor
             size: small
             type: twitter
             label:
               extra: Primary two-tone color, only supported with two-tone theme
-              span: 4
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
 
         - id: block.properties.disableLoadingIcon
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 4
           properties:
             title: disableLoadingIcon
             size: small
             label:
               extra: While loading after the icon has been clicked, don't render the loading icon
-              span: 4
         - id: block.properties.hideLoadingMessage
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 4
           properties:
             title: hideLoadingMessage
             size: small
             label:
               extra: While loading after the icon has been clicked, don't show the loading message
-              span: 4
 
 
       available_actions_description: |

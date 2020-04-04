@@ -29,6 +29,30 @@ blocks:
       block_type: radio_input
       label: true
       kind: input
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_label_grid
+              style_id: css_label_input
+              button_id: css_label_button
+              field_name: label
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_input_grid
+              style_id: css_input_input
+              button_id: css_input_button
+              field_name: input
       properties_transform:
         _if:
           test:
@@ -51,21 +75,25 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disable the block if true.
-              span: 2
         - id: select_options_type_card
           type: card
           blocks:
@@ -84,7 +112,8 @@ blocks:
           type: list
           required: true
           properties:
-            title: options
+            title: 'options:'
+            size: small
           blocks:
             - id: block.properties.options.$.primitive
               type: text_input
@@ -97,6 +126,9 @@ blocks:
             - id: block.properties.options.$.label
               type: text_input
               defaultValue: Label
+              css:
+                label:
+                  --span: 2
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -105,10 +137,12 @@ blocks:
                 size: small
                 label:
                   extra: Label shown to user.
-                  span: 2
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
+              css:
+                label:
+                  --span: 2
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -117,10 +151,12 @@ blocks:
                 size: small
                 label:
                   extra: Value selected.
-                  span: 2
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
+              css:
+                label:
+                  --span: 2
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -129,7 +165,6 @@ blocks:
                 size: small
                 label:
                   extra: Disable the option if true.
-                  span: 2
 
       available_actions_description: |
         ###### onChange
@@ -141,8 +176,9 @@ blocks:
           blocks:
             - id: example_1
               type: radio_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Primitive options
                 options:
@@ -151,8 +187,9 @@ blocks:
                   - C
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -169,8 +206,9 @@ blocks:
           blocks:
             - id: example_2
               type: radio_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               defaultValue:
                 - C
               properties:
@@ -186,8 +224,9 @@ blocks:
                     label: Celeborn
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -221,8 +260,9 @@ blocks:
           blocks:
             - id: example_3
               type: radio_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Disable options
                 label:
@@ -239,8 +279,9 @@ blocks:
                     label: Denethor
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json

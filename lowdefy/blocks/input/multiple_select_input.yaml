@@ -29,6 +29,51 @@ blocks:
       block_type: multiple_select_input
       label: true
       kind: input
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_label_grid
+              style_id: css_label_input
+              button_id: css_label_button
+              field_name: label
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_input_grid
+              style_id: css_input_input
+              button_id: css_input_button
+              field_name: inputs
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_clearIcon_grid
+              style_id: css_clearIcon_input
+              button_id: css_clearIcon_button
+              field_name: clearIcon
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_selectedIcon_grid
+              style_id: css_selectedIcon_input
+              button_id: css_selectedIcon_button
+              field_name: selectedIcon
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_suffixIcon_grid
+              style_id: css_suffixIcon_input
+              button_id: css_suffixIcon_button
+              field_name: suffixIcon
       properties_transform:
         _if:
           test:
@@ -51,30 +96,36 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: allowClear
             size: small
             label:
               extra: Allow the user to clear the selected value, sets the value to null.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: autoFocus
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -86,12 +137,14 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disables the block if true.
-              span: 2
         - id: select_options_type_card
           type: card
           blocks:
@@ -110,7 +163,8 @@ blocks:
           type: list
           required: true
           properties:
-            title: options
+            title: 'options:'
+            size: small
           blocks:
             - id: block.properties.options.$.primitive
               type: text_input
@@ -123,6 +177,9 @@ blocks:
             - id: block.properties.options.$.label
               type: text_input
               defaultValue: Label
+              css:
+                label:
+                  --span: 2
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -131,10 +188,12 @@ blocks:
                 size: small
                 label:
                   extra: Label shown to user.
-                  span: 2
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
+              css:
+                label:
+                  --span: 2
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -143,10 +202,12 @@ blocks:
                 size: small
                 label:
                   extra: Value selected.
-                  span: 2
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
+              css:
+                label:
+                  --span: 2
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -155,16 +216,17 @@ blocks:
                 size: small
                 label:
                   extra: Disable the option if true.
-                  span: 2
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select items
+          css:
+            label:
+              --span: 2
           properties:
             title: placeholder
             size: small
             label:
               extra: Placeholder text inside the block to show message before user selects input.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -175,21 +237,25 @@ blocks:
         - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
+          css:
+            label:
+              --span: 2
           properties:
             title: showArrow
             size: small
             label:
               extra: Show the suffix icon at the drop-down position of the selector.
-              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          css:
+            label:
+              --span: 2
           properties:
             size: small
             title: size
             label:
               extra: Size of the block.
-              span: 2
             options:
               - small
               - default
@@ -212,8 +278,9 @@ blocks:
           blocks:
             - id: example_1
               type: multiple_select_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Primitive options
                 options:
@@ -222,8 +289,9 @@ blocks:
                   - C
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -240,8 +308,9 @@ blocks:
           blocks:
             - id: example_2
               type: multiple_select_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Object options
                 label:
@@ -260,8 +329,9 @@ blocks:
                     label: Denethor
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -301,8 +371,9 @@ blocks:
           blocks:
             - id: example_3
               type: multiple_select_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               defaultValue:
                 - B
               properties:
@@ -322,8 +393,9 @@ blocks:
                     label: Celeborn
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -361,8 +433,9 @@ blocks:
           blocks:
             - id: example_4
               type: multiple_select_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
 
               properties:
                 title: Search options
@@ -396,8 +469,9 @@ blocks:
                     label: Legolas
             - id: example_4_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json

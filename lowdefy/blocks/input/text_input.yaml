@@ -13,61 +13,111 @@ blocks:
       block_type: text_input
       label: true
       kind: input
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_label_grid
+              style_id: css_label_input
+              button_id: css_label_button
+              field_name: label
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_input_grid
+              style_id: css_input_input
+              button_id: css_input_button
+              field_name: input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_prefixIcon_grid
+              style_id: css_prefixIcon_input
+              button_id: css_prefixIcon_button
+              field_name: prefixIcon
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_suffixIcon_grid
+              style_id: css_suffixIcon_input
+              button_id: css_suffixIcon_button
+              field_name: suffixIcon
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: allowClear
             size: small
             label:
               extra: Allow the user to clear their input.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: autoFocus
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disable the block if true.
-              span: 2
         - id: block.properties.placeholder
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: placeholder
             size: small
             label:
               extra: Placeholder text inside the block before user types input.
-              span: 2
         - id: block.properties.prefix
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: prefix
             size: small
             label:
               extra: Prefix text for the block, priority over prefixIcon.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -78,24 +128,28 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          css:
+            label:
+              --span: 2
           properties:
             title: size
             size: small
             label:
               extra: Size of the block.
-              span: 2
             options:
               - small
               - default
               - large
         - id: block.properties.suffix
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: suffix
             size: small
             label:
               extra: Suffix text for the block, priority over suffixIcon.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -115,14 +169,16 @@ blocks:
           blocks:
             - id: example_1
               type: text_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Text input
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -139,14 +195,16 @@ blocks:
           blocks:
             - id: example_2
               type: text_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -164,8 +222,9 @@ blocks:
           blocks:
             - id: example_3
               type: text_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 label:
                   extra: Prefix and suffix text
@@ -174,8 +233,9 @@ blocks:
                 placeholder: chased
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -198,8 +258,9 @@ blocks:
           blocks:
             - id: example_4
               type: text_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: First Name
                 suffixIcon: UserOutlined
@@ -209,8 +270,9 @@ blocks:
                   span: 2
             - id: example_4_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json

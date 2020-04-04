@@ -1,0 +1,48 @@
+id: flex
+type: page_sider_menu
+public: true
+properties:
+  title: Flex
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        flex_subblock_1: 12
+        visible_subblock_1: true
+        flex_subblock_2: 12
+        visible_subblock_2: true
+        flex_subblock_3: 6
+        visible_subblock_3: true
+        flex_subblock_4: 6
+        visible_subblock_4: true
+        flex_subblock_5: 4
+        visible_subblock_5: false
+        flex_subblock_6: 8
+        visible_subblock_6: false
+blocks:
+  _ref:
+    path: blocks/flex_template.yaml
+    vars:
+      block_name: Flex
+      description_content: |
+        A flex is a container that does not have any formatting, it creates a new flex element that blocks can be placed in.
+      block_type: flex
+      label: false
+      kind: container
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_block_grid
+              style_id: style_block_id
+              button_id: apply_block_style_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_content_grid
+              style_id: style_content_id
+              button_id: apply_content_style_button
+              field_name: content
+        

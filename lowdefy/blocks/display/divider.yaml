@@ -13,55 +13,66 @@ blocks:
       block_type: divider
       label: false
       kind: display
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Divider title
-              span: 2
         - id: block.properties.dashed
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: dashed
             size: small
             label:
               extra: Whether line is dashed
-              span: 2
         - id: block.properties.orientation
           type: radio_button_input
           defaultValue: center
+          css:
+            label:
+              --span: 2
           properties:
             title: orientation
             size: small
             label:
               extra: Position of title inside divider.
-              span: 2
             options:
               - center
               - left
               - right
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
         - id: block.properties.type
           type: radio_button_input
           defaultValue: horizontal
+          css:
+            label:
+              --span: 2
           properties:
             title: type
             size: small
             label:
               extra: Direction type of divider.
-              span: 2
             options:
               - horizontal
               - vertical

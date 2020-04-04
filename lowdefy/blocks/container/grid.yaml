@@ -22,7 +22,7 @@ actions:
         visible_subblock_6: false
 blocks:
   _ref:
-    path: blocks/container_template.yaml
+    path: blocks/grid_template.yaml
     vars:
       block_name: Grid
       description_content: |
@@ -30,11 +30,12 @@ blocks:
       block_type: grid
       label: false
       kind: container
-      properties_form:
+      css_form:
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: style_grid
-              style_id: style_input
+              style_id: style_id
               button_id: apply_style_button
-              field_name: style
+              field_name: content
+        

@@ -1,16 +1,16 @@
-id: avatar
+id: alert
 type: page_sider_menu
 public: true
 properties:
-  title: Avatar
+  title: Alert
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Avatar
+      block_name: Alert
       description_content: |
-        Avatars can be used to represent people or objects. It supports images, Icons, or letters.
-      block_type: avatar
+        Alert is used to render user feedback messages.
+      block_type: alert
       label: false
       kind: display
       css_transform:
@@ -23,7 +23,7 @@ blocks:
               style_id: css_block_input
               button_id: css_block_button
               field_name: block
-        - _ref: 
+        - _ref:
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_icon_grid
@@ -33,71 +33,82 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.alt
+        - id: block.properties.banner
+          type: switch_input
+          css:
+            label:
+              --span: 2
+          properties:
+            title: banner
+            size: small
+            label:
+              extra: Show as banner at top of application window
+        - id: block.properties.closable
+          type: switch_input
+          css:
+            label:
+              --span: 2
+          properties:
+            title: closable
+            size: small
+            label:
+              extra: Allow alert to be closed
+        - id: block.properties.closeText
           type: text_input
           css:
             label:
               --span: 2
           properties:
-            title: alt
+            title: closeText
             size: small
             label:
-              extra: This attribute defines the alternative text describing the image
-        - id: block.properties.content
-          type: text_input
-          css:
-            label:
-              --span: 2
-          properties:
-            title: content
-            size: small
-            label:
-              extra: Text to display inside avatar
+              extra: Close text to show
         - _ref:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.icon
               icon_field_name: icon
-              icon_description: Icon to be used in avatar.
-        - id: block.properties.shape
+              icon_description: Icon to be used in alert
+              default_icon: CheckCircleOutlined
+        - id: block.properties.type
           type: radio_button_input
-          defaultValue: circle
+          defaultValue: success
           css:
             label:
               --span: 2
           properties:
-            title: shape
+            title: type
             size: small
             label:
-              extra: Shape of the avatar
+              extra: Alert style type
             options:
-              - circle
-              - square
-        - id: block.properties.size
-          type: radio_button_input
-          defaultValue: default
-          css:
-            label:
-              --span: 2
-          properties:
-            title: size
-            size: small
-            label:
-              extra: Size of the avatar
-            options:
-              - default
-              - small
-              - large
-        - id: block.properties.src
+              - success
+              - info
+              - warning
+              - error
+        - id: block.properties.message
           type: text_input
+          defaultValue: Completed!
           css:
             label:
               --span: 2
           properties:
-            title: src
+            title: message
             size: small
             label:
-              extra: "The address of the image for an image avatar. You can use '_user: picture' for this"
+              extra: Content message of alert
+        - id: block.properties.description
+          type: text_area_input
+          defaultValue: This is a description to say well done.
+          css:
+            label:
+              --span: 2
+          properties:
+            title: description
+            size: small
+            rows: 2
+            label:
+              extra: Content description of alert
 
       available_actions_description: |
         ###### No available actions.

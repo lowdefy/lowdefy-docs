@@ -1,6 +1,9 @@
 id: 
   _var: icon_id
 type: select_input
+css:
+  label:
+    --span: 2
 defaultValue: 
   _var: default_icon
 properties:
@@ -12,7 +15,6 @@ properties:
   options:
     _global: all_icons
   label:
-    span: 2
     extra:
       _if:
         test: 

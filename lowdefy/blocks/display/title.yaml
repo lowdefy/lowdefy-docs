@@ -19,66 +19,80 @@ blocks:
         - id: block.properties.code
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: code
             size: small
             label:
               extra: Apply code style
-              span: 2
         - id: block.properties.content
           type: text_input
           defaultValue: Title
+          css:
+            block:
+              --span: 2
           properties:
             title: content
             size: small
             label:
               extra: Title text content
-              span: 2
         - id: block.properties.copyable
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: copyable
             size: small
             label:
               extra: Provide copy text button
-              span: 2
         - id: block.properties.delete
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: delete
             size: small
             label:
               extra: Apply deleted style
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Apply disabled style
-              span: 2
         - id: block.properties.ellipsis
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: ellipsis
             size: small
             label:
               extra: Display ellipsis when text overflows
-              span: 2
         - id: block.properties.level
           type: radio_button_input
           defaultValue: 1
+          css:
+            block:
+              --span: 2
           properties:
             title: level
             size: small
             label:
               extra: Set title type. Matches with h1, h2, h3 and h4
-              span: 2
             options:
               - 1
               - 2
@@ -87,12 +101,14 @@ blocks:
         - id: block.properties.mark
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: mark
             size: small
             label:
               extra: Apply marked style
-              span: 2
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
@@ -102,13 +118,15 @@ blocks:
               field_name: style
         - id: block.properties.type
           type: select_input
+          css:
+            block:
+              --span: 2
           properties:
             allowClear: true
             title: type
             size: small
             label:
               extra: Content type.
-              span: 2
             options:
               - secondary
               - warning
@@ -116,12 +134,14 @@ blocks:
         - id: block.properties.underline
           type: switch_input
           defaultValue: false
+          css:
+            block:
+              --span: 2
           properties:
             title: underline
             size: small
             label:
               extra: Apply underline style
-              span: 2
 
       available_actions_description: |
         ###### No available actions.

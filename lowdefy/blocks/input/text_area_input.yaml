@@ -13,36 +13,66 @@ blocks:
       block_type: text_area_input
       label: true
       kind: input
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_label_grid
+              style_id: css_label_input
+              button_id: css_label_button
+              field_name: label
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_input_grid
+              style_id: css_input_input
+              button_id: css_input_button
+              field_name: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: allowClear
             size: small
             label:
               extra: Allow the user to clear their input.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: autoFocus
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: select_autoRows_type_card
           type: card
           blocks:
@@ -60,6 +90,9 @@ blocks:
         - id: block.properties.autoRows
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           visible:
             _mql_test:
               select_autoRows_type: Boolean
@@ -68,9 +101,11 @@ blocks:
             size: small
             label:
               extra: Automatically extend the block number of rows.
-              span: 2
         - id: block.properties.autoRows.minRows
           type: number_input
+          css:
+            label:
+              --span: 6
           visible:
             _mql_test:
               select_autoRows_type: Object
@@ -79,9 +114,11 @@ blocks:
             size: small
             label:
               extra: Minimum number of rows the block can be.
-              span: 6
         - id: block.properties.autoRows.maxRows
           type: number_input
+          css:
+            label:
+              --span: 6
           visible:
             _mql_test:
               select_autoRows_type: Object
@@ -90,31 +127,36 @@ blocks:
             size: small
             label:
               extra: Maximum number of rows the block can be.
-              span: 6
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disable the block if true.
-              span: 2
         - id: block.properties.placeholder
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: placeholder
             size: small
             label:
               extra: Placeholder text inside the block before user types input.
-              span: 2
         - id: block.properties.rows
           type: number_input
+          css:
+            label:
+              --span: 2
           properties:
             title: rows
             label:
               extra: Number of rows of text area.
-              span: 2
 
       available_actions_description: |
         ###### onChange
@@ -128,14 +170,16 @@ blocks:
           blocks:
             - id: example_1
               type: text_area_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Text Area input
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -152,14 +196,16 @@ blocks:
           blocks:
             - id: example_2
               type: text_area_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -175,8 +221,9 @@ blocks:
           blocks:
             - id: example_3
               type: text_area_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Rows
                 rows: 5
@@ -184,8 +231,9 @@ blocks:
                   extra: Define fixed number of rows for text area.
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -205,8 +253,9 @@ blocks:
           blocks:
             - id: example_4
               type: text_area_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Auto Rows
                 label:
@@ -216,8 +265,9 @@ blocks:
                   maxRows: 6
             - id: example_4_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json

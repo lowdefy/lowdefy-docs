@@ -13,27 +13,48 @@ blocks:
       block_type: anchor
       label: false
       kind: display
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_icon_grid
+              style_id: css_icon_input
+              button_id: css_icon_button
+              field_name: icon
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disable the anchor if true.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -45,19 +66,14 @@ blocks:
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: strong
             size: small
             label:
               extra: Makes the text bold when true.
-              span: 2
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
 
       available_actions_description: |
         ###### onClick
@@ -69,8 +85,9 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -83,8 +100,9 @@ blocks:
                     title: Click here
             - id: example_1_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -104,25 +122,29 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
                   properties:
                     content: |
-                      ##### Bold text
+                      ##### Bold text and icon
                 - id: example_2
                   type: anchor
-                  box:
-                    span: 6
+                  css:
+                    block:
+                      --span: 6
                   properties:
                     title: Click here
                     strong: true
+                    icon: LinkOutlined
             - id: example_2_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -133,8 +155,9 @@ blocks:
                         "id": "example_2",
                         "type": "anchor",
                         "properties": {
-                          "title": "Click here"
-                          "strong": true
+                          "title": "Click here",
+                          "strong": true,
+                          "icon": "LinkOutlined"
                         }
                       }
                       ```
@@ -143,8 +166,9 @@ blocks:
           blocks:
             - id: example_3_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -153,19 +177,20 @@ blocks:
                       ##### Custom text and icon style
                 - id: example_3
                   type: anchor
-                  box:
-                    span: 6
+                  css:
+                    block:
+                      fontSize: 18
+                      color: 'red !important'
                   properties:
                     title: Click here
                     icon: 
+                      twoToneColor: 'red'
                       name: RocketTwoTone
-                      style:
-                        color: red
-                        font-size: 18
             - id: example_3_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
@@ -175,14 +200,17 @@ blocks:
                       {
                         "id": "example_3",
                         "type": "anchor",
+                        "css": {
+                          "block": {
+                            "color": "red !important",
+                            "fontSize": 18
+                          }
+                        },
                         "properties": {
                           "title": "Click here",
                           "icon": {
-                            "name": "RocketTwoTone",
-                            "style": {
-                              "color": "red",
-                              "font-size": 18
-                            }
+                            "twoToneColor": "red",
+                            "name": "RocketTwoTone"
                           }
                         }
                       }
@@ -192,8 +220,9 @@ blocks:
           blocks:
             - id: example_4_block_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_4_title
                   type: markdown
@@ -202,22 +231,22 @@ blocks:
                       ##### Style text and icon separately
                 - id: example_4
                   type: anchor
-                  box:
-                    span: 6
+                  css:
+                    block:
+                      color: "#000000 !important"
+                      fontSize: 16
+                    icon:
+                      color: orange
+                      fontSize: 30
                   properties:
                     title: Click here
                     icon: 
                       name: FireFilled
-                      style:
-                        color: orange
-                        font-size: 30
-                    style:
-                      color: "#000000"
-                      font-size: 16
             - id: example_4_code_grid
               type: grid
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               blocks:
                 - id: example_4_code
                   type: markdown
@@ -227,18 +256,21 @@ blocks:
                       {
                         "id": "example_4",
                         "type": "anchor",
+                        "css": {
+                          "block": {
+                            "--span": 6,
+                            "color": "#000000 !important",
+                            "fontSize": 16
+                          },
+                          "icon": {
+                            "color": "orange",
+                            "fontSize": 30
+                          }
+                        },
                         "properties": {
                           "title": "Click here",
                           "icon": {
-                            "name": "FireFilled",
-                            "style": {
-                              "color": "orange",
-                              "font-size": 30
-                            }
-                          },
-                          "style": {
-                            "color": "#000000",
-                            "font-size": 16
+                            "name": "FireFilled"
                           }
                         }
                       }

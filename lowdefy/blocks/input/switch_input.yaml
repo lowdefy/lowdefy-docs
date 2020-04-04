@@ -13,64 +13,114 @@ blocks:
       block_type: switch_input
       label: true
       kind: input
+      css_transform:
+        _state: block.css
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_block_grid
+              style_id: css_block_input
+              button_id: css_block_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_label_grid
+              style_id: css_label_input
+              button_id: css_label_button
+              field_name: label
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_input_grid
+              style_id: css_input_input
+              button_id: css_input_button
+              field_name: input
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_checkedIcon_grid
+              style_id: css_checkedIcon_input
+              button_id: css_checkedIcon_button
+              field_name: checkedIcon
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_uncheckedIcon_grid
+              style_id: css_uncheckedIcon_input
+              button_id: css_uncheckedIcon_button
+              field_name: uncheckedIcon
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          css:
+            label:
+              --span: 2
           properties:
             title: title
             size: small
             label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: autoFocus
             size: small
             label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          css:
+            label:
+              --span: 2
           properties:
             title: disabled
             size: small
             label:
               extra: Disable the block if true.
-              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          css:
+            label:
+              --span: 2
           properties:
             size: small
             title: size
             label:
               extra: Size of the block.
-              span: 2
             options:
               - small
               - default
         - id: block.properties.checkedText
           type: text_input
+          css:
+            label:
+              --span: 2
           properties:
             title: checkedText
             size: small
             label:
               extra: Text to shown when switch is checked (true).
-              span: 3
         - id: block.properties.uncheckedText
           type: text_input
+          css:
+            label:
+              --span: 3
           properties:
             title: uncheckedText
             size: small
             label:
               extra: Text to shown when switch is unchecked (true).
-              span: 3
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -96,14 +146,16 @@ blocks:
           blocks:
             - id: example_1
               type: switch_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Switch input
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -120,8 +172,9 @@ blocks:
           blocks:
             - id: example_2
               type: switch_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: Icons
                 checkedIcon: LikeOutlined
@@ -130,8 +183,9 @@ blocks:
                   extra: Custom checked and unchecked icons.
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json
@@ -153,8 +207,9 @@ blocks:
           blocks:
             - id: example_3
               type: switch_input
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 title: No Icons
                 checkedText: ""
@@ -163,8 +218,9 @@ blocks:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              css:
+                block:
+                  --span: 6
               properties:
                 content: |
                   ```json

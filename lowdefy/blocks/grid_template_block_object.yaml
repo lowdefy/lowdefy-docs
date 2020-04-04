@@ -15,8 +15,9 @@
           _var: description_content
 - id: c1
   type: grid
-  box:
-    span: 6
+  css:
+    block:
+      --span: 6
   blocks:
     - id: block_divider
       type: divider
@@ -24,8 +25,9 @@
         title: Block
     - id: block_wrap2
       type: grid
-      box:
-        span: 12
+      css:
+        block:
+          --span: 12
       blocks:
         - id: block_id
           type:
@@ -41,58 +43,70 @@
               - id: subblock_1
                 type: button
                 properties:
+                  block: true
                   title: "1"
                 visible:
                   _state: visible_subblock_1
-                box:
-                  span:
-                    _state: span_subblock_1
+                css:
+                  block:
+                    --span:
+                      _state: span_subblock_1
               - id: subblock_2
                 type: button
                 properties:
+                  block: true
                   title: "2"
                 visible:
                   _state: visible_subblock_2
-                box:
-                  span:
-                    _state: span_subblock_2
+                css:
+                  block:
+                    --span:
+                      _state: span_subblock_2
               - id: subblock_3
                 type: button
                 properties:
+                  block: true
                   title: "3"
                 visible:
                   _state: visible_subblock_3
-                box:
-                  span:
-                    _state: span_subblock_3
+                css:
+                  block:
+                    --span:
+                      _state: span_subblock_3
             content2:
               - id: subblock_4
                 type: button
                 properties:
+                  block: true
                   title: "4"
                 visible:
                   _state: visible_subblock_4
-                box:
-                  span:
-                    _state: span_subblock_4
+                css:
+                  block:
+                    --span:
+                      _state: span_subblock_4
               - id: subblock_5
                 type: button
                 properties:
+                  block: true
                   title: "5"
                 visible:
                   _state: visible_subblock_5
-                box:
-                  span:
-                    _state: span_subblock_5
+                css:
+                  block:
+                    --span:
+                      _state: span_subblock_5
               - id: subblock_6
                 type: button
                 properties:
+                  block: true
                   title: "6"
                 visible:
                   _state: visible_subblock_6
-                box:
-                  span:
-                    _state: span_subblock_6
+                css:
+                  block:
+                    --span:
+                      _state: span_subblock_6
     - id: state_divider
       type: divider
       visible:
@@ -158,8 +172,9 @@
 
 - id: settings_grid
   type: grid
-  box:
-    span: 6
+  css:
+    block:
+      --span: 6
   blocks:
     - id: settings_divider
       type: divider
@@ -191,8 +206,9 @@
         properties:
           - id: properties_form
             type: grid
-            box:
-              gridGap: 0
+            css:
+              content:
+                --gap: 0
             blocks:
               _var: properties_form
           - id: label_form
@@ -216,85 +232,97 @@
   blocks:
     - id: span_subblock_1
       type: number_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 1 Span
         size: small
     - id: visible_subblock_1
       type: switch_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 1 Visible
         size: small
     - id: span_subblock_2
       type: number_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 2 Span
         size: small
     - id: visible_subblock_2
       type: switch_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 2 Visible
         size: small
     - id: span_subblock_3
       type: number_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 3 Span
         size: small
     - id: visible_subblock_3
       type: switch_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 3 Visible
         size: small
     - id: span_subblock_4
       type: number_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 4 Span
         size: small
     - id: visible_subblock_4
       type: switch_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 4 Visible
         size: small
     - id: span_subblock_5
       type: number_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 5 Span
         size: small
     - id: visible_subblock_5
       type: switch_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 5 Visible
         size: small
     - id: span_subblock_6
       type: number_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         title: Block 6 Span
         size: small
     - id: visible_subblock_6
       type: switch_input
-      box:
-        span: 2
+      css:
+        block:
+          --span: 2
       properties:
         size: small
         title: Block 6 Visible
