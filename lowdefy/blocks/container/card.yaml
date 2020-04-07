@@ -10,7 +10,7 @@ actions:
       params:
         span_subblock_1: 12
         visible_subblock_1: true
-        spansubblock_2: 12
+        span_subblock_2: 12
         visible_subblock_2: true
         span_subblock_3: 6
         visible_subblock_3: true
@@ -34,78 +34,92 @@ blocks:
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
+              grid_id: style_block_grid
+              style_id: style_block_id
+              button_id: apply_block_style_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_content_grid
+              style_id: style_content_id
+              button_id: apply_content_style_button
+              field_name: $content
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
               grid_id: css_header_grid
               style_id: css_header_input
               button_id: apply_css_header_button
-              field_name: header
+              field_name: $header
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_body_grid
               style_id: css_body_input
               button_id: apply_css_body_button
-              field_name: body
+              field_name: $body
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.bordered
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: bordered
             size: small
-            label:
+            $label:
               extra: Toggles rendering of the border around the card.
         - id: block.properties.hoverable
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: hoverable
             size: small
-            label:
+            $label:
               extra: Lift up when hovering card.
         - id: block.properties.loading
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: loading
             size: small
-            label:
+            $label:
               extra: Shows a loading indicator while the contents of the card are being fetched.
         - id: block.properties.inner
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: inner
             size: small
-            label:
+            $label:
               extra: Change the card style to inner.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
@@ -113,5 +127,5 @@ blocks:
             options:
               - default
               - small
-            label:
+            $label:
               extra: Size of the card.

@@ -1,8 +1,8 @@
-id: flex
+id: sider
 type: page_sider_menu
 public: true
 properties:
-  title: Flex
+  title: Sider
 actions:
   onInit:
     - id: initialize_state 
@@ -24,25 +24,35 @@ blocks:
   _ref:
     path: blocks/flex_template.yaml
     vars:
-      block_name: Flex
+      block_name: Sider
       description_content: |
-        A flex is a container that does not have any formatting, it creates a new flex element that blocks can be placed in.
-      block_type: flex
+        A sider component to place blocks aside in a layout.
+      block_type: sider
       label: false
       kind: container
       css_form:
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
-              grid_id: style_block_grid
-              style_id: style_block_id
-              button_id: apply_block_style_button
+              grid_id: css_block_grid
+              style_id: css_block_id
+              button_id: apply_block_css_button
               field_name: block
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
-              grid_id: style_content_grid
-              style_id: style_content_id
-              button_id: apply_content_style_button
+              grid_id: css_content_grid
+              style_id: css_content_id
+              button_id: apply_content_css_button
               field_name: $content
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_zeroWidthTriggerStyle_grid
+              style_id: style_zeroWidthTriggerStyle_id
+              button_id: apply_zeroWidthTriggerStyle_style_button
+              field_name: $zeroWidthTriggerStyle
         
+      properties_form:
+        _ref:
+          path: blocks/container/sider_properties.yaml

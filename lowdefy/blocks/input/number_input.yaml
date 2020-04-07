@@ -29,14 +29,14 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
       properties_transform:
         _state: block.properties
       properties_form:
@@ -44,98 +44,98 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: decimalSeparator
             size: small
-            label:
+            $label:
               extra: Decimal separator.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disables the block if true.
         - id: block.properties.min
           type: number_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: min
             size: small
-            label:
+            $label:
               extra: Minimum value allowed by the block.
         - id: block.properties.max
           type: number_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: max
             size: small
-            label:
+            $label:
               extra: Maximum value allowed by the block.
         - id: block.properties.placeholder
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            label:
+            $label:
               extra: Placeholder text inside the block to show message before user types input.
         - id: block.properties.precision
           type: number_input
           defaultValue: 0
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: precision
             size: small
             max: 100
-            label:
+            $label:
               extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small
@@ -145,13 +145,13 @@ blocks:
           type: number_input
           defaultValue: 1
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: step
             size: small
             precision: 2
-            label:
+            $label:
               extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
       available_actions_description: |
         ###### onChange
@@ -166,15 +166,13 @@ blocks:
             - id: example_1
               type: number_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Number input
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -192,8 +190,7 @@ blocks:
             - id: example_2
               type: number_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               defaultValue: 3.14
               properties:
                 title: Decimal separator
@@ -203,8 +200,7 @@ blocks:
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -226,16 +222,14 @@ blocks:
             - id: example_3
               type: number_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Placeholder
                 placeholder: π
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json

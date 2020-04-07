@@ -41,21 +41,21 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_suffixIcon_grid
               style_id: css_suffixIcon_input
               button_id: css_suffixIcon_button
-              field_name: suffixIcon
+              field_name: $suffixIcon
       properties_transform:
         _state: block.properties
       properties_form:
@@ -63,56 +63,56 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            label:
+            $label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the block if true.
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: format
             size: small
-            label:
+            $label:
               extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
           type: list
@@ -127,29 +127,29 @@ blocks:
               type: text_input
               properties:
                 size: small
-                label:
+                $label:
                   extra: Placeholder text inside the block before user types input.
         - id: block.properties.separator
           type: text_input
           defaultValue: "~"
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: separator
             size: small
-            label:
+            $label:
               extra: Separator symbol shown between start and end date inputs.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small
@@ -158,8 +158,8 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffixIcon
-              icon_field_name: suffixIcon
+              icon_id: block.properties.$suffixIcon
+              icon_field_name: $suffixIcon
               default_icon: CalendarOutlined
               icon_description: Icon on right-hand side of the date-range input.
 
@@ -175,15 +175,13 @@ blocks:
             - id: example_1
               type: date_range_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Date input
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -200,22 +198,20 @@ blocks:
             - id: example_2
               type: date_range_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Placeholder, separator and suffix icon
-                label:
+                $label:
                   extra: Custom placeholder, separator and suffix icon.
                 placeholder:
                   - From the start
                   - the end
                 separator: to
-                suffixIcon: ThunderboltOutlined
+                $suffixIcon: ThunderboltOutlined
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -226,8 +222,8 @@ blocks:
                       "title": "Placeholder, separator and suffix icon",
                       "placeholder": [ "From the start", "the end" ],
                       "separator": "to",
-                      "suffixIcon": "ThunderboltOutlined",
-                      "label": {
+                      "$suffixIcon": "ThunderboltOutlined",
+                      "$label": {
                         "extra": "Custom placeholder, separator and suffix icon."
                       }
                     }
@@ -238,21 +234,19 @@ blocks:
             - id: example_3
               type: date_range_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               defaultValue:
                 - _date: 1955-11-12
                 - _date: 1985-10-26
               properties:
                 title: Date format
                 format: D MMMM YYYY
-                label:
+                $label:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json

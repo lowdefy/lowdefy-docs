@@ -45,23 +45,23 @@ blocks:
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Show title placeholder.
         - id: block.properties.active
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: active
             size: small
-            label:
+            $label:
               extra: Show animation effect.
         - id: skeleton_avatar_type_card
           type: card
@@ -72,7 +72,7 @@ blocks:
               properties:
                 title: Avatar Type
                 size: small
-                label:
+                $label:
                   extra: Skeleton avatar can either be a boolean or an object with size and shape properties.
                 options:
                   - Boolean
@@ -81,7 +81,7 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           visible:
             _mql_test:
@@ -89,12 +89,12 @@ blocks:
           properties:
             title: avatar
             size: small
-            label:
+            $label:
               extra: Show avatar placeholder.
         - id: block.properties.avatar.shape
           type: radio_button_input
           css:
-            label:
+            $label:
               --span: 2
           visible:
             _mql_test:
@@ -103,7 +103,7 @@ blocks:
           properties:
             title: avatar.shape
             size: small
-            label:
+            $label:
               extra: The shape of the avatar.
             options:
               - circle
@@ -112,23 +112,23 @@ blocks:
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: paragraph
             size: small
-            label:
+            $label:
               extra: Show paragraph placeholder.
         - id: block.properties.title
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Show title placeholder.
       available_actions_description: |
         ###### onClick
@@ -141,8 +141,7 @@ blocks:
             - id: example_1_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -154,8 +153,7 @@ blocks:
             - id: example_1_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -174,8 +172,7 @@ blocks:
             - id: example_2_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
@@ -189,8 +186,7 @@ blocks:
             - id: example_2_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -212,8 +208,7 @@ blocks:
             - id: example_3_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -228,8 +223,7 @@ blocks:
             - id: example_3_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown

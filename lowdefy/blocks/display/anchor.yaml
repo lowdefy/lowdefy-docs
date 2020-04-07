@@ -29,7 +29,7 @@ blocks:
               grid_id: css_icon_grid
               style_id: css_icon_input
               button_id: css_icon_button
-              field_name: icon
+              field_name: $icon
       properties_transform:
         _state: block.properties
       properties_form:
@@ -37,29 +37,29 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the anchor if true.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.icon
-              icon_field_name: icon
+              icon_id: block.properties.$icon
+              icon_field_name: $icon
               default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
 
@@ -67,12 +67,12 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: strong
             size: small
-            label:
+            $label:
               extra: Makes the text bold when true.
 
       available_actions_description: |
@@ -86,8 +86,7 @@ blocks:
             - id: example_1_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -101,8 +100,7 @@ blocks:
             - id: example_1_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -123,8 +121,7 @@ blocks:
             - id: example_2_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
@@ -134,17 +131,15 @@ blocks:
                 - id: example_2
                   type: anchor
                   css:
-                    block:
-                      --span: 6
+                    --span: 6
                   properties:
                     title: Click here
                     strong: true
-                    icon: LinkOutlined
+                    $icon: LinkOutlined
             - id: example_2_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -157,7 +152,7 @@ blocks:
                         "properties": {
                           "title": "Click here",
                           "strong": true,
-                          "icon": "LinkOutlined"
+                          "$icon": "LinkOutlined"
                         }
                       }
                       ```
@@ -167,8 +162,7 @@ blocks:
             - id: example_3_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -178,19 +172,17 @@ blocks:
                 - id: example_3
                   type: anchor
                   css:
-                    block:
-                      fontSize: 18
-                      color: 'red !important'
+                    fontSize: 18
+                    color: 'red !important'
                   properties:
                     title: Click here
-                    icon: 
+                    $icon: 
                       twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
@@ -201,14 +193,12 @@ blocks:
                         "id": "example_3",
                         "type": "anchor",
                         "css": {
-                          "block": {
-                            "color": "red !important",
-                            "fontSize": 18
-                          }
+                          "color": "red !important",
+                          "fontSize": 18
                         },
                         "properties": {
                           "title": "Click here",
-                          "icon": {
+                          "$icon": {
                             "twoToneColor": "red",
                             "name": "RocketTwoTone"
                           }
@@ -221,8 +211,7 @@ blocks:
             - id: example_4_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_4_title
                   type: markdown
@@ -232,21 +221,19 @@ blocks:
                 - id: example_4
                   type: anchor
                   css:
-                    block:
-                      color: "#000000 !important"
-                      fontSize: 16
-                    icon:
+                    color: "#000000 !important"
+                    fontSize: 16
+                    $icon:
                       color: orange
                       fontSize: 30
                   properties:
                     title: Click here
-                    icon: 
+                    $icon: 
                       name: FireFilled
             - id: example_4_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_4_code
                   type: markdown
@@ -257,19 +244,17 @@ blocks:
                         "id": "example_4",
                         "type": "anchor",
                         "css": {
-                          "block": {
-                            "--span": 6,
-                            "color": "#000000 !important",
-                            "fontSize": 16
-                          },
-                          "icon": {
+                          "--span": 6,
+                          "color": "#000000 !important",
+                          "fontSize": 16
+                          "$icon": {
                             "color": "orange",
                             "fontSize": 30
                           }
                         },
                         "properties": {
                           "title": "Click here",
-                          "icon": {
+                          "$icon": {
                             "name": "FireFilled"
                           }
                         }

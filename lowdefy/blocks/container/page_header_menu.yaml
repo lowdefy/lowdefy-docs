@@ -1,0 +1,124 @@
+id: page_header_menu
+type: page_sider_menu
+public: true
+properties:
+  title: Page Header Menu
+actions:
+  onInit:
+    - id: initialize_state 
+      type: set()
+      params:
+        flex_subblock_1: 12
+        visible_subblock_1: true
+        flex_subblock_2: 12
+        visible_subblock_2: true
+        flex_subblock_3: 6
+        visible_subblock_3: true
+        span_subblock_4: 6
+        visible_subblock_4: true
+        span_subblock_5: 4
+        visible_subblock_5: true
+        span_subblock_6: 8
+        visible_subblock_6: true
+        flex_subblock_7: 8
+        visible_subblock_7: true
+        flex_subblock_8: 4
+        visible_subblock_8: true
+        flex_subblock_9: 6
+        visible_subblock_9: true
+        flex_subblock_10: 8
+        visible_subblock_10: true
+        flex_subblock_11: 4
+        visible_subblock_11: true
+        flex_subblock_12: 6
+        visible_subblock_12: true
+blocks:
+  _ref:
+    path: blocks/container_hscf_template.yaml
+    vars:
+      block_name: Page Header Menu
+      description_content: |
+        The Page Header Menu block provides a structured layout for a page with a header containing a default menu, content and footer area.
+      block_type: page_header_menu
+      label: false
+      kind: container
+      css_form:
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: style_block_grid
+              style_id: style_block_id
+              button_id: apply_block_style_button
+              field_name: block
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_header_grid
+              style_id: css_header_input
+              button_id: apply_css_header_button
+              field_name: $header
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_body_grid
+              style_id: css_bod_input
+              button_id: apply_css_body_button
+              field_name: $body
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_content_grid
+              style_id: css_content_input
+              button_id: apply_css_content_button
+              field_name: $content
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_footer_grid
+              style_id: css_footer_input
+              button_id: apply_css_footer_button
+              field_name: $footer
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_mdMenu_grid
+              style_id: css_mdMenu_input
+              button_id: apply_css_mdMenu_button
+              field_name: $mdMenu
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_lgMenu_grid
+              style_id: css_lgMenu_input
+              button_id: apply_css_lgMenu_button
+              field_name: $lgMenu
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_breadcrumb_grid
+              style_id: css_breadcrumb_input
+              button_id: apply_css_breadcrumb_button
+              field_name: $breadcrumb
+        - _ref: 
+            path: blocks/style_object_template.yaml
+            vars:
+              grid_id: css_logo_grid
+              style_id: css_logo_input
+              button_id: apply_css_logo_button
+              field_name: $logo
+      properties_form:
+        - id: block.properties.theme
+          type: radio_button_select
+          defaultValue: dark
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: theme
+            size: small
+            $label:
+              extra: Header theme
+            options:
+              - light
+              - dark
+

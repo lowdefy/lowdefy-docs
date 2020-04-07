@@ -26,7 +26,18 @@ blocks:
       label: true
       kind: input
       css_transform:
-        _state: block.css
+          _get:
+            key: "0"
+            on:
+              _mql_aggregate:
+                pipeline:
+                  - $addFields:
+                      $label: 
+                        _state: css_label_input
+                      $input:
+                        _state: css_input_input
+                on:
+                  - _state: css_block_input
       css_form:
         - _ref: 
             path: blocks/style_object_template.yaml
@@ -34,21 +45,21 @@ blocks:
               grid_id: css_block_grid
               style_id: css_block_input
               button_id: css_block_button
-              field_name: block
+              field_name: block.css
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
       properties_transform:
         _state: block.properties
       properties_form:
@@ -56,67 +67,67 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            label:
+            $label:
               extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.defaultActiveFirstOption
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 4
           properties:
             title: defaultActiveFirstOption
             size: small
-            label:
+            $label:
               extra: Makes the first option in the selection list active when true.
         - id: block.properties.defaultOpen
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: defaultOpen
             size: small
-            label:
+            $label:
               extra: Initial open state of dropdown.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disables the block if true.
         - id: block.properties.options
           type: list
@@ -133,23 +144,23 @@ blocks:
           type: text_input
           defaultValue: Select item
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            label:
+            $label:
               extra: Placeholder text inside the block before user selects input.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small

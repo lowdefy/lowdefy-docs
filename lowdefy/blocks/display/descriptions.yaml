@@ -30,45 +30,45 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: The title of the description list, placed at the top
         - id: block.properties.bordered
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: bordered
             size: small
-            label:
+            $label:
               extra: Whether to display the border
         - id: block.properties.column
           type: number_input
           defaultValue: 3
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: column
             size: small
-            label:
+            $label:
               extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}"
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the list
             options:
               - small
@@ -78,12 +78,12 @@ blocks:
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: layout
             size: small
-            label:
+            $label:
               extra: Define description layout
             options:
               - horizontal
@@ -92,12 +92,12 @@ blocks:
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: colon
             size: small
-            label:
+            $label:
               extra: To include a colon in list items
         - id: block.properties.items
           type: list
@@ -110,33 +110,30 @@ blocks:
               type: text_input
               defaultValue: Label
               css:
-                block:
-                  --span: 4
+                --span: 4
               properties:
                 title: label
                 size: small
-                label:
+                $label:
                   extra: Label shown to user
             - id: block.properties.items.$.value
               type: text_input
               defaultValue: Value
               css:
-                block:
-                  --span: 4
+                --span: 4
               properties:
                 title: value
                 size: small
-                label:
+                $label:
                   extra: Value selected
             - id: block.properties.items.$.span
               type: number_input
               css:
-                block:
-                  --span: 4
+                --span: 4
               properties:
                 title: span
                 size: small
-                label:
+                $label:
                   extra: Number of columns for this item to span
 
 

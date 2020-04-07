@@ -29,28 +29,28 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_prefixIcon_grid
               style_id: css_prefixIcon_input
               button_id: css_prefixIcon_button
-              field_name: prefixIcon
+              field_name: $prefixIcon
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_suffixIcon_grid
               style_id: css_suffixIcon_input
               button_id: css_suffixIcon_button
-              field_name: suffixIcon
+              field_name: $suffixIcon
       properties_transform:
         _state: block.properties
       properties_form:
@@ -58,83 +58,83 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            label:
+            $label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the block if true.
         - id: block.properties.placeholder
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            label:
+            $label:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.prefix
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: prefix
             size: small
-            label:
+            $label:
               extra: Prefix text for the block, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.prefixIcon
-              icon_field_name: prefixIcon
+              icon_id: block.properties.$prefixIcon
+              icon_field_name: $prefixIcon
               icon_description: Icon to prefix the text input.
 
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small
@@ -143,18 +143,18 @@ blocks:
         - id: block.properties.suffix
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: suffix
             size: small
-            label:
+            $label:
               extra: Suffix text for the block, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffixIcon
-              icon_field_name: suffixIcon
+              icon_id: block.properties.$suffixIcon
+              icon_field_name: $suffixIcon
               icon_description: Icon to suffix the text input.
 
       available_actions_description: |
@@ -170,15 +170,13 @@ blocks:
             - id: example_1
               type: text_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Text input
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -196,15 +194,13 @@ blocks:
             - id: example_2
               type: text_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -223,10 +219,9 @@ blocks:
             - id: example_3
               type: text_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
-                label:
+                $label:
                   extra: Prefix and suffix text
                 prefix: The cat
                 suffix: the rat.
@@ -234,8 +229,7 @@ blocks:
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -246,7 +240,7 @@ blocks:
                       "prefix": "The cat",
                       "suffix": "the rat.",
                       "placeholder": "chased",
-                      "label": {
+                      "$label": {
                         "extra": "Prefix and suffix text"
                       },
                     }
@@ -259,33 +253,36 @@ blocks:
             - id: example_4
               type: text_input
               css:
-                block:
-                  --span: 6
+                --span: 6
+                $label:
+                  --span: 3
               properties:
                 title: First Name
-                suffixIcon: UserOutlined
+                $suffixIcon: UserOutlined
                 placeholder: Your name
-                label:
+                $label:
                   extra: Place label next to block and add suffix icon.
-                  span: 2
             - id: example_4_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
                   {
                     "id": "example_4",
                     "type": "text_input",
+                    "css": { 
+                      "$label": {
+                        "--span": 3
+                      }
+                    },
                     "properties": {
                       "title": "First Name",
-                      "suffixIcon": "UserOutlined",
+                      "$suffixIcon": "UserOutlined",
                       "placeholder": "Your name",
-                      "label": {
+                      "$label": {
                         "extra": "Place label next to block and add suffix icon."
-                        "span": 5
                       },
                     }
                   }

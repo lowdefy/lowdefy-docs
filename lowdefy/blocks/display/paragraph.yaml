@@ -20,107 +20,100 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: code
             size: small
-            label:
+            $label:
               extra: Apply code style
         - id: block.properties.content
           type: text_input
           defaultValue: A vigilante is just a man lost in scramble for his own gratification. He can be destroyed or locked up. But if you make yourself more than just a man, if you devote yourself to an ideal and if they can’t stop you then you become something else entirely. Legend, Mr Wayne
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: content
             size: small
-            label:
+            $label:
               extra: Paragraph text content
         - id: block.properties.copyable
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: copyable
             size: small
-            label:
+            $label:
               extra: Provide copy text button
         - id: block.properties.delete
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: delete
             size: small
-            label:
+            $label:
               extra: Apply deleted style
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Apply disabled style
         - id: block.properties.ellipsis
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: ellipsis
             size: small
-            label:
+            $label:
               extra: Display ellipsis when text overflows
         - id: block.properties.mark
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: mark
             size: small
-            label:
+            $label:
               extra: Apply marked style
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: strong
             size: small
-            label:
+            $label:
               extra: Apply strong style
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
         - id: block.properties.type
           type: select_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             allowClear: true
             title: type
             size: small
-            label:
+            $label:
               extra: Content type.
             options:
               - secondary
@@ -130,12 +123,12 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: underline
             size: small
-            label:
+            $label:
               extra: Apply underline style
 
       available_actions_description: |

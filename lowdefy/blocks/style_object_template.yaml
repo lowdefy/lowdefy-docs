@@ -5,18 +5,17 @@ visible:
   _not:
     _var: notVisible
 css:
-  content:
+  $content:
     --gap: 0
 blocks:
   - id:
       _var: style_id
     type: text_area_input
     css:
-      block:
+      --span: 11
+      sm:
         --span: 11
-        sm:
-          --span: 11
-      label:
+      $label:
         --span: 2
     defaultValue: "{}"
     properties:
@@ -24,23 +23,22 @@ blocks:
         _var: field_name
       rows: 5
       size: small
-      label:
+      $label:
         extra: CSS Object style properties. Should be in JSON format.
   - id: 
       _var: button_id
     type: button
     css:
-      block:
+      --span: 1
+      margin: '10px 0 0 -30px'
+      sm:
         --span: 1
-        margin: '10px 0 0 -30px'
-        sm:
-          --span: 1
-          margin: '35px 0 0 -30px'
+        margin: '35px 0 0 -30px'
     properties:
       title: ""
       block: false
       shape: circle
-      icon: ReloadOutlined
+      $icon: ReloadOutlined
       size: small
       type: primary
     actions:

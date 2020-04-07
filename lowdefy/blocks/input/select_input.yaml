@@ -45,28 +45,28 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_clearIcon_grid
               style_id: css_clearIcon_input
               button_id: css_clearIcon_button
-              field_name: clearIcon
+              field_name: $clearIcon
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_suffixIcon_grid
               style_id: css_suffixIcon_input
               button_id: css_suffixIcon_button
-              field_name: suffixIcon
+              field_name: $suffixIcon
       properties_transform:
         _if:
           test:
@@ -90,52 +90,52 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            label:
+            $label:
               extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.clearIcon
-              icon_field_name: clearIcon
+              icon_field_name: $clearIcon
               default_icon: CloseCircleOutlined
               icon_description: Icon on right-hand side of the selector, when allowClear is set to true.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disables the block if true.
         - id: select_options_type_card
           type: card
@@ -146,7 +146,7 @@ blocks:
               properties:
                 title: Options Type
                 size: small
-                label:
+                $label:
                   extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
@@ -170,7 +170,7 @@ blocks:
               type: text_input
               defaultValue: Label
               css:
-                label:
+                $label:
                   --span: 2
               visible:
                 _mql_test:
@@ -178,13 +178,13 @@ blocks:
               properties:
                 title: label
                 size: small
-                label:
+                $label:
                   extra: Label shown to user.
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
               css:
-                label:
+                $label:
                   --span: 2
               visible:
                 _mql_test:
@@ -192,13 +192,13 @@ blocks:
               properties:
                 title: value
                 size: small
-                label:
+                $label:
                   extra: Value selected.
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
               css:
-                label:
+                $label:
                   --span: 2
               visible:
                 _mql_test:
@@ -206,51 +206,51 @@ blocks:
               properties:
                 title: disabled
                 size: small
-                label:
+                $label:
                   extra: Disable the option if true.
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select item
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            label:
+            $label:
               extra: Placeholder text inside the block before user selects input.
         - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: showArrow
             size: small
-            label:
+            $label:
               extra: Show the suffix icon at the drop-down position of the selector.
         - id: block.properties.showSearch
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: showSearch
             size: small
-            label:
+            $label:
               extra: Make the selector options searchable.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small
@@ -260,7 +260,7 @@ blocks:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.suffixIcon
-              icon_field_name: suffixIcon
+              icon_field_name: $suffixIcon
               default_icon: DownOutlined
               icon_description: Icon at the drop-down position of the selector.
 
@@ -275,8 +275,7 @@ blocks:
             - id: example_1
               type: select_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Primitive options
                 options:
@@ -286,8 +285,7 @@ blocks:
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -305,13 +303,12 @@ blocks:
             - id: example_2
               type: select_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Object options
                 allowClear: true
                 placeholder: Choose an option
-                label:
+                $label:
                   extra: Value-Label object options and allow clearing of selection.
                 options:
                   - value: A
@@ -326,8 +323,7 @@ blocks:
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -338,7 +334,7 @@ blocks:
                       "title": "Object options",
                       "allowClear": true,
                       "placeholder": "Choose an option",
-                      "label": {
+                      "$label": {
                         "extra": "Value-Label object options and allow clearing of selection."
                       },
                       "options": [
@@ -368,15 +364,14 @@ blocks:
             - id: example_3
               type: select_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               defaultValue: B
               properties:
                 title: Change icons
                 allowClear: true
-                clearIcon: DeleteOutlined
-                suffixIcon: EllipsisOutlined
-                label:
+                $clearIcon: DeleteOutlined
+                $suffixIcon: EllipsisOutlined
+                $label:
                   extra: Custom suffix and clear icons and default value.
                 options:
                   - value: A
@@ -388,8 +383,7 @@ blocks:
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -400,9 +394,9 @@ blocks:
                     "properties": {
                       "title": "Change icons",
                       "allowClear": true,
-                      "clearIcon": "DeleteOutlined",
-                      "suffixIcon": "EllipsisOutlined",
-                      "label": {
+                      "$clearIcon": "DeleteOutlined",
+                      "$suffixIcon": "EllipsisOutlined",
+                      "$label": {
                         "extra": "Custom suffix and clear icons and default value."
                       },
                       "options": [
@@ -427,12 +421,11 @@ blocks:
             - id: example_4
               type: select_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Search options
                 showSearch: true
-                label:
+                $label:
                   extra: Make options searchable.
                 options:
                   - value: A
@@ -462,8 +455,7 @@ blocks:
             - id: example_4_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -473,7 +465,7 @@ blocks:
                     "properties": {
                       "title": "Search options",
                       "showSearch": true,
-                      "label": {
+                      "$label": {
                         "extra": "Make options searchable."
                       },
                       "options": [

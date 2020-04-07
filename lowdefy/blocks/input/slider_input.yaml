@@ -29,28 +29,28 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_maxIcon_grid
               style_id: css_maxIcon_input
               button_id: css_maxIcon_button
-              field_name: maxIcon
+              field_name: $maxIcon
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_minIcon_grid
               style_id: css_minIcon_input
               button_id: css_minIcon_button
-              field_name: minIcon
+              field_name: $minIcon
       properties_transform:
         _state: block.properties
       properties_form:
@@ -58,58 +58,58 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the block if true.
         - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disableIcons
             size: small
-            label:
+            $label:
               extra: Hides minimum and maximum icons.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.minIcon
-              icon_field_name: minIcon
+              icon_id: block.properties.$minIcon
+              icon_field_name: $minIcon
               default_icon: FrownOutlined
               icon_description: Icon to the left of the minimum side of the slider.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.maxIcon
-              icon_field_name: maxIcon 
+              icon_id: block.properties.$maxIcon
+              icon_field_name: $maxIcon 
               default_icon: SmileOutlined
               icon_description: Icon to the right of the minimum side of the slider.
 
@@ -117,34 +117,34 @@ blocks:
           type: number_input
           defaultValue: 0
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: min
             size: small
-            label:
+            $label:
               extra: The minimum value of the slider.
         - id: block.properties.max
           type: number_input
           defaultValue: 10
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: max
             size: small
-            label:
+            $label:
               extra: The maximum value of the slider.
         - id: block.properties.notApplicableLabel
           type: text_input
           defaultValue: N/A
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: notApplicableLabel
             size: small
-            label:
+            $label:
               extra: Label shown at the null value of the slider.
         - id: block.properties.showDots
           type: switch_input
@@ -155,40 +155,40 @@ blocks:
           properties:
             title: showDots
             size: small
-            label:
+            $label:
               extra: Shows dots at values between step values when true.
         - id: block.properties.showMarks
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: showMarks
             size: small
-            label:
+            $label:
               extra: Shows values at specified min, max and step values.
         - id: block.properties.step
           type: number_input
           defaultValue: 1
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: step
             size: small
-            label:
+            $label:
               extra: The size of the step between values, has to be values greater than 0.
         - id: block.properties.tooltipVisible
           type: radio_button_input
           defaultValue: onClick
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: tooltipVisible
             size: small
-            label:
+            $label:
               extra: When tooltip should be visible.
             options:
               - never
@@ -206,15 +206,13 @@ blocks:
             - id: example_1
               type: slider_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Slider input
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -232,8 +230,7 @@ blocks:
             - id: example_2
               type: slider_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Icons
                 minIcon: DislikeFilled
@@ -241,8 +238,7 @@ blocks:
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -252,8 +248,8 @@ blocks:
                     "defaultValue": 4,
                     "properties": {
                       "title": "Icons",
-                      "minIcon": "DislikeFilled",
-                      "maxIcon": "LikeFilled"
+                      "$minIcon": "DislikeFilled",
+                      "$maxIcon": "LikeFilled"
                     }
                   }
                   ```
@@ -263,16 +259,14 @@ blocks:
             - id: example_3
               type: slider_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Disable Icons
                 disableIcons: true
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -291,8 +285,7 @@ blocks:
             - id: example_4
               type: slider_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: No Marks or Dots
                 showDots: false
@@ -300,8 +293,7 @@ blocks:
             - id: example_4_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -322,15 +314,13 @@ blocks:
               type: slider_input
               defaultValue: 4
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Default Value
             - id: example_5_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json

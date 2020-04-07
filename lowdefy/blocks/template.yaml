@@ -15,8 +15,7 @@
 - id: c1
   type: grid
   css:
-    block:
-      --span: 6
+    --span: 6
   blocks:
     - id: block_divider
       type: divider
@@ -101,8 +100,7 @@
 - id: settings_grid
   type: grid
   css:
-    block:
-      --span: 6
+    --span: 6
   blocks:
     - id: settings_divider
       type: divider
@@ -128,7 +126,7 @@
           - id: css_form
             type: grid
             css:
-              content:
+              $content:
                 --gap: 0
             blocks:
               _var: css_form
@@ -138,7 +136,7 @@
             defaultValue: true
             properties:
               title: visible
-              label:
+              $label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small
@@ -148,7 +146,7 @@
             defaultValue: false
             properties:
               title: required
-              label:
+              $label:
                 extra: Toggle if the field is indicated as compulsory and required when the validate() action is called.
                 inline: true
               size: small
@@ -157,7 +155,7 @@
           - id: properties_form
             type: grid
             css:
-              content:
+              $content:
                 --gap: 0
             blocks:
               _var: properties_form

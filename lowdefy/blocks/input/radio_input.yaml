@@ -45,14 +45,14 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
       properties_transform:
         _if:
           test:
@@ -76,23 +76,23 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the block if true.
         - id: select_options_type_card
           type: card
@@ -103,7 +103,7 @@ blocks:
               properties:
                 title: Options Type
                 size: small
-                label:
+                $label:
                   extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
@@ -127,7 +127,7 @@ blocks:
               type: text_input
               defaultValue: Label
               css:
-                label:
+                $label:
                   --span: 2
               visible:
                 _mql_test:
@@ -135,13 +135,13 @@ blocks:
               properties:
                 title: label
                 size: small
-                label:
+                $label:
                   extra: Label shown to user.
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
               css:
-                label:
+                $label:
                   --span: 2
               visible:
                 _mql_test:
@@ -149,13 +149,13 @@ blocks:
               properties:
                 title: value
                 size: small
-                label:
+                $label:
                   extra: Value selected.
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
               css:
-                label:
+                $label:
                   --span: 2
               visible:
                 _mql_test:
@@ -163,7 +163,7 @@ blocks:
               properties:
                 title: disabled
                 size: small
-                label:
+                $label:
                   extra: Disable the option if true.
 
       available_actions_description: |
@@ -177,8 +177,7 @@ blocks:
             - id: example_1
               type: radio_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Primitive options
                 options:
@@ -188,8 +187,7 @@ blocks:
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -207,13 +205,12 @@ blocks:
             - id: example_2
               type: radio_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               defaultValue:
                 - C
               properties:
                 title: Object options
-                label:
+                $label:
                   extra: Value-Label object options and default value.
                 options:
                   - value: A
@@ -225,8 +222,7 @@ blocks:
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -236,7 +232,7 @@ blocks:
                     "defaultValue": "C",
                     "properties": {
                       "title": "Object options",
-                      "label": {
+                      "$label": {
                         "extra": "Value-Label object options and default value."
                       },
                       "options": [
@@ -261,11 +257,10 @@ blocks:
             - id: example_3
               type: radio_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Disable options
-                label:
+                $label:
                   extra: Disable individual options.
                 options:
                   - value: A
@@ -280,8 +275,7 @@ blocks:
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -290,7 +284,7 @@ blocks:
                     "type": "radio_input",
                     "properties": {
                       "title": "Disable options",
-                      "label": {
+                      "$label": {
                         "extra": "Disable individual options."
                       },
                       "options": [

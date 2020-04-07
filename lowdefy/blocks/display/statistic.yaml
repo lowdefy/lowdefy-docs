@@ -20,12 +20,12 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: select_value_type_card
           type: card
@@ -36,7 +36,7 @@ blocks:
               properties:
                 title: value Type
                 size: small
-                label:
+                $label:
                   extra: The display value can be either a String or a Number.
                 options:
                   - Number
@@ -45,7 +45,7 @@ blocks:
           field: block.properties.value
           type: number_input
           css:
-            label:
+            $label:
               --span: 2
           visible:
             _mql_test:
@@ -53,13 +53,13 @@ blocks:
           properties:
             title: value
             size: small
-            label:
+            $label:
               extra: Display number value.
         - id: value_text
           field: block.properties.value
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           visible:
             _mql_test:
@@ -67,29 +67,29 @@ blocks:
           properties:
             title: value
             size: small
-            label:
+            $label:
               extra: Display text value.
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: decimalSeparator
             size: small
-            label:
+            $label:
               extra: Decimal separator.
         - id: block.properties.formatter.type
           type: select_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: formatter.type
             size: small
-            label:
+            $label:
               extra: Type of formatter to apply to value.
             options:
               - default
@@ -98,7 +98,7 @@ blocks:
         - id: block.properties.formatter.properties.format
           type: text_input
           css:
-            label:
+            $label:
               --span: 3
           visible:
             _mql_test:
@@ -106,7 +106,7 @@ blocks:
           properties:
             title: formatter.properties.format
             size: small
-            label:
+            $label:
               extra: Moment.js date format
             options:
               - default
@@ -116,64 +116,57 @@ blocks:
           type: text_input
           defaultValue: ","
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: groupSeparator
             size: small
-            label:
+            $label:
               extra: Group separator.
         - id: block.properties.precision
           type: number_input
           defaultValue: 2
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: precision
             size: small
-            label:
+            $label:
               extra: Number of decimals to display.
         - id: block.properties.prefix
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: prefix
             size: small
-            label:
+            $label:
               extra: Prefix text, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.prefixIcon
-              icon_field_name: prefixIcon
+              icon_id: block.properties.$prefixIcon
+              icon_field_name: $prefixIcon
               icon_description: Icon to prefix statistic.
 
         - id: block.properties.suffix
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: suffix
             size: small
-            label:
+            $label:
               extra: Suffix text, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffixIcon
-              icon_field_name: suffixIcon
+              icon_id: block.properties.$suffixIcon
+              icon_field_name: $suffixIcon
               icon_description: Icon to suffix statistic.
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: valueStyle_grid
-              style_id: valueStyle_input
-              button_id: apply_valueStyle_button
-              field_name: valueStyle
 
       available_actions_description: |
         ###### No available actions.
@@ -185,16 +178,14 @@ blocks:
             - id: example_1
               type: statistic
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Statistic
                 value: 1000
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -213,8 +204,7 @@ blocks:
             - id: example_2
               type: statistic
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Decimal, group separators and precision
                 value: 1000.9999
@@ -224,8 +214,7 @@ blocks:
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -247,18 +236,16 @@ blocks:
             - id: example_3
               type: statistic
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Prefix and suffix
                 value: 1000
                 prefix: $
-                suffixIcon: ShoppingCartOutlined
+                $suffixIcon: ShoppingCartOutlined
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -269,7 +256,7 @@ blocks:
                       "title": "Prefix and suffix",
                       "value": 1000,
                       "prefix": "$",
-                      "suffixIcon": "ShoppingCartOutlined"
+                      "$suffixIcon": "ShoppingCartOutlined"
                     }
                   }
                   ```
@@ -279,8 +266,7 @@ blocks:
             - id: example_4
               type: statistic
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Date formatter
                 value: 1999-12-31
@@ -292,8 +278,7 @@ blocks:
             - id: example_4_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -318,8 +303,7 @@ blocks:
             - id: example_5
               type: statistic
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Duration formatter
                 value: 1000000000
@@ -329,8 +313,7 @@ blocks:
             - id: example_5_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -352,17 +335,15 @@ blocks:
             - id: example_6
               type: statistic
               css:
-                block:
-                  --span: 6
+                --span: 6
+                color: green
+                fontWeight: bold
+                fontSize: 40
               properties:
                 title: Value style
                 value: 1000
-                prefixIcon: RiseOutlined
+                $prefixIcon: RiseOutlined
                 suffix: "%"
-                valueStyle:
-                  color: green
-                  font-weight: bold
-                  font-size: 40
 
             - id: example_6_code
               type: markdown
@@ -375,16 +356,16 @@ blocks:
                   {
                     "id": "example_6",
                     "type": "statistic",
+                    "css": {
+                      "color": "green",
+                      "fontWeight": "bold",
+                      "fontSize": 40
+                    }
                     "properties":{
                       "title": "Value style",
                       "value": 1000,
-                      "prefixIcon": "RiseOutlined",
-                      "suffix": "%",
-                      "valueStyle":{
-                        "color": "green",
-                        "font-weight": "bold",
-                        "font-size": 40
-                      }
+                      "$prefixIcon": "RiseOutlined",
+                      "suffix": "%"
                     }
                   }
                   ```

@@ -31,21 +31,21 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_suffixIcon_grid
               style_id: css_suffixIcon_input
               button_id: css_suffixIcon_button
-              field_name: suffixIcon
+              field_name: $suffixIcon
       properties_transform:
         _state: block.properties
       properties_form:
@@ -53,78 +53,77 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            label:
+            $label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the block if true.
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: format
             size: small
-            label:
+            $label:
               extra: Format in which to format the date value, eg. "MMMM YYYY" will format a date value of 1999-12-31 as "December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Month
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            label:
+            $label:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            block:
-              --span: 2
+            --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small
@@ -133,8 +132,8 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffixIcon
-              icon_field_name: suffixIcon
+              icon_id: block.properties.$suffixIcon
+              icon_field_name: $suffixIcon
               default_icon: CalendarOutlined
               icon_description: Icon on right-hand side of the month input.
 
@@ -150,15 +149,13 @@ blocks:
             - id: example_1
               type: month_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Month input
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -175,19 +172,17 @@ blocks:
             - id: example_2
               type: month_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Placeholder and suffix icon
                 placeholder: Pick a month
-                suffixIcon: RocketOutlined
-                label:
+                $suffixIcon: RocketOutlined
+                $label:
                   extra: Custom placeholder and suffix icon.
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -197,8 +192,8 @@ blocks:
                     "properties": {
                       "title": "Placeholder and suffix icon",
                       "placeholder": "Pick a month",
-                      "suffixIcon": "RocketOutlined",
-                      "label": {
+                      "$suffixIcon": "RocketOutlined",
+                      "$label": {
                         "extra": "Custom placeholder and suffix icon."
                       },
                     }
@@ -209,20 +204,18 @@ blocks:
             - id: example_3
               type: month_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               defaultValue:
                 _date: 1993-02-01
               properties:
                 title: Date format
                 format: MMMM YYYY
-                label:
+                $label:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -235,7 +228,7 @@ blocks:
                     "properties": {
                       "title": "Date format",
                       "format": "MMMM YYYY",
-                      "label": {
+                      "$label": {
                         "extra": "Default date and custom date format."
                       }
                     }

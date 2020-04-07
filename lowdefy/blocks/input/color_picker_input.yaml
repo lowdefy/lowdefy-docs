@@ -37,14 +37,14 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
       properties_transform:
         _state: block.properties
       properties_form:
@@ -52,34 +52,34 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.circleSize
           type: number_input
           defaultValue: 28
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: circleSize
             size: small
-            label:
+            $label:
               extra: Pixel value for circle size, only available for type circle.
         - id: block.properties.circleSpacing
           type: number_input
           defaultValue: 14
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: circleSpacing
             size: small
-            label:
+            $label:
               extra: Pixel value for spacing between circles, only available for type circle.
         - id: block.properties.colors
           type: list
@@ -94,12 +94,12 @@ blocks:
           type: radio_button_input
           defaultValue: circle
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: type
             size: small
-            label:
+            $label:
               extra: Type of picker.
             options:
               - block
@@ -110,12 +110,12 @@ blocks:
           type: text_input
           defaultValue: 252px
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: width
             size: small
-            label:
+            $label:
               extra: Pixel value for picker width.
       available_actions_description: |
         ###### onChangeComplete

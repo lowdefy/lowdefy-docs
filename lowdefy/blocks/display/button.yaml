@@ -20,94 +20,94 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.block
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: block
             size: small
-            label:
+            $label:
               extra: Fit the button's span to its parent container span.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the button if true.
         - id: block.properties.ghost
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: ghost
             size: small
-            label:
+            $label:
               extra: Make the button's background transparent when true.
         - id: block.properties.hideActionLoading
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: hideActionLoading
             size: small
-            label:
+            $label:
               extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: hideTitle
             size: small
-            label:
+            $label:
               extra: Hide the buttons title.
         - id: block.properties.href
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: href
             size: small
-            label:
+            $label:
               extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.icon
-              icon_field_name: icon
+              icon_id: block.properties.$icon
+              icon_field_name: $icon
               icon_description: Icon to be used in button.
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: square
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: shape
             size: small
-            label:
+            $label:
               extra: Shape of the button.
             options:
               - circle
@@ -117,12 +117,12 @@ blocks:
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the button.
             options:
               - small
@@ -132,12 +132,12 @@ blocks:
           type: radio_button_input
           defaultValue: primary
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: type
             size: small
-            label:
+            $label:
               extra: The button type.
             options:
               - primary
@@ -157,8 +157,7 @@ blocks:
             - id: example_1_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -172,8 +171,7 @@ blocks:
             - id: example_1_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -194,8 +192,7 @@ blocks:
             - id: example_2_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
@@ -208,12 +205,11 @@ blocks:
                     title: Let's Go
                     block: true
                     ghost: true
-                    icon: RocketOutlined
+                    $icon: RocketOutlined
             - id: example_2_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -227,7 +223,7 @@ blocks:
                           "title": "Let's Go",
                           "block": true,
                           "ghost": true,
-                          "icon": "RocketOutlined"
+                          "$icon": "RocketOutlined"
                         }
                       }
                       ```
@@ -237,8 +233,7 @@ blocks:
             - id: example_3_block_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -250,14 +245,13 @@ blocks:
                   properties:
                     title: Delete Forever
                     block: false
-                    icon: WarningFilled
+                    $icon: WarningFilled
                     shape: round
                     type: danger
             - id: example_3_code_grid
               type: grid
               css:
-                block:
-                  --span: 6
+                --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
@@ -270,7 +264,7 @@ blocks:
                         "properties": {
                           "title": "Delete Forever",
                           "block": false,
-                          "icon": "WarningFilled",
+                          "$icon": "WarningFilled",
                           "shape": "round",
                           "type": "danger"
                         }

@@ -1,0 +1,96 @@
+- id: block.properties.breakpoint
+  type: radio_button_input
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: breakpoint
+    size: small
+    $label:
+      extra: Breakpoints of the responsive layout
+    options:
+      - xs
+      - sm
+      - md
+      - lg
+      - xl
+- id: block.properties.collapsed
+  type: switch_input
+  defaultValue: false
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: collapsed
+    size: small
+    $label:
+      extra: Set the current collapsed state
+- id: block.properties.collapsedWidth
+  type: number_input
+  defaultValue: 80
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: collapsedWidth
+    size: small
+    $label:
+      extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
+- id: block.properties.collapsible
+  type: switch_input
+  defaultValue: false
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: collapsible
+    size: small
+    $label:
+      extra: Whether can be collapsed
+- id: block.properties.defaultCollapsed
+  type: switch_input
+  defaultValue: false
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: defaultCollapsed
+    size: small
+    $label:
+      extra: Set the initial collapsed state
+- id: block.properties.reverseArrow
+  type: switch_input
+  defaultValue: false
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: reverseArrow
+    size: small
+    $label:
+      extra: Direction of arrow, for a sider that expands from the right
+- id: block.properties.theme
+  type: radio_button_input
+  defaultValue: dark
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: theme
+    size: small
+    $label:
+      extra: Color theme of the sidebar
+    options:
+      - light
+      - dark
+- id: block.properties.width
+  type: number_input
+  defaultValue: 80
+  css:
+    $label:
+      --span: 2
+  properties:
+    title: width
+    size: small
+    $label:
+      extra: width of the sidebar

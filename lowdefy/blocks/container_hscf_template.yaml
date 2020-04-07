@@ -37,7 +37,7 @@
             label:
               _state: block.label
           blocks:
-            content1:
+            header:
               - id: subblock_1
                 type: button
                 properties:
@@ -46,8 +46,8 @@
                 visible:
                   _state: visible_subblock_1
                 css:
-                  --span:
-                    _state: span_subblock_1
+                  flex:
+                    _state: flex_subblock_1
               - id: subblock_2
                 type: button
                 properties:
@@ -56,8 +56,8 @@
                 visible:
                   _state: visible_subblock_2
                 css:
-                  --span:
-                    _state: span_subblock_2
+                  flex:
+                    _state: flex_subblock_2
               - id: subblock_3
                 type: button
                 properties:
@@ -66,9 +66,9 @@
                 visible:
                   _state: visible_subblock_3
                 css:
-                  --span:
-                    _state: span_subblock_3
-            content2:
+                  flex:
+                    _state: flex_subblock_3
+            content:
               - id: subblock_4
                 type: button
                 properties:
@@ -99,40 +99,68 @@
                 css:
                   --span:
                     _state: span_subblock_6
-    - id: state_divider
-      type: divider
-      visible:
-        _eq:
-          - _var:
-              kind
-          - input
-      properties:
-        title: State
-    - id: state_card
-      type: card
-      properties: 
-        size: small
-      visible:
-        _eq:
-          - _var:
-              kind
-          - input
-      blocks:
-        - id: state_markdown
-          type: markdown
-          properties:
-            content:
-              _nunjucks:
-                template: |
-                  ```json
-                  {
-                    "block_id": {{ value | safe }}
-                  }
-                  ```
-                on:
-                  value:
-                    _stringify:
-                      _state: block_id
+            sider:
+              - id: subblock_7
+                type: button
+                properties:
+                  block: true
+                  title: "7"
+                visible:
+                  _state: visible_subblock_7
+                css:
+                  flex:
+                    _state: flex_subblock_7
+              - id: subblock_8
+                type: button
+                properties:
+                  block: true
+                  title: "8"
+                visible:
+                  _state: visible_subblock_8
+                css:
+                  flex:
+                    _state: flex_subblock_8
+              - id: subblock_9
+                type: button
+                properties:
+                  block: true
+                  title: "9"
+                visible:
+                  _state: visible_subblock_9
+                css:
+                  flex:
+                    _state: flex_subblock_9
+            footer:
+              - id: subblock_10
+                type: button
+                properties:
+                  block: true
+                  title: "10"
+                visible:
+                  _state: visible_subblock_10
+                css:
+                  flex:
+                    _state: flex_subblock_10
+              - id: subblock_11
+                type: button
+                properties:
+                  block: true
+                  title: "11"
+                visible:
+                  _state: visible_subblock_11
+                css:
+                  flex:
+                    _state: flex_subblock_11
+              - id: subblock_12
+                type: button
+                properties:
+                  block: true
+                  title: "12"
+                visible:
+                  _state: visible_subblock_12
+                css:
+                  flex:
+                    _state: flex_subblock_12
     - id: setup_divider
       type: divider
       properties:
@@ -176,6 +204,8 @@
       properties:
         defaultActiveKey: properties
         panels:
+          - key: css
+            title: 'css:'
           - key: properties
             title: 'properties:'
           - key: actions
@@ -183,17 +213,14 @@
           - key: visible
             title: 'visible:'
       blocks:
-        visible:
-          - id: block.visible
-            type: switch_input
-            defaultValue: true
-            properties:
-              title: visible
-              label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
-
+        css:
+          - id: css_form
+            type: grid
+            css:
+              $content:
+                --gap: 0
+            blocks:
+              _var: css_form
         properties:
           - id: properties_form
             type: grid
@@ -214,6 +241,16 @@
             properties:
               content:
                 _var: available_actions_description
+        visible:
+          - id: block.visible
+            type: switch_input
+            defaultValue: true
+            properties:
+              title: visible
+              $label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
 
 - id: subblocks_card
   type: card
@@ -221,12 +258,16 @@
     title: Sub-blocks
     size: small
   blocks:
-    - id: span_subblock_1
+    - id: header_divider
+      type: divider
+      properties:
+        title: 'header:'
+    - id: flex_subblock_1
       type: number_input
       css:
         --span: 2
       properties:
-        title: Block 1 Span
+        title: Block 1 Flex
         size: small
     - id: visible_subblock_1
       type: switch_input
@@ -235,12 +276,12 @@
       properties:
         title: Block 1 Visible
         size: small
-    - id: span_subblock_2
+    - id: flex_subblock_2
       type: number_input
       css:
         --span: 2
       properties:
-        title: Block 2 Span
+        title: Block 2 Flex
         size: small
     - id: visible_subblock_2
       type: switch_input
@@ -249,12 +290,12 @@
       properties:
         title: Block 2 Visible
         size: small
-    - id: span_subblock_3
+    - id: flex_subblock_3
       type: number_input
       css:
         --span: 2
       properties:
-        title: Block 3 Span
+        title: Block 3 Flex
         size: small
     - id: visible_subblock_3
       type: switch_input
@@ -263,6 +304,11 @@
       properties:
         title: Block 3 Visible
         size: small
+
+    - id: content_divider
+      type: divider
+      properties:
+        title: 'content:'
     - id: span_subblock_4
       type: number_input
       css:
@@ -305,6 +351,100 @@
       properties:
         size: small
         title: Block 6 Visible
+
+    - id: sider_divider
+      type: divider
+      properties:
+        title: 'sider:'
+    - id: flex_subblock_7
+      type: number_input
+      css:
+        --span: 2
+      properties:
+        title: Block 7 Flex
+        size: small
+    - id: visible_subblock_7
+      type: switch_input
+      css:
+        --span: 2
+      properties:
+        title: Block 7 Visible
+        size: small
+    - id: flex_subblock_8
+      type: number_input
+      css:
+        --span: 2
+      properties:
+        title: Block 8 Flex
+        size: small
+    - id: visible_subblock_8
+      type: switch_input
+      css:
+        --span: 2
+      properties:
+        title: Block 8 Visible
+        size: small
+    - id: flex_subblock_9
+      type: number_input
+      css:
+        --span: 2
+      properties:
+        title: Block 9 Flex
+        size: small
+    - id: visible_subblock_9
+      type: switch_input
+      css:
+        --span: 2
+      properties:
+        title: Block 9 Visible
+        size: small
+
+    - id: footer_divider
+      type: divider
+      properties:
+        title: 'footer:'
+    - id: flex_subblock_10
+      type: number_input
+      css:
+        --span: 2
+      properties:
+        title: Block 10 Flex
+        size: small
+    - id: visible_subblock_10
+      type: switch_input
+      css:
+        --span: 2
+      properties:
+        title: Block 10 Visible
+        size: small
+    - id: flex_subblock_11
+      type: number_input
+      css:
+        --span: 2
+      properties:
+        title: Block 11 Flex
+        size: small
+    - id: visible_subblock_11
+      type: switch_input
+      css:
+        --span: 2
+      properties:
+        title: Block 11 Visible
+        size: small
+    - id: flex_subblock_12
+      type: number_input
+      css:
+        --span: 2
+      properties:
+        title: Block 12 Flex
+        size: small
+    - id: visible_subblock_12
+      type: switch_input
+      css:
+        --span: 2
+      properties:
+        title: Block 12 Visible
+        size: small
 
 - id: examples_divider
   type: divider

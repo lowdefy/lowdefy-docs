@@ -29,34 +29,34 @@ blocks:
         - id: block.properties.title
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Divider title
         - id: block.properties.dashed
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: dashed
             size: small
-            label:
+            $label:
               extra: Whether line is dashed
         - id: block.properties.orientation
           type: radio_button_input
           defaultValue: center
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: orientation
             size: small
-            label:
+            $label:
               extra: Position of title inside divider.
             options:
               - center
@@ -66,12 +66,12 @@ blocks:
           type: radio_button_input
           defaultValue: horizontal
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: type
             size: small
-            label:
+            $label:
               extra: Direction type of divider.
             options:
               - horizontal

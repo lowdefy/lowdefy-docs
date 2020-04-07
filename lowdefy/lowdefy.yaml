@@ -8,7 +8,7 @@ menus:
         type: menu_group
         properties:
           title: Getting Started
-          icon: RocketOutlined
+          $icon: RocketOutlined
         links:
           - id: introduction
             type: menu_link
@@ -34,7 +34,7 @@ menus:
         type: menu_group
         properties:
           title: Concepts
-          icon: BulbOutlined
+          $icon: BulbOutlined
         links:
           - id: lowdefy-file
             type: menu_link
@@ -90,7 +90,7 @@ menus:
         type: menu_group
         properties:
           title: Input Blocks
-          icon: FormOutlined
+          $icon: FormOutlined
         links:
           - id: autocomplete_input
             type: menu_link
@@ -181,7 +181,7 @@ menus:
         type: menu_group
         properties:
           title: Display Blocks
-          icon: PictureOutlined
+          $icon: PictureOutlined
         links:
           - id: ag_grid
             type: menu_link
@@ -262,7 +262,7 @@ menus:
         type: menu_group
         properties:
           title: Container Blocks
-          icon: ContainerOutlined
+          $icon: ContainerOutlined
         links:
           - id: card
             type: menu_link
@@ -284,6 +284,41 @@ menus:
             pageId: grid
             properties:
               title: Grid
+          - id: page_hcf
+            type: menu_link
+            pageId: page_hcf
+            properties:
+              title: Page HCF
+          - id: page_hcsf
+            type: menu_link
+            pageId: page_hcsf
+            properties:
+              title: Page HCSF
+          - id: page_header_menu
+            type: menu_link
+            pageId: page_header_menu
+            properties:
+              title: Page Header Menu
+          - id: page_hscf
+            type: menu_link
+            pageId: page_hscf
+            properties:
+              title: Page HSCF
+          - id: page_shcf
+            type: menu_link
+            pageId: page_shcf
+            properties:
+              title: Page SHCF
+          - id: page_sider_menu
+            type: menu_link
+            pageId: page_sider_menu
+            properties:
+              title: Page Sider Menu
+          - id: sider
+            type: menu_link
+            pageId: sider
+            properties:
+              title: Sider
           - id: tabs
             type: menu_link
             pageId: tabs
@@ -340,5 +375,12 @@ pages:
   - _ref: blocks/container/card.yaml
   - _ref: blocks/container/flex.yaml
   - _ref: blocks/container/grid.yaml
+  - _ref: blocks/container/page_hcf.yaml
+  - _ref: blocks/container/page_hcsf.yaml
+  - _ref: blocks/container/page_header_menu.yaml
+  - _ref: blocks/container/page_hscf.yaml
+  - _ref: blocks/container/page_shcf.yaml
+  - _ref: blocks/container/page_sider_menu.yaml
+  - _ref: blocks/container/sider.yaml
   - _ref: blocks/container/tabs.yaml
   - _ref: blocks/container/collapse.yaml

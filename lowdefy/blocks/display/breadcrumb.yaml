@@ -40,12 +40,12 @@ blocks:
           type: text_input
           defaultValue: '/'
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: separator
             size: small
-            label:
+            $label:
               extra: Use a custom separator string
         - id: block.properties.list
           type: list
@@ -57,34 +57,34 @@ blocks:
               type: text_input
               defaultValue: label
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: label
                 size: small
-                label:
+                $label:
                   extra: Label of the breadcrumb link
             - id: block.properties.list.$.pageId
               type: text_input
               defaultValue: introduction
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: pageId
                 size: small
-                label:
+                $label:
                   extra: Page id to link to when clicked
             - id: block.properties.list.$.url
               type: text_input
               defaultValue: http://lowdefy.com
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: url
                 size: small
-                label:
+                $label:
                   extra: External url link
 
       available_actions_description: |

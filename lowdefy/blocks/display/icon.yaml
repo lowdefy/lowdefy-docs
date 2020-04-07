@@ -30,13 +30,13 @@ blocks:
           type: select_input
           defaultValue: FireOutlined
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: name
             size: small
             showSearch: true
-            label:
+            $label:
               extra: Name of icon to be displayed
             options:
               _global: all_icons
@@ -44,58 +44,58 @@ blocks:
           type: number_input
           defaultValue: 0
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: rotate
             size: small
-            label:
+            $label:
               extra: Number of degrees to rotate the icon
         - id: block.properties.spin
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: spin
             size: small
-            label:
+            $label:
               extra: Continuously spin icon with animation
         - id: block.properties.twoToneColor
           type: color_picker_input
           defaultValue: "#08c"
           css:
-            label:
+            $label:
               --span: 4
           properties:
             title: twoToneColor
             size: small
             type: twitter
-            label:
+            $label:
               extra: Primary two-tone color, only supported with two-tone theme
 
         - id: block.properties.disableLoadingIcon
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 4
           properties:
             title: disableLoadingIcon
             size: small
-            label:
+            $label:
               extra: While loading after the icon has been clicked, don't render the loading icon
         - id: block.properties.hideLoadingMessage
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 4
           properties:
             title: hideLoadingMessage
             size: small
-            label:
+            $label:
               extra: While loading after the icon has been clicked, don't show the loading message
 
 

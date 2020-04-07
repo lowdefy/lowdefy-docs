@@ -43,73 +43,73 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: accordion
             size: small
-            label:
+            $label:
               extra: If true, only one panel is open at a time.
         - id: block.properties.activeKey
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: activeKey
             size: small
-            label:
+            $label:
               extra: Current Panel's key.
         - id: block.properties.bordered
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: bordered
             size: small
-            label:
+            $label:
               extra: Toggles rendering of the border around the collapse block.
         - id: block.properties.defaultActiveKey
           type: text_input
           defaultValue: content1
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: defaultActiveKey
             size: small
-            label:
+            $label:
               extra: Initial active Panel's key, if activeKey is not set.
         - id: block.properties.destroyInactivePanel
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: destroyInactivePanel
             size: small
-            label:
+            $label:
               extra: Destroy Inactive Panel.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.expandIcon
-              icon_field_name: expandIcon
+              icon_id: block.properties.$expandIcon
+              icon_field_name: $expandIcon
               default_icon: RightOutlined
               icon_description: Icon to show as expand option.
         - id: block.properties.expandIconPosition
           type: radio_button_input
           defaultValue: left
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: expandIconPosition
             size: small
-            label:
+            $label:
               extra: Set position of expand icon.
             options:
               - left
@@ -118,12 +118,12 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: forceRender
             size: small
-            label:
+            $label:
               extra: Force render for all panels.
         - id: block.properties.panels
           type: list
@@ -135,43 +135,43 @@ blocks:
               type: text_input
               defaultValue: title
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: title
                 size: small
-                label:
+                $label:
                   extra: Title of the panel.
             - id: block.properties.panels.$.key
               type: text_input
               defaultValue: key
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: key
                 size: small
-                label:
+                $label:
                   extra: Key of the panel.
             - id: block.properties.panels.$.disabled
               type: switch_input
               defaultValue: false
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: disabled
                 size: small
-                label:
+                $label:
                   extra: Disable the panel if true.
         - id: block.properties.showArrow
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: showArrow
             size: small
-            label:
+            $label:
               extra: Show expand icon.

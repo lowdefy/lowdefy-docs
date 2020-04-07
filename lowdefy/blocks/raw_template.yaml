@@ -19,8 +19,7 @@
     - id: block_card
       type: card
       css:
-        block:
-          --span: 7
+        --span: 7
       blocks:
         - id: block_name
           type:
@@ -32,8 +31,7 @@
     - id: settings_card
       type: card
       css:
-        block:
-          --span: 5
+        --span: 5
       blocks:
         - id: properties_input
           type: text_area_input
@@ -45,7 +43,7 @@
           properties:
             title: "Apply"
             block: false
-            icon: ReloadOutlined
+            $icon: ReloadOutlined
             type: primary
           actions:
             onClick:

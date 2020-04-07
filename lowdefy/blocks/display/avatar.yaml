@@ -29,46 +29,46 @@ blocks:
               grid_id: css_icon_grid
               style_id: css_icon_input
               button_id: css_icon_button
-              field_name: icon
+              field_name: $icon
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.alt
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: alt
             size: small
-            label:
+            $label:
               extra: This attribute defines the alternative text describing the image
         - id: block.properties.content
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: content
             size: small
-            label:
+            $label:
               extra: Text to display inside avatar
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.icon
-              icon_field_name: icon
+              icon_id: block.properties.$icon
+              icon_field_name: $icon
               icon_description: Icon to be used in avatar.
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: circle
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: shape
             size: small
-            label:
+            $label:
               extra: Shape of the avatar
             options:
               - circle
@@ -77,12 +77,12 @@ blocks:
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the avatar
             options:
               - default
@@ -91,12 +91,12 @@ blocks:
         - id: block.properties.src
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: src
             size: small
-            label:
+            $label:
               extra: "The address of the image for an image avatar. You can use '_user: picture' for this"
 
       available_actions_description: |

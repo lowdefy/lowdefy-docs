@@ -42,45 +42,45 @@ blocks:
         - id: activeKey
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: activeKey
             size: small
-            label:
+            $label:
               extra: Current TabPane's key.
         - id: defaultActiveKey
           type: text_input
           defaultValue: content1
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: defaultActiveKey
             size: small
-            label:
+            $label:
               extra: Initial active TabPane's key, if activeKey is not set.
         - id: animated
           type: switch_input
           defaultValue: true
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: animated
             size: small
-            label:
+            $label:
               extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: size
             size: small
-            label:
+            $label:
               extra: Size of the tabs.
             options:
               - small
@@ -90,12 +90,12 @@ blocks:
           type: radio_button_input
           defaultValue: top
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: tabPosition
             size: small
-            label:
+            $label:
               extra: Position of the tabs.
             options:
               - top
@@ -112,51 +112,51 @@ blocks:
               type: text_input
               defaultValue: title
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: title
                 size: small
-                label:
+                $label:
                   extra: Title of the tab.
             - id: block.properties.tabs.$.key
               type: text_input
               defaultValue: key
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: key
                 size: small
-                label:
+                $label:
                   extra: Key of the tab.
             - _ref:
                 path: blocks/icon_template.yaml
                 vars:
-                  icon_id: block.properties.tabs.$.icon
-                  icon_field_name: icon
+                  icon_id: block.properties.tabs.$.$icon
+                  icon_field_name: $icon
                   icon_description: Icon to show in tab title.
             - id: block.properties.tabs.$.disabled
               type: switch_input
               defaultValue: false
               css:
-                label:
+                $label:
                   --span: 2
               properties:
                 title: disabled
                 size: small
-                label:
+                $label:
                   extra: Disable the tab if true.
         - id: block.properties.tabType
           type: radio_button_input
           defaultValue: line
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: tabType
             size: small
-            label:
+            $label:
               extra: Type of tabs.
             options:
               - line

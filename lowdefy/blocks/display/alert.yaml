@@ -29,57 +29,57 @@ blocks:
               grid_id: css_icon_grid
               style_id: css_icon_input
               button_id: css_icon_button
-              field_name: icon
+              field_name: $icon
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.banner
           type: switch_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: banner
             size: small
-            label:
+            $label:
               extra: Show as banner at top of application window
         - id: block.properties.closable
           type: switch_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: closable
             size: small
-            label:
+            $label:
               extra: Allow alert to be closed
         - id: block.properties.closeText
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: closeText
             size: small
-            label:
+            $label:
               extra: Close text to show
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.icon
-              icon_field_name: icon
+              icon_id: block.properties.$icon
+              icon_field_name: $icon
               icon_description: Icon to be used in alert
               default_icon: CheckCircleOutlined
         - id: block.properties.type
           type: radio_button_input
           defaultValue: success
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: type
             size: small
-            label:
+            $label:
               extra: Alert style type
             options:
               - success
@@ -90,24 +90,24 @@ blocks:
           type: text_input
           defaultValue: Completed!
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: message
             size: small
-            label:
+            $label:
               extra: Content message of alert
         - id: block.properties.description
           type: text_area_input
           defaultValue: This is a description to say well done.
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: description
             size: small
             rows: 2
-            label:
+            $label:
               extra: Content description of alert
 
       available_actions_description: |

@@ -29,28 +29,28 @@ blocks:
               grid_id: css_label_grid
               style_id: css_label_input
               button_id: css_label_button
-              field_name: label
+              field_name: $label
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_input_grid
               style_id: css_input_input
               button_id: css_input_button
-              field_name: input
+              field_name: $input
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_checkedIcon_grid
               style_id: css_checkedIcon_input
               button_id: css_checkedIcon_button
-              field_name: checkedIcon
+              field_name: $checkedIcon
         - _ref: 
             path: blocks/style_object_template.yaml
             vars:
               grid_id: css_uncheckedIcon_grid
               style_id: css_uncheckedIcon_input
               button_id: css_uncheckedIcon_button
-              field_name: uncheckedIcon
+              field_name: $uncheckedIcon
       properties_transform:
         _state: block.properties
       properties_form:
@@ -58,45 +58,45 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: title
             size: small
-            label:
+            $label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            label:
+            $label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: disabled
             size: small
-            label:
+            $label:
               extra: Disable the block if true.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            label:
+            $label:
               --span: 2
           properties:
             size: small
             title: size
-            label:
+            $label:
               extra: Size of the block.
             options:
               - small
@@ -104,35 +104,35 @@ blocks:
         - id: block.properties.checkedText
           type: text_input
           css:
-            label:
+            $label:
               --span: 2
           properties:
             title: checkedText
             size: small
-            label:
+            $label:
               extra: Text to shown when switch is checked (true).
         - id: block.properties.uncheckedText
           type: text_input
           css:
-            label:
+            $label:
               --span: 3
           properties:
             title: uncheckedText
             size: small
-            label:
+            $label:
               extra: Text to shown when switch is unchecked (true).
         - _ref:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.checkedIcon
-              icon_field_name: checkedIcon
+              icon_field_name: $checkedIcon
               default_icon: CheckOutlined
               icon_description: Icon to shown when switch is checked (true).
         - _ref:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.uncheckedIcon
-              icon_field_name: uncheckedIcon
+              icon_field_name: $uncheckedIcon
               default_icon: CloseOutlined
               icon_description: Icon to shown when switch is unchecked (false).
 
@@ -147,15 +147,13 @@ blocks:
             - id: example_1
               type: switch_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Switch input
             - id: example_1_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -173,19 +171,17 @@ blocks:
             - id: example_2
               type: switch_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: Icons
-                checkedIcon: LikeOutlined
-                uncheckedIcon: DislikeOutlined
-                label:
+                $checkedIcon: LikeOutlined
+                $uncheckedIcon: DislikeOutlined
+                $label:
                   extra: Custom checked and unchecked icons.
             - id: example_2_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -208,19 +204,17 @@ blocks:
             - id: example_3
               type: switch_input
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 title: No Icons
                 checkedText: ""
                 uncheckedText: ""
-                label:
+                $label:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code
               type: markdown
               css:
-                block:
-                  --span: 6
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -231,7 +225,7 @@ blocks:
                       "title": "No Icons",
                       "checkedText": "",
                       "uncheckedText": "",
-                      "label": {
+                      "$label": {
                         "extra": "Hide the checked and unchecked icons."
                       }
                     }
