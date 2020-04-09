@@ -84,7 +84,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $content
@@ -99,7 +99,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $footer
@@ -114,7 +114,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $header

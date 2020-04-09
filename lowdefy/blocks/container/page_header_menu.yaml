@@ -103,7 +103,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $breadcrumb
@@ -118,7 +118,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $content
@@ -133,7 +133,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $footer
@@ -148,7 +148,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $header
@@ -163,7 +163,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $layout
@@ -178,7 +178,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $logo
@@ -193,7 +193,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $menu
@@ -208,7 +208,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $lgMenu
@@ -223,7 +223,7 @@ blocks:
             sm:
               --span: 11
             $label:
-              --span: 3
+              --span: 2
           defaultValue: "{}"
           properties:
             title: $mdMenu
