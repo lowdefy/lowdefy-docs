@@ -14,43 +14,103 @@ blocks:
       label: true
       kind: input
       css_transform:
-        _state: block.css
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $label: 
+                      _parse:
+                        _state: css_label_input
+                    $input:
+                      _parse:
+                        _state: css_input_input
+                    $prefix_icon:
+                      _parse:
+                        _state: css_max_icon_input
+                    $suffix_icon:
+                      _parse:
+                        _state: css_min_icon_input
+              on:
+                _parse:
+                  _state: css_block_input
       css_form:
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_block_grid
-              style_id: css_block_input
-              button_id: css_block_button
-              field_name: block
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_label_grid
-              style_id: css_label_input
-              button_id: css_label_button
-              field_name: $label
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_input_grid
-              style_id: css_input_input
-              button_id: css_input_button
-              field_name: $input
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_maxIcon_grid
-              style_id: css_maxIcon_input
-              button_id: css_maxIcon_button
-              field_name: $maxIcon
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_minIcon_grid
-              style_id: css_minIcon_input
-              button_id: css_minIcon_button
-              field_name: $minIcon
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_label_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: $label
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_input_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: $input
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_max_icon_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $max_icon
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_min_icon_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $min_icon
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -101,15 +161,15 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$minIcon
-              icon_field_name: $minIcon
+              icon_id: block.properties.$min_icon
+              icon_field_name: $min_icon
               default_icon: FrownOutlined
               icon_description: Icon to the left of the minimum side of the slider.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$maxIcon
-              icon_field_name: $maxIcon 
+              icon_id: block.properties.$max_icon
+              icon_field_name: $max_icon 
               default_icon: SmileOutlined
               icon_description: Icon to the right of the minimum side of the slider.
 
@@ -233,8 +293,8 @@ blocks:
                 --span: 6
               properties:
                 title: Icons
-                minIcon: DislikeFilled
-                maxIcon: LikeFilled
+                $min_icon: DislikeFilled
+                $max_icon: LikeFilled
             - id: example_2_code
               type: markdown
               css:
@@ -248,8 +308,8 @@ blocks:
                     "defaultValue": 4,
                     "properties": {
                       "title": "Icons",
-                      "$minIcon": "DislikeFilled",
-                      "$maxIcon": "LikeFilled"
+                      "$min_icon": "DislikeFilled",
+                      "$max_icon": "LikeFilled"
                     }
                   }
                   ```

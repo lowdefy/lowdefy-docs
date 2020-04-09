@@ -95,6 +95,8 @@
                         _var: block_type
                       visible:
                         _state: block.visible
+                      css:
+                        _var: css_transform
                       properties:
                         _state: block.properties
 - id: settings_grid

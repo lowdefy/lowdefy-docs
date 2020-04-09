@@ -30,43 +30,103 @@ blocks:
       label: true
       kind: input
       css_transform:
-        _state: block.css
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $label: 
+                      _parse:
+                        _state: css_label_input
+                    $input:
+                      _parse:
+                        _state: css_input_input
+                    $prefix_icon:
+                      _parse:
+                        _state: css_clear_icon_input
+                    $suffix_icon:
+                      _parse:
+                        _state: css_suffix_icon_input
+              on:
+                _parse:
+                  _state: css_block_input
       css_form:
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_block_grid
-              style_id: css_block_input
-              button_id: css_block_button
-              field_name: block
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_label_grid
-              style_id: css_label_input
-              button_id: css_label_button
-              field_name: $label
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_input_grid
-              style_id: css_input_input
-              button_id: css_input_button
-              field_name: $input
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_clearIcon_grid
-              style_id: css_clearIcon_input
-              button_id: css_clearIcon_button
-              field_name: $clearIcon
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_suffixIcon_grid
-              style_id: css_suffixIcon_input
-              button_id: css_suffixIcon_button
-              field_name: $suffixIcon
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_label_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: $label
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_input_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: $input
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_clear_icon_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $clear_icon
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_suffix_icon_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $suffix_icon
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _if:
           test:
@@ -122,8 +182,8 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.clearIcon
-              icon_field_name: $clearIcon
+              icon_id: block.properties.$clear_icon
+              icon_field_name: $clear_icon
               default_icon: CloseCircleOutlined
               icon_description: Icon on right-hand side of the selector, when allowClear is set to true.
         - id: block.properties.disabled
@@ -259,8 +319,8 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffixIcon
-              icon_field_name: $suffixIcon
+              icon_id: block.properties.suffix_icon
+              icon_field_name: $suffix_icon
               default_icon: DownOutlined
               icon_description: Icon at the drop-down position of the selector.
 
@@ -369,8 +429,8 @@ blocks:
               properties:
                 title: Change icons
                 allowClear: true
-                $clearIcon: DeleteOutlined
-                $suffixIcon: EllipsisOutlined
+                $clear_icon: DeleteOutlined
+                $suffix_icon: EllipsisOutlined
                 $label:
                   extra: Custom suffix and clear icons and default value.
                 options:
@@ -394,8 +454,8 @@ blocks:
                     "properties": {
                       "title": "Change icons",
                       "allowClear": true,
-                      "$clearIcon": "DeleteOutlined",
-                      "$suffixIcon": "EllipsisOutlined",
+                      "$clear_icon": "DeleteOutlined",
+                      "$suffix_icon": "EllipsisOutlined",
                       "$label": {
                         "extra": "Custom suffix and clear icons and default value."
                       },

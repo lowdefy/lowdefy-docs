@@ -96,8 +96,8 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$expandIcon
-              icon_field_name: $expandIcon
+              icon_id: block.properties.$expand_icon
+              icon_field_name: $expand_icon
               default_icon: RightOutlined
               icon_description: Icon to show as expand option.
         - id: block.properties.expandIconPosition

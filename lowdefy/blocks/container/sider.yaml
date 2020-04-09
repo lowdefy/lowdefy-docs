@@ -30,29 +30,163 @@ blocks:
       block_type: sider
       label: false
       kind: container
+      css_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $content:
+                      _parse:
+                        _state: css_content_input
+                    zeroWidthTriggerStyle:
+                      _parse:
+                        _state: css_zeroWidthTriggerStyle_input
+              on:
+                _parse:
+                  _state: css_block_input
       css_form:
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_block_grid
-              style_id: css_block_id
-              button_id: apply_block_css_button
-              field_name: block
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_content_grid
-              style_id: css_content_id
-              button_id: apply_content_css_button
-              field_name: $content
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_zeroWidthTriggerStyle_grid
-              style_id: style_zeroWidthTriggerStyle_id
-              button_id: apply_zeroWidthTriggerStyle_style_button
-              field_name: $zeroWidthTriggerStyle
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_content_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $content
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_zeroWidthTriggerStyle_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: zeroWidthTriggerStyle
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
         
       properties_form:
-        _ref:
-          path: blocks/container/sider_properties.yaml
+        - id: block.properties.breakpoint
+          type: radio_button_input
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: breakpoint
+            size: small
+            $label:
+              extra: Breakpoints of the responsive layout
+            options:
+              - xs
+              - sm
+              - md
+              - lg
+              - xl
+        - id: block.properties.collapsed
+          type: switch_input
+          defaultValue: false
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: collapsed
+            size: small
+            $label:
+              extra: Set the current collapsed state
+        - id: block.properties.collapsedWidth
+          type: number_input
+          defaultValue: 80
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: collapsedWidth
+            size: small
+            $label:
+              extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
+        - id: block.properties.collapsible
+          type: switch_input
+          defaultValue: false
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: collapsible
+            size: small
+            $label:
+              extra: Whether can be collapsed
+        - id: block.properties.defaultCollapsed
+          type: switch_input
+          defaultValue: false
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: defaultCollapsed
+            size: small
+            $label:
+              extra: Set the initial collapsed state
+        - id: block.properties.reverseArrow
+          type: switch_input
+          defaultValue: false
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: reverseArrow
+            size: small
+            $label:
+              extra: Direction of arrow, for a sider that expands from the right
+        - id: block.properties.theme
+          type: radio_button_input
+          defaultValue: dark
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: theme
+            size: small
+            $label:
+              extra: Color theme of the sidebar
+            options:
+              - light
+              - dark
+        - id: block.properties.width
+          type: number_input
+          defaultValue: 80
+          css:
+            $label:
+              --span: 2
+          properties:
+            title: width
+            size: small
+            $label:
+              extra: width of the sidebar

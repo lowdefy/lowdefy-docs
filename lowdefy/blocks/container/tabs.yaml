@@ -38,6 +38,68 @@ blocks:
       block_type: tabs
       label: false
       kind: container
+      css_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $content1:
+                      _parse:
+                        _state: css_content1_input
+                    $content2:
+                      _parse:
+                        _state: css_content2_input
+              on:
+                _parse:
+                  _state: css_block_input
+      css_form:
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_content1_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $content1
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_content2_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $content2
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: activeKey
           type: text_input

@@ -7,7 +7,7 @@
     size: small
     title: 'label:'
   blocks:
-    - id: block.properties.label.disable
+    - id: block.properties.$label.disable
       type: switch_input
       defaultValue: false
       css:
@@ -18,7 +18,7 @@
         size: small
         $label:
           extra: Remove label wrapper.
-    - id: block.properties.label.colon
+    - id: block.properties.$label.colon
       type: switch_input
       defaultValue: true
       css:
@@ -29,7 +29,7 @@
         size: small
         $label:
           extra: Postfix the label with a colon.
-    - id: block.properties.label.extra
+    - id: block.properties.$label.extra
       type: text_input
       css:
         $label:

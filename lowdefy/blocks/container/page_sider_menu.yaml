@@ -1,8 +1,8 @@
-id: page_hscf
+id: page_sider_menu
 type: page_sider_menu
 public: true
 properties:
-  title: Page HSCF
+  title: Page Sider Menu
 actions:
   onInit:
     - id: initialize_state 
@@ -36,10 +36,10 @@ blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
-      block_name: Page HSCF
+      block_name: Page Sider Menu
       description_content: |
-        Page HSCF provides a minimal layout structure for a page container with a header, sider, content and footer arrangement.
-      block_type: page_hsCf
+        The Page Sider Menu block provides a structured layout for a page with a header, sider including menu, content and footer area.
+      block_type: page_sider_menu
       label: false
       kind: container
       css_transform:
@@ -49,9 +49,15 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
+                    $breadcrumb:
+                      _parse:
+                        _state: css_breadcrumb_input
                     $content:
                       _parse:
                         _state: css_content_input
+                    $inner_content:
+                      _parse:
+                        _state: css_inner_content_input
                     $footer:
                       _parse:
                         _state: css_footer_input
@@ -61,6 +67,12 @@ blocks:
                     $layout:
                       _parse:
                         _state: css_layout_input
+                    $menu:
+                      _parse:
+                        _state: css_menu_input
+                    $mdMenu:
+                      _parse:
+                        _state: css_mdMenu_input
                     $sider:
                       _parse:
                         _state: css_sider_input
@@ -87,6 +99,21 @@ blocks:
             size: small
             $label:
               extra: CSS Object style properties. Should be in JSON format.
+        - id: css_breadcrumb_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $breadcrumb
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
           css:
@@ -98,6 +125,21 @@ blocks:
           defaultValue: "{}"
           properties:
             title: $content
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_inner_content_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $inner_content
             rows: 3
             size: small
             $label:
@@ -147,6 +189,66 @@ blocks:
             size: small
             $label:
               extra: CSS Object style properties. Should be in JSON format.
+        - id: css_logo_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $logo
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_menu_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $menu
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_lgMenu_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $lgMenu
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_mdMenu_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $mdMenu
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
         - id: css_sider_input
           type: text_area_input
           css:
@@ -162,27 +264,3 @@ blocks:
             size: small
             $label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_siderContent_input
-          type: text_area_input
-          css:
-            --span: 11
-            sm:
-              --span: 11
-            $label:
-              --span: 4
-          defaultValue: "{}"
-          properties:
-            title: $sider.$content
-            rows: 3
-            size: small
-            $label:
-              extra: CSS Object style properties. Should be in JSON format.
-      properties_form:
-        - id: sider_card
-          type: sider
-          properties:
-            size: small
-            title: 'sider:'
-          blocks:
-            _ref:
-              path: blocks/container/sider_properties.yaml

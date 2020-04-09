@@ -14,43 +14,103 @@ blocks:
       label: true
       kind: input
       css_transform:
-        _state: block.css
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $label: 
+                      _parse:
+                        _state: css_label_input
+                    $input:
+                      _parse:
+                        _state: css_input_input
+                    $prefix_icon:
+                      _parse:
+                        _state: css_prefix_icon_input
+                    $suffix_icon:
+                      _parse:
+                        _state: css_suffix_icon_input
+              on:
+                _parse:
+                  _state: css_block_input
       css_form:
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_block_grid
-              style_id: css_block_input
-              button_id: css_block_button
-              field_name: block
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_label_grid
-              style_id: css_label_input
-              button_id: css_label_button
-              field_name: $label
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_input_grid
-              style_id: css_input_input
-              button_id: css_input_button
-              field_name: $input
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_prefixIcon_grid
-              style_id: css_prefixIcon_input
-              button_id: css_prefixIcon_button
-              field_name: $prefixIcon
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_suffixIcon_grid
-              style_id: css_suffixIcon_input
-              button_id: css_suffixIcon_button
-              field_name: $suffixIcon
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_label_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: $label
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_input_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: $input
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_prefix_icon_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $prefix_icon
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_suffix_icon_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $suffix_icon
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -117,12 +177,12 @@ blocks:
             title: prefix
             size: small
             $label:
-              extra: Prefix text for the block, priority over prefixIcon.
+              extra: Prefix text for the block, priority over $prefix_icon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$prefixIcon
-              icon_field_name: $prefixIcon
+              icon_id: block.properties.$prefix_icon
+              icon_field_name: $prefix_icon
               icon_description: Icon to prefix the text input.
 
         - id: block.properties.size
@@ -149,12 +209,12 @@ blocks:
             title: suffix
             size: small
             $label:
-              extra: Suffix text for the block, priority over suffixIcon.
+              extra: Suffix text for the block, priority over $suffix_icon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$suffixIcon
-              icon_field_name: $suffixIcon
+              icon_id: block.properties.$suffix_icon
+              icon_field_name: $suffix_icon
               icon_description: Icon to suffix the text input.
 
       available_actions_description: |
@@ -258,7 +318,7 @@ blocks:
                   --span: 3
               properties:
                 title: First Name
-                $suffixIcon: UserOutlined
+                $suffix_icon: UserOutlined
                 placeholder: Your name
                 $label:
                   extra: Place label next to block and add suffix icon.
@@ -279,7 +339,7 @@ blocks:
                     },
                     "properties": {
                       "title": "First Name",
-                      "$suffixIcon": "UserOutlined",
+                      "$suffix_icon": "UserOutlined",
                       "placeholder": "Your name",
                       "$label": {
                         "extra": "Place label next to block and add suffix icon."

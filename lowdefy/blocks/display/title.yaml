@@ -13,6 +13,25 @@ blocks:
       block_type: title
       label: false
       kind: display
+      css_transform:
+        _parse:
+          _state: css_block_input
+      css_form:
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -109,13 +128,6 @@ blocks:
             size: small
             $label:
               extra: Apply marked style
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
         - id: block.properties.type
           type: select_input
           css:

@@ -30,35 +30,86 @@ blocks:
       block_type: card
       label: false
       kind: container
+      css_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $content:
+                      _parse:
+                        _state: css_content_input
+                    $header:
+                      _parse:
+                        _state: css_header_input
+                    $body:
+                      _parse:
+                        _state: css_body_input
+              on:
+                _parse:
+                  _state: css_block_input
       css_form:
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_block_grid
-              style_id: style_block_id
-              button_id: apply_block_style_button
-              field_name: block
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_content_grid
-              style_id: style_content_id
-              button_id: apply_content_style_button
-              field_name: $content
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_header_grid
-              style_id: css_header_input
-              button_id: apply_css_header_button
-              field_name: $header
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_body_grid
-              style_id: css_body_input
-              button_id: apply_css_body_button
-              field_name: $body
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_body_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $body
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_content_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $content
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_header_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $header
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.title
           type: text_input

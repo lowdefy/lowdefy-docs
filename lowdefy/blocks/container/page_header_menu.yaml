@@ -42,83 +42,192 @@ blocks:
       block_type: page_header_menu
       label: false
       kind: container
+      css_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    $breadcrumb:
+                      _parse:
+                        _state: css_breadcrumb_input
+                    $content:
+                      _parse:
+                        _state: css_content_input
+                    $footer:
+                      _parse:
+                        _state: css_footer_input
+                    $header:
+                      _parse:
+                        _state: css_header_input
+                    $layout:
+                      _parse:
+                        _state: css_layout_input
+                    $menu:
+                      _parse:
+                        _state: css_menu_input
+                    $lgMenu:
+                      _parse:
+                        _state: css_lgMenu_input
+                    $mdMenu:
+                      _parse:
+                        _state: css_mdMenu_input
+                - $addFields:
+                    $sider.$content:
+                      _parse:
+                        _state: css_siderContent_input
+              on:
+                _parse:
+                  _state: css_block_input
       css_form:
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_block_grid
-              style_id: style_block_id
-              button_id: apply_block_style_button
-              field_name: block
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_header_grid
-              style_id: css_header_input
-              button_id: apply_css_header_button
-              field_name: $header
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_body_grid
-              style_id: css_bod_input
-              button_id: apply_css_body_button
-              field_name: $body
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_content_grid
-              style_id: css_content_input
-              button_id: apply_css_content_button
-              field_name: $content
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_footer_grid
-              style_id: css_footer_input
-              button_id: apply_css_footer_button
-              field_name: $footer
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_mdMenu_grid
-              style_id: css_mdMenu_input
-              button_id: apply_css_mdMenu_button
-              field_name: $mdMenu
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_lgMenu_grid
-              style_id: css_lgMenu_input
-              button_id: apply_css_lgMenu_button
-              field_name: $lgMenu
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_breadcrumb_grid
-              style_id: css_breadcrumb_input
-              button_id: apply_css_breadcrumb_button
-              field_name: $breadcrumb
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: css_logo_grid
-              style_id: css_logo_input
-              button_id: apply_css_logo_button
-              field_name: $logo
-      properties_form:
-        - id: block.properties.theme
-          type: radio_button_select
-          defaultValue: dark
+        - id: css_block_input
+          type: text_area_input
           css:
+            --span: 11
+            sm:
+              --span: 11
             $label:
               --span: 2
+          defaultValue: "{}"
           properties:
-            title: theme
+            title: block
+            rows: 3
             size: small
             $label:
-              extra: Header theme
-            options:
-              - light
-              - dark
-
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_breadcrumb_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $breadcrumb
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_content_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $content
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_footer_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $footer
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_header_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $header
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_layout_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $layout
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_logo_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $logo
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_menu_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $menu
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_lgMenu_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $lgMenu
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: css_mdMenu_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: $mdMenu
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.

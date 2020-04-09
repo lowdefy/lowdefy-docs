@@ -22,6 +22,25 @@ blocks:
       block_type: skeleton
       label: false
       kind: display
+      css_transform:
+        _parse:
+          _state: css_block_input
+      css_form:
+        - id: css_block_input
+          type: text_area_input
+          css:
+            --span: 11
+            sm:
+              --span: 11
+            $label:
+              --span: 2
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            $label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _if:
           test:
