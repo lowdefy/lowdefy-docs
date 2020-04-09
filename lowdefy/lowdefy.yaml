@@ -324,6 +324,11 @@ menus:
             pageId: tabs
             properties:
               title: Tabs
+          - id: result
+            type: menu_link
+            pageId: result
+            properties:
+              title: Result
 
 pages:
   - _ref: start/introduction.yaml
@@ -384,3 +389,4 @@ pages:
   - _ref: blocks/container/sider.yaml
   - _ref: blocks/container/tabs.yaml
   - _ref: blocks/container/collapse.yaml
+  - _ref: blocks/container/result.yaml
