@@ -30,6 +30,8 @@
         - id: block_id
           type:
             _var: block_type
+          css:
+            _var: css_transform
           visible:
             _state: block.visible
           properties:
@@ -157,6 +159,8 @@
                       id: block_id
                       type:
                         _var: block_type
+                      css:
+                        _var: css_transform
                       visible:
                         _state: block.visible
                       properties:
