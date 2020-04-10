@@ -274,11 +274,31 @@ menus:
             pageId: collapse
             properties:
               title: Collapse
-          - id: flex
+          - id: box
             type: menu_link
-            pageId: flex
+            pageId: box
             properties:
-              title: Flex
+              title: Box
+          - id: content
+            type: menu_link
+            pageId: content
+            properties:
+              title: Content
+          - id: header
+            type: menu_link
+            pageId: header
+            properties:
+              title: Header
+          - id: footer
+            type: menu_link
+            pageId: footer
+            properties:
+              title: Footer
+          - id: layout
+            type: menu_link
+            pageId: layout
+            properties:
+              title: Layout
           - id: grid
             type: menu_link
             pageId: grid

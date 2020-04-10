@@ -1,0 +1,39 @@
+_ref:
+  path: blocks/element_template.yaml
+  vars:
+    block_type: layout
+    block_name: Layout
+    page_description: |
+      A layout is a container that places sub-blocks into a html layout with gird or flex display format settings. 
+      The default display is a grid area with 12 explicit columns and implicit rows. 
+      The default display direction for the flex display is row.
+    css_transform:
+      _parse:
+        _state: css_block_input
+    css_form:
+      - id: css_block_input
+        type: text_area_input
+        css:
+          --span: 11
+          sm:
+            --span: 11
+          $label:
+            --span: 2
+        defaultValue: "{}"
+        properties:
+          title: block
+          rows: 3
+          size: small
+          $label:
+            extra: CSS Object style properties. Should be in JSON format.
+    properties_form:
+      - id: block.properties.display
+        type: radio_button
+        defaultValue: grid
+        properties:
+          options:
+            - grid
+            - flex
+    actions_description: | 
+      ###### No available actions.
+
