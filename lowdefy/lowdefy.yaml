@@ -398,8 +398,11 @@ pages:
   - _ref: blocks/display/descriptions.yaml
   - _ref: blocks/display/markdown.yaml
   - _ref: blocks/container/card.yaml
-  - _ref: blocks/container/flex.yaml
-  - _ref: blocks/container/grid.yaml
+  - _ref: blocks/container/box.yaml
+  - _ref: blocks/container/header.yaml
+  - _ref: blocks/container/content.yaml
+  - _ref: blocks/container/footer.yaml
+  - _ref: blocks/container/layout.yaml
   - _ref: blocks/container/page_hcf.yaml
   - _ref: blocks/container/page_hcsf.yaml
   - _ref: blocks/container/page_header_menu.yaml
