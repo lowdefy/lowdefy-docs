@@ -199,7 +199,7 @@ blocks:
           type: card
           blocks:
             - id: example_1_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -213,7 +213,7 @@ blocks:
                   properties:
                     title: Click here
             - id: example_1_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -234,7 +234,7 @@ blocks:
           type: card
           blocks:
             - id: example_2_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -251,7 +251,7 @@ blocks:
                     ghost: true
                     $icon: RocketOutlined
             - id: example_2_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -275,7 +275,7 @@ blocks:
           type: card
           blocks:
             - id: example_3_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -293,7 +293,7 @@ blocks:
                     shape: round
                     type: danger
             - id: example_3_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:

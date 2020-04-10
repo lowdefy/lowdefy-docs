@@ -111,7 +111,7 @@ blocks:
           type: card
           blocks:
             - id: example_1_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -125,7 +125,7 @@ blocks:
                   properties:
                     title: Click here
             - id: example_1_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -146,7 +146,7 @@ blocks:
           type: card
           blocks:
             - id: example_2_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -164,7 +164,7 @@ blocks:
                     strong: true
                     $icon: LinkOutlined
             - id: example_2_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -187,7 +187,7 @@ blocks:
           type: card
           blocks:
             - id: example_3_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -207,7 +207,7 @@ blocks:
                       twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -236,7 +236,7 @@ blocks:
           type: card
           blocks:
             - id: example_4_block_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:
@@ -258,7 +258,7 @@ blocks:
                     $icon: 
                       name: FireFilled
             - id: example_4_code_grid
-              type: grid
+              type: box
               css:
                 --span: 6
               blocks:

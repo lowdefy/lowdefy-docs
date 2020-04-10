@@ -14,7 +14,7 @@
         content:
           _var: description_content
 - id: c1
-  type: grid
+  type: box
   css:
     --span: 6
   blocks:
@@ -23,7 +23,7 @@
       properties:
         title: Block
     - id: block_wrap2
-      type: grid
+      type: box
       css:
         --span: 12
       blocks:
@@ -167,7 +167,7 @@
                         _state: block.properties
 
 - id: settings_grid
-  type: grid
+  type: box
   css:
     --span: 6
   blocks:
@@ -200,14 +200,14 @@
 
         properties:
           - id: properties_form
-            type: grid
+            type: box
             css:
               $content:
                 --gap: 0
             blocks:
               _var: properties_form
           - id: label_form
-            type: grid
+            type: box
             visible:
               _var: label
             blocks:
@@ -315,6 +315,6 @@
   properties:
     title: Examples
 - id: examples_grid
-  type: grid
+  type: box
   blocks:
     _var: examples

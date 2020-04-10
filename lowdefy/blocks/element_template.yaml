@@ -74,14 +74,14 @@ blocks:
           content:
             _var: page_description
   - id: c1
-    type: grid
+    type: box
     blocks:
       - id: block_divider
         type: divider
         properties:
           title: Block
       - id: block_wrap2
-        type: grid
+        type: box
         css:
           --span: 12
         blocks:
@@ -99,7 +99,7 @@ blocks:
                 block.blocks
 
   - id: setup_grid
-    type: grid
+    type: box
     css:
       --span: 6
     blocks:
@@ -135,7 +135,7 @@ blocks:
                           _state: block.properties
 
   - id: settings_grid
-    type: grid
+    type: box
     css:
       --span: 6
     blocks:
@@ -159,7 +159,7 @@ blocks:
         blocks:
           css:
             - id: css_form
-              type: grid
+              type: box
               css:
                 $content:
                   --gap: 0
@@ -167,14 +167,14 @@ blocks:
                 _var: css_form
           properties:
             - id: properties_form
-              type: grid
+              type: box
               css:
                 $content:
                   --gap: 0
               blocks:
                 _var: properties_form
             - id: label_form
-              type: grid
+              type: box
               visible:
                 _var: label
               blocks:
@@ -234,6 +234,6 @@ blocks:
     properties:
       title: Examples
   - id: examples_grid
-    type: grid
+    type: box
     blocks:
       _var: examples
