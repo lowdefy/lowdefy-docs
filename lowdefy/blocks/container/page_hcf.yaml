@@ -49,13 +49,13 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $content:
+                    Content:
                       _parse:
                         _state: css_content_input
-                    $footer:
+                    Footer:
                       _parse:
                         _state: css_footer_input
-                    $header:
+                    Header:
                       _parse:
                         _state: css_header_input
               on:
@@ -68,14 +68,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
@@ -83,14 +83,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $content
+            title: Content
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_footer_input
           type: text_area_input
@@ -98,14 +98,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $footer
+            title: Footer
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_header_input
           type: text_area_input
@@ -113,12 +113,12 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $header
+            title: Header
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.

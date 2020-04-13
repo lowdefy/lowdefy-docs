@@ -20,7 +20,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $icon:
+                    Icon:
                       _parse:
                         _state: css_icon_input
               on:
@@ -33,14 +33,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_icon_input
           type: text_area_input
@@ -48,14 +48,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 3
           defaultValue: "{}"
           properties:
-            title: $icon
+            title: Icon
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -63,50 +63,50 @@ blocks:
         - id: block.properties.banner
           type: switch_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: banner
             size: small
-            $label:
+            Label:
               extra: Show as banner at top of application window
         - id: block.properties.closable
           type: switch_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: closable
             size: small
-            $label:
+            Label:
               extra: Allow alert to be closed
         - id: block.properties.closeText
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: closeText
             size: small
-            $label:
+            Label:
               extra: Close text to show
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$icon
-              icon_field_name: $icon
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
               icon_description: Icon to be used in alert
               default_icon: CheckCircleOutlined
         - id: block.properties.type
           type: radio_button_input
           defaultValue: success
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: type
             size: small
-            $label:
+            Label:
               extra: Alert style type
             options:
               - success
@@ -117,24 +117,24 @@ blocks:
           type: text_input
           defaultValue: Completed!
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: message
             size: small
-            $label:
+            Label:
               extra: Content message of alert
         - id: block.properties.description
           type: text_area_input
           defaultValue: This is a description to say well done.
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: description
             size: small
             rows: 2
-            $label:
+            Label:
               extra: Content description of alert
 
       available_actions_description: |

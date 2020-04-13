@@ -20,7 +20,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $icon:
+                    Icon:
                       _parse:
                         _state: css_icon_input
               on:
@@ -33,14 +33,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_icon_input
           type: text_area_input
@@ -48,14 +48,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 3
           defaultValue: "{}"
           properties:
-            title: $icon
+            title: Icon
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -64,94 +64,94 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.block
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: block
             size: small
-            $label:
+            Label:
               extra: Fit the button's span to its parent container span.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Disable the button if true.
         - id: block.properties.ghost
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: ghost
             size: small
-            $label:
+            Label:
               extra: Make the button's background transparent when true.
         - id: block.properties.hideActionLoading
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: hideActionLoading
             size: small
-            $label:
+            Label:
               extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: hideTitle
             size: small
-            $label:
+            Label:
               extra: Hide the buttons title.
         - id: block.properties.href
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: href
             size: small
-            $label:
+            Label:
               extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$icon
-              icon_field_name: $icon
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
               icon_description: Icon to be used in button.
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: square
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: shape
             size: small
-            $label:
+            Label:
               extra: Shape of the button.
             options:
               - circle
@@ -161,12 +161,12 @@ blocks:
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: size
             size: small
-            $label:
+            Label:
               extra: Size of the button.
             options:
               - small
@@ -176,12 +176,12 @@ blocks:
           type: radio_button_input
           defaultValue: primary
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: type
             size: small
-            $label:
+            Label:
               extra: The button type.
             options:
               - primary
@@ -249,7 +249,7 @@ blocks:
                     title: Let's Go
                     block: true
                     ghost: true
-                    $icon: RocketOutlined
+                    Icon: RocketOutlined
             - id: example_2_code_grid
               type: box
               css:
@@ -267,7 +267,7 @@ blocks:
                           "title": "Let's Go",
                           "block": true,
                           "ghost": true,
-                          "$icon": "RocketOutlined"
+                          "Icon": "RocketOutlined"
                         }
                       }
                       ```
@@ -289,7 +289,7 @@ blocks:
                   properties:
                     title: Delete Forever
                     block: false
-                    $icon: WarningFilled
+                    Icon: WarningFilled
                     shape: round
                     type: danger
             - id: example_3_code_grid
@@ -308,7 +308,7 @@ blocks:
                         "properties": {
                           "title": "Delete Forever",
                           "block": false,
-                          "$icon": "WarningFilled",
+                          "Icon": "WarningFilled",
                           "shape": "round",
                           "type": "danger"
                         }

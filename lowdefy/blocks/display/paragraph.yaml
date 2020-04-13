@@ -23,14 +23,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -39,100 +39,100 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: code
             size: small
-            $label:
+            Label:
               extra: Apply code style
         - id: block.properties.content
           type: text_input
           defaultValue: A vigilante is just a man lost in scramble for his own gratification. He can be destroyed or locked up. But if you make yourself more than just a man, if you devote yourself to an ideal and if they can’t stop you then you become something else entirely. Legend, Mr Wayne
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: content
             size: small
-            $label:
+            Label:
               extra: Paragraph text content
         - id: block.properties.copyable
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: copyable
             size: small
-            $label:
+            Label:
               extra: Provide copy text button
         - id: block.properties.delete
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: delete
             size: small
-            $label:
+            Label:
               extra: Apply deleted style
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Apply disabled style
         - id: block.properties.ellipsis
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: ellipsis
             size: small
-            $label:
+            Label:
               extra: Display ellipsis when text overflows
         - id: block.properties.mark
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: mark
             size: small
-            $label:
+            Label:
               extra: Apply marked style
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: strong
             size: small
-            $label:
+            Label:
               extra: Apply strong style
         - id: block.properties.type
           type: select_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             allowClear: true
             title: type
             size: small
-            $label:
+            Label:
               extra: Content type.
             options:
               - secondary
@@ -142,12 +142,12 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: underline
             size: small
-            $label:
+            Label:
               extra: Apply underline style
 
       available_actions_description: |

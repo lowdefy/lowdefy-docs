@@ -20,7 +20,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $icon:
+                    Icon:
                       _parse:
                         _state: css_icon_input
               on:
@@ -33,14 +33,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_icon_input
           type: text_area_input
@@ -48,14 +48,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 3
           defaultValue: "{}"
           properties:
-            title: $icon
+            title: Icon
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -64,29 +64,29 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Disable the anchor if true.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$icon
-              icon_field_name: $icon
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
               default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
 
@@ -94,12 +94,12 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: strong
             size: small
-            $label:
+            Label:
               extra: Makes the text bold when true.
 
       available_actions_description: |
@@ -162,7 +162,7 @@ blocks:
                   properties:
                     title: Click here
                     strong: true
-                    $icon: LinkOutlined
+                    Icon: LinkOutlined
             - id: example_2_code_grid
               type: box
               css:
@@ -179,7 +179,7 @@ blocks:
                         "properties": {
                           "title": "Click here",
                           "strong": true,
-                          "$icon": "LinkOutlined"
+                          "Icon": "LinkOutlined"
                         }
                       }
                       ```
@@ -203,7 +203,7 @@ blocks:
                     color: 'red !important'
                   properties:
                     title: Click here
-                    $icon: 
+                    Icon: 
                       twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
@@ -225,7 +225,7 @@ blocks:
                         },
                         "properties": {
                           "title": "Click here",
-                          "$icon": {
+                          "Icon": {
                             "twoToneColor": "red",
                             "name": "RocketTwoTone"
                           }
@@ -250,12 +250,12 @@ blocks:
                   css:
                     color: "#000000 !important"
                     fontSize: 16
-                    $icon:
+                    Icon:
                       color: orange
                       fontSize: 30
                   properties:
                     title: Click here
-                    $icon: 
+                    Icon: 
                       name: FireFilled
             - id: example_4_code_grid
               type: box
@@ -274,14 +274,14 @@ blocks:
                           "--span": 6,
                           "color": "#000000 !important",
                           "fontSize": 16
-                          "$icon": {
+                          "Icon": {
                             "color": "orange",
                             "fontSize": 30
                           }
                         },
                         "properties": {
                           "title": "Click here",
-                          "$icon": {
+                          "Icon": {
                             "name": "FireFilled"
                           }
                         }

@@ -32,14 +32,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _if:
@@ -64,23 +64,23 @@ blocks:
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Show title placeholder.
         - id: block.properties.active
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: active
             size: small
-            $label:
+            Label:
               extra: Show animation effect.
         - id: skeleton_avatar_type_card
           type: card
@@ -91,7 +91,7 @@ blocks:
               properties:
                 title: Avatar Type
                 size: small
-                $label:
+                Label:
                   extra: Skeleton avatar can either be a boolean or an object with size and shape properties.
                 options:
                   - Boolean
@@ -100,7 +100,7 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           visible:
             _mql_test:
@@ -108,12 +108,12 @@ blocks:
           properties:
             title: avatar
             size: small
-            $label:
+            Label:
               extra: Show avatar placeholder.
         - id: block.properties.avatar.shape
           type: radio_button_input
           css:
-            $label:
+            Label:
               --span: 2
           visible:
             _mql_test:
@@ -122,7 +122,7 @@ blocks:
           properties:
             title: avatar.shape
             size: small
-            $label:
+            Label:
               extra: The shape of the avatar.
             options:
               - circle
@@ -131,23 +131,23 @@ blocks:
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: paragraph
             size: small
-            $label:
+            Label:
               extra: Show paragraph placeholder.
         - id: block.properties.title
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Show title placeholder.
       available_actions_description: |
         ###### onClick

@@ -37,7 +37,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $content:
+                    Content:
                       _parse:
                         _state: css_content_input
                     zeroWidthTriggerStyle:
@@ -53,14 +53,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
@@ -68,14 +68,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $content
+            title: Content
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_zeroWidthTriggerStyle_input
           type: text_area_input
@@ -83,26 +83,26 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: zeroWidthTriggerStyle
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         
       properties_form:
         - id: block.properties.breakpoint
           type: radio_button_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: breakpoint
             size: small
-            $label:
+            Label:
               extra: Breakpoints of the responsive layout
             options:
               - xs
@@ -114,67 +114,67 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: collapsed
             size: small
-            $label:
+            Label:
               extra: Set the current collapsed state
         - id: block.properties.collapsedWidth
           type: number_input
           defaultValue: 80
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: collapsedWidth
             size: small
-            $label:
+            Label:
               extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
         - id: block.properties.collapsible
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: collapsible
             size: small
-            $label:
+            Label:
               extra: Whether can be collapsed
         - id: block.properties.defaultCollapsed
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: defaultCollapsed
             size: small
-            $label:
+            Label:
               extra: Set the initial collapsed state
         - id: block.properties.reverseArrow
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: reverseArrow
             size: small
-            $label:
+            Label:
               extra: Direction of arrow, for a sider that expands from the right
         - id: block.properties.theme
           type: radio_button_input
           defaultValue: dark
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: theme
             size: small
-            $label:
+            Label:
               extra: Color theme of the sidebar
             options:
               - light
@@ -183,10 +183,10 @@ blocks:
           type: number_input
           defaultValue: 80
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: width
             size: small
-            $label:
+            Label:
               extra: width of the sidebar

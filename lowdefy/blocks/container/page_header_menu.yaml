@@ -11,9 +11,9 @@ actions:
         flex_subblock_1: 12
         visible_subblock_1: true
         flex_subblock_2: 12
-        visible_subblock_2: true
+        visible_subblock_2: false
         flex_subblock_3: 6
-        visible_subblock_3: true
+        visible_subblock_3: false
         span_subblock_4: 6
         visible_subblock_4: true
         span_subblock_5: 4
@@ -52,29 +52,29 @@ blocks:
                     $breadcrumb:
                       _parse:
                         _state: css_breadcrumb_input
-                    $content:
+                    Content:
                       _parse:
                         _state: css_content_input
-                    $footer:
+                    Footer:
                       _parse:
                         _state: css_footer_input
-                    $header:
+                    Header:
                       _parse:
                         _state: css_header_input
-                    $layout:
+                    Layout:
                       _parse:
                         _state: css_layout_input
-                    $menu:
+                    Menu:
                       _parse:
                         _state: css_menu_input
-                    $lgMenu:
+                    MenuLg:
                       _parse:
                         _state: css_lgMenu_input
-                    $mdMenu:
+                    MenuMd:
                       _parse:
                         _state: css_mdMenu_input
                 - $addFields:
-                    $sider.$content:
+                    Sider.Content:
                       _parse:
                         _state: css_siderContent_input
               on:
@@ -87,14 +87,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_breadcrumb_input
           type: text_area_input
@@ -102,14 +102,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: $breadcrumb
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
@@ -117,14 +117,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $content
+            title: Content
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_footer_input
           type: text_area_input
@@ -132,14 +132,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $footer
+            title: Footer
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_header_input
           type: text_area_input
@@ -147,14 +147,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $header
+            title: Header
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_layout_input
           type: text_area_input
@@ -162,14 +162,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $layout
+            title: Layout
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_logo_input
           type: text_area_input
@@ -177,14 +177,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $logo
+            title: Logo
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_menu_input
           type: text_area_input
@@ -192,14 +192,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $menu
+            title: Menu
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_lgMenu_input
           type: text_area_input
@@ -207,14 +207,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $lgMenu
+            title: MenuLg
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_mdMenu_input
           type: text_area_input
@@ -222,12 +222,12 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $mdMenu
+            title: MenuMd
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.

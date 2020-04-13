@@ -20,10 +20,10 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $prefix_icon:
+                    IconPrefix:
                       _parse:
                         _state: css_prefix_icon_input
-                    $suffix_icon:
+                    IconSuffix:
                       _parse:
                         _state: css_suffix_icon_input
               on:
@@ -36,14 +36,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_prefix_icon_input
           type: text_area_input
@@ -51,14 +51,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 3
           defaultValue: "{}"
           properties:
-            title: $prefix_icon
+            title: IconPrefix
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_suffix_icon_input
           type: text_area_input
@@ -66,14 +66,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 3
           defaultValue: "{}"
           properties:
-            title: $suffix_icon
+            title: IconSuffix
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -82,12 +82,12 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: select_value_type_card
           type: card
@@ -98,7 +98,7 @@ blocks:
               properties:
                 title: value Type
                 size: small
-                $label:
+                Label:
                   extra: The display value can be either a String or a Number.
                 options:
                   - Number
@@ -107,7 +107,7 @@ blocks:
           field: block.properties.value
           type: number_input
           css:
-            $label:
+            Label:
               --span: 2
           visible:
             _mql_test:
@@ -115,13 +115,13 @@ blocks:
           properties:
             title: value
             size: small
-            $label:
+            Label:
               extra: Display number value.
         - id: value_text
           field: block.properties.value
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           visible:
             _mql_test:
@@ -129,29 +129,29 @@ blocks:
           properties:
             title: value
             size: small
-            $label:
+            Label:
               extra: Display text value.
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
           css:
-            $label:
+            Label:
               --span: 3
           properties:
             title: decimalSeparator
             size: small
-            $label:
+            Label:
               extra: Decimal separator.
         - id: block.properties.formatter.type
           type: select_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 3
           properties:
             title: formatter.type
             size: small
-            $label:
+            Label:
               extra: Type of formatter to apply to value.
             options:
               - default
@@ -160,7 +160,7 @@ blocks:
         - id: block.properties.formatter.properties.format
           type: text_input
           css:
-            $label:
+            Label:
               --span: 3
           visible:
             _mql_test:
@@ -168,7 +168,7 @@ blocks:
           properties:
             title: formatter.properties.format
             size: small
-            $label:
+            Label:
               extra: Moment.js date format
             options:
               - default
@@ -178,56 +178,56 @@ blocks:
           type: text_input
           defaultValue: ","
           css:
-            $label:
+            Label:
               --span: 3
           properties:
             title: groupSeparator
             size: small
-            $label:
+            Label:
               extra: Group separator.
         - id: block.properties.precision
           type: number_input
           defaultValue: 2
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: precision
             size: small
-            $label:
+            Label:
               extra: Number of decimals to display.
         - id: block.properties.prefix
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: prefix
             size: small
-            $label:
-              extra: Prefix text, priority over $prefix_icon.
+            Label:
+              extra: Prefix text, priority over IconPrefix.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$prefix_icon
-              icon_field_name: $prefix_icon
+              icon_id: block.properties.IconPrefix
+              icon_field_name: IconPrefix
               icon_description: Icon to prefix statistic.
 
         - id: block.properties.suffix
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: suffix
             size: small
-            $label:
-              extra: Suffix text, priority over $suffix_icon.
+            Label:
+              extra: Suffix text, priority over IconSuffix.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$suffix_icon
-              icon_field_name: $suffix_icon
+              icon_id: block.properties.IconSuffix
+              icon_field_name: IconSuffix
               icon_description: Icon to suffix statistic.
 
       available_actions_description: |
@@ -303,7 +303,7 @@ blocks:
                 title: Prefix and suffix
                 value: 1000
                 prefix: $
-                $suffix_icon: ShoppingCartOutlined
+                IconSuffix: ShoppingCartOutlined
             - id: example_3_code
               type: markdown
               css:
@@ -318,7 +318,7 @@ blocks:
                       "title": "Prefix and suffix",
                       "value": 1000,
                       "prefix": "$",
-                      "$suffix_icon": "ShoppingCartOutlined"
+                      "IconSuffix": "ShoppingCartOutlined"
                     }
                   }
                   ```
@@ -404,7 +404,7 @@ blocks:
               properties:
                 title: Value style
                 value: 1000
-                $prefix_icon: RiseOutlined
+                IconPrefix: RiseOutlined
                 suffix: "%"
 
             - id: example_6_code
@@ -426,7 +426,7 @@ blocks:
                     "properties":{
                       "title": "Value style",
                       "value": 1000,
-                      "$prefix_icon": "RiseOutlined",
+                      "IconPrefix": "RiseOutlined",
                       "suffix": "%"
                     }
                   }

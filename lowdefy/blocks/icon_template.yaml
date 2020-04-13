@@ -2,7 +2,7 @@ id:
   _var: icon_id
 type: select_input
 css:
-  $label:
+  Label:
     --span: 2
 defaultValue: 
   _var: default_icon
@@ -14,7 +14,7 @@ properties:
   allowClear: true
   options:
     _global: all_icons
-  $label:
+  Label:
     extra:
       _if:
         test: 

@@ -202,7 +202,7 @@
           - id: properties_form
             type: box
             css:
-              $content:
+              Content:
                 --gap: 0
             blocks:
               _var: properties_form

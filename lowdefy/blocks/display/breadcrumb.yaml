@@ -33,14 +33,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -49,12 +49,12 @@ blocks:
           type: text_input
           defaultValue: '/'
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: separator
             size: small
-            $label:
+            Label:
               extra: Use a custom separator string
         - id: block.properties.list
           type: list
@@ -66,34 +66,34 @@ blocks:
               type: text_input
               defaultValue: label
               css:
-                $label:
+                Label:
                   --span: 2
               properties:
                 title: label
                 size: small
-                $label:
+                Label:
                   extra: Label of the breadcrumb link
             - id: block.properties.list.$.pageId
               type: text_input
               defaultValue: introduction
               css:
-                $label:
+                Label:
                   --span: 2
               properties:
                 title: pageId
                 size: small
-                $label:
+                Label:
                   extra: Page id to link to when clicked
             - id: block.properties.list.$.url
               type: text_input
               defaultValue: http://lowdefy.com
               css:
-                $label:
+                Label:
                   --span: 2
               properties:
                 title: url
                 size: small
-                $label:
+                Label:
                   extra: External url link
 
       available_actions_description: |

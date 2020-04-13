@@ -45,7 +45,7 @@
           properties:
             title: "Apply"
             block: false
-            $icon: ReloadOutlined
+            Icon: ReloadOutlined
             type: primary
           actions:
             onClick:

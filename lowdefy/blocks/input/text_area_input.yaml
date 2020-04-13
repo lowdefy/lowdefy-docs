@@ -20,7 +20,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $label: 
+                    Label: 
                       _parse:
                         _state: css_label_input
                     $input:
@@ -36,14 +36,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
@@ -51,14 +51,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $label
+            title: Label
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
@@ -66,14 +66,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: $input
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -82,34 +82,34 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            $label:
+            Label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            $label:
+            Label:
               extra: Autofocus to the block on page load.
         - id: select_autoRows_type_card
           type: card
@@ -120,7 +120,7 @@ blocks:
               properties:
                 title: autoRows Type
                 size: small
-                $label:
+                Label:
                   extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
                 options:
                   - Boolean
@@ -129,7 +129,7 @@ blocks:
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           visible:
             _mql_test:
@@ -137,12 +137,12 @@ blocks:
           properties:
             title: autoRows
             size: small
-            $label:
+            Label:
               extra: Automatically extend the block number of rows.
         - id: block.properties.autoRows.minRows
           type: number_input
           css:
-            $label:
+            Label:
               --span: 4
           visible:
             _mql_test:
@@ -150,12 +150,12 @@ blocks:
           properties:
             title: autoRows.minRows
             size: small
-            $label:
+            Label:
               extra: Minimum number of rows the block can be.
         - id: block.properties.autoRows.maxRows
           type: number_input
           css:
-            $label:
+            Label:
               --span: 4
           visible:
             _mql_test:
@@ -163,38 +163,38 @@ blocks:
           properties:
             title: autoRows.maxRows
             size: small
-            $label:
+            Label:
               extra: Maximum number of rows the block can be.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Disable the block if true.
         - id: block.properties.placeholder
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            $label:
+            Label:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.rows
           type: number_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: rows
             size: small
-            $label:
+            Label:
               extra: Number of rows of text area.
 
       available_actions_description: |
@@ -261,7 +261,7 @@ blocks:
               properties:
                 title: Rows
                 rows: 3
-                $label:
+                Label:
                   extra: Define fixed number of rows for text area.
             - id: example_3_code
               type: markdown
@@ -290,7 +290,7 @@ blocks:
                 --span: 6
               properties:
                 title: Auto Rows
-                $label:
+                Label:
                   extra: Automatically adjust text area size based on content.
                 autoRows:
                   minRows: 3

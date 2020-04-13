@@ -23,14 +23,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -39,45 +39,45 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: The title of the description list, placed at the top
         - id: block.properties.bordered
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: bordered
             size: small
-            $label:
+            Label:
               extra: Whether to display the border
         - id: block.properties.column
           type: number_input
           defaultValue: 3
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: column
             size: small
-            $label:
+            Label:
               extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}"
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: size
             size: small
-            $label:
+            Label:
               extra: Size of the list
             options:
               - small
@@ -87,12 +87,12 @@ blocks:
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: layout
             size: small
-            $label:
+            Label:
               extra: Define description layout
             options:
               - horizontal
@@ -101,12 +101,12 @@ blocks:
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: colon
             size: small
-            $label:
+            Label:
               extra: To include a colon in list items
         - id: block.properties.items
           type: list
@@ -123,7 +123,7 @@ blocks:
               properties:
                 title: label
                 size: small
-                $label:
+                Label:
                   extra: Label shown to user
             - id: block.properties.items.$.value
               type: text_input
@@ -133,7 +133,7 @@ blocks:
               properties:
                 title: value
                 size: small
-                $label:
+                Label:
                   extra: Value selected
             - id: block.properties.items.$.span
               type: number_input
@@ -142,7 +142,7 @@ blocks:
               properties:
                 title: span
                 size: small
-                $label:
+                Label:
                   extra: Number of columns for this item to span
 
 

@@ -37,7 +37,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $label: 
+                    Label: 
                       _parse:
                         _state: css_label_input
                     $input:
@@ -53,14 +53,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
@@ -68,14 +68,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $label
+            title: Label
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
@@ -83,14 +83,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: $input
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _if:
@@ -115,23 +115,23 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Disable the block if true.
         - id: select_options_type_card
           type: card
@@ -142,7 +142,7 @@ blocks:
               properties:
                 title: Options Type
                 size: small
-                $label:
+                Label:
                   extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
@@ -167,7 +167,7 @@ blocks:
               type: text_input
               defaultValue: Label
               css:
-                $label:
+                Label:
                   --span: 2
               visible:
                 _mql_test:
@@ -175,13 +175,13 @@ blocks:
               properties:
                 title: label
                 size: small
-                $label:
+                Label:
                   extra: Label shown to user.
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
               css:
-                $label:
+                Label:
                   --span: 2
               visible:
                 _mql_test:
@@ -189,13 +189,13 @@ blocks:
               properties:
                 title: value
                 size: small
-                $label:
+                Label:
                   extra: Value selected.
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
               css:
-                $label:
+                Label:
                   --span: 2
               visible:
                 _mql_test:
@@ -203,7 +203,7 @@ blocks:
               properties:
                 title: disabled
                 size: small
-                $label:
+                Label:
                   extra: Disable the option if true.
 
       available_actions_description: |
@@ -250,7 +250,7 @@ blocks:
                 - C
               properties:
                 title: Object options
-                $label:
+                Label:
                   extra: Value-Label object options and default value.
                 options:
                   - value: A
@@ -300,7 +300,7 @@ blocks:
                 --span: 6
               properties:
                 title: Disable options
-                $label:
+                Label:
                   extra: Disable individual options.
                 options:
                   - value: A

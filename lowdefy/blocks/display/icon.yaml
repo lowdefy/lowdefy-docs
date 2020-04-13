@@ -23,14 +23,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -39,13 +39,13 @@ blocks:
           type: select_input
           defaultValue: FireOutlined
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: name
             size: small
             showSearch: true
-            $label:
+            Label:
               extra: Name of icon to be displayed
             options:
               _global: all_icons
@@ -53,58 +53,58 @@ blocks:
           type: number_input
           defaultValue: 0
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: rotate
             size: small
-            $label:
+            Label:
               extra: Number of degrees to rotate the icon
         - id: block.properties.spin
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: spin
             size: small
-            $label:
+            Label:
               extra: Continuously spin icon with animation
         - id: block.properties.twoToneColor
           type: color_picker_input
           defaultValue: "#08c"
           css:
-            $label:
+            Label:
               --span: 4
           properties:
             title: twoToneColor
             size: small
             type: twitter
-            $label:
+            Label:
               extra: Primary two-tone color, only supported with two-tone theme
 
         - id: block.properties.disableLoadingIcon
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 4
           properties:
             title: disableLoadingIcon
             size: small
-            $label:
+            Label:
               extra: While loading after the icon has been clicked, don't render the loading icon
         - id: block.properties.hideLoadingMessage
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 4
           properties:
             title: hideLoadingMessage
             size: small
-            $label:
+            Label:
               extra: While loading after the icon has been clicked, don't show the loading message
 
 

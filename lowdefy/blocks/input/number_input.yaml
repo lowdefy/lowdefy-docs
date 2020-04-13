@@ -20,7 +20,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $label: 
+                    Label: 
                       _parse:
                         _state: css_label_input
                     $input:
@@ -36,14 +36,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
@@ -51,14 +51,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $label
+            title: Label
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
@@ -66,14 +66,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: $input
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -82,98 +82,98 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            $label:
+            Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: decimalSeparator
             size: small
-            $label:
+            Label:
               extra: Decimal separator.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Disables the block if true.
         - id: block.properties.min
           type: number_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: min
             size: small
-            $label:
+            Label:
               extra: Minimum value allowed by the block.
         - id: block.properties.max
           type: number_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: max
             size: small
-            $label:
+            Label:
               extra: Maximum value allowed by the block.
         - id: block.properties.placeholder
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            $label:
+            Label:
               extra: Placeholder text inside the block to show message before user types input.
         - id: block.properties.precision
           type: number_input
           defaultValue: 0
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: precision
             size: small
             max: 100
-            $label:
+            Label:
               extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: size
             size: small
-            $label:
+            Label:
               extra: Size of the block.
             options:
               - small
@@ -183,13 +183,13 @@ blocks:
           type: number_input
           defaultValue: 1
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: step
             size: small
             precision: 2
-            $label:
+            Label:
               extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
       available_actions_description: |
         ###### onChange

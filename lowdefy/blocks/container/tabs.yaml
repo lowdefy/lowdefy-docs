@@ -45,10 +45,10 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $content1:
+                    Content1:
                       _parse:
                         _state: css_content1_input
-                    $content2:
+                    Content2:
                       _parse:
                         _state: css_content2_input
               on:
@@ -61,14 +61,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content1_input
           type: text_area_input
@@ -76,14 +76,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $content1
+            title: Content1
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content2_input
           type: text_area_input
@@ -91,58 +91,58 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $content2
+            title: Content2
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: activeKey
           type: text_input
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: activeKey
             size: small
-            $label:
+            Label:
               extra: Current TabPane's key.
         - id: defaultActiveKey
           type: text_input
           defaultValue: content1
           css:
-            $label:
+            Label:
               --span: 3
           properties:
             title: defaultActiveKey
             size: small
-            $label:
+            Label:
               extra: Initial active TabPane's key, if activeKey is not set.
         - id: animated
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: animated
             size: small
-            $label:
+            Label:
               extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: size
             size: small
-            $label:
+            Label:
               extra: Size of the tabs.
             options:
               - small
@@ -152,12 +152,12 @@ blocks:
           type: radio_button_input
           defaultValue: top
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: tabPosition
             size: small
-            $label:
+            Label:
               extra: Position of the tabs.
             options:
               - top
@@ -174,51 +174,51 @@ blocks:
               type: text_input
               defaultValue: title
               css:
-                $label:
+                Label:
                   --span: 2
               properties:
                 title: title
                 size: small
-                $label:
+                Label:
                   extra: Title of the tab.
             - id: block.properties.tabs.$.key
               type: text_input
               defaultValue: key
               css:
-                $label:
+                Label:
                   --span: 2
               properties:
                 title: key
                 size: small
-                $label:
+                Label:
                   extra: Key of the tab.
             - _ref:
                 path: blocks/icon_template.yaml
                 vars:
-                  icon_id: block.properties.tabs.$.$icon
-                  icon_field_name: $icon
+                  icon_id: block.properties.tabs.$.Icon
+                  icon_field_name: Icon
                   icon_description: Icon to show in tab title.
             - id: block.properties.tabs.$.disabled
               type: switch_input
               defaultValue: false
               css:
-                $label:
+                Label:
                   --span: 2
               properties:
                 title: disabled
                 size: small
-                $label:
+                Label:
                   extra: Disable the tab if true.
         - id: block.properties.tabType
           type: radio_button_input
           defaultValue: line
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: tabType
             size: small
-            $label:
+            Label:
               extra: Type of tabs.
             options:
               - line

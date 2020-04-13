@@ -22,13 +22,13 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $label: 
+                    Label: 
                       _parse:
                         _state: css_label_input
                     $input:
                       _parse:
                         _state: css_input_input
-                    $suffix_icon:
+                    IconSuffix:
                       _parse:
                         _state: css_suffix_icon_input
               on:
@@ -41,14 +41,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
@@ -56,14 +56,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $label
+            title: Label
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
@@ -71,14 +71,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: $input
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_suffix_icon_input
           type: text_area_input
@@ -86,14 +86,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 3
           defaultValue: "{}"
           properties:
-            title: $suffix_icon
+            title: IconSuffix
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -102,133 +102,133 @@ blocks:
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: allowClear
             size: small
-            $label:
+            Label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: autoFocus
             size: small
-            $label:
+            Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: disabled
             size: small
-            $label:
+            Label:
               extra: Disable the block if true.
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD HH:mm
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: format
             size: small
-            $label:
+            Label:
               extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.hourStep
           type: number_input
           defaultValue: 1
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: hourStep
             size: small
-            $label:
+            Label:
               extra: Hour intervals to show in the time selector.
         - id: block.properties.minuteStep
           type: number_input
           defaultValue: 5
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: minuteStep
             size: small
-            $label:
+            Label:
               extra: Minute intervals to show in the time selector.
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Date & Time
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: placeholder
             size: small
-            $label:
+            Label:
               extra: Placeholder text inside the block before user selects input.
         - id: block.properties.secondStep
           type: number_input
           defaultValue: 30
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: secondStep
             size: small
-            $label:
+            Label:
               extra: Second intervals to show in the time selector.
         - id: block.properties.selectGMT
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: selectGMT
             size: small
-            $label:
+            Label:
               extra: Shows the user's selection as GMT time, not time-zone based.
         - id: block.properties.showToday
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: showToday
             size: small
-            $label:
+            Label:
               extra: Shows a button to easily select the current date if true.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: size
             size: small
-            $label:
+            Label:
               extra: Size of the block.
             options:
               - small
@@ -237,7 +237,7 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.$suffix_icon
+              icon_id: block.properties.IconSuffix
               icon_field_name: $suffix_iscon
               default_icon: CalendarOutlined
               icon_description: Icon on right-hand side of the date-time input.
@@ -246,12 +246,12 @@ blocks:
           type: text_input
           defaultValue: HH:mm
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: timeFormat
             size: small
-            $label:
+            Label:
               extra: Time format to show in the time selector. HH:mm:ss will show hours, minutes and seconds, HH:mm only hours and minutes and HH only hours.
 
       available_actions_description: |
@@ -290,10 +290,10 @@ blocks:
               css:
                 --span: 6
               properties:
-                title: showToday and $suffix_icon
+                title: showToday and IconSuffix
                 showToday: false
-                $suffix_icon: ClockCircleOutlined
-                $label:
+                IconSuffix: ClockCircleOutlined
+                Label:
                   extra: Disable now button and change the suffix icon.
             - id: example_2_code
               type: markdown
@@ -306,10 +306,10 @@ blocks:
                     "id": "example_2",
                     "type": "date_time_input",
                     "properties": {
-                      "title": "showToday and $suffix_icon",
+                      "title": "showToday and IconSuffix",
                       "showToday": false,
-                      "$suffix_icon": "ClockCircleOutlined",
-                      "$label": {
+                      "IconSuffix": "ClockCircleOutlined",
+                      "Label": {
                         "extra": "Disable now button and change the suffix icon"
                       }
                     }
@@ -326,7 +326,7 @@ blocks:
               properties:
                 title: Date format
                 format: HH:mm | D MMMM YYYY
-                $label:
+                Label:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: markdown
@@ -344,7 +344,7 @@ blocks:
                     "properties": {
                       "title": "Date format",
                       "format": "HH:mm | D MMMM YYYY",
-                      "$label": {
+                      "Label": {
                         "extra": "Default date and custom date format."
                       }
                     }
@@ -362,7 +362,7 @@ blocks:
                 minuteStep: 10
                 secondStep: 15
                 timeFormat: HH:mm:ss
-                $label:
+                Label:
                   extra: Change the time step intervals.
             - id: example_4_code
               type: markdown
@@ -381,7 +381,7 @@ blocks:
                       "minuteStep": 10,
                       "secondStep": 15,
                       "timeFormat": "HH:mm:ss",
-                      "$label": {
+                      "Label": {
                         "extra": "Change the time step intervals."
                       }
                     }

@@ -37,13 +37,13 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $content:
+                    Content:
                       _parse:
                         _state: css_content_input
-                    $header:
+                    Header:
                       _parse:
                         _state: css_header_input
-                    $body:
+                    Body:
                       _parse:
                         _state: css_body_input
               on:
@@ -56,14 +56,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_body_input
           type: text_area_input
@@ -71,14 +71,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $body
+            title: Body
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
@@ -86,14 +86,14 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $content
+            title: Content
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_header_input
           type: text_area_input
@@ -101,76 +101,76 @@ blocks:
             --span: 11
             sm:
               --span: 11
-            $label:
+            Label:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $header
+            title: Header
             rows: 3
             size: small
-            $label:
+            Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: title
             size: small
-            $label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.bordered
           type: switch_input
           defaultValue: true
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: bordered
             size: small
-            $label:
+            Label:
               extra: Toggles rendering of the border around the card.
         - id: block.properties.hoverable
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: hoverable
             size: small
-            $label:
+            Label:
               extra: Lift up when hovering card.
         - id: block.properties.loading
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: loading
             size: small
-            $label:
+            Label:
               extra: Shows a loading indicator while the contents of the card are being fetched.
         - id: block.properties.inner
           type: switch_input
           defaultValue: false
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: inner
             size: small
-            $label:
+            Label:
               extra: Change the card style to inner.
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
           css:
-            $label:
+            Label:
               --span: 2
           properties:
             title: size
@@ -178,5 +178,5 @@ blocks:
             options:
               - default
               - small
-            $label:
+            Label:
               extra: Size of the card.

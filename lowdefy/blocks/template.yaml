@@ -128,7 +128,7 @@
           - id: css_form
             type: box
             css:
-              $content:
+              Content:
                 --gap: 0
             blocks:
               _var: css_form
@@ -138,7 +138,7 @@
             defaultValue: true
             properties:
               title: visible
-              $label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small
@@ -148,7 +148,7 @@
             defaultValue: false
             properties:
               title: required
-              $label:
+              Label:
                 extra: Toggle if the field is indicated as compulsory and required when the validate() action is called.
                 inline: true
               size: small
@@ -157,7 +157,7 @@
           - id: properties_form
             type: box
             css:
-              $content:
+              Content:
                 --gap: 0
             blocks:
               _var: properties_form
