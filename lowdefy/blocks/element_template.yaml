@@ -1,239 +1,890 @@
-id: 
-  _var: block_type
-type: page_sider_menu
-public: true
-properties:
-  title: 
-    _var: block_name
-actions:
-  onInit:
-    - id: initialize_state 
-      type: set()
-      params:
-        default_html_block_style:
-          padding: 0px 20px
-          color: white
-          background: '#048f8f'
-          border: '2px solid #04bfbf'
-          borderRadius: 3
-          lineHeight: 4
-    - id: initialize_state 
-      type: set()
-      params:
-        block.blocks: 
-          - id: one
-            type: html
-            properties:
-              html: '<div>ONE</div>'
-            css:
-              _state: default_html_block_style
-          - id: two
-            type: html
-            properties:
-              html: '<div>TWO</div>'
-            css:
-              _state: default_html_block_style
-          - id: three
-            type: html
-            properties:
-              html: '<div>THREE</div>'
-            css:
-              _state: default_html_block_style
-          - id: four
-            type: html
-            properties:
-              html: '<div>FOUR</div>'
-            css:
-              _state: default_html_block_style
-          - id: five
-            type: html
-            properties:
-              html: '<div>FIVE</div>'
-            css:
-              _state: default_html_block_style
-          - id: six
-            type: html
-            properties:
-              html: '<div>SIX</div>'
-            css:
-              _state: default_html_block_style
+- id: card_display
+  type: card
+  blocks:
+    - id: title
+      type: title
+      properties:
+        level: 2
+        content:
+          _var: block_name
+    - id: description
+      type: markdown
+      properties:
+        content:
+          _var: page_description
 
-blocks:
-  - id: card_display
-    type: card
-    blocks:
-      - id: title
-        type: title
-        properties:
-          level: 2
-          content:
-            _var: block_name
-      - id: description
-        type: markdown
-        properties:
-          content:
-            _var: page_description
-  - id: c1
-    type: box
-    blocks:
-      - id: block_divider
-        type: divider
-        properties:
-          title: Block
-      - id: block_wrap2
-        type: box
+- id: grid_box
+  type: box
+  blocks:
+    - id: grid_divider
+      type: divider
+      properties:
+        title: Block With Grid Content
+    - id: grid_wrap
+      type: box
+      css:
+        --span: 12
+      blocks:
+        - id: grid_id
+          type:
+            _var: block_type
+          css:
+            _var: grid_css
+          visible:
+            _state: grid.visible
+          properties:
+            _state: grid.properties
+          blocks:
+            - id: grid_1
+              type: html
+              properties:
+                html: '<div>ONE</div>'
+              visible:
+                _state: grid_blocks.0.visible
+              css:
+                _parse:
+                  _state: grid_blocks.0.css
+            - id: grid_2
+              type: html
+              properties:
+                html: '<div>TWO</div>'
+              visible:
+                _state: grid_blocks.1.visible
+              css:
+                _parse:
+                  _state: grid_blocks.1.css
+            - id: grid_3
+              type: html
+              properties:
+                html: '<div>THREE</div>'
+              visible:
+                _state: grid_blocks.2.visible
+              css:
+                _parse:
+                  _state: grid_blocks.2.css
+            - id: grid_4
+              type: html
+              properties:
+                html: '<div>FOUR</div>'
+              visible:
+                _state: grid_blocks.3.visible
+              css:
+                _parse:
+                  _state: grid_blocks.3.css
+            - id: grid_5
+              type: html
+              properties:
+                html: '<div>FIVE</div>'
+              visible:
+                _state: grid_blocks.4.visible
+              css:
+                _parse:
+                  _state: grid_blocks.4.css
+            - id: grid_6
+              type: html
+              properties:
+                html: '<div>SIX</div>'
+              visible:
+                _state: grid_blocks.5.visible
+              css:
+                _parse:
+                  _state: grid_blocks.5.css
+
+- id: setup_grid
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: setup_grid_divider
+      type: divider
+      properties:
+        title: Block Setup For Grid
+    - id: setup_grid_card
+      type: card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_grid_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      css:
+                        _var: grid_css
+                      visible:
+                        _state: grid.visible
+                      properties:
+                        _state: grid.properties
+
+- id: settings_grid
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: settings_grid_divider
+      type: divider
+      properties:
+        title: Settings For Grid
+    - id: grid_collapse
+      type: collapse
+      properties:
+        defaultActiveKey: css
+        panels:
+          - key: css
+            title: 'css:'
+          - key: properties
+            title: 'properties:'
+          - key: actions
+            title: 'actions:'
+          - key: visible
+            title: 'visible:'
+          - key: blocks
+            title: 'blocks:'
+      blocks:
         css:
-          --span: 12
-        blocks:
-          - id: block_id
-            type:
-              _var: block_type
+          - id: grid_css_form
+            type: box
             css:
-              _var: css_transform
-            visible:
-              _state: block.visible
-            properties:
-              _state: block.properties
+              Content:
+                --gap: 0
             blocks:
-              _state:
-                block.blocks
-
-  - id: setup_grid
-    type: box
-    css:
-      --span: 6
-    blocks:
-      - id: setup_divider
-        type: divider
+              _var: grid_css_form
         properties:
-          title: Block Setup
-      - id: setup_card
-        type: card
-        properties: 
-          size: small
-        blocks:
-          - id: setup_markdown
+          - id: grid_properties_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: grid_properties_form
+        actions:
+          - id: grid_actions_description
             type: markdown
             properties:
               content:
-                _nunjucks:
-                  template: |
-                    ```json
-                    {{ value | safe }}
-                    ```
-                  on:
-                    value:
-                      _stringify:
-                        id: block_id
-                        type:
-                          _var: block_type
-                        css:
-                          _var: css_transform
-                        visible:
-                          _state: block.visible
-                        properties:
-                          _state: block.properties
-
-  - id: settings_grid
-    type: box
-    css:
-      --span: 6
-    blocks:
-      - id: settings_divider
-        type: divider
-        properties:
-          title: Settings
-      - id: block_collapse
-        type: collapse
-        properties:
-          defaultActiveKey: properties
-          panels:
-            - key: css
-              title: 'css:'
-            - key: properties
-              title: 'properties:'
-            - key: actions
-              title: 'actions:'
-            - key: visible
-              title: 'visible:'
+                _var: actions_description
+        visible:
+          - id: grid.visible
+            type: switch_input
+            defaultValue: true
+            properties:
+              title: visible
+              Label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
+          
         blocks:
+          - id: grid_blocks
+            type: list
+            css:
+              Content:
+                --display: flex
+            properties:
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: grid_blocks.$.gd
+                type: box
+                css:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: grid_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### {{ name }}'
+                          on:
+                            _state: grid_blocks.$
+                  - id: grid_blocks.$.visible
+                    type: switch_input
+                    css:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: grid_blocks.$.css
+                type: text_area_input
+                css:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: css
+                  size: small
+                  rows: 3
+
+
+- id: flex_box
+  type: box
+  blocks:
+    - id: flex_divider
+      type: divider
+      properties:
+        title: Block With Flex Content
+    - id: flex_wrap
+      type: box
+      blocks:
+        - id: flex_id
+          type:
+            _var: block_type
           css:
-            - id: css_form
-              type: box
-              css:
-                $content:
-                  --gap: 0
-              blocks:
-                _var: css_form
-          properties:
-            - id: properties_form
-              type: box
-              css:
-                $content:
-                  --gap: 0
-              blocks:
-                _var: properties_form
-            - id: label_form
-              type: box
-              visible:
-                _var: label
-              blocks:
-                _ref: blocks/label.yaml
-          actions:
-            - id: actions_description
-              type: markdown
-              properties:
-                content:
-                  _var: actions_description
+            _var: flex_css
           visible:
-            - id: block.visible
-              type: switch_input
-              defaultValue: true
+            _state: flex.visible
+          properties:
+            _state: flex.properties
+          blocks:
+            - id: flex_1
+              type: html
               properties:
-                title: visible
-                $label:
-                  extra: Toggle if block is visible and has a value in state.
-                  inline: true
-                size: small
+                html: '<div>ONE</div>'
+              visible:
+                _state: flex_blocks.0.visible
+              css:
+                _parse:
+                  _state: flex_blocks.0.css
+            - id: flex_2
+              type: html
+              properties:
+                html: '<div>TWO</div>'
+              visible:
+                _state: flex_blocks.1.visible
+              css:
+                _parse:
+                  _state: flex_blocks.1.css
+            - id: flex_3
+              type: html
+              properties:
+                html: '<div>THREE</div>'
+              visible:
+                _state: flex_blocks.2.visible
+              css:
+                _parse:
+                  _state: flex_blocks.2.css
+            - id: flex_4
+              type: html
+              properties:
+                html: '<div>FOUR</div>'
+              visible:
+                _state: flex_blocks.3.visible
+              css:
+                _parse:
+                  _state: flex_blocks.3.css
+            - id: flex_5
+              type: html
+              properties:
+                html: '<div>FIVE</div>'
+              visible:
+                _state: flex_blocks.4.visible
+              css:
+                _parse:
+                  _state: flex_blocks.4.css
+            - id: flex_6
+              type: html
+              properties:
+                html: '<div>SIX</div>'
+              visible:
+                _state: flex_blocks.5.visible
+              css:
+                _parse:
+                  _state: flex_blocks.5.css
 
-  - id: block.blocks
-    type: list
-    properties:
-      title: Sub-blocks
-      size: small
-    blocks:
-      - id: block.blocks.$.id
-        type: text_input
-        properties: 
-          title: 'id:'
-          size: small
-      - id: block.blocks.$.type
-        type: radio_button
-        defaultValue: html
-        properties: 
-          options: html
-          title: 'type:'
-          size: small
-      - id: block.blocks.$.properties.html
-        type: text_input
-        defaultValue: '<div>ONE</div>'
-        properties: 
-          title: 'properties.html:'
-          size: small
-      - id: block.blocks.$.css
-        type: text_area_input
-        defaultValue:
-          _state: default_html_block_style
+- id: setup_flex
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: setup_flex_divider
+      type: divider
+      properties:
+        title: Block Setup For Flex
+    - id: setup_flex_card
+      type: card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_flex_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      css:
+                        _var: flex_css
+                      visible:
+                        _state: flex.visible
+                      properties:
+                        _state: flex.properties
+
+- id: settings_flex
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: settings_flex_divider
+      type: divider
+      properties:
+        title: Settings For Flex
+    - id: flex_collapse
+      type: collapse
+      properties:
+        defaultActiveKey: css
+        panels:
+          - key: css
+            title: 'css:'
+          - key: properties
+            title: 'properties:'
+          - key: actions
+            title: 'actions:'
+          - key: visible
+            title: 'visible:'
+          - key: blocks
+            title: 'blocks:'
+      blocks:
+        css:
+          - id: flex_css_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: flex_css_form
         properties:
-          rows: 3
-          title: 'properties.css:'
-          size: small
+          - id: flex_properties_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: flex_properties_form
+        actions:
+          - id: flex_actions_description
+            type: markdown
+            properties:
+              content:
+                _var: actions_description
+        visible:
+          - id: flex.visible
+            type: switch_input
+            defaultValue: true
+            properties:
+              title: visible
+              Label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
+          
+        blocks:
+          - id: flex_blocks
+            type: list
+            css:
+              Content:
+                --display: flex
+            properties:
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: flex_blocks.$.gd
+                type: box
+                css:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: flex_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### {{ name }}'
+                          on:
+                            _state: flex_blocks.$
+                  - id: flex_blocks.$.visible
+                    type: switch_input
+                    css:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: flex_blocks.$.css
+                type: text_area_input
+                css:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: css
+                  size: small
+                  rows: 3
 
-  - id: examples_divider
-    type: divider
-    properties:
-      title: Examples
-  - id: examples_grid
-    type: box
-    blocks:
-      _var: examples
+
+
+- id: block_box
+  type: box
+  blocks:
+    - id: block_divider
+      type: divider
+      properties:
+        title: Block With Block Content
+    - id: block_wrap
+      type: box
+      css:
+        --span: 12
+      blocks:
+        - id: block_id
+          type:
+            _var: block_type
+          css:
+            _var: block_css
+          visible:
+            _state: block.visible
+          properties:
+            _state: block.properties
+          blocks:
+            - id: block_1
+              type: html
+              properties:
+                html: '<div>ONE</div>'
+              visible:
+                _state: block_blocks.0.visible
+              css:
+                _parse:
+                  _state: block_blocks.0.css
+            - id: block_2
+              type: html
+              properties:
+                html: '<div>TWO</div>'
+              visible:
+                _state: block_blocks.1.visible
+              css:
+                _parse:
+                  _state: block_blocks.1.css
+            - id: block_3
+              type: html
+              properties:
+                html: '<div>THREE</div>'
+              visible:
+                _state: block_blocks.2.visible
+              css:
+                _parse:
+                  _state: block_blocks.2.css
+            - id: block_4
+              type: html
+              properties:
+                html: '<div>FOUR</div>'
+              visible:
+                _state: block_blocks.3.visible
+              css:
+                _parse:
+                  _state: block_blocks.3.css
+            - id: block_5
+              type: html
+              properties:
+                html: '<div>FIVE</div>'
+              visible:
+                _state: block_blocks.4.visible
+              css:
+                _parse:
+                  _state: block_blocks.4.css
+            - id: block_6
+              type: html
+              properties:
+                html: '<div>SIX</div>'
+              visible:
+                _state: block_blocks.5.visible
+              css:
+                _parse:
+                  _state: block_blocks.5.css
+
+- id: setup_block
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: setup_block_divider
+      type: divider
+      properties:
+        title: Block Setup For Block
+    - id: setup_block_card
+      type: card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_block_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      css:
+                        _var: block_css
+                      visible:
+                        _state: block.visible
+                      properties:
+                        _state: block.properties
+
+- id: settings_block
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: settings_block_divider
+      type: divider
+      properties:
+        title: Settings For Block
+    - id: block_collapse
+      type: collapse
+      properties:
+        defaultActiveKey: css
+        panels:
+          - key: css
+            title: 'css:'
+          - key: properties
+            title: 'properties:'
+          - key: actions
+            title: 'actions:'
+          - key: visible
+            title: 'visible:'
+          - key: blocks
+            title: 'blocks:'
+      blocks:
+        css:
+          - id: block_css_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: block_css_form
+        properties:
+          - id: block_properties_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: block_properties_form
+        actions:
+          - id: block_actions_description
+            type: markdown
+            properties:
+              content:
+                _var: actions_description
+        visible:
+          - id: block.visible
+            type: switch_input
+            defaultValue: true
+            properties:
+              title: visible
+              Label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
+          
+        blocks:
+          - id: block_blocks
+            type: list
+            css:
+              Content:
+                --display: flex
+            properties:
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: block_blocks.$.gd
+                type: box
+                css:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: block_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### {{ name }}'
+                          on:
+                            _state: block_blocks.$
+                  - id: block_blocks.$.visible
+                    type: switch_input
+                    css:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: block_blocks.$.css
+                type: text_area_input
+                css:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: css
+                  size: small
+                  rows: 3
+
+
+
+
+
+
+- id: inlineBlock_box
+  type: box
+  blocks:
+    - id: inlineBlock_divider
+      type: divider
+      properties:
+        title: Block With Inline-block Content
+    - id: inlineBlock_wrap
+      type: box
+      css:
+        --span: 12
+      blocks:
+        - id: inlineBlock_id
+          type:
+            _var: block_type
+          css:
+            _var: inlineBlock_css
+          visible:
+            _state: inlineBlock.visible
+          properties:
+            _state: inlineBlock.properties
+          blocks:
+            - id: inlineBlock_1
+              type: html
+              properties:
+                html: '<div>ONE</div>'
+              visible:
+                _state: inlineBlock_blocks.0.visible
+              css:
+                _parse:
+                  _state: inlineBlock_blocks.0.css
+            - id: inlineBlock_2
+              type: html
+              properties:
+                html: '<div>TWO</div>'
+              visible:
+                _state: inlineBlock_blocks.1.visible
+              css:
+                _parse:
+                  _state: inlineBlock_blocks.1.css
+            - id: inlineBlock_3
+              type: html
+              properties:
+                html: '<div>THREE</div>'
+              visible:
+                _state: inlineBlock_blocks.2.visible
+              css:
+                _parse:
+                  _state: inlineBlock_blocks.2.css
+            - id: inlineBlock_4
+              type: html
+              properties:
+                html: '<div>FOUR</div>'
+              visible:
+                _state: inlineBlock_blocks.3.visible
+              css:
+                _parse:
+                  _state: inlineBlock_blocks.3.css
+            - id: inlineBlock_5
+              type: html
+              properties:
+                html: '<div>FIVE</div>'
+              visible:
+                _state: inlineBlock_blocks.4.visible
+              css:
+                _parse:
+                  _state: inlineBlock_blocks.4.css
+            - id: inlineBlock_6
+              type: html
+              properties:
+                html: '<div>SIX</div>'
+              visible:
+                _state: inlineBlock_blocks.5.visible
+              css:
+                _parse:
+                  _state: inlineBlock_blocks.5.css
+
+- id: setup_inlineBlock
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: setup_inlineBlock_divider
+      type: divider
+      properties:
+        title: Block Setup For Inline-block
+    - id: setup_inlineBlock_card
+      type: card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_inlineBlock_markdown
+          type: markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: inlineBlock_id
+                      type:
+                        _var: block_type
+                      css:
+                        _var: inlineBlock_css
+                      visible:
+                        _state: inlineBlock.visible
+                      properties:
+                        _state: inlineBlock.properties
+
+- id: settings_inlineBlock
+  type: box
+  css:
+    --span: 6
+  blocks:
+    - id: settings_inlineBlock_divider
+      type: divider
+      properties:
+        title: Settings For Inline-block
+    - id: inlineBlock_collapse
+      type: collapse
+      properties:
+        defaultActiveKey: css
+        panels:
+          - key: css
+            title: 'css:'
+          - key: properties
+            title: 'properties:'
+          - key: actions
+            title: 'actions:'
+          - key: visible
+            title: 'visible:'
+          - key: blocks
+            title: 'blocks:'
+      blocks:
+        css:
+          - id: inlineBlock_css_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: inlineBlock_css_form
+        properties:
+          - id: inlineBlock_properties_form
+            type: box
+            css:
+              Content:
+                --gap: 0
+            blocks:
+              _var: inlineBlock_properties_form
+        actions:
+          - id: inlineBlock_actions_description
+            type: markdown
+            properties:
+              content:
+                _var: actions_description
+        visible:
+          - id: inlineBlock.visible
+            type: switch_input
+            defaultValue: true
+            properties:
+              title: visible
+              Label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
+          
+        blocks:
+          - id: inlineBlock_blocks
+            type: list
+            css:
+              Content:
+                --display: flex
+            properties:
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: inlineBlock_blocks.$.gd
+                type: box
+                css:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: inlineBlock_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### {{ name }}'
+                          on:
+                            _state: inlineBlock_blocks.$
+                  - id: inlineBlock_blocks.$.visible
+                    type: switch_input
+                    css:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: inlineBlock_blocks.$.css
+                type: text_area_input
+                css:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: css
+                  size: small
+                  rows: 3
+
+
+- id: examples_divider
+  type: divider
+  properties:
+    title: Examples
+- id: examples_grid
+  type: box
+  blocks:
+    _var: examples
