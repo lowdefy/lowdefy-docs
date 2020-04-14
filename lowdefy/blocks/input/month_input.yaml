@@ -25,7 +25,7 @@ blocks:
                     Label: 
                       _parse:
                         _state: css_label_input
-                    $input:
+                    Input:
                       _parse:
                         _state: css_input_input
                     IconSuffix:
@@ -75,7 +75,7 @@ blocks:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $input
+            title: Input
             rows: 3
             size: small
             Label:
