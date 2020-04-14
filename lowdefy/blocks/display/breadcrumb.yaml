@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: set()
+      type: setState()
       params:
         block:
           properties:

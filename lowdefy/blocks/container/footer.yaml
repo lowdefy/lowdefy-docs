@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: set()
+      type: setState()
       params:
         _ref: blocks/html_blocks.yaml
 blocks:

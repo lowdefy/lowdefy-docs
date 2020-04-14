@@ -50,7 +50,7 @@
           actions:
             onClick:
               - id: apply_properties
-                type: set()
+                type: setState()
                 params:
                   block.properties:
                     _parse:
