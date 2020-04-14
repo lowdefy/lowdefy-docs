@@ -176,7 +176,7 @@
       properties:
         defaultActiveKey: properties
         panels:
-          - key: css
+          - key: style
             title: 'style:'
           - key: properties
             title: 'properties:'

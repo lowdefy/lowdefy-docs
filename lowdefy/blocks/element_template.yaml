@@ -140,7 +140,7 @@
       properties:
         defaultActiveKey: css
         panels:
-          - key: css
+          - key: style
             title: 'style:'
           - key: properties
             title: 'properties:'
@@ -354,7 +354,7 @@
       properties:
         defaultActiveKey: css
         panels:
-          - key: css
+          - key: style
             title: 'style:'
           - key: properties
             title: 'properties:'
@@ -571,7 +571,7 @@
       properties:
         defaultActiveKey: css
         panels:
-          - key: css
+          - key: style
             title: 'style:'
           - key: properties
             title: 'properties:'
@@ -791,7 +791,7 @@
       properties:
         defaultActiveKey: css
         panels:
-          - key: css
+          - key: style
             title: 'style:'
           - key: properties
             title: 'properties:'
