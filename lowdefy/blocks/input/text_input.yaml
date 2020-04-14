@@ -332,7 +332,7 @@ blocks:
                   {
                     "id": "example_4",
                     "type": "text_input",
-                    "css": { 
+                    "style": { 
                       "Label": {
                         "--span": 3
                       }

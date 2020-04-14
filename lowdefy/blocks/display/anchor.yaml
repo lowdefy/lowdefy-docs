@@ -219,7 +219,7 @@ blocks:
                       {
                         "id": "example_3",
                         "type": "anchor",
-                        "css": {
+                        "style": {
                           "color": "red !important",
                           "fontSize": 18
                         },
@@ -270,7 +270,7 @@ blocks:
                       {
                         "id": "example_4",
                         "type": "anchor",
-                        "css": {
+                        "style": {
                           "--span": 6,
                           "color": "#000000 !important",
                           "fontSize": 16

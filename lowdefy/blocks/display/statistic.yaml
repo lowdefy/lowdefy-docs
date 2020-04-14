@@ -418,7 +418,7 @@ blocks:
                   {
                     "id": "example_6",
                     "type": "statistic",
-                    "css": {
+                    "style": {
                       "color": "green",
                       "fontWeight": "bold",
                       "fontSize": 40
