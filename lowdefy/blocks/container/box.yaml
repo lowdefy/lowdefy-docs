@@ -22,11 +22,11 @@ blocks:
         
         The default display direction for flex is row.
 
-      grid_css:
+      grid_style:
         _parse:
-          _state: grid_css_input
-      grid_css_form:
-        - id: grid_css_input
+          _state: grid_style_input
+      grid_style_form:
+        - id: grid_style_input
           type: text_area_input
           css:
             --span: 11
@@ -47,11 +47,11 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
       grid_properties_form: []
-      flex_css:
+      flex_style:
         _parse:
-          _state: flex_css_input
-      flex_css_form:
-        - id: flex_css_input
+          _state: flex_style_input
+      flex_style_form:
+        - id: flex_style_input
           type: text_area_input
           css:
             --span: 11
@@ -73,11 +73,11 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       flex_properties_form: []
       
-      block_css:
+      block_style:
         _parse:
-          _state: block_css_input
-      block_css_form:
-        - id: block_css_input
+          _state: block_style_input
+      block_style_form:
+        - id: block_style_input
           type: text_area_input
           css:
             --span: 11
@@ -99,11 +99,11 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       block_properties_form: []
       
-      inlineBlock_css:
+      inlineBlock_style:
         _parse:
-          _state: inlineBlock_css_input
-      inlineBlock_css_form:
-        - id: inlineBlock_css_input
+          _state: inlineBlock_style_input
+      inlineBlock_style_form:
+        - id: inlineBlock_style_input
           type: text_area_input
           css:
             --span: 11

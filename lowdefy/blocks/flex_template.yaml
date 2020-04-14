@@ -43,7 +43,7 @@
                 _state: flex_blocks.0.visible
               css:
                 _parse:
-                  _state: flex_blocks.0.css
+                  _state: flex_blocks.0.style
             - id: flex_2
               type: html
               properties:
@@ -52,7 +52,7 @@
                 _state: flex_blocks.1.visible
               css:
                 _parse:
-                  _state: flex_blocks.1.css
+                  _state: flex_blocks.1.style
             - id: flex_3
               type: html
               properties:
@@ -61,7 +61,7 @@
                 _state: flex_blocks.2.visible
               css:
                 _parse:
-                  _state: flex_blocks.2.css
+                  _state: flex_blocks.2.style
             - id: flex_4
               type: html
               properties:
@@ -70,7 +70,7 @@
                 _state: flex_blocks.3.visible
               css:
                 _parse:
-                  _state: flex_blocks.3.css
+                  _state: flex_blocks.3.style
             - id: flex_5
               type: html
               properties:
@@ -79,7 +79,7 @@
                 _state: flex_blocks.4.visible
               css:
                 _parse:
-                  _state: flex_blocks.4.css
+                  _state: flex_blocks.4.style
             - id: flex_6
               type: html
               properties:
@@ -88,7 +88,7 @@
                 _state: flex_blocks.5.visible
               css:
                 _parse:
-                  _state: flex_blocks.5.css
+                  _state: flex_blocks.5.style
 - id: setup_flex
   type: box
   css:
@@ -217,7 +217,7 @@
                     properties:
                       title: visible
                       size: small
-              - id: flex_blocks.$.css
+              - id: flex_blocks.$.style
                 type: text_area_input
                 css:
                   flex: auto

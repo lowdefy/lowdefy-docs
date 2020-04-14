@@ -29,7 +29,7 @@
           type:
             _var: block_type
           css:
-            _var: grid_css
+            _var: grid_style
           visible:
             _state: grid.visible
           properties:
@@ -43,7 +43,7 @@
                 _state: grid_blocks.0.visible
               css:
                 _parse:
-                  _state: grid_blocks.0.css
+                  _state: grid_blocks.0.style
             - id: grid_2
               type: html
               properties:
@@ -52,7 +52,7 @@
                 _state: grid_blocks.1.visible
               css:
                 _parse:
-                  _state: grid_blocks.1.css
+                  _state: grid_blocks.1.style
             - id: grid_3
               type: html
               properties:
@@ -61,7 +61,7 @@
                 _state: grid_blocks.2.visible
               css:
                 _parse:
-                  _state: grid_blocks.2.css
+                  _state: grid_blocks.2.style
             - id: grid_4
               type: html
               properties:
@@ -70,7 +70,7 @@
                 _state: grid_blocks.3.visible
               css:
                 _parse:
-                  _state: grid_blocks.3.css
+                  _state: grid_blocks.3.style
             - id: grid_5
               type: html
               properties:
@@ -79,7 +79,7 @@
                 _state: grid_blocks.4.visible
               css:
                 _parse:
-                  _state: grid_blocks.4.css
+                  _state: grid_blocks.4.style
             - id: grid_6
               type: html
               properties:
@@ -88,7 +88,7 @@
                 _state: grid_blocks.5.visible
               css:
                 _parse:
-                  _state: grid_blocks.5.css
+                  _state: grid_blocks.5.style
 
 - id: setup_grid
   type: box
@@ -120,7 +120,7 @@
                       type:
                         _var: block_type
                       css:
-                        _var: grid_css
+                        _var: grid_style
                       visible:
                         _state: grid.visible
                       properties:
@@ -152,13 +152,13 @@
             title: 'blocks:'
       blocks:
         css:
-          - id: grid_css_form
+          - id: grid_style_form
             type: box
             css:
               Content:
                 --gap: 0
             blocks:
-              _var: grid_css_form
+              _var: grid_style_form
         properties:
           - id: grid_properties_form
             type: box
@@ -217,7 +217,7 @@
                     properties:
                       title: visible
                       size: small
-              - id: grid_blocks.$.css
+              - id: grid_blocks.$.style
                 type: text_area_input
                 css:
                   flex: auto
@@ -243,7 +243,7 @@
           type:
             _var: block_type
           css:
-            _var: flex_css
+            _var: flex_style
           visible:
             _state: flex.visible
           properties:
@@ -257,7 +257,7 @@
                 _state: flex_blocks.0.visible
               css:
                 _parse:
-                  _state: flex_blocks.0.css
+                  _state: flex_blocks.0.style
             - id: flex_2
               type: html
               properties:
@@ -266,7 +266,7 @@
                 _state: flex_blocks.1.visible
               css:
                 _parse:
-                  _state: flex_blocks.1.css
+                  _state: flex_blocks.1.style
             - id: flex_3
               type: html
               properties:
@@ -275,7 +275,7 @@
                 _state: flex_blocks.2.visible
               css:
                 _parse:
-                  _state: flex_blocks.2.css
+                  _state: flex_blocks.2.style
             - id: flex_4
               type: html
               properties:
@@ -284,7 +284,7 @@
                 _state: flex_blocks.3.visible
               css:
                 _parse:
-                  _state: flex_blocks.3.css
+                  _state: flex_blocks.3.style
             - id: flex_5
               type: html
               properties:
@@ -293,7 +293,7 @@
                 _state: flex_blocks.4.visible
               css:
                 _parse:
-                  _state: flex_blocks.4.css
+                  _state: flex_blocks.4.style
             - id: flex_6
               type: html
               properties:
@@ -302,7 +302,7 @@
                 _state: flex_blocks.5.visible
               css:
                 _parse:
-                  _state: flex_blocks.5.css
+                  _state: flex_blocks.5.style
 
 - id: setup_flex
   type: box
@@ -334,7 +334,7 @@
                       type:
                         _var: block_type
                       css:
-                        _var: flex_css
+                        _var: flex_style
                       visible:
                         _state: flex.visible
                       properties:
@@ -366,13 +366,13 @@
             title: 'blocks:'
       blocks:
         css:
-          - id: flex_css_form
+          - id: flex_style_form
             type: box
             css:
               Content:
                 --gap: 0
             blocks:
-              _var: flex_css_form
+              _var: flex_style_form
         properties:
           - id: flex_properties_form
             type: box
@@ -431,7 +431,7 @@
                     properties:
                       title: visible
                       size: small
-              - id: flex_blocks.$.css
+              - id: flex_blocks.$.style
                 type: text_area_input
                 css:
                   flex: auto
@@ -460,7 +460,7 @@
           type:
             _var: block_type
           css:
-            _var: block_css
+            _var: block_style
           visible:
             _state: block.visible
           properties:
@@ -474,7 +474,7 @@
                 _state: block_blocks.0.visible
               css:
                 _parse:
-                  _state: block_blocks.0.css
+                  _state: block_blocks.0.style
             - id: block_2
               type: html
               properties:
@@ -483,7 +483,7 @@
                 _state: block_blocks.1.visible
               css:
                 _parse:
-                  _state: block_blocks.1.css
+                  _state: block_blocks.1.style
             - id: block_3
               type: html
               properties:
@@ -492,7 +492,7 @@
                 _state: block_blocks.2.visible
               css:
                 _parse:
-                  _state: block_blocks.2.css
+                  _state: block_blocks.2.style
             - id: block_4
               type: html
               properties:
@@ -501,7 +501,7 @@
                 _state: block_blocks.3.visible
               css:
                 _parse:
-                  _state: block_blocks.3.css
+                  _state: block_blocks.3.style
             - id: block_5
               type: html
               properties:
@@ -510,7 +510,7 @@
                 _state: block_blocks.4.visible
               css:
                 _parse:
-                  _state: block_blocks.4.css
+                  _state: block_blocks.4.style
             - id: block_6
               type: html
               properties:
@@ -519,7 +519,7 @@
                 _state: block_blocks.5.visible
               css:
                 _parse:
-                  _state: block_blocks.5.css
+                  _state: block_blocks.5.style
 
 - id: setup_block
   type: box
@@ -551,7 +551,7 @@
                       type:
                         _var: block_type
                       css:
-                        _var: block_css
+                        _var: block_style
                       visible:
                         _state: block.visible
                       properties:
@@ -583,13 +583,13 @@
             title: 'blocks:'
       blocks:
         css:
-          - id: block_css_form
+          - id: block_style_form
             type: box
             css:
               Content:
                 --gap: 0
             blocks:
-              _var: block_css_form
+              _var: block_style_form
         properties:
           - id: block_properties_form
             type: box
@@ -648,7 +648,7 @@
                     properties:
                       title: visible
                       size: small
-              - id: block_blocks.$.css
+              - id: block_blocks.$.style
                 type: text_area_input
                 css:
                   flex: auto
@@ -680,7 +680,7 @@
           type:
             _var: block_type
           css:
-            _var: inlineBlock_css
+            _var: inlineBlock_style
           visible:
             _state: inlineBlock.visible
           properties:
@@ -694,7 +694,7 @@
                 _state: inlineBlock_blocks.0.visible
               css:
                 _parse:
-                  _state: inlineBlock_blocks.0.css
+                  _state: inlineBlock_blocks.0.style
             - id: inlineBlock_2
               type: html
               properties:
@@ -703,7 +703,7 @@
                 _state: inlineBlock_blocks.1.visible
               css:
                 _parse:
-                  _state: inlineBlock_blocks.1.css
+                  _state: inlineBlock_blocks.1.style
             - id: inlineBlock_3
               type: html
               properties:
@@ -712,7 +712,7 @@
                 _state: inlineBlock_blocks.2.visible
               css:
                 _parse:
-                  _state: inlineBlock_blocks.2.css
+                  _state: inlineBlock_blocks.2.style
             - id: inlineBlock_4
               type: html
               properties:
@@ -721,7 +721,7 @@
                 _state: inlineBlock_blocks.3.visible
               css:
                 _parse:
-                  _state: inlineBlock_blocks.3.css
+                  _state: inlineBlock_blocks.3.style
             - id: inlineBlock_5
               type: html
               properties:
@@ -730,7 +730,7 @@
                 _state: inlineBlock_blocks.4.visible
               css:
                 _parse:
-                  _state: inlineBlock_blocks.4.css
+                  _state: inlineBlock_blocks.4.style
             - id: inlineBlock_6
               type: html
               properties:
@@ -739,7 +739,7 @@
                 _state: inlineBlock_blocks.5.visible
               css:
                 _parse:
-                  _state: inlineBlock_blocks.5.css
+                  _state: inlineBlock_blocks.5.style
 
 - id: setup_inlineBlock
   type: box
@@ -771,7 +771,7 @@
                       type:
                         _var: block_type
                       css:
-                        _var: inlineBlock_css
+                        _var: inlineBlock_style
                       visible:
                         _state: inlineBlock.visible
                       properties:
@@ -803,13 +803,13 @@
             title: 'blocks:'
       blocks:
         css:
-          - id: inlineBlock_css_form
+          - id: inlineBlock_style_form
             type: box
             css:
               Content:
                 --gap: 0
             blocks:
-              _var: inlineBlock_css_form
+              _var: inlineBlock_style_form
         properties:
           - id: inlineBlock_properties_form
             type: box
@@ -868,7 +868,7 @@
                     properties:
                       title: visible
                       size: small
-              - id: inlineBlock_blocks.$.css
+              - id: inlineBlock_blocks.$.style
                 type: text_area_input
                 css:
                   flex: auto

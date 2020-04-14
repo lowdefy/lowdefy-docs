@@ -24,9 +24,9 @@ blocks:
 
       css_transform:
         _parse:
-          _state: flex_css_input
+          _state: flex_style_input
       css_form:
-        - id: flex_css_input
+        - id: flex_style_input
           type: text_area_input
           css:
             --span: 11
