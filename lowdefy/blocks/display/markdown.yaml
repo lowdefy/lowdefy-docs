@@ -13,11 +13,11 @@ blocks:
       block_type: markdown
       label: false
       kind: display
-      css_transform:
+      style_transform:
         _parse:
-          _state: css_block_input
-      css_form:
-        - id: css_block_input
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
           type: text_area_input
           style:
             --span: 11

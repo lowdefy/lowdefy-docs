@@ -42,7 +42,7 @@ blocks:
       block_type: page_hcf
       label: false
       kind: container
-      css_transform:
+      style_transform:
         _get:
           key: "0"
           on:
@@ -51,18 +51,18 @@ blocks:
                 - $addFields:
                     Content:
                       _parse:
-                        _state: css_content_input
+                        _state: style_content_input
                     Footer:
                       _parse:
-                        _state: css_footer_input
+                        _state: style_footer_input
                     Header:
                       _parse:
-                        _state: css_header_input
+                        _state: style_header_input
               on:
                 _parse:
-                  _state: css_block_input
-      css_form:
-        - id: css_block_input
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
           type: text_area_input
           style:
             --span: 11
@@ -77,7 +77,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_content_input
+        - id: style_content_input
           type: text_area_input
           style:
             --span: 11
@@ -92,7 +92,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_footer_input
+        - id: style_footer_input
           type: text_area_input
           style:
             --span: 11
@@ -107,7 +107,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_header_input
+        - id: style_header_input
           type: text_area_input
           style:
             --span: 11

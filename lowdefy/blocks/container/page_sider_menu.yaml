@@ -42,7 +42,7 @@ blocks:
       block_type: page_sider_menu
       label: false
       kind: container
-      css_transform:
+      style_transform:
         _get:
           key: "0"
           on:
@@ -51,40 +51,40 @@ blocks:
                 - $addFields:
                     $breadcrumb:
                       _parse:
-                        _state: css_breadcrumb_input
+                        _state: style_breadcrumb_input
                     Content:
                       _parse:
-                        _state: css_content_input
+                        _state: style_content_input
                     ContentInner:
                       _parse:
-                        _state: css_inner_content_input
+                        _state: style_inner_content_input
                     Footer:
                       _parse:
-                        _state: css_footer_input
+                        _state: style_footer_input
                     Header:
                       _parse:
-                        _state: css_header_input
+                        _state: style_header_input
                     Layout:
                       _parse:
-                        _state: css_layout_input
+                        _state: style_layout_input
                     Menu:
                       _parse:
-                        _state: css_menu_input
+                        _state: style_menu_input
                     MenuMd:
                       _parse:
-                        _state: css_mdMenu_input
+                        _state: style_mdMenu_input
                     Sider:
                       _parse:
-                        _state: css_sider_input
+                        _state: style_sider_input
                 - $addFields:
                     Sider.Content:
                       _parse:
-                        _state: css_siderContent_input
+                        _state: style_siderContent_input
               on:
                 _parse:
-                  _state: css_block_input
-      css_form:
-        - id: css_block_input
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
           type: text_area_input
           style:
             --span: 11
@@ -99,7 +99,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_breadcrumb_input
+        - id: style_breadcrumb_input
           type: text_area_input
           style:
             --span: 11
@@ -114,7 +114,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_content_input
+        - id: style_content_input
           type: text_area_input
           style:
             --span: 11
@@ -129,7 +129,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_inner_content_input
+        - id: style_inner_content_input
           type: text_area_input
           style:
             --span: 11
@@ -144,7 +144,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_footer_input
+        - id: style_footer_input
           type: text_area_input
           style:
             --span: 11
@@ -159,7 +159,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_header_input
+        - id: style_header_input
           type: text_area_input
           style:
             --span: 11
@@ -174,7 +174,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_layout_input
+        - id: style_layout_input
           type: text_area_input
           style:
             --span: 11
@@ -189,7 +189,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_logo_input
+        - id: style_logo_input
           type: text_area_input
           style:
             --span: 11
@@ -204,7 +204,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_menu_input
+        - id: style_menu_input
           type: text_area_input
           style:
             --span: 11
@@ -219,7 +219,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_lgMenu_input
+        - id: style_lgMenu_input
           type: text_area_input
           style:
             --span: 11
@@ -234,7 +234,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_mdMenu_input
+        - id: style_mdMenu_input
           type: text_area_input
           style:
             --span: 11
@@ -249,7 +249,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_sider_input
+        - id: style_sider_input
           type: text_area_input
           style:
             --span: 11

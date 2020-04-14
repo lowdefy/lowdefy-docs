@@ -29,7 +29,7 @@ blocks:
       block_type: multiple_select_input
       label: true
       kind: input
-      css_transform:
+      style_transform:
         _get:
           key: "0"
           on:
@@ -38,24 +38,24 @@ blocks:
                 - $addFields:
                     Label: 
                       _parse:
-                        _state: css_label_input
+                        _state: style_label_input
                     Input:
                       _parse:
-                        _state: css_input_input
+                        _state: style_input_input
                     IconClear:
                       _parse:
-                        _state: css_clear_icon_input
+                        _state: style_clear_icon_input
                     IconSelected:
                       _parse:
-                        _state: css_selected_icon_input
+                        _state: style_selected_icon_input
                     IconSuffix:
                       _parse:
-                        _state: css_suffix_icon_input
+                        _state: style_suffix_icon_input
               on:
                 _parse:
-                  _state: css_block_input
-      css_form:
-        - id: css_block_input
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
           type: text_area_input
           style:
             --span: 11
@@ -70,7 +70,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_label_input
+        - id: style_label_input
           type: text_area_input
           style:
             --span: 11
@@ -85,7 +85,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_input_input
+        - id: style_input_input
           type: text_area_input
           style:
             --span: 11
@@ -100,7 +100,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_clear_icon_input
+        - id: style_clear_icon_input
           type: text_area_input
           style:
             --span: 11
@@ -115,7 +115,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_selected_icon_input
+        - id: style_selected_icon_input
           type: text_area_input
           style:
             --span: 11
@@ -130,7 +130,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_suffix_icon_input
+        - id: style_suffix_icon_input
           type: text_area_input
           style:
             --span: 11

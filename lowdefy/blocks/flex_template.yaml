@@ -29,7 +29,7 @@
           type:
             _var: block_type
           style:
-            _var: css_transform
+            _var: style_transform
           visible:
             _state: block.visible
           properties:
@@ -117,9 +117,9 @@
                     _stringify:
                       id: block_id
                       type:
-                        _state: css_transform
+                        _state: style_transform
                       style:
-                        _var: css_transform
+                        _var: style_transform
                       visible:
                         _state: block.visible
                       properties:
@@ -151,13 +151,13 @@
             title: 'blocks:'
       blocks:
         style:
-          - id: css_form
+          - id: style_form
             type: box
             style:
               Content:
                 --gap: 0
             blocks:
-              _var: css_form
+              _var: style_form
         visible:
           - id: block.visible
             type: switch_input

@@ -38,7 +38,7 @@ blocks:
       block_type: tabs
       label: false
       kind: container
-      css_transform:
+      style_transform:
         _get:
           key: "0"
           on:
@@ -47,15 +47,15 @@ blocks:
                 - $addFields:
                     Content1:
                       _parse:
-                        _state: css_content1_input
+                        _state: style_content1_input
                     Content2:
                       _parse:
-                        _state: css_content2_input
+                        _state: style_content2_input
               on:
                 _parse:
-                  _state: css_block_input
-      css_form:
-        - id: css_block_input
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
           type: text_area_input
           style:
             --span: 11
@@ -70,7 +70,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_content1_input
+        - id: style_content1_input
           type: text_area_input
           style:
             --span: 11
@@ -85,7 +85,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_content2_input
+        - id: style_content2_input
           type: text_area_input
           style:
             --span: 11

@@ -22,10 +22,10 @@ blocks:
 
         The grid area is defined with 12 explicit columns and implicit rows.
 
-      css_transform:
+      style_transform:
         _parse:
           _state: flex_style_input
-      css_form:
+      style_form:
         - id: flex_style_input
           type: text_area_input
           style:

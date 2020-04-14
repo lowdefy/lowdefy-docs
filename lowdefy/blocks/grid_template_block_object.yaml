@@ -31,7 +31,7 @@
           type:
             _var: block_type
           style:
-            _var: css_transform
+            _var: style_transform
           visible:
             _state: block.visible
           properties:
@@ -160,7 +160,7 @@
                       type:
                         _var: block_type
                       style:
-                        _var: css_transform
+                        _var: style_transform
                       visible:
                         _state: block.visible
                       properties:

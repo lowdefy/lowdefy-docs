@@ -31,7 +31,7 @@
           type:
             _var: block_type
           style:
-            _var: css_transform
+            _var: style_transform
           visible:
             _state: block.visible
           properties:
@@ -156,7 +156,7 @@
                       type:
                         _var: block_type
                       style:
-                        _var: css_transform
+                        _var: style_transform
                       visible:
                         _state: block.visible
                       properties:
@@ -186,13 +186,13 @@
             title: 'visible:'
       blocks:
         style:
-          - id: css_form
+          - id: style_form
             type: box
             style:
               Content:
                 --gap: 0
             blocks:
-              _var: css_form
+              _var: style_form
         visible:
           - id: block.visible
             type: switch_input

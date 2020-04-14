@@ -30,7 +30,7 @@ blocks:
       block_type: card
       label: false
       kind: container
-      css_transform:
+      style_transform:
         _get:
           key: "0"
           on:
@@ -39,18 +39,18 @@ blocks:
                 - $addFields:
                     Content:
                       _parse:
-                        _state: css_content_input
+                        _state: style_content_input
                     Header:
                       _parse:
-                        _state: css_header_input
+                        _state: style_header_input
                     Body:
                       _parse:
-                        _state: css_body_input
+                        _state: style_body_input
               on:
                 _parse:
-                  _state: css_block_input
-      css_form:
-        - id: css_block_input
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
           type: text_area_input
           style:
             --span: 11
@@ -65,7 +65,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_body_input
+        - id: style_body_input
           type: text_area_input
           style:
             --span: 11
@@ -80,7 +80,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_content_input
+        - id: style_content_input
           type: text_area_input
           style:
             --span: 11
@@ -95,7 +95,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: css_header_input
+        - id: style_header_input
           type: text_area_input
           style:
             --span: 11
