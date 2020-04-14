@@ -138,7 +138,7 @@
     - id: grid_collapse
       type: collapse
       properties:
-        defaultActiveKey: css
+        defaultActiveKey: style
         panels:
           - key: style
             title: 'style:'
@@ -352,7 +352,7 @@
     - id: flex_collapse
       type: collapse
       properties:
-        defaultActiveKey: css
+        defaultActiveKey: style
         panels:
           - key: style
             title: 'style:'
@@ -569,7 +569,7 @@
     - id: block_collapse
       type: collapse
       properties:
-        defaultActiveKey: css
+        defaultActiveKey: style
         panels:
           - key: style
             title: 'style:'
@@ -789,7 +789,7 @@
     - id: inlineBlock_collapse
       type: collapse
       properties:
-        defaultActiveKey: css
+        defaultActiveKey: style
         panels:
           - key: style
             title: 'style:'
