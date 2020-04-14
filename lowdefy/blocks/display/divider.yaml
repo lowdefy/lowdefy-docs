@@ -19,7 +19,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -37,7 +37,7 @@ blocks:
       properties_form:
         - id: block.properties.title
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -48,7 +48,7 @@ blocks:
         - id: block.properties.dashed
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -59,7 +59,7 @@ blocks:
         - id: block.properties.orientation
           type: radio_button_input
           defaultValue: center
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -74,7 +74,7 @@ blocks:
         - id: block.properties.type
           type: radio_button_input
           defaultValue: horizontal
-          css:
+          style:
             Label:
               --span: 2
           properties:

@@ -29,7 +29,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -44,7 +44,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -63,7 +63,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -74,7 +74,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -93,7 +93,7 @@ blocks:
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -112,7 +112,7 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_1_title
@@ -126,7 +126,7 @@ blocks:
                     title: Click here
             - id: example_1_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_1_code
@@ -147,7 +147,7 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_2_title
@@ -157,7 +157,7 @@ blocks:
                       ##### Bold text and icon
                 - id: example_2
                   type: anchor
-                  css:
+                  style:
                     --span: 6
                   properties:
                     title: Click here
@@ -165,7 +165,7 @@ blocks:
                     Icon: LinkOutlined
             - id: example_2_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_2_code
@@ -188,7 +188,7 @@ blocks:
           blocks:
             - id: example_3_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_3_title
@@ -198,7 +198,7 @@ blocks:
                       ##### Custom text and icon style
                 - id: example_3
                   type: anchor
-                  css:
+                  style:
                     fontSize: 18
                     color: 'red !important'
                   properties:
@@ -208,7 +208,7 @@ blocks:
                       name: RocketTwoTone
             - id: example_3_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_3_code
@@ -237,7 +237,7 @@ blocks:
           blocks:
             - id: example_4_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_4_title
@@ -247,7 +247,7 @@ blocks:
                       ##### Style text and icon separately
                 - id: example_4
                   type: anchor
-                  css:
+                  style:
                     color: "#000000 !important"
                     fontSize: 16
                     Icon:
@@ -259,7 +259,7 @@ blocks:
                       name: FireFilled
             - id: example_4_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_4_code

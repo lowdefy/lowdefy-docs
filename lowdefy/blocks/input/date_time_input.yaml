@@ -37,7 +37,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -52,7 +52,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -67,7 +67,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -82,7 +82,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_suffix_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -101,7 +101,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -112,7 +112,7 @@ blocks:
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -123,7 +123,7 @@ blocks:
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -134,7 +134,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -145,7 +145,7 @@ blocks:
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD HH:mm
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -156,7 +156,7 @@ blocks:
         - id: block.properties.hourStep
           type: number_input
           defaultValue: 1
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -167,7 +167,7 @@ blocks:
         - id: block.properties.minuteStep
           type: number_input
           defaultValue: 5
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -178,7 +178,7 @@ blocks:
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select Date & Time
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -189,7 +189,7 @@ blocks:
         - id: block.properties.secondStep
           type: number_input
           defaultValue: 30
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -200,7 +200,7 @@ blocks:
         - id: block.properties.selectGMT
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -211,7 +211,7 @@ blocks:
         - id: block.properties.showToday
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -222,7 +222,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -245,7 +245,7 @@ blocks:
         - id: block.properties.timeFormat
           type: text_input
           defaultValue: HH:mm
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -264,13 +264,13 @@ blocks:
           blocks:
             - id: example_1
               type: date_time_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Date Time input
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -287,7 +287,7 @@ blocks:
           blocks:
             - id: example_2
               type: date_time_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: showToday and IconSuffix
@@ -297,7 +297,7 @@ blocks:
                   extra: Disable now button and change the suffix icon.
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -319,7 +319,7 @@ blocks:
           blocks:
             - id: example_3
               type: date_time_input
-              css:
+              style:
                 --span: 6
               defaultValue:
                 _date: 1993-02-02T06:00:00
@@ -330,7 +330,7 @@ blocks:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -354,7 +354,7 @@ blocks:
           blocks:
             - id: example_4
               type: date_time_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Time steps
@@ -366,7 +366,7 @@ blocks:
                   extra: Change the time step intervals.
             - id: example_4_code
               type: markdown
-              css:
+              style:
                 block:
                   --span: 6
               properties:

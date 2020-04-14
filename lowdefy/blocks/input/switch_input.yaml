@@ -38,7 +38,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -53,7 +53,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -68,7 +68,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -83,7 +83,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_checked_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -98,7 +98,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_unchecked_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -117,7 +117,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -128,7 +128,7 @@ blocks:
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -139,7 +139,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -150,7 +150,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -163,7 +163,7 @@ blocks:
               - default
         - id: block.properties.checkedText
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -173,7 +173,7 @@ blocks:
               extra: Text to shown when switch is checked (true).
         - id: block.properties.uncheckedText
           type: text_input
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -206,13 +206,13 @@ blocks:
           blocks:
             - id: example_1
               type: switch_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Switch input
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -230,7 +230,7 @@ blocks:
           blocks:
             - id: example_2
               type: switch_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Icons
@@ -240,7 +240,7 @@ blocks:
                   extra: Custom checked and unchecked icons.
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -263,7 +263,7 @@ blocks:
           blocks:
             - id: example_3
               type: switch_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: No Icons
@@ -273,7 +273,7 @@ blocks:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |

@@ -19,7 +19,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -38,7 +38,7 @@ blocks:
         - id: block.properties.code
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -49,7 +49,7 @@ blocks:
         - id: block.properties.content
           type: text_input
           defaultValue: A vigilante is just a man lost in scramble for his own gratification. He can be destroyed or locked up. But if you make yourself more than just a man, if you devote yourself to an ideal and if they can’t stop you then you become something else entirely. Legend, Mr Wayne
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -60,7 +60,7 @@ blocks:
         - id: block.properties.copyable
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -71,7 +71,7 @@ blocks:
         - id: block.properties.delete
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -82,7 +82,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -93,7 +93,7 @@ blocks:
         - id: block.properties.ellipsis
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -104,7 +104,7 @@ blocks:
         - id: block.properties.mark
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -115,7 +115,7 @@ blocks:
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -125,7 +125,7 @@ blocks:
               extra: Apply strong style
         - id: block.properties.type
           type: select_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -141,7 +141,7 @@ blocks:
         - id: block.properties.underline
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:

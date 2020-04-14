@@ -1,6 +1,6 @@
 - id: block.properties.breakpoint
   type: radio_button_input
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -17,7 +17,7 @@
 - id: block.properties.collapsed
   type: switch_input
   defaultValue: false
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -28,7 +28,7 @@
 - id: block.properties.collapsedWidth
   type: number_input
   defaultValue: 80
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -39,7 +39,7 @@
 - id: block.properties.collapsible
   type: switch_input
   defaultValue: false
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -50,7 +50,7 @@
 - id: block.properties.defaultCollapsed
   type: switch_input
   defaultValue: false
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -61,7 +61,7 @@
 - id: block.properties.reverseArrow
   type: switch_input
   defaultValue: false
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -72,7 +72,7 @@
 - id: block.properties.theme
   type: radio_button_input
   defaultValue: dark
-  css:
+  style:
     Label:
       --span: 2
   properties:
@@ -86,7 +86,7 @@
 - id: block.properties.width
   type: number_input
   defaultValue: 80
-  css:
+  style:
     Label:
       --span: 2
   properties:

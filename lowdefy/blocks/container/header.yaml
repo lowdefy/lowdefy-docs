@@ -28,7 +28,7 @@ blocks:
       css_form:
         - id: flex_style_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -50,7 +50,7 @@ blocks:
         - id: block.properties.theme
           type: radio_button_input
           defaultValue: dark
-          css:
+          style:
             Label:
               --span: 2
           properties:

@@ -47,7 +47,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -62,7 +62,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -77,7 +77,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -92,7 +92,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_suffix_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -111,7 +111,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -122,7 +122,7 @@ blocks:
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -133,7 +133,7 @@ blocks:
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -144,7 +144,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -155,7 +155,7 @@ blocks:
         - id: block.properties.format
           type: text_input
           defaultValue: YYYY-MM-DD
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -181,7 +181,7 @@ blocks:
         - id: block.properties.separator
           type: text_input
           defaultValue: "~"
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -192,7 +192,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -223,13 +223,13 @@ blocks:
           blocks:
             - id: example_1
               type: date_range_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Date input
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -246,7 +246,7 @@ blocks:
           blocks:
             - id: example_2
               type: date_range_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Placeholder, separator and suffix icon
@@ -259,7 +259,7 @@ blocks:
                 IconSuffix: ThunderboltOutlined
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -282,7 +282,7 @@ blocks:
           blocks:
             - id: example_3
               type: date_range_input
-              css:
+              style:
                 --span: 6
               defaultValue:
                 - _date: 1955-11-12
@@ -294,7 +294,7 @@ blocks:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |

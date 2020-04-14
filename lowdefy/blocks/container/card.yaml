@@ -52,7 +52,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -67,7 +67,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_body_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -82,7 +82,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -97,7 +97,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_header_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -114,7 +114,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -125,7 +125,7 @@ blocks:
         - id: block.properties.bordered
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -136,7 +136,7 @@ blocks:
         - id: block.properties.hoverable
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -147,7 +147,7 @@ blocks:
         - id: block.properties.loading
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -158,7 +158,7 @@ blocks:
         - id: block.properties.inner
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -169,7 +169,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:

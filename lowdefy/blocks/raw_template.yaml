@@ -18,13 +18,13 @@
           _var: description_content
     - id: block_card
       type: card
-      css:
+      style:
         --span: 7
       blocks:
         - id: block_name
           type:
             _var: block_type
-          css:
+          style:
             _var: css_transform
           visible:
             _state: block.visible
@@ -32,7 +32,7 @@
             _state: block.properties
     - id: settings_card
       type: card
-      css:
+      style:
         --span: 5
       blocks:
         - id: properties_input

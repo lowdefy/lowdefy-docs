@@ -29,7 +29,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -44,7 +44,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -63,7 +63,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -74,7 +74,7 @@ blocks:
         - id: block.properties.block
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -85,7 +85,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -96,7 +96,7 @@ blocks:
         - id: block.properties.ghost
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -107,7 +107,7 @@ blocks:
         - id: block.properties.hideActionLoading
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -118,7 +118,7 @@ blocks:
         - id: block.properties.hideTitle
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -128,7 +128,7 @@ blocks:
               extra: Hide the buttons title.
         - id: block.properties.href
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -145,7 +145,7 @@ blocks:
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: square
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -160,7 +160,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -175,7 +175,7 @@ blocks:
         - id: block.properties.type
           type: radio_button_input
           defaultValue: primary
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -200,7 +200,7 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_1_title
@@ -214,7 +214,7 @@ blocks:
                     title: Click here
             - id: example_1_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_1_code
@@ -235,7 +235,7 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_2_title
@@ -252,7 +252,7 @@ blocks:
                     Icon: RocketOutlined
             - id: example_2_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_2_code
@@ -276,7 +276,7 @@ blocks:
           blocks:
             - id: example_3_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_3_title
@@ -294,7 +294,7 @@ blocks:
                     type: danger
             - id: example_3_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_3_code

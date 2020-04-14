@@ -32,7 +32,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -47,7 +47,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -62,7 +62,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -81,7 +81,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -92,7 +92,7 @@ blocks:
         - id: block.properties.allowClear
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -103,7 +103,7 @@ blocks:
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -128,7 +128,7 @@ blocks:
         - id: block.properties.autoRows
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           visible:
@@ -141,7 +141,7 @@ blocks:
               extra: Automatically extend the block number of rows.
         - id: block.properties.autoRows.minRows
           type: number_input
-          css:
+          style:
             Label:
               --span: 4
           visible:
@@ -154,7 +154,7 @@ blocks:
               extra: Minimum number of rows the block can be.
         - id: block.properties.autoRows.maxRows
           type: number_input
-          css:
+          style:
             Label:
               --span: 4
           visible:
@@ -168,7 +168,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -178,7 +178,7 @@ blocks:
               extra: Disable the block if true.
         - id: block.properties.placeholder
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -188,7 +188,7 @@ blocks:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.rows
           type: number_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -209,13 +209,13 @@ blocks:
           blocks:
             - id: example_1
               type: text_area_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Text Area input
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -233,13 +233,13 @@ blocks:
           blocks:
             - id: example_2
               type: text_area_input
-              css:
+              style:
                 --span: 6
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -256,7 +256,7 @@ blocks:
           blocks:
             - id: example_3
               type: text_area_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Rows
@@ -265,7 +265,7 @@ blocks:
                   extra: Define fixed number of rows for text area.
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -286,7 +286,7 @@ blocks:
           blocks:
             - id: example_4
               type: text_area_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Auto Rows
@@ -297,7 +297,7 @@ blocks:
                   maxRows: 6
             - id: example_4_code
               type: markdown
-              css:
+              style:
                   -span: 6
               properties:
                 content: |

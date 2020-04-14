@@ -22,13 +22,13 @@
         title: Block
     - id: block_wrap2
       type: box
-      css:
+      style:
         --span: 12
       blocks:
         - id: block_name
           type:
             _var: block_type
-          css:
+          style:
             _var: css_transform
           visible:
             _state: block.visible
@@ -41,7 +41,7 @@
                 html: '<div>ONE</div>'
               visible:
                 _state: flex_blocks.0.visible
-              css:
+              style:
                 _parse:
                   _state: flex_blocks.0.style
             - id: flex_2
@@ -50,7 +50,7 @@
                 html: '<div>TWO</div>'
               visible:
                 _state: flex_blocks.1.visible
-              css:
+              style:
                 _parse:
                   _state: flex_blocks.1.style
             - id: flex_3
@@ -59,7 +59,7 @@
                 html: '<div>THREE</div>'
               visible:
                 _state: flex_blocks.2.visible
-              css:
+              style:
                 _parse:
                   _state: flex_blocks.2.style
             - id: flex_4
@@ -68,7 +68,7 @@
                 html: '<div>FOUR</div>'
               visible:
                 _state: flex_blocks.3.visible
-              css:
+              style:
                 _parse:
                   _state: flex_blocks.3.style
             - id: flex_5
@@ -77,7 +77,7 @@
                 html: '<div>FIVE</div>'
               visible:
                 _state: flex_blocks.4.visible
-              css:
+              style:
                 _parse:
                   _state: flex_blocks.4.style
             - id: flex_6
@@ -86,12 +86,12 @@
                 html: '<div>SIX</div>'
               visible:
                 _state: flex_blocks.5.visible
-              css:
+              style:
                 _parse:
                   _state: flex_blocks.5.style
 - id: setup_flex
   type: box
-  css:
+  style:
     --span: 6
   blocks:
     - id: setup_divider
@@ -118,7 +118,7 @@
                       id: block_id
                       type:
                         _state: css_transform
-                      css:
+                      style:
                         _var: css_transform
                       visible:
                         _state: block.visible
@@ -127,7 +127,7 @@
 
 - id: settings_grid
   type: box
-  css:
+  style:
     --span: 6
   blocks:
     - id: settings_divider
@@ -140,7 +140,7 @@
         defaultActiveKey: properties
         panels:
           - key: css
-            title: 'css:'
+            title: 'style:'
           - key: properties
             title: 'properties:'
           - key: actions
@@ -150,10 +150,10 @@
           - key: blocks
             title: 'blocks:'
       blocks:
-        css:
+        style:
           - id: css_form
             type: box
-            css:
+            style:
               Content:
                 --gap: 0
             blocks:
@@ -172,7 +172,7 @@
         properties:
           - id: flex_properties_form
             type: box
-            css:
+            style:
               Content:
                 --gap: 0
             blocks:
@@ -187,7 +187,7 @@
         blocks:
           - id: flex_blocks
             type: list
-            css:
+            style:
               Content:
                 --display: flex
             properties:
@@ -196,7 +196,7 @@
             blocks:
               - id: flex_blocks.$.gd
                 type: box
-                css:
+                style:
                   flex: 0 0 15ch
                   Content:
                     --display: flex
@@ -211,7 +211,7 @@
                             _state: flex_blocks.$
                   - id: flex_blocks.$.visible
                     type: switch_input
-                    css:
+                    style:
                       Label:
                         --inline: true
                     properties:
@@ -219,7 +219,7 @@
                       size: small
               - id: flex_blocks.$.style
                 type: text_area_input
-                css:
+                style:
                   flex: auto
                   Label:
                     --inline: true

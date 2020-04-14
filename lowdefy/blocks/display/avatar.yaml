@@ -29,7 +29,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -44,7 +44,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -62,7 +62,7 @@ blocks:
       properties_form:
         - id: block.properties.alt
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -72,7 +72,7 @@ blocks:
               extra: This attribute defines the alternative text describing the image
         - id: block.properties.content
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -89,7 +89,7 @@ blocks:
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: circle
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -103,7 +103,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -117,7 +117,7 @@ blocks:
               - large
         - id: block.properties.src
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:

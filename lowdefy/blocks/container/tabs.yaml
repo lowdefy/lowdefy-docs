@@ -57,7 +57,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -72,7 +72,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content1_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -87,7 +87,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content2_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -103,7 +103,7 @@ blocks:
       properties_form:
         - id: activeKey
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -114,7 +114,7 @@ blocks:
         - id: defaultActiveKey
           type: text_input
           defaultValue: content1
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -125,7 +125,7 @@ blocks:
         - id: animated
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -136,7 +136,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -151,7 +151,7 @@ blocks:
         - id: block.properties.tabPosition
           type: radio_button_input
           defaultValue: top
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -173,7 +173,7 @@ blocks:
             - id: block.properties.tabs.$.title
               type: text_input
               defaultValue: title
-              css:
+              style:
                 Label:
                   --span: 2
               properties:
@@ -184,7 +184,7 @@ blocks:
             - id: block.properties.tabs.$.key
               type: text_input
               defaultValue: key
-              css:
+              style:
                 Label:
                   --span: 2
               properties:
@@ -201,7 +201,7 @@ blocks:
             - id: block.properties.tabs.$.disabled
               type: switch_input
               defaultValue: false
-              css:
+              style:
                 Label:
                   --span: 2
               properties:
@@ -212,7 +212,7 @@ blocks:
         - id: block.properties.tabType
           type: radio_button_input
           defaultValue: line
-          css:
+          style:
             Label:
               --span: 2
           properties:

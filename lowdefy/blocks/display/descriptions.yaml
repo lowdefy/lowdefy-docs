@@ -19,7 +19,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -38,7 +38,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -49,7 +49,7 @@ blocks:
         - id: block.properties.bordered
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -60,7 +60,7 @@ blocks:
         - id: block.properties.column
           type: number_input
           defaultValue: 3
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -71,7 +71,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -86,7 +86,7 @@ blocks:
         - id: block.properties.layout
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -100,7 +100,7 @@ blocks:
         - id: block.properties.colon
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -118,7 +118,7 @@ blocks:
             - id: block.properties.items.$.label
               type: text_input
               defaultValue: Label
-              css:
+              style:
                 --span: 4
               properties:
                 title: label
@@ -128,7 +128,7 @@ blocks:
             - id: block.properties.items.$.value
               type: text_input
               defaultValue: Value
-              css:
+              style:
                 --span: 4
               properties:
                 title: value
@@ -137,7 +137,7 @@ blocks:
                   extra: Value selected
             - id: block.properties.items.$.span
               type: number_input
-              css:
+              style:
                 --span: 4
               properties:
                 title: span

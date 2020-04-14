@@ -48,7 +48,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -63,7 +63,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -78,7 +78,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -113,7 +113,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -124,7 +124,7 @@ blocks:
         - id: block.properties.buttonStyle
           type: radio_button_input
           defaultValue: solid
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -138,7 +138,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -178,7 +178,7 @@ blocks:
             - id: block.properties.options.$.label
               type: text_input
               defaultValue: Label
-              css:
+              style:
                 Label:
                   --span: 2
               visible:
@@ -192,7 +192,7 @@ blocks:
             - id: block.properties.options.$.value
               type: text_input
               defaultValue: Value
-              css:
+              style:
                 Label:
                   --span: 2
               visible:
@@ -206,7 +206,7 @@ blocks:
             - id: block.properties.options.$.disabled
               type: switch_input
               defaultValue: false
-              css:
+              style:
                 Label:
                   --span: 2
               visible:
@@ -220,7 +220,7 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -243,7 +243,7 @@ blocks:
           blocks:
             - id: example_1
               type: radio_button_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Primitive options
@@ -253,7 +253,7 @@ blocks:
                   - C
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -271,7 +271,7 @@ blocks:
           blocks:
             - id: example_2
               type: radio_button_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Object options
@@ -289,7 +289,7 @@ blocks:
                     label: Denethor
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -328,7 +328,7 @@ blocks:
           blocks:
             - id: example_3
               type: radio_button_input
-              css:
+              style:
                 --span: 6
               defaultValue: B
               properties:
@@ -345,7 +345,7 @@ blocks:
                     label: Celeborn
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |

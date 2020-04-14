@@ -14,7 +14,7 @@
           _var: description_content
 - id: c1
   type: box
-  css:
+  style:
     --span: 6
   blocks:
     - id: block_divider
@@ -27,7 +27,7 @@
         - id: block_id
           type:
             _var: block_type
-          css:
+          style:
             _var: css_transform
           visible:
             _state: block.visible
@@ -93,7 +93,7 @@
                       id: block_id
                       type:
                         _var: block_type
-                      css:
+                      style:
                         _var: css_transform
                       visible:
                         _state: block.visible
@@ -101,7 +101,7 @@
                         _state: block.properties
 - id: settings_grid
   type: box
-  css:
+  style:
     --span: 6
   blocks:
     - id: settings_divider
@@ -114,7 +114,7 @@
         defaultActiveKey: properties
         panels:
           - key: css
-            title: 'css:'
+            title: 'style:'
           - key: properties
             title: 'properties:'
           - key: actions
@@ -124,10 +124,10 @@
           - key: visible
             title: 'visible:'
       blocks:
-        css:
+        style:
           - id: css_form
             type: box
-            css:
+            style:
               Content:
                 --gap: 0
             blocks:
@@ -156,7 +156,7 @@
         properties:
           - id: properties_form
             type: box
-            css:
+            style:
               Content:
                 --gap: 0
             blocks:

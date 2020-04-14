@@ -28,7 +28,7 @@ blocks:
       grid_style_form:
         - id: grid_style_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -53,7 +53,7 @@ blocks:
       flex_style_form:
         - id: flex_style_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -79,7 +79,7 @@ blocks:
       block_style_form:
         - id: block_style_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -105,7 +105,7 @@ blocks:
       inlineBlock_style_form:
         - id: inlineBlock_style_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11

@@ -19,7 +19,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -38,7 +38,7 @@ blocks:
         - id: block.properties.name
           type: select_input
           defaultValue: FireOutlined
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -52,7 +52,7 @@ blocks:
         - id: block.properties.rotate
           type: number_input
           defaultValue: 0
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -63,7 +63,7 @@ blocks:
         - id: block.properties.spin
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -74,7 +74,7 @@ blocks:
         - id: block.properties.twoToneColor
           type: color_picker_input
           defaultValue: "#08c"
-          css:
+          style:
             Label:
               --span: 4
           properties:
@@ -87,7 +87,7 @@ blocks:
         - id: block.properties.disableLoadingIcon
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 4
           properties:
@@ -98,7 +98,7 @@ blocks:
         - id: block.properties.hideLoadingMessage
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 4
           properties:

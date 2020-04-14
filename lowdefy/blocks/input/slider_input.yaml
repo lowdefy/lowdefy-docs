@@ -38,7 +38,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -53,7 +53,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -68,7 +68,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -83,7 +83,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_max_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -98,7 +98,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_min_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -117,7 +117,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -128,7 +128,7 @@ blocks:
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -139,7 +139,7 @@ blocks:
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -150,7 +150,7 @@ blocks:
         - id: block.properties.disableIcons
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -176,7 +176,7 @@ blocks:
         - id: block.properties.min
           type: number_input
           defaultValue: 0
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -187,7 +187,7 @@ blocks:
         - id: block.properties.max
           type: number_input
           defaultValue: 10
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -198,7 +198,7 @@ blocks:
         - id: block.properties.notApplicableLabel
           type: text_input
           defaultValue: N/A
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -209,7 +209,7 @@ blocks:
         - id: block.properties.showDots
           type: switch_input
           defaultValue: true
-          css:
+          style:
             label:
               --span: 2
           properties:
@@ -220,7 +220,7 @@ blocks:
         - id: block.properties.showMarks
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -231,7 +231,7 @@ blocks:
         - id: block.properties.step
           type: number_input
           defaultValue: 1
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -242,7 +242,7 @@ blocks:
         - id: block.properties.tooltipVisible
           type: radio_button_input
           defaultValue: onClick
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -265,13 +265,13 @@ blocks:
           blocks:
             - id: example_1
               type: slider_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Slider input
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -289,7 +289,7 @@ blocks:
           blocks:
             - id: example_2
               type: slider_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Icons
@@ -297,7 +297,7 @@ blocks:
                 IconMax: LikeFilled
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -318,14 +318,14 @@ blocks:
           blocks:
             - id: example_3
               type: slider_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: Disable Icons
                 disableIcons: true
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -344,7 +344,7 @@ blocks:
           blocks:
             - id: example_4
               type: slider_input
-              css:
+              style:
                 --span: 6
               properties:
                 title: No Marks or Dots
@@ -352,7 +352,7 @@ blocks:
                 showMarks: false
             - id: example_4_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -373,13 +373,13 @@ blocks:
             - id: example_5
               type: slider_input
               defaultValue: 4
-              css:
+              style:
                 --span: 6
               properties:
                 title: Default Value
             - id: example_5_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |

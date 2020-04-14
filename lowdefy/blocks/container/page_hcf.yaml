@@ -64,7 +64,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -79,7 +79,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -94,7 +94,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_footer_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -109,7 +109,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_header_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11

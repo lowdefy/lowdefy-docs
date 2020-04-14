@@ -28,7 +28,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -63,7 +63,7 @@ blocks:
         - id: block.properties.title
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -74,7 +74,7 @@ blocks:
         - id: block.properties.active
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -99,7 +99,7 @@ blocks:
         - id: block.properties.avatar.boolean
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           visible:
@@ -112,7 +112,7 @@ blocks:
               extra: Show avatar placeholder.
         - id: block.properties.avatar.shape
           type: radio_button_input
-          css:
+          style:
             Label:
               --span: 2
           visible:
@@ -130,7 +130,7 @@ blocks:
         - id: block.properties.paragraph
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -141,7 +141,7 @@ blocks:
         - id: block.properties.title
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -159,7 +159,7 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_1_title
@@ -171,7 +171,7 @@ blocks:
                   type: skeleton
             - id: example_1_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_1_code
@@ -190,7 +190,7 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_2_title
@@ -204,7 +204,7 @@ blocks:
                     active: false
             - id: example_2_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_2_code
@@ -226,7 +226,7 @@ blocks:
           blocks:
             - id: example_3_block_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_3_title
@@ -241,7 +241,7 @@ blocks:
                     title: false
             - id: example_3_code_grid
               type: box
-              css:
+              style:
                 --span: 6
               blocks:
                 - id: example_3_code

@@ -66,7 +66,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -85,7 +85,7 @@ blocks:
         - id: block.properties.mode
           type: radio_button_input
           defaultValue: vertical
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -99,7 +99,7 @@ blocks:
         - id: block.properties.theme
           type: radio_button_input
           defaultValue: dark
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -112,7 +112,7 @@ blocks:
         - id: block.properties.selectable
           type: switch_input
           defaultValue: true
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -121,7 +121,7 @@ blocks:
               extra: Allows selecting menu items
         - id: block.properties.selectedKeys
           type: multiple_select_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -138,7 +138,7 @@ blocks:
               - page_5
         - id: block.properties.subMenuCloseDelay
           type: number_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -147,7 +147,7 @@ blocks:
               extra: Delay time to hide submenu when mouse leaves (in seconds)
         - id: block.properties.subMenuOpenDelay
           type: number_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -163,7 +163,7 @@ blocks:
             - id: block.properties.links.$.id
               type: text_input
               defaultValue: id_i
-              css:
+              style:
                 Label:
                   --span: 2
               properties:
@@ -174,7 +174,7 @@ blocks:
             - id: block.properties.links.$.type
               type: radio_button_input
               defaultValue: menu_link
-              css:
+              style:
                 Label:
                   --span: 2
               properties:
@@ -191,7 +191,7 @@ blocks:
                 _eq:
                   - _state: block.properties.links.$.type
                   - menu_link
-              css:
+              style:
                 Label:
                   --span: 2
               properties:
@@ -207,7 +207,7 @@ blocks:
               blocks:
                 - id: block.properties.links.$.properties.title
                   type: text_input
-                  css:
+                  style:
                     Label:
                       --span: 2
                   properties:
@@ -217,7 +217,7 @@ blocks:
                 - id: block.properties.links.$.properties.collapsed
                   type: switch_input
                   defaultValue: true
-                  css:
+                  style:
                     Label:
                       --span: 2
                   properties:
@@ -230,7 +230,7 @@ blocks:
                     _eq:
                       - _state: block.properties.links.$.type
                       - menu_group
-                  css:
+                  style:
                     Label:
                       --span: 2
                   properties:
@@ -253,7 +253,7 @@ blocks:
                 - id: block.properties.links.$.links.$.id
                   type: text_input
                   defaultValue: id_k
-                  css:
+                  style:
                     Label:
                       --span: 2
                   properties:
@@ -264,7 +264,7 @@ blocks:
                 - id: block.properties.links.$.links.$.type
                   type: radio_button_input
                   defaultValue: menu_link
-                  css:
+                  style:
                     Label:
                       --span: 2
                   properties:
@@ -276,7 +276,7 @@ blocks:
                       - menu_link
                 - id: block.properties.links.$.links.$.pageId
                   type: text_input
-                  css:
+                  style:
                     Label:
                       --span: 2
                   properties:
@@ -292,7 +292,7 @@ blocks:
                   blocks:
                     - id: block.properties.links.$.links.$.properties.title
                       type: text_input
-                      css:
+                      style:
                         Label:
                           --span: 2
                       properties:

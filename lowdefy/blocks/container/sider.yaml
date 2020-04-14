@@ -49,7 +49,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -64,7 +64,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_content_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -79,7 +79,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_zeroWidthTriggerStyle_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -96,7 +96,7 @@ blocks:
       properties_form:
         - id: block.properties.breakpoint
           type: radio_button_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -113,7 +113,7 @@ blocks:
         - id: block.properties.collapsed
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -124,7 +124,7 @@ blocks:
         - id: block.properties.collapsedWidth
           type: number_input
           defaultValue: 80
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -135,7 +135,7 @@ blocks:
         - id: block.properties.collapsible
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -146,7 +146,7 @@ blocks:
         - id: block.properties.defaultCollapsed
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -157,7 +157,7 @@ blocks:
         - id: block.properties.reverseArrow
           type: switch_input
           defaultValue: false
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -168,7 +168,7 @@ blocks:
         - id: block.properties.theme
           type: radio_button_input
           defaultValue: dark
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -182,7 +182,7 @@ blocks:
         - id: block.properties.width
           type: number_input
           defaultValue: 80
-          css:
+          style:
             Label:
               --span: 2
           properties:

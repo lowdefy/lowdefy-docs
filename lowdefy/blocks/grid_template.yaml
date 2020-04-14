@@ -15,7 +15,7 @@
 
 - id: c1
   type: box
-  css:
+  style:
     --span: 6
   blocks:
     - id: block_divider
@@ -24,13 +24,13 @@
         title: Block
     - id: block_wrap2
       type: box
-      css:
+      style:
         --span: 12
       blocks:
         - id: block_name
           type:
             _var: block_type
-          css:
+          style:
             _var: css_transform
           visible:
             _state: block.visible
@@ -44,7 +44,7 @@
                 title: "1"
               visible:
                 _state: visible_subblock_1
-              css:
+              style:
                 --span:
                   _state: span_subblock_1
             - id: subblock_2
@@ -54,7 +54,7 @@
                 title: "2"
               visible:
                 _state: visible_subblock_2
-              css:
+              style:
                 --span:
                   _state: span_subblock_2
             - id: subblock_3
@@ -64,7 +64,7 @@
                 title: "3"
               visible:
                 _state: visible_subblock_3
-              css:
+              style:
                 --span:
                   _state: span_subblock_3
             - id: subblock_4
@@ -74,7 +74,7 @@
                 title: "4"
               visible:
                 _state: visible_subblock_4
-              css:
+              style:
                 --span:
                   _state: span_subblock_4
             - id: subblock_5
@@ -84,7 +84,7 @@
                 title: "5"
               visible:
                 _state: visible_subblock_5
-              css:
+              style:
                 --span:
                   _state: span_subblock_5
             - id: subblock_6
@@ -94,7 +94,7 @@
                 title: "6"
               visible:
                 _state: visible_subblock_6
-              css:
+              style:
                 --span:
                   _state: span_subblock_6
     - id: state_divider
@@ -155,7 +155,7 @@
                       id: block_id
                       type:
                         _var: block_type
-                      css:
+                      style:
                         _var: css_transform
                       visible:
                         _state: block.visible
@@ -164,7 +164,7 @@
 
 - id: settings_grid
   type: box
-  css:
+  style:
     --span: 6
   blocks:
     - id: settings_divider
@@ -177,7 +177,7 @@
         defaultActiveKey: properties
         panels:
           - key: css
-            title: 'css:'
+            title: 'style:'
           - key: properties
             title: 'properties:'
           - key: actions
@@ -185,10 +185,10 @@
           - key: visible
             title: 'visible:'
       blocks:
-        css:
+        style:
           - id: css_form
             type: box
-            css:
+            style:
               Content:
                 --gap: 0
             blocks:
@@ -207,7 +207,7 @@
         properties:
           - id: properties_form
             type: box
-            css:
+            style:
               Content:
                 --gap: 0
             blocks:
@@ -233,84 +233,84 @@
   blocks:
     - id: span_subblock_1
       type: number_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 1 Span
         size: small
     - id: visible_subblock_1
       type: switch_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 1 Visible
         size: small
     - id: span_subblock_2
       type: number_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 2 Span
         size: small
     - id: visible_subblock_2
       type: switch_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 2 Visible
         size: small
     - id: span_subblock_3
       type: number_input
-      css:
+      style:
         --span: 2
       properties:
         size: small
         title: Block 3 Span
     - id: visible_subblock_3
       type: switch_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 3 Visible
         size: small
     - id: span_subblock_4
       type: number_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 4 Span
         size: small
     - id: visible_subblock_4
       type: switch_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 4 Visible
         size: small
     - id: span_subblock_5
       type: number_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 5 Span
         size: small
     - id: visible_subblock_5
       type: switch_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 5 Visible
         size: small
     - id: span_subblock_6
       type: number_input
-      css:
+      style:
         --span: 2
       properties:
         title: Block 6 Span
         size: small
     - id: visible_subblock_6
       type: switch_input
-      css:
+      style:
         --span: 2
       properties:
         size: small

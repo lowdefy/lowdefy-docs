@@ -40,7 +40,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -55,7 +55,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_label_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -70,7 +70,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_input_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -89,7 +89,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -100,7 +100,7 @@ blocks:
         - id: block.properties.circleSize
           type: number_input
           defaultValue: 28
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -111,7 +111,7 @@ blocks:
         - id: block.properties.circleSpacing
           type: number_input
           defaultValue: 14
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -131,7 +131,7 @@ blocks:
         - id: block.properties.type
           type: radio_button_input
           defaultValue: circle
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -147,7 +147,7 @@ blocks:
         - id: block.properties.width
           type: text_input
           defaultValue: 252px
-          css:
+          style:
             Label:
               --span: 2
           properties:

@@ -32,7 +32,7 @@ blocks:
       css_form:
         - id: css_block_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -47,7 +47,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_prefix_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -62,7 +62,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
         - id: css_suffix_icon_input
           type: text_area_input
-          css:
+          style:
             --span: 11
             sm:
               --span: 11
@@ -81,7 +81,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -106,7 +106,7 @@ blocks:
         - id: value_number
           field: block.properties.value
           type: number_input
-          css:
+          style:
             Label:
               --span: 2
           visible:
@@ -120,7 +120,7 @@ blocks:
         - id: value_text
           field: block.properties.value
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           visible:
@@ -134,7 +134,7 @@ blocks:
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -145,7 +145,7 @@ blocks:
         - id: block.properties.formatter.type
           type: select_input
           defaultValue: default
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -159,7 +159,7 @@ blocks:
               - humanizeDuration
         - id: block.properties.formatter.properties.format
           type: text_input
-          css:
+          style:
             Label:
               --span: 3
           visible:
@@ -177,7 +177,7 @@ blocks:
         - id: block.properties.groupSeparator
           type: text_input
           defaultValue: ","
-          css:
+          style:
             Label:
               --span: 3
           properties:
@@ -188,7 +188,7 @@ blocks:
         - id: block.properties.precision
           type: number_input
           defaultValue: 2
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -198,7 +198,7 @@ blocks:
               extra: Number of decimals to display.
         - id: block.properties.prefix
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -215,7 +215,7 @@ blocks:
 
         - id: block.properties.suffix
           type: text_input
-          css:
+          style:
             Label:
               --span: 2
           properties:
@@ -239,14 +239,14 @@ blocks:
           blocks:
             - id: example_1
               type: statistic
-              css:
+              style:
                 --span: 6
               properties:
                 title: Statistic
                 value: 1000
             - id: example_1_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -265,7 +265,7 @@ blocks:
           blocks:
             - id: example_2
               type: statistic
-              css:
+              style:
                 --span: 6
               properties:
                 title: Decimal, group separators and precision
@@ -275,7 +275,7 @@ blocks:
                 precision: 2
             - id: example_2_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -297,7 +297,7 @@ blocks:
           blocks:
             - id: example_3
               type: statistic
-              css:
+              style:
                 --span: 6
               properties:
                 title: Prefix and suffix
@@ -306,7 +306,7 @@ blocks:
                 IconSuffix: ShoppingCartOutlined
             - id: example_3_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -327,7 +327,7 @@ blocks:
           blocks:
             - id: example_4
               type: statistic
-              css:
+              style:
                 --span: 6
               properties:
                 title: Date formatter
@@ -339,7 +339,7 @@ blocks:
 
             - id: example_4_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -364,7 +364,7 @@ blocks:
           blocks:
             - id: example_5
               type: statistic
-              css:
+              style:
                 --span: 6
               properties:
                 title: Duration formatter
@@ -374,7 +374,7 @@ blocks:
 
             - id: example_5_code
               type: markdown
-              css:
+              style:
                 --span: 6
               properties:
                 content: |
@@ -396,7 +396,7 @@ blocks:
           blocks:
             - id: example_6
               type: statistic
-              css:
+              style:
                 --span: 6
                 color: green
                 fontWeight: bold
@@ -409,7 +409,7 @@ blocks:
 
             - id: example_6_code
               type: markdown
-              css:
+              style:
                 block:
                   --span: 6
               properties:
