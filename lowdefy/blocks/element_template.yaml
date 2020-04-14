@@ -224,7 +224,7 @@
                   Label:
                     --inline: true
                 properties:
-                  title: css
+                  title: style
                   size: small
                   rows: 3
 
@@ -438,7 +438,7 @@
                   Label:
                     --inline: true
                 properties:
-                  title: css
+                  title: style
                   size: small
                   rows: 3
 
@@ -655,7 +655,7 @@
                   Label:
                     --inline: true
                 properties:
-                  title: css
+                  title: style
                   size: small
                   rows: 3
 
@@ -875,7 +875,7 @@
                   Label:
                     --inline: true
                 properties:
-                  title: css
+                  title: style
                   size: small
                   rows: 3
 
