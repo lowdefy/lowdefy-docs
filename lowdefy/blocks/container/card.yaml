@@ -180,3 +180,165 @@ blocks:
               - small
             Label:
               extra: Size of the card.
+
+      examples:
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1_block_grid
+              type: box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: markdown
+                  properties:
+                    content: |
+                      ##### Card with Extra blocks
+                - id: extra_card
+                  type: card
+                  properties:
+                    title: Submit new details
+                  style:
+                    Content:
+                      alignItems: end
+                  blocks:
+                    Content:
+                      - id: extra_name
+                        type: text_input
+                        style:
+                          --span: 4
+                        properties:
+                          title: Name
+                          disabled:
+                            _state: extra_not_applicable
+                      - id: extra_surname
+                        type: text_input
+                        style:
+                          --span: 4
+                        properties:
+                          title: Surname
+                          disabled:
+                            _state: extra_not_applicable
+                      - id: extra_submit_btn
+                        type: button
+                        style:
+                          --span: 4
+                        properties:
+                          title: Submit 
+                          Icon: SaveOutlined
+                          type: primary
+                          block: true
+                          disabled:
+                            _state: extra_not_applicable
+                        actions:
+                          onClick: 
+                            - id: extra_submit_ac
+                              type: setState()
+                              params:
+                                extra_name: null
+                                extra_surname: null 
+                    Extra:
+                      - id: extra_not_applicable
+                        type: switch_input
+                        defaultValue: false
+                        style:
+                          Label:
+                            --inline: true
+                        properties:
+                          title: N/A 
+                      - id: extra_clear
+                        type: button
+                        properties:
+                          title: Clear
+                          Icon: ReloadOutlined
+                          type: danger
+                          ghost: true
+                          size: small
+                        actions:
+                          onClick: 
+                            - id: extra_clear_ac
+                              type: setState()
+                              params:
+                                extra_name: null
+                                extra_surname: null
+                          
+            - id: example_1_code_grid
+              type: box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: extra_card
+                        type: card
+                        properties:
+                          title: Submit new details
+                        style:
+                          Content:
+                            alignItems: end
+                        blocks:
+                          Content:
+                            - id: extra_name
+                              type: text_input
+                              style:
+                                --span: 4
+                              properties:
+                                title: Name
+                                disabled:
+                                  _state: extra_not_applicable
+                            - id: extra_surname
+                              type: text_input
+                              style:
+                                --span: 4
+                              properties:
+                                title: Surname
+                                disabled:
+                                  _state: extra_not_applicable
+                            - id: extra_submit_btn
+                              type: button
+                              style:
+                                --span: 4
+                              properties:
+                                title: Submit 
+                                Icon: SaveOutlined
+                                type: primary
+                                block: true
+                                disabled:
+                                  _state: extra_not_applicable
+                              actions:
+                                onClick: 
+                                  - id: extra_submit_ac
+                                    type: setState()
+                                    params:
+                                      extra_name: null
+                                      extra_surname: null 
+                          Extra:
+                            - id: extra_not_applicable
+                              type: switch_input
+                              defaultValue: false
+                              style:
+                                Label:
+                                  --inline: true
+                              properties:
+                                title: N/A 
+                            - id: extra_clear
+                              type: button
+                              properties:
+                                title: Clear
+                                Icon: ReloadOutlined
+                                type: danger
+                                ghost: true
+                                size: small
+                              actions:
+                                onClick: 
+                                  - id: extra_clear_ac
+                                    type: setState()
+                                    params:
+                                      extra_name: null
+                                      extra_surname: null
+                      ```
+        
