@@ -60,17 +60,6 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -89,7 +78,6 @@ blocks:
               icon_field_name: Icon
               default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
-
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
@@ -101,7 +89,17 @@ blocks:
             size: small
             Label:
               extra: Makes the text bold when true.
-
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          style:
+            Label:
+              --span: 2
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Text to display in the anchor.
       available_actions_description: |
         ###### onClick
         Triggered when the anchor is clicked.
