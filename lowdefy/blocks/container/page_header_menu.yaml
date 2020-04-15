@@ -125,8 +125,7 @@ blocks:
           defaultValue: |
             {
               "Content": {
-                "width": "auto",
-                "background": "red"
+                "width": "auto"
               }
             }
           properties:
