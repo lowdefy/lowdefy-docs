@@ -264,6 +264,16 @@ menus:
           title: Container Blocks
           Icon: ContainerOutlined
         links:
+          - id: badge
+            type: menu_link
+            pageId: badge
+            properties:
+              title: Badge
+          - id: box
+            type: menu_link
+            pageId: box
+            properties:
+              title: Box
           - id: card
             type: menu_link
             pageId: card
@@ -274,11 +284,6 @@ menus:
             pageId: collapse
             properties:
               title: Collapse
-          - id: box
-            type: menu_link
-            pageId: box
-            properties:
-              title: Box
           - id: content
             type: menu_link
             pageId: content
@@ -408,3 +413,4 @@ pages:
   - _ref: blocks/container/tabs.yaml
   - _ref: blocks/container/collapse.yaml
   - _ref: blocks/container/result.yaml
+  - _ref: blocks/container/badge.yaml
