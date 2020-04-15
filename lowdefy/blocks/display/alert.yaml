@@ -140,5 +140,5 @@ blocks:
       available_actions_description: |
         ###### onClose
         Called when the alert is closed.
-        ###### onClose
+        ###### afterClose
         Called when close animation is finished.

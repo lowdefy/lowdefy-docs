@@ -121,6 +121,11 @@
             title: 'actions:'
           - key: required
             title: 'required:'
+            disabled:
+              _not:
+                _eq:
+                  - _var: kind
+                  - input
           - key: visible
             title: 'visible:'
       blocks:

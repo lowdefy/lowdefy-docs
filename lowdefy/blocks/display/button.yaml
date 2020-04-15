@@ -192,7 +192,7 @@ blocks:
 
       available_actions_description: |
         ###### onClick
-        Triggered when the button is clicked.
+        Called when the button is clicked.
 
       examples:
         - id: example_1_card

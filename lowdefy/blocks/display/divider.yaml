@@ -35,16 +35,6 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Divider title
         - id: block.properties.dashed
           type: switch_input
           defaultValue: false
@@ -55,7 +45,7 @@ blocks:
             title: dashed
             size: small
             Label:
-              extra: Whether line is dashed
+              extra: Whether line is dashed.
         - id: block.properties.orientation
           type: radio_button_input
           defaultValue: center
@@ -71,6 +61,16 @@ blocks:
               - center
               - left
               - right
+        - id: block.properties.title
+          type: text_input
+          style:
+            Label:
+              --span: 2
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Divider title.
         - id: block.properties.type
           type: radio_button_input
           defaultValue: horizontal

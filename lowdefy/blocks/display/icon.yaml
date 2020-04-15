@@ -35,6 +35,28 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
+        - id: block.properties.disableLoadingIcon
+          type: switch_input
+          defaultValue: false
+          style:
+            Label:
+              --span: 2
+          properties:
+            title: disableLoadingIcon
+            size: small
+            Label:
+              extra: While loading after the icon has been clicked, don't render the loading icon.
+        - id: block.properties.hideActionLoading
+          type: switch_input
+          defaultValue: false
+          style:
+            Label:
+              --span: 2
+          properties:
+            title: hideActionLoading
+            size: small
+            Label:
+              extra: While loading after the icon has been clicked, don't show the loading message.
         - id: block.properties.name
           type: select_input
           defaultValue: FireOutlined
@@ -46,7 +68,7 @@ blocks:
             size: small
             showSearch: true
             Label:
-              extra: Name of icon to be displayed
+              extra: Name of icon to be displayed.
             options:
               _global: all_icons
         - id: block.properties.rotate
@@ -59,7 +81,7 @@ blocks:
             title: rotate
             size: small
             Label:
-              extra: Number of degrees to rotate the icon
+              extra: Number of degrees to rotate the icon.
         - id: block.properties.spin
           type: switch_input
           defaultValue: false
@@ -70,44 +92,21 @@ blocks:
             title: spin
             size: small
             Label:
-              extra: Continuously spin icon with animation
+              extra: Continuously spin icon with animation.
         - id: block.properties.twoToneColor
           type: color_picker_input
           defaultValue: "#08c"
           style:
             Label:
-              --span: 4
+              --span: 2
           properties:
             title: twoToneColor
             size: small
             type: twitter
             Label:
-              extra: Primary two-tone color, only supported with two-tone theme
-
-        - id: block.properties.disableLoadingIcon
-          type: switch_input
-          defaultValue: false
-          style:
-            Label:
-              --span: 4
-          properties:
-            title: disableLoadingIcon
-            size: small
-            Label:
-              extra: While loading after the icon has been clicked, don't render the loading icon
-        - id: block.properties.hideLoadingMessage
-          type: switch_input
-          defaultValue: false
-          style:
-            Label:
-              --span: 4
-          properties:
-            title: hideLoadingMessage
-            size: small
-            Label:
-              extra: While loading after the icon has been clicked, don't show the loading message
-
+              extra: Primary two-tone color, only supported with two-tone theme.
 
       available_actions_description: |
-        - onClick
+         ###### onClick
+         Called when the icon is clicked
 

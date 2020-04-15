@@ -102,7 +102,7 @@ blocks:
               extra: Text to display in the anchor.
       available_actions_description: |
         ###### onClick
-        Triggered when the anchor is clicked.
+        Called when the anchor is clicked.
 
       examples:
         - id: example_1_card
