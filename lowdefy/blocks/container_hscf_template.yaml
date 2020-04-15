@@ -14,153 +14,253 @@
         content:
           _var: description_content
 - id: c1
-  type: grid
-  css:
-    --span: 6
+  type: box
   blocks:
     - id: block_divider
       type: divider
       properties:
         title: Block
     - id: block_wrap2
-      type: grid
-      css:
+      type: box
+      style:
         --span: 12
       blocks:
-        - id: block_id
+        - id: block_name
           type:
             _var: block_type
+          style:
+            _var: style_transform
           visible:
             _state: block.visible
           properties:
             _state: block.properties
-            label:
-              _state: block.label
           blocks:
-            header:
-              - id: subblock_1
-                type: button
+            Header:
+              - id: flex_1
+                type: html
                 properties:
-                  block: true
-                  title: "1"
+                  html: '<div>ONE</div>'
                 visible:
-                  _state: visible_subblock_1
-                css:
-                  flex:
-                    _state: flex_subblock_1
-              - id: subblock_2
-                type: button
+                  _state: flex_blocks.0.visible
+                style:
+                  _parse:
+                    _state: flex_blocks.0.style
+              - id: flex_2
+                type: html
                 properties:
-                  block: true
-                  title: "2"
+                  html: '<div>TWO</div>'
                 visible:
-                  _state: visible_subblock_2
-                css:
-                  flex:
-                    _state: flex_subblock_2
-              - id: subblock_3
-                type: button
+                  _state: flex_blocks.1.visible
+                style:
+                  _parse:
+                    _state: flex_blocks.1.style
+              - id: flex_3
+                type: html
                 properties:
-                  block: true
-                  title: "3"
+                  html: '<div>THREE</div>'
                 visible:
-                  _state: visible_subblock_3
-                css:
-                  flex:
-                    _state: flex_subblock_3
-            content:
-              - id: subblock_4
-                type: button
+                  _state: flex_blocks.2.visible
+                style:
+                  _parse:
+                    _state: flex_blocks.2.style
+              # - id: flex_4
+              #   type: html
+              #   properties:
+              #     html: '<div>FOUR</div>'
+              #   visible:
+              #     _state: flex_blocks.3.visible
+              #   style:
+              #     _parse:
+              #       _state: flex_blocks.3.style
+              # - id: flex_5
+              #   type: html
+              #   properties:
+              #     html: '<div>FIVE</div>'
+              #   visible:
+              #     _state: flex_blocks.4.visible
+              #   style:
+              #     _parse:
+              #       _state: flex_blocks.4.style
+              # - id: flex_6
+              #   type: html
+              #   properties:
+              #     html: '<div>SIX</div>'
+              #   visible:
+              #     _state: flex_blocks.5.visible
+              #   style:
+              #     _parse:
+              #       _state: flex_blocks.5.style
+            Content:
+              - id: grid_1
+                type: html
                 properties:
-                  block: true
-                  title: "4"
+                  html: '<div>ONE</div>'
                 visible:
-                  _state: visible_subblock_4
-                css:
-                  --span:
-                    _state: span_subblock_4
-              - id: subblock_5
-                type: button
+                  _state: grid_blocks.0.visible
+                style:
+                  _parse:
+                    _state: grid_blocks.0.style
+              - id: grid_2
+                type: html
                 properties:
-                  block: true
-                  title: "5"
+                  html: '<div>TWO</div>'
                 visible:
-                  _state: visible_subblock_5
-                css:
-                  --span:
-                    _state: span_subblock_5
-              - id: subblock_6
-                type: button
+                  _state: grid_blocks.1.visible
+                style:
+                  _parse:
+                    _state: grid_blocks.1.style
+              - id: grid_3
+                type: html
                 properties:
-                  block: true
-                  title: "6"
+                  html: '<div>THREE</div>'
                 visible:
-                  _state: visible_subblock_6
-                css:
-                  --span:
-                    _state: span_subblock_6
-            sider:
-              - id: subblock_7
-                type: button
+                  _state: grid_blocks.2.visible
+                style:
+                  _parse:
+                    _state: grid_blocks.2.style
+              - id: grid_4
+                type: html
                 properties:
-                  block: true
-                  title: "7"
+                  html: '<div>FOUR</div>'
                 visible:
-                  _state: visible_subblock_7
-                css:
-                  flex:
-                    _state: flex_subblock_7
-              - id: subblock_8
-                type: button
+                  _state: grid_blocks.3.visible
+                style:
+                  _parse:
+                    _state: grid_blocks.3.style
+              - id: grid_5
+                type: html
                 properties:
-                  block: true
-                  title: "8"
+                  html: '<div>FIVE</div>'
                 visible:
-                  _state: visible_subblock_8
-                css:
-                  flex:
-                    _state: flex_subblock_8
-              - id: subblock_9
-                type: button
+                  _state: grid_blocks.4.visible
+                style:
+                  _parse:
+                    _state: grid_blocks.4.style
+              - id: grid_6
+                type: html
                 properties:
-                  block: true
-                  title: "9"
+                  html: '<div>SIX</div>'
                 visible:
-                  _state: visible_subblock_9
-                css:
-                  flex:
-                    _state: flex_subblock_9
-            footer:
-              - id: subblock_10
-                type: button
+                  _state: grid_blocks.5.visible
+                style:
+                  _parse:
+                    _state: grid_blocks.5.style
+            Sider:
+              - id: block_1
+                type: html
                 properties:
-                  block: true
-                  title: "10"
+                  html: '<div>ONE</div>'
                 visible:
-                  _state: visible_subblock_10
-                css:
-                  flex:
-                    _state: flex_subblock_10
-              - id: subblock_11
-                type: button
+                  _state: block_blocks.0.visible
+                style:
+                  _parse:
+                    _state: block_blocks.0.style
+              - id: block_2
+                type: html
                 properties:
-                  block: true
-                  title: "11"
+                  html: '<div>TWO</div>'
                 visible:
-                  _state: visible_subblock_11
-                css:
-                  flex:
-                    _state: flex_subblock_11
-              - id: subblock_12
-                type: button
+                  _state: block_blocks.1.visible
+                style:
+                  _parse:
+                    _state: block_blocks.1.style
+              - id: block_3
+                type: html
                 properties:
-                  block: true
-                  title: "12"
+                  html: '<div>THREE</div>'
                 visible:
-                  _state: visible_subblock_12
-                css:
-                  flex:
-                    _state: flex_subblock_12
+                  _state: block_blocks.2.visible
+                style:
+                  _parse:
+                    _state: block_blocks.2.style
+              - id: block_4
+                type: html
+                properties:
+                  html: '<div>FOUR</div>'
+                visible:
+                  _state: block_blocks.3.visible
+                style:
+                  _parse:
+                    _state: block_blocks.3.style
+              - id: block_5
+                type: html
+                properties:
+                  html: '<div>FIVE</div>'
+                visible:
+                  _state: block_blocks.4.visible
+                style:
+                  _parse:
+                    _state: block_blocks.4.style
+              - id: block_6
+                type: html
+                properties:
+                  html: '<div>SIX</div>'
+                visible:
+                  _state: block_blocks.5.visible
+                style:
+                  _parse:
+                    _state: block_blocks.5.style
+            Footer:
+              - id: inlineBlock_1
+                type: html
+                properties:
+                  html: '<div>ONE</div>'
+                visible:
+                  _state: inlineBlock_blocks.0.visible
+                style:
+                  _parse:
+                    _state: inlineBlock_blocks.0.style
+              - id: inlineBlock_2
+                type: html
+                properties:
+                  html: '<div>TWO</div>'
+                visible:
+                  _state: inlineBlock_blocks.1.visible
+                style:
+                  _parse:
+                    _state: inlineBlock_blocks.1.style
+              - id: inlineBlock_3
+                type: html
+                properties:
+                  html: '<div>THREE</div>'
+                visible:
+                  _state: inlineBlock_blocks.2.visible
+                style:
+                  _parse:
+                    _state: inlineBlock_blocks.2.style
+              - id: inlineBlock_4
+                type: html
+                properties:
+                  html: '<div>FOUR</div>'
+                visible:
+                  _state: inlineBlock_blocks.3.visible
+                style:
+                  _parse:
+                    _state: inlineBlock_blocks.3.style
+              - id: inlineBlock_5
+                type: html
+                properties:
+                  html: '<div>FIVE</div>'
+                visible:
+                  _state: inlineBlock_blocks.4.visible
+                style:
+                  _parse:
+                    _state: inlineBlock_blocks.4.style
+              - id: inlineBlock_6
+                type: html
+                properties:
+                  html: '<div>SIX</div>'
+                visible:
+                  _state: inlineBlock_blocks.5.visible
+                style:
+                  _parse:
+                    _state: inlineBlock_blocks.5.style
+
+- id: setup_grid
+  type: box
+  style:
+    --span: 6
+  blocks:
     - id: setup_divider
       type: divider
       properties:
@@ -185,14 +285,15 @@
                       id: block_id
                       type:
                         _var: block_type
+                      style:
+                        _var: style_transform
                       visible:
                         _state: block.visible
                       properties:
                         _state: block.properties
-
 - id: settings_grid
-  type: grid
-  css:
+  type: box
+  style:
     --span: 6
   blocks:
     - id: settings_divider
@@ -204,37 +305,33 @@
       properties:
         defaultActiveKey: properties
         panels:
-          - key: css
-            title: 'css:'
+          - key: style
+            title: 'style:'
           - key: properties
             title: 'properties:'
           - key: actions
             title: 'actions:'
           - key: visible
             title: 'visible:'
+          - key: blocks
+            title: 'blocks:'
       blocks:
-        css:
-          - id: css_form
-            type: grid
-            css:
-              $content:
+        style:
+          - id: style_form
+            type: box
+            style:
+              Content:
                 --gap: 0
             blocks:
-              _var: css_form
+              _var: style_form
         properties:
           - id: properties_form
-            type: grid
-            css:
-              $content:
+            type: box
+            style:
+              Content:
                 --gap: 0
             blocks:
               _var: properties_form
-          - id: label_form
-            type: grid
-            visible:
-              _var: label
-            blocks:
-              _ref: blocks/label.yaml
         actions:
           - id: available_actions_description
             type: markdown
@@ -247,210 +344,192 @@
             defaultValue: true
             properties:
               title: visible
-              $label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small
+        blocks:
+          - id: flex_blocks
+            type: list
+            style:
+              Content:
+                --display: flex
+            properties:
+              title: 'Header:'
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: flex_blocks.$.gd
+                type: box
+                style:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: flex_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### Header {{ name }}'
+                          on:
+                            _state: flex_blocks.$
+                  - id: flex_blocks.$.visible
+                    type: switch_input
+                    style:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: flex_blocks.$.style
+                type: text_area_input
+                style:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: style
+                  size: small
+                  rows: 3
 
-- id: subblocks_card
-  type: card
-  properties:
-    title: Sub-blocks
-    size: small
-  blocks:
-    - id: header_divider
-      type: divider
-      properties:
-        title: 'header:'
-    - id: flex_subblock_1
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 1 Flex
-        size: small
-    - id: visible_subblock_1
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 1 Visible
-        size: small
-    - id: flex_subblock_2
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 2 Flex
-        size: small
-    - id: visible_subblock_2
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 2 Visible
-        size: small
-    - id: flex_subblock_3
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 3 Flex
-        size: small
-    - id: visible_subblock_3
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 3 Visible
-        size: small
-
-    - id: content_divider
-      type: divider
-      properties:
-        title: 'content:'
-    - id: span_subblock_4
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 4 Span
-        size: small
-    - id: visible_subblock_4
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 4 Visible
-        size: small
-    - id: span_subblock_5
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 5 Span
-        size: small
-    - id: visible_subblock_5
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 5 Visible
-        size: small
-    - id: span_subblock_6
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 6 Span
-        size: small
-    - id: visible_subblock_6
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        size: small
-        title: Block 6 Visible
-
-    - id: sider_divider
-      type: divider
-      properties:
-        title: 'sider:'
-    - id: flex_subblock_7
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 7 Flex
-        size: small
-    - id: visible_subblock_7
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 7 Visible
-        size: small
-    - id: flex_subblock_8
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 8 Flex
-        size: small
-    - id: visible_subblock_8
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 8 Visible
-        size: small
-    - id: flex_subblock_9
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 9 Flex
-        size: small
-    - id: visible_subblock_9
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 9 Visible
-        size: small
-
-    - id: footer_divider
-      type: divider
-      properties:
-        title: 'footer:'
-    - id: flex_subblock_10
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 10 Flex
-        size: small
-    - id: visible_subblock_10
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 10 Visible
-        size: small
-    - id: flex_subblock_11
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 11 Flex
-        size: small
-    - id: visible_subblock_11
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 11 Visible
-        size: small
-    - id: flex_subblock_12
-      type: number_input
-      css:
-        --span: 2
-      properties:
-        title: Block 12 Flex
-        size: small
-    - id: visible_subblock_12
-      type: switch_input
-      css:
-        --span: 2
-      properties:
-        title: Block 12 Visible
-        size: small
+          - id: grid_blocks
+            type: list
+            style:
+              Content:
+                --display: flex
+            properties:
+              title: 'Content:'
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: grid_blocks.$.gd
+                type: box
+                style:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: grid_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### Content {{ name }}'
+                          on:
+                            _state: grid_blocks.$
+                  - id: grid_blocks.$.visible
+                    type: switch_input
+                    style:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: grid_blocks.$.style
+                type: text_area_input
+                style:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: style
+                  size: small
+                  rows: 3
+          
+          - id: block_blocks
+            type: list
+            style:
+              Content:
+                --display: flex
+            properties:
+              title: 'Content:'
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: block_blocks.$.gd
+                type: box
+                style:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: sider_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### Sider {{ name }}'
+                          on:
+                            _state: block_blocks.$
+                  - id: block_blocks.$.visible
+                    type: switch_input
+                    style:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: block_blocks.$.style
+                type: text_area_input
+                style:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: style
+                  size: small
+                  rows: 3
+                  
+          - id: inlineBlock_blocks
+            type: list
+            style:
+              Content:
+                --display: flex
+            properties:
+              title: 'Footer:'
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: inlineBlock_blocks.$.gd
+                type: box
+                style:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: inlineBlock_blocks.$.name
+                    type: markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### Footer {{ name }}'
+                          on:
+                            _state: inlineBlock_blocks.$
+                  - id: inlineBlock_blocks.$.visible
+                    type: switch_input
+                    style:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: inlineBlock_blocks.$.style
+                type: text_area_input
+                style:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: style
+                  size: small
+                  rows: 3
 
 - id: examples_divider
   type: divider
   properties:
     title: Examples
 - id: examples_grid
-  type: grid
+  type: box
   blocks:
     _var: examples

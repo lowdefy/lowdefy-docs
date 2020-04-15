@@ -5,41 +5,19 @@ properties:
   title: Page HCF
 actions:
   onInit:
-    - id: initialize_state 
+    - id: init
       type: setState()
       params:
-        flex_subblock_1: 12
-        visible_subblock_1: true
-        flex_subblock_2: 12
-        visible_subblock_2: true
-        flex_subblock_3: 6
-        visible_subblock_3: true
-        span_subblock_4: 6
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: true
-        span_subblock_6: 8
-        visible_subblock_6: true
-        flex_subblock_7: 8
-        visible_subblock_7: true
-        flex_subblock_8: 4
-        visible_subblock_8: true
-        flex_subblock_9: 6
-        visible_subblock_9: true
-        flex_subblock_10: 8
-        visible_subblock_10: true
-        flex_subblock_11: 4
-        visible_subblock_11: true
-        flex_subblock_12: 6
-        visible_subblock_12: true
+        _ref: blocks/html_blocks.yaml
+
 blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
       block_name: Page HCF
+      block_type: page_hcf
       description_content: |
         Page HCF provides a minimal layout structure for a page container with a header, content and footer area.
-      block_type: page_hcf
       label: false
       kind: container
       style_transform:
@@ -122,3 +100,31 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.Header.theme
+          type: radio_button_input
+          defaultValue: dark
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Header.theme
+            size: small
+            Label: 
+              extra: Color theme of the Header
+            options:
+              - light
+              - dark
+        - id: block.properties.Header.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Header
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_header
+                type: link()
+                params:
+                  pageId: header
+
+        

@@ -1,6 +1,6 @@
 grid_blocks:
   - visible: true
-    name: 'Grid item: ONE'
+    name: 'ONE'
     style: |
       {
         "--span": 6,
@@ -14,7 +14,7 @@ grid_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Grid item: TWO'
+    name: 'TWO'
     style: |
       {
         "--span": 6,
@@ -28,7 +28,7 @@ grid_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Grid item: THREE'
+    name: 'THREE'
     style: |
       {
         "padding": "0px 20px",
@@ -41,21 +41,7 @@ grid_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Grid item: FOUR'
-    style: |
-      {
-        "--span": 4,
-        "padding": "0px 20px",
-        "color": "white",
-        "background": "#048f8f",
-        "border": "2px solid #04bfbf",
-        "borderRadius": 5,
-        "lineHeight": 4,
-        "height": 64,
-        "textAlign": "center"
-      }
-  - visible: true
-    name: 'Grid item: FIVE'
+    name: 'FOUR'
     style: |
       {
         "--span": 4,
@@ -69,7 +55,21 @@ grid_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Grid item: SIX'
+    name: 'FIVE'
+    style: |
+      {
+        "--span": 4,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'SIX'
     style: |
       {
         "--span": 4,
@@ -84,7 +84,7 @@ grid_blocks:
       }
 flex_blocks:
   - visible: true
-    name: 'Flex item: ONE'
+    name: 'ONE'
     style: |
       {
         "flex": 2,
@@ -98,7 +98,7 @@ flex_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Flex item: TWO'
+    name: 'TWO'
     style: |
       {
         "flex": 2,
@@ -112,7 +112,7 @@ flex_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Flex item: THREE'
+    name: 'THREE'
     style: |
       {
         "padding": "0px 20px",
@@ -125,21 +125,7 @@ flex_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Flex item: FOUR'
-    style: |
-      {
-        "flex": 1,
-        "padding": "0px 20px",
-        "color": "white",
-        "background": "#0480ff",
-        "border": "2px solid #04b0ff",
-        "borderRadius": 5,
-        "lineHeight": 4,
-        "height": 64,
-        "textAlign": "center"
-      }
-  - visible: true
-    name: 'Flex item: FIVE'
+    name: 'FOUR'
     style: |
       {
         "flex": 1,
@@ -153,7 +139,21 @@ flex_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Flex item: SIX'
+    name: 'FIVE'
+    style: |
+      {
+        "flex": 1,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'SIX'
     style: |
       {
         "flex": 1,
@@ -168,7 +168,7 @@ flex_blocks:
       }
 block_blocks:
   - visible: true
-    name: 'Block item: ONE'
+    name: 'ONE'
     style: |
       {
         "padding": "0px 20px",
@@ -181,7 +181,7 @@ block_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Block item: TWO'
+    name: 'TWO'
     style: |
       {
         "padding": "0px 20px",
@@ -194,7 +194,7 @@ block_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Block item: THREE'
+    name: 'THREE'
     style: |
       {
         "padding": "0px 20px",
@@ -207,7 +207,7 @@ block_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Block item: FOUR'
+    name: 'FOUR'
     style: |
       {
         "padding": "0px 20px",
@@ -220,7 +220,7 @@ block_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Block item: FIVE'
+    name: 'FIVE'
     style: |
       {
         "padding": "0px 20px",
@@ -233,7 +233,7 @@ block_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Block item: SIX'
+    name: 'SIX'
     style: |
       {
         "padding": "0px 20px",
@@ -248,7 +248,7 @@ block_blocks:
 
 inlineBlock_blocks:
   - visible: true
-    name: 'Inline-block item: ONE'
+    name: 'ONE'
     style: |
       {
         "padding": "0px 20px",
@@ -261,7 +261,7 @@ inlineBlock_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Inline-block item: TWO'
+    name: 'TWO'
     style: |
       {
         "padding": "0px 20px",
@@ -274,7 +274,7 @@ inlineBlock_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Inline-block item: THREE'
+    name: 'THREE'
     style: |
       {
         "padding": "0px 20px",
@@ -287,7 +287,7 @@ inlineBlock_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Inline-block item: FOUR'
+    name: 'FOUR'
     style: |
       {
         "padding": "0px 20px",
@@ -300,7 +300,7 @@ inlineBlock_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Inline-block item: FIVE'
+    name: 'FIVE'
     style: |
       {
         "padding": "0px 20px",
@@ -313,7 +313,7 @@ inlineBlock_blocks:
         "textAlign": "center"
       }
   - visible: true
-    name: 'Inline-block item: SIX'
+    name: 'SIX'
     style: |
       {
         "padding": "0px 20px",

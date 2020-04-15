@@ -5,41 +5,18 @@ properties:
   title: Page Header Menu
 actions:
   onInit:
-    - id: initialize_state 
+    - id: init
       type: setState()
       params:
-        flex_subblock_1: 12
-        visible_subblock_1: true
-        flex_subblock_2: 12
-        visible_subblock_2: false
-        flex_subblock_3: 6
-        visible_subblock_3: false
-        span_subblock_4: 6
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: true
-        span_subblock_6: 8
-        visible_subblock_6: true
-        flex_subblock_7: 8
-        visible_subblock_7: true
-        flex_subblock_8: 4
-        visible_subblock_8: true
-        flex_subblock_9: 6
-        visible_subblock_9: true
-        flex_subblock_10: 8
-        visible_subblock_10: true
-        flex_subblock_11: 4
-        visible_subblock_11: true
-        flex_subblock_12: 6
-        visible_subblock_12: true
+        _ref: blocks/html_blocks.yaml
 blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
       block_name: Page Header Menu
+      block_type: page_header_menu
       description_content: |
         The Page Header Menu block provides a structured layout for a page with a header containing a default menu, content and footer area.
-      block_type: page_header_menu
       label: false
       kind: container
       style_transform:
@@ -49,7 +26,7 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    $breadcrumb:
+                    Breadcrumb:
                       _parse:
                         _state: style_breadcrumb_input
                     Content:
@@ -73,10 +50,6 @@ blocks:
                     MenuMd:
                       _parse:
                         _state: style_mdMenu_input
-                - $addFields:
-                    Sider.Content:
-                      _parse:
-                        _state: style_siderContent_input
               on:
                 _parse:
                   _state: style_block_input
@@ -106,7 +79,7 @@ blocks:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: $breadcrumb
+            title: Breadcrumb
             rows: 3
             size: small
             Label:
@@ -149,7 +122,13 @@ blocks:
               --span: 11
             Label:
               --span: 2
-          defaultValue: "{}"
+          defaultValue: |
+            {
+              "Content": {
+                "width": "auto",
+                "background": "red"
+              }
+            }
           properties:
             title: Header
             rows: 3
@@ -231,3 +210,139 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.Header.logoSrc
+          type: text_input
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Header.logoSrc
+            size: small
+            Label: 
+              extra: Header logo source url
+        - id: block.properties.Header.logoAlt
+          type: text_input
+          defaultValue: Lowdefy
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Header.logoAlt
+            size: small
+            Label: 
+              extra: Header logo alternative text
+        - id: block.properties.Header.theme
+          type: radio_button_input
+          defaultValue: dark
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Header.theme
+            size: small
+            Label: 
+              extra: Color theme of the Header
+            options:
+              - light
+              - dark
+        - id: block.properties.Header.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Header
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_header
+                type: link()
+                params:
+                  pageId: header
+        - id: block.properties.Breadcrumb.list
+          type: multiple_select_input
+          defaultValue: ['Page 1', 'Page 2']
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Breadcrumb.list
+            size: small
+            options:
+              - Page 1
+              - Page 2
+              - Page 3
+              - Page 4
+            Label:
+              extra: Breadcrumb links
+        - id: block.properties.Breadcrumb.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Breadcrumb
+            Icon: LinkOutlined
+          actions:
+            onClick:
+              - id: link_breadcrumb
+                type: link()
+                params:
+                  pageId: breadcrumb
+        - id: block.properties.Menu.links
+          type: multiple_select_input
+          defaultValue:
+            - id: Introduction
+              pageId: introduction
+              properties: 
+                title: Introduction
+                Icon: RocketOutlined
+            - id: alert
+              pageId: alert
+              properties: 
+                title: Alert
+                Icon: ExclamationCircleOutlined
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Menu.links
+            size: small
+            options:
+              - label: Introduction
+                value: 
+                  id: Introduction
+                  pageId: introduction
+                  properties: 
+                    title: Introduction
+                    Icon: RocketOutlined
+              - label: Box
+                value: 
+                  id: box
+                  pageId: box
+                  properties: 
+                    title: Box
+                    Icon: GatewayOutlined
+              - label: Date
+                value: 
+                  id: date
+                  pageId: date
+                  properties: 
+                    title: Date
+                    Icon: CalendarOutlined
+              - label: Alert
+                value: 
+                  id: alert
+                  pageId: alert
+                  properties: 
+                    title: Alert
+                    Icon: ExclamationCircleOutlined
+            Label:
+              extra: Menu links
+        - id: block.properties.Menu.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Menu
+            Icon: LinkOutlined
+          actions:
+            onClick:
+              - id: link_menu
+                type: link()
+                params:
+                  pageId: menu
+                

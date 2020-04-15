@@ -5,41 +5,19 @@ properties:
   title: Page HCSF
 actions:
   onInit:
-    - id: initialize_state 
+    - id: init
       type: setState()
       params:
-        flex_subblock_1: 12
-        visible_subblock_1: true
-        flex_subblock_2: 12
-        visible_subblock_2: true
-        flex_subblock_3: 6
-        visible_subblock_3: true
-        span_subblock_4: 6
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: true
-        span_subblock_6: 8
-        visible_subblock_6: true
-        flex_subblock_7: 8
-        visible_subblock_7: true
-        flex_subblock_8: 4
-        visible_subblock_8: true
-        flex_subblock_9: 6
-        visible_subblock_9: true
-        flex_subblock_10: 8
-        visible_subblock_10: true
-        flex_subblock_11: 4
-        visible_subblock_11: true
-        flex_subblock_12: 6
-        visible_subblock_12: true
+        _ref: blocks/html_blocks.yaml
+
 blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
       block_name: Page HCSF
+      block_type: page_hcsf
       description_content: |
         Page HCSF provides a minimal layout structure for a page container with a header, content, sider and footer arrangement.
-      block_type: page_hcsf
       label: false
       kind: container
       style_transform:
@@ -58,9 +36,9 @@ blocks:
                     Header:
                       _parse:
                         _state: style_header_input
-                    Layout:
+                    Main:
                       _parse:
-                        _state: style_layout_input
+                        _state: style_main_input
                     Sider:
                       _parse:
                         _state: style_sider_input
@@ -132,7 +110,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: style_layout_input
+        - id: style_main_input
           type: text_area_input
           style:
             --span: 11
@@ -142,7 +120,7 @@ blocks:
               --span: 2
           defaultValue: "{}"
           properties:
-            title: Layout
+            title: Main
             rows: 3
             size: small
             Label:
@@ -178,11 +156,68 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
-        - id: sider_card
-          type: card
+        - id: block.properties.Header.theme
+          type: radio_button_input
+          defaultValue: dark
+          style:
+            Label:
+              --span: 3
           properties:
+            title: Header.theme
             size: small
-            title: 'Sider:'
-          blocks:
-            _ref:
-              path: blocks/container/sider_properties.yaml
+            Label: 
+              extra: Color theme of the Header
+            options:
+              - light
+              - dark
+        - id: block.properties.Header.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Header
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_header
+                type: link()
+                params:
+                  pageId: header
+        - id: block.properties.Sider.collapsed
+          type: radio_button_input
+          defaultValue: null
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Sider.collapsed
+            size: small
+            options:
+              - null
+              - true
+              - false
+            Label:
+              extra: The current collapsed state for Sider
+        - id: block.properties.Sider.theme
+          type: radio_button_input
+          defaultValue: dark
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: Sider.theme
+            size: small
+            options:
+              - light
+              - dark
+            Label:
+              extra: Color theme of the Sider
+        - id: block.properties.Sider.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Sider
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_sider
+                type: link()
+                params:
+                  pageId: sider
