@@ -398,13 +398,13 @@ pages:
   - _ref: blocks/container/content.yaml
   - _ref: blocks/container/footer.yaml
   - _ref: blocks/container/layout.yaml
-  # - _ref: blocks/container/page_hcf.yaml
-  # - _ref: blocks/container/page_hcsf.yaml
-  # - _ref: blocks/container/page_header_menu.yaml
-  # - _ref: blocks/container/page_hscf.yaml
-  # - _ref: blocks/container/page_shcf.yaml
-  # - _ref: blocks/container/page_sider_menu.yaml
-  # - _ref: blocks/container/sider.yaml
-  # - _ref: blocks/container/tabs.yaml
-  # - _ref: blocks/container/collapse.yaml
-  # - _ref: blocks/container/result.yaml
+  - _ref: blocks/container/page_hcf.yaml
+  - _ref: blocks/container/page_hcsf.yaml
+  - _ref: blocks/container/page_header_menu.yaml
+  - _ref: blocks/container/page_hscf.yaml
+  - _ref: blocks/container/page_shcf.yaml
+  - _ref: blocks/container/page_sider_menu.yaml
+  - _ref: blocks/container/sider.yaml
+  - _ref: blocks/container/tabs.yaml
+  - _ref: blocks/container/collapse.yaml
+  - _ref: blocks/container/result.yaml

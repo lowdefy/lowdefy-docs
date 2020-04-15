@@ -166,6 +166,9 @@ blocks:
               - left
         - id: block.properties.tabs
           type: list
+          style:
+            Content:
+              --gap: 0
           properties:
             title: 'tabs:'
             size: small

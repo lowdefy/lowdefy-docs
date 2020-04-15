@@ -26,7 +26,7 @@ blocks:
     vars:
       block_name: Result
       description_content: |
-       Used to provide feedback the results of a task or error.
+        Used to provide feedback the results of a task or error.
       block_type: result
       label: false
       kind: container
