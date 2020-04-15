@@ -5,173 +5,510 @@ properties:
   title: Collapse
 actions:
   onInit:
-    - id: initialize_state 
+    - id: init_blocks
       type: setState()
       params:
-        span_subblock_1: 12
-        visible_subblock_1: true
-        span_subblock_2: 6
-        visible_subblock_2: true
-        span_subblock_3: 6
-        visible_subblock_3: true
-        span_subblock_4: 12
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: true
-        span_subblock_6: 8
-        visible_subblock_6: true
+        _ref: blocks/html_blocks.yaml
+    - id: init_panels
+      type: setState()
+      params:
         block:
-          properties:
-            panels:
-              - key: content1
-                title: Title 1
-              - key: content2
-                title: Title 2
-
+            properties:
+              panels:
+                - key: content1
+                  title: Title 1
+                - key: content2
+                  title: Title 2
 blocks:
-  _ref:
-    path: blocks/gird_template_block_object.yaml
-    vars:
-      block_name: Collapse
-      description_content: |
-        A container with collapsible panels.
-      block_type: collapse
-      label: false
-      kind: container
-      properties_form:
-        - id: block.properties.accordion
-          type: switch_input
-          defaultValue: false
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: accordion
-            size: small
-            Label:
-              extra: If true, only one panel is open at a time.
-        - id: block.properties.activeKey
-          type: text_input
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: activeKey
-            size: small
-            Label:
-              extra: Current Panel's key.
-        - id: block.properties.bordered
-          type: switch_input
-          defaultValue: true
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: bordered
-            size: small
-            Label:
-              extra: Toggles rendering of the border around the collapse block.
-        - id: block.properties.defaultActiveKey
-          type: text_input
-          defaultValue: content1
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: defaultActiveKey
-            size: small
-            Label:
-              extra: Initial active Panel's key, if activeKey is not set.
-        - id: block.properties.destroyInactivePanel
-          type: switch_input
-          defaultValue: false
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: destroyInactivePanel
-            size: small
-            Label:
-              extra: Destroy Inactive Panel.
-        - _ref:
-            path: blocks/icon_template.yaml
-            vars:
-              icon_id: block.properties.IconExpand
-              icon_field_name: IconExpand
-              default_icon: RightOutlined
-              icon_description: Icon to show as expand option.
-        - id: block.properties.expandIconPosition
-          type: radio_button_input
-          defaultValue: left
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: expandIconPosition
-            size: small
-            Label:
-              extra: Set position of expand icon.
-            options:
-              - left
-              - right
-        - id: block.properties.forceRender
-          type: switch_input
-          defaultValue: false
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: forceRender
-            size: small
-            Label:
-              extra: Force render for all panels.
-        - id: block.properties.panels
-          type: list
-          properties:
-            title: 'panels:'
-            size: small
-          blocks:
-            - id: block.properties.panels.$.title
-              type: text_input
-              defaultValue: title
+  - id: card_title
+    type: card
+    blocks:
+      - id: title
+        type: title
+        properties:
+          level: 2
+          content: Collapse
+      - id: description
+        type: markdown
+        properties:
+          content: |
+            A container with collapsible panels.
+  - id: c1
+    type: box
+    blocks:
+      - id: block_wrap2
+        type: box
+        style:
+          --span: 6
+        blocks:
+          - id: block_divider
+            type: divider
+            properties:
+              title: Block
+
+          - id: block_name
+            type: collapse
+            style:
+              _parse: 
+                _state: flex_style_input
+            visible:
+              _state: block.visible
+            properties:
+              _state: block.properties
+
+            blocks:
+              content2:
+                - id: flex_1
+                  type: html
+                  properties:
+                    html: '<div>ONE</div>'
+                  visible:
+                    _state: flex_blocks.0.visible
+                  style:
+                    _parse:
+                      _state: flex_blocks.0.style
+                - id: flex_2
+                  type: html
+                  properties:
+                    html: '<div>TWO</div>'
+                  visible:
+                    _state: flex_blocks.1.visible
+                  style:
+                    _parse:
+                      _state: flex_blocks.1.style
+                - id: flex_3
+                  type: html
+                  properties:
+                    html: '<div>THREE</div>'
+                  visible:
+                    _state: flex_blocks.2.visible
+                  style:
+                    _parse:
+                      _state: flex_blocks.2.style
+                - id: flex_4
+                  type: html
+                  properties:
+                    html: '<div>FOUR</div>'
+                  visible:
+                    _state: flex_blocks.3.visible
+                  style:
+                    _parse:
+                      _state: flex_blocks.3.style
+                - id: flex_5
+                  type: html
+                  properties:
+                    html: '<div>FIVE</div>'
+                  visible:
+                    _state: flex_blocks.4.visible
+                  style:
+                    _parse:
+                      _state: flex_blocks.4.style
+                - id: flex_6
+                  type: html
+                  properties:
+                    html: '<div>SIX</div>'
+                  visible:
+                    _state: flex_blocks.5.visible
+                  style:
+                    _parse:
+                      _state: flex_blocks.5.style
+
+              content1:
+                - id: grid_1
+                  type: html
+                  properties:
+                    html: '<div>ONE</div>'
+                  visible:
+                    _state: grid_blocks.0.visible
+                  style:
+                    _parse:
+                      _state: grid_blocks.0.style
+                - id: grid_2
+                  type: html
+                  properties:
+                    html: '<div>TWO</div>'
+                  visible:
+                    _state: grid_blocks.1.visible
+                  style:
+                    _parse:
+                      _state: grid_blocks.1.style
+                - id: grid_3
+                  type: html
+                  properties:
+                    html: '<div>THREE</div>'
+                  visible:
+                    _state: grid_blocks.2.visible
+                  style:
+                    _parse:
+                      _state: grid_blocks.2.style
+                - id: grid_4
+                  type: html
+                  properties:
+                    html: '<div>FOUR</div>'
+                  visible:
+                    _state: grid_blocks.3.visible
+                  style:
+                    _parse:
+                      _state: grid_blocks.3.style
+                - id: grid_5
+                  type: html
+                  properties:
+                    html: '<div>FIVE</div>'
+                  visible:
+                    _state: grid_blocks.4.visible
+                  style:
+                    _parse:
+                      _state: grid_blocks.4.style
+                - id: grid_6
+                  type: html
+                  properties:
+                    html: '<div>SIX</div>'
+                  visible:
+                    _state: grid_blocks.5.visible
+                  style:
+                    _parse:
+                      _state: grid_blocks.5.style
+
+          - id: setup_flex
+            type: box
+            blocks:
+              - id: setup_divider
+                type: divider
+                properties:
+                  title: Block Setup
+              - id: setup_card
+                type: card
+                properties: 
+                  size: small
+                blocks:
+                  - id: setup_markdown
+                    type: markdown
+                    properties:
+                      content:
+                        _nunjucks:
+                          template: |
+                            ```json
+                            {{ value | safe }}
+                            ```
+                          on:
+                            value:
+                              _stringify:
+                                id: block_id
+                                type:
+                                  _state: style_transform
+                                style:
+                                  _parse: 
+                                    _state: flex_style_input
+                                visible:
+                                  _state: block.visible
+                                properties:
+                                  _state: block.properties
+
+      - id: settings_grid
+        type: box
+        style:
+          --span: 6
+        blocks:
+          - id: settings_divider
+            type: divider
+            properties:
+              title: Settings
+          - id: block_collapse
+            type: collapse
+            properties:
+              defaultActiveKey: properties
+              panels:
+                - key: style
+                  title: 'style:'
+                - key: properties
+                  title: 'properties:'
+                - key: actions
+                  title: 'actions:'
+                - key: visible
+                  title: 'visible:'
+                - key: blocks
+                  title: 'blocks:'
+            blocks:
               style:
-                Label:
-                  --span: 2
+                - id: style_form
+                  type: box
+                  style:
+                    Content:
+                      --gap: 0
+                  blocks:
+                    - id: flex_style_input
+                      type: text_area_input
+                      style:
+                        --span: 11
+                        sm:
+                          --span: 11
+                        Label:
+                          --span: 2
+                      defaultValue: |
+                        {}
+                      properties:
+                        title: block
+                        rows: 3
+                        size: small
+                        Label:
+                          extra: CSS Object style properties. Should be in JSON format.
+              visible:
+                - id: block.visible
+                  type: switch_input
+                  defaultValue: true
+                  properties:
+                    title: visible
+                    label:
+                      extra: Toggle if block is visible and has a value in state.
+                      inline: true
+                    size: small
+
               properties:
-                title: title
-                size: small
-                Label:
-                  extra: Title of the panel.
-            - id: block.properties.panels.$.key
-              type: text_input
-              defaultValue: key
-              style:
-                Label:
-                  --span: 2
-              properties:
-                title: key
-                size: small
-                Label:
-                  extra: Key of the panel.
-            - id: block.properties.panels.$.disabled
-              type: switch_input
-              defaultValue: false
-              style:
-                Label:
-                  --span: 2
-              properties:
-                title: disabled
-                size: small
-                Label:
-                  extra: Disable the panel if true.
-        - id: block.properties.showArrow
-          type: switch_input
-          defaultValue: true
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: showArrow
-            size: small
-            Label:
-              extra: Show expand icon.
+                - id: flex_properties_form
+                  type: box
+                  style:
+                    Content:
+                      --gap: 0
+                  blocks:
+                    - id: block.properties.accordion
+                      type: switch_input
+                      defaultValue: false
+                      style:
+                        Label:
+                          --span: 2
+                      properties:
+                        title: accordion
+                        size: small
+                        Label:
+                          extra: If true, only one panel is open at a time.
+                    - id: block.properties.activeKey
+                      type: text_input
+                      style:
+                        Label:
+                          --span: 2
+                      properties:
+                        title: activeKey
+                        size: small
+                        Label:
+                          extra: Current Panel's key.
+                    - id: block.properties.bordered
+                      type: switch_input
+                      defaultValue: true
+                      style:
+                        Label:
+                          --span: 2
+                      properties:
+                        title: bordered
+                        size: small
+                        Label:
+                          extra: Toggles rendering of the border around the collapse block.
+                    - id: block.properties.defaultActiveKey
+                      type: text_input
+                      defaultValue: content1
+                      style:
+                        Label:
+                          --span: 4
+                      properties:
+                        title: defaultActiveKey
+                        size: small
+                        Label:
+                          extra: Initial active Panel's key, if activeKey is not set.
+                    - id: block.properties.destroyInactivePanel
+                      type: switch_input
+                      defaultValue: false
+                      style:
+                        Label:
+                          --span: 4
+                      properties:
+                        title: destroyInactivePanel
+                        size: small
+                        Label:
+                          extra: Destroy Inactive Panel.
+                    - _ref:
+                        path: blocks/icon_template.yaml
+                        vars:
+                          icon_id: block.properties.IconExpand
+                          icon_field_name: IconExpand
+                          default_icon: RightOutlined
+                          icon_description: Icon to show as expand option.
+                    - id: block.properties.expandIconPosition
+                      type: radio_button_input
+                      defaultValue: left
+                      style:
+                        Label:
+                          --span: 4
+                      properties:
+                        title: expandIconPosition
+                        size: small
+                        Label:
+                          extra: Set position of expand icon.
+                        options:
+                          - left
+                          - right
+                    - id: block.properties.forceRender
+                      type: switch_input
+                      defaultValue: false
+                      style:
+                        Label:
+                          --span: 2
+                      properties:
+                        title: forceRender
+                        size: small
+                        Label:
+                          extra: Force render for all panels.
+                    - id: block.properties.panels
+                      type: list
+                      properties:
+                        title: 'panels:'
+                        size: small
+                      blocks:
+                        - id: block.properties.panels.$.title
+                          type: text_input
+                          defaultValue: title
+                          style:
+                            Label:
+                              --span: 2
+                          properties:
+                            title: title
+                            size: small
+                            Label:
+                              extra: Title of the panel.
+                        - id: block.properties.panels.$.key
+                          type: text_input
+                          defaultValue: key
+                          style:
+                            Label:
+                              --span: 2
+                          properties:
+                            title: key
+                            size: small
+                            Label:
+                              extra: Key of the panel.
+                        - id: block.properties.panels.$.disabled
+                          type: switch_input
+                          defaultValue: false
+                          style:
+                            Label:
+                              --span: 2
+                          properties:
+                            title: disabled
+                            size: small
+                            Label:
+                              extra: Disable the panel if true.
+
+                    - id: block.properties.showArrow
+                      type: switch_input
+                      defaultValue: true
+                      style:
+                        Label:
+                          --span: 2
+                      properties:
+                        title: showArrow
+                        size: small
+                        Label:
+                          extra: Show expand icon.
+
+              actions:
+                - id: actions_description
+                  type: markdown
+                  properties:
+                    content: |
+                      ###### No available actions.
+
+              blocks:
+                - id: flex_blocks
+                  type: list
+                  style:
+                    Content:
+                      --display: flex
+                  properties:
+                    title: Content 1
+                    hideAddButton: true
+                    hideRemoveButton: true
+                  blocks:
+                    - id: flex_blocks.$.gd
+                      type: box
+                      style:
+                        flex: 0 0 15ch
+                        Content:
+                          --display: flex
+                      blocks:
+                        - id: flex_blocks.$.name
+                          type: markdown
+                          properties:
+                            content: 
+                              _nunjucks: 
+                                template: '##### {{ name }}'
+                                on:
+                                  _state: flex_blocks.$
+                        - id: flex_blocks.$.visible
+                          type: switch_input
+                          style:
+                            Label:
+                              --inline: true
+                          properties:
+                            title: visible
+                            size: small
+                    - id: flex_blocks.$.style
+                      type: text_area_input
+                      style:
+                        flex: auto
+                        Label:
+                          --inline: true
+                      properties:
+                        title: style
+                        size: small
+                        rows: 3
+                
+                - id: grid_blocks
+                  type: list
+                  style:
+                    Content:
+                      --display: flex
+                  properties:
+                    title: Content 2
+                    hideAddButton: true
+                    hideRemoveButton: true
+                  blocks:
+                    - id: grid_blocks.$.gd
+                      type: box
+                      style:
+                        flex: 0 0 15ch
+                        Content:
+                          --display: flex
+                      blocks:
+                        - id: grid_blocks.$.name
+                          type: markdown
+                          properties:
+                            content: 
+                              _nunjucks: 
+                                template: '##### {{ name }}'
+                                on:
+                                  _state: grid_blocks.$
+                        - id: grid_blocks.$.visible
+                          type: switch_input
+                          style:
+                            Label:
+                              --inline: true
+                          properties:
+                            title: visible
+                            size: small
+                    - id: grid_blocks.$.style
+                      type: text_area_input
+                      style:
+                        flex: auto
+                        Label:
+                          --inline: true
+                      properties:
+                        title: style
+                        size: small
+                        rows: 3
+
+      - id: examples_divider
+        type: divider
+        properties:
+          title: Examples
+      - id: examples_grid
+        type: box
+        blocks:
+          _var: examples
