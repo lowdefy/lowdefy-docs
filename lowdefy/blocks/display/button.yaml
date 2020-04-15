@@ -60,17 +60,6 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.block
           type: switch_input
           defaultValue: false
@@ -125,7 +114,7 @@ blocks:
             title: hideTitle
             size: small
             Label:
-              extra: Hide the buttons title.
+              extra: Hide the button's title.
         - id: block.properties.href
           type: text_input
           style:
@@ -172,6 +161,17 @@ blocks:
               - small
               - default
               - large
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          style:
+            Label:
+              --span: 2
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Title text on the button.
         - id: block.properties.type
           type: radio_button_input
           defaultValue: primary

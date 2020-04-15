@@ -69,7 +69,17 @@ blocks:
             title: alt
             size: small
             Label:
-              extra: This attribute defines the alternative text describing the image
+              extra: This attribute defines the alternative text describing the image.
+        - id: block.properties.color
+          type: color_picker_input
+          style:
+            Label:
+              --span: 2
+          properties:
+            title: color
+            size: small
+            Label:
+              extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
         - id: block.properties.content
           type: text_input
           style:
@@ -79,7 +89,7 @@ blocks:
             title: content
             size: small
             Label:
-              extra: Text to display inside avatar
+              extra: Text to display inside avatar.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -96,7 +106,7 @@ blocks:
             title: shape
             size: small
             Label:
-              extra: Shape of the avatar
+              extra: Shape of the avatar.
             options:
               - circle
               - square
@@ -110,7 +120,7 @@ blocks:
             title: size
             size: small
             Label:
-              extra: Size of the avatar
+              extra: Size of the avatar.
             options:
               - default
               - small
@@ -124,7 +134,7 @@ blocks:
             title: src
             size: small
             Label:
-              extra: "The address of the image for an image avatar. You can use '_user: picture' for this"
+              extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
 
       available_actions_description: |
         ###### No available actions.

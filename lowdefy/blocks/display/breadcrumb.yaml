@@ -55,7 +55,7 @@ blocks:
             title: separator
             size: small
             Label:
-              extra: Use a custom separator string
+              extra: Use a custom separator string.
         - id: block.properties.list
           type: list
           properties:
@@ -72,7 +72,7 @@ blocks:
                 title: label
                 size: small
                 Label:
-                  extra: Label of the breadcrumb link
+                  extra: Label of the breadcrumb link.
             - id: block.properties.list.$.pageId
               type: text_input
               defaultValue: introduction
@@ -83,7 +83,7 @@ blocks:
                 title: pageId
                 size: small
                 Label:
-                  extra: Page id to link to when clicked
+                  extra: Page id to link to when clicked.
             - id: block.properties.list.$.url
               type: text_input
               defaultValue: http://lowdefy.com
@@ -94,7 +94,7 @@ blocks:
                 title: url
                 size: small
                 Label:
-                  extra: External url link
+                  extra: External url link.
 
       available_actions_description: |
         ###### No available actions.
