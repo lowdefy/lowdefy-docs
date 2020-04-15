@@ -41,6 +41,9 @@ blocks:
                     Layout:
                       _parse:
                         _state: style_layout_input
+                    Logo:
+                      _parse:
+                        _state: style_logo_input
                     Menu:
                       _parse:
                         _state: style_menu_input
