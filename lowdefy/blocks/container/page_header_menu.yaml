@@ -210,24 +210,24 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
-        - id: block.properties.Header.logoSrc
+        - id: block.properties.logoSrc
           type: text_input
           style:
             Label:
               --span: 3
           properties:
-            title: Header.logoSrc
+            title: logoSrc
             size: small
             Label: 
               extra: Header logo source url
-        - id: block.properties.Header.logoAlt
+        - id: block.properties.logoAlt
           type: text_input
           defaultValue: Lowdefy
           style:
             Label:
               --span: 3
           properties:
-            title: Header.logoAlt
+            title: logoAlt
             size: small
             Label: 
               extra: Header logo alternative text
