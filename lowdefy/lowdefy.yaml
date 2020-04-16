@@ -1,6 +1,7 @@
 global:
   all_icons:
     _ref: blocks/all_icons.yaml
+  settings_input_style:
     --span: 11
     sm:
       --span: 11
