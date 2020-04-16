@@ -29,11 +29,7 @@ blocks:
         - id: flex_style_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: |
             {
               "Content": {

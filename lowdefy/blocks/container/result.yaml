@@ -47,11 +47,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -62,11 +58,7 @@ blocks:
         - id: style_content_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Content
@@ -85,8 +77,7 @@ blocks:
           type: radio_button_input
           defaultValue: 'info'
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: status
             size: small
@@ -103,8 +94,7 @@ blocks:
         - id: block.properties.subTitle
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: subTitle
             size: small
@@ -113,8 +103,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small

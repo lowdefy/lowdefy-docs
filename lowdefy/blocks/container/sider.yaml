@@ -29,11 +29,7 @@ blocks:
         - id: flex_style_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: |
             {}
           properties:
@@ -47,8 +43,7 @@ blocks:
           type: radio_button_input
           defaultValue: md
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: breakpoint
             size: small
@@ -65,8 +60,7 @@ blocks:
           type: radio_button_input
           defaultValue: null
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: collapsed
             size: small
@@ -80,8 +74,7 @@ blocks:
           type: number_input
           defaultValue: 80
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: collapsedWidth
             size: small
@@ -91,8 +84,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: collapsible
             size: small
@@ -102,8 +94,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: defaultCollapsed
             size: small
@@ -113,8 +104,7 @@ blocks:
           type: radio_button_input
           defaultValue: dark
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: theme
             size: small
@@ -127,8 +117,7 @@ blocks:
           type: text_input
           defaultValue: '200'
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: width
             size: small

@@ -312,16 +312,16 @@ menus:
             pageId: content
             properties:
               title: Content
-          - id: header
-            type: menu_link
-            pageId: header
-            properties:
-              title: Header
           - id: footer
             type: menu_link
             pageId: footer
             properties:
               title: Footer
+          - id: header
+            type: menu_link
+            pageId: header
+            properties:
+              title: Header
           - id: layout
             type: menu_link
             pageId: layout
@@ -357,6 +357,11 @@ menus:
             pageId: page_sider_menu
             properties:
               title: Page Sider Menu
+          - id: result
+            type: menu_link
+            pageId: result
+            properties:
+              title: Result
           - id: sider
             type: menu_link
             pageId: sider
@@ -367,11 +372,6 @@ menus:
             pageId: tabs
             properties:
               title: Tabs
-          - id: result
-            type: menu_link
-            pageId: result
-            properties:
-              title: Result
 
 pages:
   - _ref: start/introduction.yaml

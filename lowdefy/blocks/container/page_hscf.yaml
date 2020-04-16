@@ -53,11 +53,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -68,11 +64,7 @@ blocks:
         - id: style_content_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Content
@@ -83,11 +75,7 @@ blocks:
         - id: style_footer_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Footer
@@ -98,11 +86,7 @@ blocks:
         - id: style_header_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Header
@@ -113,11 +97,7 @@ blocks:
         - id: style_main_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Main
@@ -128,11 +108,7 @@ blocks:
         - id: style_sider_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Sider
@@ -143,11 +119,7 @@ blocks:
         - id: style_siderContent_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 4
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Sider.Content
@@ -160,8 +132,7 @@ blocks:
           type: radio_button_input
           defaultValue: dark
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           properties:
             title: Header.theme
             size: small
@@ -185,8 +156,7 @@ blocks:
           type: radio_button_input
           defaultValue: null
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: Sider.collapsed
             size: small
@@ -200,8 +170,7 @@ blocks:
           type: radio_button_input
           defaultValue: dark
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: Sider.theme
             size: small

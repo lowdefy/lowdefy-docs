@@ -18,8 +18,7 @@
   type: switch_input
   defaultValue: false
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: collapsed
     size: small
@@ -29,8 +28,7 @@
   type: number_input
   defaultValue: 80
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: collapsedWidth
     size: small
@@ -40,8 +38,7 @@
   type: switch_input
   defaultValue: false
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: collapsible
     size: small
@@ -51,8 +48,7 @@
   type: switch_input
   defaultValue: false
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: defaultCollapsed
     size: small
@@ -62,8 +58,7 @@
   type: switch_input
   defaultValue: false
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: reverseArrow
     size: small
@@ -73,8 +68,7 @@
   type: radio_button_input
   defaultValue: dark
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: theme
     size: small
@@ -87,8 +81,7 @@
   type: number_input
   defaultValue: 80
   style:
-    Label:
-      --span: 2
+    _global: settings_input_style
   properties:
     title: width
     size: small
