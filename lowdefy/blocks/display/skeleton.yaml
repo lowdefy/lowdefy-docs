@@ -21,11 +21,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -70,8 +66,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: active
             size: small
@@ -95,8 +90,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               skeleton_avatar_type: Boolean
@@ -108,8 +102,7 @@ blocks:
         - id: block.properties.avatar.shape
           type: radio_button_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style_indent
           visible:
             _mql_test:
               skeleton_avatar_type: Object
@@ -125,8 +118,7 @@ blocks:
         - id: block.properties.avatar.size
           type: radio_button_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style_indent
           visible:
             _mql_test:
               skeleton_avatar_type: Object
@@ -158,8 +150,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               skeleton_paragraph_type: Boolean
@@ -171,8 +162,7 @@ blocks:
         - id: block.properties.paragraph.rows
           type: number_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style_indent
           visible:
             _mql_test:
               skeleton_paragraph_type: Object
@@ -185,8 +175,7 @@ blocks:
         - id: block.properties.paragraph.width
           type: number_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style_indent
           visible:
             _mql_test:
               skeleton_paragraph_type: Object
@@ -214,8 +203,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               skeleton_title_type: Boolean
@@ -227,8 +215,7 @@ blocks:
         - id: block.properties.title.width
           type: number_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style_indent
           visible:
             _mql_test:
               skeleton_title_type: Object

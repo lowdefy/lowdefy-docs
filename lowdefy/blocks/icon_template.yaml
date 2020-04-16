@@ -2,8 +2,7 @@ id:
   _var: icon_id
 type: select_input
 style:
-  Label:
-    --span: 2
+  _global: settings_input_style
 defaultValue: 
   _var: default_icon
 properties:

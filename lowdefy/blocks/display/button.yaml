@@ -30,11 +30,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -45,11 +41,7 @@ blocks:
         - id: style_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Icon
@@ -64,8 +56,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: block
             size: small
@@ -75,8 +66,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -86,8 +76,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: ghost
             size: small
@@ -97,8 +86,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: hideActionLoading
             size: small
@@ -108,8 +96,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: hideTitle
             size: small
@@ -118,8 +105,7 @@ blocks:
         - id: block.properties.href
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: href
             size: small
@@ -135,8 +121,7 @@ blocks:
           type: radio_button_input
           defaultValue: square
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: shape
             size: small
@@ -150,8 +135,7 @@ blocks:
           type: radio_button_input
           defaultValue: default
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: size
             size: small
@@ -165,8 +149,7 @@ blocks:
           type: text_input
           defaultValue: block_id
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small
@@ -176,8 +159,7 @@ blocks:
           type: radio_button_input
           defaultValue: primary
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: type
             size: small

@@ -20,11 +20,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -43,8 +39,7 @@ blocks:
 
             As an educator, I try to get people to be fundamentally curious and to question ideas that they might have or that are shared by others. In that state of mind, they have earned a kind of inoculation against the fuzzy thinking of these weird ideas floating around out there.
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: content
             size: small
@@ -54,8 +49,7 @@ blocks:
         - id: block.properties.renderHtml
           type: switch_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: renderHtml
             size: small

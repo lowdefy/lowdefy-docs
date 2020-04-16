@@ -1,6 +1,23 @@
 global:
   all_icons:
     _ref: blocks/all_icons.yaml
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 4
+  settings_input_style_indent:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 5
+  settings_input_style_double_indent:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 6
 menus:
   - id: default
     links:

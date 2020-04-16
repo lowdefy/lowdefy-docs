@@ -30,11 +30,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -49,8 +45,7 @@ blocks:
           type: text_input
           defaultValue: '/'
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: separator
             size: small
@@ -66,8 +61,7 @@ blocks:
               type: text_input
               defaultValue: label
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               properties:
                 title: label
                 size: small
@@ -77,8 +71,7 @@ blocks:
               type: text_input
               defaultValue: introduction
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               properties:
                 title: pageId
                 size: small
@@ -88,8 +81,7 @@ blocks:
               type: text_input
               defaultValue: http://lowdefy.com
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               properties:
                 title: url
                 size: small

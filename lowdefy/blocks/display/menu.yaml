@@ -67,11 +67,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -86,8 +82,7 @@ blocks:
           type: radio_button_input
           defaultValue: vertical
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: mode
             size: small
@@ -101,8 +96,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: selectable
             size: small
@@ -111,8 +105,7 @@ blocks:
         - id: block.properties.selectedKeys
           type: multiple_select_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: selectedKeys
             size: small
@@ -129,8 +122,7 @@ blocks:
         - id: block.properties.subMenuCloseDelay
           type: number_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style
           properties:
             title: subMenuCloseDelay
             size: small
@@ -139,8 +131,7 @@ blocks:
         - id: block.properties.subMenuOpenDelay
           type: number_input
           style:
-            Label:
-              --span: 4
+            _global: settings_input_style
           properties:
             title: subMenuOpenDelay
             size: small
@@ -150,8 +141,7 @@ blocks:
           type: radio_button_input
           defaultValue: dark
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: theme
             size: small
@@ -170,8 +160,7 @@ blocks:
               type: text_input
               defaultValue: id_i
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               properties:
                 title: id
                 size: small
@@ -181,8 +170,7 @@ blocks:
               type: radio_button_input
               defaultValue: menu_link
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               properties:
                 title: type
                 size: small
@@ -198,8 +186,7 @@ blocks:
                   - _state: block.properties.links.$.type
                   - menu_link
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               properties:
                 title: pageId
                 size: small
@@ -214,20 +201,18 @@ blocks:
                 - id: block.properties.links.$.properties.title
                   type: text_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
-                    title: 'title:'
+                    title: title
                     Label:
                       extra: Menu item title.
                 - id: block.properties.links.$.properties.collapsed
                   type: switch_input
                   defaultValue: true
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
-                    title: 'collapsed:'
+                    title: collapsed
                     Label:
                       extra: Collapse the menu item.
                 - id: block.properties.links.$.properties.icon
@@ -237,12 +222,11 @@ blocks:
                       - _state: block.properties.links.$.type
                       - menu_group
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     showSearch: true
                     allowClear: true
-                    title: 'icon:'
+                    title: icon
                     options:
                       _global: all_icons
                     Label:
@@ -260,8 +244,7 @@ blocks:
                   type: text_input
                   defaultValue: id_k
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: id
                     size: small
@@ -271,8 +254,7 @@ blocks:
                   type: radio_button_input
                   defaultValue: menu_link
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: type
                     size: small
@@ -283,8 +265,7 @@ blocks:
                 - id: block.properties.links.$.links.$.pageId
                   type: text_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: pageId
                     size: small
@@ -299,10 +280,9 @@ blocks:
                     - id: block.properties.links.$.links.$.properties.title
                       type: text_input
                       style:
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       properties:
-                        title: 'title:'
+                        title: title
                         Label:
                           extra: Menu item title.
 

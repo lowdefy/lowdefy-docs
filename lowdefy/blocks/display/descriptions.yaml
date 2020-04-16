@@ -20,11 +20,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -55,8 +51,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: bordered
             size: small
@@ -66,8 +61,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: colon
             size: small
@@ -77,8 +71,7 @@ blocks:
           type: number_input
           defaultValue: 3
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: column
             size: small
@@ -140,8 +133,7 @@ blocks:
         - id: items_object
           type: text_area_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               select_items_type: Object
@@ -156,8 +148,7 @@ blocks:
           type: radio_button_input
           defaultValue: default
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: layout
             size: small
@@ -170,8 +161,7 @@ blocks:
           type: radio_button_input
           defaultValue: default
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: size
             size: small
@@ -184,8 +174,7 @@ blocks:
         - id: block.properties.title
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small

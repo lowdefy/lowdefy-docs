@@ -30,11 +30,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -45,11 +41,7 @@ blocks:
         - id: style_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Icon
@@ -63,8 +55,7 @@ blocks:
         - id: block.properties.alt
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: alt
             size: small
@@ -73,8 +64,7 @@ blocks:
         - id: block.properties.color
           type: color_picker_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: color
             size: small
@@ -83,8 +73,7 @@ blocks:
         - id: block.properties.content
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: content
             size: small
@@ -100,8 +89,7 @@ blocks:
           type: radio_button_input
           defaultValue: circle
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: shape
             size: small
@@ -114,8 +102,7 @@ blocks:
           type: radio_button_input
           defaultValue: default
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: size
             size: small
@@ -128,8 +115,7 @@ blocks:
         - id: block.properties.src
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: src
             size: small

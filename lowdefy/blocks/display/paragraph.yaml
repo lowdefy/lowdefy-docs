@@ -20,11 +20,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -39,8 +35,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: code
             size: small
@@ -51,8 +46,7 @@ blocks:
           defaultValue: |
             Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: content
             size: small
@@ -62,8 +56,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: copyable
             size: small
@@ -73,8 +66,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: delete
             size: small
@@ -84,8 +76,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -95,8 +86,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: ellipsis
             size: small
@@ -106,8 +96,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: mark
             size: small
@@ -117,8 +106,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: strong
             size: small
@@ -127,8 +115,7 @@ blocks:
         - id: block.properties.type
           type: select_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             allowClear: true
             title: type
@@ -143,8 +130,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: underline
             size: small

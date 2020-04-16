@@ -20,11 +20,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -39,8 +35,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: code
             size: small
@@ -50,8 +45,7 @@ blocks:
           type: text_input
           defaultValue: Title
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: content
             size: small
@@ -61,8 +55,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: copyable
             size: small
@@ -72,8 +65,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: delete
             size: small
@@ -83,8 +75,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -94,8 +85,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: ellipsis
             size: small
@@ -105,8 +95,7 @@ blocks:
           type: radio_button_input
           defaultValue: 1
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: level
             size: small
@@ -121,8 +110,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: mark
             size: small
@@ -131,8 +119,7 @@ blocks:
         - id: block.properties.type
           type: select_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             allowClear: true
             title: type
@@ -147,8 +134,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: underline
             size: small
