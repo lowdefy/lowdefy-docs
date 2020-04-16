@@ -45,10 +45,11 @@ blocks:
             title: code
             size: small
             Label:
-              extra: Apply code style
+              extra: Apply code style.
         - id: block.properties.content
           type: text_input
-          defaultValue: A vigilante is just a man lost in scramble for his own gratification. He can be destroyed or locked up. But if you make yourself more than just a man, if you devote yourself to an ideal and if they can’t stop you then you become something else entirely. Legend, Mr Wayne
+          defaultValue: |
+            Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
           style:
             Label:
               --span: 2
@@ -56,7 +57,7 @@ blocks:
             title: content
             size: small
             Label:
-              extra: Paragraph text content
+              extra: Paragraph text content.
         - id: block.properties.copyable
           type: switch_input
           defaultValue: false
@@ -67,7 +68,7 @@ blocks:
             title: copyable
             size: small
             Label:
-              extra: Provide copy text button
+              extra: Provide copy text button.
         - id: block.properties.delete
           type: switch_input
           defaultValue: false
@@ -78,7 +79,7 @@ blocks:
             title: delete
             size: small
             Label:
-              extra: Apply deleted style
+              extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
@@ -89,7 +90,7 @@ blocks:
             title: disabled
             size: small
             Label:
-              extra: Apply disabled style
+              extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: switch_input
           defaultValue: false
@@ -100,7 +101,7 @@ blocks:
             title: ellipsis
             size: small
             Label:
-              extra: Display ellipsis when text overflows
+              extra: Display ellipsis when text overflows a single line.
         - id: block.properties.mark
           type: switch_input
           defaultValue: false
@@ -111,7 +112,7 @@ blocks:
             title: mark
             size: small
             Label:
-              extra: Apply marked style
+              extra: Apply marked (highlighted) style.
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
@@ -122,7 +123,7 @@ blocks:
             title: strong
             size: small
             Label:
-              extra: Apply strong style
+              extra: Apply strong (bold) style.
         - id: block.properties.type
           type: select_input
           style:
@@ -133,7 +134,7 @@ blocks:
             title: type
             size: small
             Label:
-              extra: Content type.
+              extra: Additional types. Don't specify for default.
             options:
               - secondary
               - warning
@@ -148,8 +149,46 @@ blocks:
             title: underline
             size: small
             Label:
-              extra: Apply underline style
+              extra: Apply underline style.
 
       available_actions_description: |
         ###### No available actions.
 
+      examples:
+        - id: example_1_card
+          type: card
+          blocks:
+            - id: example_1_block_grid
+              type: box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: markdown
+                  properties:
+                    content: |
+                      ##### Copyable text with different copy text
+                - id: example_1
+                  type: paragraph
+                  properties:
+                    copyable:
+                      text: password123
+                    content: "************"
+
+            - id: example_1_code_grid
+              type: box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_1
+                        type: paragraph
+                        properties:
+                          copyable:
+                            text: password123
+                          content: "***********"
+                      ```
