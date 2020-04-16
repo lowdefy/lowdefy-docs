@@ -30,11 +30,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -45,11 +41,7 @@ blocks:
         - id: style_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Icon
@@ -60,23 +52,11 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -89,22 +69,29 @@ blocks:
               icon_field_name: Icon
               default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
-
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: strong
             size: small
             Label:
               extra: Makes the text bold when true.
-
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Text to display in the anchor.
       available_actions_description: |
         ###### onClick
-        Triggered when the anchor is clicked.
+        Called when the anchor is clicked.
 
       examples:
         - id: example_1_card

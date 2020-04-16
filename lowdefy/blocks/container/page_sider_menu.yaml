@@ -60,11 +60,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -75,11 +71,7 @@ blocks:
         - id: style_breadcrumb_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Breadcrumb
@@ -90,11 +82,7 @@ blocks:
         - id: style_content_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Content
@@ -105,11 +93,7 @@ blocks:
         - id: style_footer_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Footer
@@ -120,11 +104,7 @@ blocks:
         - id: style_header_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: |
             {
               "Content": {
@@ -140,11 +120,7 @@ blocks:
         - id: style_layout_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Layout
@@ -155,11 +131,7 @@ blocks:
         - id: style_logo_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Logo
@@ -170,11 +142,7 @@ blocks:
         - id: style_menu_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Menu
@@ -185,11 +153,7 @@ blocks:
         - id: style_lgMenu_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: MenuLg
@@ -200,11 +164,7 @@ blocks:
         - id: style_mdMenu_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: MenuMd
@@ -216,8 +176,7 @@ blocks:
         - id: block.properties.logoSrc
           type: text_input
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: logoSrc
             size: small
@@ -227,8 +186,7 @@ blocks:
           type: text_input
           defaultValue: Lowdefy
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: logoAlt
             size: small
@@ -238,8 +196,7 @@ blocks:
           type: radio_button_input
           defaultValue: dark
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: Header.theme
             size: small
@@ -263,8 +220,7 @@ blocks:
           type: radio_button_input
           defaultValue: light
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: Sider.theme
             size: small
@@ -288,8 +244,7 @@ blocks:
           type: multiple_select_input
           defaultValue: ['Page 1', 'Page 2']
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: Breadcrumb.list
             size: small
@@ -325,8 +280,7 @@ blocks:
                 title: Alert
                 Icon: ExclamationCircleOutlined
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: Menu.links
             size: small

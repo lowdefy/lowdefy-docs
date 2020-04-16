@@ -1,6 +1,24 @@
 global:
   all_icons:
     _ref: blocks/all_icons.yaml
+  settings_input_style:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 4
+  settings_input_style_indent:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 5
+  settings_input_style_double_indent:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 6
 menus:
   - id: default
     links:
@@ -238,16 +256,16 @@ menus:
             pageId: markdown
             properties:
               title: Markdown
+          - id: menu
+            type: menu_link
+            pageId: menu
+            properties:
+              title: Menu
           - id: paragraph
             type: menu_link
             pageId: paragraph
             properties:
               title: Paragraph
-          - id: title
-            type: menu_link
-            pageId: title
-            properties:
-              title: Title
           - id: skeleton
             type: menu_link
             pageId: skeleton
@@ -258,6 +276,11 @@ menus:
             pageId: statistic
             properties:
               title: Statistic
+          - id: title
+            type: menu_link
+            pageId: title
+            properties:
+              title: Title
       - id: blocks_container
         type: menu_group
         properties:
@@ -289,16 +312,16 @@ menus:
             pageId: content
             properties:
               title: Content
-          - id: header
-            type: menu_link
-            pageId: header
-            properties:
-              title: Header
           - id: footer
             type: menu_link
             pageId: footer
             properties:
               title: Footer
+          - id: header
+            type: menu_link
+            pageId: header
+            properties:
+              title: Header
           - id: layout
             type: menu_link
             pageId: layout
@@ -334,6 +357,11 @@ menus:
             pageId: page_sider_menu
             properties:
               title: Page Sider Menu
+          - id: result
+            type: menu_link
+            pageId: result
+            properties:
+              title: Result
           - id: sider
             type: menu_link
             pageId: sider
@@ -344,11 +372,6 @@ menus:
             pageId: tabs
             properties:
               title: Tabs
-          - id: result
-            type: menu_link
-            pageId: result
-            properties:
-              title: Result
 
 pages:
   - _ref: start/introduction.yaml
@@ -360,48 +383,51 @@ pages:
   - _ref: concepts/groups.yaml
   - _ref: concepts/layout.yaml
   - _ref: concepts/lowdefy-file.yaml
+  - _ref: concepts/operators.yaml
   - _ref: concepts/pages.yaml
   - _ref: concepts/references.yaml
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
-  - _ref: concepts/operators.yaml
-  - _ref: blocks/input/text_input.yaml
-  - _ref: blocks/input/text_area_input.yaml
-  - _ref: blocks/input/number_input.yaml
-  - _ref: blocks/input/switch_input.yaml
-  - _ref: blocks/input/slider_input.yaml
-  - _ref: blocks/input/checkbox_input.yaml
-  - _ref: blocks/input/select_input.yaml
-  - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/input/autocomplete_input.yaml
-  - _ref: blocks/input/radio_input.yaml
-  - _ref: blocks/input/radio_button_input.yaml
-  - _ref: blocks/input/date_input.yaml
-  - _ref: blocks/input/date_time_input.yaml
-  - _ref: blocks/input/week_input.yaml
-  - _ref: blocks/input/month_input.yaml
-  - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/input/checkbox_input.yaml
   - _ref: blocks/input/color_picker_input.yaml
-  - _ref: blocks/display/paragraph.yaml
-  - _ref: blocks/display/title.yaml
-  - _ref: blocks/display/icon.yaml
-  - _ref: blocks/display/breadcrumb.yaml
-  - _ref: blocks/display/statistic.yaml
-  - _ref: blocks/display/amcharts_4_xy.yaml
-  - _ref: blocks/display/button.yaml
-  - _ref: blocks/display/anchor.yaml
+  - _ref: blocks/input/date_input.yaml
+  - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/input/date_time_input.yaml
+  - _ref: blocks/input/month_input.yaml
+  - _ref: blocks/input/multiple_select_input.yaml
+  - _ref: blocks/input/number_input.yaml
+  - _ref: blocks/input/radio_button_input.yaml
+  - _ref: blocks/input/radio_input.yaml
+  - _ref: blocks/input/select_input.yaml
+  - _ref: blocks/input/slider_input.yaml
+  - _ref: blocks/input/switch_input.yaml
+  - _ref: blocks/input/text_area_input.yaml
+  - _ref: blocks/input/text_input.yaml
+  - _ref: blocks/input/week_input.yaml
   - _ref: blocks/display/ag_grid.yaml
-  - _ref: blocks/display/skeleton.yaml
-  - _ref: blocks/display/divider.yaml
-  - _ref: blocks/display/avatar.yaml
   - _ref: blocks/display/alert.yaml
+  - _ref: blocks/display/amcharts_4_xy.yaml
+  - _ref: blocks/display/anchor.yaml
+  - _ref: blocks/display/avatar.yaml
+  - _ref: blocks/display/breadcrumb.yaml
+  - _ref: blocks/display/button.yaml
   - _ref: blocks/display/descriptions.yaml
+  - _ref: blocks/display/divider.yaml
+  - _ref: blocks/display/icon.yaml
   - _ref: blocks/display/markdown.yaml
-  - _ref: blocks/container/card.yaml
+  - _ref: blocks/display/menu.yaml
+  - _ref: blocks/display/paragraph.yaml
+  - _ref: blocks/display/skeleton.yaml
+  - _ref: blocks/display/statistic.yaml
+  - _ref: blocks/display/title.yaml
+  - _ref: blocks/container/badge.yaml
   - _ref: blocks/container/box.yaml
-  - _ref: blocks/container/header.yaml
+  - _ref: blocks/container/card.yaml
+  - _ref: blocks/container/collapse.yaml
   - _ref: blocks/container/content.yaml
   - _ref: blocks/container/footer.yaml
+  - _ref: blocks/container/header.yaml
   - _ref: blocks/container/layout.yaml
   - _ref: blocks/container/page_hcf.yaml
   - _ref: blocks/container/page_hcsf.yaml
@@ -409,8 +435,6 @@ pages:
   - _ref: blocks/container/page_hscf.yaml
   - _ref: blocks/container/page_shcf.yaml
   - _ref: blocks/container/page_sider_menu.yaml
+  - _ref: blocks/container/result.yaml
   - _ref: blocks/container/sider.yaml
   - _ref: blocks/container/tabs.yaml
-  - _ref: blocks/container/collapse.yaml
-  - _ref: blocks/container/result.yaml
-  - _ref: blocks/container/badge.yaml

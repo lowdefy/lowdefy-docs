@@ -135,11 +135,7 @@ blocks:
                 - id: style_block_input
                   type: text_area_input
                   style:
-                    --span: 11
-                    sm:
-                      --span: 11
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   defaultValue: "{}"
                   properties:
                     title: block
@@ -150,11 +146,7 @@ blocks:
                 - id: style_content_input
                   type: text_area_input
                   style:
-                    --span: 11
-                    sm:
-                      --span: 11
-                    Label:
-                      --span: 2
+                    _global: settings_input_style_indent
                   defaultValue: "{}"
                   properties:
                     title: Content
@@ -189,8 +181,7 @@ blocks:
                 - id: block.properties.color
                   type: color_picker_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: color
                     size: small
@@ -201,8 +192,7 @@ blocks:
                   type: text_input
                   defaultValue: "10"
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: count
                     size: small
@@ -211,8 +201,7 @@ blocks:
                 - id: block.properties.dot
                   type: switch_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: dot
                     size: small
@@ -221,8 +210,7 @@ blocks:
                 - id: block.properties.offset.0
                   type: number_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: offset 0
                     size: small
@@ -231,8 +219,7 @@ blocks:
                 - id: block.properties.overflowCount
                   type: number_input
                   style:
-                    Label:
-                      --span: 3
+                    _global: settings_input_style
                   properties:
                     title: overflowCount
                     size: small
@@ -241,8 +228,7 @@ blocks:
                 - id: block.properties.showZero
                   type: switch_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: showZero
                     size: small
@@ -251,8 +237,7 @@ blocks:
                 - id: block.properties.status
                   type: radio_button_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: status
                     size: small
@@ -268,8 +253,7 @@ blocks:
                 - id: block.properties.text
                   type: switch_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: text
                     size: small
@@ -278,8 +262,7 @@ blocks:
                 - id: block.properties.title
                   type: text_input
                   style:
-                    Label:
-                      --span: 2
+                    _global: settings_input_style
                   properties:
                     title: title
                     size: small

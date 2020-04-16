@@ -239,11 +239,7 @@ blocks:
                     - id: flex_style_input
                       type: text_area_input
                       style:
-                        --span: 11
-                        sm:
-                          --span: 11
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       defaultValue: |
                         {}
                       properties:
@@ -274,8 +270,7 @@ blocks:
                       type: switch_input
                       defaultValue: false
                       style:
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       properties:
                         title: accordion
                         size: small
@@ -284,8 +279,7 @@ blocks:
                     - id: block.properties.activeKey
                       type: text_input
                       style:
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       properties:
                         title: activeKey
                         size: small
@@ -295,8 +289,7 @@ blocks:
                       type: switch_input
                       defaultValue: true
                       style:
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       properties:
                         title: bordered
                         size: small
@@ -306,8 +299,7 @@ blocks:
                       type: text_input
                       defaultValue: content1
                       style:
-                        Label:
-                          --span: 4
+                        _global: settings_input_style
                       properties:
                         title: defaultActiveKey
                         size: small
@@ -317,8 +309,7 @@ blocks:
                       type: switch_input
                       defaultValue: false
                       style:
-                        Label:
-                          --span: 4
+                        _global: settings_input_style
                       properties:
                         title: destroyInactivePanel
                         size: small
@@ -335,8 +326,7 @@ blocks:
                       type: radio_button_input
                       defaultValue: left
                       style:
-                        Label:
-                          --span: 4
+                        _global: settings_input_style
                       properties:
                         title: expandIconPosition
                         size: small
@@ -349,8 +339,7 @@ blocks:
                       type: switch_input
                       defaultValue: false
                       style:
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       properties:
                         title: forceRender
                         size: small
@@ -366,8 +355,7 @@ blocks:
                           type: text_input
                           defaultValue: title
                           style:
-                            Label:
-                              --span: 2
+                            _global: settings_input_style
                           properties:
                             title: title
                             size: small
@@ -377,8 +365,7 @@ blocks:
                           type: text_input
                           defaultValue: key
                           style:
-                            Label:
-                              --span: 2
+                            _global: settings_input_style
                           properties:
                             title: key
                             size: small
@@ -388,8 +375,7 @@ blocks:
                           type: switch_input
                           defaultValue: false
                           style:
-                            Label:
-                              --span: 2
+                            _global: settings_input_style
                           properties:
                             title: disabled
                             size: small
@@ -400,8 +386,7 @@ blocks:
                       type: switch_input
                       defaultValue: true
                       style:
-                        Label:
-                          --span: 2
+                        _global: settings_input_style
                       properties:
                         title: showArrow
                         size: small

@@ -29,11 +29,7 @@ blocks:
         - id: flex_style_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: |
             {
               "Content": {
@@ -51,8 +47,7 @@ blocks:
           type: radio_button_input
           defaultValue: dark
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: theme
             size: small

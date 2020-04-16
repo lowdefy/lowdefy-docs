@@ -30,11 +30,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -45,11 +41,7 @@ blocks:
         - id: style_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: Icon
@@ -60,23 +52,11 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.block
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: block
             size: small
@@ -86,8 +66,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -97,8 +76,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: ghost
             size: small
@@ -108,8 +86,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: hideActionLoading
             size: small
@@ -119,18 +96,16 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: hideTitle
             size: small
             Label:
-              extra: Hide the buttons title.
+              extra: Hide the button's title.
         - id: block.properties.href
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: href
             size: small
@@ -146,8 +121,7 @@ blocks:
           type: radio_button_input
           defaultValue: square
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: shape
             size: small
@@ -161,8 +135,7 @@ blocks:
           type: radio_button_input
           defaultValue: default
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: size
             size: small
@@ -172,12 +145,21 @@ blocks:
               - small
               - default
               - large
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Title text on the button.
         - id: block.properties.type
           type: radio_button_input
           defaultValue: primary
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: type
             size: small
@@ -192,7 +174,7 @@ blocks:
 
       available_actions_description: |
         ###### onClick
-        Triggered when the button is clicked.
+        Called when the button is clicked.
 
       examples:
         - id: example_1_card

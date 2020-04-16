@@ -20,11 +20,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -35,33 +31,21 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Divider title
         - id: block.properties.dashed
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: dashed
             size: small
             Label:
-              extra: Whether line is dashed
+              extra: Whether line is dashed.
         - id: block.properties.orientation
           type: radio_button_input
           defaultValue: center
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: orientation
             size: small
@@ -71,12 +55,20 @@ blocks:
               - center
               - left
               - right
+        - id: block.properties.title
+          type: text_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Divider title.
         - id: block.properties.type
           type: radio_button_input
           defaultValue: horizontal
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: type
             size: small

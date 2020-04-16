@@ -26,6 +26,9 @@ blocks:
                     IconSuffix:
                       _parse:
                         _state: style_suffix_icon_input
+                    Value:
+                      _parse:
+                        _state: style_value_input
               on:
                 _parse:
                   _state: style_block_input
@@ -33,11 +36,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -48,11 +47,7 @@ blocks:
         - id: style_prefix_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: IconPrefix
@@ -63,11 +58,7 @@ blocks:
         - id: style_suffix_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style_indent
           defaultValue: "{}"
           properties:
             title: IconSuffix
@@ -75,15 +66,111 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
+        - id: style_value_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Value
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
+        - id: block.properties.decimalSeparator
+          type: text_input
+          defaultValue: "."
+          style:
+            _global: settings_input_style
+          properties:
+            title: decimalSeparator
+            size: small
+            Label:
+              extra: Decimal separator.
+        - id: block.properties.formatter.type
+          type: select_input
+          defaultValue: default
+          style:
+            _global: settings_input_style_indent
+          properties:
+            title: formatter.type
+            size: small
+            Label:
+              extra: Type of formatter to apply to value.
+            options:
+              - default
+              - date
+              - humanizeDuration
+        - id: block.properties.formatter.properties.format
+          type: text_input
+          style:
+            _global: settings_input_style_double_indent
+          visible:
+            _mql_test:
+              block.properties.formatter.type: date
+          properties:
+            title: formatter.properties.format
+            size: small
+            Label:
+              extra: Moment.js date format
+        - id: block.properties.groupSeparator
+          type: text_input
+          defaultValue: ","
+          style:
+            _global: settings_input_style
+          properties:
+            title: groupSeparator
+            size: small
+            Label:
+              extra: Group separator.
+        - id: block.properties.precision
+          type: number_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: precision
+            size: small
+            Label:
+              extra: Number of decimals to display.
+        - id: block.properties.prefix
+          type: text_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: prefix
+            size: small
+            Label:
+              extra: Prefix text, priority over IconPrefix.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconPrefix
+              icon_field_name: IconPrefix
+              icon_description: Icon to prefix statistic.
+
+        - id: block.properties.suffix
+          type: text_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: suffix
+            size: small
+            Label:
+              extra: Suffix text, priority over IconSuffix.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconSuffix
+              icon_field_name: IconSuffix
+              icon_description: Icon to suffix statistic.
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small
@@ -107,8 +194,7 @@ blocks:
           field: block.properties.value
           type: number_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               select_value_type: Number
@@ -121,8 +207,7 @@ blocks:
           field: block.properties.value
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               select_value_type: String
@@ -131,104 +216,6 @@ blocks:
             size: small
             Label:
               extra: Display text value.
-        - id: block.properties.decimalSeparator
-          type: text_input
-          defaultValue: "."
-          style:
-            Label:
-              --span: 3
-          properties:
-            title: decimalSeparator
-            size: small
-            Label:
-              extra: Decimal separator.
-        - id: block.properties.formatter.type
-          type: select_input
-          defaultValue: default
-          style:
-            Label:
-              --span: 3
-          properties:
-            title: formatter.type
-            size: small
-            Label:
-              extra: Type of formatter to apply to value.
-            options:
-              - default
-              - date
-              - humanizeDuration
-        - id: block.properties.formatter.properties.format
-          type: text_input
-          style:
-            Label:
-              --span: 3
-          visible:
-            _mql_test:
-              block.properties.formatter.type: date
-          properties:
-            title: formatter.properties.format
-            size: small
-            Label:
-              extra: Moment.js date format
-            options:
-              - default
-              - date
-              - humanizeDuration
-        - id: block.properties.groupSeparator
-          type: text_input
-          defaultValue: ","
-          style:
-            Label:
-              --span: 3
-          properties:
-            title: groupSeparator
-            size: small
-            Label:
-              extra: Group separator.
-        - id: block.properties.precision
-          type: number_input
-          defaultValue: 2
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: precision
-            size: small
-            Label:
-              extra: Number of decimals to display.
-        - id: block.properties.prefix
-          type: text_input
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: prefix
-            size: small
-            Label:
-              extra: Prefix text, priority over IconPrefix.
-        - _ref:
-            path: blocks/icon_template.yaml
-            vars:
-              icon_id: block.properties.IconPrefix
-              icon_field_name: IconPrefix
-              icon_description: Icon to prefix statistic.
-
-        - id: block.properties.suffix
-          type: text_input
-          style:
-            Label:
-              --span: 2
-          properties:
-            title: suffix
-            size: small
-            Label:
-              extra: Suffix text, priority over IconSuffix.
-        - _ref:
-            path: blocks/icon_template.yaml
-            vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
-              icon_description: Icon to suffix statistic.
 
       available_actions_description: |
         ###### No available actions.
