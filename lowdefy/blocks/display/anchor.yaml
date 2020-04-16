@@ -157,8 +157,6 @@ blocks:
                       ##### Bold text and icon
                 - id: example_2
                   type: anchor
-                  style:
-                    --span: 6
                   properties:
                     title: Click here
                     strong: true
