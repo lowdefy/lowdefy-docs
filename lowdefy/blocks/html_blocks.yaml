@@ -87,7 +87,6 @@ flex_blocks:
     name: 'ONE'
     style: |
       {
-        "flex": 2,
         "padding": "0px 20px",
         "color": "white",
         "background": "#0480ff",
@@ -101,7 +100,6 @@ flex_blocks:
     name: 'TWO'
     style: |
       {
-        "flex": 2,
         "padding": "0px 20px",
         "color": "white",
         "background": "#0480ff",
@@ -128,7 +126,6 @@ flex_blocks:
     name: 'FOUR'
     style: |
       {
-        "flex": 1,
         "padding": "0px 20px",
         "color": "white",
         "background": "#0480ff",
@@ -142,7 +139,6 @@ flex_blocks:
     name: 'FIVE'
     style: |
       {
-        "flex": 1,
         "padding": "0px 20px",
         "color": "white",
         "background": "#0480ff",
@@ -156,7 +152,6 @@ flex_blocks:
     name: 'SIX'
     style: |
       {
-        "flex": 1,
         "padding": "0px 20px",
         "color": "white",
         "background": "#0480ff",

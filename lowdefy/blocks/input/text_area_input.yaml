@@ -111,21 +111,21 @@ blocks:
             size: small
             Label:
               extra: Autofocus to the block on page load.
-        - id: select_autoRows_type_card
+        - id: select_autoSize_type_card
           type: card
           blocks:
-            - id: select_autoRows_type
+            - id: select_autoSize_type
               type: radio_button_input
               defaultValue: Boolean
               properties:
-                title: autoRows Type
+                title: autoSize Type
                 size: small
                 Label:
-                  extra: autoRows can either be a boolean value, or an object with minimum and maximum rows.  Defining autoRows disables any prefix or suffix defined.
+                  extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
                 options:
                   - Boolean
                   - Object
-        - id: block.properties.autoRows
+        - id: block.properties.autoSize
           type: switch_input
           defaultValue: false
           style:
@@ -133,35 +133,35 @@ blocks:
               --span: 2
           visible:
             _mql_test:
-              select_autoRows_type: Boolean
+              select_autoSize_type: Boolean
           properties:
-            title: autoRows
+            title: autoSize
             size: small
             Label:
               extra: Automatically extend the block number of rows.
-        - id: block.properties.autoRows.minRows
+        - id: block.properties.autoSize.minRows
           type: number_input
           style:
             Label:
               --span: 4
           visible:
             _mql_test:
-              select_autoRows_type: Object
+              select_autoSize_type: Object
           properties:
-            title: autoRows.minRows
+            title: autoSize.minRows
             size: small
             Label:
               extra: Minimum number of rows the block can be.
-        - id: block.properties.autoRows.maxRows
+        - id: block.properties.autoSize.maxRows
           type: number_input
           style:
             Label:
               --span: 4
           visible:
             _mql_test:
-              select_autoRows_type: Object
+              select_autoSize_type: Object
           properties:
-            title: autoRows.maxRows
+            title: autoSize.maxRows
             size: small
             Label:
               extra: Maximum number of rows the block can be.
@@ -292,7 +292,7 @@ blocks:
                 title: Auto Rows
                 Label:
                   extra: Automatically adjust text area size based on content.
-                autoRows:
+                autoSize:
                   minRows: 3
                   maxRows: 6
             - id: example_4_code
@@ -310,7 +310,7 @@ blocks:
                       "label": {
                         "extra": "Automatically adjust text area size based on content."
                       },
-                      "autoRows": {
+                      "autoSize": {
                         "minRows": 3,
                         "maxRows": 6
                       }
