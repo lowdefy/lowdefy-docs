@@ -11,8 +11,7 @@
       type: switch_input
       defaultValue: false
       style:
-        Label:
-          --span: 2
+        _global: settings_input_style
       properties:
         title: disable
         size: small
@@ -22,8 +21,7 @@
       type: switch_input
       defaultValue: true
       style:
-        Label:
-          --span: 2
+        _global: settings_input_style
       properties:
         title: colon
         size: small
@@ -32,8 +30,7 @@
     - id: block.properties.Label.extra
       type: text_input
       style:
-        Label:
-          --span: 2
+        _global: settings_input_style
       properties:
         title: extra
         size: small
