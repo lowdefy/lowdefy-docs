@@ -39,11 +39,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -54,11 +50,7 @@ blocks:
         - id: style_label_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Label
@@ -69,11 +61,7 @@ blocks:
         - id: style_input_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Input
@@ -84,11 +72,7 @@ blocks:
         - id: style_max_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: IconMax
@@ -99,11 +83,7 @@ blocks:
         - id: style_min_icon_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: IconMin
@@ -118,8 +98,7 @@ blocks:
           type: text_input
           defaultValue: block_id
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small
@@ -129,8 +108,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: autoFocus
             size: small
@@ -140,8 +118,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -151,13 +128,22 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disableIcons
             size: small
             Label:
               extra: Hides minimum and maximum icons.
+        - id: block.properties.disableNotApplicable
+          type: switch_input
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: disableNotApplicable
+            size: small
+            Label:
+              extra: Hides not applicable checkbox.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -177,8 +163,7 @@ blocks:
           type: number_input
           defaultValue: 0
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: min
             size: small
@@ -188,8 +173,7 @@ blocks:
           type: number_input
           defaultValue: 10
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: max
             size: small
@@ -199,8 +183,7 @@ blocks:
           type: text_input
           defaultValue: N/A
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: notApplicableLabel
             size: small
@@ -210,8 +193,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: showDots
             size: small
@@ -221,8 +203,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: showMarks
             size: small
@@ -232,19 +213,18 @@ blocks:
           type: number_input
           defaultValue: 1
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: step
             size: small
+            precision: 1
             Label:
               extra: The size of the step between values, has to be values greater than 0.
         - id: block.properties.tooltipVisible
           type: radio_button_input
           defaultValue: onClick
           style:
-            Label:
-              --span: 3
+            _global: settings_input_style
           properties:
             title: tooltipVisible
             size: small
@@ -310,6 +290,32 @@ blocks:
                       "title": "Icons",
                       "IconMin": "DislikeFilled",
                       "IconMax": "LikeFilled"
+                    }
+                  }
+                  ```
+        - id: example_6_card
+          type: card
+          blocks:
+            - id: example_6
+              type: slider_input
+              style:
+                --span: 6
+              properties:
+                title: Slider with no N/A
+                disableNotApplicable: true
+            - id: example_6_code
+              type: markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_6",
+                    "type": "slider_input",
+                    "properties": {
+                      "title": "Slider with no N/A",
+                      "disableNotApplicable": true
                     }
                   }
                   ```
