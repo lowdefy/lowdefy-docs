@@ -104,7 +104,7 @@ blocks:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: switch_input
-          defaultValue: false
+          defaultValue: true
           style:
             _global: settings_input_style
           properties:
