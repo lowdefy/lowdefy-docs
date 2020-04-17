@@ -41,11 +41,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -56,11 +52,7 @@ blocks:
         - id: style_label_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Label
@@ -71,11 +63,7 @@ blocks:
         - id: style_input_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Input
@@ -90,8 +78,7 @@ blocks:
           type: text_input
           defaultValue: block_id
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small
@@ -101,8 +88,7 @@ blocks:
           type: number_input
           defaultValue: 28
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: circleSize
             size: small
@@ -112,8 +98,7 @@ blocks:
           type: number_input
           defaultValue: 14
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: circleSpacing
             size: small
@@ -132,8 +117,7 @@ blocks:
           type: radio_button_input
           defaultValue: circle
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: type
             size: small
@@ -148,8 +132,7 @@ blocks:
           type: text_input
           defaultValue: 252px
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: width
             size: small

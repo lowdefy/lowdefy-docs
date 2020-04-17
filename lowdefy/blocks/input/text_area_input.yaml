@@ -33,11 +33,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -48,11 +44,7 @@ blocks:
         - id: style_label_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Label
@@ -63,11 +55,7 @@ blocks:
         - id: style_input_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Input
@@ -82,8 +70,7 @@ blocks:
           type: text_input
           defaultValue: block_id
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small
@@ -93,8 +80,7 @@ blocks:
           type: switch_input
           defaultValue: true
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: allowClear
             size: small
@@ -104,8 +90,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: autoFocus
             size: small
@@ -129,8 +114,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           visible:
             _mql_test:
               select_autoSize_type: Boolean
@@ -169,8 +153,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -179,8 +162,7 @@ blocks:
         - id: block.properties.placeholder
           type: text_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: placeholder
             size: small
@@ -189,8 +171,7 @@ blocks:
         - id: block.properties.rows
           type: number_input
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: rows
             size: small

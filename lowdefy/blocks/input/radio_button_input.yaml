@@ -49,11 +49,7 @@ blocks:
         - id: style_block_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: block
@@ -64,11 +60,7 @@ blocks:
         - id: style_label_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Label
@@ -79,11 +71,7 @@ blocks:
         - id: style_input_input
           type: text_area_input
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 2
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: Input
@@ -114,8 +102,7 @@ blocks:
           type: text_input
           defaultValue: block_id
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: title
             size: small
@@ -125,8 +112,7 @@ blocks:
           type: radio_button_input
           defaultValue: solid
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: buttonStyle
             size: small
@@ -139,8 +125,7 @@ blocks:
           type: switch_input
           defaultValue: false
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
@@ -179,8 +164,7 @@ blocks:
               type: text_input
               defaultValue: Label
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -193,8 +177,7 @@ blocks:
               type: text_input
               defaultValue: Value
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -207,8 +190,7 @@ blocks:
               type: switch_input
               defaultValue: false
               style:
-                Label:
-                  --span: 2
+                _global: settings_input_style
               visible:
                 _mql_test:
                   select_options_type: Label Value
@@ -221,8 +203,7 @@ blocks:
           type: radio_button_input
           defaultValue: default
           style:
-            Label:
-              --span: 2
+            _global: settings_input_style
           properties:
             title: size
             size: small
