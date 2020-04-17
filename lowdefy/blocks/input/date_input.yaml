@@ -212,7 +212,7 @@ blocks:
               properties:
                 title: showToday and IconSuffix
                 showToday: false
-                $suffix_iscon: FilterOutlined
+                IconSuffix: FilterOutlined
                 Label:
                   extra: Disable Today button and change the suffix icon.
             - id: example_2_code

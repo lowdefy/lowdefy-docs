@@ -210,7 +210,7 @@ blocks:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.IconSuffix
-              icon_field_name: $suffix_iscon
+              icon_field_name: IconSuffix
               default_icon: CalendarOutlined
               icon_description: Icon on right-hand side of the date-time input.
 
