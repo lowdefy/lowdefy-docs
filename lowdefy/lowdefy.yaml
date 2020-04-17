@@ -1,6 +1,24 @@
 global:
   all_icons:
     _ref: blocks/all_icons.yaml
+  settings_input_style:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 4
+  settings_input_style_indent:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 5
+  settings_input_style_double_indent:
+    --span: 11
+    sm:
+      --span: 11
+    Label:
+      --span: 6
 menus:
   - id: default
     links:
@@ -8,7 +26,7 @@ menus:
         type: menu_group
         properties:
           title: Getting Started
-          icon: RocketOutlined
+          Icon: RocketOutlined
         links:
           - id: introduction
             type: menu_link
@@ -34,7 +52,7 @@ menus:
         type: menu_group
         properties:
           title: Concepts
-          icon: BulbOutlined
+          Icon: BulbOutlined
         links:
           - id: lowdefy-file
             type: menu_link
@@ -55,7 +73,7 @@ menus:
             type: menu_link
             pageId: layout
             properties:
-              title: Layout and Menu
+              title: Layout
           - id: pages
             type: menu_link
             pageId: pages
@@ -90,53 +108,53 @@ menus:
         type: menu_group
         properties:
           title: Input Blocks
-          icon: FormOutlined
+          Icon: FormOutlined
         links:
-          - id: text_input
-            type: menu_link
-            pageId: text_input
-            properties:
-              title: Text
-          - id: text_area_input
-            type: menu_link
-            pageId: text_area_input
-            properties:
-              title: Text Area
-          - id: number_input
-            type: menu_link
-            pageId: number_input
-            properties:
-              title: Number
-          - id: switch_input
-            type: menu_link
-            pageId: switch_input
-            properties:
-              title: Switch
-          - id: slider_input
-            type: menu_link
-            pageId: slider_input
-            properties:
-              title: Slider
-          - id: checkbox_input
-            type: menu_link
-            pageId: checkbox_input
-            properties:
-              title: Checkbox
-          - id: select_input
-            type: menu_link
-            pageId: select_input
-            properties:
-              title: Select
-          - id: multiple_select_input
-            type: menu_link
-            pageId: multiple_select_input
-            properties:
-              title: Multiple Select
           - id: autocomplete_input
             type: menu_link
             pageId: autocomplete_input
             properties:
               title: Auto Complete
+          - id: checkbox_input
+            type: menu_link
+            pageId: checkbox_input
+            properties:
+              title: Checkbox
+          - id: color_picker_input
+            type: menu_link
+            pageId: color_picker_input
+            properties:
+              title: Color Picker
+          - id: date_input
+            type: menu_link
+            pageId: date_input
+            properties:
+              title: Date
+          - id: date_range_input
+            type: menu_link
+            pageId: date_range_input
+            properties:
+              title: Date Range
+          - id: date_time_input
+            type: menu_link
+            pageId: date_time_input
+            properties:
+              title: Date Time
+          - id: month_input
+            type: menu_link
+            pageId: month_input
+            properties:
+              title: Month
+          - id: multiple_select_input
+            type: menu_link
+            pageId: multiple_select_input
+            properties:
+              title: Multiple Select
+          - id: number_input
+            type: menu_link
+            pageId: number_input
+            properties:
+              title: Number
           - id: radio_input
             type: menu_link
             pageId: radio_input
@@ -147,128 +165,213 @@ menus:
             pageId: radio_button_input
             properties:
               title: Radio Button
-          - id: date_input
+          - id: select_input
             type: menu_link
-            pageId: date_input
+            pageId: select_input
             properties:
-              title: Date
-          - id: date_time_input
+              title: Select
+          - id: slider_input
             type: menu_link
-            pageId: date_time_input
+            pageId: slider_input
             properties:
-              title: Date Time
+              title: Slider
+          - id: switch_input
+            type: menu_link
+            pageId: switch_input
+            properties:
+              title: Switch
+          - id: text_area_input
+            type: menu_link
+            pageId: text_area_input
+            properties:
+              title: Text Area
+          - id: text_input
+            type: menu_link
+            pageId: text_input
+            properties:
+              title: Text
           - id: week_input
             type: menu_link
             pageId: week_input
             properties:
               title: Week
-          - id: month_input
-            type: menu_link
-            pageId: month_input
-            properties:
-              title: Month
-          - id: date_range_input
-            type: menu_link
-            pageId: date_range_input
-            properties:
-              title: Date Range
-          - id: color_picker_input
-            type: menu_link
-            pageId: color_picker_input
-            properties:
-              title: Color Picker
       - id: blocks_display
         type: menu_group
         properties:
           title: Display Blocks
-          icon: PictureOutlined
+          Icon: PictureOutlined
         links:
-          - id: paragraph
-            type: menu_link
-            pageId: paragraph
-            properties:
-              title: Paragraph
-          - id: title
-            type: menu_link
-            pageId: title
-            properties:
-              title: Title
-          - id: icon
-            type: menu_link
-            pageId: icon
-            properties:
-              title: Icon
-          - id: statistic
-            type: menu_link
-            pageId: statistic
-            properties:
-              title: Statistic
-          - id: amcharts_4_xy
-            type: menu_link
-            pageId: amcharts_4_xy
-            properties:
-              title: amCharts 4 XY
-          - id: button
-            type: menu_link
-            pageId: button
-            properties:
-              title: Button
-          - id: anchor
-            type: menu_link
-            pageId: anchor
-            properties:
-              title: Anchor
           - id: ag_grid
             type: menu_link
             pageId: ag_grid
             properties:
               title: ag-Grid
-          - id: skeleton
+          - id: alert
             type: menu_link
-            pageId: skeleton
+            pageId: alert
             properties:
-              title: Skeleton
-          - id: divider
+              title: Alert
+          - id: amcharts_4_xy
             type: menu_link
-            pageId: divider
+            pageId: amcharts_4_xy
             properties:
-              title: Divider
+              title: amCharts 4 XY
+          - id: anchor
+            type: menu_link
+            pageId: anchor
+            properties:
+              title: Anchor
           - id: avatar
             type: menu_link
             pageId: avatar
             properties:
               title: Avatar
+          - id: breadcrumb
+            type: menu_link
+            pageId: breadcrumb
+            properties:
+              title: Breadcrumb
+          - id: button
+            type: menu_link
+            pageId: button
+            properties:
+              title: Button
           - id: descriptions
             type: menu_link
             pageId: descriptions
             properties:
               title: Descriptions
+          - id: divider
+            type: menu_link
+            pageId: divider
+            properties:
+              title: Divider
+          - id: icon
+            type: menu_link
+            pageId: icon
+            properties:
+              title: Icon
+          - id: markdown
+            type: menu_link
+            pageId: markdown
+            properties:
+              title: Markdown
+          - id: menu
+            type: menu_link
+            pageId: menu
+            properties:
+              title: Menu
+          - id: paragraph
+            type: menu_link
+            pageId: paragraph
+            properties:
+              title: Paragraph
+          - id: skeleton
+            type: menu_link
+            pageId: skeleton
+            properties:
+              title: Skeleton
+          - id: statistic
+            type: menu_link
+            pageId: statistic
+            properties:
+              title: Statistic
+          - id: title
+            type: menu_link
+            pageId: title
+            properties:
+              title: Title
       - id: blocks_container
         type: menu_group
         properties:
           title: Container Blocks
-          icon: ContainerOutlined
+          Icon: ContainerOutlined
         links:
+          - id: badge
+            type: menu_link
+            pageId: badge
+            properties:
+              title: Badge
+          - id: box
+            type: menu_link
+            pageId: box
+            properties:
+              title: Box
           - id: card
             type: menu_link
             pageId: card
             properties:
               title: Card
-          - id: grid
-            type: menu_link
-            pageId: grid
-            properties:
-              title: Grid
-          - id: tabs
-            type: menu_link
-            pageId: tabs
-            properties:
-              title: Tabs
           - id: collapse
             type: menu_link
             pageId: collapse
             properties:
               title: Collapse
+          - id: content
+            type: menu_link
+            pageId: content
+            properties:
+              title: Content
+          - id: footer
+            type: menu_link
+            pageId: footer
+            properties:
+              title: Footer
+          - id: header
+            type: menu_link
+            pageId: header
+            properties:
+              title: Header
+          - id: layout
+            type: menu_link
+            pageId: layout
+            properties:
+              title: Layout
+          - id: page_hcf
+            type: menu_link
+            pageId: page_hcf
+            properties:
+              title: Page HCF
+          - id: page_hcsf
+            type: menu_link
+            pageId: page_hcsf
+            properties:
+              title: Page HCSF
+          - id: page_header_menu
+            type: menu_link
+            pageId: page_header_menu
+            properties:
+              title: Page Header Menu
+          - id: page_hscf
+            type: menu_link
+            pageId: page_hscf
+            properties:
+              title: Page HSCF
+          - id: page_shcf
+            type: menu_link
+            pageId: page_shcf
+            properties:
+              title: Page SHCF
+          - id: page_sider_menu
+            type: menu_link
+            pageId: page_sider_menu
+            properties:
+              title: Page Sider Menu
+          - id: result
+            type: menu_link
+            pageId: result
+            properties:
+              title: Result
+          - id: sider
+            type: menu_link
+            pageId: sider
+            properties:
+              title: Sider
+          - id: tabs
+            type: menu_link
+            pageId: tabs
+            properties:
+              title: Tabs
 
 pages:
   - _ref: start/introduction.yaml
@@ -280,41 +383,58 @@ pages:
   - _ref: concepts/groups.yaml
   - _ref: concepts/layout.yaml
   - _ref: concepts/lowdefy-file.yaml
+  - _ref: concepts/operators.yaml
   - _ref: concepts/pages.yaml
   - _ref: concepts/references.yaml
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
-  - _ref: concepts/operators.yaml
-  - _ref: blocks/input/text_input.yaml
-  - _ref: blocks/input/text_area_input.yaml
-  - _ref: blocks/input/number_input.yaml
-  - _ref: blocks/input/switch_input.yaml
-  - _ref: blocks/input/slider_input.yaml
-  - _ref: blocks/input/checkbox_input.yaml
-  - _ref: blocks/input/select_input.yaml
-  - _ref: blocks/input/multiple_select_input.yaml
   - _ref: blocks/input/autocomplete_input.yaml
-  - _ref: blocks/input/radio_input.yaml
-  - _ref: blocks/input/radio_button_input.yaml
-  - _ref: blocks/input/date_input.yaml
-  - _ref: blocks/input/date_time_input.yaml
-  - _ref: blocks/input/week_input.yaml
-  - _ref: blocks/input/month_input.yaml
-  - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/input/checkbox_input.yaml
   - _ref: blocks/input/color_picker_input.yaml
-  - _ref: blocks/display/paragraph.yaml
-  - _ref: blocks/display/title.yaml
-  - _ref: blocks/display/icon.yaml
-  - _ref: blocks/display/statistic.yaml
-  - _ref: blocks/display/amcharts_4_xy.yaml
-  - _ref: blocks/display/button.yaml
-  - _ref: blocks/display/anchor.yaml
+  - _ref: blocks/input/date_input.yaml
+  - _ref: blocks/input/date_range_input.yaml
+  - _ref: blocks/input/date_time_input.yaml
+  - _ref: blocks/input/month_input.yaml
+  - _ref: blocks/input/multiple_select_input.yaml
+  - _ref: blocks/input/number_input.yaml
+  - _ref: blocks/input/radio_button_input.yaml
+  - _ref: blocks/input/radio_input.yaml
+  - _ref: blocks/input/select_input.yaml
+  - _ref: blocks/input/slider_input.yaml
+  - _ref: blocks/input/switch_input.yaml
+  - _ref: blocks/input/text_area_input.yaml
+  - _ref: blocks/input/text_input.yaml
+  - _ref: blocks/input/week_input.yaml
   - _ref: blocks/display/ag_grid.yaml
-  - _ref: blocks/display/skeleton.yaml
-  - _ref: blocks/display/divider.yaml
+  - _ref: blocks/display/alert.yaml
+  - _ref: blocks/display/amcharts_4_xy.yaml
+  - _ref: blocks/display/anchor.yaml
   - _ref: blocks/display/avatar.yaml
+  - _ref: blocks/display/breadcrumb.yaml
+  - _ref: blocks/display/button.yaml
   - _ref: blocks/display/descriptions.yaml
+  - _ref: blocks/display/divider.yaml
+  - _ref: blocks/display/icon.yaml
+  - _ref: blocks/display/markdown.yaml
+  - _ref: blocks/display/menu.yaml
+  - _ref: blocks/display/paragraph.yaml
+  - _ref: blocks/display/skeleton.yaml
+  - _ref: blocks/display/statistic.yaml
+  - _ref: blocks/display/title.yaml
+  - _ref: blocks/container/badge.yaml
+  - _ref: blocks/container/box.yaml
   - _ref: blocks/container/card.yaml
-  - _ref: blocks/container/grid.yaml
-  - _ref: blocks/container/tabs.yaml
   - _ref: blocks/container/collapse.yaml
+  - _ref: blocks/container/content.yaml
+  - _ref: blocks/container/footer.yaml
+  - _ref: blocks/container/header.yaml
+  - _ref: blocks/container/layout.yaml
+  - _ref: blocks/container/page_hcf.yaml
+  - _ref: blocks/container/page_hcsf.yaml
+  - _ref: blocks/container/page_header_menu.yaml
+  - _ref: blocks/container/page_hscf.yaml
+  - _ref: blocks/container/page_shcf.yaml
+  - _ref: blocks/container/page_sider_menu.yaml
+  - _ref: blocks/container/result.yaml
+  - _ref: blocks/container/sider.yaml
+  - _ref: blocks/container/tabs.yaml

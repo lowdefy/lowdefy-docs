@@ -14,22 +14,24 @@
           _var: description_content
 
 - id: c1
-  type: grid
-  box:
-    span: 6
+  type: box
+  style:
+    --span: 6
   blocks:
     - id: block_divider
       type: divider
       properties:
         title: Block
     - id: block_wrap2
-      type: grid
-      box:
-        span: 12
+      type: box
+      style:
+        --span: 12
       blocks:
         - id: block_name
           type:
             _var: block_type
+          style:
+            _var: style_transform
           visible:
             _state: block.visible
           properties:
@@ -38,56 +40,62 @@
             - id: subblock_1
               type: button
               properties:
+                block: true
                 title: "1"
               visible:
                 _state: visible_subblock_1
-              box:
-                span:
+              style:
+                --span:
                   _state: span_subblock_1
             - id: subblock_2
               type: button
               properties:
+                block: true
                 title: "2"
               visible:
                 _state: visible_subblock_2
-              box:
-                span:
+              style:
+                --span:
                   _state: span_subblock_2
             - id: subblock_3
               type: button
               properties:
+                block: true
                 title: "3"
               visible:
                 _state: visible_subblock_3
-              box:
-                span:
+              style:
+                --span:
                   _state: span_subblock_3
             - id: subblock_4
               type: button
               properties:
+                block: true
                 title: "4"
               visible:
                 _state: visible_subblock_4
-              box:
-                span:
+              style:
+                --span:
                   _state: span_subblock_4
             - id: subblock_5
               type: button
               properties:
+                block: true
                 title: "5"
               visible:
                 _state: visible_subblock_5
-              box:
-                span:
+              style:
+                --span:
                   _state: span_subblock_5
             - id: subblock_6
               type: button
               properties:
+                block: true
                 title: "6"
               visible:
                 _state: visible_subblock_6
-              box:
-                span:
+              style:
+                --span:
                   _state: span_subblock_6
     - id: state_divider
       type: divider
@@ -147,15 +155,17 @@
                       id: block_id
                       type:
                         _var: block_type
+                      style:
+                        _var: style_transform
                       visible:
                         _state: block.visible
                       properties:
                         _state: block.properties
 
 - id: settings_grid
-  type: grid
-  box:
-    span: 6
+  type: box
+  style:
+    --span: 6
   blocks:
     - id: settings_divider
       type: divider
@@ -166,6 +176,8 @@
       properties:
         defaultActiveKey: properties
         panels:
+          - key: style
+            title: 'style:'
           - key: properties
             title: 'properties:'
           - key: actions
@@ -173,6 +185,14 @@
           - key: visible
             title: 'visible:'
       blocks:
+        style:
+          - id: style_form
+            type: box
+            style:
+              Content:
+                --gap: 0
+            blocks:
+              _var: style_form
         visible:
           - id: block.visible
             type: switch_input
@@ -186,13 +206,14 @@
 
         properties:
           - id: properties_form
-            type: grid
-            box:
-              gridGap: 0
+            type: box
+            style:
+              Content:
+                --gap: 0
             blocks:
               _var: properties_form
           - id: label_form
-            type: grid
+            type: box
             visible:
               _var: label
             blocks:
@@ -212,85 +233,85 @@
   blocks:
     - id: span_subblock_1
       type: number_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 1 Span
         size: small
     - id: visible_subblock_1
       type: switch_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 1 Visible
         size: small
     - id: span_subblock_2
       type: number_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 2 Span
         size: small
     - id: visible_subblock_2
       type: switch_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 2 Visible
         size: small
     - id: span_subblock_3
       type: number_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         size: small
         title: Block 3 Span
     - id: visible_subblock_3
       type: switch_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 3 Visible
         size: small
     - id: span_subblock_4
       type: number_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 4 Span
         size: small
     - id: visible_subblock_4
       type: switch_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 4 Visible
         size: small
     - id: span_subblock_5
       type: number_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 5 Span
         size: small
     - id: visible_subblock_5
       type: switch_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 5 Visible
         size: small
     - id: span_subblock_6
       type: number_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         title: Block 6 Span
         size: small
     - id: visible_subblock_6
       type: switch_input
-      box:
-        span: 2
+      style:
+        --span: 2
       properties:
         size: small
         title: Block 6 Visible
@@ -300,6 +321,6 @@
   properties:
     title: Examples
 - id: examples_grid
-  type: grid
+  type: box
   blocks:
     _var: examples

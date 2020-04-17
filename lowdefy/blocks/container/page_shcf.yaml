@@ -1,0 +1,192 @@
+id: page_shcf
+type: page_sider_menu
+public: true
+properties:
+  title: Page SHCF
+actions:
+  onInit:
+    - id: init
+      type: setState()
+      params:
+        _ref: blocks/html_blocks.yaml
+
+blocks:
+  _ref:
+    path: blocks/container_hscf_template.yaml
+    vars:
+      block_name: Page SHCF
+      block_type: page_shcf
+      description_content: |
+        Page SHCF provides a minimal layout structure for a page container with a sider, header, content, and footer arrangement.
+      label: false
+      kind: container
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Content:
+                      _parse:
+                        _state: style_content_input
+                    Footer:
+                      _parse:
+                        _state: style_footer_input
+                    Header:
+                      _parse:
+                        _state: style_header_input
+                    Main:
+                      _parse:
+                        _state: style_main_input
+                    Sider:
+                      _parse:
+                        _state: style_sider_input
+                - $addFields:
+                    Sider.Content:
+                      _parse:
+                        _state: style_siderContent_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_footer_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Footer
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_header_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Header
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_main_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Main
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_sider_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Sider
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_siderContent_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Sider.Content
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.Header.theme
+          type: radio_button_input
+          defaultValue: dark
+          style:
+            _global: settings_input_style
+          properties:
+            title: Header.theme
+            size: small
+            Label: 
+              extra: Color theme of the Header
+            options:
+              - light
+              - dark
+        - id: block.properties.Header.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Header
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_header
+                type: link()
+                params:
+                  pageId: header
+        - id: block.properties.Sider.collapsed
+          type: radio_button_input
+          defaultValue: null
+          style:
+            _global: settings_input_style
+          properties:
+            title: Sider.collapsed
+            size: small
+            options:
+              - null
+              - true
+              - false
+            Label:
+              extra: Set the current collapsed state for Sider
+        - id: block.properties.Sider.theme
+          type: radio_button_input
+          defaultValue: dark
+          style:
+            _global: settings_input_style
+          properties:
+            title: Sider.theme
+            size: small
+            options:
+              - light
+              - dark
+            Label:
+              extra: Color theme of the Sider
+        - id: block.properties.Sider.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Sider
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_sider
+                type: link()
+                params:
+                  pageId: sider

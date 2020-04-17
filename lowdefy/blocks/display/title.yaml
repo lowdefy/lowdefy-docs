@@ -13,72 +13,94 @@ blocks:
       block_type: title
       label: false
       kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.code
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: code
             size: small
-            label:
-              extra: Apply code style
-              span: 2
+            Label:
+              extra: Apply code style.
         - id: block.properties.content
           type: text_input
           defaultValue: Title
+          style:
+            _global: settings_input_style
           properties:
             title: content
             size: small
-            label:
-              extra: Title text content
-              span: 2
+            Label:
+              extra: Title text content.
         - id: block.properties.copyable
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: copyable
             size: small
-            label:
-              extra: Provide copy text button
-              span: 2
+            Label:
+              extra: Provide copy text button.
         - id: block.properties.delete
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: delete
             size: small
-            label:
-              extra: Apply deleted style
-              span: 2
+            Label:
+              extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
-            label:
-              extra: Apply disabled style
-              span: 2
+            Label:
+              extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: ellipsis
             size: small
-            label:
-              extra: Display ellipsis when text overflows
-              span: 2
+            Label:
+              extra: Display ellipsis when text overflows.
         - id: block.properties.level
           type: radio_button_input
           defaultValue: 1
+          style:
+            _global: settings_input_style
           properties:
             title: level
             size: small
-            label:
-              extra: Set title type. Matches with h1, h2, h3 and h4
-              span: 2
+            Label:
+              extra: Set title type. Matches with h1, h2, h3 and h4.
             options:
               - 1
               - 2
@@ -87,28 +109,23 @@ blocks:
         - id: block.properties.mark
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: mark
             size: small
-            label:
-              extra: Apply marked style
-              span: 2
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
+            Label:
+              extra: Apply marked (highlighted) style.
         - id: block.properties.type
           type: select_input
+          style:
+            _global: settings_input_style
           properties:
             allowClear: true
             title: type
             size: small
-            label:
-              extra: Content type.
-              span: 2
+            Label:
+              extra: Additional types. Don't specify for default.
             options:
               - secondary
               - warning
@@ -116,12 +133,13 @@ blocks:
         - id: block.properties.underline
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: underline
             size: small
-            label:
-              extra: Apply underline style
-              span: 2
+            Label:
+              extra: Apply underline style.
 
       available_actions_description: |
         ###### No available actions.

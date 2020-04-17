@@ -13,86 +13,120 @@ blocks:
       block_type: button
       label: false
       kind: display
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Icon:
+                      _parse:
+                        _state: style_icon_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_icon_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Icon
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          properties:
-            title: title
-            size: small
-            label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.block
           type: switch_input
-          defaultValue: true
+          defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: block
             size: small
-            label:
+            Label:
               extra: Fit the button's span to its parent container span.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
-            label:
+            Label:
               extra: Disable the button if true.
-              span: 2
         - id: block.properties.ghost
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: ghost
             size: small
-            label:
+            Label:
               extra: Make the button's background transparent when true.
-              span: 2
         - id: block.properties.hideActionLoading
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: hideActionLoading
             size: small
-            label:
+            Label:
               extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
-              span: 2
         - id: block.properties.hideTitle
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: hideTitle
             size: small
-            label:
-              extra: Hide the buttons title.
-              span: 2
+            Label:
+              extra: Hide the button's title.
         - id: block.properties.href
           type: text_input
+          style:
+            _global: settings_input_style
           properties:
             title: href
             size: small
-            label:
+            Label:
               extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.icon
-              icon_field_name: icon
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
               icon_description: Icon to be used in button.
         - id: block.properties.shape
           type: radio_button_input
           defaultValue: square
+          style:
+            _global: settings_input_style
           properties:
             title: shape
             size: small
-            label:
+            Label:
               extra: Shape of the button.
-              span: 2
             options:
               - circle
               - round
@@ -100,25 +134,37 @@ blocks:
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          style:
+            _global: settings_input_style
           properties:
             title: size
             size: small
-            label:
+            Label:
               extra: Size of the button.
-              span: 2
             options:
               - small
               - default
               - large
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Title text on the button.
         - id: block.properties.type
           type: radio_button_input
           defaultValue: primary
+          style:
+            _global: settings_input_style
           properties:
             title: type
             size: small
-            label:
+            Label:
               extra: The button type.
-              span: 2
             options:
               - primary
               - default
@@ -128,16 +174,16 @@ blocks:
 
       available_actions_description: |
         ###### onClick
-        Triggered when the button is clicked.
+        Called when the button is clicked.
 
       examples:
         - id: example_1_card
           type: card
           blocks:
             - id: example_1_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -149,9 +195,9 @@ blocks:
                   properties:
                     title: Click here
             - id: example_1_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -170,26 +216,26 @@ blocks:
           type: card
           blocks:
             - id: example_2_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
                   properties:
                     content: |
-                      ##### None block and ghost button with icon
+                      ##### Block and ghost button with icon
                 - id: example_2
                   type: button
                   properties:
                     title: Let's Go
-                    block: false
+                    block: true
                     ghost: true
-                    icon: RocketOutlined
+                    Icon: RocketOutlined
             - id: example_2_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -200,10 +246,10 @@ blocks:
                         "id": "example_2",
                         "type": "button",
                         "properties": {
-                          "title": "Let's Go"
-                          "block": false,
+                          "title": "Let's Go",
+                          "block": true,
                           "ghost": true,
-                          "icon": "RocketOutlined"
+                          "Icon": "RocketOutlined"
                         }
                       }
                       ```
@@ -211,9 +257,9 @@ blocks:
           type: card
           blocks:
             - id: example_3_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -225,13 +271,13 @@ blocks:
                   properties:
                     title: Delete Forever
                     block: false
-                    icon: WarningFilled
+                    Icon: WarningFilled
                     shape: round
                     type: danger
             - id: example_3_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
@@ -242,9 +288,9 @@ blocks:
                         "id": "example_3",
                         "type": "button",
                         "properties": {
-                          "title": "Delete Forever"
+                          "title": "Delete Forever",
                           "block": false,
-                          "icon": "WarningFilled",
+                          "Icon": "WarningFilled",
                           "shape": "round",
                           "type": "danger"
                         }

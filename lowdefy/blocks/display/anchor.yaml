@@ -13,64 +13,94 @@ blocks:
       block_type: anchor
       label: false
       kind: display
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Icon:
+                      _parse:
+                        _state: style_icon_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_icon_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Icon
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
-          properties:
-            title: title
-            size: small
-            label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
-            label:
+            Label:
               extra: Disable the anchor if true.
-              span: 2
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.icon
-              icon_field_name: icon
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
               default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
-
         - id: block.properties.strong
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: strong
             size: small
-            label:
+            Label:
               extra: Makes the text bold when true.
-              span: 2
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
-
+        - id: block.properties.title
+          type: text_input
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Text to display in the anchor.
       available_actions_description: |
         ###### onClick
-        Triggered when the anchor is clicked.
+        Called when the anchor is clicked.
 
       examples:
         - id: example_1_card
           type: card
           blocks:
             - id: example_1_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_1_title
                   type: markdown
@@ -82,9 +112,9 @@ blocks:
                   properties:
                     title: Click here
             - id: example_1_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_1_code
                   type: markdown
@@ -103,26 +133,25 @@ blocks:
           type: card
           blocks:
             - id: example_2_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_2_title
                   type: markdown
                   properties:
                     content: |
-                      ##### Bold text
+                      ##### Bold text and icon
                 - id: example_2
                   type: anchor
-                  box:
-                    span: 6
                   properties:
                     title: Click here
                     strong: true
+                    Icon: LinkOutlined
             - id: example_2_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_2_code
                   type: markdown
@@ -133,8 +162,9 @@ blocks:
                         "id": "example_2",
                         "type": "anchor",
                         "properties": {
-                          "title": "Click here"
-                          "strong": true
+                          "title": "Click here",
+                          "strong": true,
+                          "Icon": "LinkOutlined"
                         }
                       }
                       ```
@@ -142,9 +172,9 @@ blocks:
           type: card
           blocks:
             - id: example_3_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_3_title
                   type: markdown
@@ -153,19 +183,18 @@ blocks:
                       ##### Custom text and icon style
                 - id: example_3
                   type: anchor
-                  box:
-                    span: 6
+                  style:
+                    fontSize: 18
+                    color: 'red !important'
                   properties:
                     title: Click here
-                    icon: 
+                    Icon: 
+                      twoToneColor: 'red'
                       name: RocketTwoTone
-                      style:
-                        color: red
-                        font-size: 18
             - id: example_3_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_3_code
                   type: markdown
@@ -175,14 +204,15 @@ blocks:
                       {
                         "id": "example_3",
                         "type": "anchor",
+                        "style": {
+                          "color": "red !important",
+                          "fontSize": 18
+                        },
                         "properties": {
                           "title": "Click here",
-                          "icon": {
-                            "name": "RocketTwoTone",
-                            "style": {
-                              "color": "red",
-                              "font-size": 18
-                            }
+                          "Icon": {
+                            "twoToneColor": "red",
+                            "name": "RocketTwoTone"
                           }
                         }
                       }
@@ -191,9 +221,9 @@ blocks:
           type: card
           blocks:
             - id: example_4_block_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_4_title
                   type: markdown
@@ -202,22 +232,20 @@ blocks:
                       ##### Style text and icon separately
                 - id: example_4
                   type: anchor
-                  box:
-                    span: 6
+                  style:
+                    color: "#000000 !important"
+                    fontSize: 16
+                    Icon:
+                      color: orange
+                      fontSize: 30
                   properties:
                     title: Click here
-                    icon: 
+                    Icon: 
                       name: FireFilled
-                      style:
-                        color: orange
-                        font-size: 30
-                    style:
-                      color: "#000000"
-                      font-size: 16
             - id: example_4_code_grid
-              type: grid
-              box:
-                span: 6
+              type: box
+              style:
+                --span: 6
               blocks:
                 - id: example_4_code
                   type: markdown
@@ -227,18 +255,19 @@ blocks:
                       {
                         "id": "example_4",
                         "type": "anchor",
+                        "style": {
+                          "--span": 6,
+                          "color": "#000000 !important",
+                          "fontSize": 16
+                          "Icon": {
+                            "color": "orange",
+                            "fontSize": 30
+                          }
+                        },
                         "properties": {
                           "title": "Click here",
-                          "icon": {
-                            "name": "FireFilled",
-                            "style": {
-                              "color": "orange",
-                              "font-size": 30
-                            }
-                          },
-                          "style": {
-                            "color": "#000000",
-                            "font-size": 16
+                          "Icon": {
+                            "name": "FireFilled"
                           }
                         }
                       }

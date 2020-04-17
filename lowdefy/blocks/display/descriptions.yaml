@@ -9,117 +9,177 @@ blocks:
     vars:
       block_name: Descriptions
       description_content: |
-        Display multiple read-only fields in groups. Commonly used to display a detailed list of data.
+        Display multiple read-only fields in groups. Commonly used to display a detailed set of data.
       block_type: descriptions
       label: false
       kind: display
-      properties_transform:
-        _state: block.properties
-      properties_form:
-        - id: block.properties.title
-          type: text_input
-          defaultValue: block_id
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
           properties:
-            title: title
+            title: block
+            rows: 3
             size: small
-            label:
-              extra: The title of the description list, placed at the top
-              span: 2
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    items:
+                      $cond:
+                        - _eq:
+                            - _state: select_items_type
+                            - List
+                        - _state: items_list
+                        - _parse:
+                            _state: items_object
+
+              on:
+                - _state: block.properties
+      properties_form:
         - id: block.properties.bordered
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: bordered
             size: small
-            label:
-              extra: Whether to display the border
-              span: 2
+            Label:
+              extra: Puts items in a table.
+        - id: block.properties.colon
+          type: switch_input
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: colon
+            size: small
+            Label:
+              extra: Include a colon in item labels.
         - id: block.properties.column
           type: number_input
           defaultValue: 3
+          style:
+            _global: settings_input_style
           properties:
             title: column
             size: small
-            label:
-              extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}"
-              span: 2
+            Label:
+              extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
+        - id: select_items_type_card
+          type: card
+          blocks:
+            - id: select_items_type
+              type: radio_button_input
+              defaultValue: List
+              properties:
+                title: items Type
+                size: small
+                Label:
+                  extra: items can either be a list of value label pairs, or a object, where the keys are used as labels.
+                options:
+                  - List
+                  - Object
+        - id: items_list
+          type: list
+          required: true
+          visible:
+            _mql_test:
+              select_items_type: List
+          properties:
+            title: 'items:'
+            size: small
+          blocks:
+            - id: items_list.$.label
+              type: text_input
+              defaultValue: Label
+              style:
+                --span: 4
+              properties:
+                title: label
+                size: small
+                Label:
+                  extra: Item label.
+            - id: items_list.$.span
+              type: number_input
+              style:
+                --span: 4
+              properties:
+                title: span
+                size: small
+                Label:
+                  extra: Number of columns for this item to span.
+            - id: items_list.$.value
+              type: text_input
+              defaultValue: Value
+              style:
+                --span: 4
+              properties:
+                title: value
+                size: small
+                Label:
+                  extra: Value of item.
+        - id: items_object
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          visible:
+            _mql_test:
+              select_items_type: Object
+          defaultValue: "{}"
+          properties:
+            title: items
+            rows: 5
+            size: small
+            Label:
+              extra: Data items to display.
+        - id: block.properties.layout
+          type: radio_button_input
+          defaultValue: default
+          style:
+            _global: settings_input_style
+          properties:
+            title: layout
+            size: small
+            Label:
+              extra: Put values next to or below their labels.
+            options:
+              - horizontal
+              - vertical
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          style:
+            _global: settings_input_style
           properties:
             title: size
             size: small
-            label:
-              extra: Size of the list
-              span: 2
+            Label:
+              extra: Size of the block.
             options:
               - small
               - middle
               - default
-        - id: block.properties.layout
-          type: radio_button_input
-          defaultValue: default
+        - id: block.properties.title
+          type: text_input
+          style:
+            _global: settings_input_style
           properties:
-            title: layout
+            title: title
             size: small
-            label:
-              extra: Define description layout
-              span: 2
-            options:
-              - horizontal
-              - vertical
-        - id: block.properties.colon
-          type: switch_input
-          defaultValue: true
-          properties:
-            title: colon
-            size: small
-            label:
-              extra: To include a colon in list items
-              span: 2
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
-        - id: block.properties.items
-          type: list
-          required: true
-          properties:
-            title: items
-          blocks:
-            - id: block.properties.items.$.label
-              type: text_input
-              defaultValue: Label
-              box:
-                span: 4
-              properties:
-                title: label
-                size: small
-                label:
-                  extra: Label shown to user
-            - id: block.properties.items.$.value
-              type: text_input
-              defaultValue: Value
-              box:
-                span: 4
-              properties:
-                title: value
-                size: small
-                label:
-                  extra: Value selected
-            - id: block.properties.items.$.span
-              type: number_input
-              box:
-                span: 4
-              properties:
-                title: span
-                size: small
-                label:
-                  extra: Number of columns for this item to span
-
+            Label:
+              extra: The title of the description block, placed at the top.
 
       available_actions_description: |
         ###### No available actions.

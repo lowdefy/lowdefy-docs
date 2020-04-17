@@ -13,76 +13,169 @@ blocks:
       block_type: switch_input
       label: true
       kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+                    IconPrefix:
+                      _parse:
+                        _state: style_checked_icon_input
+                    IconSuffix:
+                      _parse:
+                        _state: style_unchecked_icon_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_checked_icon_input
+          type: text_area_input
+          style:
+            --span: 11
+            sm:
+              --span: 11
+            Label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: IconChecked
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_unchecked_icon_input
+          type: text_area_input
+          style:
+            --span: 11
+            sm:
+              --span: 11
+            Label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: IconUnchecked
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          style:
+            _global: settings_input_style
           properties:
             title: title
             size: small
-            label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: autoFocus
             size: small
-            label:
+            Label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
-            label:
+            Label:
               extra: Disable the block if true.
-              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          style:
+            _global: settings_input_style
           properties:
             size: small
             title: size
-            label:
+            Label:
               extra: Size of the block.
-              span: 2
             options:
               - small
               - default
         - id: block.properties.checkedText
           type: text_input
+          style:
+            _global: settings_input_style
           properties:
             title: checkedText
             size: small
-            label:
+            Label:
               extra: Text to shown when switch is checked (true).
-              span: 3
         - id: block.properties.uncheckedText
           type: text_input
+          style:
+            Label:
+              --span: 3
           properties:
             title: uncheckedText
             size: small
-            label:
+            Label:
               extra: Text to shown when switch is unchecked (true).
-              span: 3
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.checkedIcon
-              icon_field_name: checkedIcon
+              icon_id: block.properties.checked_icon
+              icon_field_name: IconChecked
               default_icon: CheckOutlined
               icon_description: Icon to shown when switch is checked (true).
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.uncheckedIcon
-              icon_field_name: uncheckedIcon
+              icon_id: block.properties.unchecked_icon
+              icon_field_name: IconUnchecked
               default_icon: CloseOutlined
               icon_description: Icon to shown when switch is unchecked (false).
 
@@ -96,14 +189,14 @@ blocks:
           blocks:
             - id: example_1
               type: switch_input
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 title: Switch input
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -120,18 +213,18 @@ blocks:
           blocks:
             - id: example_2
               type: switch_input
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 title: Icons
-                checkedIcon: LikeOutlined
-                uncheckedIcon: DislikeOutlined
-                label:
+                IconChecked: LikeOutlined
+                IconUnchecked: DislikeOutlined
+                Label:
                   extra: Custom checked and unchecked icons.
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -140,8 +233,8 @@ blocks:
                     "type": "switch_input",
                     "properties": {
                       "title": "Icons",
-                      "checkedIcon": "LikeOutlined",
-                      "uncheckedIcon": "DislikeOutlined",
+                      "IconChecked": "LikeOutlined",
+                      "IconUnchecked": "DislikeOutlined",
                       "label": {
                         "extra": "Custom checked and unchecked icons."
                       }
@@ -153,18 +246,18 @@ blocks:
           blocks:
             - id: example_3
               type: switch_input
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 title: No Icons
                 checkedText: ""
                 uncheckedText: ""
-                label:
+                Label:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -175,7 +268,7 @@ blocks:
                       "title": "No Icons",
                       "checkedText": "",
                       "uncheckedText": "",
-                      "label": {
+                      "Label": {
                         "extra": "Hide the checked and unchecked icons."
                       }
                     }

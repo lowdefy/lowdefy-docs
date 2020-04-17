@@ -1,0 +1,89 @@
+- id: block.properties.breakpoint
+  type: radio_button_input
+  style:
+    Label:
+      --span: 2
+  properties:
+    title: breakpoint
+    size: small
+    Label:
+      extra: Breakpoints of the responsive layout
+    options:
+      - xs
+      - sm
+      - md
+      - lg
+      - xl
+- id: block.properties.collapsed
+  type: switch_input
+  defaultValue: false
+  style:
+    _global: settings_input_style
+  properties:
+    title: collapsed
+    size: small
+    Label:
+      extra: Set the current collapsed state
+- id: block.properties.collapsedWidth
+  type: number_input
+  defaultValue: 80
+  style:
+    _global: settings_input_style
+  properties:
+    title: collapsedWidth
+    size: small
+    Label:
+      extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
+- id: block.properties.collapsible
+  type: switch_input
+  defaultValue: false
+  style:
+    _global: settings_input_style
+  properties:
+    title: collapsible
+    size: small
+    Label:
+      extra: Whether can be collapsed
+- id: block.properties.defaultCollapsed
+  type: switch_input
+  defaultValue: false
+  style:
+    _global: settings_input_style
+  properties:
+    title: defaultCollapsed
+    size: small
+    Label:
+      extra: Set the initial collapsed state
+- id: block.properties.reverseArrow
+  type: switch_input
+  defaultValue: false
+  style:
+    _global: settings_input_style
+  properties:
+    title: reverseArrow
+    size: small
+    Label:
+      extra: Direction of arrow, for a sider that expands from the right
+- id: block.properties.theme
+  type: radio_button_input
+  defaultValue: dark
+  style:
+    _global: settings_input_style
+  properties:
+    title: theme
+    size: small
+    Label:
+      extra: Color theme of the sidebar
+    options:
+      - light
+      - dark
+- id: block.properties.width
+  type: number_input
+  defaultValue: 80
+  style:
+    _global: settings_input_style
+  properties:
+    title: width
+    size: small
+    Label:
+      extra: width of the sidebar

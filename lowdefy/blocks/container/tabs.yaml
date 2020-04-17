@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: set()
+      type: setState()
       params:
         span_subblock_1: 12
         visible_subblock_1: true
@@ -30,7 +30,7 @@ actions:
 
 blocks:
   _ref:
-    path: blocks/container_template_block_object.yaml
+    path: blocks/grid_template_block_object.yaml
     vars:
       block_name: Tabs
       description_content: |
@@ -38,42 +38,96 @@ blocks:
       block_type: tabs
       label: false
       kind: container
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Content1:
+                      _parse:
+                        _state: style_content1_input
+                    Content2:
+                      _parse:
+                        _state: style_content2_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content1_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content1
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content2_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content2
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: activeKey
           type: text_input
+          style:
+            _global: settings_input_style
           properties:
             title: activeKey
             size: small
-            label:
+            Label:
               extra: Current TabPane's key.
-              span: 2
         - id: defaultActiveKey
           type: text_input
           defaultValue: content1
+          style:
+            _global: settings_input_style
           properties:
             title: defaultActiveKey
             size: small
-            label:
+            Label:
               extra: Initial active TabPane's key, if activeKey is not set.
-              span: 3
         - id: animated
           type: switch_input
           defaultValue: true
+          style:
+            _global: settings_input_style
           properties:
             title: animated
             size: small
-            label:
+            Label:
               extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
-              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          style:
+            _global: settings_input_style
           properties:
             title: size
             size: small
-            label:
+            Label:
               extra: Size of the tabs.
-              span: 2
             options:
               - small
               - default
@@ -81,13 +135,13 @@ blocks:
         - id: block.properties.tabPosition
           type: radio_button_input
           defaultValue: top
-
+          style:
+            _global: settings_input_style
           properties:
             title: tabPosition
             size: small
-            label:
+            Label:
               extra: Position of the tabs.
-              span: 2
             options:
               - top
               - right
@@ -95,51 +149,59 @@ blocks:
               - left
         - id: block.properties.tabs
           type: list
+          style:
+            Content:
+              --gap: 0
           properties:
-            title: tabs
+            title: 'tabs:'
+            size: small
           blocks:
             - id: block.properties.tabs.$.title
               type: text_input
               defaultValue: title
+              style:
+                _global: settings_input_style
               properties:
                 title: title
                 size: small
-                label:
+                Label:
                   extra: Title of the tab.
-                  span: 2
             - id: block.properties.tabs.$.key
               type: text_input
               defaultValue: key
+              style:
+                _global: settings_input_style
               properties:
                 title: key
                 size: small
-                label:
+                Label:
                   extra: Key of the tab.
-                  span: 2
             - _ref:
                 path: blocks/icon_template.yaml
                 vars:
-                  icon_id: block.properties.tabs.$.icon
-                  icon_field_name: icon
+                  icon_id: block.properties.tabs.$.Icon
+                  icon_field_name: Icon
                   icon_description: Icon to show in tab title.
             - id: block.properties.tabs.$.disabled
               type: switch_input
               defaultValue: false
+              style:
+                _global: settings_input_style
               properties:
                 title: disabled
                 size: small
-                label:
+                Label:
                   extra: Disable the tab if true.
-                  span: 2
         - id: block.properties.tabType
           type: radio_button_input
           defaultValue: line
+          style:
+            _global: settings_input_style
           properties:
             title: tabType
             size: small
-            label:
+            Label:
               extra: Type of tabs.
-              span: 2
             options:
               - line
               - card

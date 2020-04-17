@@ -1,0 +1,322 @@
+grid_blocks:
+  - visible: true
+    name: 'ONE'
+    style: |
+      {
+        "--span": 6,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'TWO'
+    style: |
+      {
+        "--span": 6,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'THREE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FOUR'
+    style: |
+      {
+        "--span": 4,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FIVE'
+    style: |
+      {
+        "--span": 4,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'SIX'
+    style: |
+      {
+        "--span": 4,
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#048f8f",
+        "border": "2px solid #04bfbf",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+flex_blocks:
+  - visible: true
+    name: 'ONE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'TWO'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'THREE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FOUR'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FIVE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'SIX'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#0480ff",
+        "border": "2px solid #04b0ff",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+block_blocks:
+  - visible: true
+    name: 'ONE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#af4448",
+        "border": "2px solid #e57373",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'TWO'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#af4448",
+        "border": "2px solid #e57373",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'THREE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#af4448",
+        "border": "2px solid #e57373",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FOUR'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#af4448",
+        "border": "2px solid #e57373",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FIVE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#af4448",
+        "border": "2px solid #e57373",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'SIX'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#af4448",
+        "border": "2px solid #e57373",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+
+inlineBlock_blocks:
+  - visible: true
+    name: 'ONE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#883997",
+        "border": "2px solid #ba68c8",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'TWO'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#883997",
+        "border": "2px solid #ba68c8",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'THREE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#883997",
+        "border": "2px solid #ba68c8",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FOUR'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#883997",
+        "border": "2px solid #ba68c8",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'FIVE'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#883997",
+        "border": "2px solid #ba68c8",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }
+  - visible: true
+    name: 'SIX'
+    style: |
+      {
+        "padding": "0px 20px",
+        "color": "white",
+        "background": "#883997",
+        "border": "2px solid #ba68c8",
+        "borderRadius": 5,
+        "lineHeight": 4,
+        "height": 64,
+        "textAlign": "center"
+      }

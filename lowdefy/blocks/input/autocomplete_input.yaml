@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: set()
+      type: setState()
       params:
         block:
           properties:
@@ -25,68 +25,126 @@ blocks:
       block_type: autocomplete_input
       label: true
       kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          style:
+            _global: settings_input_style
           properties:
             title: title
             size: small
-            label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.allowClear
           type: switch_input
-          defaultValue: false
+          defaultValue: true
+          style:
+            _global: settings_input_style
           properties:
             title: allowClear
             size: small
-            label:
+            Label:
               extra: Allow the user to clear the selected value, sets the value to null.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: autoFocus
             size: small
-            label:
+            Label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: block.properties.defaultActiveFirstOption
           type: switch_input
           defaultValue: true
+          style:
+            Label:
+              --span: 4
           properties:
             title: defaultActiveFirstOption
             size: small
-            label:
+            Label:
               extra: Makes the first option in the selection list active when true.
-              span: 4
         - id: block.properties.defaultOpen
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: defaultOpen
             size: small
-            label:
+            Label:
               extra: Initial open state of dropdown.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
-            label:
+            Label:
               extra: Disables the block if true.
-              span: 2
         - id: block.properties.options
           type: list
           required: true
           properties:
-            title: options
+            title: 'options:'
+            size: small
           blocks:
             - id: block.properties.options.$
               type: text_input
@@ -95,21 +153,23 @@ blocks:
         - id: block.properties.placeholder
           type: text_input
           defaultValue: Select item
+          style:
+            _global: settings_input_style
           properties:
             title: placeholder
             size: small
-            label:
+            Label:
               extra: Placeholder text inside the block before user selects input.
-              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          style:
+            _global: settings_input_style
           properties:
             title: size
             size: small
-            label:
+            Label:
               extra: Size of the block.
-              span: 2
             options:
               - small
               - default

@@ -18,20 +18,22 @@
           _var: description_content
     - id: block_card
       type: card
-      box:
-        span: 7
+      style:
+        --span: 7
       blocks:
         - id: block_name
           type:
             _var: block_type
+          style:
+            _var: style_transform
           visible:
             _state: block.visible
           properties:
             _state: block.properties
     - id: settings_card
       type: card
-      box:
-        span: 5
+      style:
+        --span: 5
       blocks:
         - id: properties_input
           type: text_area_input
@@ -43,12 +45,12 @@
           properties:
             title: "Apply"
             block: false
-            icon: ReloadOutlined
+            Icon: ReloadOutlined
             type: primary
           actions:
             onClick:
               - id: apply_properties
-                type: set()
+                type: setState()
                 params:
                   block.properties:
                     _parse:

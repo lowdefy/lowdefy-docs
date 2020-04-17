@@ -1,44 +1,38 @@
-- id: label_collapse
-  type: collapse
-  box:
-    gridGap: 0
+- id: label_card
+  type: card
+  style:
+    Content:
+      --gap: 0
   properties:
-    panels:
-      - key: label
-        title: 'label:'
+    size: small
+    title: 'label:'
   blocks:
-    label:
-      - id: block.properties.label.colon
-        type: switch_input
-        defaultValue: true
-        properties:
-          title: colon
-          size: small
-          label:
-            span: 2
-            extra: Postfix the label with a colon.
-      - id: block.properties.label.inline
-        type: switch_input
-        defaultValue: false
-        properties:
-          title: inline
-          size: small
-          label:
-            span: 2
-            extra: Render the label inline with the input field.
-      - id: block.properties.label.extra
-        type: text_input
-        properties:
-          title: extra
-          size: small
-          label:
-            span: 2
-            extra: Add additional description tag to the label.
-      - id: block.properties.label.span
-        type: number_input
-        properties:
-          title: span
-          size: small
-          label:
-            span: 2
-            extra: When set will render the label inline with the input component, control the label width by setting a number between 0 and 24.
+    - id: block.properties.Label.disable
+      type: switch_input
+      defaultValue: false
+      style:
+        _global: settings_input_style
+      properties:
+        title: disable
+        size: small
+        Label:
+          extra: Remove label wrapper.
+    - id: block.properties.Label.colon
+      type: switch_input
+      defaultValue: true
+      style:
+        _global: settings_input_style
+      properties:
+        title: colon
+        size: small
+        Label:
+          extra: Postfix the label with a colon.
+    - id: block.properties.Label.extra
+      type: text_input
+      style:
+        _global: settings_input_style
+      properties:
+        title: extra
+        size: small
+        Label:
+          extra: Add additional description tag to the label.

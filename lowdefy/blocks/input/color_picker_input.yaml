@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: set()
+      type: setState()
       params:
         block:
           properties:
@@ -21,40 +21,94 @@ blocks:
       block_type: color_picker_input
       label: true
       kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          style:
+            _global: settings_input_style
           properties:
             title: title
             size: small
-            label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.circleSize
           type: number_input
           defaultValue: 28
+          style:
+            _global: settings_input_style
           properties:
             title: circleSize
             size: small
-            label:
+            Label:
               extra: Pixel value for circle size, only available for type circle.
-              span: 2
         - id: block.properties.circleSpacing
           type: number_input
           defaultValue: 14
+          style:
+            _global: settings_input_style
           properties:
             title: circleSpacing
             size: small
-            label:
+            Label:
               extra: Pixel value for spacing between circles, only available for type circle.
-              span: 2
         - id: block.properties.colors
           type: list
           properties:
-            title: colors            
+            title: 'colors:'
+            size: small         
           blocks:
             - id: block.properties.colors.$
               type: text_input
@@ -62,12 +116,13 @@ blocks:
         - id: block.properties.type
           type: radio_button_input
           defaultValue: circle
+          style:
+            _global: settings_input_style
           properties:
             title: type
             size: small
-            label:
+            Label:
               extra: Type of picker.
-              span: 2
             options:
               - block
               - chrome
@@ -76,12 +131,13 @@ blocks:
         - id: block.properties.width
           type: text_input
           defaultValue: 252px
+          style:
+            _global: settings_input_style
           properties:
             title: width
             size: small
-            label:
+            Label:
               extra: Pixel value for picker width.
-              span: 2
       available_actions_description: |
         ###### onChangeComplete
         Triggered when value is changed. Only fires once drag action has been completed.

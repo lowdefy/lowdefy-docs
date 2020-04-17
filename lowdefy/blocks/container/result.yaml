@@ -1,0 +1,111 @@
+id: result
+type: page_sider_menu
+public: true
+properties:
+  title: Result
+actions:
+  onInit:
+    - id: initialize_state 
+      type: setState()
+      params:
+        span_subblock_1: 12
+        visible_subblock_1: true
+        span_subblock_2: 12
+        visible_subblock_2: true
+        span_subblock_3: 6
+        visible_subblock_3: true
+        span_subblock_4: 6
+        visible_subblock_4: true
+        span_subblock_5: 4
+        visible_subblock_5: false
+        span_subblock_6: 8
+        visible_subblock_6: false
+blocks:
+  _ref:
+    path: blocks/grid_template.yaml
+    vars:
+      block_name: Result
+      description_content: |
+        Used to provide feedback the results of a task or error.
+      block_type: result
+      label: false
+      kind: container
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Content:
+                      _parse:
+                        _state: style_content_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content_input
+          type: text_area_input
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
+              icon_description: Ant icon to use as image.
+        - id: block.properties.status
+          type: radio_button_input
+          defaultValue: 'info'
+          style:
+            _global: settings_input_style
+          properties:
+            title: status
+            size: small
+            Label:
+              extra: Status of the result. Determines image and color.
+            options:
+              - success
+              - error
+              - info
+              - warning
+              - "404"
+              - "403"
+              - "500"
+        - id: block.properties.subTitle
+          type: text_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: subTitle
+            size: small
+            Label:
+              extra: Result subtitle or secondary text.
+        - id: block.properties.title
+          type: text_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Result title or primary text.

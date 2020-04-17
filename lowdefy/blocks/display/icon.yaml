@@ -13,77 +13,90 @@ blocks:
       block_type: icon
       label: false
       kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
+        - id: block.properties.disableLoadingIcon
+          type: switch_input
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: disableLoadingIcon
+            size: small
+            Label:
+              extra: While loading after the icon has been clicked, don't render the loading icon.
+        - id: block.properties.hideActionLoading
+          type: switch_input
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: hideActionLoading
+            size: small
+            Label:
+              extra: While loading after the icon has been clicked, don't show the loading message.
         - id: block.properties.name
           type: select_input
           defaultValue: FireOutlined
+          style:
+            _global: settings_input_style
           properties:
             title: name
             size: small
             showSearch: true
-            label:
-              extra: Name of icon to be displayed
-              span: 2
+            Label:
+              extra: Name of icon to be displayed.
             options:
               _global: all_icons
         - id: block.properties.rotate
           type: number_input
           defaultValue: 0
+          style:
+            _global: settings_input_style
           properties:
             title: rotate
             size: small
-            label:
-              extra: Number of degrees to rotate the icon
-              span: 2
+            Label:
+              extra: Number of degrees to rotate the icon.
         - id: block.properties.spin
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: spin
             size: small
-            label:
-              extra: Continuously spin icon with animation
-              span: 2
+            Label:
+              extra: Continuously spin icon with animation.
         - id: block.properties.twoToneColor
           type: color_picker_input
           defaultValue: "#08c"
+          style:
+            _global: settings_input_style
           properties:
             title: twoToneColor
             size: small
             type: twitter
-            label:
-              extra: Primary two-tone color, only supported with two-tone theme
-              span: 4
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
-
-        - id: block.properties.disableLoadingIcon
-          type: switch_input
-          defaultValue: false
-          properties:
-            title: disableLoadingIcon
-            size: small
-            label:
-              extra: While loading after the icon has been clicked, don't render the loading icon
-              span: 4
-        - id: block.properties.hideLoadingMessage
-          type: switch_input
-          defaultValue: false
-          properties:
-            title: hideLoadingMessage
-            size: small
-            label:
-              extra: While loading after the icon has been clicked, don't show the loading message
-              span: 4
-
+            Label:
+              extra: Primary two-tone color, only supported with two-tone theme.
 
       available_actions_description: |
-        - onClick
+         ###### onClick
+         Called when the icon is clicked
 

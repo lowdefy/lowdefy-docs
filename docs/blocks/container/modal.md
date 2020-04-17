@@ -119,10 +119,10 @@ A modal block is a modal popup container which renders child blocks into a new g
   actions:
     onOk:
       - mutate(): save_details
-      - set():
+      - setState():
           my_modal_open: false
     onCancel:
-      - set():
+      - setState():
           my_modal_open: false
   blocks:
     - ... list of modal content blocks

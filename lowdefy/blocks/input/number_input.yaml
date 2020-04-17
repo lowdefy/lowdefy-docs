@@ -13,88 +13,147 @@ blocks:
       block_type: number_input
       label: true
       kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: text_input
           defaultValue: block_id
+          style:
+            _global: settings_input_style
           properties:
             title: title
             size: small
-            label:
+            Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-              span: 2
         - id: block.properties.autoFocus
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: autoFocus
             size: small
-            label:
+            Label:
               extra: Autofocus to the block on page load.
-              span: 2
         - id: block.properties.decimalSeparator
           type: text_input
           defaultValue: "."
+          style:
+            _global: settings_input_style
           properties:
             title: decimalSeparator
             size: small
-            label:
+            Label:
               extra: Decimal separator.
-              span: 2
         - id: block.properties.disabled
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: disabled
             size: small
-            label:
+            Label:
               extra: Disables the block if true.
-              span: 2
         - id: block.properties.min
           type: number_input
+          style:
+            _global: settings_input_style
           properties:
             title: min
             size: small
-            label:
+            Label:
               extra: Minimum value allowed by the block.
-              span: 2
         - id: block.properties.max
           type: number_input
+          style:
+            _global: settings_input_style
           properties:
             title: max
             size: small
-            label:
+            Label:
               extra: Maximum value allowed by the block.
-              span: 2
         - id: block.properties.placeholder
           type: text_input
+          style:
+            _global: settings_input_style
           properties:
             title: placeholder
             size: small
-            label:
+            Label:
               extra: Placeholder text inside the block to show message before user types input.
-              span: 2
         - id: block.properties.precision
           type: number_input
           defaultValue: 0
+          style:
+            _global: settings_input_style
           properties:
             title: precision
             size: small
             max: 100
-            label:
+            Label:
               extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
-              span: 2
         - id: block.properties.size
           type: radio_button_input
           defaultValue: default
+          style:
+            _global: settings_input_style
           properties:
             title: size
             size: small
-            label:
+            Label:
               extra: Size of the block.
-              span: 2
             options:
               - small
               - default
@@ -102,13 +161,14 @@ blocks:
         - id: block.properties.step
           type: number_input
           defaultValue: 1
+          style:
+            _global: settings_input_style
           properties:
             title: step
             size: small
             precision: 2
-            label:
+            Label:
               extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
-              span: 2
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -121,14 +181,14 @@ blocks:
           blocks:
             - id: example_1
               type: number_input
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 title: Number input
             - id: example_1_code
               type: markdown
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -145,8 +205,8 @@ blocks:
           blocks:
             - id: example_2
               type: number_input
-              box:
-                span: 6
+              style:
+                --span: 6
               defaultValue: 3.14
               properties:
                 title: Decimal separator
@@ -155,8 +215,8 @@ blocks:
                 step: 0.01
             - id: example_2_code
               type: markdown
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 content: |
                   ```json
@@ -177,15 +237,15 @@ blocks:
           blocks:
             - id: example_3
               type: number_input
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 title: Placeholder
                 placeholder: π
             - id: example_3_code
               type: markdown
-              box:
-                span: 6
+              style:
+                --span: 6
               properties:
                 content: |
                   ```json

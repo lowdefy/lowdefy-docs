@@ -13,55 +13,67 @@ blocks:
       block_type: divider
       label: false
       kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: text_area_input
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.title
-          type: text_input
-          properties:
-            title: title
-            size: small
-            label:
-              extra: Divider title
-              span: 2
         - id: block.properties.dashed
           type: switch_input
           defaultValue: false
+          style:
+            _global: settings_input_style
           properties:
             title: dashed
             size: small
-            label:
-              extra: Whether line is dashed
-              span: 2
+            Label:
+              extra: Whether line is dashed.
         - id: block.properties.orientation
           type: radio_button_input
           defaultValue: center
+          style:
+            _global: settings_input_style
           properties:
             title: orientation
             size: small
-            label:
+            Label:
               extra: Position of title inside divider.
-              span: 2
             options:
               - center
               - left
               - right
-        - _ref: 
-            path: blocks/style_object_template.yaml
-            vars:
-              grid_id: style_grid
-              style_id: style_input
-              button_id: apply_style_button
-              field_name: style
+        - id: block.properties.title
+          type: text_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Divider title.
         - id: block.properties.type
           type: radio_button_input
           defaultValue: horizontal
+          style:
+            _global: settings_input_style
           properties:
             title: type
             size: small
-            label:
+            Label:
               extra: Direction type of divider.
-              span: 2
             options:
               - horizontal
               - vertical

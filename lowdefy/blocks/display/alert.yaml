@@ -1,16 +1,16 @@
-id: avatar
+id: alert
 type: page_sider_menu
 public: true
 properties:
-  title: Avatar
+  title: Alert
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Avatar
+      block_name: Alert
       description_content: |
-        Avatars can be used to represent people or objects. It supports images, Icons, or letters.
-      block_type: avatar
+        Alert is used to render user feedback messages.
+      block_type: alert
       label: false
       kind: display
       style_transform:
@@ -52,76 +52,79 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.alt
+        - id: block.properties.banner
+          type: switch_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: banner
+            size: small
+            Label:
+              extra: Style as banner at top of application window.
+        - id: block.properties.closable
+          type: switch_input
+          style:
+            _global: settings_input_style
+          properties:
+            title: closable
+            size: small
+            Label:
+              extra: Allow alert to be closed.
+        - id: block.properties.closeText
           type: text_input
           style:
             _global: settings_input_style
           properties:
-            title: alt
+            title: closeText
             size: small
             Label:
-              extra: This attribute defines the alternative text describing the image.
-        - id: block.properties.color
-          type: color_picker_input
+              extra: Close text to show.
+        - id: block.properties.description
+          type: text_area_input
+          defaultValue: This is a description to say well done.
           style:
             _global: settings_input_style
           properties:
-            title: color
+            title: description
             size: small
+            rows: 2
             Label:
-              extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
-        - id: block.properties.content
-          type: text_input
-          style:
-            _global: settings_input_style
-          properties:
-            title: content
-            size: small
-            Label:
-              extra: Text to display inside avatar.
+              extra: Content description of alert.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.Icon
               icon_field_name: Icon
-              icon_description: Icon to be used in avatar.
-        - id: block.properties.shape
-          type: radio_button_input
-          defaultValue: circle
-          style:
-            _global: settings_input_style
-          properties:
-            title: shape
-            size: small
-            Label:
-              extra: Shape of the avatar.
-            options:
-              - circle
-              - square
-        - id: block.properties.size
-          type: radio_button_input
-          defaultValue: default
-          style:
-            _global: settings_input_style
-          properties:
-            title: size
-            size: small
-            Label:
-              extra: Size of the avatar.
-            options:
-              - default
-              - small
-              - large
-        - id: block.properties.src
+              icon_description: Icon to be used in alert.
+              default_icon: CheckCircleOutlined
+        - id: block.properties.message
           type: text_input
+          defaultValue: Completed!
           style:
             _global: settings_input_style
           properties:
-            title: src
+            title: message
             size: small
             Label:
-              extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
+              extra: Content message of alert.
+        - id: block.properties.type
+          type: radio_button_input
+          defaultValue: success
+          style:
+            _global: settings_input_style
+          properties:
+            title: type
+            size: small
+            Label:
+              extra: Alert style type.
+            options:
+              - success
+              - info
+              - warning
+              - error
 
       available_actions_description: |
-        ###### No available actions.
-
+        ###### onClose
+        Called when the alert is closed.
+        ###### afterClose
+        Called when close animation is finished.
