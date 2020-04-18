@@ -104,6 +104,27 @@ menus:
             pageId: operators
             properties:
               title: Operators
+      - id: operators
+        type: menu_group
+        properties:
+          title: Operators
+          Icon: ToolOutlined
+        links:
+          - id: state_operator
+            type: menu_link
+            pageId: _state
+            properties:
+              title: State Operator
+          - id: date_operator
+            type: menu_link
+            pageId: _date
+            properties:
+              title: Date Operator
+          - id: get_operator
+            type: menu_link
+            pageId: _get
+            properties:
+              title: Get
       - id: blocks_input
         type: menu_group
         properties:
@@ -388,6 +409,11 @@ pages:
   - _ref: concepts/references.yaml
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
+
+  - _ref: operators/_state.yaml
+  - _ref: operators/_date.yaml
+  - _ref: operators/_get.yaml
+
   - _ref: blocks/input/autocomplete_input.yaml
   - _ref: blocks/input/checkbox_input.yaml
   - _ref: blocks/input/color_picker_input.yaml
