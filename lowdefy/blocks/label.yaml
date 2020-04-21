@@ -5,8 +5,18 @@
       --gap: 0
   properties:
     size: small
-    title: 'label:'
+    title: 'Label:'
   blocks:
+    - id: block.properties.Label.inline
+      type: switch_input
+      defaultValue: false
+      style:
+        _global: settings_input_style
+      properties:
+        title: inline
+        size: small
+        Label:
+          extra: Set label inline with input.
     - id: block.properties.Label.disable
       type: switch_input
       defaultValue: false
