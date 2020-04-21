@@ -400,7 +400,7 @@ pages:
   - _ref: blocks/input/ButtonSelector.yaml
   - _ref: blocks/input/RadioSelector.yaml
   - _ref: blocks/input/Selector.yaml
-  - _ref: blocks/input/Slider.yaml
+  - _ref: blocks/input/RatingSlider.yaml
   - _ref: blocks/input/Switch.yaml
   - _ref: blocks/input/TextArea.yaml
   - _ref: blocks/input/TextInput.yaml
