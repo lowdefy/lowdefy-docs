@@ -113,6 +113,9 @@ blocks:
             - id: block.properties.colors.$
               type: text_input
               defaultValue: '#000000'
+              properties:
+                Label:
+                  disable: true
         - id: block.properties.type
           type: radio_button_input
           defaultValue: circle
@@ -130,7 +133,7 @@ blocks:
               - twitter
         - id: block.properties.width
           type: text_input
-          defaultValue: 252px
+          defaultValue: 100%
           style:
             _global: settings_input_style
           properties:
@@ -143,5 +146,3 @@ blocks:
         Triggered when value is changed. Only fires once drag action has been completed.
 
       examples:
-
-         
