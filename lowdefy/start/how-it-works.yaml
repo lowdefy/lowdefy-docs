@@ -1,5 +1,5 @@
 id: how-it-works
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: How It Works
@@ -9,10 +9,10 @@ properties:
       - How It Works
 blocks:
   - id: card
-    type: card
+    type: Card
     blocks:
       - id: markdown
-        type: markdown
+        type: Markdown
         properties:
           content: |
             # How It Works

@@ -1,5 +1,5 @@
 id: date_range_input
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Date Range
@@ -22,7 +22,7 @@ blocks:
         Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
 
         >Other date type blocks are date_range_input, date_time_input, week_input and month_input.
-      block_type: date_range_input
+      block_type: DateRangeSelector
       label: true
       kind: input
       style_transform:
@@ -46,7 +46,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -57,7 +57,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -68,7 +68,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -79,7 +79,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_suffix_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -93,7 +93,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -103,7 +103,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -113,7 +113,7 @@ blocks:
             Label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -123,7 +123,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -133,7 +133,7 @@ blocks:
             Label:
               extra: Disable the block if true.
         - id: block.properties.format
-          type: text_input
+          type: TextInput
           defaultValue: YYYY-MM-DD
           style:
             _global: settings_input_style
@@ -143,7 +143,7 @@ blocks:
             Label:
               extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder.0
-          type: text_input
+          type: TextInput
           defaultValue: Start Date
           style:
             _global: settings_input_style
@@ -153,7 +153,7 @@ blocks:
             Label:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.placeholder.1
-          type: text_input
+          type: TextInput
           defaultValue: End Date
           style:
             _global: settings_input_style
@@ -163,7 +163,7 @@ blocks:
             Label:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.separator
-          type: text_input
+          type: TextInput
           defaultValue: "~"
           style:
             _global: settings_input_style
@@ -173,7 +173,7 @@ blocks:
             Label:
               extra: Separator symbol shown between start and end date inputs.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -201,16 +201,16 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: date_range_input
+              type: DateRangeSelector
               style:
                 --span: 6
               properties:
                 title: Date input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -224,10 +224,10 @@ blocks:
                     }
                   }
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: date_range_input
+              type: DateRangeSelector
               style:
                 --span: 6
               properties:
@@ -240,7 +240,7 @@ blocks:
                 separator: to
                 IconSuffix: ThunderboltOutlined
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -260,10 +260,10 @@ blocks:
                     }
                   }
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: date_range_input
+              type: DateRangeSelector
               style:
                 --span: 6
               defaultValue:
@@ -275,7 +275,7 @@ blocks:
                 Label:
                   extra: Default date and custom date format.
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:

@@ -1,5 +1,5 @@
 id: tabs
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Tabs
@@ -35,7 +35,7 @@ blocks:
       block_name: Tabs
       description_content: |
         A tabs container.
-      block_type: tabs
+      block_tyle: Tabs
       label: false
       kind: container
       style_transform:
@@ -56,7 +56,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -67,7 +67,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content1_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -78,7 +78,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content2_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -90,7 +90,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: activeKey
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -99,7 +99,7 @@ blocks:
             Label:
               extra: Current TabPane's key.
         - id: defaultActiveKey
-          type: text_input
+          type: TextInput
           defaultValue: content1
           style:
             _global: settings_input_style
@@ -109,7 +109,7 @@ blocks:
             Label:
               extra: Initial active TabPane's key, if activeKey is not set.
         - id: animated
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -119,7 +119,7 @@ blocks:
             Label:
               extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -133,7 +133,7 @@ blocks:
               - default
               - large
         - id: block.properties.tabPosition
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: top
           style:
             _global: settings_input_style
@@ -148,7 +148,7 @@ blocks:
               - bottom
               - left
         - id: block.properties.tabs
-          type: list
+          type: List
           style:
             Content:
               --gap: 0
@@ -157,7 +157,7 @@ blocks:
             size: small
           blocks:
             - id: block.properties.tabs.$.title
-              type: text_input
+              type: TextInput
               defaultValue: title
               style:
                 _global: settings_input_style
@@ -167,7 +167,7 @@ blocks:
                 Label:
                   extra: Title of the tab.
             - id: block.properties.tabs.$.key
-              type: text_input
+              type: TextInput
               defaultValue: key
               style:
                 _global: settings_input_style
@@ -183,7 +183,7 @@ blocks:
                   icon_field_name: Icon
                   icon_description: Icon to show in tab title.
             - id: block.properties.tabs.$.disabled
-              type: switch_input
+              type: Switch
               defaultValue: false
               style:
                 _global: settings_input_style
@@ -193,7 +193,7 @@ blocks:
                 Label:
                   extra: Disable the tab if true.
         - id: block.properties.tabType
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: line
           style:
             _global: settings_input_style

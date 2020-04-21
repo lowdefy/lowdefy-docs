@@ -1,14 +1,14 @@
 id: operators
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Operators
 blocks:
   - id: card
-    type: card
+    type: Card
     blocks:
       - id: markdown
-        type: markdown
+        type: Markdown
         properties:
           content: |
             # Operators
@@ -36,11 +36,11 @@ blocks:
               "blocks": [
                 {
                   "id": "block_1",
-                  "type": "text_input"
+                  "type": "TextInput"
                 },
                 {
                   "id": "block_2",
-                  "type": "text_input",
+                  "type": "TextInput",
                   "properties": {
                     "placeholder": { "_state": "block_1" }
                   }
@@ -55,10 +55,10 @@ blocks:
             blocks:
             - 
               id: block_1
-              type: text_input
+              type: TextInput
             - 
               id: block_2
-              type: text_input
+              type: TextInput
               properties:
                 placeholder:
                   _state: block_1
@@ -106,7 +106,7 @@ blocks:
             blocks:
             - 
               id: select_value
-              type: select_input
+              type: Selector
               properties:
                 options:
                 - A
@@ -141,7 +141,7 @@ blocks:
             <!--YAML-->
             ```yaml
             id: select_date
-            type: date_input
+            type: DateSelector
             properties:
               default:
                 _date: now

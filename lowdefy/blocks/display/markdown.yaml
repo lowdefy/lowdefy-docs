@@ -1,5 +1,5 @@
 id: markdown
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Markdown
@@ -10,7 +10,7 @@ blocks:
       block_name: Markdown
       description_content: |
         Render markdown text content. For more details on markdown syntax see: [Markdown cheat sheet](https://guides.github.com/features/mastering-markdown/).
-      block_type: markdown
+      block_type: Markdown
       label: false
       kind: display
       style_transform:
@@ -18,7 +18,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -32,7 +32,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.content
-          type: text_area_input
+          type: TextArea
           defaultValue: |
             ## Lorem ipsum dolor sit amet
             In the animal kingdom, one of the keys to survival is to outwit your enemies. And when you're surrounded by carnivores, one of the best strategies is to fade into the background and disappear. I don't want to be the embarrassment of the galaxy to have had the power to deflect an asteroid, and then not and end up going extinct. We'd be the laughingstock of the aliens of the cosmos if that were the case.
@@ -47,7 +47,7 @@ blocks:
             Label:
               extra: Text content in markdown syntax format.
         - id: block.properties.renderHtml
-          type: switch_input
+          type: Switch
           style:
             _global: settings_input_style
           properties:
@@ -61,20 +61,20 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Headings
                 - id: example_1
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                         # h1 Heading
@@ -84,17 +84,17 @@ blocks:
                         ##### h5 Heading
                         ###### h6 Heading
             - id: example_1_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_1
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             # h1 Heading
@@ -105,20 +105,20 @@ blocks:
                             ###### h6 Heading
                       ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Emphasis
                 - id: example_2
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       **This is bold text**
@@ -131,17 +131,17 @@ blocks:
 
                       ~~Strikethrough~~
             - id: example_2_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_2
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             **This is bold text**
@@ -155,20 +155,20 @@ blocks:
                             ~~Strikethrough~~
                       ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Lists
                 - id: example_3
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       Unordered
@@ -195,17 +195,17 @@ blocks:
                       57. Jar Jar
                       1. C-3P0
             - id: example_3_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_3
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             Unordered
@@ -233,20 +233,20 @@ blocks:
                             1. C-3P0
                       ```
         - id: example_4_card
-          type: card
+          type: Card
           blocks:
             - id: example_4_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_4_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Code
                 - id: example_4
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       Inline `code`
@@ -276,17 +276,17 @@ blocks:
                       console.log(foo(5));
                       ```
             - id: example_4_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_4_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_4
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             Inline `code`
@@ -317,20 +317,20 @@ blocks:
                             ```
                       ```
         - id: example_5_card
-          type: card
+          type: Card
           blocks:
             - id: example_5_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_5_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Links and Images
                 - id: example_5
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       [link text](https://www.lowdefy.com)
@@ -339,17 +339,17 @@ blocks:
 
                       ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
             - id: example_5_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_5_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_4
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             [link text](https://www.lowdefy.com)
@@ -359,20 +359,20 @@ blocks:
                             ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
                       ```
         - id: example_6_card
-          type: card
+          type: Card
           blocks:
             - id: example_6_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_6_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Tables
                 - id: example_6
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       | Name | Race |
@@ -389,17 +389,17 @@ blocks:
                       | Legolas | Elf |
                       | Frodo | Hobbit |
             - id: example_6_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_6_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_4
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             [link text](https://www.lowdefy.com)
@@ -409,37 +409,37 @@ blocks:
                             ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
                       ```
         - id: example_7_card
-          type: card
+          type: Card
           blocks:
             - id: example_7_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_7_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Blockquotes
                 - id: example_7
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       > Blockquotes can also be nested...
                       >> ...by using additional greater-than signs right next to each other...
                       > > > ...or with spaces between arrows.
             - id: example_7_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_7_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_7
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             > Blockquotes can also be nested...
@@ -447,20 +447,20 @@ blocks:
                             > > > ...or with spaces between arrows.
                       ```
         - id: example_8_card
-          type: card
+          type: Card
           blocks:
             - id: example_8_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_8_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Escaped HTML
                 - id: example_8
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       <h2>Heading</h2>
@@ -469,17 +469,17 @@ blocks:
                       <p>Another paragraph with more text.</p>
 
             - id: example_8_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_8_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_8
-                        type: markdown
+                        type: Markdown
                         properties:
                           content: |
                             <h2>Heading</h2>
@@ -488,20 +488,20 @@ blocks:
                             <p>Another paragraph with more text.</p>
                       ```
         - id: example_9_card
-          type: card
+          type: Card
           blocks:
             - id: example_9_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_9_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Render HTML
                 - id: example_9
-                  type: markdown
+                  type: Markdown
                   properties:
                     renderHtml: true
                     content: |
@@ -511,17 +511,17 @@ blocks:
                       <p>Another paragraph with more text.</p>
 
             - id: example_9_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_9_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_9
-                        type: markdown
+                        type: Markdown
                         properties:
                           renderHtml: true
                           content: |

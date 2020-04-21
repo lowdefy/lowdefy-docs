@@ -1,6 +1,6 @@
 id: 
   _var: icon_id
-type: select_input
+type: Selector
 style:
   _global: settings_input_style
 defaultValue: 

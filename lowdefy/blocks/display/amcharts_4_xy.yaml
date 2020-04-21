@@ -1,5 +1,5 @@
 id: amcharts_4_xy
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: amCharts 4 XY
@@ -75,4 +75,4 @@ blocks:
       block_name: amCharts 4 XY
       description_content: |
         amCharts 4 XY chart
-      block_type: amcharts_4_xy
+      block_type: AmCharts4XY

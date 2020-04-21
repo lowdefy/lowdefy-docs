@@ -1,28 +1,28 @@
 - id: card_display
-  type: card
+  type: Card
   blocks:
     - id: title
-      type: title
+      type: Title
       properties:
         level: 2
         content:
           _var: block_name
     - id: description
-      type: markdown
+      type: Markdown
       properties:
         content:
           _var: description_content
     - id: c1
-      type: box
+      type: Box
       style:
         --span: 6
       blocks:
         - id: block_divider
-          type: divider
+          type: Divider
           properties:
             title: Block
         - id: block_grid
-          type: box
+          type: Box
           blocks:
             - id: block_id
               type:
@@ -36,7 +36,7 @@
               properties:
                 _var: properties_transform
         - id: state_divider
-          type: divider
+          type: Divider
           properties:
             title: State
           visible:
@@ -45,7 +45,7 @@
                   kind
               - input
         - id: state_markdown
-          type: markdown
+          type: Markdown
           visible:
             _eq:
               - _var:
@@ -65,11 +65,11 @@
                     _stringify:
                       _state: block_id
         - id: setup_divider
-          type: divider
+          type: Divider
           properties:
             title: Block Setup
         - id: setup_markdown
-          type: markdown
+          type: Markdown
           properties:
             content:
               _nunjucks:
@@ -90,16 +90,16 @@
                       properties:
                         _state: block.properties
     - id: settings_grid
-      type: box
+      type: Box
       style:
         --span: 6
       blocks:
         - id: settings_divider
-          type: divider
+          type: Divider
           properties:
             title: Settings
         - id: block_collapse
-          type: collapse
+          type: Collapse
           properties:
             defaultActiveKey: properties
             panels:
@@ -121,7 +121,7 @@
           blocks:
             style:
               - id: style_form
-                type: box
+                type: Box
                 style:
                   Content:
                     --gap: 0
@@ -129,7 +129,7 @@
                   _var: style_form
             visible:
               - id: block.visible
-                type: switch_input
+                type: Switch
                 defaultValue: true
                 properties:
                   title: visible
@@ -139,7 +139,7 @@
                   size: small
             required:
               - id: block.required
-                type: switch_input
+                type: Switch
                 defaultValue: false
                 properties:
                   title: required
@@ -150,30 +150,30 @@
             
             properties:
               - id: properties_form
-                type: box
+                type: Box
                 style:
                   Content:
                     --gap: 0
                 blocks:
                   _var: properties_form
               - id: label_form
-                type: box
+                type: Box
                 visible:
                   _var: label
                 blocks:
                   _ref: blocks/label.yaml
             actions:
               - id: available_actions_description
-                type: markdown
+                type: Markdown
                 properties:
                   content:
                     _var: available_actions_description
           
     - id: examples_divider
-      type: divider
+      type: Divider
       properties:
         title: Examples
     - id: examples_grid
-      type: box
+      type: Box
       blocks:
         _var: examples

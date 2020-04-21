@@ -1,5 +1,5 @@
 id: anchor
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Anchor
@@ -28,7 +28,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -39,7 +39,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -53,7 +53,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -70,7 +70,7 @@ blocks:
               default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
         - id: block.properties.strong
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -80,7 +80,7 @@ blocks:
             Label:
               extra: Makes the text bold when true.
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -95,15 +95,15 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Basic anchor
@@ -112,12 +112,12 @@ blocks:
                   properties:
                     title: Click here
             - id: example_1_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -130,15 +130,15 @@ blocks:
                       }
                       ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Bold text and icon
@@ -149,12 +149,12 @@ blocks:
                     strong: true
                     Icon: LinkOutlined
             - id: example_2_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -169,15 +169,15 @@ blocks:
                       }
                       ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Custom text and icon style
@@ -192,12 +192,12 @@ blocks:
                       twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -218,15 +218,15 @@ blocks:
                       }
                       ```
         - id: example_4_card
-          type: card
+          type: Card
           blocks:
             - id: example_4_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_4_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Style text and icon separately
@@ -243,12 +243,12 @@ blocks:
                     Icon: 
                       name: FireFilled
             - id: example_4_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_4_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json

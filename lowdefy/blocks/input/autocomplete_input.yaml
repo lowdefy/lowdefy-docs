@@ -1,5 +1,5 @@
 id: autocomplete_input
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Auto Complete
@@ -21,8 +21,8 @@ blocks:
       description_content: |
         Auto complete input block. Allows a user to select a single value from a set of options, or type in a value not in the set list of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
 
-        >Other selector blocks are checkbox_input, select_input, multiple_select_input, radio_input and radio_button_input
-      block_type: autocomplete_input
+        >Other selector blocks are checkbox_input, select_input, multiple_select_input, RadioSelector and ButtonSelector
+      block_type: AutoComplete
       label: true
       kind: input
       style_transform:
@@ -43,7 +43,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -54,7 +54,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -65,7 +65,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -79,7 +79,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -89,7 +89,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -99,7 +99,7 @@ blocks:
             Label:
               extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -109,7 +109,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.defaultActiveFirstOption
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             Label:
@@ -120,7 +120,7 @@ blocks:
             Label:
               extra: Makes the first option in the selection list active when true.
         - id: block.properties.defaultOpen
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -130,7 +130,7 @@ blocks:
             Label:
               extra: Initial open state of dropdown.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -140,18 +140,18 @@ blocks:
             Label:
               extra: Disables the block if true.
         - id: block.properties.options
-          type: list
+          type: List
           required: true
           properties:
             title: 'options:'
             size: small
           blocks:
             - id: block.properties.options.$
-              type: text_input
+              type: TextInput
               properties:
                 size: small
         - id: block.properties.placeholder
-          type: text_input
+          type: TextInput
           defaultValue: Select item
           style:
             _global: settings_input_style
@@ -161,7 +161,7 @@ blocks:
             Label:
               extra: Placeholder text inside the block before user selects input.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style

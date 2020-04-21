@@ -1,14 +1,14 @@
 id: references
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: References
 blocks:
   - id: card
-    type: card
+    type: Card
     blocks:
       - id: markdown
-        type: markdown
+        type: Markdown
         properties:
           content: |
             # References

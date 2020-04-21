@@ -1,14 +1,14 @@
-id: ag_grid
-type: page_sider_menu
+id: AgGrid
+type: PageSiderMenu
 public: true
 properties:
   title: ag-Grid 
 blocks:
   - id: card
-    type: card
+    type: Card
     blocks:
       - id: markdown
-        type: markdown
+        type: Markdown
         properties:
           content: |
             # ag-Grid
@@ -17,7 +17,7 @@ blocks:
 
             ## Required fields
 
-            - `type`: "ag_grid"
+            - `type`: "AgGrid"
             - `name`: _String_ - A valid [Lowdefy name](concepts/lowdefy-file).
             - `properties.rowData`
 

@@ -1,5 +1,5 @@
 id: box
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Box
@@ -13,7 +13,7 @@ blocks:
   _ref:
     path: blocks/element_template.yaml
     vars:
-      block_type: box
+      block_type: Box
       block_name: Box
       page_description: |
         A box is a container that places sub-blocks into a html div with gird, flex, block or inline-block display format settings. 
@@ -27,7 +27,7 @@ blocks:
           _state: grid_style_input
       grid_style_form:
         - id: grid_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |
@@ -48,7 +48,7 @@ blocks:
           _state: flex_style_input
       flex_style_form:
         - id: flex_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |
@@ -70,7 +70,7 @@ blocks:
           _state: block_style_input
       block_style_form:
         - id: block_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |
@@ -92,7 +92,7 @@ blocks:
           _state: inlineBlock_style_input
       inlineBlock_style_form:
         - id: inlineBlock_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |

@@ -1,5 +1,5 @@
 id: paragraph
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Paragraph
@@ -10,7 +10,7 @@ blocks:
       block_name: Paragraph
       description_content: |
         A paragraph text component. 
-      block_type: paragraph
+      block_type: Paragraph
       label: false
       kind: display
       style_transform:
@@ -18,7 +18,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -32,7 +32,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.code
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -42,7 +42,7 @@ blocks:
             Label:
               extra: Apply code style.
         - id: block.properties.content
-          type: text_input
+          type: TextInput
           defaultValue: |
             Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
           style:
@@ -53,7 +53,7 @@ blocks:
             Label:
               extra: Paragraph text content.
         - id: block.properties.copyable
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -63,7 +63,7 @@ blocks:
             Label:
               extra: Provide copy text button.
         - id: block.properties.delete
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -73,7 +73,7 @@ blocks:
             Label:
               extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -83,7 +83,7 @@ blocks:
             Label:
               extra: Apply disabled style.
         - id: block.properties.ellipsis
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -93,7 +93,7 @@ blocks:
             Label:
               extra: Display ellipsis when text overflows a single line.
         - id: block.properties.mark
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -103,7 +103,7 @@ blocks:
             Label:
               extra: Apply marked (highlighted) style.
         - id: block.properties.strong
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -113,7 +113,7 @@ blocks:
             Label:
               extra: Apply strong (bold) style.
         - id: block.properties.type
-          type: select_input
+          type: Selector
           style:
             _global: settings_input_style
           properties:
@@ -127,7 +127,7 @@ blocks:
               - warning
               - danger
         - id: block.properties.underline
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -142,37 +142,37 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Copyable text with different copy text
                 - id: example_1
-                  type: paragraph
+                  type: Paragraph
                   properties:
                     copyable:
                       text: password123
                     content: "************"
 
             - id: example_1_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: example_1
-                        type: paragraph
+                        type: Paragraph
                         properties:
                           copyable:
                             text: password123

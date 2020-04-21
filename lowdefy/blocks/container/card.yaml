@@ -1,5 +1,5 @@
 id: card
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Card
@@ -27,7 +27,7 @@ blocks:
       block_name: Card
       description_content: |
         A card container.
-      block_type: card
+      block_type: Card
       label: false
       kind: container
       style_transform:
@@ -51,7 +51,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -62,7 +62,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_body_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -73,7 +73,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -84,7 +84,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_header_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -96,7 +96,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -106,7 +106,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.bordered
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -116,7 +116,7 @@ blocks:
             Label:
               extra: Toggles rendering of the border around the card.
         - id: block.properties.hoverable
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -126,7 +126,7 @@ blocks:
             Label:
               extra: Lift up when hovering card.
         - id: block.properties.loading
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -136,7 +136,7 @@ blocks:
             Label:
               extra: Shows a loading indicator while the contents of the card are being fetched.
         - id: block.properties.inner
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -146,7 +146,7 @@ blocks:
             Label:
               extra: Change the card style to inner.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -161,20 +161,20 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Card with Extra blocks
                 - id: extra_card
-                  type: card
+                  type: Card
                   properties:
                     title: Submit new details
                   style:
@@ -183,7 +183,7 @@ blocks:
                   blocks:
                     Content:
                       - id: extra_name
-                        type: text_input
+                        type: TextInput
                         style:
                           --span: 4
                         properties:
@@ -191,7 +191,7 @@ blocks:
                           disabled:
                             _state: extra_not_applicable
                       - id: extra_surname
-                        type: text_input
+                        type: TextInput
                         style:
                           --span: 4
                         properties:
@@ -199,7 +199,7 @@ blocks:
                           disabled:
                             _state: extra_not_applicable
                       - id: extra_submit_btn
-                        type: button
+                        type: Button
                         style:
                           --span: 4
                         properties:
@@ -218,7 +218,7 @@ blocks:
                                 extra_surname: null 
                     Extra:
                       - id: extra_not_applicable
-                        type: switch_input
+                        type: Switch
                         defaultValue: false
                         style:
                           Label:
@@ -226,7 +226,7 @@ blocks:
                         properties:
                           title: N/A 
                       - id: extra_clear
-                        type: button
+                        type: Button
                         properties:
                           title: Clear
                           Icon: ReloadOutlined
@@ -242,17 +242,17 @@ blocks:
                                 extra_surname: null
                           
             - id: example_1_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```yaml
                         id: extra_card
-                        type: card
+                        type: Card
                         properties:
                           title: Submit new details
                         style:
@@ -261,7 +261,7 @@ blocks:
                         blocks:
                           Content:
                             - id: extra_name
-                              type: text_input
+                              type: TextInput
                               style:
                                 --span: 4
                               properties:
@@ -269,7 +269,7 @@ blocks:
                                 disabled:
                                   _state: extra_not_applicable
                             - id: extra_surname
-                              type: text_input
+                              type: TextInput
                               style:
                                 --span: 4
                               properties:
@@ -277,7 +277,7 @@ blocks:
                                 disabled:
                                   _state: extra_not_applicable
                             - id: extra_submit_btn
-                              type: button
+                              type: Button
                               style:
                                 --span: 4
                               properties:
@@ -296,7 +296,7 @@ blocks:
                                       extra_surname: null 
                           Extra:
                             - id: extra_not_applicable
-                              type: switch_input
+                              type: Switch
                               defaultValue: false
                               style:
                                 Label:
@@ -304,7 +304,7 @@ blocks:
                               properties:
                                 title: N/A 
                             - id: extra_clear
-                              type: button
+                              type: Button
                               properties:
                                 title: Clear
                                 Icon: ReloadOutlined

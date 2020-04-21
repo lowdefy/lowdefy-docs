@@ -1,5 +1,5 @@
 id: page_sider_menu
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Page Sider Menu
@@ -14,7 +14,7 @@ blocks:
     path: blocks/container_hscf_template.yaml
     vars:
       block_name: Page Sider Menu
-      block_type: page_sider_menu
+      block_type: PageSiderMenu
       description_content: |
         The Page Sider Menu block provides a structured layout for a page with a header, sider including menu, content and footer area.
       label: false
@@ -58,7 +58,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -69,7 +69,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_breadcrumb_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -80,7 +80,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -91,7 +91,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_footer_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -102,7 +102,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_header_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: |
@@ -118,7 +118,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_layout_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -129,7 +129,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_logo_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -140,7 +140,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_menu_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -151,7 +151,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_lgMenu_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -162,7 +162,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_mdMenu_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -174,7 +174,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.logoSrc
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -183,7 +183,7 @@ blocks:
             Label: 
               extra: Header logo source url
         - id: block.properties.logoAlt
-          type: text_input
+          type: TextInput
           defaultValue: Lowdefy
           style:
             _global: settings_input_style
@@ -193,7 +193,7 @@ blocks:
             Label: 
               extra: Header logo alternative text
         - id: block.properties.Header.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style
@@ -217,7 +217,7 @@ blocks:
                 params:
                   pageId: header
         - id: block.properties.Sider.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: light
           style:
             _global: settings_input_style
@@ -241,7 +241,7 @@ blocks:
                 params:
                   pageId: sider
         - id: block.properties.Breadcrumb.list
-          type: multiple_select_input
+          type: MultipleSelector
           defaultValue: ['Page 1', 'Page 2']
           style:
             _global: settings_input_style
@@ -265,17 +265,17 @@ blocks:
               - id: link_breadcrumb
                 type: link()
                 params:
-                  pageId: breadcrumb
+                  pageId: Breadcrumb
         - id: block.properties.Menu.links
-          type: multiple_select_input
+          type: MultipleSelector
           defaultValue:
             - id: Introduction
               pageId: introduction
               properties: 
                 title: Introduction
                 Icon: RocketOutlined
-            - id: alert
-              pageId: alert
+            - id: Alert
+              pageId: Alert
               properties: 
                 title: Alert
                 Icon: ExclamationCircleOutlined

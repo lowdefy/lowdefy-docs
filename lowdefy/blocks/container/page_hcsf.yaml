@@ -1,5 +1,5 @@
 id: page_hcsf
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Page HCSF
@@ -15,7 +15,7 @@ blocks:
     path: blocks/container_hscf_template.yaml
     vars:
       block_name: Page HCSF
-      block_type: page_hcsf
+      block_type: PageHCSF
       description_content: |
         Page HCSF provides a minimal layout structure for a page container with a header, content, sider and footer arrangement.
       label: false
@@ -51,7 +51,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -62,7 +62,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -73,7 +73,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_footer_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -84,7 +84,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_header_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -95,7 +95,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_main_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -106,7 +106,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_sider_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -117,7 +117,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_siderContent_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -129,7 +129,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.Header.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style
@@ -153,7 +153,7 @@ blocks:
                 params:
                   pageId: header
         - id: block.properties.Sider.collapsed
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: null
           style:
             _global: settings_input_style
@@ -167,7 +167,7 @@ blocks:
             Label:
               extra: The current collapsed state for Sider
         - id: block.properties.Sider.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style

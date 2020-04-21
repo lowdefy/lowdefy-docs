@@ -1,8 +1,8 @@
 - id: card_display
-  type: card
+  type: Card
   blocks:
     - id: title
-      type: markdown
+      type: Markdown
       properties:
         content:
           _nunjucks:
@@ -12,12 +12,12 @@
                 _var: block_name
 
     - id: description
-      type: markdown
+      type: Markdown
       properties:
         content:
           _var: description_content
     - id: block_card
-      type: card
+      type: Card
       style:
         --span: 7
       blocks:
@@ -31,17 +31,17 @@
           properties:
             _state: block.properties
     - id: settings_card
-      type: card
+      type: Card
       style:
         --span: 5
       blocks:
         - id: properties_input
-          type: text_area_input
+          type: TextArea
           properties:
             title: properties
             rows: 30
         - id: apply_properties_button
-          type: button
+          type: Button
           properties:
             title: "Apply"
             block: false

@@ -1,14 +1,14 @@
 id: groups
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Groups and Roles
 blocks:
   - id: card
-    type: card
+    type: Card
     blocks:
       - id: markdown
-        type: markdown
+        type: Markdown
         properties:
           content: |
             # Groups and Roles

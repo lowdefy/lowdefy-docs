@@ -1,5 +1,5 @@
-id: text_input
-type: page_sider_menu
+id: TextInput
+type: PageSiderMenu
 public: true
 properties:
   title: Text
@@ -10,7 +10,7 @@ blocks:
       block_name: Text Input
       description_content: |
         Text input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: text_input
+      block_type: TextInput
       label: true
       kind: input
       style_transform:
@@ -37,7 +37,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -48,7 +48,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -59,7 +59,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -70,7 +70,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_prefix_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             --span: 11
             sm:
@@ -85,7 +85,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_suffix_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             --span: 11
             sm:
@@ -103,7 +103,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -113,7 +113,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -123,7 +123,7 @@ blocks:
             Label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -133,7 +133,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -143,7 +143,7 @@ blocks:
             Label:
               extra: Disable the block if true.
         - id: block.properties.placeholder
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -152,7 +152,7 @@ blocks:
             Label:
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.prefix
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -168,7 +168,7 @@ blocks:
               icon_description: Icon to prefix the text input.
 
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -182,7 +182,7 @@ blocks:
               - default
               - large
         - id: block.properties.suffix
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -205,16 +205,16 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: text_input
+              type: TextInput
               style:
                 --span: 6
               properties:
                 title: Text input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -222,23 +222,23 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "text_input",
+                    "type": "TextInput",
                     "properties": {
                       "title": "Text input"
                     }
                   }
                   ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: text_input
+              type: TextInput
               style:
                 --span: 6
               properties:
                 placeholder: Placeholder
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -246,7 +246,7 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "text_input",
+                    "type": "TextInput",
                     "properties": {
                       "placeholder": "Placeholder"
                     }
@@ -254,10 +254,10 @@ blocks:
                   }
                   ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: text_input
+              type: TextInput
               style:
                 --span: 6
               properties:
@@ -267,7 +267,7 @@ blocks:
                 suffix: the rat.
                 placeholder: chased
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -275,7 +275,7 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "text_input",
+                    "type": "TextInput",
                     "properties": {
                       "prefix": "The cat",
                       "suffix": "the rat.",
@@ -288,10 +288,10 @@ blocks:
                   }
                   ```
         - id: example_4_card
-          type: card
+          type: Card
           blocks:
             - id: example_4
-              type: text_input
+              type: TextInput
               style:
                 --span: 6
                 Label:
@@ -303,7 +303,7 @@ blocks:
                 Label:
                   extra: Place label next to block and add suffix icon.
             - id: example_4_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -311,7 +311,7 @@ blocks:
                   ```json
                   {
                     "id": "example_4",
-                    "type": "text_input",
+                    "type": "TextInput",
                     "style": { 
                       "Label": {
                         "--span": 3

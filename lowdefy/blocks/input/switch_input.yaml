@@ -1,5 +1,5 @@
 id: switch_input
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Switch
@@ -10,7 +10,7 @@ blocks:
       block_name: Switch Input
       description_content: |
         On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: switch_input
+      block_type: Switch
       label: true
       kind: input
       style_transform:
@@ -37,7 +37,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -48,7 +48,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -59,7 +59,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -70,7 +70,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_checked_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             --span: 11
             sm:
@@ -85,7 +85,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_unchecked_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             --span: 11
             sm:
@@ -103,7 +103,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -113,7 +113,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -123,7 +123,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -133,7 +133,7 @@ blocks:
             Label:
               extra: Disable the block if true.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -146,7 +146,7 @@ blocks:
               - small
               - default
         - id: block.properties.checkedText
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -155,7 +155,7 @@ blocks:
             Label:
               extra: Text to shown when switch is checked (true).
         - id: block.properties.uncheckedText
-          type: text_input
+          type: TextInput
           style:
             Label:
               --span: 3
@@ -185,16 +185,16 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: switch_input
+              type: Switch
               style:
                 --span: 6
               properties:
                 title: Switch input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -209,10 +209,10 @@ blocks:
                   }
                   ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: switch_input
+              type: Switch
               style:
                 --span: 6
               properties:
@@ -222,7 +222,7 @@ blocks:
                 Label:
                   extra: Custom checked and unchecked icons.
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -242,10 +242,10 @@ blocks:
                   }
                   ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: switch_input
+              type: Switch
               style:
                 --span: 6
               properties:
@@ -255,7 +255,7 @@ blocks:
                 Label:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:

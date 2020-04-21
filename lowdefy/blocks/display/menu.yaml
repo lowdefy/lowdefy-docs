@@ -1,5 +1,5 @@
 id: menu
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Menu
@@ -12,40 +12,40 @@ actions:
           properties:
             links:
               - id: page_1
-                type: menu_link
+                type: MenuLink
                 pageId: page_1
                 properties:
                   title: Page 1
                   Icon: FlagOutlined
               - id: page_2
-                type: menu_link
+                type: MenuLink
                 pageId: page_2
                 properties:
                   title: Page 2
                   Icon: FileOutlined
               - id: page_3
-                type: menu_group
+                type: MenuGroup
                 properties:
                   title: Group 3
                   Icon: RocketOutlined
                 links:
                   - id: page_3_1
-                    type: menu_link
+                    type: MenuLink
                     pageId: page_3_1
                     properties:
                       title: Page 3.1
                   - id: page_3_2
-                    type: menu_link
+                    type: MenuLink
                     pageId: page_3_2
                     properties:
                       title: Page 3.2
                   - id: page_3_3
-                    type: menu_link
+                    type: MenuLink
                     pageId: page_3_3
                     properties:
                       title: Page 3.3
               - id: page_4
-                type: menu_link
+                type: MenuLink
                 pageId: page_4
                 properties:
                   title: Page 4
@@ -57,7 +57,7 @@ blocks:
       block_name: Menu
       description_content: |
         A menu block used to display page links.
-      block_type: menu
+      block_type: Menu
       label: false
       kind: display
       style_transform:
@@ -65,7 +65,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -79,7 +79,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.mode
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: vertical
           style:
             _global: settings_input_style
@@ -93,7 +93,7 @@ blocks:
               - horizontal
               - inline
         - id: block.properties.selectable
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -103,7 +103,7 @@ blocks:
             Label:
               extra: Allows selecting menu items.
         - id: block.properties.selectedKeys
-          type: multiple_select_input
+          type: MultipleSelector
           style:
             _global: settings_input_style
           properties:
@@ -120,7 +120,7 @@ blocks:
               - page_4
               - page_5
         - id: block.properties.subMenuCloseDelay
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style
           properties:
@@ -129,7 +129,7 @@ blocks:
             Label:
               extra: Delay time to hide submenu when mouse leaves (in seconds).
         - id: block.properties.subMenuOpenDelay
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style
           properties:
@@ -138,7 +138,7 @@ blocks:
             Label:
               extra: Delay time to show submenu when mouse enters (in seconds).
         - id: block.properties.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style
@@ -151,13 +151,13 @@ blocks:
               - dark
               - light
         - id: block.properties.links
-          type: list
+          type: List
           properties:
             title: 'links:'
             size: small
           blocks:
             - id: block.properties.links.$.id
-              type: text_input
+              type: TextInput
               defaultValue: id_i
               style:
                 _global: settings_input_style
@@ -167,8 +167,8 @@ blocks:
                 Label:
                   extra: Menu item id.
             - id: block.properties.links.$.type
-              type: radio_button_input
-              defaultValue: menu_link
+              type: ButtonSelector
+              defaultValue: MenuLink
               style:
                 _global: settings_input_style
               properties:
@@ -177,14 +177,14 @@ blocks:
                 Label:
                   extra: Menu item type.
                 options:
-                  - menu_link
-                  - menu_group
+                  - MenuLink
+                  - MenuGroup
             - id: block.properties.links.$.pageId
-              type: text_input
+              type: TextInput
               visible:
                 _eq:
                   - _state: block.properties.links.$.type
-                  - menu_link
+                  - MenuLink
               style:
                 _global: settings_input_style
               properties:
@@ -193,13 +193,13 @@ blocks:
                 Label:
                   extra: Page to link to.
             - id: block.properties.links.$.properties
-              type: card
+              type: Card
               properties:
                 size: small
                 title: 'properties:'
               blocks:
                 - id: block.properties.links.$.properties.title
-                  type: text_input
+                  type: TextInput
                   style:
                     _global: settings_input_style
                   properties:
@@ -207,7 +207,7 @@ blocks:
                     Label:
                       extra: Menu item title.
                 - id: block.properties.links.$.properties.collapsed
-                  type: switch_input
+                  type: Switch
                   defaultValue: true
                   style:
                     _global: settings_input_style
@@ -216,11 +216,11 @@ blocks:
                     Label:
                       extra: Collapse the menu item.
                 - id: block.properties.links.$.properties.icon
-                  type: select_input
+                  type: Selector
                   visible:
                     _eq:
                       - _state: block.properties.links.$.type
-                      - menu_group
+                      - MenuGroup
                   style:
                     _global: settings_input_style
                   properties:
@@ -232,16 +232,16 @@ blocks:
                     Label:
                       extra: Menu item icon.
             - id: block.properties.links.$.links
-              type: list
+              type: List
               visible:
                 _eq:
                   - _state: block.properties.links.$.type
-                  - menu_group
+                  - MenuGroup
               properties:
                 title: 'links:'
               blocks:
                 - id: block.properties.links.$.links.$.id
-                  type: text_input
+                  type: TextInput
                   defaultValue: id_k
                   style:
                     _global: settings_input_style
@@ -251,8 +251,8 @@ blocks:
                     Label:
                       extra: Sub-menu item id.
                 - id: block.properties.links.$.links.$.type
-                  type: radio_button_input
-                  defaultValue: menu_link
+                  type: ButtonSelector
+                  defaultValue: MenuLink
                   style:
                     _global: settings_input_style
                   properties:
@@ -261,9 +261,9 @@ blocks:
                     Label:
                       extra: Menu item type.
                     options:
-                      - menu_link
+                      - MenuLink
                 - id: block.properties.links.$.links.$.pageId
-                  type: text_input
+                  type: TextInput
                   style:
                     _global: settings_input_style
                   properties:
@@ -272,13 +272,13 @@ blocks:
                     Label:
                       extra: Page to link to.
                 - id: block.properties.links.$.links.$.properties
-                  type: card
+                  type: Card
                   properties:
                     size: small
                     title: 'properties:'
                   blocks:
                     - id: block.properties.links.$.links.$.properties.title
-                      type: text_input
+                      type: TextInput
                       style:
                         _global: settings_input_style
                       properties:

@@ -1,5 +1,5 @@
 id: number_input
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Number
@@ -10,7 +10,7 @@ blocks:
       block_name: Number Input
       description_content: |
         Number input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: number_input
+      block_type: NumberInput
       label: true
       kind: input
       style_transform:
@@ -31,7 +31,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -42,7 +42,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -53,7 +53,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -67,7 +67,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -77,7 +77,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -87,7 +87,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.decimalSeparator
-          type: text_input
+          type: TextInput
           defaultValue: "."
           style:
             _global: settings_input_style
@@ -97,7 +97,7 @@ blocks:
             Label:
               extra: Decimal separator.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -107,7 +107,7 @@ blocks:
             Label:
               extra: Disables the block if true.
         - id: block.properties.min
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style
           properties:
@@ -116,7 +116,7 @@ blocks:
             Label:
               extra: Minimum value allowed by the block.
         - id: block.properties.max
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style
           properties:
@@ -125,7 +125,7 @@ blocks:
             Label:
               extra: Maximum value allowed by the block.
         - id: block.properties.placeholder
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -134,7 +134,7 @@ blocks:
             Label:
               extra: Placeholder text inside the block to show message before user types input.
         - id: block.properties.precision
-          type: number_input
+          type: NumberInput
           defaultValue: 0
           style:
             _global: settings_input_style
@@ -145,7 +145,7 @@ blocks:
             Label:
               extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -159,7 +159,7 @@ blocks:
               - default
               - large
         - id: block.properties.step
-          type: number_input
+          type: NumberInput
           defaultValue: 1
           style:
             _global: settings_input_style
@@ -177,16 +177,16 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: number_input
+              type: NumberInput
               style:
                 --span: 6
               properties:
                 title: Number input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -201,10 +201,10 @@ blocks:
                   }
                   ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: number_input
+              type: NumberInput
               style:
                 --span: 6
               defaultValue: 3.14
@@ -214,7 +214,7 @@ blocks:
                 precision: 2
                 step: 0.01
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -233,17 +233,17 @@ blocks:
                   }
                   ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: number_input
+              type: NumberInput
               style:
                 --span: 6
               properties:
                 title: Placeholder
                 placeholder: π
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:

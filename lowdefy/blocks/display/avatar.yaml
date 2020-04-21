@@ -1,5 +1,5 @@
 id: avatar
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Avatar
@@ -10,7 +10,7 @@ blocks:
       block_name: Avatar
       description_content: |
         Avatars can be used to represent people or objects. It supports images, Icons, or letters.
-      block_type: avatar
+      block_type: Avatar
       label: false
       kind: display
       style_transform:
@@ -28,7 +28,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -39,7 +39,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -53,7 +53,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.alt
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -62,7 +62,7 @@ blocks:
             Label:
               extra: This attribute defines the alternative text describing the image.
         - id: block.properties.color
-          type: color_picker_input
+          type: ColorSelector
           style:
             _global: settings_input_style
           properties:
@@ -71,7 +71,7 @@ blocks:
             Label:
               extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
         - id: block.properties.content
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -86,7 +86,7 @@ blocks:
               icon_field_name: Icon
               icon_description: Icon to be used in avatar.
         - id: block.properties.shape
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: circle
           style:
             _global: settings_input_style
@@ -99,7 +99,7 @@ blocks:
               - circle
               - square
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -113,7 +113,7 @@ blocks:
               - small
               - large
         - id: block.properties.src
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:

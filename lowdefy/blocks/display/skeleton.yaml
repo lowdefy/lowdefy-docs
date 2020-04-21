@@ -1,5 +1,5 @@
 id: skeleton
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Skeleton
@@ -11,7 +11,7 @@ blocks:
       block_name: Skeleton
       description_content: |
         Skeleton block.
-      block_type: skeleton
+      block_type: Skeleton
       label: false
       kind: display
       style_transform:
@@ -19,7 +19,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -63,7 +63,7 @@ blocks:
                 - _state: block.properties
       properties_form:
         - id: block.properties.active
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -73,10 +73,10 @@ blocks:
             Label:
               extra: Show animation effect.
         - id: skeleton_avatar_type_card
-          type: card
+          type: Card
           blocks:
             - id: skeleton_avatar_type
-              type: radio_button_input
+              type: ButtonSelector
               defaultValue: Boolean
               properties:
                 title: Avatar Type
@@ -87,7 +87,7 @@ blocks:
                   - Boolean
                   - Object
         - id: block.properties.avatar.boolean
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -100,7 +100,7 @@ blocks:
             Label:
               extra: Show avatar placeholder.
         - id: block.properties.avatar.shape
-          type: radio_button_input
+          type: ButtonSelector
           style:
             _global: settings_input_style_indent
           visible:
@@ -116,7 +116,7 @@ blocks:
               - circle
               - square
         - id: block.properties.avatar.size
-          type: radio_button_input
+          type: ButtonSelector
           style:
             _global: settings_input_style_indent
           visible:
@@ -133,10 +133,10 @@ blocks:
               - default
               - large
         - id: skeleton_paragraph_type_card
-          type: card
+          type: Card
           blocks:
             - id: skeleton_paragraph_type
-              type: radio_button_input
+              type: ButtonSelector
               defaultValue: Boolean
               properties:
                 title: Paragraph Type
@@ -147,7 +147,7 @@ blocks:
                   - Boolean
                   - Object
         - id: block.properties.paragraph.boolean
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -160,7 +160,7 @@ blocks:
             Label:
               extra: Show paragraph placeholder.
         - id: block.properties.paragraph.rows
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style_indent
           visible:
@@ -173,7 +173,7 @@ blocks:
             Label:
               extra: The number of rows in the skeleton paragraph.
         - id: block.properties.paragraph.width
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style_indent
           visible:
@@ -186,10 +186,10 @@ blocks:
             Label:
               extra: Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width. Can be numbers or strings.
         - id: skeleton_title_type_card
-          type: card
+          type: Card
           blocks:
             - id: skeleton_title_type
-              type: radio_button_input
+              type: ButtonSelector
               defaultValue: Boolean
               properties:
                 title: Title Type
@@ -200,7 +200,7 @@ blocks:
                   - Boolean
                   - Object
         - id: block.properties.title.boolean
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -213,7 +213,7 @@ blocks:
             Label:
               extra: Show title placeholder.
         - id: block.properties.title.width
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style_indent
           visible:
@@ -231,27 +231,27 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Basic skeleton
                 - id: example_1
-                  type: skeleton
+                  type: Skeleton
             - id: example_1_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -262,29 +262,29 @@ blocks:
                       }
                       ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### No animation
                 - id: example_2
-                  type: skeleton
+                  type: Skeleton
                   properties:
                     active: false
             - id: example_2_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -298,30 +298,30 @@ blocks:
                       }
                       ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Show avatar and hide title
                 - id: example_3
-                  type: skeleton
+                  type: Skeleton
                   properties:
                     avatar: true
                     title: false
             - id: example_3_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
