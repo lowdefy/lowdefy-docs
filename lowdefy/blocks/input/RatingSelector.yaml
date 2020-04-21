@@ -1,4 +1,4 @@
-id: slider_input
+id: RatingSlider
 type: PageSiderMenu
 public: true
 properties:

@@ -1,16 +1,28 @@
-id: number_input
+id: DateRangeSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Number
+  title: Date Range
+actions:
+  onInit:
+    - id: initialize_state 
+      type: setState()
+      params:
+        block:
+          properties:
+            placeholder:
+              - Start Date
+              - End Date
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Number Input
+      block_name: Date Range Input
       description_content: |
-        Number input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: NumberInput
+        Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
+
+        >Other date type blocks are date_range_input, date_time_input, week_input and month_input.
+      block_type: DateRangeSelector
       label: true
       kind: input
       style_transform:
@@ -26,6 +38,9 @@ blocks:
                     Input:
                       _parse:
                         _state: style_input_input
+                    IconSuffix:
+                      _parse:
+                        _state: style_suffix_icon_input
               on:
                 _parse:
                   _state: style_block_input
@@ -63,6 +78,17 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
+        - id: style_suffix_icon_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: IconSuffix
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -76,6 +102,16 @@ blocks:
             size: small
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.allowClear
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: allowClear
+            size: small
+            Label:
+              extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -86,16 +122,6 @@ blocks:
             size: small
             Label:
               extra: Autofocus to the block on page load.
-        - id: block.properties.decimalSeparator
-          type: TextInput
-          defaultValue: "."
-          style:
-            _global: settings_input_style
-          properties:
-            title: decimalSeparator
-            size: small
-            Label:
-              extra: Decimal separator.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -105,45 +131,47 @@ blocks:
             title: disabled
             size: small
             Label:
-              extra: Disables the block if true.
-        - id: block.properties.min
-          type: NumberInput
-          style:
-            _global: settings_input_style
-          properties:
-            title: min
-            size: small
-            Label:
-              extra: Minimum value allowed by the block.
-        - id: block.properties.max
-          type: NumberInput
-          style:
-            _global: settings_input_style
-          properties:
-            title: max
-            size: small
-            Label:
-              extra: Maximum value allowed by the block.
-        - id: block.properties.placeholder
+              extra: Disable the block if true.
+        - id: block.properties.format
           type: TextInput
+          defaultValue: YYYY-MM-DD
           style:
             _global: settings_input_style
           properties:
-            title: placeholder
+            title: format
             size: small
             Label:
-              extra: Placeholder text inside the block to show message before user types input.
-        - id: block.properties.precision
-          type: NumberInput
-          defaultValue: 0
+              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+        - id: block.properties.placeholder.0
+          type: TextInput
+          defaultValue: Start Date
           style:
             _global: settings_input_style
           properties:
-            title: precision
             size: small
-            max: 100
+            title: placeholder.0
             Label:
-              extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+              extra: Placeholder text inside the block before user types input.
+        - id: block.properties.placeholder.1
+          type: TextInput
+          defaultValue: End Date
+          style:
+            _global: settings_input_style
+          properties:
+            size: small
+            title: placeholder.1
+            Label:
+              extra: Placeholder text inside the block before user types input.
+        - id: block.properties.separator
+          type: TextInput
+          defaultValue: "~"
+          style:
+            _global: settings_input_style
+          properties:
+            title: separator
+            size: small
+            Label:
+              extra: Separator symbol shown between start and end date inputs.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
@@ -158,33 +186,29 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.step
-          type: NumberInput
-          defaultValue: 1
-          style:
-            _global: settings_input_style
-          properties:
-            title: step
-            size: small
-            precision: 2
-            Label:
-              extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconSuffix
+              icon_field_name: IconSuffix
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the date-range input.
+
+
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
-        ###### onPressEnter
-        Triggered when enter is pressed while block is focused.
 
       examples:
         - id: example_1_card
           type: Card
           blocks:
             - id: example_1
-              type: NumberInput
+              type: DateRangeSelector
               style:
                 --span: 6
               properties:
-                title: Number input
+                title: Date input
             - id: example_1_code
               type: Markdown
               style:
@@ -194,25 +218,27 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "number_input",
+                    "type": "date_range_input",
                     "properties": {
-                      "title": "Number input"
+                      "title": "Date input"
                     }
                   }
-                  ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
-              type: NumberInput
+              type: DateRangeSelector
               style:
                 --span: 6
-              defaultValue: 3.14
               properties:
-                title: Decimal separator
-                decimalSeparator: ","
-                precision: 2
-                step: 0.01
+                title: Placeholder, separator and suffix icon
+                Label:
+                  extra: Custom placeholder, separator and suffix icon.
+                placeholder:
+                  - From the start
+                  - the end
+                separator: to
+                IconSuffix: ThunderboltOutlined
             - id: example_2_code
               type: Markdown
               style:
@@ -222,26 +248,32 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "number_input",
-                    "defaultValue": 3.14,
+                    "type": "date_range_input",
                     "properties": {
-                      "title": "Decimal separator"
-                      "decimalSeparator": ",",
-                      "precision": 2,
-                      "step": 0.01
+                      "title": "Placeholder, separator and suffix icon",
+                      "placeholder": [ "From the start", "the end" ],
+                      "separator": "to",
+                      "IconSuffix": "ThunderboltOutlined",
+                      "Label": {
+                        "extra": "Custom placeholder, separator and suffix icon."
+                      }
                     }
                   }
-                  ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
-              type: NumberInput
+              type: DateRangeSelector
               style:
                 --span: 6
+              defaultValue:
+                - _date: 1955-11-12
+                - _date: 1985-10-26
               properties:
-                title: Placeholder
-                placeholder: π
+                title: Date format
+                format: D MMMM YYYY
+                Label:
+                  extra: Default date and custom date format.
             - id: example_3_code
               type: Markdown
               style:
@@ -250,11 +282,17 @@ blocks:
                 content: |
                   ```json
                   {
-                    "id": "example_2",
-                    "type": "number_input",
+                    "id": "example_3",
+                    "type": "date_range_input",
+                    "defaultValue": [
+                      { "_date": "1955-11-12" },
+                      { "_date": "1985-10-26" }
+                    ],
                     "properties": {
-                      "title": "Placeholder"
-                      "placeholder": "π"
+                      "title": "Date format",
+                      "format": "D MMMM YYYY",
+                      "label": {
+                        "extra": "Default date and custom date format."
+                      }
                     }
                   }
-                  ```

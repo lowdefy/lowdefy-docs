@@ -1,18 +1,18 @@
-id: month_input
+id: WeekSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Month
+  title: Week
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Month Input
+      block_name: Week Input
       description_content: |
-        Month picker input block. Allows a user to select a specific month from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+        Week picker input block. Allows a user to select a specific week from a calender form. The input to this field is saved as a Date type in state, at the path name of the block. The first day of the week is Sunday.
 
-        >Other date type blocks are date_input, date_time_input, month_input and date_range_input.
-      block_type: MonthSelector
+        >Other date type blocks are week_input, date_time_input, month_input and date_range_input.
+      block_type: WeekSelector
       label: true
       kind: input
       style_transform:
@@ -124,17 +124,17 @@ blocks:
               extra: Disable the block if true.
         - id: block.properties.format
           type: TextInput
-          defaultValue: YYYY-MM
+          defaultValue: YYYY-wo
           style:
             _global: settings_input_style
           properties:
             title: format
             size: small
             Label:
-              extra: Format in which to format the date value, eg. "MMMM YYYY" will format a date value of 1999-12-31 as "December 1999". The format has to conform to moment.js formats.
+              extra: Format in which to format the date value, eg. "wo-YYYY" will format a date value of 1999-12-26 as "52nd-1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select Month
+          defaultValue: Select Week
           style:
             _global: settings_input_style
           properties:
@@ -162,7 +162,7 @@ blocks:
               icon_id: block.properties.IconSuffix
               icon_field_name: IconSuffix
               default_icon: CalendarOutlined
-              icon_description: Icon on right-hand side of the month input.
+              icon_description: Icon on right-hand side of the week input.
 
 
       available_actions_description: |
@@ -174,11 +174,11 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: MonthSelector
+              type: WeekSelector
               style:
                 --span: 6
               properties:
-                title: Month input
+                title: Week input
             - id: example_1_code
               type: Markdown
               style:
@@ -188,24 +188,24 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "month_input",
+                    "type": "week_input",
                     "properties": {
-                      "title": "Month input"
+                      "title": "Week input"
                     }
                   }
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
-              type: MonthSelector
+              type: WeekSelector
               style:
                 --span: 6
               properties:
                 title: Placeholder and suffix icon
-                placeholder: Pick a month
-                IconSuffix: RocketOutlined
                 Label:
-                  extra: Custom placeholder and IconSuffix.
+                  extra: Custom placeholder and suffix icon.
+                placeholder: Pick a week
+                IconSuffix: FireOutlined
             - id: example_2_code
               type: Markdown
               style:
@@ -215,11 +215,11 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "month_input",
+                    "type": "week_input",
                     "properties": {
-                      "title": "Placeholder and IconSuffix",
-                      "placeholder": "Pick a month",
-                      "IconSuffix": "RocketOutlined",
+                      "title": "Placeholder and suffix icon",
+                      "placeholder": "Pick a week",
+                      "IconSuffix": "FireOutlined",
                       "Label": {
                         "extra": "Custom placeholder and suffix icon."
                       },
@@ -229,14 +229,14 @@ blocks:
           type: Card
           blocks:
             - id: example_3
-              type: MonthSelector
+              type: WeekSelector
               style:
                 --span: 6
               defaultValue:
                 _date: 1993-02-01
               properties:
                 title: Date format
-                format: MMMM YYYY
+                format: wo of YYYY
                 Label:
                   extra: Default date and custom date format.
             - id: example_3_code
@@ -248,13 +248,13 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "month_input",
+                    "type": "week_input",
                     "defaultValue": { 
                       "_date": "1993-02-01" 
                     },
                     "properties": {
                       "title": "Date format",
-                      "format": "MMMM YYYY",
+                      "format": "wo of YYYY",
                       "Label": {
                         "extra": "Default date and custom date format."
                       }

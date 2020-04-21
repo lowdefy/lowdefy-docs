@@ -1,4 +1,4 @@
-id: date_time_input
+id: DateTimeSelector
 type: PageSiderMenu
 public: true
 properties:

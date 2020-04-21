@@ -1,8 +1,8 @@
-id: page_header_menu
+id: PageSiderMenu
 type: PageSiderMenu
 public: true
 properties:
-  title: Page Header Menu
+  title: Page Sider Menu
 actions:
   onInit:
     - id: init
@@ -13,10 +13,10 @@ blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
-      block_name: Page Header Menu
-      block_type: PageHeaderMenu
+      block_name: Page Sider Menu
+      block_type: PageSiderMenu
       description_content: |
-        The Page Header Menu block provides a structured layout for a page with a header containing a default menu, content and footer area.
+        The Page Sider Menu block provides a structured layout for a page with a header, sider including menu, content and footer area.
       label: false
       kind: container
       style_transform:
@@ -216,6 +216,30 @@ blocks:
                 type: link()
                 params:
                   pageId: header
+        - id: block.properties.Sider.theme
+          type: ButtonSelector
+          defaultValue: light
+          style:
+            _global: settings_input_style
+          properties:
+            title: Sider.theme
+            size: small
+            Label: 
+              extra: Color theme of the Sider
+            options:
+              - light
+              - dark
+        - id: block.properties.Sider.link
+          type: anchor
+          properties:
+            title: See all fields for properties.Sider
+            Icon: LinkOutlined
+          actions:
+            onClick: 
+              - id: link_sider
+                type: link()
+                params:
+                  pageId: sider
         - id: block.properties.Breadcrumb.list
           type: MultipleSelector
           defaultValue: ['Page 1', 'Page 2']
@@ -241,7 +265,7 @@ blocks:
               - id: link_breadcrumb
                 type: link()
                 params:
-                  pageId: breadcrumb
+                  pageId: Breadcrumb
         - id: block.properties.Menu.links
           type: MultipleSelector
           defaultValue:
@@ -250,8 +274,8 @@ blocks:
               properties: 
                 title: Introduction
                 Icon: RocketOutlined
-            - id: alert
-              pageId: alert
+            - id: Alert
+              pageId: Alert
               properties: 
                 title: Alert
                 Icon: ExclamationCircleOutlined

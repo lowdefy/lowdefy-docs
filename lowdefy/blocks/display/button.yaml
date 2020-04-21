@@ -1,4 +1,4 @@
-id: button
+id: Button
 type: PageSiderMenu
 public: true
 properties:

@@ -1,4 +1,4 @@
-id: autocomplete_input
+id: AutoComplete
 type: PageSiderMenu
 public: true
 properties:

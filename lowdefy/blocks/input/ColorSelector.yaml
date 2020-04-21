@@ -1,4 +1,4 @@
-id: color_picker_input
+id: ColorSelector
 type: PageSiderMenu
 public: true
 properties:

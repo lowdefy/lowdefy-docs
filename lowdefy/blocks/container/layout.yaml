@@ -1,4 +1,4 @@
-id: layout
+id: Layout
 type: PageSiderMenu
 public: true
 properties:

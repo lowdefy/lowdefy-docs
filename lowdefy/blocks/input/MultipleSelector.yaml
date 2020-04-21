@@ -1,8 +1,8 @@
-id: select_input
+id: MultipleSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Select
+  title: Multiple Select
 actions:
   onInit:
     - id: initialize_state 
@@ -21,12 +21,12 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Select Input
+      block_name: Multiple Select Input
       description_content: |
-        Drop down selector input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+        Drop down selector input block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in `state`, at the path name of the block.
 
         >Other selector blocks are checkbox_input, multiple_select_input, RadioSelector and ButtonSelector
-      block_type: Selector
+      block_type: MultipleSelector
       label: true
       kind: input
       style_transform:
@@ -42,9 +42,12 @@ blocks:
                     Input:
                       _parse:
                         _state: style_input_input
-                    IconPrefix:
+                    IconClear:
                       _parse:
                         _state: style_clear_icon_input
+                    IconSelected:
+                      _parse:
+                        _state: style_selected_icon_input
                     IconSuffix:
                       _parse:
                         _state: style_suffix_icon_input
@@ -96,6 +99,21 @@ blocks:
           defaultValue: "{}"
           properties:
             title: IconClear
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_selected_icon_input
+          type: TextArea
+          style:
+            --span: 11
+            sm:
+              --span: 11
+            Label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: IconSelected
             rows: 3
             size: small
             Label:
@@ -171,6 +189,7 @@ blocks:
               icon_field_name: IconClear
               default_icon: CloseCircleOutlined
               icon_description: Icon on right-hand side of the selector, when allowClear is set to true.
+
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -251,14 +270,21 @@ blocks:
                   extra: Disable the option if true.
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select item
+          defaultValue: Select items
           style:
             _global: settings_input_style
           properties:
             title: placeholder
             size: small
             Label:
-              extra: Placeholder text inside the block before user selects input.
+              extra: Placeholder text inside the block to show message before user selects input.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconSelected
+              icon_field_name: IconSelected
+              default_icon: CheckOutlined
+              icon_description: Icon showing when a selection is made in the drop-down list.
         - id: block.properties.showArrow
           type: Switch
           defaultValue: true
@@ -269,24 +295,14 @@ blocks:
             size: small
             Label:
               extra: Show the suffix icon at the drop-down position of the selector.
-        - id: block.properties.showSearch
-          type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
-          properties:
-            title: showSearch
-            size: small
-            Label:
-              extra: Make the selector options searchable.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
           properties:
-            title: size
             size: small
+            title: size
             Label:
               extra: Size of the block.
             options:
@@ -296,7 +312,7 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffix_icon
+              icon_id: block.properties.IconSuffix
               icon_field_name: IconSuffix
               default_icon: DownOutlined
               icon_description: Icon at the drop-down position of the selector.
@@ -310,7 +326,7 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: Selector
+              type: MultipleSelector
               style:
                 --span: 6
               properties:
@@ -328,7 +344,7 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "select_input",
+                    "type": "multiple_select_input",
                     "properties": {
                       "title": "Primitive options"
                       "options": [ "A", "B", "C" ]
@@ -338,15 +354,15 @@ blocks:
           type: Card
           blocks:
             - id: example_2
-              type: Selector
+              type: MultipleSelector
               style:
                 --span: 6
               properties:
                 title: Object options
-                allowClear: true
-                placeholder: Choose an option
                 Label:
                   extra: Value-Label object options and allow clearing of selection.
+                allowClear: true
+                placeholder: Choose an option
                 options:
                   - value: A
                     label: Aragorn
@@ -366,7 +382,7 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "select_input",
+                    "type": "multiple_select_input",
                     "properties": {
                       "title": "Object options",
                       "allowClear": true,
@@ -399,17 +415,19 @@ blocks:
           type: Card
           blocks:
             - id: example_3
-              type: Selector
+              type: MultipleSelector
               style:
                 --span: 6
-              defaultValue: B
+              defaultValue:
+                - B
               properties:
                 title: Change icons
                 allowClear: true
-                IconClear: DeleteOutlined
+                IconClear: delete
+                IconSelected: fire
                 IconSuffix: EllipsisOutlined
                 Label:
-                  extra: Custom suffix and clear icons and default value.
+                  extra: Custom suffix, clear and selected icons and default value.
                 options:
                   - value: A
                     label: Aragorn
@@ -426,16 +444,17 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "select_input",
-                    "defaultValue": "B",
+                    "type": "multiple_select_input",
+                    "defaultValue": [ "B" ],
                     "properties": {
                       "title": "Change icons",
-                      "allowClear": true,
-                      "IconClear": "DeleteOutlined",
-                      "IconSuffix": "EllipsisOutlined",
                       "Label": {
-                        "extra": "Custom suffix and clear icons and default value."
+                        "extra": "Custom suffix, clear and selected icons and default value."
                       },
+                      "allowClear": true,
+                      "IconClear": "delete",
+                      "IconSelected": "fire",
+                      "IconSuffix": "EllipsisOutlined",
                       "options": [
                         {
                           "value": "A",
@@ -456,7 +475,7 @@ blocks:
           type: Card
           blocks:
             - id: example_4
-              type: Selector
+              type: MultipleSelector
               style:
                 --span: 6
               properties:
@@ -498,7 +517,7 @@ blocks:
                   ```json
                   {
                     "id": "example_4",
-                    "type": "select_input",
+                    "type": "multiple_select_input",
                     "properties": {
                       "title": "Search options",
                       "showSearch": true,

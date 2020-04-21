@@ -110,49 +110,49 @@ menus:
           title: Input Blocks
           Icon: FormOutlined
         links:
-          - id: autocomplete_input
+          - id: AutoComplete
             type: MenuLink
-            pageId: autocomplete_input
+            pageId: AutoComplete
             properties:
               title: Auto Complete
-          - id: checkbox_input
+          - id: Checkbox
             type: MenuLink
-            pageId: checkbox_input
+            pageId: Checkbox
             properties:
               title: Checkbox
-          - id: color_picker_input
+          - id: ColorSelector
             type: MenuLink
-            pageId: color_picker_input
+            pageId: ColorSelector
             properties:
               title: Color Picker
-          - id: date_input
+          - id: DateSelector
             type: MenuLink
-            pageId: date_input
+            pageId: DateSelector
             properties:
               title: Date
-          - id: date_range_input
+          - id: DateRangeSelector
             type: MenuLink
-            pageId: date_range_input
+            pageId: DateRangeSelector
             properties:
               title: Date Range
-          - id: date_time_input
+          - id: DateTimeSelector
             type: MenuLink
-            pageId: date_time_input
+            pageId: DateTimeSelector
             properties:
               title: Date Time
-          - id: month_input
+          - id: MonthSelector
             type: MenuLink
-            pageId: month_input
+            pageId: MonthSelector
             properties:
               title: Month
-          - id: multiple_select_input
+          - id: MultipleSelector
             type: MenuLink
-            pageId: multiple_select_input
+            pageId: MultipleSelector
             properties:
               title: Multiple Select
-          - id: number_input
+          - id: NumberInput
             type: MenuLink
-            pageId: number_input
+            pageId: NumberInput
             properties:
               title: Number
           - id: RadioSelector
@@ -165,24 +165,24 @@ menus:
             pageId: ButtonSelector
             properties:
               title: Radio Button
-          - id: select_input
+          - id: Selector
             type: MenuLink
-            pageId: select_input
+            pageId: Selector
             properties:
               title: Select
-          - id: slider_input
+          - id: RatingSlider
             type: MenuLink
-            pageId: slider_input
+            pageId: RatingSlider
             properties:
               title: Slider
-          - id: switch_input
+          - id: Switch
             type: MenuLink
-            pageId: switch_input
+            pageId: Switch
             properties:
               title: Switch
-          - id: text_area_input
+          - id: TextArea
             type: MenuLink
-            pageId: text_area_input
+            pageId: TextArea
             properties:
               title: Text Area
           - id: TextInput
@@ -190,9 +190,9 @@ menus:
             pageId: TextInput
             properties:
               title: Text
-          - id: week_input
+          - id: WeekSelector
             type: MenuLink
-            pageId: week_input
+            pageId: WeekSelector
             properties:
               title: Week
       - id: blocks_display
@@ -206,79 +206,79 @@ menus:
             pageId: AgGrid
             properties:
               title: ag-Grid
-          - id: alert
+          - id: Alert
             type: MenuLink
-            pageId: alert
+            pageId: Alert
             properties:
               title: Alert
-          - id: amcharts_4_xy
+          - id: AmCharts4XY
             type: MenuLink
-            pageId: amcharts_4_xy
+            pageId: AmCharts4XY
             properties:
               title: amCharts 4 XY
-          - id: anchor
+          - id: Anchor
             type: MenuLink
-            pageId: anchor
+            pageId: Anchor
             properties:
               title: Anchor
-          - id: avatar
+          - id: Avatar
             type: MenuLink
-            pageId: avatar
+            pageId: Avatar
             properties:
               title: Avatar
-          - id: breadcrumb
+          - id: Breadcrumb
             type: MenuLink
-            pageId: breadcrumb
+            pageId: Breadcrumb
             properties:
               title: Breadcrumb
-          - id: button
+          - id: Button
             type: MenuLink
-            pageId: button
+            pageId: Button
             properties:
               title: Button
-          - id: descriptions
+          - id: Descriptions
             type: MenuLink
-            pageId: descriptions
+            pageId: Descriptions
             properties:
               title: Descriptions
-          - id: divider
+          - id: Divider
             type: MenuLink
-            pageId: divider
+            pageId: Divider
             properties:
               title: Divider
-          - id: icon
+          - id: Icon
             type: MenuLink
-            pageId: icon
+            pageId: Icon
             properties:
               title: Icon
-          - id: markdown
+          - id: Markdown
             type: MenuLink
-            pageId: markdown
+            pageId: Markdown
             properties:
               title: Markdown
-          - id: menu
+          - id: Menu
             type: MenuLink
-            pageId: menu
+            pageId: Menu
             properties:
               title: Menu
-          - id: paragraph
+          - id: Paragraph
             type: MenuLink
-            pageId: paragraph
+            pageId: Paragraph
             properties:
               title: Paragraph
-          - id: skeleton
+          - id: Skeleton
             type: MenuLink
-            pageId: skeleton
+            pageId: Skeleton
             properties:
               title: Skeleton
-          - id: statistic
+          - id: Statistic
             type: MenuLink
-            pageId: statistic
+            pageId: Statistic
             properties:
               title: Statistic
-          - id: title
+          - id: Title
             type: MenuLink
-            pageId: title
+            pageId: Title
             properties:
               title: Title
       - id: blocks_container
@@ -287,89 +287,89 @@ menus:
           title: Container Blocks
           Icon: ContainerOutlined
         links:
-          - id: badge
+          - id: Badge
             type: MenuLink
-            pageId: badge
+            pageId: Badge
             properties:
               title: Badge
-          - id: box
+          - id: Box
             type: MenuLink
-            pageId: box
+            pageId: Box
             properties:
               title: Box
-          - id: card
+          - id: Card
             type: MenuLink
-            pageId: card
+            pageId: Card
             properties:
               title: Card
-          - id: collapse
+          - id: Collapse
             type: MenuLink
-            pageId: collapse
+            pageId: Collapse
             properties:
               title: Collapse
-          - id: content
+          - id: Content
             type: MenuLink
-            pageId: content
+            pageId: Content
             properties:
               title: Content
-          - id: footer
+          - id: Footer
             type: MenuLink
-            pageId: footer
+            pageId: Footer
             properties:
               title: Footer
-          - id: header
+          - id: Header
             type: MenuLink
-            pageId: header
+            pageId: Header
             properties:
               title: Header
-          - id: layout
+          - id: Layout
             type: MenuLink
-            pageId: layout
+            pageId: Layout
             properties:
               title: Layout
-          - id: page_hcf
+          - id: PageHCF
             type: MenuLink
-            pageId: page_hcf
+            pageId: PageHCF
             properties:
               title: Page HCF
-          - id: page_hcsf
+          - id: PageHCSF
             type: MenuLink
-            pageId: page_hcsf
+            pageId: PageHCSF
             properties:
               title: Page HCSF
-          - id: page_header_menu
+          - id: PageHeaderMenu
             type: MenuLink
-            pageId: page_header_menu
+            pageId: PageHeaderMenu
             properties:
               title: Page Header Menu
-          - id: page_hscf
+          - id: PageHSCF
             type: MenuLink
-            pageId: page_hscf
+            pageId: PageHSCF
             properties:
               title: Page HSCF
-          - id: page_shcf
+          - id: PageSHCF
             type: MenuLink
-            pageId: page_shcf
+            pageId: PageSHCF
             properties:
               title: Page SHCF
-          - id: page_sider_menu
+          - id: PageSiderMenu
             type: MenuLink
-            pageId: page_sider_menu
+            pageId: PageSiderMenu
             properties:
               title: Page Sider Menu
-          - id: result
+          - id: Result
             type: MenuLink
-            pageId: result
+            pageId: Result
             properties:
               title: Result
-          - id: sider
+          - id: Sider
             type: MenuLink
-            pageId: sider
+            pageId: Sider
             properties:
               title: Sider
-          - id: tabs
+          - id: Tabs
             type: MenuLink
-            pageId: tabs
+            pageId: Tabs
             properties:
               title: Tabs
 
@@ -388,56 +388,56 @@ pages:
   - _ref: concepts/references.yaml
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
-  - _ref: blocks/input/autocomplete_input.yaml
-  - _ref: blocks/input/checkbox_input.yaml
-  - _ref: blocks/input/color_picker_input.yaml
-  - _ref: blocks/input/date_input.yaml
-  - _ref: blocks/input/date_range_input.yaml
-  - _ref: blocks/input/date_time_input.yaml
-  - _ref: blocks/input/month_input.yaml
-  - _ref: blocks/input/multiple_select_input.yaml
-  - _ref: blocks/input/number_input.yaml
+  - _ref: blocks/input/AutoComplete.yaml
+  - _ref: blocks/input/Checkbox.yaml
+  - _ref: blocks/input/ColorSelector.yaml
+  - _ref: blocks/input/DateSelector.yaml
+  - _ref: blocks/input/DateRangeSelector.yaml
+  - _ref: blocks/input/DateTimeSelector.yaml
+  - _ref: blocks/input/MonthSelector.yaml
+  - _ref: blocks/input/MultipleSelector.yaml
+  - _ref: blocks/input/NumberInput.yaml
   - _ref: blocks/input/ButtonSelector.yaml
   - _ref: blocks/input/RadioSelector.yaml
-  - _ref: blocks/input/select_input.yaml
-  - _ref: blocks/input/slider_input.yaml
-  - _ref: blocks/input/switch_input.yaml
-  - _ref: blocks/input/text_area_input.yaml
+  - _ref: blocks/input/Selector.yaml
+  - _ref: blocks/input/Slider.yaml
+  - _ref: blocks/input/Switch.yaml
+  - _ref: blocks/input/TextArea.yaml
   - _ref: blocks/input/TextInput.yaml
-  - _ref: blocks/input/week_input.yaml
+  - _ref: blocks/input/WeekSelector.yaml
   - _ref: blocks/display/AgGrid.yaml
-  - _ref: blocks/display/alert.yaml
-  - _ref: blocks/display/amcharts_4_xy.yaml
-  - _ref: blocks/display/anchor.yaml
-  - _ref: blocks/display/avatar.yaml
-  - _ref: blocks/display/breadcrumb.yaml
-  - _ref: blocks/display/button.yaml
-  - _ref: blocks/display/descriptions.yaml
-  - _ref: blocks/display/divider.yaml
-  - _ref: blocks/display/icon.yaml
-  - _ref: blocks/display/markdown.yaml
-  - _ref: blocks/display/menu.yaml
-  - _ref: blocks/display/paragraph.yaml
-  - _ref: blocks/display/skeleton.yaml
-  - _ref: blocks/display/statistic.yaml
-  - _ref: blocks/display/title.yaml
-  - _ref: blocks/container/badge.yaml
-  - _ref: blocks/container/box.yaml
-  - _ref: blocks/container/card.yaml
-  - _ref: blocks/container/collapse.yaml
-  - _ref: blocks/container/content.yaml
-  - _ref: blocks/container/footer.yaml
-  - _ref: blocks/container/header.yaml
-  - _ref: blocks/container/layout.yaml
-  - _ref: blocks/container/page_hcf.yaml
-  - _ref: blocks/container/page_hcsf.yaml
-  - _ref: blocks/container/page_header_menu.yaml
-  - _ref: blocks/container/page_hscf.yaml
-  - _ref: blocks/container/page_shcf.yaml
-  - _ref: blocks/container/page_sider_menu.yaml
-  - _ref: blocks/container/result.yaml
-  - _ref: blocks/container/sider.yaml
-  - _ref: blocks/container/tabs.yaml
+  - _ref: blocks/display/Alert.yaml
+  - _ref: blocks/display/AmCharts4XY.yaml
+  - _ref: blocks/display/Anchor.yaml
+  - _ref: blocks/display/Avatar.yaml
+  - _ref: blocks/display/Breadcrumb.yaml
+  - _ref: blocks/display/Button.yaml
+  - _ref: blocks/display/Descriptions.yaml
+  - _ref: blocks/display/Divider.yaml
+  - _ref: blocks/display/Icon.yaml
+  - _ref: blocks/display/Markdown.yaml
+  - _ref: blocks/display/Menu.yaml
+  - _ref: blocks/display/Paragraph.yaml
+  - _ref: blocks/display/Skeleton.yaml
+  - _ref: blocks/display/Statistic.yaml
+  - _ref: blocks/display/Title.yaml
+  - _ref: blocks/container/Badge.yaml
+  - _ref: blocks/container/Box.yaml
+  - _ref: blocks/container/Card.yaml
+  - _ref: blocks/container/Collapse.yaml
+  - _ref: blocks/container/Content.yaml
+  - _ref: blocks/container/Footer.yaml
+  - _ref: blocks/container/Header.yaml
+  - _ref: blocks/container/Layout.yaml
+  - _ref: blocks/container/PageHCF.yaml
+  - _ref: blocks/container/PageHCSF.yaml
+  - _ref: blocks/container/PageHeaderMenu.yaml
+  - _ref: blocks/container/PageHSCF.yaml
+  - _ref: blocks/container/PageSHCF.yaml
+  - _ref: blocks/container/PageSiderMenu.yaml
+  - _ref: blocks/container/Result.yaml
+  - _ref: blocks/container/Sider.yaml
+  - _ref: blocks/container/Tabs.yaml
   - id: test
     public: true
     type: PageHeaderMenu

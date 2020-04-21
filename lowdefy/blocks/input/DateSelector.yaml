@@ -1,28 +1,18 @@
-id: date_range_input
+id: DateSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Date Range
-actions:
-  onInit:
-    - id: initialize_state 
-      type: setState()
-      params:
-        block:
-          properties:
-            placeholder:
-              - Start Date
-              - End Date
+  title: Date
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Range Input
+      block_name: Date Input
       description_content: |
-        Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
+        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
 
-        >Other date type blocks are date_range_input, date_time_input, week_input and month_input.
-      block_type: DateRangeSelector
+        >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
+      block_type: DateSelector
       label: true
       kind: input
       style_transform:
@@ -142,36 +132,26 @@ blocks:
             size: small
             Label:
               extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
-        - id: block.properties.placeholder.0
+        - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Start Date
+          defaultValue: Select Date
           style:
             _global: settings_input_style
           properties:
+            title: placeholder
             size: small
-            title: placeholder.0
             Label:
-              extra: Placeholder text inside the block before user types input.
-        - id: block.properties.placeholder.1
-          type: TextInput
-          defaultValue: End Date
+              extra: Placeholder text inside the block before user selects input.
+        - id: block.properties.showToday
+          type: Switch
+          defaultValue: true
           style:
             _global: settings_input_style
           properties:
-            size: small
-            title: placeholder.1
-            Label:
-              extra: Placeholder text inside the block before user types input.
-        - id: block.properties.separator
-          type: TextInput
-          defaultValue: "~"
-          style:
-            _global: settings_input_style
-          properties:
-            title: separator
+            title: showToday
             size: small
             Label:
-              extra: Separator symbol shown between start and end date inputs.
+              extra: Shows a button to easily select the current date if true.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
@@ -192,8 +172,7 @@ blocks:
               icon_id: block.properties.IconSuffix
               icon_field_name: IconSuffix
               default_icon: CalendarOutlined
-              icon_description: Icon on right-hand side of the date-range input.
-
+              icon_description: Icon on right-hand side of the date input.
 
       available_actions_description: |
         ###### onChange
@@ -204,7 +183,7 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: DateRangeSelector
+              type: DateSelector
               style:
                 --span: 6
               properties:
@@ -218,7 +197,7 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "date_range_input",
+                    "type": "date_input",
                     "properties": {
                       "title": "Date input"
                     }
@@ -227,18 +206,15 @@ blocks:
           type: Card
           blocks:
             - id: example_2
-              type: DateRangeSelector
+              type: DateSelector
               style:
                 --span: 6
               properties:
-                title: Placeholder, separator and suffix icon
+                title: showToday and IconSuffix
+                showToday: false
+                IconSuffix: FilterOutlined
                 Label:
-                  extra: Custom placeholder, separator and suffix icon.
-                placeholder:
-                  - From the start
-                  - the end
-                separator: to
-                IconSuffix: ThunderboltOutlined
+                  extra: Disable Today button and change the suffix icon.
             - id: example_2_code
               type: Markdown
               style:
@@ -248,14 +224,13 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "date_range_input",
+                    "type": "date_input",
                     "properties": {
-                      "title": "Placeholder, separator and suffix icon",
-                      "placeholder": [ "From the start", "the end" ],
-                      "separator": "to",
-                      "IconSuffix": "ThunderboltOutlined",
-                      "Label": {
-                        "extra": "Custom placeholder, separator and suffix icon."
+                      "title": "showToday and suffix_icon",
+                      "showToday": false,
+                      "IconSuffix": "FilterOutlined",
+                      "label": {
+                        "extra": "Disable Today button and change the suffix icon"
                       }
                     }
                   }
@@ -263,12 +238,11 @@ blocks:
           type: Card
           blocks:
             - id: example_3
-              type: DateRangeSelector
+              type: DateSelector
               style:
                 --span: 6
               defaultValue:
-                - _date: 1955-11-12
-                - _date: 1985-10-26
+                _date: 1993-02-02
               properties:
                 title: Date format
                 format: D MMMM YYYY
@@ -283,11 +257,10 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "date_range_input",
-                    "defaultValue": [
-                      { "_date": "1955-11-12" },
-                      { "_date": "1985-10-26" }
-                    ],
+                    "type": "date_input",
+                    "defaultValue": { 
+                      "_date": "1993-02-02" 
+                    },
                     "properties": {
                       "title": "Date format",
                       "format": "D MMMM YYYY",

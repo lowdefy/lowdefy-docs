@@ -1,4 +1,4 @@
-id: checkbox_input
+id: Checkbox
 type: PageSiderMenu
 public: true
 actions:

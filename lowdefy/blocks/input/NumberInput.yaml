@@ -1,16 +1,16 @@
-id: text_area_input
+id: NumberInput
 type: PageSiderMenu
 public: true
 properties:
-  title: Text Area
+  title: Number
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Text Area Input
+      block_name: Number Input
       description_content: |
-        Text area input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: TextArea
+        Number input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: NumberInput
       label: true
       kind: input
       style_transform:
@@ -76,16 +76,6 @@ blocks:
             size: small
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-        - id: block.properties.allowClear
-          type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
-          properties:
-            title: allowClear
-            size: small
-            Label:
-              extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -96,59 +86,16 @@ blocks:
             size: small
             Label:
               extra: Autofocus to the block on page load.
-        - id: select_autoSize_type_card
-          type: Card
-          blocks:
-            - id: select_autoSize_type
-              type: ButtonSelector
-              defaultValue: Boolean
-              properties:
-                title: autoSize Type
-                size: small
-                Label:
-                  extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
-                options:
-                  - Boolean
-                  - Object
-        - id: block.properties.autoSize
-          type: Switch
-          defaultValue: false
+        - id: block.properties.decimalSeparator
+          type: TextInput
+          defaultValue: "."
           style:
             _global: settings_input_style
-          visible:
-            _mql_test:
-              select_autoSize_type: Boolean
           properties:
-            title: autoSize
+            title: decimalSeparator
             size: small
             Label:
-              extra: Automatically extend the block number of rows.
-        - id: block.properties.autoSize.minRows
-          type: NumberInput
-          style:
-            Label:
-              --span: 4
-          visible:
-            _mql_test:
-              select_autoSize_type: Object
-          properties:
-            title: autoSize.minRows
-            size: small
-            Label:
-              extra: Minimum number of rows the block can be.
-        - id: block.properties.autoSize.maxRows
-          type: NumberInput
-          style:
-            Label:
-              --span: 4
-          visible:
-            _mql_test:
-              select_autoSize_type: Object
-          properties:
-            title: autoSize.maxRows
-            size: small
-            Label:
-              extra: Maximum number of rows the block can be.
+              extra: Decimal separator.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -158,7 +105,25 @@ blocks:
             title: disabled
             size: small
             Label:
-              extra: Disable the block if true.
+              extra: Disables the block if true.
+        - id: block.properties.min
+          type: NumberInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: min
+            size: small
+            Label:
+              extra: Minimum value allowed by the block.
+        - id: block.properties.max
+          type: NumberInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: max
+            size: small
+            Label:
+              extra: Maximum value allowed by the block.
         - id: block.properties.placeholder
           type: TextInput
           style:
@@ -167,21 +132,47 @@ blocks:
             title: placeholder
             size: small
             Label:
-              extra: Placeholder text inside the block before user types input.
-        - id: block.properties.rows
+              extra: Placeholder text inside the block to show message before user types input.
+        - id: block.properties.precision
           type: NumberInput
+          defaultValue: 0
           style:
             _global: settings_input_style
           properties:
-            title: rows
+            title: precision
+            size: small
+            max: 100
+            Label:
+              extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+        - id: block.properties.size
+          type: ButtonSelector
+          defaultValue: default
+          style:
+            _global: settings_input_style
+          properties:
+            title: size
             size: small
             Label:
-              extra: Number of rows of text area.
-
+              extra: Size of the block.
+            options:
+              - small
+              - default
+              - large
+        - id: block.properties.step
+          type: NumberInput
+          defaultValue: 1
+          style:
+            _global: settings_input_style
+          properties:
+            title: step
+            size: small
+            precision: 2
+            Label:
+              extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
-        ##### onPressEnter
+        ###### onPressEnter
         Triggered when enter is pressed while block is focused.
 
       examples:
@@ -189,11 +180,11 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: TextArea
+              type: NumberInput
               style:
                 --span: 6
               properties:
-                title: Text Area input
+                title: Number input
             - id: example_1_code
               type: Markdown
               style:
@@ -203,9 +194,9 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "text_area_input",
+                    "type": "number_input",
                     "properties": {
-                      "title": "Text Area input"
+                      "title": "Number input"
                     }
                   }
                   ```
@@ -213,11 +204,15 @@ blocks:
           type: Card
           blocks:
             - id: example_2
-              type: TextArea
+              type: NumberInput
               style:
                 --span: 6
+              defaultValue: 3.14
               properties:
-                placeholder: Placeholder
+                title: Decimal separator
+                decimalSeparator: ","
+                precision: 2
+                step: 0.01
             - id: example_2_code
               type: Markdown
               style:
@@ -227,23 +222,26 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "text_area_input",
+                    "type": "number_input",
+                    "defaultValue": 3.14,
                     "properties": {
-                      "placeholder": "Placeholder"
+                      "title": "Decimal separator"
+                      "decimalSeparator": ",",
+                      "precision": 2,
+                      "step": 0.01
                     }
                   }
+                  ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
-              type: TextArea
+              type: NumberInput
               style:
                 --span: 6
               properties:
-                title: Rows
-                rows: 3
-                Label:
-                  extra: Define fixed number of rows for text area.
+                title: Placeholder
+                placeholder: π
             - id: example_3_code
               type: Markdown
               style:
@@ -252,48 +250,11 @@ blocks:
                 content: |
                   ```json
                   {
-                    "id": "example_3",
-                    "type": "text_area_input",
+                    "id": "example_2",
+                    "type": "number_input",
                     "properties": {
-                      "title": "Rows",
-                      "rows": 5,
-                      "label": {
-                        "extra": "Define fixed number of rows for text area."
-                      },
+                      "title": "Placeholder"
+                      "placeholder": "π"
                     }
                   }
-        - id: example_4_card
-          type: Card
-          blocks:
-            - id: example_4
-              type: TextArea
-              style:
-                --span: 6
-              properties:
-                title: Auto Rows
-                Label:
-                  extra: Automatically adjust text area size based on content.
-                autoSize:
-                  minRows: 3
-                  maxRows: 6
-            - id: example_4_code
-              type: Markdown
-              style:
-                  -span: 6
-              properties:
-                content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "text_area_input",
-                    "properties": {
-                      "title": Auto "Rows",
-                      "label": {
-                        "extra": "Automatically adjust text area size based on content."
-                      },
-                      "autoSize": {
-                        "minRows": 3,
-                        "maxRows": 6
-                      }
-                    }
-                  }
+                  ```

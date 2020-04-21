@@ -1,18 +1,18 @@
-id: date_input
+id: MonthSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Date
+  title: Month
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Input
+      block_name: Month Input
       description_content: |
-        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+        Month picker input block. Allows a user to select a specific month from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
 
-        >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
-      block_type: DateSelector
+        >Other date type blocks are date_input, date_time_input, month_input and date_range_input.
+      block_type: MonthSelector
       label: true
       kind: input
       style_transform:
@@ -124,34 +124,24 @@ blocks:
               extra: Disable the block if true.
         - id: block.properties.format
           type: TextInput
-          defaultValue: YYYY-MM-DD
+          defaultValue: YYYY-MM
           style:
             _global: settings_input_style
           properties:
             title: format
             size: small
             Label:
-              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+              extra: Format in which to format the date value, eg. "MMMM YYYY" will format a date value of 1999-12-31 as "December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select Date
+          defaultValue: Select Month
           style:
             _global: settings_input_style
           properties:
             title: placeholder
             size: small
             Label:
-              extra: Placeholder text inside the block before user selects input.
-        - id: block.properties.showToday
-          type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
-          properties:
-            title: showToday
-            size: small
-            Label:
-              extra: Shows a button to easily select the current date if true.
+              extra: Placeholder text inside the block before user types input.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
@@ -172,7 +162,8 @@ blocks:
               icon_id: block.properties.IconSuffix
               icon_field_name: IconSuffix
               default_icon: CalendarOutlined
-              icon_description: Icon on right-hand side of the date input.
+              icon_description: Icon on right-hand side of the month input.
+
 
       available_actions_description: |
         ###### onChange
@@ -183,11 +174,11 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: DateSelector
+              type: MonthSelector
               style:
                 --span: 6
               properties:
-                title: Date input
+                title: Month input
             - id: example_1_code
               type: Markdown
               style:
@@ -197,24 +188,24 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "date_input",
+                    "type": "month_input",
                     "properties": {
-                      "title": "Date input"
+                      "title": "Month input"
                     }
                   }
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
-              type: DateSelector
+              type: MonthSelector
               style:
                 --span: 6
               properties:
-                title: showToday and IconSuffix
-                showToday: false
-                IconSuffix: FilterOutlined
+                title: Placeholder and suffix icon
+                placeholder: Pick a month
+                IconSuffix: RocketOutlined
                 Label:
-                  extra: Disable Today button and change the suffix icon.
+                  extra: Custom placeholder and IconSuffix.
             - id: example_2_code
               type: Markdown
               style:
@@ -224,28 +215,28 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "date_input",
+                    "type": "month_input",
                     "properties": {
-                      "title": "showToday and suffix_icon",
-                      "showToday": false,
-                      "IconSuffix": "FilterOutlined",
-                      "label": {
-                        "extra": "Disable Today button and change the suffix icon"
-                      }
+                      "title": "Placeholder and IconSuffix",
+                      "placeholder": "Pick a month",
+                      "IconSuffix": "RocketOutlined",
+                      "Label": {
+                        "extra": "Custom placeholder and suffix icon."
+                      },
                     }
                   }
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
-              type: DateSelector
+              type: MonthSelector
               style:
                 --span: 6
               defaultValue:
-                _date: 1993-02-02
+                _date: 1993-02-01
               properties:
                 title: Date format
-                format: D MMMM YYYY
+                format: MMMM YYYY
                 Label:
                   extra: Default date and custom date format.
             - id: example_3_code
@@ -257,14 +248,14 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "date_input",
+                    "type": "month_input",
                     "defaultValue": { 
-                      "_date": "1993-02-02" 
+                      "_date": "1993-02-01" 
                     },
                     "properties": {
                       "title": "Date format",
-                      "format": "D MMMM YYYY",
-                      "label": {
+                      "format": "MMMM YYYY",
+                      "Label": {
                         "extra": "Default date and custom date format."
                       }
                     }

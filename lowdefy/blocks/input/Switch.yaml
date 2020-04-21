@@ -1,18 +1,16 @@
-id: week_input
+id: Switch
 type: PageSiderMenu
 public: true
 properties:
-  title: Week
+  title: Switch
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Week Input
+      block_name: Switch Input
       description_content: |
-        Week picker input block. Allows a user to select a specific week from a calender form. The input to this field is saved as a Date type in state, at the path name of the block. The first day of the week is Sunday.
-
-        >Other date type blocks are week_input, date_time_input, month_input and date_range_input.
-      block_type: WeekSelector
+        On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: Switch
       label: true
       kind: input
       style_transform:
@@ -28,9 +26,12 @@ blocks:
                     Input:
                       _parse:
                         _state: style_input_input
+                    IconPrefix:
+                      _parse:
+                        _state: style_checked_icon_input
                     IconSuffix:
                       _parse:
-                        _state: style_suffix_icon_input
+                        _state: style_unchecked_icon_input
               on:
                 _parse:
                   _state: style_block_input
@@ -68,13 +69,32 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
+        - id: style_checked_icon_input
           type: TextArea
           style:
-            _global: settings_input_style
+            --span: 11
+            sm:
+              --span: 11
+            Label:
+              --span: 3
           defaultValue: "{}"
           properties:
-            title: IconSuffix
+            title: IconChecked
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_unchecked_icon_input
+          type: TextArea
+          style:
+            --span: 11
+            sm:
+              --span: 11
+            Label:
+              --span: 3
+          defaultValue: "{}"
+          properties:
+            title: IconUnchecked
             rows: 3
             size: small
             Label:
@@ -92,16 +112,6 @@ blocks:
             size: small
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
-        - id: block.properties.allowClear
-          type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
-          properties:
-            title: allowClear
-            size: small
-            Label:
-              extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -122,48 +132,52 @@ blocks:
             size: small
             Label:
               extra: Disable the block if true.
-        - id: block.properties.format
-          type: TextInput
-          defaultValue: YYYY-wo
-          style:
-            _global: settings_input_style
-          properties:
-            title: format
-            size: small
-            Label:
-              extra: Format in which to format the date value, eg. "wo-YYYY" will format a date value of 1999-12-26 as "52nd-1999". The format has to conform to moment.js formats.
-        - id: block.properties.placeholder
-          type: TextInput
-          defaultValue: Select Week
-          style:
-            _global: settings_input_style
-          properties:
-            title: placeholder
-            size: small
-            Label:
-              extra: Placeholder text inside the block before user types input.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
           properties:
-            title: size
             size: small
+            title: size
             Label:
               extra: Size of the block.
             options:
               - small
               - default
-              - large
+        - id: block.properties.checkedText
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: checkedText
+            size: small
+            Label:
+              extra: Text to shown when switch is checked (true).
+        - id: block.properties.uncheckedText
+          type: TextInput
+          style:
+            Label:
+              --span: 3
+          properties:
+            title: uncheckedText
+            size: small
+            Label:
+              extra: Text to shown when switch is unchecked (true).
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
-              default_icon: CalendarOutlined
-              icon_description: Icon on right-hand side of the week input.
-
+              icon_id: block.properties.checked_icon
+              icon_field_name: IconChecked
+              default_icon: CheckOutlined
+              icon_description: Icon to shown when switch is checked (true).
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.unchecked_icon
+              icon_field_name: IconUnchecked
+              default_icon: CloseOutlined
+              icon_description: Icon to shown when switch is unchecked (false).
 
       available_actions_description: |
         ###### onChange
@@ -174,11 +188,11 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: WeekSelector
+              type: Switch
               style:
                 --span: 6
               properties:
-                title: Week input
+                title: Switch input
             - id: example_1_code
               type: Markdown
               style:
@@ -188,24 +202,25 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "week_input",
+                    "type": "switch_input",
                     "properties": {
-                      "title": "Week input"
+                      "title": "Switch input"
                     }
                   }
+                  ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
-              type: WeekSelector
+              type: Switch
               style:
                 --span: 6
               properties:
-                title: Placeholder and suffix icon
+                title: Icons
+                IconChecked: LikeOutlined
+                IconUnchecked: DislikeOutlined
                 Label:
-                  extra: Custom placeholder and suffix icon.
-                placeholder: Pick a week
-                IconSuffix: FireOutlined
+                  extra: Custom checked and unchecked icons.
             - id: example_2_code
               type: Markdown
               style:
@@ -215,30 +230,30 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "week_input",
+                    "type": "switch_input",
                     "properties": {
-                      "title": "Placeholder and suffix icon",
-                      "placeholder": "Pick a week",
-                      "IconSuffix": "FireOutlined",
-                      "Label": {
-                        "extra": "Custom placeholder and suffix icon."
-                      },
+                      "title": "Icons",
+                      "IconChecked": "LikeOutlined",
+                      "IconUnchecked": "DislikeOutlined",
+                      "label": {
+                        "extra": "Custom checked and unchecked icons."
+                      }
                     }
                   }
+                  ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
-              type: WeekSelector
+              type: Switch
               style:
                 --span: 6
-              defaultValue:
-                _date: 1993-02-01
               properties:
-                title: Date format
-                format: wo of YYYY
+                title: No Icons
+                checkedText: ""
+                uncheckedText: ""
                 Label:
-                  extra: Default date and custom date format.
+                  extra: Hide the checked and unchecked icons.
             - id: example_3_code
               type: Markdown
               style:
@@ -248,15 +263,14 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "week_input",
-                    "defaultValue": { 
-                      "_date": "1993-02-01" 
-                    },
+                    "type": "switch_input",
                     "properties": {
-                      "title": "Date format",
-                      "format": "wo of YYYY",
+                      "title": "No Icons",
+                      "checkedText": "",
+                      "uncheckedText": "",
                       "Label": {
-                        "extra": "Default date and custom date format."
+                        "extra": "Hide the checked and unchecked icons."
                       }
                     }
                   }
+                  ```

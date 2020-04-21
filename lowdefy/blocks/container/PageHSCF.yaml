@@ -1,8 +1,8 @@
-id: page_shcf
+id: PageHSCF
 type: PageSiderMenu
 public: true
 properties:
-  title: Page SHCF
+  title: Page HSCF
 actions:
   onInit:
     - id: init
@@ -14,10 +14,10 @@ blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
-      block_name: Page SHCF
-      block_type: PageSHCF
+      block_name: Page HSCF
+      block_type: PageHSCF
       description_content: |
-        Page SHCF provides a minimal layout structure for a page container with a sider, header, content, and footer arrangement.
+        Page HSCF provides a minimal layout structure for a page container with a header, sider, content, and footer arrangement.
       label: false
       kind: container
       style_transform:
@@ -132,7 +132,7 @@ blocks:
           type: ButtonSelector
           defaultValue: dark
           style:
-            _global: settings_input_style
+            _global: settings_input_style_indent
           properties:
             title: Header.theme
             size: small
