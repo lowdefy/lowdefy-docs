@@ -5,8 +5,18 @@
       --gap: 0
   properties:
     size: small
-    title: 'label:'
+    title: 'Label:'
   blocks:
+    - id: block.properties.Label.inline
+      type: switch_input
+      defaultValue: false
+      style:
+        _global: settings_input_style
+      properties:
+        title: inline
+        size: small
+        Label:
+          extra: Set label inline with input
     - id: block.properties.Label.disable
       type: switch_input
       defaultValue: false
@@ -16,7 +26,7 @@
         title: disable
         size: small
         Label:
-          extra: Remove label wrapper.
+          extra: Remove label wrapper
     - id: block.properties.Label.colon
       type: switch_input
       defaultValue: true
@@ -26,7 +36,7 @@
         title: colon
         size: small
         Label:
-          extra: Postfix the label with a colon.
+          extra: Postfix the label with a colon
     - id: block.properties.Label.extra
       type: text_input
       style:
@@ -35,4 +45,4 @@
         title: extra
         size: small
         Label:
-          extra: Add additional description tag to the label.
+          extra: Add additional description tag to the label
