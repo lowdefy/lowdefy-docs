@@ -10,7 +10,7 @@ blocks:
       block_name: Anchor
       description_content: |
         Anchor block. Creates a clickable icon and/ or text.
-      block_type: anchor
+      block_type: Anchor
       label: false
       kind: display
       style_transform:
@@ -108,7 +108,7 @@ blocks:
                     content: |
                       ##### Basic anchor
                 - id: example_1
-                  type: anchor
+                  type: Anchor
                   properties:
                     title: Click here
             - id: example_1_code_grid
@@ -143,7 +143,7 @@ blocks:
                     content: |
                       ##### Bold text and icon
                 - id: example_2
-                  type: anchor
+                  type: Anchor
                   properties:
                     title: Click here
                     strong: true
@@ -182,7 +182,7 @@ blocks:
                     content: |
                       ##### Custom text and icon style
                 - id: example_3
-                  type: anchor
+                  type: Anchor
                   style:
                     fontSize: 18
                     color: 'red !important'
@@ -231,7 +231,7 @@ blocks:
                     content: |
                       ##### Style text and icon separately
                 - id: example_4
-                  type: anchor
+                  type: Anchor
                   style:
                     color: "#000000 !important"
                     fontSize: 16

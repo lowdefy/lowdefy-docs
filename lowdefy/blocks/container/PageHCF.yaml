@@ -99,7 +99,7 @@ blocks:
               - light
               - dark
         - id: block.properties.Header.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Header
             Icon: LinkOutlined

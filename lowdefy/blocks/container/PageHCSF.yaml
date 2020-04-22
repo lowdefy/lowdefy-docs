@@ -142,7 +142,7 @@ blocks:
               - light
               - dark
         - id: block.properties.Header.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Header
             Icon: LinkOutlined
@@ -180,7 +180,7 @@ blocks:
             Label:
               extra: Color theme of the Sider
         - id: block.properties.Sider.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Sider
             Icon: LinkOutlined

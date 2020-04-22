@@ -206,7 +206,7 @@ blocks:
               - light
               - dark
         - id: block.properties.Header.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Header
             Icon: LinkOutlined
@@ -232,7 +232,7 @@ blocks:
             Label:
               extra: Breadcrumb links
         - id: block.properties.Breadcrumb.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Breadcrumb
             Icon: LinkOutlined
@@ -292,7 +292,7 @@ blocks:
             Label:
               extra: Menu links
         - id: block.properties.Menu.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Menu
             Icon: LinkOutlined
