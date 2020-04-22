@@ -1,5 +1,5 @@
-id: collapse
-type: page_sider_menu
+id: Collapse
+type: PageSiderMenu
 public: true
 properties:
   title: Collapse
@@ -21,33 +21,33 @@ actions:
                   title: Title 2
 blocks:
   - id: card_title
-    type: card
+    type: Card
     blocks:
       - id: title
-        type: title
+        type: Title
         properties:
           level: 2
           content: Collapse
       - id: description
-        type: markdown
+        type: Markdown
         properties:
           content: |
             A container with collapsible panels.
   - id: c1
-    type: box
+    type: Box
     blocks:
       - id: block_wrap2
-        type: box
+        type: Box
         style:
           --span: 6
         blocks:
           - id: block_divider
-            type: divider
+            type: Divider
             properties:
               title: Block
 
           - id: block_name
-            type: collapse
+            type: Collapse
             style:
               _parse: 
                 _state: flex_style_input
@@ -59,7 +59,7 @@ blocks:
             blocks:
               content2:
                 - id: flex_1
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>ONE</div>'
                   visible:
@@ -68,7 +68,7 @@ blocks:
                     _parse:
                       _state: flex_blocks.0.style
                 - id: flex_2
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>TWO</div>'
                   visible:
@@ -77,7 +77,7 @@ blocks:
                     _parse:
                       _state: flex_blocks.1.style
                 - id: flex_3
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>THREE</div>'
                   visible:
@@ -86,7 +86,7 @@ blocks:
                     _parse:
                       _state: flex_blocks.2.style
                 - id: flex_4
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>FOUR</div>'
                   visible:
@@ -95,7 +95,7 @@ blocks:
                     _parse:
                       _state: flex_blocks.3.style
                 - id: flex_5
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>FIVE</div>'
                   visible:
@@ -104,7 +104,7 @@ blocks:
                     _parse:
                       _state: flex_blocks.4.style
                 - id: flex_6
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>SIX</div>'
                   visible:
@@ -115,7 +115,7 @@ blocks:
 
               content1:
                 - id: grid_1
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>ONE</div>'
                   visible:
@@ -124,7 +124,7 @@ blocks:
                     _parse:
                       _state: grid_blocks.0.style
                 - id: grid_2
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>TWO</div>'
                   visible:
@@ -133,7 +133,7 @@ blocks:
                     _parse:
                       _state: grid_blocks.1.style
                 - id: grid_3
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>THREE</div>'
                   visible:
@@ -142,7 +142,7 @@ blocks:
                     _parse:
                       _state: grid_blocks.2.style
                 - id: grid_4
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>FOUR</div>'
                   visible:
@@ -151,7 +151,7 @@ blocks:
                     _parse:
                       _state: grid_blocks.3.style
                 - id: grid_5
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>FIVE</div>'
                   visible:
@@ -160,7 +160,7 @@ blocks:
                     _parse:
                       _state: grid_blocks.4.style
                 - id: grid_6
-                  type: html
+                  type: Html
                   properties:
                     html: '<div>SIX</div>'
                   visible:
@@ -170,19 +170,19 @@ blocks:
                       _state: grid_blocks.5.style
 
           - id: setup_flex
-            type: box
+            type: Box
             blocks:
               - id: setup_divider
-                type: divider
+                type: Divider
                 properties:
                   title: Block Setup
               - id: setup_card
-                type: card
+                type: Card
                 properties: 
                   size: small
                 blocks:
                   - id: setup_markdown
-                    type: markdown
+                    type: Markdown
                     properties:
                       content:
                         _nunjucks:
@@ -205,16 +205,16 @@ blocks:
                                   _state: block.properties
 
       - id: settings_grid
-        type: box
+        type: Box
         style:
           --span: 6
         blocks:
           - id: settings_divider
-            type: divider
+            type: Divider
             properties:
               title: Settings
           - id: block_collapse
-            type: collapse
+            type: Collapse
             properties:
               defaultActiveKey: properties
               panels:
@@ -231,13 +231,13 @@ blocks:
             blocks:
               style:
                 - id: style_form
-                  type: box
+                  type: Box
                   style:
                     Content:
                       --gap: 0
                   blocks:
                     - id: flex_style_input
-                      type: text_area_input
+                      type: TextArea
                       style:
                         _global: settings_input_style
                       defaultValue: |
@@ -250,7 +250,7 @@ blocks:
                           extra: CSS Object style properties. Should be in JSON format.
               visible:
                 - id: block.visible
-                  type: switch_input
+                  type: Switch
                   defaultValue: true
                   properties:
                     title: visible
@@ -261,13 +261,13 @@ blocks:
 
               properties:
                 - id: flex_properties_form
-                  type: box
+                  type: Box
                   style:
                     Content:
                       --gap: 0
                   blocks:
                     - id: block.properties.accordion
-                      type: switch_input
+                      type: Switch
                       defaultValue: false
                       style:
                         _global: settings_input_style
@@ -277,7 +277,7 @@ blocks:
                         Label:
                           extra: If true, only one panel is open at a time.
                     - id: block.properties.activeKey
-                      type: text_input
+                      type: TextInput
                       style:
                         _global: settings_input_style
                       properties:
@@ -286,7 +286,7 @@ blocks:
                         Label:
                           extra: Current Panel's key.
                     - id: block.properties.bordered
-                      type: switch_input
+                      type: Switch
                       defaultValue: true
                       style:
                         _global: settings_input_style
@@ -296,7 +296,7 @@ blocks:
                         Label:
                           extra: Toggles rendering of the border around the collapse block.
                     - id: block.properties.defaultActiveKey
-                      type: text_input
+                      type: TextInput
                       defaultValue: content1
                       style:
                         _global: settings_input_style
@@ -306,7 +306,7 @@ blocks:
                         Label:
                           extra: Initial active Panel's key, if activeKey is not set.
                     - id: block.properties.destroyInactivePanel
-                      type: switch_input
+                      type: Switch
                       defaultValue: false
                       style:
                         _global: settings_input_style
@@ -323,7 +323,7 @@ blocks:
                           default_icon: RightOutlined
                           icon_description: Icon to show as expand option.
                     - id: block.properties.expandIconPosition
-                      type: radio_button_input
+                      type: ButtonSelector
                       defaultValue: left
                       style:
                         _global: settings_input_style
@@ -336,7 +336,7 @@ blocks:
                           - left
                           - right
                     - id: block.properties.forceRender
-                      type: switch_input
+                      type: Switch
                       defaultValue: false
                       style:
                         _global: settings_input_style
@@ -346,13 +346,13 @@ blocks:
                         Label:
                           extra: Force render for all panels.
                     - id: block.properties.panels
-                      type: list
+                      type: List
                       properties:
                         title: 'panels:'
                         size: small
                       blocks:
                         - id: block.properties.panels.$.title
-                          type: text_input
+                          type: TextInput
                           defaultValue: title
                           style:
                             _global: settings_input_style
@@ -362,7 +362,7 @@ blocks:
                             Label:
                               extra: Title of the panel.
                         - id: block.properties.panels.$.key
-                          type: text_input
+                          type: TextInput
                           defaultValue: key
                           style:
                             _global: settings_input_style
@@ -372,7 +372,7 @@ blocks:
                             Label:
                               extra: Key of the panel.
                         - id: block.properties.panels.$.disabled
-                          type: switch_input
+                          type: Switch
                           defaultValue: false
                           style:
                             _global: settings_input_style
@@ -383,7 +383,7 @@ blocks:
                               extra: Disable the panel if true.
 
                     - id: block.properties.showArrow
-                      type: switch_input
+                      type: Switch
                       defaultValue: true
                       style:
                         _global: settings_input_style
@@ -395,14 +395,14 @@ blocks:
 
               actions:
                 - id: actions_description
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ###### No available actions.
 
               blocks:
                 - id: flex_blocks
-                  type: list
+                  type: List
                   style:
                     Content:
                       --display: flex
@@ -412,14 +412,14 @@ blocks:
                     hideRemoveButton: true
                   blocks:
                     - id: flex_blocks.$.gd
-                      type: box
+                      type: Box
                       style:
                         flex: 0 0 15ch
                         Content:
                           --display: flex
                       blocks:
                         - id: flex_blocks.$.name
-                          type: markdown
+                          type: Markdown
                           properties:
                             content: 
                               _nunjucks: 
@@ -427,7 +427,7 @@ blocks:
                                 on:
                                   _state: flex_blocks.$
                         - id: flex_blocks.$.visible
-                          type: switch_input
+                          type: Switch
                           style:
                             Label:
                               --inline: true
@@ -435,7 +435,7 @@ blocks:
                             title: visible
                             size: small
                     - id: flex_blocks.$.style
-                      type: text_area_input
+                      type: TextArea
                       style:
                         flex: auto
                         Label:
@@ -446,7 +446,7 @@ blocks:
                         rows: 3
                 
                 - id: grid_blocks
-                  type: list
+                  type: List
                   style:
                     Content:
                       --display: flex
@@ -456,14 +456,14 @@ blocks:
                     hideRemoveButton: true
                   blocks:
                     - id: grid_blocks.$.gd
-                      type: box
+                      type: Box
                       style:
                         flex: 0 0 15ch
                         Content:
                           --display: flex
                       blocks:
                         - id: grid_blocks.$.name
-                          type: markdown
+                          type: Markdown
                           properties:
                             content: 
                               _nunjucks: 
@@ -471,7 +471,7 @@ blocks:
                                 on:
                                   _state: grid_blocks.$
                         - id: grid_blocks.$.visible
-                          type: switch_input
+                          type: Switch
                           style:
                             Label:
                               --inline: true
@@ -479,7 +479,7 @@ blocks:
                             title: visible
                             size: small
                     - id: grid_blocks.$.style
-                      type: text_area_input
+                      type: TextArea
                       style:
                         flex: auto
                         Label:
@@ -490,10 +490,10 @@ blocks:
                         rows: 3
 
       - id: examples_divider
-        type: divider
+        type: Divider
         properties:
           title: Examples
       - id: examples_grid
-        type: box
+        type: Box
         blocks:
           _var: examples

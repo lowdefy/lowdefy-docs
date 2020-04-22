@@ -1,16 +1,18 @@
-id: text_input
-type: page_sider_menu
+id: DateSelector
+type: PageSiderMenu
 public: true
 properties:
-  title: Text
+  title: Date
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Text Input
+      block_name: Date Input
       description_content: |
-        Text input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: text_input
+        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+
+        >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
+      block_type: DateSelector
       label: true
       kind: input
       style_transform:
@@ -26,9 +28,6 @@ blocks:
                     Input:
                       _parse:
                         _state: style_input_input
-                    IconPrefix:
-                      _parse:
-                        _state: style_prefix_icon_input
                     IconSuffix:
                       _parse:
                         _state: style_suffix_icon_input
@@ -37,7 +36,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -48,7 +47,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -59,7 +58,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -69,29 +68,10 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: style_prefix_icon_input
-          type: text_area_input
-          style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
-          defaultValue: "{}"
-          properties:
-            title: IconPrefix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
         - id: style_suffix_icon_input
-          type: text_area_input
+          type: TextArea
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
             title: IconSuffix
@@ -103,7 +83,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -113,7 +93,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -123,7 +103,7 @@ blocks:
             Label:
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -133,7 +113,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -142,33 +122,38 @@ blocks:
             size: small
             Label:
               extra: Disable the block if true.
+        - id: block.properties.format
+          type: TextInput
+          defaultValue: YYYY-MM-DD
+          style:
+            _global: settings_input_style
+          properties:
+            title: format
+            size: small
+            Label:
+              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
-          type: text_input
+          type: TextInput
+          defaultValue: Select Date
           style:
             _global: settings_input_style
           properties:
             title: placeholder
             size: small
             Label:
-              extra: Placeholder text inside the block before user types input.
-        - id: block.properties.prefix
-          type: text_input
+              extra: Placeholder text inside the block before user selects input.
+        - id: block.properties.showToday
+          type: Switch
+          defaultValue: true
           style:
             _global: settings_input_style
           properties:
-            title: prefix
+            title: showToday
             size: small
             Label:
-              extra: Prefix text for the block, priority over IconPrefix.
-        - _ref:
-            path: blocks/icon_template.yaml
-            vars:
-              icon_id: block.properties.IconPrefix
-              icon_field_name: IconPrefix
-              icon_description: Icon to prefix the text input.
-
+              extra: Shows a button to easily select the current date if true.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -181,40 +166,30 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.suffix
-          type: text_input
-          style:
-            _global: settings_input_style
-          properties:
-            title: suffix
-            size: small
-            Label:
-              extra: Suffix text for the block, priority over IconSuffix.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.IconSuffix
               icon_field_name: IconSuffix
-              icon_description: Icon to suffix the text input.
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the date input.
 
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
-        ##### onPressEnter
-        Triggered when enter is pressed while block is focused.
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: text_input
+              type: DateSelector
               style:
                 --span: 6
               properties:
-                title: Text input
+                title: Date input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -222,23 +197,26 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "text_input",
+                    "type": "date_input",
                     "properties": {
-                      "title": "Text input"
+                      "title": "Date input"
                     }
                   }
-                  ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: text_input
+              type: DateSelector
               style:
                 --span: 6
               properties:
-                placeholder: Placeholder
+                title: showToday and IconSuffix
+                showToday: false
+                IconSuffix: FilterOutlined
+                Label:
+                  extra: Disable Today button and change the suffix icon.
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -246,28 +224,32 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "text_input",
+                    "type": "date_input",
                     "properties": {
-                      "placeholder": "Placeholder"
+                      "title": "showToday and suffix_icon",
+                      "showToday": false,
+                      "IconSuffix": "FilterOutlined",
+                      "label": {
+                        "extra": "Disable Today button and change the suffix icon"
+                      }
                     }
-
                   }
-                  ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: text_input
+              type: DateSelector
               style:
                 --span: 6
+              defaultValue:
+                _date: 1993-02-02
               properties:
+                title: Date format
+                format: D MMMM YYYY
                 Label:
-                  extra: Prefix and suffix text
-                prefix: The cat
-                suffix: the rat.
-                placeholder: chased
+                  extra: Default date and custom date format.
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -275,55 +257,15 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "text_input",
-                    "properties": {
-                      "prefix": "The cat",
-                      "suffix": "the rat.",
-                      "placeholder": "chased",
-                      "Label": {
-                        "extra": "Prefix and suffix text"
-                      },
-                    }
-
-                  }
-                  ```
-        - id: example_4_card
-          type: card
-          blocks:
-            - id: example_4
-              type: text_input
-              style:
-                --span: 6
-                Label:
-                  --span: 3
-              properties:
-                title: First Name
-                IconSuffix: UserOutlined
-                placeholder: Your name
-                Label:
-                  extra: Place label next to block and add suffix icon.
-            - id: example_4_code
-              type: markdown
-              style:
-                --span: 6
-              properties:
-                content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "text_input",
-                    "style": { 
-                      "Label": {
-                        "--span": 3
-                      }
+                    "type": "date_input",
+                    "defaultValue": { 
+                      "_date": "1993-02-02" 
                     },
                     "properties": {
-                      "title": "First Name",
-                      "IconSuffix": "UserOutlined",
-                      "placeholder": "Your name",
-                      "Label": {
-                        "extra": "Place label next to block and add suffix icon."
-                      },
+                      "title": "Date format",
+                      "format": "D MMMM YYYY",
+                      "label": {
+                        "extra": "Default date and custom date format."
+                      }
                     }
                   }
-                  ```

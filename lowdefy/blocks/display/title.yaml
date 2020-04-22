@@ -1,5 +1,5 @@
-id: title
-type: page_sider_menu
+id: Title
+type: PageSiderMenu
 public: true
 properties:
   title: Title
@@ -10,7 +10,7 @@ blocks:
       block_name: Title
       description_content: |
         A title component. Corresponds to html h1, h2, h3 and h4 elements
-      block_type: title
+      block_type: Title
       label: false
       kind: display
       style_transform:
@@ -18,7 +18,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -32,7 +32,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.code
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -42,7 +42,7 @@ blocks:
             Label:
               extra: Apply code style.
         - id: block.properties.content
-          type: text_input
+          type: TextInput
           defaultValue: Title
           style:
             _global: settings_input_style
@@ -52,7 +52,7 @@ blocks:
             Label:
               extra: Title text content.
         - id: block.properties.copyable
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -62,7 +62,7 @@ blocks:
             Label:
               extra: Provide copy text button.
         - id: block.properties.delete
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -72,7 +72,7 @@ blocks:
             Label:
               extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -82,7 +82,7 @@ blocks:
             Label:
               extra: Apply disabled style.
         - id: block.properties.ellipsis
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -92,7 +92,7 @@ blocks:
             Label:
               extra: Display ellipsis when text overflows.
         - id: block.properties.level
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: 1
           style:
             _global: settings_input_style
@@ -107,7 +107,7 @@ blocks:
               - 3
               - 4
         - id: block.properties.mark
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -117,7 +117,7 @@ blocks:
             Label:
               extra: Apply marked (highlighted) style.
         - id: block.properties.type
-          type: select_input
+          type: Selector
           style:
             _global: settings_input_style
           properties:
@@ -131,7 +131,7 @@ blocks:
               - warning
               - danger
         - id: block.properties.underline
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style

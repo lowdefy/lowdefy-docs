@@ -1,16 +1,18 @@
-id: switch_input
-type: page_sider_menu
+id: MonthSelector
+type: PageSiderMenu
 public: true
 properties:
-  title: Switch
+  title: Month
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Switch Input
+      block_name: Month Input
       description_content: |
-        On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: switch_input
+        Month picker input block. Allows a user to select a specific month from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+
+        >Other date type blocks are date_input, date_time_input, month_input and date_range_input.
+      block_type: MonthSelector
       label: true
       kind: input
       style_transform:
@@ -26,18 +28,15 @@ blocks:
                     Input:
                       _parse:
                         _state: style_input_input
-                    IconPrefix:
-                      _parse:
-                        _state: style_checked_icon_input
                     IconSuffix:
                       _parse:
-                        _state: style_unchecked_icon_input
+                        _state: style_suffix_icon_input
               on:
                 _parse:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -48,7 +47,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -59,7 +58,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -69,32 +68,13 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-        - id: style_checked_icon_input
-          type: text_area_input
+        - id: style_suffix_icon_input
+          type: TextArea
           style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
+            _global: settings_input_style
           defaultValue: "{}"
           properties:
-            title: IconChecked
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_unchecked_icon_input
-          type: text_area_input
-          style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
-          defaultValue: "{}"
-          properties:
-            title: IconUnchecked
+            title: IconSuffix
             rows: 3
             size: small
             Label:
@@ -103,7 +83,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -112,8 +92,18 @@ blocks:
             size: small
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.allowClear
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: allowClear
+            size: small
+            Label:
+              extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -123,7 +113,7 @@ blocks:
             Label:
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -132,52 +122,48 @@ blocks:
             size: small
             Label:
               extra: Disable the block if true.
+        - id: block.properties.format
+          type: TextInput
+          defaultValue: YYYY-MM
+          style:
+            _global: settings_input_style
+          properties:
+            title: format
+            size: small
+            Label:
+              extra: Format in which to format the date value, eg. "MMMM YYYY" will format a date value of 1999-12-31 as "December 1999". The format has to conform to moment.js formats.
+        - id: block.properties.placeholder
+          type: TextInput
+          defaultValue: Select Month
+          style:
+            _global: settings_input_style
+          properties:
+            title: placeholder
+            size: small
+            Label:
+              extra: Placeholder text inside the block before user types input.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
           properties:
-            size: small
             title: size
+            size: small
             Label:
               extra: Size of the block.
             options:
               - small
               - default
-        - id: block.properties.checkedText
-          type: text_input
-          style:
-            _global: settings_input_style
-          properties:
-            title: checkedText
-            size: small
-            Label:
-              extra: Text to shown when switch is checked (true).
-        - id: block.properties.uncheckedText
-          type: text_input
-          style:
-            Label:
-              --span: 3
-          properties:
-            title: uncheckedText
-            size: small
-            Label:
-              extra: Text to shown when switch is unchecked (true).
+              - large
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.checked_icon
-              icon_field_name: IconChecked
-              default_icon: CheckOutlined
-              icon_description: Icon to shown when switch is checked (true).
-        - _ref:
-            path: blocks/icon_template.yaml
-            vars:
-              icon_id: block.properties.unchecked_icon
-              icon_field_name: IconUnchecked
-              default_icon: CloseOutlined
-              icon_description: Icon to shown when switch is unchecked (false).
+              icon_id: block.properties.IconSuffix
+              icon_field_name: IconSuffix
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the month input.
+
 
       available_actions_description: |
         ###### onChange
@@ -185,16 +171,16 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: switch_input
+              type: MonthSelector
               style:
                 --span: 6
               properties:
-                title: Switch input
+                title: Month input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -202,27 +188,26 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "switch_input",
+                    "type": "month_input",
                     "properties": {
-                      "title": "Switch input"
+                      "title": "Month input"
                     }
                   }
-                  ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: switch_input
+              type: MonthSelector
               style:
                 --span: 6
               properties:
-                title: Icons
-                IconChecked: LikeOutlined
-                IconUnchecked: DislikeOutlined
+                title: Placeholder and suffix icon
+                placeholder: Pick a month
+                IconSuffix: RocketOutlined
                 Label:
-                  extra: Custom checked and unchecked icons.
+                  extra: Custom placeholder and IconSuffix.
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -230,32 +215,32 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "switch_input",
+                    "type": "month_input",
                     "properties": {
-                      "title": "Icons",
-                      "IconChecked": "LikeOutlined",
-                      "IconUnchecked": "DislikeOutlined",
-                      "label": {
-                        "extra": "Custom checked and unchecked icons."
-                      }
+                      "title": "Placeholder and IconSuffix",
+                      "placeholder": "Pick a month",
+                      "IconSuffix": "RocketOutlined",
+                      "Label": {
+                        "extra": "Custom placeholder and suffix icon."
+                      },
                     }
                   }
-                  ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: switch_input
+              type: MonthSelector
               style:
                 --span: 6
+              defaultValue:
+                _date: 1993-02-01
               properties:
-                title: No Icons
-                checkedText: ""
-                uncheckedText: ""
+                title: Date format
+                format: MMMM YYYY
                 Label:
-                  extra: Hide the checked and unchecked icons.
+                  extra: Default date and custom date format.
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -263,14 +248,15 @@ blocks:
                   ```json
                   {
                     "id": "example_3",
-                    "type": "switch_input",
+                    "type": "month_input",
+                    "defaultValue": { 
+                      "_date": "1993-02-01" 
+                    },
                     "properties": {
-                      "title": "No Icons",
-                      "checkedText": "",
-                      "uncheckedText": "",
+                      "title": "Date format",
+                      "format": "MMMM YYYY",
                       "Label": {
-                        "extra": "Hide the checked and unchecked icons."
+                        "extra": "Default date and custom date format."
                       }
                     }
                   }
-                  ```

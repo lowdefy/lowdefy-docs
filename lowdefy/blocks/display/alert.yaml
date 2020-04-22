@@ -1,5 +1,5 @@
-id: alert
-type: page_sider_menu
+id: Alert
+type: PageSiderMenu
 public: true
 properties:
   title: Alert
@@ -10,7 +10,7 @@ blocks:
       block_name: Alert
       description_content: |
         Alert is used to render user feedback messages.
-      block_type: alert
+      block_type: Alert
       label: false
       kind: display
       style_transform:
@@ -28,7 +28,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -39,7 +39,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -53,7 +53,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.banner
-          type: switch_input
+          type: Switch
           style:
             _global: settings_input_style
           properties:
@@ -62,7 +62,7 @@ blocks:
             Label:
               extra: Style as banner at top of application window.
         - id: block.properties.closable
-          type: switch_input
+          type: Switch
           style:
             _global: settings_input_style
           properties:
@@ -71,7 +71,7 @@ blocks:
             Label:
               extra: Allow alert to be closed.
         - id: block.properties.closeText
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -80,7 +80,7 @@ blocks:
             Label:
               extra: Close text to show.
         - id: block.properties.description
-          type: text_area_input
+          type: TextArea
           defaultValue: This is a description to say well done.
           style:
             _global: settings_input_style
@@ -98,7 +98,7 @@ blocks:
               icon_description: Icon to be used in alert.
               default_icon: CheckCircleOutlined
         - id: block.properties.message
-          type: text_input
+          type: TextInput
           defaultValue: Completed!
           style:
             _global: settings_input_style
@@ -108,7 +108,7 @@ blocks:
             Label:
               extra: Content message of alert.
         - id: block.properties.type
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: success
           style:
             _global: settings_input_style

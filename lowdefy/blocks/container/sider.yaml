@@ -1,5 +1,5 @@
-id: sider
-type: page_sider_menu
+id: Sider
+type: PageSiderMenu
 public: true
 properties:
   title: Sider
@@ -13,7 +13,7 @@ blocks:
   _ref:
     path: blocks/flex_template.yaml
     vars:
-      block_type: sider
+      block_type: Sider
       block_name: Sider
       page_description: |
         A sider is a container that places sub-blocks into a html aside with gird or flex display format settings. 
@@ -27,7 +27,7 @@ blocks:
           _state: flex_style_input
       style_form:
         - id: flex_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |
@@ -40,7 +40,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       flex_properties_form: 
         - id: block.properties.breakpoint
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: md
           style:
             _global: settings_input_style
@@ -57,7 +57,7 @@ blocks:
             Label:
               extra: Breakpoints of the responsive layout
         - id: block.properties.collapsed
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: null
           style:
             _global: settings_input_style
@@ -71,7 +71,7 @@ blocks:
             Label:
               extra: Set the current collapsed state
         - id: block.properties.collapsedWidth
-          type: number_input
+          type: NumberInput
           defaultValue: 80
           style:
             _global: settings_input_style
@@ -81,7 +81,7 @@ blocks:
             Label:
               extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
         - id: block.properties.collapsible
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -91,7 +91,7 @@ blocks:
             Label:
               extra: Whether can be collapsed
         - id: block.properties.defaultCollapsed
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -101,7 +101,7 @@ blocks:
             Label:
               extra: Direction of arrow, for a sider that expands from the right
         - id: block.properties.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style
@@ -114,7 +114,7 @@ blocks:
             Label:
               extra: Color theme of the sider
         - id: block.properties.width
-          type: text_input
+          type: TextInput
           defaultValue: '200'
           style:
             _global: settings_input_style

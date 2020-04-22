@@ -1,5 +1,5 @@
-id: footer
-type: page_sider_menu
+id: Footer
+type: PageSiderMenu
 public: true
 properties:
   title: Footer
@@ -13,7 +13,7 @@ blocks:
   _ref:
     path: blocks/flex_template.yaml
     vars:
-      block_type: footer
+      block_type: Footer
       block_name: Footer
       page_description: |
         A footer is a container that places sub-blocks into a html footer with gird or flex display format settings. 
@@ -27,7 +27,7 @@ blocks:
           _state: flex_style_input
       style_form:
         - id: flex_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |

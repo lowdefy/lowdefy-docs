@@ -1,5 +1,5 @@
-id: result
-type: page_sider_menu
+id: Result
+type: PageSiderMenu
 public: true
 properties:
   title: Result
@@ -27,7 +27,7 @@ blocks:
       block_name: Result
       description_content: |
         Used to provide feedback the results of a task or error.
-      block_type: result
+      block_type: Result
       label: false
       kind: container
       style_transform:
@@ -48,7 +48,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -59,7 +59,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -88,7 +88,7 @@ blocks:
               icon_field_name: Icon
               icon_description: Ant icon to use as image.
         - id: block.properties.status
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: 'info'
           style:
             _global: settings_input_style
@@ -106,7 +106,7 @@ blocks:
               - "403"
               - "500"
         - id: block.properties.subTitle
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -115,7 +115,7 @@ blocks:
             Label:
               extra: Result subtitle or secondary text.
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:

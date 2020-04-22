@@ -1,5 +1,5 @@
-id: color_picker_input
-type: page_sider_menu
+id: ColorSelector
+type: PageSiderMenu
 public: true
 properties:
   title: Color Picker
@@ -18,7 +18,7 @@ blocks:
       block_name: Color Picker Input
       description_content: |
         Color picker input block. Allows a user to select a color as a hex string. Different types of pickers are available.
-      block_type: color_picker_input
+      block_type: ColorSelector
       label: true
       kind: input
       style_transform:
@@ -39,7 +39,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -50,7 +50,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -61,7 +61,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -75,7 +75,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -85,7 +85,7 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.circleSize
-          type: number_input
+          type: NumberInput
           defaultValue: 28
           style:
             _global: settings_input_style
@@ -95,7 +95,7 @@ blocks:
             Label:
               extra: Pixel value for circle size, only available for type circle.
         - id: block.properties.circleSpacing
-          type: number_input
+          type: NumberInput
           defaultValue: 14
           style:
             _global: settings_input_style
@@ -105,19 +105,19 @@ blocks:
             Label:
               extra: Pixel value for spacing between circles, only available for type circle.
         - id: block.properties.colors
-          type: list
+          type: List
           properties:
             title: 'colors:'
             size: small         
           blocks:
             - id: block.properties.colors.$
-              type: text_input
+              type: TextInput
               defaultValue: '#000000'
               properties:
                 Label:
                   disable: true
         - id: block.properties.type
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: circle
           style:
             _global: settings_input_style
@@ -132,7 +132,7 @@ blocks:
               - circle
               - twitter
         - id: block.properties.width
-          type: text_input
+          type: TextInput
           defaultValue: 100%
           style:
             _global: settings_input_style

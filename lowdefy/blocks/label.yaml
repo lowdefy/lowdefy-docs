@@ -1,5 +1,5 @@
 - id: label_card
-  type: card
+  type: Card
   style:
     Content:
       --gap: 0
@@ -8,7 +8,7 @@
     title: 'Label:'
   blocks:
     - id: block.properties.Label.inline
-      type: switch_input
+      type: Switch
       defaultValue: false
       style:
         _global: settings_input_style
@@ -18,7 +18,7 @@
         Label:
           extra: Set label inline with input.
     - id: block.properties.Label.disable
-      type: switch_input
+      type: Switch
       defaultValue: false
       style:
         _global: settings_input_style
@@ -28,7 +28,7 @@
         Label:
           extra: Remove label wrapper.
     - id: block.properties.Label.colon
-      type: switch_input
+      type: Switch
       defaultValue: true
       style:
         _global: settings_input_style
@@ -38,7 +38,7 @@
         Label:
           extra: Postfix the label with a colon.
     - id: block.properties.Label.extra
-      type: text_input
+      type: TextInput
       style:
         _global: settings_input_style
       properties:

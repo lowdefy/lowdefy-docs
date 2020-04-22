@@ -1,5 +1,5 @@
-id: descriptions
-type: page_sider_menu
+id: Descriptions
+type: PageSiderMenu
 public: true
 properties:
   title: Descriptions
@@ -18,7 +18,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -48,7 +48,7 @@ blocks:
                 - _state: block.properties
       properties_form:
         - id: block.properties.bordered
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -58,7 +58,7 @@ blocks:
             Label:
               extra: Puts items in a table.
         - id: block.properties.colon
-          type: switch_input
+          type: Switch
           defaultValue: true
           style:
             _global: settings_input_style
@@ -68,7 +68,7 @@ blocks:
             Label:
               extra: Include a colon in item labels.
         - id: block.properties.column
-          type: number_input
+          type: NumberInput
           defaultValue: 3
           style:
             _global: settings_input_style
@@ -78,10 +78,10 @@ blocks:
             Label:
               extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
         - id: select_items_type_card
-          type: card
+          type: Card
           blocks:
             - id: select_items_type
-              type: radio_button_input
+              type: ButtonSelector
               defaultValue: List
               properties:
                 title: items Type
@@ -92,7 +92,7 @@ blocks:
                   - List
                   - Object
         - id: items_list
-          type: list
+          type: List
           required: true
           visible:
             _mql_test:
@@ -102,7 +102,7 @@ blocks:
             size: small
           blocks:
             - id: items_list.$.label
-              type: text_input
+              type: TextInput
               defaultValue: Label
               style:
                 --span: 4
@@ -112,7 +112,7 @@ blocks:
                 Label:
                   extra: Item label.
             - id: items_list.$.span
-              type: number_input
+              type: NumberInput
               style:
                 --span: 4
               properties:
@@ -121,7 +121,7 @@ blocks:
                 Label:
                   extra: Number of columns for this item to span.
             - id: items_list.$.value
-              type: text_input
+              type: TextInput
               defaultValue: Value
               style:
                 --span: 4
@@ -131,7 +131,7 @@ blocks:
                 Label:
                   extra: Value of item.
         - id: items_object
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           visible:
@@ -145,7 +145,7 @@ blocks:
             Label:
               extra: Data items to display.
         - id: block.properties.layout
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -158,7 +158,7 @@ blocks:
               - horizontal
               - vertical
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -172,7 +172,7 @@ blocks:
               - middle
               - default
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:

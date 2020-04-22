@@ -1,5 +1,5 @@
-id: icon
-type: page_sider_menu
+id: Icon
+type: PageSiderMenu
 public: true
 properties:
   title: Icon
@@ -10,7 +10,7 @@ blocks:
       block_name: Icon
       description_content: |
         A Icon component. Render Ant Design and other icons
-      block_type: icon
+      block_type: Icon
       label: false
       kind: display
       style_transform:
@@ -18,7 +18,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -32,7 +32,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.disableLoadingIcon
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -42,7 +42,7 @@ blocks:
             Label:
               extra: While loading after the icon has been clicked, don't render the loading icon.
         - id: block.properties.hideActionLoading
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -52,7 +52,7 @@ blocks:
             Label:
               extra: While loading after the icon has been clicked, don't show the loading message.
         - id: block.properties.name
-          type: select_input
+          type: Selector
           defaultValue: FireOutlined
           style:
             _global: settings_input_style
@@ -65,7 +65,7 @@ blocks:
             options:
               _global: all_icons
         - id: block.properties.rotate
-          type: number_input
+          type: NumberInput
           defaultValue: 0
           style:
             _global: settings_input_style
@@ -75,7 +75,7 @@ blocks:
             Label:
               extra: Number of degrees to rotate the icon.
         - id: block.properties.spin
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -85,7 +85,7 @@ blocks:
             Label:
               extra: Continuously spin icon with animation.
         - id: block.properties.twoToneColor
-          type: color_picker_input
+          type: ColorSelector
           defaultValue: "#08c"
           style:
             _global: settings_input_style

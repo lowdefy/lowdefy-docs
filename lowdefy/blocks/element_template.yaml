@@ -1,27 +1,27 @@
 - id: card_display
-  type: card
+  type: Card
   blocks:
     - id: title
-      type: title
+      type: Title
       properties:
         level: 2
         content:
           _var: block_name
     - id: description
-      type: markdown
+      type: Markdown
       properties:
         content:
           _var: page_description
 
 - id: grid_box
-  type: box
+  type: Box
   blocks:
     - id: grid_divider
-      type: divider
+      type: Divider
       properties:
         title: Block With Grid Content
     - id: grid_wrap
-      type: box
+      type: Box
       style:
         --span: 12
       blocks:
@@ -36,7 +36,7 @@
             _state: grid.properties
           blocks:
             - id: grid_1
-              type: html
+              type: Html
               properties:
                 html: '<div>ONE</div>'
               visible:
@@ -45,7 +45,7 @@
                 _parse:
                   _state: grid_blocks.0.style
             - id: grid_2
-              type: html
+              type: Html
               properties:
                 html: '<div>TWO</div>'
               visible:
@@ -54,7 +54,7 @@
                 _parse:
                   _state: grid_blocks.1.style
             - id: grid_3
-              type: html
+              type: Html
               properties:
                 html: '<div>THREE</div>'
               visible:
@@ -63,7 +63,7 @@
                 _parse:
                   _state: grid_blocks.2.style
             - id: grid_4
-              type: html
+              type: Html
               properties:
                 html: '<div>FOUR</div>'
               visible:
@@ -72,7 +72,7 @@
                 _parse:
                   _state: grid_blocks.3.style
             - id: grid_5
-              type: html
+              type: Html
               properties:
                 html: '<div>FIVE</div>'
               visible:
@@ -81,7 +81,7 @@
                 _parse:
                   _state: grid_blocks.4.style
             - id: grid_6
-              type: html
+              type: Html
               properties:
                 html: '<div>SIX</div>'
               visible:
@@ -91,21 +91,21 @@
                   _state: grid_blocks.5.style
 
 - id: setup_grid
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: setup_grid_divider
-      type: divider
+      type: Divider
       properties:
         title: Block Setup For Grid
     - id: setup_grid_card
-      type: card
+      type: Card
       properties: 
         size: small
       blocks:
         - id: setup_grid_markdown
-          type: markdown
+          type: Markdown
           properties:
             content:
               _nunjucks:
@@ -127,16 +127,16 @@
                         _state: grid.properties
 
 - id: settings_grid
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: settings_grid_divider
-      type: divider
+      type: Divider
       properties:
         title: Settings For Grid
     - id: grid_collapse
-      type: collapse
+      type: Collapse
       properties:
         defaultActiveKey: style
         panels:
@@ -153,7 +153,7 @@
       blocks:
         style:
           - id: grid_style_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -161,7 +161,7 @@
               _var: grid_style_form
         properties:
           - id: grid_properties_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -169,13 +169,13 @@
               _var: grid_properties_form
         actions:
           - id: grid_actions_description
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _var: actions_description
         visible:
           - id: grid.visible
-            type: switch_input
+            type: Switch
             defaultValue: true
             properties:
               title: visible
@@ -186,7 +186,7 @@
           
         blocks:
           - id: grid_blocks
-            type: list
+            type: List
             style:
               Content:
                 --display: flex
@@ -195,14 +195,14 @@
               hideRemoveButton: true
             blocks:
               - id: grid_blocks.$.gd
-                type: box
+                type: Box
                 style:
                   flex: 0 0 15ch
                   Content:
                     --display: flex
                 blocks:
                   - id: grid_blocks.$.name
-                    type: markdown
+                    type: Markdown
                     properties:
                       content: 
                         _nunjucks: 
@@ -210,7 +210,7 @@
                           on:
                             _state: grid_blocks.$
                   - id: grid_blocks.$.visible
-                    type: switch_input
+                    type: Switch
                     style:
                       Label:
                         --inline: true
@@ -218,7 +218,7 @@
                       title: visible
                       size: small
               - id: grid_blocks.$.style
-                type: text_area_input
+                type: TextArea
                 style:
                   flex: auto
                   Label:
@@ -230,14 +230,14 @@
 
 
 - id: flex_box
-  type: box
+  type: Box
   blocks:
     - id: flex_divider
-      type: divider
+      type: Divider
       properties:
         title: Block With Flex Content
     - id: flex_wrap
-      type: box
+      type: Box
       blocks:
         - id: flex_id
           type:
@@ -250,7 +250,7 @@
             _state: flex.properties
           blocks:
             - id: flex_1
-              type: html
+              type: Html
               properties:
                 html: '<div>ONE</div>'
               visible:
@@ -259,7 +259,7 @@
                 _parse:
                   _state: flex_blocks.0.style
             - id: flex_2
-              type: html
+              type: Html
               properties:
                 html: '<div>TWO</div>'
               visible:
@@ -268,7 +268,7 @@
                 _parse:
                   _state: flex_blocks.1.style
             - id: flex_3
-              type: html
+              type: Html
               properties:
                 html: '<div>THREE</div>'
               visible:
@@ -277,7 +277,7 @@
                 _parse:
                   _state: flex_blocks.2.style
             - id: flex_4
-              type: html
+              type: Html
               properties:
                 html: '<div>FOUR</div>'
               visible:
@@ -286,7 +286,7 @@
                 _parse:
                   _state: flex_blocks.3.style
             - id: flex_5
-              type: html
+              type: Html
               properties:
                 html: '<div>FIVE</div>'
               visible:
@@ -295,7 +295,7 @@
                 _parse:
                   _state: flex_blocks.4.style
             - id: flex_6
-              type: html
+              type: Html
               properties:
                 html: '<div>SIX</div>'
               visible:
@@ -305,21 +305,21 @@
                   _state: flex_blocks.5.style
 
 - id: setup_flex
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: setup_flex_divider
-      type: divider
+      type: Divider
       properties:
         title: Block Setup For Flex
     - id: setup_flex_card
-      type: card
+      type: Card
       properties: 
         size: small
       blocks:
         - id: setup_flex_markdown
-          type: markdown
+          type: Markdown
           properties:
             content:
               _nunjucks:
@@ -341,16 +341,16 @@
                         _state: flex.properties
 
 - id: settings_flex
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: settings_flex_divider
-      type: divider
+      type: Divider
       properties:
         title: Settings For Flex
     - id: flex_collapse
-      type: collapse
+      type: Collapse
       properties:
         defaultActiveKey: style
         panels:
@@ -367,7 +367,7 @@
       blocks:
         style:
           - id: flex_style_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -375,7 +375,7 @@
               _var: flex_style_form
         properties:
           - id: flex_properties_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -383,13 +383,13 @@
               _var: flex_properties_form
         actions:
           - id: flex_actions_description
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _var: actions_description
         visible:
           - id: flex.visible
-            type: switch_input
+            type: Switch
             defaultValue: true
             properties:
               title: visible
@@ -400,7 +400,7 @@
           
         blocks:
           - id: flex_blocks
-            type: list
+            type: List
             style:
               Content:
                 --display: flex
@@ -409,14 +409,14 @@
               hideRemoveButton: true
             blocks:
               - id: flex_blocks.$.gd
-                type: box
+                type: Box
                 style:
                   flex: 0 0 15ch
                   Content:
                     --display: flex
                 blocks:
                   - id: flex_blocks.$.name
-                    type: markdown
+                    type: Markdown
                     properties:
                       content: 
                         _nunjucks: 
@@ -424,7 +424,7 @@
                           on:
                             _state: flex_blocks.$
                   - id: flex_blocks.$.visible
-                    type: switch_input
+                    type: Switch
                     style:
                       Label:
                         --inline: true
@@ -432,7 +432,7 @@
                       title: visible
                       size: small
               - id: flex_blocks.$.style
-                type: text_area_input
+                type: TextArea
                 style:
                   flex: auto
                   Label:
@@ -445,14 +445,14 @@
 
 
 - id: block_box
-  type: box
+  type: Box
   blocks:
     - id: block_divider
-      type: divider
+      type: Divider
       properties:
         title: Block With Block Content
     - id: block_wrap
-      type: box
+      type: Box
       style:
         --span: 12
       blocks:
@@ -467,7 +467,7 @@
             _state: block.properties
           blocks:
             - id: block_1
-              type: html
+              type: Html
               properties:
                 html: '<div>ONE</div>'
               visible:
@@ -476,7 +476,7 @@
                 _parse:
                   _state: block_blocks.0.style
             - id: block_2
-              type: html
+              type: Html
               properties:
                 html: '<div>TWO</div>'
               visible:
@@ -485,7 +485,7 @@
                 _parse:
                   _state: block_blocks.1.style
             - id: block_3
-              type: html
+              type: Html
               properties:
                 html: '<div>THREE</div>'
               visible:
@@ -494,7 +494,7 @@
                 _parse:
                   _state: block_blocks.2.style
             - id: block_4
-              type: html
+              type: Html
               properties:
                 html: '<div>FOUR</div>'
               visible:
@@ -503,7 +503,7 @@
                 _parse:
                   _state: block_blocks.3.style
             - id: block_5
-              type: html
+              type: Html
               properties:
                 html: '<div>FIVE</div>'
               visible:
@@ -512,7 +512,7 @@
                 _parse:
                   _state: block_blocks.4.style
             - id: block_6
-              type: html
+              type: Html
               properties:
                 html: '<div>SIX</div>'
               visible:
@@ -522,21 +522,21 @@
                   _state: block_blocks.5.style
 
 - id: setup_block
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: setup_block_divider
-      type: divider
+      type: Divider
       properties:
         title: Block Setup For Block
     - id: setup_block_card
-      type: card
+      type: Card
       properties: 
         size: small
       blocks:
         - id: setup_block_markdown
-          type: markdown
+          type: Markdown
           properties:
             content:
               _nunjucks:
@@ -558,16 +558,16 @@
                         _state: block.properties
 
 - id: settings_block
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: settings_block_divider
-      type: divider
+      type: Divider
       properties:
         title: Settings For Block
     - id: block_collapse
-      type: collapse
+      type: Collapse
       properties:
         defaultActiveKey: style
         panels:
@@ -584,7 +584,7 @@
       blocks:
         style:
           - id: block_style_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -592,7 +592,7 @@
               _var: block_style_form
         properties:
           - id: block_properties_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -600,13 +600,13 @@
               _var: block_properties_form
         actions:
           - id: block_actions_description
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _var: actions_description
         visible:
           - id: block.visible
-            type: switch_input
+            type: Switch
             defaultValue: true
             properties:
               title: visible
@@ -617,7 +617,7 @@
           
         blocks:
           - id: block_blocks
-            type: list
+            type: List
             style:
               Content:
                 --display: flex
@@ -626,14 +626,14 @@
               hideRemoveButton: true
             blocks:
               - id: block_blocks.$.gd
-                type: box
+                type: Box
                 style:
                   flex: 0 0 15ch
                   Content:
                     --display: flex
                 blocks:
                   - id: block_blocks.$.name
-                    type: markdown
+                    type: Markdown
                     properties:
                       content: 
                         _nunjucks: 
@@ -641,7 +641,7 @@
                           on:
                             _state: block_blocks.$
                   - id: block_blocks.$.visible
-                    type: switch_input
+                    type: Switch
                     style:
                       Label:
                         --inline: true
@@ -649,7 +649,7 @@
                       title: visible
                       size: small
               - id: block_blocks.$.style
-                type: text_area_input
+                type: TextArea
                 style:
                   flex: auto
                   Label:
@@ -665,14 +665,14 @@
 
 
 - id: inlineBlock_box
-  type: box
+  type: Box
   blocks:
     - id: inlineBlock_divider
-      type: divider
+      type: Divider
       properties:
         title: Block With Inline-block Content
     - id: inlineBlock_wrap
-      type: box
+      type: Box
       style:
         --span: 12
       blocks:
@@ -687,7 +687,7 @@
             _state: inlineBlock.properties
           blocks:
             - id: inlineBlock_1
-              type: html
+              type: Html
               properties:
                 html: '<div>ONE</div>'
               visible:
@@ -696,7 +696,7 @@
                 _parse:
                   _state: inlineBlock_blocks.0.style
             - id: inlineBlock_2
-              type: html
+              type: Html
               properties:
                 html: '<div>TWO</div>'
               visible:
@@ -705,7 +705,7 @@
                 _parse:
                   _state: inlineBlock_blocks.1.style
             - id: inlineBlock_3
-              type: html
+              type: Html
               properties:
                 html: '<div>THREE</div>'
               visible:
@@ -714,7 +714,7 @@
                 _parse:
                   _state: inlineBlock_blocks.2.style
             - id: inlineBlock_4
-              type: html
+              type: Html
               properties:
                 html: '<div>FOUR</div>'
               visible:
@@ -723,7 +723,7 @@
                 _parse:
                   _state: inlineBlock_blocks.3.style
             - id: inlineBlock_5
-              type: html
+              type: Html
               properties:
                 html: '<div>FIVE</div>'
               visible:
@@ -732,7 +732,7 @@
                 _parse:
                   _state: inlineBlock_blocks.4.style
             - id: inlineBlock_6
-              type: html
+              type: Html
               properties:
                 html: '<div>SIX</div>'
               visible:
@@ -742,21 +742,21 @@
                   _state: inlineBlock_blocks.5.style
 
 - id: setup_inlineBlock
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: setup_inlineBlock_divider
-      type: divider
+      type: Divider
       properties:
         title: Block Setup For Inline-block
     - id: setup_inlineBlock_card
-      type: card
+      type: Card
       properties: 
         size: small
       blocks:
         - id: setup_inlineBlock_markdown
-          type: markdown
+          type: Markdown
           properties:
             content:
               _nunjucks:
@@ -778,16 +778,16 @@
                         _state: inlineBlock.properties
 
 - id: settings_inlineBlock
-  type: box
+  type: Box
   style:
     --span: 6
   blocks:
     - id: settings_inlineBlock_divider
-      type: divider
+      type: Divider
       properties:
         title: Settings For Inline-block
     - id: inlineBlock_collapse
-      type: collapse
+      type: Collapse
       properties:
         defaultActiveKey: style
         panels:
@@ -804,7 +804,7 @@
       blocks:
         style:
           - id: inlineBlock_style_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -812,7 +812,7 @@
               _var: inlineBlock_style_form
         properties:
           - id: inlineBlock_properties_form
-            type: box
+            type: Box
             style:
               Content:
                 --gap: 0
@@ -820,13 +820,13 @@
               _var: inlineBlock_properties_form
         actions:
           - id: inlineBlock_actions_description
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _var: actions_description
         visible:
           - id: inlineBlock.visible
-            type: switch_input
+            type: Switch
             defaultValue: true
             properties:
               title: visible
@@ -837,7 +837,7 @@
           
         blocks:
           - id: inlineBlock_blocks
-            type: list
+            type: List
             style:
               Content:
                 --display: flex
@@ -846,14 +846,14 @@
               hideRemoveButton: true
             blocks:
               - id: inlineBlock_blocks.$.gd
-                type: box
+                type: Box
                 style:
                   flex: 0 0 15ch
                   Content:
                     --display: flex
                 blocks:
                   - id: inlineBlock_blocks.$.name
-                    type: markdown
+                    type: Markdown
                     properties:
                       content: 
                         _nunjucks: 
@@ -861,7 +861,7 @@
                           on:
                             _state: inlineBlock_blocks.$
                   - id: inlineBlock_blocks.$.visible
-                    type: switch_input
+                    type: Switch
                     style:
                       Label:
                         --inline: true
@@ -869,7 +869,7 @@
                       title: visible
                       size: small
               - id: inlineBlock_blocks.$.style
-                type: text_area_input
+                type: TextArea
                 style:
                   flex: auto
                   Label:
@@ -881,10 +881,10 @@
 
 
 - id: examples_divider
-  type: divider
+  type: Divider
   properties:
     title: Examples
 - id: examples_grid
-  type: box
+  type: Box
   blocks:
     _var: examples

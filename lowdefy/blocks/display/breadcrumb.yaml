@@ -1,5 +1,5 @@
-id: breadcrumb
-type: page_sider_menu
+id: Breadcrumb
+type: PageSiderMenu
 public: true
 properties:
   title: Breadcrumb
@@ -20,7 +20,7 @@ blocks:
       block_name: Breadcrumb
       description_content: |
         A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy with provided links.
-      block_type: breadcrumb
+      block_type: Breadcrumb
       label: false
       kind: display
       style_transform:
@@ -28,7 +28,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -42,7 +42,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.separator
-          type: text_input
+          type: TextInput
           defaultValue: '/'
           style:
             _global: settings_input_style
@@ -52,13 +52,13 @@ blocks:
             Label:
               extra: Use a custom separator string.
         - id: block.properties.list
-          type: list
+          type: List
           properties:
             title: 'list:'
             size: small
           blocks:
             - id: block.properties.list.$.label
-              type: text_input
+              type: TextInput
               defaultValue: label
               style:
                 _global: settings_input_style
@@ -68,7 +68,7 @@ blocks:
                 Label:
                   extra: Label of the breadcrumb link.
             - id: block.properties.list.$.pageId
-              type: text_input
+              type: TextInput
               defaultValue: introduction
               style:
                 _global: settings_input_style
@@ -78,7 +78,7 @@ blocks:
                 Label:
                   extra: Page id to link to when clicked.
             - id: block.properties.list.$.url
-              type: text_input
+              type: TextInput
               defaultValue: http://lowdefy.com
               style:
                 _global: settings_input_style

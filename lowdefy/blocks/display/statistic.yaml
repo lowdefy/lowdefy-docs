@@ -1,5 +1,5 @@
-id: statistic
-type: page_sider_menu
+id: Statistic
+type: PageSiderMenu
 public: true
 properties:
   title: Statistic
@@ -10,7 +10,7 @@ blocks:
       block_name: Statistic
       description_content: |
         A statistic header block.
-      block_type: statistic
+      block_type: Statistic
       label: false
       kind: display
       style_transform:
@@ -34,7 +34,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -45,7 +45,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_prefix_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -56,7 +56,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_suffix_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -67,7 +67,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_value_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -81,7 +81,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.decimalSeparator
-          type: text_input
+          type: TextInput
           defaultValue: "."
           style:
             _global: settings_input_style
@@ -91,7 +91,7 @@ blocks:
             Label:
               extra: Decimal separator.
         - id: block.properties.formatter.type
-          type: select_input
+          type: Selector
           defaultValue: default
           style:
             _global: settings_input_style_indent
@@ -105,7 +105,7 @@ blocks:
               - date
               - humanizeDuration
         - id: block.properties.formatter.properties.format
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style_double_indent
           visible:
@@ -117,7 +117,7 @@ blocks:
             Label:
               extra: Moment.js date format
         - id: block.properties.groupSeparator
-          type: text_input
+          type: TextInput
           defaultValue: ","
           style:
             _global: settings_input_style
@@ -127,7 +127,7 @@ blocks:
             Label:
               extra: Group separator.
         - id: block.properties.precision
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style
           properties:
@@ -136,7 +136,7 @@ blocks:
             Label:
               extra: Number of decimals to display.
         - id: block.properties.prefix
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -152,7 +152,7 @@ blocks:
               icon_description: Icon to prefix statistic.
 
         - id: block.properties.suffix
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -167,7 +167,7 @@ blocks:
               icon_field_name: IconSuffix
               icon_description: Icon to suffix statistic.
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -177,10 +177,10 @@ blocks:
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: select_value_type_card
-          type: card
+          type: Card
           blocks:
             - id: select_value_type
-              type: radio_button_input
+              type: ButtonSelector
               defaultValue: Number
               properties:
                 title: value Type
@@ -192,7 +192,7 @@ blocks:
                   - String
         - id: value_number
           field: block.properties.value
-          type: number_input
+          type: NumberInput
           style:
             _global: settings_input_style
           visible:
@@ -205,7 +205,7 @@ blocks:
               extra: Display number value.
         - id: value_text
           field: block.properties.value
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           visible:
@@ -222,17 +222,17 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: statistic
+              type: Statistic
               style:
                 --span: 6
               properties:
                 title: Statistic
                 value: 1000
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -248,10 +248,10 @@ blocks:
                   }
                   ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: statistic
+              type: Statistic
               style:
                 --span: 6
               properties:
@@ -261,7 +261,7 @@ blocks:
                 groupSeparator: " "
                 precision: 2
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -280,10 +280,10 @@ blocks:
                   }
                   ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: statistic
+              type: Statistic
               style:
                 --span: 6
               properties:
@@ -292,7 +292,7 @@ blocks:
                 prefix: $
                 IconSuffix: ShoppingCartOutlined
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -310,10 +310,10 @@ blocks:
                   }
                   ```
         - id: example_4_card
-          type: card
+          type: Card
           blocks:
             - id: example_4
-              type: statistic
+              type: Statistic
               style:
                 --span: 6
               properties:
@@ -325,7 +325,7 @@ blocks:
                     format: D MMMM YYYY
 
             - id: example_4_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -347,10 +347,10 @@ blocks:
                   }
                   ```
         - id: example_5_card
-          type: card
+          type: Card
           blocks:
             - id: example_5
-              type: statistic
+              type: Statistic
               style:
                 --span: 6
               properties:
@@ -360,7 +360,7 @@ blocks:
                   type: humanizeDuration
 
             - id: example_5_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -379,10 +379,10 @@ blocks:
                   }
                   ```
         - id: example_6_card
-          type: card
+          type: Card
           blocks:
             - id: example_6
-              type: statistic
+              type: Statistic
               style:
                 --span: 6
                 color: green
@@ -395,7 +395,7 @@ blocks:
                 suffix: "%"
 
             - id: example_6_code
-              type: markdown
+              type: Markdown
               style:
                 block:
                   --span: 6

@@ -1,16 +1,18 @@
-id: number_input
-type: page_sider_menu
+id: WeekSelector
+type: PageSiderMenu
 public: true
 properties:
-  title: Number
+  title: Week
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Number Input
+      block_name: Week Input
       description_content: |
-        Number input block. The input to this field is saved in `state`, at the path name of the block.
-      block_type: number_input
+        Week picker input block. Allows a user to select a specific week from a calender form. The input to this field is saved as a Date type in state, at the path name of the block. The first day of the week is Sunday.
+
+        >Other date type blocks are week_input, date_time_input, month_input and date_range_input.
+      block_type: WeekSelector
       label: true
       kind: input
       style_transform:
@@ -26,12 +28,15 @@ blocks:
                     Input:
                       _parse:
                         _state: style_input_input
+                    IconSuffix:
+                      _parse:
+                        _state: style_suffix_icon_input
               on:
                 _parse:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -42,7 +47,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_label_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -53,7 +58,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_input_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -63,11 +68,22 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
+        - id: style_suffix_icon_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: IconSuffix
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -76,8 +92,18 @@ blocks:
             size: small
             Label:
               extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.allowClear
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: allowClear
+            size: small
+            Label:
+              extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -86,18 +112,8 @@ blocks:
             size: small
             Label:
               extra: Autofocus to the block on page load.
-        - id: block.properties.decimalSeparator
-          type: text_input
-          defaultValue: "."
-          style:
-            _global: settings_input_style
-          properties:
-            title: decimalSeparator
-            size: small
-            Label:
-              extra: Decimal separator.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -105,47 +121,29 @@ blocks:
             title: disabled
             size: small
             Label:
-              extra: Disables the block if true.
-        - id: block.properties.min
-          type: number_input
+              extra: Disable the block if true.
+        - id: block.properties.format
+          type: TextInput
+          defaultValue: YYYY-wo
           style:
             _global: settings_input_style
           properties:
-            title: min
+            title: format
             size: small
             Label:
-              extra: Minimum value allowed by the block.
-        - id: block.properties.max
-          type: number_input
-          style:
-            _global: settings_input_style
-          properties:
-            title: max
-            size: small
-            Label:
-              extra: Maximum value allowed by the block.
+              extra: Format in which to format the date value, eg. "wo-YYYY" will format a date value of 1999-12-26 as "52nd-1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
-          type: text_input
+          type: TextInput
+          defaultValue: Select Week
           style:
             _global: settings_input_style
           properties:
             title: placeholder
             size: small
             Label:
-              extra: Placeholder text inside the block to show message before user types input.
-        - id: block.properties.precision
-          type: number_input
-          defaultValue: 0
-          style:
-            _global: settings_input_style
-          properties:
-            title: precision
-            size: small
-            max: 100
-            Label:
-              extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+              extra: Placeholder text inside the block before user types input.
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -158,35 +156,31 @@ blocks:
               - small
               - default
               - large
-        - id: block.properties.step
-          type: number_input
-          defaultValue: 1
-          style:
-            _global: settings_input_style
-          properties:
-            title: step
-            size: small
-            precision: 2
-            Label:
-              extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconSuffix
+              icon_field_name: IconSuffix
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the week input.
+
+
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
-        ###### onPressEnter
-        Triggered when enter is pressed while block is focused.
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1
-              type: number_input
+              type: WeekSelector
               style:
                 --span: 6
               properties:
-                title: Number input
+                title: Week input
             - id: example_1_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -194,27 +188,26 @@ blocks:
                   ```json
                   {
                     "id": "example_1",
-                    "type": "number_input",
+                    "type": "week_input",
                     "properties": {
-                      "title": "Number input"
+                      "title": "Week input"
                     }
                   }
-                  ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2
-              type: number_input
+              type: WeekSelector
               style:
                 --span: 6
-              defaultValue: 3.14
               properties:
-                title: Decimal separator
-                decimalSeparator: ","
-                precision: 2
-                step: 0.01
+                title: Placeholder and suffix icon
+                Label:
+                  extra: Custom placeholder and suffix icon.
+                placeholder: Pick a week
+                IconSuffix: FireOutlined
             - id: example_2_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
@@ -222,39 +215,48 @@ blocks:
                   ```json
                   {
                     "id": "example_2",
-                    "type": "number_input",
-                    "defaultValue": 3.14,
+                    "type": "week_input",
                     "properties": {
-                      "title": "Decimal separator"
-                      "decimalSeparator": ",",
-                      "precision": 2,
-                      "step": 0.01
+                      "title": "Placeholder and suffix icon",
+                      "placeholder": "Pick a week",
+                      "IconSuffix": "FireOutlined",
+                      "Label": {
+                        "extra": "Custom placeholder and suffix icon."
+                      },
                     }
                   }
-                  ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3
-              type: number_input
+              type: WeekSelector
               style:
                 --span: 6
+              defaultValue:
+                _date: 1993-02-01
               properties:
-                title: Placeholder
-                placeholder: π
+                title: Date format
+                format: wo of YYYY
+                Label:
+                  extra: Default date and custom date format.
             - id: example_3_code
-              type: markdown
+              type: Markdown
               style:
                 --span: 6
               properties:
                 content: |
                   ```json
                   {
-                    "id": "example_2",
-                    "type": "number_input",
+                    "id": "example_3",
+                    "type": "week_input",
+                    "defaultValue": { 
+                      "_date": "1993-02-01" 
+                    },
                     "properties": {
-                      "title": "Placeholder"
-                      "placeholder": "π"
+                      "title": "Date format",
+                      "format": "wo of YYYY",
+                      "Label": {
+                        "extra": "Default date and custom date format."
+                      }
                     }
                   }
-                  ```

@@ -1,5 +1,5 @@
-id: page_hcf
-type: page_sider_menu
+id: PageHCF
+type: PageSiderMenu
 public: true
 properties:
   title: Page HCF
@@ -15,7 +15,7 @@ blocks:
     path: blocks/container_hscf_template.yaml
     vars:
       block_name: Page HCF
-      block_type: page_hcf
+      block_type: PageHCF
       description_content: |
         Page HCF provides a minimal layout structure for a page container with a header, content and footer area.
       label: false
@@ -41,7 +41,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -52,7 +52,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -63,7 +63,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_footer_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -74,7 +74,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_header_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -86,7 +86,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.Header.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style
@@ -99,7 +99,7 @@ blocks:
               - light
               - dark
         - id: block.properties.Header.link
-          type: anchor
+          type: Anchor
           properties:
             title: See all fields for properties.Header
             Icon: LinkOutlined

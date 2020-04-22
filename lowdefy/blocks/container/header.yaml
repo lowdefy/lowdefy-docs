@@ -1,5 +1,5 @@
-id: header
-type: page_sider_menu
+id: Header
+type: PageSiderMenu
 public: true
 properties:
   title: Header
@@ -13,7 +13,7 @@ blocks:
   _ref:
     path: blocks/flex_template.yaml
     vars:
-      block_type: header
+      block_type: Header
       block_name: Header
       page_description: |
         A header is a container that places sub-blocks into a html header with gird or flex display format settings. 
@@ -27,7 +27,7 @@ blocks:
           _state: flex_style_input
       style_form:
         - id: flex_style_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: |
@@ -44,7 +44,7 @@ blocks:
               extra: CSS Object style properties. Should be in JSON format.
       flex_properties_form:
         - id: block.properties.theme
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: dark
           style:
             _global: settings_input_style

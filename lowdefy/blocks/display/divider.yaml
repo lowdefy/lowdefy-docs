@@ -1,5 +1,5 @@
-id: divider
-type: page_sider_menu
+id: Divider
+type: PageSiderMenu
 public: true
 properties:
   title: Divider
@@ -10,7 +10,7 @@ blocks:
       block_name: Divider
       description_content: |
         A divider line. Can be used horizontally or vertically.
-      block_type: divider
+      block_type: Divider
       label: false
       kind: display
       style_transform:
@@ -18,7 +18,7 @@ blocks:
           _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -32,7 +32,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.dashed
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -42,7 +42,7 @@ blocks:
             Label:
               extra: Whether line is dashed.
         - id: block.properties.orientation
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: center
           style:
             _global: settings_input_style
@@ -56,7 +56,7 @@ blocks:
               - left
               - right
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -65,7 +65,7 @@ blocks:
             Label:
               extra: Divider title.
         - id: block.properties.type
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: horizontal
           style:
             _global: settings_input_style

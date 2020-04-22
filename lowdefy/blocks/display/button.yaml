@@ -1,5 +1,5 @@
-id: button
-type: page_sider_menu
+id: Button
+type: PageSiderMenu
 public: true
 properties:
   title: Button
@@ -10,7 +10,7 @@ blocks:
       block_name: Button
       description_content: |
         Button block.
-      block_type: button
+      block_type: Button
       label: false
       kind: display
       style_transform:
@@ -28,7 +28,7 @@ blocks:
                   _state: style_block_input
       style_form:
         - id: style_block_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style
           defaultValue: "{}"
@@ -39,7 +39,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -53,7 +53,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.block
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -63,7 +63,7 @@ blocks:
             Label:
               extra: Fit the button's span to its parent container span.
         - id: block.properties.disabled
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -73,7 +73,7 @@ blocks:
             Label:
               extra: Disable the button if true.
         - id: block.properties.ghost
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -83,7 +83,7 @@ blocks:
             Label:
               extra: Make the button's background transparent when true.
         - id: block.properties.hideActionLoading
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -93,7 +93,7 @@ blocks:
             Label:
               extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
-          type: switch_input
+          type: Switch
           defaultValue: false
           style:
             _global: settings_input_style
@@ -103,7 +103,7 @@ blocks:
             Label:
               extra: Hide the button's title.
         - id: block.properties.href
-          type: text_input
+          type: TextInput
           style:
             _global: settings_input_style
           properties:
@@ -118,7 +118,7 @@ blocks:
               icon_field_name: Icon
               icon_description: Icon to be used in button.
         - id: block.properties.shape
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: square
           style:
             _global: settings_input_style
@@ -132,7 +132,7 @@ blocks:
               - round
               - square
         - id: block.properties.size
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: default
           style:
             _global: settings_input_style
@@ -146,7 +146,7 @@ blocks:
               - default
               - large
         - id: block.properties.title
-          type: text_input
+          type: TextInput
           defaultValue: block_id
           style:
             _global: settings_input_style
@@ -156,7 +156,7 @@ blocks:
             Label:
               extra: Title text on the button.
         - id: block.properties.type
-          type: radio_button_input
+          type: ButtonSelector
           defaultValue: primary
           style:
             _global: settings_input_style
@@ -178,29 +178,29 @@ blocks:
 
       examples:
         - id: example_1_card
-          type: card
+          type: Card
           blocks:
             - id: example_1_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Basic button
                 - id: example_1
-                  type: button
+                  type: Button
                   properties:
                     title: Click here
             - id: example_1_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_1_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -213,32 +213,32 @@ blocks:
                       }
                       ```
         - id: example_2_card
-          type: card
+          type: Card
           blocks:
             - id: example_2_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Block and ghost button with icon
                 - id: example_2
-                  type: button
+                  type: Button
                   properties:
                     title: Let's Go
                     block: true
                     ghost: true
                     Icon: RocketOutlined
             - id: example_2_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_2_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
@@ -254,20 +254,20 @@ blocks:
                       }
                       ```
         - id: example_3_card
-          type: card
+          type: Card
           blocks:
             - id: example_3_block_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_title
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ##### Round and type danger
                 - id: example_3
-                  type: button
+                  type: Button
                   properties:
                     title: Delete Forever
                     block: false
@@ -275,12 +275,12 @@ blocks:
                     shape: round
                     type: danger
             - id: example_3_code_grid
-              type: box
+              type: Box
               style:
                 --span: 6
               blocks:
                 - id: example_3_code
-                  type: markdown
+                  type: Markdown
                   properties:
                     content: |
                       ```json
