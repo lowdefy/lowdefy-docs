@@ -114,7 +114,7 @@ menus:
             type: MenuLink
             pageId: AutoComplete
             properties:
-              title: Auto Complete
+              title: AutoComplete
           - id: Checkbox
             type: MenuLink
             pageId: Checkbox
@@ -124,57 +124,57 @@ menus:
             type: MenuLink
             pageId: ColorSelector
             properties:
-              title: Color Picker
+              title: ColorSelector
           - id: DateSelector
             type: MenuLink
             pageId: DateSelector
             properties:
-              title: Date
+              title: DateSelector
           - id: DateRangeSelector
             type: MenuLink
             pageId: DateRangeSelector
             properties:
-              title: Date Range
+              title: DateRangeSelector
           - id: DateTimeSelector
             type: MenuLink
             pageId: DateTimeSelector
             properties:
-              title: Date Time
+              title: DateTimeSelector
           - id: MonthSelector
             type: MenuLink
             pageId: MonthSelector
             properties:
-              title: Month
+              title: MonMonthSelectorth
           - id: MultipleSelector
             type: MenuLink
             pageId: MultipleSelector
             properties:
-              title: Multiple Select
+              title: MultipleSelector
           - id: NumberInput
             type: MenuLink
             pageId: NumberInput
             properties:
-              title: Number
+              title: NumberInput
           - id: RadioSelector
             type: MenuLink
             pageId: RadioSelector
             properties:
-              title: Radio
+              title: RadioSelector
           - id: ButtonSelector
             type: MenuLink
             pageId: ButtonSelector
             properties:
-              title: Radio Button
+              title: ButtonSelector
           - id: Selector
             type: MenuLink
             pageId: Selector
             properties:
-              title: Select
+              title: Selector
           - id: RatingSlider
             type: MenuLink
             pageId: RatingSlider
             properties:
-              title: Slider
+              title: RatingSlider
           - id: Switch
             type: MenuLink
             pageId: Switch
@@ -184,17 +184,17 @@ menus:
             type: MenuLink
             pageId: TextArea
             properties:
-              title: Text Area
+              title: TextArea
           - id: TextInput
             type: MenuLink
             pageId: TextInput
             properties:
-              title: Text
+              title: TextInput
           - id: WeekSelector
             type: MenuLink
             pageId: WeekSelector
             properties:
-              title: Week
+              title: WeekSelector
       - id: blocks_display
         type: MenuGroup
         properties:
@@ -205,7 +205,7 @@ menus:
             type: MenuLink
             pageId: AgGrid
             properties:
-              title: ag-Grid
+              title: AgGrid
           - id: Alert
             type: MenuLink
             pageId: Alert
@@ -215,7 +215,7 @@ menus:
             type: MenuLink
             pageId: AmCharts4XY
             properties:
-              title: amCharts 4 XY
+              title: AmCharts4XY
           - id: Anchor
             type: MenuLink
             pageId: Anchor
@@ -331,32 +331,32 @@ menus:
             type: MenuLink
             pageId: PageHCF
             properties:
-              title: Page HCF
+              title: PageHCF
           - id: PageHCSF
             type: MenuLink
             pageId: PageHCSF
             properties:
-              title: Page HCSF
+              title: PageHCSF
           - id: PageHeaderMenu
             type: MenuLink
             pageId: PageHeaderMenu
             properties:
-              title: Page Header Menu
+              title: PageHeaderMenu
           - id: PageHSCF
             type: MenuLink
             pageId: PageHSCF
             properties:
-              title: Page HSCF
+              title: PageHSCF
           - id: PageSHCF
             type: MenuLink
             pageId: PageSHCF
             properties:
-              title: Page SHCF
+              title: PageSHCF
           - id: PageSiderMenu
             type: MenuLink
             pageId: PageSiderMenu
             properties:
-              title: Page Sider Menu
+              title: PageSiderMenu
           - id: Result
             type: MenuLink
             pageId: Result
@@ -438,25 +438,3 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
-  - id: test
-    public: true
-    type: PageHeaderMenu
-    blocks:
-      - id: card
-        type: Card
-        blocks:
-          - id: box
-            type: Box
-            blocks:
-              - id: one
-                type: Button
-                style:
-                  --span: 6
-                properties:
-                  block: true
-              - id: two
-                type: Button
-                style:
-                  --span: 6
-                properties:
-                  block: true
