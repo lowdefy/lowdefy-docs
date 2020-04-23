@@ -23,7 +23,7 @@ blocks:
                     Avatar:
                       _parse:
                         _state: style_avatar_input
-                    Button:
+                    ButtonLogin:
                       _parse:
                         _state: style_button_input
             on:
@@ -58,7 +58,7 @@ blocks:
             _global: settings_input_style
           defaultValue: "{}"
           properties:
-            title: Button
+            title: ButtonLogin
             rows: 3
             size: small
             Label:
@@ -147,27 +147,27 @@ blocks:
                 type: link()
                 params:
                   pageId: Avatar
-        - id: block.properties.Button.title
+        - id: block.properties.ButtonLogin.title
           type: TextInput
           defaultValue: Login
           style:
             _global: settings_input_style
           properties:
-            title: Button.title
+            title: ButtonLogin.title
             size: small
             Label:
               extra: Edit login button title.
-        - id: block.properties.Button.link
+        - id: block.properties.ButtonLogin.link
           type: Anchor
           properties:
-            title: See all fields for properties.Button
+            title: See all fields for properties.ButtonLogin
             Icon: LinkOutlined
           actions:
             onClick: 
-              - id: link_Button
+              - id: link_ButtonLogin
                 type: link()
                 params:
-                  pageId: Button
+                  pageId: ButtonLogin
 
       available_actions_description: |
         ###### onClick when clicking on avatar, onLogin when clicking login button
