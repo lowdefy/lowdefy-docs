@@ -9,7 +9,7 @@ blocks:
     vars:
       block_name: UserAvatar
       description_content: |
-        A block to show the user and avatar when logged in, or a login button if authenticated.
+        A block to show the user and avatar when logged in, or a login button if not authenticated.
       block_type: UserAvatar
       label: false
       kind: display
