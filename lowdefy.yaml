@@ -448,31 +448,6 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
-  - id: test
-    type: Box
-    blocks:
-      - id: my_paragraph
-        type: Markdown
-        properties:
-          content: 
-            _nunjucks: |
-              # Hello Title
-
-              {{ input }}
-
-              Hello from my first page:
-              - one
-              - two 
-              - 1324
-
-      - id: input
-        type: TextArea
-
-      - id: save
-        type: Button
-        properties: 
-          title: Save
-          Icon: SaveOutlined
 
 
 
