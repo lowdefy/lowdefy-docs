@@ -148,7 +148,7 @@ menus:
             type: MenuLink
             pageId: MonthSelector
             properties:
-              title: MonMonthSelectorth
+              title: MonthSelector
           - id: MultipleSelector
             type: MenuLink
             pageId: MultipleSelector
@@ -448,6 +448,7 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
 
 
 
