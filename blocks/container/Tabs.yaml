@@ -35,7 +35,7 @@ blocks:
       block_name: Tabs
       description_content: |
         A tabs container.
-      block_tyle: Tabs
+      block_type: Tabs
       label: false
       kind: container
       style_transform:

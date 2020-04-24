@@ -53,6 +53,9 @@ blocks:
                     MenuMd:
                       _parse:
                         _state: style_mdMenu_input
+                    UserAvatar:
+                      _parse:
+                        _state: style_userAvatar_input
               on:
                 _parse:
                   _state: style_block_input
@@ -105,12 +108,7 @@ blocks:
           type: TextArea
           style:
             _global: settings_input_style_indent
-          defaultValue: |
-            {
-              "Content": {
-                "width": "auto"
-              }
-            }
+          defaultValue: "{}"
           properties:
             title: Header
             rows: 3
@@ -168,6 +166,17 @@ blocks:
           defaultValue: "{}"
           properties:
             title: MenuMd
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_userAvatar_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: UserAvatar
             rows: 3
             size: small
             Label:
@@ -302,4 +311,37 @@ blocks:
                 type: link()
                 params:
                   pageId: menu
-                
+        - id: block.properties.UserAvatar.disable
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: UserAvatar.disable
+            size: small
+            Label:
+              extra: Do not render UserAvatar
+        - id: block.properties.UserAvatar.Avatar.shape
+          type: ButtonSelector
+          defaultValue: circle
+          style:
+            _global: settings_input_style
+          properties:
+            title: UserAvatar.Avatar.shape
+            size: small
+            Label:
+              extra: Shape of the avatar.
+            options:
+              - circle
+              - square
+        - id: block.properties.UserAvatar.link
+          type: Anchor
+          properties:
+            title: See all fields for properties.UserAvatar
+            Icon: LinkOutlined
+          actions:
+            onClick:
+              - id: link_UserAvatar
+                type: link()
+                params:
+                  pageId: UserAvatar

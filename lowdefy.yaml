@@ -1,3 +1,7 @@
+config:
+  auth:
+    createUsers: 'sign_up'
+
 global:
   all_icons:
     _ref: blocks/all_icons.yaml
@@ -144,7 +148,7 @@ menus:
             type: MenuLink
             pageId: MonthSelector
             properties:
-              title: MonMonthSelectorth
+              title: MonthSelector
           - id: MultipleSelector
             type: MenuLink
             pageId: MultipleSelector
@@ -281,6 +285,11 @@ menus:
             pageId: Title
             properties:
               title: Title
+          - id: UserAvatar
+            type: MenuLink
+            pageId: UserAvatar
+            properties:
+              title: UserAvatar
       - id: blocks_container
         type: MenuGroup
         properties:
@@ -421,6 +430,7 @@ pages:
   - _ref: blocks/display/Skeleton.yaml
   - _ref: blocks/display/Statistic.yaml
   - _ref: blocks/display/Title.yaml
+  - _ref: blocks/display/UserAvatar.yaml
   - _ref: blocks/container/Badge.yaml
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
@@ -438,3 +448,7 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+
+
+
