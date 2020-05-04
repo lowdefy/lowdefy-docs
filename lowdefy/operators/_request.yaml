@@ -1,0 +1,16 @@
+id: _request
+properties:
+  title: Request Operator
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: Request Operator
+      description_content: |
+        The `_request` operator calls in request defined in the page's [`requests`](concepts/requests-mutations.yaml) array.
+
+        #### Parameters
+        Call a request setting `_request` to the request id.
+      
+      # examples:
+ 

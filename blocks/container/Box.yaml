@@ -1,0 +1,116 @@
+id: Box
+type: PageSiderMenu
+public: true
+properties:
+  title: Box
+actions:
+  onInit:
+    - id: init
+      type: setState()
+      params:
+        _ref: blocks/html_blocks.yaml
+blocks:
+  _ref:
+    path: blocks/element_template.yaml
+    vars:
+      block_type: Box
+      block_name: Box
+      page_description: |
+        A box is a container that places sub-blocks into a html div with gird, flex, block or inline-block display format settings. 
+        
+        The default for display grid is 12 explicit columns and implicit rows. 
+        
+        The default display direction for flex is row.
+
+      grid_style:
+        _parse:
+          _state: grid_style_input
+      grid_style_form:
+        - id: grid_style_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: |
+            {
+              "Content": {
+                "--display": "grid"
+              } 
+            }
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      grid_properties_form: []
+      flex_style:
+        _parse:
+          _state: flex_style_input
+      flex_style_form:
+        - id: flex_style_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: |
+            {
+              "Content": {
+                "--display": "flex"
+              } 
+            }
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      flex_properties_form: []
+      
+      block_style:
+        _parse:
+          _state: block_style_input
+      block_style_form:
+        - id: block_style_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: |
+            {
+              "Content": {
+                "--display": "block"
+              } 
+            }
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      block_properties_form: []
+      
+      inlineBlock_style:
+        _parse:
+          _state: inlineBlock_style_input
+      inlineBlock_style_form:
+        - id: inlineBlock_style_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: |
+            {
+              "Content": {
+                "--display": "inline-block"
+              } 
+            }
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      inlineBlock_properties_form: []
+              
+      actions_description: | 
+        ###### No available actions.
+        
+
+

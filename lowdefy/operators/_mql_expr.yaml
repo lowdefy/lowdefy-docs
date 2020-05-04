@@ -1,0 +1,19 @@
+id: _mql_expr
+properties:
+  title: MQL Expression
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: MQL Expression
+      description_content: |
+        The `_mql_expr` operator allows you to execute a MongoDB Query Language expression and returns the result.
+
+        #### Parameters
+        `_mql_expr` takes two parameters but can also written in short-hand notation. The parameters are:
+
+        - `on` : The array or JSON object on which the expression will be run.
+        - `expr` : 
+      
+      # examples:
+ 

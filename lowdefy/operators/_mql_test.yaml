@@ -1,0 +1,19 @@
+id: _mql_test
+properties:
+  title: MQL Test
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: MQL Test
+      description_content: |
+        The `_mql_test` operator allows you to execute a MongoDB Query Language query test and returns true or false.
+
+        #### Parameters
+        `_mql_test` takes three parameters:
+
+        - `test` : Any statement that returns `true` or `false` as a value. [MongoDB Query Language](https://docs.mongodb.com/manual/tutorial/query-documents/) can be used for this test.
+        - `on` : The array or JSON object on which the expression will be run.
+      
+      # examples:
+ 

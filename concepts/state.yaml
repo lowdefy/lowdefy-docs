@@ -1,0 +1,14 @@
+id: state
+type: PageSiderMenu
+public: true
+properties:
+  title: State
+blocks:
+  - id: card
+    type: Card
+    blocks:
+      - id: markdown
+        type: Markdown
+        properties:
+          content: |
+            # State

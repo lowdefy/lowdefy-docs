@@ -1,0 +1,208 @@
+id: Tabs
+type: PageSiderMenu
+public: true
+properties:
+  title: Tabs
+actions:
+  onInit:
+    - id: initialize_state 
+      type: setState()
+      params:
+        span_subblock_1: 12
+        visible_subblock_1: true
+        span_subblock_2: 6
+        visible_subblock_2: true
+        span_subblock_3: 6
+        visible_subblock_3: true
+        span_subblock_4: 12
+        visible_subblock_4: true
+        span_subblock_5: 4
+        visible_subblock_5: true
+        span_subblock_6: 8
+        visible_subblock_6: true
+        block:
+          properties:
+            tabs:
+              - key: content1
+                title: content1
+              - key: content2
+          title: content2
+
+blocks:
+  _ref:
+    path: blocks/grid_template_block_object.yaml
+    vars:
+      block_name: Tabs
+      description_content: |
+        A tabs container.
+      block_type: Tabs
+      label: false
+      kind: container
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Content1:
+                      _parse:
+                        _state: style_content1_input
+                    Content2:
+                      _parse:
+                        _state: style_content2_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content1_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content1
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content2_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content2
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: activeKey
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: activeKey
+            size: small
+            Label:
+              extra: Current TabPane's key.
+        - id: defaultActiveKey
+          type: TextInput
+          defaultValue: content1
+          style:
+            _global: settings_input_style
+          properties:
+            title: defaultActiveKey
+            size: small
+            Label:
+              extra: Initial active TabPane's key, if activeKey is not set.
+        - id: animated
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: animated
+            size: small
+            Label:
+              extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
+        - id: block.properties.size
+          type: ButtonSelector
+          defaultValue: default
+          style:
+            _global: settings_input_style
+          properties:
+            title: size
+            size: small
+            Label:
+              extra: Size of the tabs.
+            options:
+              - small
+              - default
+              - large
+        - id: block.properties.tabPosition
+          type: ButtonSelector
+          defaultValue: top
+          style:
+            _global: settings_input_style
+          properties:
+            title: tabPosition
+            size: small
+            Label:
+              extra: Position of the tabs.
+            options:
+              - top
+              - right
+              - bottom
+              - left
+        - id: block.properties.tabs
+          type: List
+          style:
+            Content:
+              --gap: 0
+          properties:
+            title: 'tabs:'
+            size: small
+          blocks:
+            - id: block.properties.tabs.$.title
+              type: TextInput
+              defaultValue: title
+              style:
+                _global: settings_input_style
+              properties:
+                title: title
+                size: small
+                Label:
+                  extra: Title of the tab.
+            - id: block.properties.tabs.$.key
+              type: TextInput
+              defaultValue: key
+              style:
+                _global: settings_input_style
+              properties:
+                title: key
+                size: small
+                Label:
+                  extra: Key of the tab.
+            - _ref:
+                path: blocks/icon_template.yaml
+                vars:
+                  icon_id: block.properties.tabs.$.Icon
+                  icon_field_name: Icon
+                  icon_description: Icon to show in tab title.
+            - id: block.properties.tabs.$.disabled
+              type: Switch
+              defaultValue: false
+              style:
+                _global: settings_input_style
+              properties:
+                title: disabled
+                size: small
+                Label:
+                  extra: Disable the tab if true.
+        - id: block.properties.tabType
+          type: ButtonSelector
+          defaultValue: line
+          style:
+            _global: settings_input_style
+          properties:
+            title: tabType
+            size: small
+            Label:
+              extra: Type of tabs.
+            options:
+              - line
+              - card
+              - editable-card

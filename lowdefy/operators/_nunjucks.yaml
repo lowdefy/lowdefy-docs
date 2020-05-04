@@ -1,0 +1,22 @@
+id: _nunjucks
+properties:
+  title: Nunjucks
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: Nunjucks
+      description_content: |
+        The `_nunjucks` operator renders a [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) template and returns a string value.
+
+        #### Parameters
+        `_nunjucks` takes two parameters but can also written in short-hand notation. The parameters are:
+
+        - `on` : The JSON object on which the expression will be run.
+        - `template` : The Nunjucks template which will be rendered. More tips on templating can be found[here.](https://jinja.palletsprojects.com/en/2.11.x/templates/).
+
+        #### Dates
+        Nunjucks can also handle [date](https://www.npmjs.com/package/nunjucks-date-filter) formatting and manipulation by implementing the [moment.js] date [formatting](https://momentjs.com/docs/#/displaying/format/) and [manipulation](https://momentjs.com/docs/#/get-set/) methods.
+      
+      # examples:
+ 

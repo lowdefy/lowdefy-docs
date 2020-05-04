@@ -1,0 +1,532 @@
+id: Markdown
+type: PageSiderMenu
+public: true
+properties:
+  title: Markdown
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Markdown
+      description_content: |
+        Render markdown text content. For more details on markdown syntax see: [Markdown cheat sheet](https://guides.github.com/features/mastering-markdown/).
+      block_type: Markdown
+      label: false
+      kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.content
+          type: TextArea
+          defaultValue: |
+            ## Lorem ipsum dolor sit amet
+            In the animal kingdom, one of the keys to survival is to outwit your enemies. And when you're surrounded by carnivores, one of the best strategies is to fade into the background and disappear. I don't want to be the embarrassment of the galaxy to have had the power to deflect an asteroid, and then not and end up going extinct. We'd be the laughingstock of the aliens of the cosmos if that were the case.
+
+            As an educator, I try to get people to be fundamentally curious and to question ideas that they might have or that are shared by others. In that state of mind, they have earned a kind of inoculation against the fuzzy thinking of these weird ideas floating around out there.
+          style:
+            _global: settings_input_style
+          properties:
+            title: content
+            size: small
+            rows: 7
+            Label:
+              extra: Text content in markdown syntax format.
+        - id: block.properties.renderHtml
+          type: Switch
+          style:
+            _global: settings_input_style
+          properties:
+            title: renderHtml
+            size: small
+            Label:
+              extra: Setting to true will cause HTML to be rendered. Be aware that setting this might cause security issues if the input is user-generated.
+
+      available_actions_description: |
+        ###### No available actions.
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Headings
+                - id: example_1
+                  type: Markdown
+                  properties:
+                    content: |
+                        # h1 Heading
+                        ## h2 Heading
+                        ### h3 Heading
+                        #### h4 Heading
+                        ##### h5 Heading
+                        ###### h6 Heading
+            - id: example_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_1
+                        type: Markdown
+                        properties:
+                          content: |
+                            # h1 Heading
+                            ## h2 Heading
+                            ### h3 Heading
+                            #### h4 Heading
+                            ##### h5 Heading
+                            ###### h6 Heading
+                      ```
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_2_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Emphasis
+                - id: example_2
+                  type: Markdown
+                  properties:
+                    content: |
+                      **This is bold text**
+
+                      __This is bold text__
+
+                      *This is italic text*
+
+                      _This is italic text_
+
+                      ~~Strikethrough~~
+            - id: example_2_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_2_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_2
+                        type: Markdown
+                        properties:
+                          content: |
+                            **This is bold text**
+
+                            __This is bold text__
+
+                            *This is italic text*
+
+                            _This is italic text_
+
+                            ~~Strikethrough~~
+                      ```
+        - id: example_3_card
+          type: Card
+          blocks:
+            - id: example_3_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_3_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Lists
+                - id: example_3
+                  type: Markdown
+                  properties:
+                    content: |
+                      Unordered
+
+                      + Create a list by starting a line with `+`, `-`, or `*`
+                      + Sub-lists are made by indenting 2 spaces:
+                        - Marker character change forces new list start:
+                          * Rey
+                          + Poe
+                          - Finn
+
+                      Ordered
+
+                      1. Luke
+                      2. Leia
+                      3. Han
+
+
+                      1. You can use sequential numbers...
+                      1. ...or keep all the numbers as `1.`
+
+                      Start numbering with offset:
+
+                      57. Jar Jar
+                      1. C-3P0
+            - id: example_3_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_3_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_3
+                        type: Markdown
+                        properties:
+                          content: |
+                            Unordered
+
+                            + Create a list by starting a line with `+`, `-`, or `*`
+                            + Sub-lists are made by indenting 2 spaces:
+                              - Marker character change forces new list start:
+                                * Rey
+                                + Poe
+                                - Finn
+
+                            Ordered
+
+                            1. Luke
+                            2. Leia
+                            3. Han
+
+
+                            1. You can use sequential numbers...
+                            1. ...or keep all the numbers as `1.`
+
+                            Start numbering with offset:
+
+                            57. Jar Jar
+                            1. C-3P0
+                      ```
+        - id: example_4_card
+          type: Card
+          blocks:
+            - id: example_4_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_4_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Code
+                - id: example_4
+                  type: Markdown
+                  properties:
+                    content: |
+                      Inline `code`
+
+                      Indented code
+
+                          #  this counts all the numbers
+                          i = 1
+                          while True:
+                            print(i)
+                            i = i + 1
+
+
+                      Block code "fences"
+
+                      ```
+                      print("Hello World!")
+                      ```
+
+                      Syntax highlighting
+
+                      ``` js
+                      var foo = function (bar) {
+                        return bar++;
+                      };
+
+                      console.log(foo(5));
+                      ```
+            - id: example_4_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_4_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_4
+                        type: Markdown
+                        properties:
+                          content: |
+                            Inline `code`
+
+                            Indented code
+
+                                #  this counts all the numbers
+                                i = 1
+                                while True:
+                                  print(i)
+                                  i = i + 1
+
+
+                            Block code "fences"
+
+                            ```
+                            print("Hello World!")
+                            ```
+
+                            Syntax highlighting
+
+                            ``` js
+                            var foo = function (bar) {
+                              return bar++;
+                            };
+
+                            console.log(foo(5));
+                            ```
+                      ```
+        - id: example_5_card
+          type: Card
+          blocks:
+            - id: example_5_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_5_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Links and Images
+                - id: example_5
+                  type: Markdown
+                  properties:
+                    content: |
+                      [link text](https://www.lowdefy.com)
+
+                      [link with title](https://www.lowdefy.com "title text!")
+
+                      ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
+            - id: example_5_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_5_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_4
+                        type: Markdown
+                        properties:
+                          content: |
+                            [link text](https://www.lowdefy.com)
+
+                            [link with title](https://www.lowdefy.com "title text!")
+
+                            ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
+                      ```
+        - id: example_6_card
+          type: Card
+          blocks:
+            - id: example_6_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_6_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Tables
+                - id: example_6
+                  type: Markdown
+                  properties:
+                    content: |
+                      | Name | Race |
+                      | ------ | ----------- |
+                      | Gimli   | Dwarf |
+                      | Legolas | Elf |
+                      | Frodo    | Hobbit |
+
+                      Right aligned columns
+
+                      | Name | Race |
+                      | ------:| -----------:|
+                      | Gimli | Dwarf |
+                      | Legolas | Elf |
+                      | Frodo | Hobbit |
+            - id: example_6_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_6_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_4
+                        type: Markdown
+                        properties:
+                          content: |
+                            [link text](https://www.lowdefy.com)
+
+                            [link with title](https://www.lowdefy.com "title text!")
+
+                            ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
+                      ```
+        - id: example_7_card
+          type: Card
+          blocks:
+            - id: example_7_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_7_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Blockquotes
+                - id: example_7
+                  type: Markdown
+                  properties:
+                    content: |
+                      > Blockquotes can also be nested...
+                      >> ...by using additional greater-than signs right next to each other...
+                      > > > ...or with spaces between arrows.
+            - id: example_7_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_7_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_7
+                        type: Markdown
+                        properties:
+                          content: |
+                            > Blockquotes can also be nested...
+                            >> ...by using additional greater-than signs right next to each other...
+                            > > > ...or with spaces between arrows.
+                      ```
+        - id: example_8_card
+          type: Card
+          blocks:
+            - id: example_8_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_8_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Escaped HTML
+                - id: example_8
+                  type: Markdown
+                  properties:
+                    content: |
+                      <h2>Heading</h2>
+
+                      <p>Some text in a paragraph.</p>
+                      <p>Another paragraph with more text.</p>
+
+            - id: example_8_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_8_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_8
+                        type: Markdown
+                        properties:
+                          content: |
+                            <h2>Heading</h2>
+
+                            <p>Some text in a paragraph.</p>
+                            <p>Another paragraph with more text.</p>
+                      ```
+        - id: example_9_card
+          type: Card
+          blocks:
+            - id: example_9_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_9_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Render HTML
+                - id: example_9
+                  type: Markdown
+                  properties:
+                    renderHtml: true
+                    content: |
+                      <h2>Heading</h2>
+
+                      <p>Some text in a paragraph.</p>
+                      <p>Another paragraph with more text.</p>
+
+            - id: example_9_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_9_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_9
+                        type: Markdown
+                        properties:
+                          renderHtml: true
+                          content: |
+                            <h2>Heading</h2>
+
+                            <p>Some text in a paragraph.</p>
+                            <p>Another paragraph with more text.</p>
+                      ```

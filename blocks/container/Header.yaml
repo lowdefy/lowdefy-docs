@@ -1,0 +1,61 @@
+id: Header
+type: PageSiderMenu
+public: true
+properties:
+  title: Header
+actions:
+  onInit:
+    - id: init
+      type: setState()
+      params:
+        _ref: blocks/html_blocks.yaml
+blocks:
+  _ref:
+    path: blocks/flex_template.yaml
+    vars:
+      block_type: Header
+      block_name: Header
+      page_description: |
+        A header is a container that places sub-blocks into a html header with gird or flex display format settings. 
+
+        The default display is flex with row direction.
+
+        The grid area is defined with 12 explicit columns and implicit rows.
+
+      style_transform:
+        _parse:
+          _state: flex_style_input
+      style_form:
+        - id: flex_style_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: |
+            {
+              "Content": {
+                "--display": "flex"
+              } 
+            }
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      flex_properties_form:
+        - id: block.properties.theme
+          type: ButtonSelector
+          defaultValue: dark
+          style:
+            _global: settings_input_style
+          properties:
+            title: theme
+            size: small
+            Label:
+              extra: Color theme of the header
+            options:
+              - light
+              - dark
+      actions_description: | 
+        ###### No available actions.
+

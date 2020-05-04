@@ -1,0 +1,20 @@
+id: _user
+properties:
+  title: User
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: Use
+      description_content: |
+        The `_user` operator allows you to access attributes from the current user.
+
+        #### Parameters
+        `_user` takes one of two parameters, which each also has a short-hand method. The two parameters are:
+
+        - `all` : If set to `true` it returns all the attributes from the user.
+          - _Short-hand_ : Set `_user` directly to `true`.
+        - `key` : Returns the value of the attribute name specified.
+          - _Short-hand_ : Set `_user` directly to the attribute name.
+      
+      # examples:

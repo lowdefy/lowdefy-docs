@@ -1,0 +1,164 @@
+id: operators
+type: PageSiderMenu
+public: true
+properties:
+  title: Operators
+blocks:
+  - id: card
+    type: Card
+    blocks:
+      - id: markdown
+        type: Markdown
+        properties:
+          content: |
+            # Operators
+
+            Operators can be used to perform actions like get a value from `state` or the current user, define a date, test a condition, calculate a value, perform transformations on data or substitute values into a template.
+
+
+            Operators are inspired by the MongoDB Query Language (MQL). Operators are defined in `JSON/YAML` configuration as a object, with a single key which is the name of the operator, and parameters which are the value of the key. the names of operators start with a underscore.
+
+            Operators are evaluated from the most nested properties of the object (from the inside out). 
+
+            ### Examples
+
+            #### Get a Value From State
+
+            The `_state` operator gets a value from the page [`state`](state). 
+
+            This can be used to make a text box where the placeholder text is equal to the value of another text box.
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            {
+              "id": "page_1",
+              "type": "page",
+              "blocks": [
+                {
+                  "id": "block_1",
+                  "type": "TextInput"
+                },
+                {
+                  "id": "block_2",
+                  "type": "TextInput",
+                  "properties": {
+                    "placeholder": { "_state": "block_1" }
+                  }
+                }
+              ]
+            }
+            ```
+            <!--YAML-->
+            ```yaml
+            id: page_1
+            type: page
+            blocks:
+            - 
+              id: block_1
+              type: TextInput
+            - 
+              id: block_2
+              type: TextInput
+              properties:
+                placeholder:
+                  _state: block_1
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->
+
+            This can be also be used to execute a request that depends on user input.
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            {
+              "id": "page_1",
+              "type": "page",
+              "blocks": [
+                {
+                  "id": "select_value",
+                  "type": "select_input",
+                  "properties": {
+                    "options": [
+                      "A",
+                      "B"
+                    ]
+                  }
+                }
+              ],
+              "requests": [
+                {
+                  "id": "query_on_value",
+                  "type": "mongodb_query",
+                  "connectionId": "my_mongodb_collection",
+                  "watch": [
+                    "_state.filter.select_value"
+                  ],
+                  "properties": {
+                    "query": { "value": { "$eq": { "_state": "select_value" } } }
+                  }
+                }
+              ]
+            }
+            ```
+            <!--YAML-->
+            ```yaml
+            id: page_1
+            type: page
+            blocks:
+            - 
+              id: select_value
+              type: Selector
+              properties:
+                options:
+                - A
+                - B
+            requests:
+            - 
+              id: query_on_value
+              type: mongodb_query
+              connectionId: my_mongodb_collection
+              watch:
+                - _state.filter.select_value
+              properties:
+                query: { "value": { "$eq": { "_state": "select_value" } } }
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->
+
+
+            #### Dates
+
+            The `_date` operator can be used to create _Date_ objects. For example, the default value of a `date_input` block can be made the current date.
+            <!--DOCUSAURUS_CODE_TABS-->
+            <!--JSON-->
+            ```json5
+            {
+              "id": "select_date",
+              "type": "date_input",
+              "properties": {
+                "defaultValue": { "_date": "now" }
+              }
+            }
+            ```
+            <!--YAML-->
+            ```yaml
+            id: select_date
+            type: DateSelector
+            properties:
+              default:
+                _date: now
+            ```
+            <!--END_DOCUSAURUS_CODE_TABS-->
+
+
+            ### Defined Operators
+
+            - `_state`: Get a value from the page state.
+            - `_user`: Get a attribute from the current user.
+            - `_date`: Create a _Date_.
+            - `_mql_test`: Execute a MongoDB Query Language query test against the current page state. 
+            - `_mql_aggregate`: Execute a MongoDB Aggregation on a JSON Array.
+            - `_mql_expr`: Calculate a MongoDB Query Language expression, using the page state. 
+            - `_nunjucks`: Render a Nunjucks template.
+            - `_secret`: Retrieve a secret from the secret store (Only in connections).
+            - `_ref`: Reference another file in the project repository.
+            - `_var`: Use a variable defined in a file reference.
+            - `_request`: Call a request.

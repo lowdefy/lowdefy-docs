@@ -1,0 +1,179 @@
+- id: card_display
+  type: Card
+  blocks:
+    - id: title
+      type: Title
+      properties:
+        level: 2
+        content:
+          _var: block_name
+    - id: description
+      type: Markdown
+      properties:
+        content:
+          _var: description_content
+    - id: c1
+      type: Box
+      style:
+        --span: 6
+      blocks:
+        - id: block_divider
+          type: Divider
+          properties:
+            title: Block
+        - id: block_grid
+          type: Box
+          blocks:
+            - id: block_id
+              type:
+                _var: block_type
+              style:
+                _var: style_transform
+              visible:
+                _state: block.visible
+              required:
+                _state: block.required
+              properties:
+                _var: properties_transform
+        - id: state_divider
+          type: Divider
+          properties:
+            title: State
+          visible:
+            _eq:
+              - _var:
+                  kind
+              - input
+        - id: state_markdown
+          type: Markdown
+          visible:
+            _eq:
+              - _var:
+                  kind
+              - input
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {
+                    "block_id": {{ value | safe }}
+                  }
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      _state: block_id
+        - id: setup_divider
+          type: Divider
+          properties:
+            title: Block Setup
+        - id: setup_markdown
+          type: Markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```json
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _stringify:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      style:
+                        _var: style_transform
+                      visible:
+                        _state: block.visible
+                      properties:
+                        _state: block.properties
+    - id: settings_grid
+      type: Box
+      style:
+        --span: 6
+      blocks:
+        - id: settings_divider
+          type: Divider
+          properties:
+            title: Settings
+        - id: block_collapse
+          type: Collapse
+          properties:
+            defaultActiveKey: properties
+            panels:
+              - key: style
+                title: 'style:'
+              - key: properties
+                title: 'properties:'
+              - key: actions
+                title: 'actions:'
+              - key: required
+                title: 'required:'
+                disabled:
+                  _not:
+                    _eq:
+                      - _var: kind
+                      - input
+              - key: visible
+                title: 'visible:'
+          blocks:
+            style:
+              - id: style_form
+                type: Box
+                style:
+                  Content:
+                    --gap: 0
+                blocks:
+                  _var: style_form
+            visible:
+              - id: block.visible
+                type: Switch
+                defaultValue: true
+                properties:
+                  title: visible
+                  Label:
+                    extra: Toggle if block is visible and has a value in state.
+                    inline: true
+                  size: small
+            required:
+              - id: block.required
+                type: Switch
+                defaultValue: false
+                properties:
+                  title: required
+                  Label:
+                    extra: Toggle if the field is indicated as compulsory and required when the validate() action is called.
+                    inline: true
+                  size: small
+            
+            properties:
+              - id: properties_form
+                type: Box
+                style:
+                  Content:
+                    --gap: 0
+                blocks:
+                  _var: properties_form
+              - id: label_form
+                type: Box
+                visible:
+                  _var: label
+                blocks:
+                  _ref: blocks/label.yaml
+            actions:
+              - id: available_actions_description
+                type: Markdown
+                properties:
+                  content:
+                    _var: available_actions_description
+          
+    - id: examples_divider
+      type: Divider
+      properties:
+        title: Examples
+    - id: examples_grid
+      type: Box
+      blocks:
+        _var: examples

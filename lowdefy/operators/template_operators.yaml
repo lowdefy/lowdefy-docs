@@ -1,0 +1,22 @@
+- id: card_display
+  type: card
+  blocks:
+    - id: title
+      type: title
+      properties:
+        level: 2
+        content:
+          _var: operator_name
+    - id: description
+      type: markdown
+      properties:
+        content:
+          _var: description_content
+          
+    - id: examples_card
+      type: card
+      properties:
+        title: Examples
+        size: small
+      blocks:
+        _var: examples

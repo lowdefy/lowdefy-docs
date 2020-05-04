@@ -1,0 +1,359 @@
+id: DateTimeSelector
+type: PageSiderMenu
+public: true
+properties:
+  title: Date Time
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Date Time Input
+      description_content: |
+        Date and time picker input block. Allows a user to select a single date and time from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+
+        >Other date type blocks are date_input, week_input, month_input and date_range_input.
+      block_type: DateTimeSelector
+      label: true
+      kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+                    IconSuffix:
+                      _parse:
+                        _state: style_suffix_icon_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_suffix_icon_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: IconSuffix
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.title
+          type: TextInput
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.allowClear
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: allowClear
+            size: small
+            Label:
+              extra: Allow the user to clear their input.
+        - id: block.properties.autoFocus
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: autoFocus
+            size: small
+            Label:
+              extra: Autofocus to the block on page load.
+        - id: block.properties.disabled
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: disabled
+            size: small
+            Label:
+              extra: Disable the block if true.
+        - id: block.properties.format
+          type: TextInput
+          defaultValue: YYYY-MM-DD HH:mm
+          style:
+            _global: settings_input_style
+          properties:
+            title: format
+            size: small
+            Label:
+              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+        - id: block.properties.hourStep
+          type: NumberInput
+          defaultValue: 1
+          style:
+            _global: settings_input_style
+          properties:
+            title: hourStep
+            size: small
+            Label:
+              extra: Hour intervals to show in the time selector.
+        - id: block.properties.minuteStep
+          type: NumberInput
+          defaultValue: 5
+          style:
+            _global: settings_input_style
+          properties:
+            title: minuteStep
+            size: small
+            Label:
+              extra: Minute intervals to show in the time selector.
+        - id: block.properties.placeholder
+          type: TextInput
+          defaultValue: Select Date & Time
+          style:
+            _global: settings_input_style
+          properties:
+            title: placeholder
+            size: small
+            Label:
+              extra: Placeholder text inside the block before user selects input.
+        - id: block.properties.secondStep
+          type: NumberInput
+          defaultValue: 30
+          style:
+            _global: settings_input_style
+          properties:
+            title: secondStep
+            size: small
+            Label:
+              extra: Second intervals to show in the time selector.
+        - id: block.properties.selectGMT
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: selectGMT
+            size: small
+            Label:
+              extra: Shows the user's selection as GMT time, not time-zone based.
+        - id: block.properties.showToday
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: showToday
+            size: small
+            Label:
+              extra: Shows a button to easily select the current date if true.
+        - id: block.properties.size
+          type: ButtonSelector
+          defaultValue: default
+          style:
+            _global: settings_input_style
+          properties:
+            title: size
+            size: small
+            Label:
+              extra: Size of the block.
+            options:
+              - small
+              - default
+              - large
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconSuffix
+              icon_field_name: IconSuffix
+              default_icon: CalendarOutlined
+              icon_description: Icon on right-hand side of the date-time input.
+
+        - id: block.properties.timeFormat
+          type: TextInput
+          defaultValue: HH:mm
+          style:
+            _global: settings_input_style
+          properties:
+            title: timeFormat
+            size: small
+            Label:
+              extra: Time format to show in the time selector. HH:mm:ss will show hours, minutes and seconds, HH:mm only hours and minutes and HH only hours.
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: DateTimeSelector
+              style:
+                --span: 6
+              properties:
+                title: Date Time input
+            - id: example_1_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "date_time_input",
+                    "properties": {
+                      "title": "Date Time input"
+                    }
+                  }
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2
+              type: DateTimeSelector
+              style:
+                --span: 6
+              properties:
+                title: showToday and IconSuffix
+                showToday: false
+                IconSuffix: ClockCircleOutlined
+                Label:
+                  extra: Disable now button and change the suffix icon.
+            - id: example_2_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "date_time_input",
+                    "properties": {
+                      "title": "showToday and IconSuffix",
+                      "showToday": false,
+                      "IconSuffix": "ClockCircleOutlined",
+                      "Label": {
+                        "extra": "Disable now button and change the suffix icon"
+                      }
+                    }
+                  }
+        - id: example_3_card
+          type: Card
+          blocks:
+            - id: example_3
+              type: DateTimeSelector
+              style:
+                --span: 6
+              defaultValue:
+                _date: 1993-02-02T06:00:00
+              properties:
+                title: Date format
+                format: HH:mm | D MMMM YYYY
+                Label:
+                  extra: Default date and custom date format.
+            - id: example_3_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "date_time_input",
+                    "defaultValue": { 
+                      "_date": "1993-02-02T06:00:00" 
+                    },
+                    "properties": {
+                      "title": "Date format",
+                      "format": "HH:mm | D MMMM YYYY",
+                      "Label": {
+                        "extra": "Default date and custom date format."
+                      }
+                    }
+                  }
+        - id: example_4_card
+          type: Card
+          blocks:
+            - id: example_4
+              type: DateTimeSelector
+              style:
+                --span: 6
+              properties:
+                title: Time steps
+                hourStep: 2
+                minuteStep: 10
+                secondStep: 15
+                timeFormat: HH:mm:ss
+                Label:
+                  extra: Change the time step intervals.
+            - id: example_4_code
+              type: Markdown
+              style:
+                block:
+                  --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_4",
+                    "type": "date_time_input",
+                    "properties": {
+                      "title": "Time steps",
+                      "hourStep": 2,
+                      "minuteStep": 10,
+                      "secondStep": 15,
+                      "timeFormat": "HH:mm:ss",
+                      "Label": {
+                        "extra": "Change the time step intervals."
+                      }
+                    }
+                  }

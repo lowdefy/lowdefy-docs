@@ -1,0 +1,148 @@
+id: ColorSelector
+type: PageSiderMenu
+public: true
+properties:
+  title: Color Picker
+actions:
+  onInit:
+    - id: initialize_state 
+      type: setState()
+      params:
+        block:
+          properties:
+            colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Color Picker Input
+      description_content: |
+        Color picker input block. Allows a user to select a color as a hex string. Different types of pickers are available.
+      block_type: ColorSelector
+      label: true
+      kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.title
+          type: TextInput
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.circleSize
+          type: NumberInput
+          defaultValue: 28
+          style:
+            _global: settings_input_style
+          properties:
+            title: circleSize
+            size: small
+            Label:
+              extra: Pixel value for circle size, only available for type circle.
+        - id: block.properties.circleSpacing
+          type: NumberInput
+          defaultValue: 14
+          style:
+            _global: settings_input_style
+          properties:
+            title: circleSpacing
+            size: small
+            Label:
+              extra: Pixel value for spacing between circles, only available for type circle.
+        - id: block.properties.colors
+          type: List
+          properties:
+            title: 'colors:'
+            size: small         
+          blocks:
+            - id: block.properties.colors.$
+              type: TextInput
+              defaultValue: '#000000'
+              properties:
+                Label:
+                  disable: true
+        - id: block.properties.type
+          type: ButtonSelector
+          defaultValue: circle
+          style:
+            _global: settings_input_style
+          properties:
+            title: type
+            size: small
+            Label:
+              extra: Type of picker.
+            options:
+              - block
+              - chrome
+              - circle
+              - twitter
+        - id: block.properties.width
+          type: TextInput
+          defaultValue: 100%
+          style:
+            _global: settings_input_style
+          properties:
+            title: width
+            size: small
+            Label:
+              extra: Pixel value for picker width.
+      available_actions_description: |
+        ###### onChangeComplete
+        Triggered when value is changed. Only fires once drag action has been completed.
+
+      examples:

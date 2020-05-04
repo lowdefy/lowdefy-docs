@@ -1,0 +1,127 @@
+id: Avatar
+type: PageSiderMenu
+public: true
+properties:
+  title: Avatar
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Avatar
+      description_content: |
+        Avatars can be used to represent people or objects. It supports images, Icons, or letters.
+      block_type: Avatar
+      label: false
+      kind: display
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Icon:
+                      _parse:
+                        _state: style_icon_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_icon_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Icon
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.alt
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: alt
+            size: small
+            Label:
+              extra: This attribute defines the alternative text describing the image.
+        - id: block.properties.color
+          type: ColorSelector
+          style:
+            _global: settings_input_style
+          properties:
+            title: color
+            size: small
+            Label:
+              extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
+        - id: block.properties.content
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: content
+            size: small
+            Label:
+              extra: Text to display inside avatar.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
+              icon_description: Icon to be used in avatar.
+        - id: block.properties.shape
+          type: ButtonSelector
+          defaultValue: circle
+          style:
+            _global: settings_input_style
+          properties:
+            title: shape
+            size: small
+            Label:
+              extra: Shape of the avatar.
+            options:
+              - circle
+              - square
+        - id: block.properties.size
+          type: ButtonSelector
+          defaultValue: default
+          style:
+            _global: settings_input_style
+          properties:
+            title: size
+            size: small
+            Label:
+              extra: Size of the avatar.
+            options:
+              - default
+              - small
+              - large
+        - id: block.properties.src
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: src
+            size: small
+            Label:
+              extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
+
+      available_actions_description: |
+        ###### No available actions.
+

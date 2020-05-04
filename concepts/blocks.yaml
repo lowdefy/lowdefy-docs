@@ -1,0 +1,14 @@
+id: blocks
+type: PageSiderMenu
+public: true
+properties:
+  title: Blocks
+blocks:
+  - id: card
+    type: Card
+    blocks:
+      - id: markdown
+        type: Markdown
+        properties:
+          content: |
+            # Blocks

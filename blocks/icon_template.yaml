@@ -1,0 +1,24 @@
+id: 
+  _var: icon_id
+type: Selector
+style:
+  _global: settings_input_style
+defaultValue: 
+  _var: default_icon
+properties:
+  title:
+    _var: icon_field_name
+  size: small
+  showSearch: true
+  allowClear: true
+  options:
+    _global: all_icons
+  Label:
+    extra:
+      _if:
+        test: 
+          _not: 
+            _var: icon_description
+        then: Name of icon to be displayed.
+        else: 
+          _var: icon_description

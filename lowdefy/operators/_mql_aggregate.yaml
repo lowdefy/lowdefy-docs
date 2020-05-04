@@ -1,0 +1,19 @@
+id: _mql_aggregate
+properties:
+  title: MQL Aggregate
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: MQL Aggregate
+      description_content: |
+        The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on a JSON array or object and returns the results of the aggregation pipeline as an array.
+
+        #### Parameters
+        `_mql_aggregate` takes two parameters:
+
+        - `on` : The array or JSON object on which the aggregation will be run.
+        - `pipeline` : The [MongoDB Aggregation](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/) pipeline.
+      
+      # examples:
+ 

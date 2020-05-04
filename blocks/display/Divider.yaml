@@ -1,0 +1,83 @@
+id: Divider
+type: PageSiderMenu
+public: true
+properties:
+  title: Divider
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Divider
+      description_content: |
+        A divider line. Can be used horizontally or vertically.
+      block_type: Divider
+      label: false
+      kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.dashed
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: dashed
+            size: small
+            Label:
+              extra: Whether line is dashed.
+        - id: block.properties.orientation
+          type: ButtonSelector
+          defaultValue: center
+          style:
+            _global: settings_input_style
+          properties:
+            title: orientation
+            size: small
+            Label:
+              extra: Position of title inside divider.
+            options:
+              - center
+              - left
+              - right
+        - id: block.properties.title
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Divider title.
+        - id: block.properties.type
+          type: ButtonSelector
+          defaultValue: horizontal
+          style:
+            _global: settings_input_style
+          properties:
+            title: type
+            size: small
+            Label:
+              extra: Direction type of divider.
+            options:
+              - horizontal
+              - vertical
+
+      available_actions_description: |
+        ###### No available actions.
+

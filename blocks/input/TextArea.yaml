@@ -1,0 +1,299 @@
+id: TextArea
+type: PageSiderMenu
+public: true
+properties:
+  title: Text Area
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Text Area Input
+      description_content: |
+        Text area input block. The input to this field is saved in `state`, at the path name of the block.
+      block_type: TextArea
+      label: true
+      kind: input
+      style_transform:
+        _get:
+          key: "0"
+          on:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Label: 
+                      _parse:
+                        _state: style_label_input
+                    Input:
+                      _parse:
+                        _state: style_input_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_label_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Label
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.title
+          type: TextInput
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.allowClear
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: allowClear
+            size: small
+            Label:
+              extra: Allow the user to clear their input.
+        - id: block.properties.autoFocus
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: autoFocus
+            size: small
+            Label:
+              extra: Autofocus to the block on page load.
+        - id: select_autoSize_type_card
+          type: Card
+          blocks:
+            - id: select_autoSize_type
+              type: ButtonSelector
+              defaultValue: Boolean
+              properties:
+                title: autoSize Type
+                size: small
+                Label:
+                  extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
+                options:
+                  - Boolean
+                  - Object
+        - id: block.properties.autoSize
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          visible:
+            _mql_test:
+              select_autoSize_type: Boolean
+          properties:
+            title: autoSize
+            size: small
+            Label:
+              extra: Automatically extend the block number of rows.
+        - id: block.properties.autoSize.minRows
+          type: NumberInput
+          style:
+            Label:
+              --span: 4
+          visible:
+            _mql_test:
+              select_autoSize_type: Object
+          properties:
+            title: autoSize.minRows
+            size: small
+            Label:
+              extra: Minimum number of rows the block can be.
+        - id: block.properties.autoSize.maxRows
+          type: NumberInput
+          style:
+            Label:
+              --span: 4
+          visible:
+            _mql_test:
+              select_autoSize_type: Object
+          properties:
+            title: autoSize.maxRows
+            size: small
+            Label:
+              extra: Maximum number of rows the block can be.
+        - id: block.properties.disabled
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: disabled
+            size: small
+            Label:
+              extra: Disable the block if true.
+        - id: block.properties.placeholder
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: placeholder
+            size: small
+            Label:
+              extra: Placeholder text inside the block before user types input.
+        - id: block.properties.rows
+          type: NumberInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: rows
+            size: small
+            Label:
+              extra: Number of rows of text area.
+
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+        ##### onPressEnter
+        Triggered when enter is pressed while block is focused.
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: TextArea
+              style:
+                --span: 6
+              properties:
+                title: Text Area input
+            - id: example_1_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_1",
+                    "type": "text_area_input",
+                    "properties": {
+                      "title": "Text Area input"
+                    }
+                  }
+                  ```
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2
+              type: TextArea
+              style:
+                --span: 6
+              properties:
+                placeholder: Placeholder
+            - id: example_2_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_2",
+                    "type": "text_area_input",
+                    "properties": {
+                      "placeholder": "Placeholder"
+                    }
+                  }
+        - id: example_3_card
+          type: Card
+          blocks:
+            - id: example_3
+              type: TextArea
+              style:
+                --span: 6
+              properties:
+                title: Rows
+                rows: 3
+                Label:
+                  extra: Define fixed number of rows for text area.
+            - id: example_3_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_3",
+                    "type": "text_area_input",
+                    "properties": {
+                      "title": "Rows",
+                      "rows": 5,
+                      "label": {
+                        "extra": "Define fixed number of rows for text area."
+                      },
+                    }
+                  }
+        - id: example_4_card
+          type: Card
+          blocks:
+            - id: example_4
+              type: TextArea
+              style:
+                --span: 6
+              properties:
+                title: Auto Rows
+                Label:
+                  extra: Automatically adjust text area size based on content.
+                autoSize:
+                  minRows: 3
+                  maxRows: 6
+            - id: example_4_code
+              type: Markdown
+              style:
+                  -span: 6
+              properties:
+                content: |
+                  ```json
+                  {
+                    "id": "example_4",
+                    "type": "text_area_input",
+                    "properties": {
+                      "title": Auto "Rows",
+                      "label": {
+                        "extra": "Automatically adjust text area size based on content."
+                      },
+                      "autoSize": {
+                        "minRows": 3,
+                        "maxRows": 6
+                      }
+                    }
+                  }
