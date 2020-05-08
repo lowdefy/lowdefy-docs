@@ -39,15 +39,15 @@ actions:
             - C
 blocks:
   - id: card_display
-    type: card
+    type: Card
     blocks:
       - id: title
-        type: title
+        type: Title
         properties:
           level: 2
           content: Get Operator
       - id: description
-        type: markdown
+        type: Markdown
         properties:
           content: |
             The `_get` operator allows you to access a specific field in an object or an index in an array.
@@ -59,23 +59,23 @@ blocks:
             - `key` : The field within the object or index of the array specified in `on` from which to retrieve a value. The `key` should be a string, even if it is the index of an array, eg. index key '0' instead of 0.
 
       - id: title_playground
-        type: divider
+        type: Divider
         properties:
           title: Playground
       - id: box_state
-        type: box
+        type: Box
         style:
           --span: 4
         blocks:
           - id: title_state
-            type: divider
+            type: Divider
             properties:
               title: State
           # - id: card_state
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: state
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _nunjucks:
@@ -88,16 +88,16 @@ blocks:
                       _stringify:
                         _state: true
       - id: box_operator
-        type: box
+        type: Box
         style:
           --span: 4
         blocks:
           - id: title_operator
-            type: divider
+            type: Divider
             properties:
               title: Operator
           # - id: card_operator
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: operator
             type: text_area_input
@@ -136,19 +136,19 @@ blocks:
               Label:
                 colon: true
       # - id: box_setup
-      #   type: box
+      #   type: Box
       #   style:
       #     --span: 4
       #   blocks:
           - id: title_setup
-            type: divider
+            type: Divider
             properties:
               title: Operator Setup
           # - id: card_setup
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: setup
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _nunjucks:
@@ -164,19 +164,19 @@ blocks:
                         _parse:
                           _state: operator
       - id: box_output
-        type: box
+        type: Box
         style:
           --span: 4
         blocks:
           - id: title_output
-            type: divider
+            type: Divider
             properties:
               title: Output
           # - id: card_output
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: output
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _nunjucks:
@@ -207,19 +207,19 @@ blocks:
                             _state: operator
 
       - id: title_examples
-        type: divider
+        type: Divider
         properties:
           title: Examples
       - id: example_1_card
-        type: card
+        type: Card
         blocks:
           - id: example_1_description
-            type: markdown
+            type: Markdown
             properties:
               content: |
                 Use _get to access object keys in state.
           - id: example_1_block_box
-            type: box
+            type: Box
             style:
               --span: 6
             blocks:
@@ -246,12 +246,12 @@ blocks:
                       on:
                         _state: object
           - id: example_1_code_box
-            type: box
+            type: Box
             style:
               --span: 6
             blocks:
               - id: example_1_code
-                type: markdown
+                type: Markdown
                 properties:
                   content: |
                     ```json
@@ -291,15 +291,15 @@ blocks:
                     }
                     ```
       - id: example_2_card
-        type: card
+        type: Card
         blocks:
           - id: example_2_description
-            type: markdown
+            type: Markdown
             properties:
               content: |
                 Use _get to access array indexes in state.
           - id: example_2_block_box
-            type: box
+            type: Box
             style:
               --span: 6
             blocks:
@@ -324,12 +324,12 @@ blocks:
                       on:
                         _state: array_object
           - id: example_2_code_box
-            type: box
+            type: Box
             style:
               --span: 6
             blocks:
               - id: example_2_code
-                type: markdown
+                type: Markdown
                 properties:
                   content: |
                     ```json

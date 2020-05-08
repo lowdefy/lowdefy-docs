@@ -5,15 +5,15 @@ properties:
   title: Date Operator
 blocks:
   - id: card_display
-    type: card
+    type: Card
     blocks:
       - id: title
-        type: title
+        type: Title
         properties:
           level: 2
           content: Date Operator
       - id: description
-        type: markdown
+        type: Markdown
         properties:
           content: |
             The `_date` operator can be used to create _Date_ objects.
@@ -22,20 +22,20 @@ blocks:
             Create a date object by setting `_date` equal to a [JavaScript parsable date string](https://momentjs.com/docs/#/parsing/string/) or the string `'now'` - which references the current date and time.
 
       - id: title_playground
-        type: divider
+        type: Divider
         properties:
           title: Playground
       - id: box_operator
-        type: box
+        type: Box
         style:
           --span: 4
         blocks:
           - id: title_operator
-            type: divider
+            type: Divider
             properties:
               title: Operator
           # - id: card_operator
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: operator
             type: text_area_input
@@ -53,19 +53,19 @@ blocks:
               Label:
                 colon: true
       - id: box_setup
-        type: box
+        type: Box
         style:
           --span: 4
         blocks:
           - id: title_setup
-            type: divider
+            type: Divider
             properties:
               title: Operator Setup
           # - id: card_setup
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: setup
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _nunjucks:
@@ -81,19 +81,19 @@ blocks:
                         _parse:
                           _state: operator
       - id: box_output
-        type: box
+        type: Box
         style:
           --span: 4
         blocks:
           - id: title_output
-            type: divider
+            type: Divider
             properties:
               title: Output
           # - id: card_output
-          #   type: card
+          #   type: Card
           #   blocks:
           - id: output
-            type: markdown
+            type: Markdown
             properties:
               content:
                 _nunjucks:
@@ -108,19 +108,19 @@ blocks:
                           _parse:
                             _state: operator
       # - id: box_state
-      #   type: box
+      #   type: Box
       #   style:
       #     --span: 4
       #   blocks:
       #     - id: title_state
-      #       type: divider
+      #       type: Divider
       #       properties:
       #         title: State
       #     # - id: card_state
-      #     #   type: card
+      #     #   type: Card
       #     #   blocks:
       #     - id: state
-      #       type: markdown
+      #       type: Markdown
       #       properties:
       #         content:
       #           _nunjucks:
@@ -134,24 +134,24 @@ blocks:
       #                   _state: true
 
       - id: title_examples
-        type: divider
+        type: Divider
         properties:
           title: Examples
       - id: example_1_card
-        type: card
+        type: Card
         blocks:
           - id: example_1_description
-            type: markdown
+            type: Markdown
             properties:
               content: |
                 The first date block uses a default value created from the string "2020-01-01" and the second references the current date and time using "now".
           - id: example_1_block_box
-            type: box
+            type: Box
             style:
               --span: 6
             blocks:
               - id: date_1
-                type: date_input
+                type: DateSelector
                 defaultValue:
                   _date: '2020-01-01'
                 properties:
@@ -159,7 +159,7 @@ blocks:
                   Label:
                     extra: Date string
               - id: date_2
-                type: date_time_input
+                type: DateTimeSelector
                 defaultValue:
                   _date: now
                 properties:
@@ -167,12 +167,12 @@ blocks:
                   Label:
                     extra: Current date and time
           - id: example_1_code_box
-            type: box
+            type: Box
             style:
               --span: 6
             blocks:
               - id: example_1_code
-                type: markdown
+                type: Markdown
                 properties:
                   content: |
                     ```json
@@ -180,12 +180,12 @@ blocks:
                       "blocks": [
                         {
                           "id": "date_1",
-                          "type": "date_input",
+                          "type": "DateSelector",
                           "defaultValue": { "_date": "2020-01-01" }
                         },
                         {
                           "id": "date_2",
-                          "type": "date_time_input",
+                          "type": "DateTimeSelector",
                           "defaultValue": { "_date": "now" }
                         }
                       ]
