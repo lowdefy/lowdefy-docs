@@ -1,5 +1,5 @@
 id: _date
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Date Operator
@@ -38,7 +38,7 @@ blocks:
           #   type: Card
           #   blocks:
           - id: operator
-            type: text_area_input
+            type: TextArea
             style:
               --span: 11
               sm:

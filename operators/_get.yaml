@@ -1,5 +1,5 @@
 id: _get
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: Get
@@ -100,7 +100,7 @@ blocks:
           #   type: Card
           #   blocks:
           - id: operator
-            type: text_area_input
+            type: TextArea
             style:
               --span: 11
               sm:
@@ -131,7 +131,7 @@ blocks:
               }
             properties:
               title: _get
-              autoRows:
+              autoSize:
                 minRows: 10
               Label:
                 colon: true
@@ -224,7 +224,7 @@ blocks:
               --span: 6
             blocks:
               - id: block_1
-                type: text_input
+                type: TextInput
                 properties:
                   title: Block 1
                   label:
@@ -235,7 +235,7 @@ blocks:
                       on:
                         _state: true
               - id: block_2
-                type: radio_input
+                type: RadioSelector
                 properties:
                   title: Block 2
                   label:
@@ -259,7 +259,7 @@ blocks:
                       "blocks": [
                         {
                           "id": "block_1",
-                          "type": "text_input",
+                          "type": "TextInput",
                           "properties":{
                             "title": "Block 1",
                             "placeholder": {
@@ -274,7 +274,7 @@ blocks:
                         },
                         {
                           "id": "block_2",
-                          "type": "radio_input",
+                          "type": "RadioSelector",
                           "properties": {
                             "title": "Block 2",
                             "options": {
@@ -304,7 +304,7 @@ blocks:
               --span: 6
             blocks:
               - id: block_3
-                type: number_input
+                type: NumberInput
                 properties:
                   title: Block 3
                   placeholder:
@@ -315,7 +315,7 @@ blocks:
                   label:
                     extra: Use _get to set a defaultValue from an array.
               - id: block_4
-                type: text_input
+                type: TextInput
                 properties:
                   title: Block 4
                   placeholder:
@@ -337,7 +337,7 @@ blocks:
                       "blocks": [
                         {
                           "id": "block_3",
-                          "type": "number_input",
+                          "type": "NumberInput",
                           "properties":{
                             "title": "Block 3",
                             "placeholder": {
@@ -352,7 +352,7 @@ blocks:
                         },
                         {
                           "id": "block_4",
-                          "type": "text_input",
+                          "type": "TextInput",
                           "properties": {
                             "title": "Block 4",
                             "placeholder": {

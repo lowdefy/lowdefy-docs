@@ -1,5 +1,5 @@
 id: _state
-type: page_sider_menu
+type: PageSiderMenu
 public: true
 properties:
   title: State Operator
@@ -92,7 +92,7 @@ blocks:
           #   type: Card
           #   blocks:
           - id: operator
-            type: text_area_input
+            type: TextArea
             style:
               --span: 11
               sm:
@@ -105,7 +105,7 @@ blocks:
               }
             properties:
               title: _state
-              autoRows: 
+              autoSize: 
                 minRows: 6
               Label:
                 colon: true
@@ -204,14 +204,14 @@ blocks:
               --span: 6
             blocks:
               - id: block_1
-                type: switch_input
+                type: Switch
                 defaultValue: true
                 properties:
                   title: Block 1
                   Label:
                     extra: Control Blocks 2 and 3's visibility.
               - id: block_2
-                type: text_input
+                type: TextInput
                 defaultValue: Block 2 Value
                 visible:
                   _state: block_1
@@ -220,7 +220,7 @@ blocks:
                   Label:
                     extra: Control Blocks 3 and 4's placeholder. Visible using _state's short-hand key method.
               - id: block_3
-                type: text_input
+                type: TextInput
                 visible:
                   _state: 
                     key: block_1
@@ -232,7 +232,7 @@ blocks:
                   Label:
                     extra: Use _state's key parameter.
               - id: block_4
-                type: text_input
+                type: TextInput
                 properties:
                   title: Block 4
                   placeholder:
@@ -255,18 +255,18 @@ blocks:
                       "blocks": [
                         {
                           "id": "block_1",
-                          "type": "switch_input"
+                          "type": "Switch"
                         },
                         {
                           "id": "block_2",
-                          "type": "text_input",
+                          "type": "TextInput",
                           "visible": {
                             "_state": "block_1"
                           }
                         },
                         {
                           "id": "block_3",
-                          "type": "text_input",
+                          "type": "TextInput",
                           "visible": {
                             "_state": {
                               "key": "block_1"
@@ -282,7 +282,7 @@ blocks:
                         },
                         {
                           "id": "block_4",
-                          "type": "text_input",
+                          "type": "TextInput",
                           "properties": {
                             "placeholder": { 
                               "_state": "block_2" 
