@@ -27,6 +27,18 @@
       style:
         --span: 12
       blocks:
+        - id: block_name_button
+          type: Button
+          properties:
+            title: Open Modal
+          actions:
+            onClick:
+              - id: click_method
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method:  
+                    _var: popup_method
         - id: block_name
           type:
             _var: block_type
@@ -37,66 +49,61 @@
           properties:
             _state: block.properties
           blocks:
-            - id: subblock_1
-              type: Button
+            - id: grid_1
+              type: Html
               properties:
-                block: true
-                title: "1"
+                html: '<div>ONE</div>'
               visible:
-                _state: visible_subblock_1
+                _state: grid_blocks.0.visible
               style:
-                --span:
-                  _state: span_subblock_1
-            - id: subblock_2
-              type: Button
+                _parse:
+                  _state: grid_blocks.0.style
+            - id: grid_2
+              type: Html
               properties:
-                block: true
-                title: "2"
+                html: '<div>TWO</div>'
               visible:
-                _state: visible_subblock_2
+                _state: grid_blocks.1.visible
               style:
-                --span:
-                  _state: span_subblock_2
-            - id: subblock_3
-              type: Button
+                _parse:
+                  _state: grid_blocks.1.style
+            - id: grid_3
+              type: Html
               properties:
-                block: true
-                title: "3"
+                html: '<div>THREE</div>'
               visible:
-                _state: visible_subblock_3
+                _state: grid_blocks.2.visible
               style:
-                --span:
-                  _state: span_subblock_3
-            - id: subblock_4
-              type: Button
+                _parse:
+                  _state: grid_blocks.2.style
+            - id: grid_4
+              type: Html
               properties:
-                block: true
-                title: "4"
+                html: '<div>FOUR</div>'
               visible:
-                _state: visible_subblock_4
+                _state: grid_blocks.3.visible
               style:
-                --span:
-                  _state: span_subblock_4
-            - id: subblock_5
-              type: Button
+                _parse:
+                  _state: grid_blocks.3.style
+            - id: grid_5
+              type: Html
               properties:
-                block: true
-                title: "5"
+                html: '<div>FIVE</div>'
               visible:
-                _state: visible_subblock_5
+                _state: grid_blocks.4.visible
               style:
-                --span:
-                  _state: span_subblock_5
-            - id: subblock_6
-              type: Button
+                _parse:
+                  _state: grid_blocks.4.style
+            - id: grid_6
+              type: Html
               properties:
-                block: true
-                title: "6"
+                html: '<div>SIX</div>'
               visible:
-                _state: visible_subblock_6
+                _state: grid_blocks.5.visible
               style:
-                --span:
-                  _state: span_subblock_6
+                _parse:
+                  _state: grid_blocks.5.style
+
     - id: state_divider
       type: Divider
       visible:
@@ -182,6 +189,8 @@
             title: 'properties:'
           - key: actions
             title: 'actions:'
+          - key: blocks
+            title: 'blocks:'
           - key: methods
             title: 'methods:'
           - key: visible
@@ -234,98 +243,50 @@
                 --gap: 0
             blocks:
               _var: methods_form
+        blocks:
+          - id: grid_blocks
+            type: List
+            style:
+              Content:
+                --display: flex
+            properties:
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: grid_blocks.$.gd
+                type: Box
+                style:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: grid_blocks.$.name
+                    type: Markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### {{ name }}'
+                          on:
+                            _state: grid_blocks.$
+                  - id: grid_blocks.$.visible
+                    type: Switch
+                    style:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: grid_blocks.$.style
+                type: TextArea
+                style:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: style
+                  size: small
+                  rows: 3
 
-- id: subblocks_card
-  type: Card
-  properties:
-    size: small
-    title: Sub-blocks
-  blocks:
-    - id: span_subblock_1
-      type: NumberInput
-      style:
-        --span: 2
-      properties:
-        title: Block 1 Span
-        size: small
-    - id: visible_subblock_1
-      type: Switch
-      style:
-        --span: 2
-      properties:
-        title: Block 1 Visible
-        size: small
-    - id: span_subblock_2
-      type: NumberInput
-      style:
-        --span: 2
-      properties:
-        title: Block 2 Span
-        size: small
-    - id: visible_subblock_2
-      type: Switch
-      style:
-        --span: 2
-      properties:
-        title: Block 2 Visible
-        size: small
-    - id: span_subblock_3
-      type: NumberInput
-      style:
-        --span: 2
-      properties:
-        size: small
-        title: Block 3 Span
-    - id: visible_subblock_3
-      type: Switch
-      style:
-        --span: 2
-      properties:
-        title: Block 3 Visible
-        size: small
-    - id: span_subblock_4
-      type: NumberInput
-      style:
-        --span: 2
-      properties:
-        title: Block 4 Span
-        size: small
-    - id: visible_subblock_4
-      type: Switch
-      style:
-        --span: 2
-      properties:
-        title: Block 4 Visible
-        size: small
-    - id: span_subblock_5
-      type: NumberInput
-      style:
-        --span: 2
-      properties:
-        title: Block 5 Span
-        size: small
-    - id: visible_subblock_5
-      type: Switch
-      style:
-        --span: 2
-      properties:
-        title: Block 5 Visible
-        size: small
-    - id: span_subblock_6
-      type: NumberInput
-      style:
-        --span: 2
-      properties:
-        title: Block 6 Span
-        size: small
-    - id: visible_subblock_6
-      type: Switch
-      style:
-        --span: 2
-      properties:
-        size: small
-        title: Block 6 Visible
-        
 - id: examples_divider
   type: Divider
   properties:

@@ -97,6 +97,6 @@ blocks:
               extra: Primary two-tone color, only supported with two-tone theme.
 
       available_actions_description: |
-         ###### onClick
-         Called when the icon is clicked
+        ###### onClick
+        Called when the icon is clicked
 

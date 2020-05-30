@@ -1,0 +1,210 @@
+id: Progress
+type: PageSiderMenu
+public: true
+properties:
+  title: Progress
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Progress
+      description_content: |
+        Display the current progress as a percentage of completion. 
+      block_type: Progress
+      label: false
+      kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.type
+          type: ButtonSelector
+          defaultValue: line
+          style:
+            _global: settings_input_style
+          properties:
+            title: type
+            size: small
+            options: 
+              - line
+              - circle
+              - dashboard
+            Label:
+              extra: Set type of progress display.
+        - id: block.properties.showInfo
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: showInfo
+            size: small
+            Label:
+              extra: Whether to display the progress value and the status icon.
+        - id: block.properties.percent
+          type: NumberInput
+          defaultValue: 0
+          style:
+            _global: settings_input_style
+          properties:
+            title: percent
+            size: small
+            Label:
+              extra: Set the completion percentage.
+        - id: block.properties.status
+          type: ButtonSelector
+          defaultValue: normal
+          style:
+            _global: settings_input_style
+          properties:
+            title: status
+            size: small
+            options: 
+              - success
+              - exception
+              - normal
+              - active
+            Label:
+              extra: Set the status of the Progress.
+        - id: block.properties.strokeLinecap
+          type: ButtonSelector
+          defaultValue: normal
+          style:
+            _global: settings_input_style
+          properties:
+            title: strokeLinecap
+            size: small
+            options: 
+              - round
+              - object
+            Label:
+              extra: Set the style of the progress linecap.
+        - id: block.properties.strokeColor
+          type: TextInput
+          defaultValue: normal
+          style:
+            _global: settings_input_style
+          properties:
+            title: strokeColor
+            size: small
+            Label:
+              extra: Color of progress bar.
+        - id: block.properties.successPercent
+          type: NumberInput
+          defaultValue: 0
+          style:
+            _global: settings_input_style
+          properties:
+            title: successPercent
+            size: small
+            Label:
+              extra: Segmented success percent.
+        - id: block.properties.trailColor
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: trailColor
+            size: small
+            Label:
+              extra: Color of unfilled part.
+        - id: block.properties.strokeWidth
+          type: NumberInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: strokeWidth
+            size: small
+            Label:
+              extra: Set the width of the progress bar.
+        - id: block.properties.width
+          type: NumberInput
+          defaultValue: 132
+          style:
+            _global: settings_input_style
+          properties:
+            title: width
+            size: small
+            Label:
+              extra: Set the canvas width of the circular progress.
+        - id: block.properties.gapDegree
+          type: NumberInput
+          defaultValue: 75
+          style:
+            _global: settings_input_style
+          properties:
+            title: gapDegree
+            size: small
+            Label:
+              extra: The gap degree of half circle.
+        - id: block.properties.gapPosition
+          type: ButtonSelector
+          defaultValue: normal
+          style:
+            _global: settings_input_style
+          properties:
+            title: gapPosition
+            size: small
+            options: 
+              - top
+              - bottom
+              - left
+              - right
+            Label:
+              extra: The gap position.
+
+      available_actions_description: |
+        ###### No available actions.
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Copyable text with different copy text
+                - id: example_1
+                  type: Paragraph
+                  properties:
+                    copyable:
+                      text: password123
+                    content: "************"
+
+            - id: example_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        id: example_1
+                        type: Paragraph
+                        properties:
+                          copyable:
+                            text: password123
+                          content: "***********"
+                      ```

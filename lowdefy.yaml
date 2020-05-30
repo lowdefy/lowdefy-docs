@@ -270,6 +270,11 @@ menus:
             pageId: Paragraph
             properties:
               title: Paragraph
+          - id: Progress
+            type: MenuLink
+            pageId: Progress
+            properties:
+              title: Progress
           - id: Skeleton
             type: MenuLink
             pageId: Skeleton
@@ -336,6 +341,11 @@ menus:
             pageId: Layout
             properties:
               title: Layout
+          - id: Modal
+            type: MenuLink
+            pageId: Modal
+            properties:
+              title: Modal
           - id: PageHCF
             type: MenuLink
             pageId: PageHCF
@@ -427,6 +437,7 @@ pages:
   - _ref: blocks/display/Markdown.yaml
   - _ref: blocks/display/Menu.yaml
   - _ref: blocks/display/Paragraph.yaml
+  - _ref: blocks/display/Progress.yaml
   - _ref: blocks/display/Skeleton.yaml
   - _ref: blocks/display/Statistic.yaml
   - _ref: blocks/display/Title.yaml
@@ -439,6 +450,7 @@ pages:
   - _ref: blocks/container/Footer.yaml
   - _ref: blocks/container/Header.yaml
   - _ref: blocks/container/Layout.yaml
+  - _ref: blocks/container/Modal.yaml
   - _ref: blocks/container/PageHCF.yaml
   - _ref: blocks/container/PageHCSF.yaml
   - _ref: blocks/container/PageHeaderMenu.yaml
@@ -448,7 +460,4 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
-
-
-
-
+  
