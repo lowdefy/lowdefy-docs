@@ -191,14 +191,11 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "number_input",
-                    "properties": {
-                      "title": "Number input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: NumberInput
+                  properties:
+                    title: Number input
                   ```
         - id: example_2_card
           type: Card
@@ -219,18 +216,15 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "number_input",
-                    "defaultValue": 3.14,
-                    "properties": {
-                      "title": "Decimal separator"
-                      "decimalSeparator": ",",
-                      "precision": 2,
-                      "step": 0.01
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: number_input
+                  defaultValue: 3.14
+                  properties:
+                    title: Decimal separator
+                    decimalSeparator: ","
+                    precision: 2
+                    step: 0.01
                   ```
         - id: example_3_card
           type: Card
@@ -248,13 +242,10 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "number_input",
-                    "properties": {
-                      "title": "Placeholder"
-                      "placeholder": "π"
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: number_input
+                  properties:
+                    title: Placeholder
+                    placeholder: π
                   ```

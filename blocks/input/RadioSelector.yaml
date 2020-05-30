@@ -211,15 +211,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "RadioSelector",
-                    "properties": {
-                      "title": "Primitive options"
-                      "options": [ "A", "B", "C" ]
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: RadioSelector
+                  properties:
+                    title: Primitive options
+                    options:
+                      - A
+                      - B
+                      - C
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -246,32 +247,22 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "RadioSelector",
-                    "defaultValue": "C",
-                    "properties": {
-                      "title": "Object options",
-                      "Label": {
-                        "extra": "Value-Label object options and default value."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: RadioSelector
+                  defaultValue: C
+                  properties:
+                    title: Object options
+                    Label:
+                      extra: Value-Label object options and default value.
+                    options:
+                      - value: A
+                        label: Aragorn
+                      - value: B
+                        label: Boromir
+                      - value: C
+                        label: Celebron
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -299,33 +290,21 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "RadioSelector",
-                    "properties": {
-                      "title": "Disable options",
-                      "Label": {
-                        "extra": "Disable individual options."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir",
-                          "disabled": true
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: RadioSelector
+                  properties:
+                    title: Disable options
+                    Label:
+                      extra: Disable individual options.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                      disabled: true
+                    - value: C
+                      label: Celebron
+                    - value: D
+                      label: Denethor
+                  ```

@@ -181,6 +181,7 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
         ##### onPressEnter
         Triggered when enter is pressed while block is focused.
 
@@ -200,14 +201,11 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "text_area_input",
-                    "properties": {
-                      "title": "Text Area input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: TextArea
+                  properties:
+                    title: Text Area input
                   ```
         - id: example_2_card
           type: Card
@@ -224,14 +222,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "text_area_input",
-                    "properties": {
-                      "placeholder": "Placeholder"
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: TextArea
+                  properties:
+                    placeholder: Placeholder
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -250,18 +246,15 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "text_area_input",
-                    "properties": {
-                      "title": "Rows",
-                      "rows": 5,
-                      "label": {
-                        "extra": "Define fixed number of rows for text area."
-                      },
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: TextArea
+                  properties:
+                    title: Rows
+                    rows: 5
+                    Label:
+                      extra: Define fixed number of rows for text area.
+                  ```
         - id: example_4_card
           type: Card
           blocks:
@@ -282,18 +275,14 @@ blocks:
                   -span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "text_area_input",
-                    "properties": {
-                      "title": Auto "Rows",
-                      "label": {
-                        "extra": "Automatically adjust text area size based on content."
-                      },
-                      "autoSize": {
-                        "minRows": 3,
-                        "maxRows": 6
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: TextArea
+                  properties:
+                    title: Auto Rows
+                    Label:
+                      extra: Automatically adjust text area size based on content.
+                    autoSize:
+                      minRows: 2
+                      maxRows: 4
+                  ```

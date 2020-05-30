@@ -215,14 +215,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "date_range_input",
-                    "properties": {
-                      "title": "Date input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: DateRangeSelector
+                  properties:
+                    title: Date input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -245,20 +243,19 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "date_range_input",
-                    "properties": {
-                      "title": "Placeholder, separator and suffix icon",
-                      "placeholder": [ "From the start", "the end" ],
-                      "separator": "to",
-                      "IconSuffix": "ThunderboltOutlined",
-                      "Label": {
-                        "extra": "Custom placeholder, separator and suffix icon."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: DateRangeSelector
+                  properties:
+                    title: Placeholder, separator and suffix icon
+                    placeholder:
+                      - From the start
+                      - the end
+                    separator: to
+                    IconSuffix: ThunderboltOutlined
+                    Label:
+                      extra: Custom placeholder, separator and suffix icon.
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -280,19 +277,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "date_range_input",
-                    "defaultValue": [
-                      { "_date": "1955-11-12" },
-                      { "_date": "1985-10-26" }
-                    ],
-                    "properties": {
-                      "title": "Date format",
-                      "format": "D MMMM YYYY",
-                      "label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: DateRangeSelector
+                  defaultValue:
+                    - _date: '1955-11-12'
+                    - _date: '1985-10-26'
+                  properties:
+                    title: Date format
+                    format: D MMMM YYYY
+                    Label:
+                      extra: Default date and custom date format.

@@ -185,14 +185,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "week_input",
-                    "properties": {
-                      "title": "Week input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: WeekSelector
+                  properties:
+                    title: Week input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -212,19 +210,17 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "week_input",
-                    "properties": {
-                      "title": "Placeholder and suffix icon",
-                      "placeholder": "Pick a week",
-                      "IconSuffix": "FireOutlined",
-                      "Label": {
-                        "extra": "Custom placeholder and suffix icon."
-                      },
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: WeekSelector
+                  properties:
+                    title: Placeholder and suffix icon
+                    placeholder: Pick a week
+                    IconSuffix: FireOutlined
+                    Label:
+                      extra: Custom placeholder and suffix icon.
+                  ```
+
         - id: example_3_card
           type: Card
           blocks:
@@ -245,18 +241,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "week_input",
-                    "defaultValue": { 
-                      "_date": "1993-02-01" 
-                    },
-                    "properties": {
-                      "title": "Date format",
-                      "format": "wo of YYYY",
-                      "Label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: WeekSelector
+                  defaultValue:
+                    _date: '1993-02-01'
+                  properties:
+                    title: Date format
+                    format: wo of YYYY
+                    Label:
+                      extra: Default date and custom date format.
+                  ```

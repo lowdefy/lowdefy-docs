@@ -238,15 +238,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "ButtonSelector",
-                    "properties": {
-                      "title": "Primitive options"
-                      "options": [ "A", "B", "C" ]
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: ButtonSelector
+                  properties:
+                    title: Primitive options
+                    options:
+                    - A
+                    - B
+                    - C
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -274,36 +275,24 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "ButtonSelector",
-                    "properties": {
-                      "title": "Object options",
-                      "Label": {
-                        "extra": "Value-Label object options and disable individual options."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir",
-                          "disabled": true
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: ButtonSelector
+                  properties:
+                    title: Object options
+                    Label:
+                      extra: Value-Label object options and disable individual options.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                      disabled: true
+                    - value: C
+                      label: Celebron
+                    - value: D
+                      label: Denethor
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -330,30 +319,20 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "ButtonSelector",
-                    "defaultValue": "B",
-                    "properties": {
-                      "title": "Button style",
-                      "buttonStyle": "outline",
-                      "Label": {
-                        "extra": "Change button style to outline."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: ButtonSelector
+                  defaultValue: B
+                  properties:
+                    title: Button style
+                    buttonStyle: outline
+                    Label:
+                      extra: Change button style to outline.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                    - value: C
+                      label: Celebron
+                  ```

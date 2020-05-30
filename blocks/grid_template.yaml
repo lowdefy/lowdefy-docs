@@ -122,15 +122,14 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
-                  {
-                    "block_id": {{ value | safe }}
-                  }
+                  ```yaml
+                  {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
-                      _state: block_id
+                    _dump_yaml:
+                      block_id:
+                        _state: block_id
     - id: setup_divider
       type: Divider
       properties:
@@ -146,12 +145,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type

@@ -24,22 +24,6 @@ blocks:
             ## Default block settings
 
             <!--DOCUSAURUS_CODE_TABS-->
-            <!--JSON-->
-
-            ```json5
-            {
-              "visible": true,
-              "box": {
-                "height": 10
-              },
-              "properties": {
-                "disabled": false,
-                "theme": "normal",
-                "rowSelection": "single",
-              },
-            }
-            ```
-
             <!--YAML-->
 
             ```yaml

@@ -219,14 +219,11 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "TextInput",
-                    "properties": {
-                      "title": "Text input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: TextInput
+                  properties:
+                    title: Text input
                   ```
         - id: example_2_card
           type: Card
@@ -243,15 +240,11 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "TextInput",
-                    "properties": {
-                      "placeholder": "Placeholder"
-                    }
-
-                  }
+                  ```yaml
+                  id: example_2
+                  type: TextInput
+                  properties:
+                    placeholder: Placeholder
                   ```
         - id: example_3_card
           type: Card
@@ -272,20 +265,15 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "TextInput",
-                    "properties": {
-                      "prefix": "The cat",
-                      "suffix": "the rat.",
-                      "placeholder": "chased",
-                      "Label": {
-                        "extra": "Prefix and suffix text"
-                      },
-                    }
-
-                  }
+                  ```yaml
+                  id: example_3
+                  type: TextInput
+                  properties:
+                    prefix: The cat
+                    suffix: the rat.
+                    placeholder: chased
+                    Label:
+                      extra: Prefix and suffix text
                   ```
         - id: example_4_card
           type: Card
@@ -308,22 +296,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "TextInput",
-                    "style": { 
-                      "Label": {
-                        "--span": 3
-                      }
-                    },
-                    "properties": {
-                      "title": "First Name",
-                      "IconSuffix": "UserOutlined",
-                      "placeholder": "Your name",
-                      "Label": {
-                        "extra": "Place label next to block and add suffix icon."
-                      },
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: TextInput
+                  style:
+                    Label:
+                      "--span": 3
+                  properties:
+                    title: First Name
+                    IconSuffix: UserOutlined
+                    placeholder: Your name
+                    Label:
+                      extra: Place label next to block and add suffix icon.
                   ```

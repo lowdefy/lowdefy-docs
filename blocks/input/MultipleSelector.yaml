@@ -341,15 +341,17 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "multiple_select_input",
-                    "properties": {
-                      "title": "Primitive options"
-                      "options": [ "A", "B", "C" ]
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: MultipleSelector
+                  properties:
+                    title: Primitive options
+                    options:
+                      - A
+                      - B
+                      - C
+                  ```
+
         - id: example_2_card
           type: Card
           blocks:
@@ -379,38 +381,26 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "multiple_select_input",
-                    "properties": {
-                      "title": "Object options",
-                      "allowClear": true,
-                      "placeholder": "Choose an option",
-                      "Label": {
-                        "extra": "Value-Label object options and allow clearing of selection."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir",
-                          "disabled": true
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: MultipleSelector
+                  properties:
+                    title: Object options
+                    allowClear: true
+                    placeholder: Choose an option
+                    Label:
+                      extra: Value-Label object options and allow clearing of selection.
+                    options:
+                      - value: A
+                        label: Aragorn
+                      - value: B
+                        label: Boromir
+                        disabled: true
+                      - value: C
+                        label: Celebron
+                      - value: D
+                        label: Denethor
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -441,36 +431,27 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "multiple_select_input",
-                    "defaultValue": [ "B" ],
-                    "properties": {
-                      "title": "Change icons",
-                      "Label": {
-                        "extra": "Custom suffix, clear and selected icons and default value."
-                      },
-                      "allowClear": true,
-                      "IconClear": "delete",
-                      "IconSelected": "fire",
-                      "IconSuffix": "EllipsisOutlined",
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: MultipleSelector
+                  defaultValue:
+                  - B
+                  properties:
+                    title: Change icons
+                    Label:
+                      extra: Custom suffix, clear and selected icons and default value.
+                    allowClear: true
+                    IconClear: delete
+                    IconSelected: fire
+                    IconSuffix: EllipsisOutlined
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                    - value: C
+                      label: Celebron
+                  ```
         - id: example_4_card
           type: Card
           blocks:
@@ -514,65 +495,37 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "multiple_select_input",
-                    "properties": {
-                      "title": "Search options",
-                      "showSearch": true,
-                      "Label": {
-                        "extra": "Make options searchable."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Bilbo"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        },
-                        {
-                          "value": "E",
-                          "label": "Eowyn"
-                        },
-                        {
-                          "value": "F",
-                          "label": "Frodo"
-                        },
-                        {
-                          "value": "G",
-                          "label": "Gandalf"
-                        },
-                        {
-                          "value": "H",
-                          "label": "Halfling"
-                        },
-                        {
-                          "value": "I",
-                          "label": "Isildur"
-                        },
-                        {
-                          "value": "J",
-                          "label": "J.R.R. Tolkien"
-                        },
-                        {
-                          "value": "K",
-                          "label": "Kili"
-                        },
-                        {
-                          "value": "L",
-                          "label": "Legolas"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: MultipleSelector
+                  properties:
+                    title: Search options
+                    showSearch: true
+                    Label:
+                      extra: Make options searchable.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Bilbo
+                    - value: C
+                      label: Celebron
+                    - value: D
+                      label: Denethor
+                    - value: E
+                      label: Eowyn
+                    - value: F
+                      label: Frodo
+                    - value: G
+                      label: Gandalf
+                    - value: H
+                      label: Halfling
+                    - value: I
+                      label: Isildur
+                    - value: J
+                      label: J.R.R. Tolkien
+                    - value: K
+                      label: Kili
+                    - value: L
+                      label: Legolas
+                  ```

@@ -245,14 +245,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "date_time_input",
-                    "properties": {
-                      "title": "Date Time input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: DateTimeSelector
+                  properties:
+                    title: Date Time input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -272,19 +270,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "date_time_input",
-                    "properties": {
-                      "title": "showToday and IconSuffix",
-                      "showToday": false,
-                      "IconSuffix": "ClockCircleOutlined",
-                      "Label": {
-                        "extra": "Disable now button and change the suffix icon"
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: DateTimeSelector
+                  properties:
+                    title: showToday and IconSuffix
+                    showToday: false
+                    IconSuffix: ClockCircleOutlined
+                    Label:
+                      extra: Disable now button and change the suffix icon
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -305,21 +300,17 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "date_time_input",
-                    "defaultValue": { 
-                      "_date": "1993-02-02T06:00:00" 
-                    },
-                    "properties": {
-                      "title": "Date format",
-                      "format": "HH:mm | D MMMM YYYY",
-                      "Label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: DateTimeSelector
+                  defaultValue:
+                    _date: '1993-02-02T06:00:00'
+                  properties:
+                    title: Date format
+                    format: HH:mm | D MMMM YYYY
+                    Label:
+                      extra: Default date and custom date format.
+                  ```
         - id: example_4_card
           type: Card
           blocks:
@@ -342,18 +333,15 @@ blocks:
                   --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "date_time_input",
-                    "properties": {
-                      "title": "Time steps",
-                      "hourStep": 2,
-                      "minuteStep": 10,
-                      "secondStep": 15,
-                      "timeFormat": "HH:mm:ss",
-                      "Label": {
-                        "extra": "Change the time step intervals."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: DateTimeSelector
+                  properties:
+                    title: Time steps
+                    hourStep: 2
+                    minuteStep: 10
+                    secondStep: 15
+                    timeFormat: HH:mm:ss
+                    Label:
+                      extra: Change the time step intervals.
+                  ```
