@@ -32,7 +32,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -88,7 +88,7 @@ blocks:
           then:
             _get:
               key: "0"
-              on:
+              from:
                 _mql_aggregate:
                   pipeline:
                     - $addFields:

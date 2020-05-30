@@ -21,18 +21,18 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Radio Button Input
+      block_name: Button Selector Input
       description_content: |
-        Radio button input block. Similar to RadioSelector except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
+        Button selector input block. Similar to RadioSelector except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
 
-        >Other selector blocks are checkbox_input, select_input, multiple_select_input and RadioSelector
+        > Other selector blocks are checkbox_input, select_input, multiple_select_input and RadioSelector
       block_type: ButtonSelector
       label: true
       kind: input
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -88,7 +88,7 @@ blocks:
           then:
             _get:
               key: "0"
-              on:
+              from:
                 _mql_aggregate:
                   pipeline:
                     - $addFields:
