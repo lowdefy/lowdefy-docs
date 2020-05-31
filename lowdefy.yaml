@@ -265,6 +265,11 @@ menus:
             pageId: Menu
             properties:
               title: Menu
+          - id: Notification
+            type: MenuLink
+            pageId: Notification
+            properties:
+              title: Notification
           - id: Paragraph
             type: MenuLink
             pageId: Paragraph
@@ -436,6 +441,7 @@ pages:
   - _ref: blocks/display/Icon.yaml
   - _ref: blocks/display/Markdown.yaml
   - _ref: blocks/display/Menu.yaml
+  - _ref: blocks/display/Notification.yaml
   - _ref: blocks/display/Paragraph.yaml
   - _ref: blocks/display/Progress.yaml
   - _ref: blocks/display/Skeleton.yaml
