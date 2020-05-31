@@ -17,7 +17,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Range Input
+      block_name: DateRangeSelector
       description_content: |
         Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
 

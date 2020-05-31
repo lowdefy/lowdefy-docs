@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Text Input
+      block_name: TextInput
       description_content: |
         Text input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: TextInput

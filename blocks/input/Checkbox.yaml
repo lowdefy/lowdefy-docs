@@ -22,7 +22,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Checkbox Input
+      block_name: Checkbox
       description_content: |
         Checkbox block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in state, at the path name of the block.
 

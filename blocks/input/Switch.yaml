@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Switch Input
+      block_name: Switch
       description_content: |
         On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: Switch

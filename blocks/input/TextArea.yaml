@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Text Area Input
+      block_name: TextArea
       description_content: |
         Text area input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: TextArea

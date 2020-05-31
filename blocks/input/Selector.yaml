@@ -21,7 +21,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Select Input
+      block_name: Selector
       description_content: |
         Drop down selector input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
 

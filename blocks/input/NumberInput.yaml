@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Number Input
+      block_name: NumberInput
       description_content: |
         Number input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: NumberInput

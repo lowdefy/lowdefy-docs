@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Month Input
+      block_name: MonthSelector
       description_content: |
         Month picker input block. Allows a user to select a specific month from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
 
