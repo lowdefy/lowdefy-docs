@@ -30,7 +30,8 @@
         - id: block_name_button
           type: Button
           properties:
-            title: Open Modal
+            title:
+              _var: popup_button_title
           actions:
             onClick:
               - id: click_method
@@ -209,7 +210,7 @@
             defaultValue: true
             properties:
               title: visible
-              label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small

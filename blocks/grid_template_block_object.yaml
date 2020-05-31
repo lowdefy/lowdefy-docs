@@ -36,8 +36,8 @@
             _state: block.visible
           properties:
             _state: block.properties
-            label:
-              _state: block.label
+            Label:
+              _state: block.Label
           blocks:
             content1:
               - id: subblock_1
@@ -192,7 +192,7 @@
             defaultValue: true
             properties:
               title: visible
-              label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small

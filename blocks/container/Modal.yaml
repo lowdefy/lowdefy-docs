@@ -19,8 +19,9 @@ blocks:
       description_content: |
         A popup container, presenting the user with a modal dialog.
 
-        > To open the modal, envoke a modal method.
+        > To open the modal, invoke a modal method.
       popup_method: toggleVisible
+      popup_button_title: Open Modal
       label: false
       kind: container
       style_transform:

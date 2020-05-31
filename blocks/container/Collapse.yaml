@@ -254,7 +254,7 @@ blocks:
                   defaultValue: true
                   properties:
                     title: visible
-                    label:
+                    Label:
                       extra: Toggle if block is visible and has a value in state.
                       inline: true
                     size: small
