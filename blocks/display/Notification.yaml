@@ -25,9 +25,6 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    Content:
-                      _parse:
-                        _state: style_content_input
                     Button:
                       _parse:
                         _state: style_button_input
@@ -48,17 +45,6 @@ blocks:
           defaultValue: "{}"
           properties:
             title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content
             rows: 3
             size: small
             Label:
@@ -126,7 +112,7 @@ blocks:
             title: duration
             size: small
             Label:
-              extra: Time in seconds before Notification is closed. When set to 0 or null, it will not be closed automatically.
+              extra: Time in seconds before notification is closed. When set to 0 or null, it will not be closed automatically.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
