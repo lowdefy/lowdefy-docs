@@ -124,6 +124,11 @@ menus:
             pageId: Checkbox
             properties:
               title: Checkbox
+          - id: CodeEditor
+            type: MenuLink
+            pageId: CodeEditor
+            properties:
+              title: CodeEditor
           - id: ColorSelector
             type: MenuLink
             pageId: ColorSelector
@@ -419,6 +424,7 @@ pages:
   - _ref: concepts/state.yaml
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/Checkbox.yaml
+  - _ref: blocks/input/CodeEditor.yaml
   - _ref: blocks/input/ColorSelector.yaml
   - _ref: blocks/input/DateSelector.yaml
   - _ref: blocks/input/DateRangeSelector.yaml
