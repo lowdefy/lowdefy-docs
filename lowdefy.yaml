@@ -346,6 +346,11 @@ menus:
             pageId: Content
             properties:
               title: Content
+          - id: Drawer
+            type: MenuLink
+            pageId: Drawer
+            properties:
+              title: Drawer
           - id: Footer
             type: MenuLink
             pageId: Footer
@@ -471,6 +476,7 @@ pages:
   - _ref: blocks/container/Card.yaml
   - _ref: blocks/container/Collapse.yaml
   - _ref: blocks/container/Content.yaml
+  - _ref: blocks/container/Drawer.yaml
   - _ref: blocks/container/Footer.yaml
   - _ref: blocks/container/Header.yaml
   - _ref: blocks/container/Layout.yaml

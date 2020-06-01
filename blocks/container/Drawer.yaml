@@ -1,0 +1,382 @@
+id: Drawer
+type: PageSiderMenu
+public: true
+properties:
+  title: Drawer
+actions:
+  onInit:
+    - id: init
+      type: setState()
+      params:
+        _ref: blocks/html_blocks.yaml
+blocks:
+  _ref:
+    path: blocks/popup_template.yaml
+    vars:
+      block_type: Drawer
+      block_name: Drawer
+      description_content: |
+        A panel which slides in from the edge of the screen.
+      popup_method: toggleVisible
+      popup_button_title: Open Drawer
+      style_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Drawer:
+                      _parse:
+                        _state: style_drawer_input
+                    Header:
+                      _parse:
+                        _state: style_header_input
+                    Body:
+                      _parse:
+                        _state: style_body_input
+                    Mask:
+                      _parse:
+                        _state: style_mask_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_body_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Body
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_drawer_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Drawer
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_header_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Header
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_mask_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Mask
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.closable
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: closable
+            size: small
+            Label:
+              extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
+        - id: block.properties.visible
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: visible
+            size: small
+            Label:
+              extra: Whether the Drawer dialog is visible or not.
+        - id: block.properties.mask
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: mask
+            size: small
+            Label:
+              extra: Whether to show mask or not.
+        - id: block.properties.maskClosable
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: maskClosable
+            size: small
+            Label:
+              extra: Clicking on the mask (area outside the Drawer) to close the Drawer or not.
+        - id: block.properties.title
+          type: TextInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: The title of the Drawer.
+        - id: block.properties.width
+          type: TextInput
+          defaultValue: 256px
+          style:
+            _global: settings_input_style
+          properties:
+            title: width
+            size: small
+            Label:
+              extra: Width of the Drawer dialog.
+        - id: block.properties.height
+          type: TextInput
+          defaultValue: 256px
+          style:
+            _global: settings_input_style
+          properties:
+            title: height
+            size: small
+            Label:
+              extra: When placement is top or bottom, height of the Drawer dialog.
+        - id: block.properties.zIndex
+          type: NumberInput
+          style:
+            _global: settings_input_style
+          properties:
+            title: zIndex
+            size: small
+            Label:
+              extra: The z-index of the Drawer.
+        - id: block.properties.placement
+          type: ButtonSelector
+          defaultValue: right
+          style:
+            _global: settings_input_style
+          properties:
+            title: placement
+            size: small
+            options:
+              - top
+              - right
+              - bottom
+              - left
+            Label:
+              extra: The placement of the Drawer.
+        - id: block.properties.keyboard
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: keyboard
+            size: small
+            Label:
+              extra: Whether support press esc to close.
+        
+      actions_description: | 
+        #### onClose
+        Called when the Drawer is closed.
+
+      methods_form:
+        - id: method_toggleVisible
+          type: Button
+          properties:
+            title: toggleVisible
+          actions:
+            onClick:
+              - id: click_toggleVisible
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: toggleVisible
+        - id: desc_toggleVisible
+          type: Markdown
+          properties:
+            content: |
+              Toggle to drawer visibility to the inverse state.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_toggleVisible
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: toggleVisible
+              ```
+        - id: method_setVisible
+          type: Button
+          properties:
+            title: setVisible
+          actions:
+            onClick:
+              - id: click_setVisible
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: setVisible
+                  args:
+                    visible: true
+        - id: desc_setVisible
+          type: Markdown
+          properties:
+            content: |
+              Set the drawer visibility state to true.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_setVisible
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: setVisible
+                      args:
+                        visible: true
+              ```
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Drawer with input form
+                - id: drawer_button
+                  type: Button
+                  properties:
+                    title: Open Drawer
+                  actions:
+                    onClick:
+                      - id: click_method
+                        type: callMethod()
+                        params:
+                          blockId: example_1_drawer
+                          method: toggleVisible
+                - id: example_1_drawer
+                  type: Drawer
+                  properties:
+                    title: Add New Contact
+                    width: 400
+                  blocks:
+                    - id: example_1_markdown
+                      type: Markdown
+                      properties:
+                        content: |
+                          Please complete the details in this form to add a new contact.
+                    - id: example_1_name
+                      type: TextInput
+                      required: true
+                      properties:
+                        title: Name
+                    - id: example_1_surname
+                      type: TextInput
+                      required: true
+                      properties:
+                        title: Surname
+                    - id: save_button
+                      type: Button
+                      properties:
+                        title: Save
+                      actions:
+                        onClick:
+                          - id: validate_form
+                            type: validate()
+                          - id: click_method
+                            type: callMethod()
+                            params:
+                              blockId: example_1_drawer
+                              method: toggleVisible
+                          
+            - id: example_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: drawer_button
+                          type: Button
+                          properties:
+                            title: Open Drawer
+                          actions:
+                            onClick:
+                              - id: click_method
+                                type: callMethod()
+                                params:
+                                  blockId: example_1_drawer
+                                  method: toggleVisible
+                        - id: example_1_drawer
+                          type: Drawer
+                          properties:
+                            title: Add New Contact
+                            width: 400
+                          blocks:
+                            - id: example_1_markdown
+                              type: Markdown
+                              properties:
+                                content: |
+                                  Please complete the details in this form to add a new contact.
+                            - id: example_1_name
+                              type: TextInput
+                              required: true
+                              properties:
+                                title: Name
+                            - id: example_1_surname
+                              type: TextInput
+                              required: true
+                              properties:
+                                title: Surname
+                            - id: save_button
+                              type: Button
+                              properties:
+                                title: Save
+                              actions:
+                                onClick:
+                                  - id: validate_form
+                                    type: validate()
+                                  - id: click_method
+                                    type: callMethod()
+                                    params:
+                                      blockId: example_1_drawer
+                                      method: toggleVisible
+                      ```
+        
+
