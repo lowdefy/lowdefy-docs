@@ -316,6 +316,11 @@ menus:
           title: Container Blocks
           Icon: ContainerOutlined
         links:
+          - id: Affix
+            type: MenuLink
+            pageId: Affix
+            properties:
+              title: Affix
           - id: Badge
             type: MenuLink
             pageId: Badge
@@ -460,6 +465,7 @@ pages:
   - _ref: blocks/display/Statistic.yaml
   - _ref: blocks/display/Title.yaml
   - _ref: blocks/display/UserAvatar.yaml
+  - _ref: blocks/container/Affix.yaml
   - _ref: blocks/container/Badge.yaml
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
