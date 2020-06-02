@@ -382,6 +382,19 @@ menus:
             properties:
               title: Tabs
 
+      - id: blocks_list
+        type: MenuGroup
+        properties:
+          title: List Blocks
+          Icon: UnorderedListOutlined
+        links:
+          - id: Timeline
+            type: MenuLink
+            pageId: Timeline
+            properties:
+              title: Timeline
+
+
 pages:
   - _ref: start/introduction.yaml
   - _ref: start/quick-start.yaml
@@ -448,6 +461,8 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+  - _ref: blocks/list/Timeline.yaml
 
 
 

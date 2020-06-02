@@ -1,0 +1,404 @@
+id: Timeline
+type: PageSiderMenu
+public: true
+properties:
+  title: Timeline
+actions:
+  onInit:
+    # - id: init_blocks
+    #   type: setState()
+    #   params:
+    #     _ref: blocks/html_blocks.yaml
+    - id: init_list
+      type: setState()
+      params:
+        list_block:
+          - title: Title 1
+            text: Text for the first entry in the timeline.
+            icon: FireOutlined
+            color: red
+            position: right
+          - title: Title 2
+            text: Text for the second entry in the timeline.
+            color: green
+            position: right
+          - title: Title 3
+            text: Text for the third entry in the timeline.
+            icon: RocketOutlined
+            color: blue
+            position: left
+    - id: init_data
+      type: setState()
+      params:
+        block:
+          properties:
+            data:
+              _state: list_block
+blocks:
+  - id: card_title
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Timeline
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            A container with a vertical display timeline.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_wrap2
+            type: Box
+            style:
+              --span: 6
+            blocks:
+              - id: block_divider
+                type: Divider
+                properties:
+                  title: Block
+
+              - id: list_block
+                type: Timeline
+                style:
+                  _parse: 
+                    _state: flex_style_input
+                visible:
+                  _state: block.visible
+                properties:
+                  _state: block.properties
+
+                blocks:
+                  - id: list_block.$.title
+                    type: Title
+                    properties:
+                      level: 4
+                      content:
+                        _state: list_block.$.title
+                  - id: list_block.$.text
+                    type: Paragraph
+                    properties:
+                      content:
+                        _state: list_block.$.text
+                  # - id: list_block.$.a
+                  #   type: Button
+                  #   style:
+                  #     --span: 6
+                  #   properties:
+                  #     title: Field + A
+                  #   actions:
+                  #     onClick:
+                  #       - id: set_field
+                  #         type: setState()
+                  #         params:
+                  #           list_block.$.field:
+                  #             _mql_expr:
+                  #               $concat:
+                  #                 - _state: list_block.$.field
+                  #                 - A
+                  # - id: list_block.$.b
+                  #   type: Button
+                  #   style:
+                  #     --span: 6
+                  #   properties:
+                  #     title: Value * 2
+                  #   actions:
+                  #     onClick:
+                  #       - id: set_field
+                  #         type: setState()
+                  #         params:
+                  #           list_block.$.value:
+                  #             _mql_expr:
+                  #               $multiply:
+                  #                 - _state: list_block.$.value
+                  #                 - 2
+                #   - id: list_block.$.value
+                #     type: Html
+                #     properties:
+                #       html: '<div>ONE</div>'
+                #     visible:
+                #       _state: flex_blocks.0.visible
+                #     style:
+                #       _parse:
+                #         _state: flex_blocks.0.style
+                #   - id: list_block.$.fields
+                #     type: Html
+                #     properties:
+                #       html: '<div>TWO</div>'
+                #     visible:
+                #       _state: flex_blocks.1.visible
+                #     style:
+                #       _parse:
+                #         _state: flex_blocks.1.style
+                  # - id: list_block.$
+                  #   type: Html
+                  #   properties:
+                  #     html: '<div>THREE</div>'
+                  #   visible:
+                  #     _state: flex_blocks.2.visible
+                  #   style:
+                  #     _parse:
+                  #       _state: flex_blocks.2.style
+
+              - id: setup_flex
+                type: Box
+                blocks:
+                  - id: setup_divider
+                    type: Divider
+                    properties:
+                      title: Block Setup
+                  - id: setup_card
+                    type: Card
+                    properties: 
+                      size: small
+                    blocks:
+                      - id: setup_markdown
+                        type: Markdown
+                        properties:
+                          content:
+                            _nunjucks:
+                              template: |
+                                ```json
+                                {{ value | safe }}
+                                ```
+                              on:
+                                value:
+                                  _stringify:
+                                    id: block_id
+                                    type:
+                                      _state: style_transform
+                                    style:
+                                      _parse: 
+                                        _state: flex_style_input
+                                    visible:
+                                      _state: block.visible
+                                    properties:
+                                      _state: block.properties
+
+          - id: settings_grid
+            type: Box
+            style:
+              --span: 6
+            blocks:
+              - id: settings_divider
+                type: Divider
+                properties:
+                  title: Settings
+              - id: block_collapse
+                type: Collapse
+                properties:
+                  defaultActiveKey: properties
+                  panels:
+                    - key: style
+                      title: 'style:'
+                    - key: properties
+                      title: 'properties:'
+                    - key: actions
+                      title: 'actions:'
+                    - key: visible
+                      title: 'visible:'
+                    - key: blocks
+                      title: 'blocks:'
+                blocks:
+                  style:
+                    - id: style_form
+                      type: Box
+                      style:
+                        Content:
+                          --gap: 0
+                      blocks:
+                        - id: flex_style_input
+                          type: TextArea
+                          style:
+                            _global: settings_input_style
+                          defaultValue: |
+                            {}
+                          properties:
+                            title: block
+                            rows: 3
+                            size: small
+                            Label:
+                              extra: CSS Object style properties. Should be in JSON format.
+                  visible:
+                    - id: block.visible
+                      type: Switch
+                      defaultValue: true
+                      properties:
+                        title: visible
+                        label:
+                          extra: Toggle if block is visible and has a value in state.
+                          inline: true
+                        size: small
+
+                  properties:
+                    - id: flex_properties_form
+                      type: Box
+                      style:
+                        Content:
+                          --gap: 0
+                      blocks:
+                        - id: block.properties.colorField
+                          type: TextInput
+                          defaultValue: color
+                          style:
+                            _global: settings_input_style
+                          properties:
+                            title: colorField
+                            size: small
+                            Label:
+                              extra: Field from properties.data to use to determine which color to use for the icon.
+                        - id: block.properties.data
+                          type: List
+                          properties:
+                            title: 'data:'
+                            size: small
+                          blocks:
+                            - _ref:
+                                path: blocks/icon_template.yaml
+                                vars:
+                                  icon_id: block.properties.data.$.icon
+                                  icon_field_name: icon
+                                  icon_description: Timeline entry icon.
+                            - id: block.properties.data.$.color
+                              type: TextInput
+                              style:
+                                _global: settings_input_style
+                              properties:
+                                title: color
+                                size: small
+                                Label:
+                                  extra: Timeline entry icon color.
+                            - id: block.properties.data.$.position
+                              type: ButtonSelector
+                              style:
+                                _global: settings_input_style
+                              properties:
+                                title: position
+                                size: small
+                                Label:
+                                  extra: Set the position of the blocks.
+                                options:
+                                  - left
+                                  - right
+                                  - null
+                        - id: block.properties.iconField
+                          type: TextInput
+                          defaultValue: icon
+                          style:
+                            _global: settings_input_style
+                          properties:
+                            title: iconField
+                            size: small
+                            Label:
+                              extra: Field from properties.data to use to determine which icon to use.
+                        - _ref:
+                            path: blocks/icon_template.yaml
+                            vars:
+                              icon_id: block.properties.IconPendingDot
+                              icon_field_name: IconPendingDot
+                              default_icon: LoadingOutlined
+                              icon_description: Pending Icon to show when properties.pending is set.
+                        - id: block.properties.mode
+                          type: ButtonSelector
+                          style:
+                            _global: settings_input_style
+                          properties:
+                            title: mode
+                            size: small
+                            Label:
+                              extra: Set which side of the blocks the icons should be.
+                            options:
+                              - alternate
+                              - left
+                              - right
+                        - id: block.properties.pending
+                          type: TextInput
+                          style:
+                            _global: settings_input_style
+                          properties:
+                            title: pending
+                            size: small
+                            Label:
+                              extra: Enables and sets the text for pending when set.
+                        - id: block.properties.positionField
+                          type: TextInput
+                          defaultValue: position
+                          style:
+                            _global: settings_input_style
+                          properties:
+                            title: positionField
+                            size: small
+                            Label:
+                              extra: Field from properties.data to use to determine the position of the entry on the timeline.
+                        - id: block.properties.reverse
+                          type: Switch
+                          defaultValue: false
+                          style:
+                            _global: settings_input_style
+                          properties:
+                            title: reverse
+                            size: small
+                            Label:
+                              extra: If true, reverse the order of the timeline.
+                  actions:
+                    - id: actions_description
+                      type: Markdown
+                      properties:
+                        content: |
+                          ###### No available actions.
+
+                  blocks:
+                    - id: flex_blocks
+                      type: List
+                      style:
+                        Content:
+                          --display: flex
+                      properties:
+                        hideAddButton: true
+                        hideRemoveButton: true
+                      blocks:
+                        - id: flex_blocks.$.gd
+                          type: Box
+                          style:
+                            flex: 0 0 15ch
+                            Content:
+                              --display: flex
+                          blocks:
+                            - id: flex_blocks.$.name
+                              type: Markdown
+                              properties:
+                                content: 
+                                  _nunjucks: 
+                                    template: '##### {{ name }}'
+                                    on:
+                                      _state: flex_blocks.$
+                            - id: flex_blocks.$.visible
+                              type: Switch
+                              style:
+                                Label:
+                                  --inline: true
+                              properties:
+                                title: visible
+                                size: small
+                        - id: flex_blocks.$.style
+                          type: TextArea
+                          style:
+                            flex: auto
+                            Label:
+                              --inline: true
+                          properties:
+                            title: style
+                            size: small
+                            rows: 3
+
+          - id: examples_divider
+            type: Divider
+            properties:
+              title: Examples
+          - id: examples_grid
+            type: Box
+            blocks:
+              _var: examples
