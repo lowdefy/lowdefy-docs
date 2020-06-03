@@ -124,6 +124,14 @@ menus:
             pageId: Checkbox
             properties:
               title: Checkbox
+<<<<<<< HEAD
+=======
+          - id: CodeEditor
+            type: MenuLink
+            pageId: CodeEditor
+            properties:
+              title: CodeEditor
+>>>>>>> origin/progress-block
           - id: ColorSelector
             type: MenuLink
             pageId: ColorSelector
@@ -265,11 +273,32 @@ menus:
             pageId: Menu
             properties:
               title: Menu
+<<<<<<< HEAD
+=======
+          - id: Message
+            type: MenuLink
+            pageId: Message
+            properties:
+              title: Message
+          - id: Notification
+            type: MenuLink
+            pageId: Notification
+            properties:
+              title: Notification
+>>>>>>> origin/progress-block
           - id: Paragraph
             type: MenuLink
             pageId: Paragraph
             properties:
               title: Paragraph
+<<<<<<< HEAD
+=======
+          - id: Progress
+            type: MenuLink
+            pageId: Progress
+            properties:
+              title: Progress
+>>>>>>> origin/progress-block
           - id: Skeleton
             type: MenuLink
             pageId: Skeleton
@@ -296,6 +325,14 @@ menus:
           title: Container Blocks
           Icon: ContainerOutlined
         links:
+<<<<<<< HEAD
+=======
+          - id: Affix
+            type: MenuLink
+            pageId: Affix
+            properties:
+              title: Affix
+>>>>>>> origin/progress-block
           - id: Badge
             type: MenuLink
             pageId: Badge
@@ -321,6 +358,14 @@ menus:
             pageId: Content
             properties:
               title: Content
+<<<<<<< HEAD
+=======
+          - id: Drawer
+            type: MenuLink
+            pageId: Drawer
+            properties:
+              title: Drawer
+>>>>>>> origin/progress-block
           - id: Footer
             type: MenuLink
             pageId: Footer
@@ -336,6 +381,14 @@ menus:
             pageId: Layout
             properties:
               title: Layout
+<<<<<<< HEAD
+=======
+          - id: Modal
+            type: MenuLink
+            pageId: Modal
+            properties:
+              title: Modal
+>>>>>>> origin/progress-block
           - id: PageHCF
             type: MenuLink
             pageId: PageHCF
@@ -399,6 +452,10 @@ pages:
   - _ref: concepts/state.yaml
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/Checkbox.yaml
+<<<<<<< HEAD
+=======
+  - _ref: blocks/input/CodeEditor.yaml
+>>>>>>> origin/progress-block
   - _ref: blocks/input/ColorSelector.yaml
   - _ref: blocks/input/DateSelector.yaml
   - _ref: blocks/input/DateRangeSelector.yaml
@@ -426,19 +483,38 @@ pages:
   - _ref: blocks/display/Icon.yaml
   - _ref: blocks/display/Markdown.yaml
   - _ref: blocks/display/Menu.yaml
+<<<<<<< HEAD
   - _ref: blocks/display/Paragraph.yaml
+=======
+  - _ref: blocks/display/Message.yaml
+  - _ref: blocks/display/Notification.yaml
+  - _ref: blocks/display/Paragraph.yaml
+  - _ref: blocks/display/Progress.yaml
+>>>>>>> origin/progress-block
   - _ref: blocks/display/Skeleton.yaml
   - _ref: blocks/display/Statistic.yaml
   - _ref: blocks/display/Title.yaml
   - _ref: blocks/display/UserAvatar.yaml
+<<<<<<< HEAD
+=======
+  - _ref: blocks/container/Affix.yaml
+>>>>>>> origin/progress-block
   - _ref: blocks/container/Badge.yaml
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
   - _ref: blocks/container/Collapse.yaml
   - _ref: blocks/container/Content.yaml
+<<<<<<< HEAD
   - _ref: blocks/container/Footer.yaml
   - _ref: blocks/container/Header.yaml
   - _ref: blocks/container/Layout.yaml
+=======
+  - _ref: blocks/container/Drawer.yaml
+  - _ref: blocks/container/Footer.yaml
+  - _ref: blocks/container/Header.yaml
+  - _ref: blocks/container/Layout.yaml
+  - _ref: blocks/container/Modal.yaml
+>>>>>>> origin/progress-block
   - _ref: blocks/container/PageHCF.yaml
   - _ref: blocks/container/PageHCSF.yaml
   - _ref: blocks/container/PageHeaderMenu.yaml
@@ -448,7 +524,11 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+<<<<<<< HEAD
 
 
 
 
+=======
+  
+>>>>>>> origin/progress-block

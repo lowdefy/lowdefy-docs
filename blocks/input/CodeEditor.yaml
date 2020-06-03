@@ -1,0 +1,142 @@
+id: CodeEditor
+type: PageSiderMenu
+public: true
+properties:
+  title: CodeEditor
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: CodeEditor
+      description_content: |
+        A code editor input component based on the [Monaco Code Editor](https://github.com/Microsoft/monaco-editor).
+      block_type: CodeEditor
+      label: false
+      kind: input
+      style_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Input:
+                      _parse:
+                        _state: style_input_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_input_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: Input
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    options:
+                      _parse:
+                        _state: block.properties.options
+              on:
+                _state: block.properties
+      properties_form:
+        - id: block.properties.height
+          type: NumberInput
+          defaultValue: 300
+          style:
+            _global: settings_input_style
+          properties:
+            title: height
+            size: small
+            Label:
+              extra: Height of the code editor.
+        - id: block.properties.language
+          type: ButtonSelector
+          defaultValue: yaml
+          style:
+            _global: settings_input_style
+          properties:
+            title: language
+            size: small
+            Label:
+              extra: Code language.
+            options:
+              - yaml
+              - json
+        - id: block.properties.theme
+          type: ButtonSelector
+          defaultValue: vs-dark
+          style:
+            _global: settings_input_style
+          properties:
+            title: theme
+            size: small
+            Label:
+              extra: Color theme.
+            options:
+              - vs-dark
+              - vs-light
+        - id: block.properties.options
+          type: TextArea
+          defaultValue: |
+            {
+              "tabSize": 2,
+              "readOnly": false,
+              "minimap": {
+                "enabled": false
+              },
+              "showFoldingControls": "always"
+            }
+          style:
+            _global: settings_input_style
+          properties:
+            title: options
+            size: small
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: TextInput
+              style:
+                --span: 6
+              properties:
+                title: Text input
+            - id: example_1_code
+              type: Markdown
+              style:
+                --span: 6
+              properties:
+                content: |
+                  ```yaml
+                  id: example_1
+                  type: TextInput
+                  properties:
+                    title: Text input
+                  ```

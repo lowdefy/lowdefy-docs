@@ -16,7 +16,11 @@ blocks:
       style_transform:
         _get:
           key: "0"
+<<<<<<< HEAD
           on:
+=======
+          from:
+>>>>>>> origin/progress-block
             _mql_aggregate:
               pipeline:
                 - $addFields:

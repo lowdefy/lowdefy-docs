@@ -1,0 +1,343 @@
+id: Notification
+type: PageSiderMenu
+public: true
+properties:
+  title: Notification
+
+blocks:
+  _ref:
+    path: blocks/popup_template.yaml
+    vars:
+      block_name: Notification
+      block_type: Notification
+      description_content: |
+        Display a popup notification on the page.
+
+        > To display a notification, invoke a notification method.
+      popup_method: notification
+      popup_button_title: Show Notification
+      label: false
+      kind: display
+      style_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Button:
+                      _parse:
+                        _state: style_button_input
+                    Icon:
+                      _parse:
+                        _state: style_icon_input
+                    IconClose:
+                      _parse:
+                        _state: style_iconClose_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_button_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Button
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_icon_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Icon
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_iconClose_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: IconClose
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.bottom
+          type: NumberInput
+          defaultValue: 24
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: 'Distance from the bottom of the viewport, when placement is bottomRight or bottomLeft (unit: pixels).'
+        - id: block.properties.description
+          type: TextArea
+          defaultValue: Notification description.
+          style:
+            _global: settings_input_style
+          properties:
+            title: description
+            size: small
+            Label:
+              extra: The content description of notification box.
+        - id: block.properties.duration
+          type: NumberInput
+          defaultValue: 4.5
+          style:
+            _global: settings_input_style
+          properties:
+            title: duration
+            size: small
+            Label:
+              extra: Time in seconds before notification is closed. When set to 0 or null, it will not be closed automatically.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
+              icon_description: Customized notification icon.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.IconClose
+              icon_field_name: IconClose
+              icon_description: Customized close icon.
+        - id: block.properties.message
+          type: TextInput
+          defaultValue: Notification Message
+          style:
+            _global: settings_input_style
+          properties:
+            title: message
+            size: small
+            Label:
+              extra: The title of notification box.
+        - id: block.properties.placement
+          type: ButtonSelector
+          defaultValue: topRight
+          style:
+            _global: settings_input_style
+          properties:
+            title: placement
+            size: small
+            options:
+              - topLeft
+              - topRight
+              - bottomLeft
+              - bottomRight
+            Label:
+              extra: Position of Notification.
+        - id: block.properties.top
+          type: NumberInput
+          defaultValue: 24
+          style:
+            _global: settings_input_style
+          properties:
+            title: top
+            size: small
+            Label:
+              extra: 'Distance from the top of the viewport, when placement is topRight or topLeft (unit: pixels).'
+        - id: block.properties.status
+          type: ButtonSelector
+          defaultValue: success
+          style:
+            _global: settings_input_style
+          properties:
+            title: status
+            size: small
+            options:
+              - success
+              - error
+              - info
+              - warning
+            Label:
+              extra: Notification status type.
+
+      actions_description: | 
+        #### onClose
+        Trigger when notification closed.
+
+        #### onClick
+        Trigger when the notification is clicked.
+      
+      methods_form:
+        - id: method_notification
+          type: Button
+          properties:
+            title: notification
+          actions:
+            onClick:
+              - id: click_notification
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: notification
+        - id: desc_toggleVisible
+          type: Markdown
+          properties:
+            content: |
+              Show the notification by invoking the `notification` method.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_notification
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: notification
+              ```
+        - id: method_notification_args
+          type: Button
+          properties:
+            title: notification with args
+          actions:
+            onClick:
+              - id: click_notification_args
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: notification
+                  args:
+                    message: Custom Args 💥
+                    description: Pass custom args to the Notification.
+                    duration: 0
+                    status: warning
+
+        - id: desc_notification_args
+          type: Markdown
+          properties:
+            content: |
+              Pass custom args to the notification.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_notification_args
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: notification
+                      args:
+                        message: Custom Args 💥
+                        description: Pass custom args to the Notification.
+                        duration: 0
+                        status: warning
+              ```
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Notification with default and method specific args
+                - id: default_notification_button
+                  type: Button
+                  properties:
+                    title: Default Notification
+                  actions:
+                    onClick:
+                      - id: show_default_notification
+                        type: callMethod()
+                        params:
+                          blockId: example_notification
+                          method: notification
+                - id: custom_notification_button
+                  type: Button
+                  properties:
+                    title: Notification with Args
+                  actions:
+                    onClick:
+                      - id: show_custom_notification
+                        type: callMethod()
+                        params:
+                          blockId: example_notification
+                          method: notification
+                          args:
+                            message: Custom Args 💥
+                            description: Pass custom args to the Notification.
+                            duration: 0
+                            status: info
+                - id: example_notification
+                  type: Notification
+                  properties:
+                    message: Default Notification
+                    description: By default, invoking this notification will display these settings.
+                    duration: 2
+                    status: error
+
+            - id: example_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: default_notification_button
+                          type: Button
+                          properties:
+                            title: Default Notification
+                          actions:
+                            onClick:
+                              - id: show_default_notification
+                                type: callMethod()
+                                params:
+                                  blockId: example_notification
+                                  method: notification
+                        - id: custom_notification_button
+                          type: Button
+                          properties:
+                            title: Notification with Args
+                          actions:
+                            onClick:
+                              - id: show_custom_notification
+                                type: callMethod()
+                                params:
+                                  blockId: example_notification
+                                  method: notification
+                                  args:
+                                    message: Custom Args 💥
+                                    description: Pass custom args to the Notification.
+                                    duration: 0
+                                    status: info
+                        - id: example_notification
+                          type: Modal
+                          properties:
+                            message: Default Notification
+                            description: By default, invoking this notification will display these settings.
+                            duration: 2
+                            status: error
+                      ```
+        

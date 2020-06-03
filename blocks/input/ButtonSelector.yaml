@@ -21,18 +21,18 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Radio Button Input
+      block_name: ButtonSelectors
       description_content: |
-        Radio button input block. Similar to RadioSelector except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
+        Button selector input block. Similar to RadioSelector except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
 
-        >Other selector blocks are checkbox_input, select_input, multiple_select_input and RadioSelector
+        > Other selector blocks are checkbox_input, select_input, multiple_select_input and RadioSelector
       block_type: ButtonSelector
       label: true
       kind: input
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -88,7 +88,7 @@ blocks:
           then:
             _get:
               key: "0"
-              on:
+              from:
                 _mql_aggregate:
                   pipeline:
                     - $addFields:
@@ -238,15 +238,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "ButtonSelector",
-                    "properties": {
-                      "title": "Primitive options"
-                      "options": [ "A", "B", "C" ]
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: ButtonSelector
+                  properties:
+                    title: Primitive options
+                    options:
+                    - A
+                    - B
+                    - C
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -274,36 +275,24 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "ButtonSelector",
-                    "properties": {
-                      "title": "Object options",
-                      "Label": {
-                        "extra": "Value-Label object options and disable individual options."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir",
-                          "disabled": true
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: ButtonSelector
+                  properties:
+                    title: Object options
+                    Label:
+                      extra: Value-Label object options and disable individual options.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                      disabled: true
+                    - value: C
+                      label: Celebron
+                    - value: D
+                      label: Denethor
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -330,30 +319,20 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "ButtonSelector",
-                    "defaultValue": "B",
-                    "properties": {
-                      "title": "Button style",
-                      "buttonStyle": "outline",
-                      "Label": {
-                        "extra": "Change button style to outline."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: ButtonSelector
+                  defaultValue: B
+                  properties:
+                    title: Button style
+                    buttonStyle: outline
+                    Label:
+                      extra: Change button style to outline.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                    - value: C
+                      label: Celebron
+                  ```

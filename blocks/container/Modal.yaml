@@ -1,0 +1,364 @@
+id: Modal
+type: PageSiderMenu
+public: true
+properties:
+  title: Modal
+actions:
+  onInit:
+    - id: init
+      type: setState()
+      params:
+        _ref: blocks/html_blocks.yaml
+
+blocks:
+  _ref:
+    path: blocks/popup_template.yaml
+    vars:
+      block_name: Modal
+      block_type: Modal
+      description_content: |
+        A popup container, presenting the user with a modal dialog.
+
+        > To open the modal, invoke a modal method.
+      popup_method: toggleVisible
+      popup_button_title: Open Modal
+      label: false
+      kind: container
+      style_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Content:
+                      _parse:
+                        _state: style_content_input
+                    Mask:
+                      _parse:
+                        _state: style_mask_input
+                    Wrapper:
+                      _parse:
+                        _state: style_wrapper_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_mask_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Mask
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_wrapper_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Wrapper
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.title
+          type: TextInput
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: The modal dialog's title.
+        - id: block.properties.centered
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: centered
+            size: small
+            Label:
+              extra: Center the modal vertically.
+        - id: block.properties.closable
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: closable
+            size: small
+            Label:
+              extra: Whether a close (x) button is visible on top right of the modal dialog or not.
+        - id: block.properties.footer
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: footer
+            size: small
+            Label:
+              extra: Show footer buttons.
+        - id: block.properties.mask
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: mask
+            size: small
+            Label:
+              extra: Whether show mask or not.
+        - id: block.properties.maskClosable
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: maskClosable
+            size: small
+            Label:
+              extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
+        - id: block.properties.visible
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: visible
+            size: small
+            disable: true
+            Label:
+              extra: Overwrite the modal dialog is visibility.
+        - id: block.properties.okText
+          type: TextInput
+          defaultValue: Ok
+          style:
+            _global: settings_input_style
+          properties:
+            title: okText
+            size: small
+            Label:
+              extra: Text of the Ok button.
+        - id: block.properties.cancelText
+          type: TextInput
+          defaultValue: Cancel
+          style:
+            _global: settings_input_style
+          properties:
+            title: cancelText
+            size: small
+            Label:
+              extra: Text of the Cancel button.
+        - id: block.properties.width
+          type: TextInput
+          defaultValue: '520px'
+          style:
+            _global: settings_input_style
+          properties:
+            title: cancelText
+            size: small
+            Label:
+              extra: Width of the modal dialog.
+        - id: block.properties.zIndex
+          type: NumberInput
+          defaultValue: 1000
+          style:
+            _global: settings_input_style
+          properties:
+            title: zIndex
+            size: small
+            Label:
+              extra: The z-index of the modal. Useful when displaying two modals simultaneously.
+      
+      actions_description: | 
+        #### onOk
+        Executed when then Ok button is clicked.
+
+        #### onCancel
+        Executed when then Cancel button is clicked.
+      
+      methods_form:
+        - id: method_toggleVisible
+          type: Button
+          properties:
+            title: toggleVisible
+          actions:
+            onClick:
+              - id: click_toggleVisible
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: toggleVisible
+        - id: desc_toggleVisible
+          type: Markdown
+          properties:
+            content: |
+              Toggle to modal visibility to the inverse state.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_toggleVisible
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: toggleVisible
+              ```
+        - id: method_setVisible
+          type: Button
+          properties:
+            title: setVisible
+          actions:
+            onClick:
+              - id: click_setVisible
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: setVisible
+                  args:
+                    visible: true
+        - id: desc_setVisible
+          type: Markdown
+          properties:
+            content: |
+              Set the modal visibility state to true.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_setVisible
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: setVisible
+                      args:
+                        visible: true
+              ```
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Modal with input form
+                - id: modal_button
+                  type: Button
+                  properties:
+                    title: Open Modal
+                  actions:
+                    onClick:
+                      - id: click_method
+                        type: callMethod()
+                        params:
+                          blockId: example_1_modal
+                          method: toggleVisible
+                - id: example_1_modal
+                  type: Modal
+                  properties:
+                    title: Add New Contact
+                  actions:
+                    onOk: 
+                      - id: validate_form
+                        type: validate()
+                  blocks:
+                    - id: example_1_markdown
+                      type: Markdown
+                      properties:
+                        content: |
+                          Please complete the details in this form to add a new contact.
+                    - id: example_1_name
+                      type: TextInput
+                      required: true
+                      properties:
+                        title: Name
+                    - id: example_1_surname
+                      type: TextInput
+                      required: true
+                      properties:
+                        title: Surname
+
+                          
+            - id: example_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: modal_button
+                          type: Button
+                          properties:
+                            title: Open Modal
+                          actions:
+                            onClick:
+                              - id: click_method
+                                type: callMethod()
+                                params:
+                                  blockId: example_1_modal
+                                  method: toggleVisible
+                        - id: example_1_modal
+                          type: Modal
+                          properties:
+                            title: Add New Contact
+                          actions:
+                            onOk: 
+                              - id: validate_form
+                                type: validate()
+                          blocks:
+                            - id: example_1_markdown
+                              type: Markdown
+                              properties:
+                                content: |
+                                  Please complete the details in this form to add a new contact.
+                            - id: example_1_name
+                              type: TextInput
+                              required: true
+                              properties:
+                                title: Name
+                            - id: example_1_surname
+                              type: TextInput
+                              required: true
+                              properties:
+                                title: Surname
+                      ```
+        

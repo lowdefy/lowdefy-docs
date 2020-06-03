@@ -11,10 +11,12 @@
       type: Markdown
       properties:
         content:
-          _var: page_description
+          _var: description_content
 
 - id: c1
   type: Box
+  style:
+    --span: 6
   blocks:
     - id: block_divider
       type: Divider
@@ -25,6 +27,19 @@
       style:
         --span: 12
       blocks:
+        - id: block_name_button
+          type: Button
+          properties:
+            title:
+              _var: popup_button_title
+          actions:
+            onClick:
+              - id: click_method
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method:  
+                    _var: popup_method
         - id: block_name
           type:
             _var: block_type
@@ -35,65 +50,94 @@
           properties:
             _state: block.properties
           blocks:
-            - id: flex_1
+            - id: grid_1
               type: Html
               properties:
                 html: '<div>ONE</div>'
               visible:
-                _state: flex_blocks.0.visible
+                _state: grid_blocks.0.visible
               style:
                 _parse:
-                  _state: flex_blocks.0.style
-            - id: flex_2
+                  _state: grid_blocks.0.style
+            - id: grid_2
               type: Html
               properties:
                 html: '<div>TWO</div>'
               visible:
-                _state: flex_blocks.1.visible
+                _state: grid_blocks.1.visible
               style:
                 _parse:
-                  _state: flex_blocks.1.style
-            - id: flex_3
+                  _state: grid_blocks.1.style
+            - id: grid_3
               type: Html
               properties:
                 html: '<div>THREE</div>'
               visible:
-                _state: flex_blocks.2.visible
+                _state: grid_blocks.2.visible
               style:
                 _parse:
-                  _state: flex_blocks.2.style
-            - id: flex_4
+                  _state: grid_blocks.2.style
+            - id: grid_4
               type: Html
               properties:
                 html: '<div>FOUR</div>'
               visible:
-                _state: flex_blocks.3.visible
+                _state: grid_blocks.3.visible
               style:
                 _parse:
-                  _state: flex_blocks.3.style
-            - id: flex_5
+                  _state: grid_blocks.3.style
+            - id: grid_5
               type: Html
               properties:
                 html: '<div>FIVE</div>'
               visible:
-                _state: flex_blocks.4.visible
+                _state: grid_blocks.4.visible
               style:
                 _parse:
-                  _state: flex_blocks.4.style
-            - id: flex_6
+                  _state: grid_blocks.4.style
+            - id: grid_6
               type: Html
               properties:
                 html: '<div>SIX</div>'
               visible:
-                _state: flex_blocks.5.visible
+                _state: grid_blocks.5.visible
               style:
                 _parse:
-                  _state: flex_blocks.5.style
-- id: setup_flex
-  type: Box
-  style:
-    --span: 6
-  blocks:
+                  _state: grid_blocks.5.style
+
+    - id: state_divider
+      type: Divider
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+      properties:
+        title: State
+    - id: state_card
+      type: Card
+      properties: 
+        size: small
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+      blocks:
+        - id: state_markdown
+          type: Markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```yaml
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _dump_yaml:
+                      block_id:
+                        _state: block_id
     - id: setup_divider
       type: Divider
       properties:
@@ -117,7 +161,7 @@
                     _dump_yaml:
                       id: block_id
                       type:
-                        _state: style_transform
+                        _var: block_type
                       style:
                         _var: style_transform
                       visible:
@@ -145,10 +189,12 @@
             title: 'properties:'
           - key: actions
             title: 'actions:'
-          - key: visible
-            title: 'visible:'
           - key: blocks
             title: 'blocks:'
+          - key: methods
+            title: 'methods:'
+          - key: visible
+            title: 'visible:'
       blocks:
         style:
           - id: style_form
@@ -170,22 +216,35 @@
               size: small
 
         properties:
-          - id: flex_properties_form
+          - id: properties_form
             type: Box
             style:
               Content:
                 --gap: 0
             blocks:
-              _var: flex_properties_form
+              _var: properties_form
+          - id: label_form
+            type: Box
+            visible:
+              _var: label
+            blocks:
+              _ref: blocks/label.yaml
         actions:
           - id: actions_description
             type: Markdown
             properties:
               content:
                 _var: actions_description
-
+        methods:
+          - id: methods_form
+            type: Box
+            style:
+              Content:
+                --gap: 0
+            blocks:
+              _var: methods_form
         blocks:
-          - id: flex_blocks
+          - id: grid_blocks
             type: List
             style:
               Content:
@@ -194,22 +253,22 @@
               hideAddButton: true
               hideRemoveButton: true
             blocks:
-              - id: flex_blocks.$.gd
+              - id: grid_blocks.$.gd
                 type: Box
                 style:
                   flex: 0 0 15ch
                   Content:
                     --display: flex
                 blocks:
-                  - id: flex_blocks.$.name
+                  - id: grid_blocks.$.name
                     type: Markdown
                     properties:
                       content: 
                         _nunjucks: 
                           template: '##### {{ name }}'
                           on:
-                            _state: flex_blocks.$
-                  - id: flex_blocks.$.visible
+                            _state: grid_blocks.$
+                  - id: grid_blocks.$.visible
                     type: Switch
                     style:
                       Label:
@@ -217,7 +276,7 @@
                     properties:
                       title: visible
                       size: small
-              - id: flex_blocks.$.style
+              - id: grid_blocks.$.style
                 type: TextArea
                 style:
                   flex: auto
@@ -227,7 +286,7 @@
                   title: style
                   size: small
                   rows: 3
-        
+
 - id: examples_divider
   type: Divider
   properties:

@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Switch Input
+      block_name: Switch
       description_content: |
         On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: Switch
@@ -16,7 +16,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -199,14 +199,11 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "switch_input",
-                    "properties": {
-                      "title": "Switch input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: Switch
+                  properties:
+                    title: Switch input
                   ```
         - id: example_2_card
           type: Card
@@ -227,19 +224,15 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "switch_input",
-                    "properties": {
-                      "title": "Icons",
-                      "IconChecked": "LikeOutlined",
-                      "IconUnchecked": "DislikeOutlined",
-                      "label": {
-                        "extra": "Custom checked and unchecked icons."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: Switch
+                  properties:
+                    title: Icons
+                    IconChecked: LikeOutlined
+                    IconUnchecked: DislikeOutlined
+                    Label:
+                      extra: Custom checked and unchecked icons.
                   ```
         - id: example_3_card
           type: Card
@@ -260,17 +253,13 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "switch_input",
-                    "properties": {
-                      "title": "No Icons",
-                      "checkedText": "",
-                      "uncheckedText": "",
-                      "Label": {
-                        "extra": "Hide the checked and unchecked icons."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: Switch
+                  properties:
+                    title: No Icons
+                    checkedText: ''
+                    uncheckedText: ''
+                    Label:
+                      extra: Hide the checked and unchecked icons.
                   ```

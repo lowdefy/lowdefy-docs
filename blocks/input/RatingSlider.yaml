@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Rating Slider
+      block_name: RatingSlider
       description_content: |
         Rating slider input block. Allows the user to select a number value at a interval between a minimum and maximum value. The input to this field is saved in state, at the path name of the block.
       block_type: RatingSlider
@@ -16,7 +16,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -255,14 +255,11 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "Slider input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: RatingSlider
+                  properties:
+                    title: Slider input
                   ```
         - id: example_2_card
           type: Card
@@ -281,17 +278,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "slider_input",
-                    "defaultValue": 4,
-                    "properties": {
-                      "title": "Icons",
-                      "IconMin": "DislikeFilled",
-                      "IconMax": "LikeFilled"
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: RatingSlider
+                  defaultValue: 4
+                  properties:
+                    title: Icons
+                    IconMin: DislikeFilled
+                    IconMax: LikeFilled
                   ```
         - id: example_6_card
           type: Card
@@ -309,15 +303,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_6",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "Slider with no N/A",
-                      "disableNotApplicable": true
-                    }
-                  }
+                  ```yaml
+                  id: example_6
+                  type: RatingSlider
+                  properties:
+                    title: Slider with no N/A
+                    disableNotApplicable: true
                   ```
         - id: example_3_card
           type: Card
@@ -335,15 +326,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "Disable Icons",
-                      "disableIcons": true
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: RatingSlider
+                  properties:
+                    title: Disable Icons
+                    disableIcons: true
                   ```
         - id: example_4_card
           type: Card
@@ -362,16 +350,13 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "No Marks or Dots",
-                      "showDots": false,
-                      "showMarks": false
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: RatingSlider
+                  properties:
+                    title: No Marks or Dots
+                    showDots: false
+                    showMarks: false
                   ```
         - id: example_5_card
           type: Card
@@ -389,13 +374,10 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_5",
-                    "type": "slider_input",
-                    "defaultValue": 4,
-                    "properties": {
-                      "title": "Default Value",
-                    }
-                  }
-                    ```
+                  ```yaml
+                  id: example_5
+                  type: RatingSlider
+                  defaultValue: 4
+                  properties:
+                    title: Default Value
+                  ```
