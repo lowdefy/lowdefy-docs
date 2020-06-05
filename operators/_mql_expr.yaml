@@ -1,0 +1,83 @@
+id: _mql_expr
+type: PageSiderMenu
+public: true
+properties:
+  title: MQL Expression
+
+actions:
+  onInit:
+    - id: set_state
+      type: setState()
+      params:
+        string: A string value
+        boolean: true
+        # date:
+        #   _date: now
+        array_primitive:
+          - 1
+          - 2.5
+          - 3000
+        array_object:
+          - test: true
+            name: Adam
+            value: 10
+          - test: false
+            name: Bob
+            value: 50
+          - test: true
+            name: Carl
+            value: 1000
+        object:
+          string: text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _mql_expr
+      operator_title: MQL Expression
+      description_content: |
+        The `_mql_expr` operator allows you to execute a MongoDB Query Language expression and returns the result. Makes use of [mingo](https://github.com/kofrasa/mingo).
+
+        >Other MQL operators are _mql_aggregate and _mql_test
+
+        #### Parameters
+        `_mql_expr` takes two parameters but can also be written in short-hand notation. The parameters are:
+
+        - `on` : The array or object on which the expression will be run. If `on` is not defined, the expression wil execute on [`state`](state).
+        - `expr` :  The expression to execute.
+      operator_default: |
+        expr:
+          $concat:
+            - $text
+            - '  '
+            - $more_text
+        on:
+          more_text: text
+          text: Some
+          array_object:
+            - name: Adam
+              value: 10
+            - name: Bob
+              value: 50
+            - name: Carl
+              value: 1000
+          array_primitive:
+            - 1
+            - 2
+            - 3
+      operator_setup:
+        __mql_expr:
+          _load_yaml:
+            _state: operator
+      operator_output:
+        _mql_expr: 
+          _load_yaml:
+            _state: operator
+      # examples:

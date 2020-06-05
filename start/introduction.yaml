@@ -3,7 +3,7 @@ type: PageSiderMenu
 public: true
 properties:
   title: Introduction
-  breadcrumb:
+  Breadcrumb:
     list:
       - Getting Started
       - Introduction

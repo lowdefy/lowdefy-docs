@@ -103,11 +103,69 @@ menus:
             pageId: requests-mutations
             properties:
               title: Requests and Mutations
-          - id: operators
+
+      - id: operators
+        type: MenuGroup
+        properties:
+          title: Operators
+          Icon: ToolOutlined
+        links:
+          # - id: _date
+          #   type: MenuLink
+          #   pageId: _date
+          #   properties:
+          #     title: Date
+          - id: _get
             type: MenuLink
-            pageId: operators
+            pageId: _get
             properties:
-              title: Operators
+              title: Get
+          - id: _mql_aggregate
+            type: MenuLink
+            pageId: _mql_aggregate
+            properties:
+              title: MQL Aggregate
+          - id: _mql_expr
+            type: MenuLink
+            pageId: _mql_expr
+            properties:
+              title: MQL Expression
+          - id: _mql_test
+            type: MenuLink
+            pageId: _mql_test
+            properties:
+              title: MQL Test
+          - id: _nunjucks
+            type: MenuLink
+            pageId: _nunjucks
+            properties:
+              title: Nunjucks
+          - id: _regex
+            type: MenuLink
+            pageId: _regex
+            properties:
+              title: Regex
+          - id: _request
+            type: MenuLink
+            pageId: _request
+            properties:
+              title: Request
+          - id: _state
+            type: MenuLink
+            pageId: _state
+            properties:
+              title: State
+          - id: _type
+            type: MenuLink
+            pageId: _type
+            properties:
+              title: Type
+          - id: _user
+            type: MenuLink
+            pageId: _user
+            properties:
+              title: User
+
       - id: blocks_input
         type: MenuGroup
         properties:
@@ -437,6 +495,19 @@ pages:
   - _ref: concepts/references.yaml
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
+
+  # - _ref: operators/_date.yaml
+  - _ref: operators/_get.yaml
+  - _ref: operators/_mql_aggregate.yaml
+  - _ref: operators/_mql_test.yaml
+  - _ref: operators/_mql_expr.yaml
+  - _ref: operators/_nunjucks.yaml
+  - _ref: operators/_regex.yaml
+  - _ref: operators/_request.yaml
+  - _ref: operators/_state.yaml
+  - _ref: operators/_type.yaml
+  - _ref: operators/_user.yaml
+
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/Checkbox.yaml
   - _ref: blocks/input/CodeEditor.yaml

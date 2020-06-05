@@ -1,0 +1,61 @@
+id: _request
+type: PageSiderMenu
+public: true
+properties:
+  title: Request Operator
+
+actions:
+  onInit:
+    - id: set_state
+      type: setState()
+      params:
+        request_1:
+          - id: 1
+            test: true
+            name: Adam
+            value: 10
+          - id: 2
+            test: false
+            name: Bob
+            value: 50
+          - id: 3
+            test: true
+            name: Carl
+            value: 1000
+        request_2:
+          - id: 0
+            field: A
+            number: 1.92
+          - id: 1
+            field: B
+            number: 9.12
+          - id: 2
+            field: C
+            number: 1.29
+          - id: 4
+            field: D
+            number: 2.19
+
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _request
+      operator_title: Request Operator
+      description_content: |
+        The `_request` operator returns a request result from the page's [`requests`](concepts/requests-mutations.yaml) array and returns the result of the request.
+
+        #### Parameters
+        Call a request setting `_request` to the request id.
+      state_name: Requests
+      operator_default: request_1
+      operator_setup:
+        _ request:
+          _load_yaml:
+            _state: operator
+      operator_output:
+        _state: 
+          _load_yaml:
+            _state: operator
+      
+      # examples:
