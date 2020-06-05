@@ -52,6 +52,7 @@ blocks:
 
         - `on` : The array or JSON object on which the aggregation will be run.
         - `pipeline` : The [MongoDB Aggregation](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/) pipeline.
+      operator_height: 300
       operator_default: |
         pipeline:
           - $match:

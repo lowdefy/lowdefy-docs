@@ -2,7 +2,7 @@ id: _mql_expr
 type: PageSiderMenu
 public: true
 properties:
-  title: MQL Expression
+  title: MQL Expr
 
 actions:
   onInit:
@@ -41,7 +41,7 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _mql_expr
-      operator_title: MQL Expression
+      operator_title: MQL Expr
       description_content: |
         The `_mql_expr` operator allows you to execute a MongoDB Query Language expression and returns the result. Makes use of [mingo](https://github.com/kofrasa/mingo).
 
@@ -52,6 +52,7 @@ blocks:
 
         - `on` : The array or JSON object on which the expression will be run. If `on` is not defined, the expression wil execute on [`state`](state).
         - `expr` :  The expression to execute.
+      operator_height: 360
       operator_default: |
         expr:
           $concat:
