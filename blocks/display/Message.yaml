@@ -75,7 +75,7 @@ blocks:
             title: duration
             size: small
             Label:
-              extra: Time in seconds before message is dismissed. When set to 0 or null, it will never be dismissed automatically.
+              extra: Time in seconds before message disappears. When set to 0 or null, it will never be dismissed automatically.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
