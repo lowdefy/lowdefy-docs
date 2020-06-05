@@ -117,7 +117,7 @@ blocks:
             title: mask
             size: small
             Label:
-              extra: Whether to show mask or not.
+              extra: Whether to show mask (shaded out background) or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
@@ -190,7 +190,7 @@ blocks:
             title: keyboard
             size: small
             Label:
-              extra: Whether support press esc to close.
+              extra: Enable closing drawer with escape key.
         
       actions_description: | 
         #### onClose
@@ -212,7 +212,7 @@ blocks:
           type: Markdown
           properties:
             content: |
-              Toggle to drawer visibility to the inverse state.
+              Toggle drawer open or closed.
               ```yaml
                 actions:
                   onClick:
@@ -239,7 +239,7 @@ blocks:
           type: Markdown
           properties:
             content: |
-              Set the drawer visibility state to true.
+              Set the drawer to open.
               ```yaml
                 actions:
                   onClick:

@@ -138,7 +138,7 @@ blocks:
             title: mask
             size: small
             Label:
-              extra: Whether show mask or not.
+              extra: Whether to show mask (shaded out background) or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
@@ -213,7 +213,7 @@ blocks:
           type: Markdown
           properties:
             content: |
-              Toggle to modal visibility to the inverse state.
+              Toggle to modal open or closed.
               ```yaml
                 actions:
                   onClick:
@@ -240,7 +240,7 @@ blocks:
           type: Markdown
           properties:
             content: |
-              Set the modal visibility state to true.
+              Set the modal open.
               ```yaml
                 actions:
                   onClick:
