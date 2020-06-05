@@ -52,7 +52,7 @@ blocks:
             Label:
               extra: Use a custom separator string.
         - id: block.properties.list
-          type: List
+          type: ControlledList
           properties:
             title: 'list:'
             size: small

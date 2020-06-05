@@ -105,7 +105,7 @@ blocks:
             Label:
               extra: Pixel value for spacing between circles, only available for type circle.
         - id: block.properties.colors
-          type: List
+          type: ControlledList
           properties:
             title: 'colors:'
             size: small         

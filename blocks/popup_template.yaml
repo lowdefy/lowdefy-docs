@@ -245,7 +245,7 @@
               _var: methods_form
         blocks:
           - id: grid_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex

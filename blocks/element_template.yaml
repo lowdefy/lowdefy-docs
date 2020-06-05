@@ -186,7 +186,7 @@
           
         blocks:
           - id: grid_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -400,7 +400,7 @@
           
         blocks:
           - id: flex_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -617,7 +617,7 @@
           
         blocks:
           - id: block_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -837,7 +837,7 @@
           
         blocks:
           - id: inlineBlock_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex

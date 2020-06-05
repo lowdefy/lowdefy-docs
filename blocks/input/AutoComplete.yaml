@@ -140,7 +140,7 @@ blocks:
             Label:
               extra: Disables the block if true.
         - id: block.properties.options
-          type: List
+          type: ControlledList
           required: true
           properties:
             title: 'options:'
