@@ -55,21 +55,37 @@
           type: Divider
           properties:
             title: Operator
+        - id: operator_name
+          type: Html
+          properties:
+            html:
+              _mql_expr:
+                $concat:
+                  - _var: operator_name
+                  - ":"
         - id: operator
-          type: TextArea
-          style:
-            --span: 11
-            sm:
-              --span: 11
+          type: CodeEditor
           defaultValue:
             _var: operator_default
           properties:
-            title:
-              _var: operator_name
-            autoSize: 
-              minRows: 6
-            Label:
-              colon: true
+            theme: vs-light
+            height:
+              _mql_expr:
+                $ifNull:
+                  - _var: operator_height
+                  - 200
+          # type: TextArea
+          # style:
+          #   --span: 11
+          #   sm:
+          #     --span: 11
+          # properties:
+          #   title:
+          #     _var: operator_name
+          #   autoSize: 
+          #     minRows: 6
+          #   Label:
+          #     colon: true
         - id: title_setup
           type: Divider
           properties:

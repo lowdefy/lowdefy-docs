@@ -51,6 +51,7 @@ blocks:
 
         - `from` : The object or array field from which to retrieve a value.
         - `key` : The field within the object or index of the array specified in `on` from which to retrieve a value. The `key` should be a string, even if it is the index of an array, eg. index key '0' instead of 0.
+      operator_height: 300
       operator_default: |
         key: array_primitive
         from:

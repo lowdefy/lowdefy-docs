@@ -110,16 +110,31 @@ menus:
           title: Operators
           Icon: ToolOutlined
         links:
+          - id: _and
+            type: MenuLink
+            pageId: _and
+            properties:
+              title: And
           # - id: _date
           #   type: MenuLink
           #   pageId: _date
           #   properties:
           #     title: Date
+          - id: _eq
+            type: MenuLink
+            pageId: _eq
+            properties:
+              title: Eq
           - id: _get
             type: MenuLink
             pageId: _get
             properties:
               title: Get
+          - id: _if
+            type: MenuLink
+            pageId: _if
+            properties:
+              title: If
           - id: _mql_aggregate
             type: MenuLink
             pageId: _mql_aggregate
@@ -129,17 +144,27 @@ menus:
             type: MenuLink
             pageId: _mql_expr
             properties:
-              title: MQL Expression
+              title: MQL Expr
           - id: _mql_test
             type: MenuLink
             pageId: _mql_test
             properties:
               title: MQL Test
+          - id: _not
+            type: MenuLink
+            pageId: _not
+            properties:
+              title: Not
           - id: _nunjucks
             type: MenuLink
             pageId: _nunjucks
             properties:
               title: Nunjucks
+          - id: _or
+            type: MenuLink
+            pageId: _or
+            properties:
+              title: Or
           - id: _regex
             type: MenuLink
             pageId: _regex
@@ -496,12 +521,17 @@ pages:
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
 
+  - _ref: operators/_and.yaml
   # - _ref: operators/_date.yaml
+  - _ref: operators/_eq.yaml
   - _ref: operators/_get.yaml
+  - _ref: operators/_if.yaml
   - _ref: operators/_mql_aggregate.yaml
   - _ref: operators/_mql_test.yaml
   - _ref: operators/_mql_expr.yaml
+  - _ref: operators/_not.yaml
   - _ref: operators/_nunjucks.yaml
+  - _ref: operators/_or.yaml
   - _ref: operators/_regex.yaml
   - _ref: operators/_request.yaml
   - _ref: operators/_state.yaml

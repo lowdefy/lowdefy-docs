@@ -1,8 +1,8 @@
-id: _mql_aggregate
+id: _eq
 type: PageSiderMenu
 public: true
 properties:
-  title: MQL Aggregate
+  title: Eq
 
 actions:
   onInit:
@@ -40,39 +40,22 @@ blocks:
   _ref: 
     path: operators/template_operators.yaml
     vars:
-      operator_name: _mql_aggregate
-      operator_title: MQL Aggregate
+      operator_name: _eq
+      operator_title: Eq
       description_content: |
-        The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on an array or object and returns the results of the aggregation pipeline as an array. Makes use of [mingo](https://github.com/kofrasa/mingo).
-
-        >Other MQL operators are _mql_expr and _mql_test
+        The `_eq` operator evaluates whether two primitive values are equal and returns `true` if they are equal and `false` if they are not.
 
         #### Parameters
-        `_mql_aggregate` takes two parameters:
-
-        - `on` : The array or object on which the aggregation will be run.
-        - `pipeline` : The [MongoDB Aggregation](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/) pipeline.
-      operator_height: 300
+        `_eq` takes an array of two primitive (not arrays or objects) values.
       operator_default: |
-        pipeline:
-          - $match:
-              test: true
-          - $project:
-              name: 1
-        on:
-          - test: true
-            name: Alice
-          - test: false
-            name: Bob
-          - test: true
-            name: Carl
+        - A
+        - A
       operator_setup:
-        _ mql_aggregate:
+        __eq:
           _load_yaml:
             _state: operator
       operator_output:
-        _mql_aggregate: 
+        _eq: 
           _load_yaml:
             _state: operator
-      
       # examples:

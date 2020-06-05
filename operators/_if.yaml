@@ -1,8 +1,8 @@
-id: _mql_aggregate
+id: _if
 type: PageSiderMenu
 public: true
 properties:
-  title: MQL Aggregate
+  title: If
 
 actions:
   onInit:
@@ -40,39 +40,27 @@ blocks:
   _ref: 
     path: operators/template_operators.yaml
     vars:
-      operator_name: _mql_aggregate
-      operator_title: MQL Aggregate
+      operator_name: _if
+      operator_title: If
       description_content: |
-        The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on an array or object and returns the results of the aggregation pipeline as an array. Makes use of [mingo](https://github.com/kofrasa/mingo).
-
-        >Other MQL operators are _mql_expr and _mql_test
+        The `_if` operator is a conditional statement that returns one of two values depending on the outcome of a test.
 
         #### Parameters
-        `_mql_aggregate` takes two parameters:
+        `_if` that takes three parameters: `test`, `then` and `else` and returns either `then` or `else` depending on whether `test` returns `true` or `false`. The two parameters are:
 
-        - `on` : The array or object on which the aggregation will be run.
-        - `pipeline` : The [MongoDB Aggregation](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/) pipeline.
-      operator_height: 300
+        - `test` : Any statement that returns either `true` or `false`.
+        - `then` : The value to return if `test` is `true`.
+        - `else` : The value to return if `test` is `false`.
       operator_default: |
-        pipeline:
-          - $match:
-              test: true
-          - $project:
-              name: 1
-        on:
-          - test: true
-            name: Alice
-          - test: false
-            name: Bob
-          - test: true
-            name: Carl
+        test: true
+        then: Yes
+        else: No
       operator_setup:
-        _ mql_aggregate:
+        __if:
           _load_yaml:
             _state: operator
       operator_output:
-        _mql_aggregate: 
+        _if: 
           _load_yaml:
             _state: operator
-      
       # examples:
