@@ -348,7 +348,7 @@ blocks:
                   properties:
                     content: |
                       ```yaml
-                        id: example_4
+                        id: example_5
                         type: Markdown
                         properties:
                           content: |
@@ -398,15 +398,23 @@ blocks:
                   properties:
                     content: |
                       ```yaml
-                        id: example_4
+                        id: example_6
                         type: Markdown
                         properties:
                           content: |
-                            [link text](https://www.lowdefy.com)
+                            | Name | Race |
+                            | ------ | ----------- |
+                            | Gimli   | Dwarf |
+                            | Legolas | Elf |
+                            | Frodo    | Hobbit |
 
-                            [link with title](https://www.lowdefy.com "title text!")
+                            Right aligned columns
 
-                            ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
+                            | Name | Race |
+                            | ------:| -----------:|
+                            | Gimli | Dwarf |
+                            | Legolas | Elf |
+                            | Frodo | Hobbit |
                       ```
         - id: example_7_card
           type: Card
