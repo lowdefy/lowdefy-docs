@@ -1,0 +1,60 @@
+id: _not
+type: PageSiderMenu
+public: true
+properties:
+  title: Not
+
+actions:
+  onInit:
+    - id: set_state
+      type: setState()
+      params:
+        string: A string value
+        boolean: true
+        # date:
+        #   _date: now
+        array_primitive:
+          - 1
+          - 2.5
+          - 3000
+        array_object:
+          - test: true
+            name: Adam
+            value: 10
+          - test: false
+            name: Bob
+            value: 50
+          - test: true
+            name: Carl
+            value: 1000
+        object:
+          string: text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _not
+      operator_title: Not
+      description_content: |
+        The `_not` operator returns the opposite of the boolean given. If given `true` it will return `false` and vice versa.
+
+        #### Parameters
+        `_not` takes a boolean or a statement returning a `true` or `false`.
+      operator_default: |
+        true
+      operator_setup:
+        __not:
+          _load_yaml:
+            _state: operator
+      operator_output:
+        _not: 
+          _load_yaml:
+            _state: operator
+      # examples:
