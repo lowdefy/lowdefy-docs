@@ -43,7 +43,7 @@ blocks:
       operator_name: _request
       operator_title: Request Operator
       description_content: |
-        The `_request` operator calls a request defined in the page's [`requests`](concepts/requests-mutations.yaml) array and returns the result of the request.
+        The `_request` operator returns a request result from the page's [`requests`](concepts/requests-mutations.yaml) array and returns the result of the request.
 
         #### Parameters
         Call a request setting `_request` to the request id.

@@ -43,14 +43,14 @@ blocks:
       operator_name: _mql_aggregate
       operator_title: MQL Aggregate
       description_content: |
-        The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on a JSON array or object and returns the results of the aggregation pipeline as an array. Makes use of [mingo](https://github.com/kofrasa/mingo).
+        The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on an array or object and returns the results of the aggregation pipeline as an array. Makes use of [mingo](https://github.com/kofrasa/mingo).
 
         >Other MQL operators are _mql_expr and _mql_test
 
         #### Parameters
         `_mql_aggregate` takes two parameters:
 
-        - `on` : The array or JSON object on which the aggregation will be run.
+        - `on` : The array or object on which the aggregation will be run.
         - `pipeline` : The [MongoDB Aggregation](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/) pipeline.
       operator_default: |
         pipeline:

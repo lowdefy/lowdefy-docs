@@ -47,10 +47,10 @@ blocks:
         The `_regex` operator executes a regular expression to match a sequence of characters that define a search pattern and returns true is the pattern is matched or false if it is not.. [Read more](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285) or [play around](https://regex101.com/).
 
         #### Parameters
-        `_regex` takes three parameters but can also be written in short-hand notation. The parameters are:
+        `_regex` takes three parameters or can be written in short-hand notation when refering to state. The parameters are:
 
-        - `on` : The string on which the pattern will be run. If `on` is not defined, the regex pattern is evaluated on the block_id value on which `_regex` is called.
-        - `pattern` : The regex pattern used to evaluate the string.
+        - `on` : The string against which the pattern will be tested. If `on` is not defined, the regex pattern is evaluated on the block_id value on which `_regex` is called.
+        - `pattern` : The regex pattern as a string used to evaluate the input string.
         - `flags` : Regular expressions have six optional flags that allow for functionality like global and case insensitive searching. These flags can be used separately or together in any order, and are included as part of the regular expression. If `flags` is undefined, `gm` is used.
           - `g` : Global search.
           - `i` : Case-insensitive search.

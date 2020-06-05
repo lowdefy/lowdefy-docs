@@ -50,7 +50,7 @@ blocks:
         #### Parameters
         `_mql_expr` takes two parameters but can also be written in short-hand notation. The parameters are:
 
-        - `on` : The array or JSON object on which the expression will be run. If `on` is not defined, the expression wil execute on [`state`](state).
+        - `on` : The array or object on which the expression will be run. If `on` is not defined, the expression wil execute on [`state`](state).
         - `expr` :  The expression to execute.
       operator_default: |
         expr:
