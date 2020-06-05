@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Month Input
+      block_name: MonthSelector
       description_content: |
         Month picker input block. Allows a user to select a specific month from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
 
@@ -18,7 +18,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -185,14 +185,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "month_input",
-                    "properties": {
-                      "title": "Month input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: MonthSelector
+                  properties:
+                    title: Month input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -212,19 +210,17 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "month_input",
-                    "properties": {
-                      "title": "Placeholder and IconSuffix",
-                      "placeholder": "Pick a month",
-                      "IconSuffix": "RocketOutlined",
-                      "Label": {
-                        "extra": "Custom placeholder and suffix icon."
-                      },
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: MonthSelector
+                  properties:
+                    title: Placeholder and IconSuffix
+                    placeholder: Pick a month
+                    IconSuffix: RocketOutlined
+                    Label:
+                      extra: Custom placeholder and suffix icon.
+                  ```
+
         - id: example_3_card
           type: Card
           blocks:
@@ -245,18 +241,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "month_input",
-                    "defaultValue": { 
-                      "_date": "1993-02-01" 
-                    },
-                    "properties": {
-                      "title": "Date format",
-                      "format": "MMMM YYYY",
-                      "Label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: month_input
+                  defaultValue:
+                    _date: '1993-02-01'
+                  properties:
+                    title: Date format
+                    format: MMMM YYYY
+                    Label:
+                      extra: Default date and custom date format.
+                  ```

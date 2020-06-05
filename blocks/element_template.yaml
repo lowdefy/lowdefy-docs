@@ -110,12 +110,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -324,12 +324,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -541,12 +541,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -761,12 +761,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: inlineBlock_id
                       type:
                         _var: block_type

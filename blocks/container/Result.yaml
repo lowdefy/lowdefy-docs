@@ -5,35 +5,23 @@ properties:
   title: Result
 actions:
   onInit:
-    - id: initialize_state 
+    - id: init
       type: setState()
       params:
-        span_subblock_1: 12
-        visible_subblock_1: true
-        span_subblock_2: 12
-        visible_subblock_2: true
-        span_subblock_3: 6
-        visible_subblock_3: true
-        span_subblock_4: 6
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: false
-        span_subblock_6: 8
-        visible_subblock_6: false
+        _ref: blocks/html_blocks.yaml
 blocks:
   _ref:
-    path: blocks/grid_template.yaml
+    path: blocks/flex_template.yaml
     vars:
-      block_name: Result
-      description_content: |
-        Used to provide feedback the results of a task or error.
       block_type: Result
-      label: false
-      kind: container
+      block_name: Result
+      page_description: |
+        Used to provide feedback the results of a task or error.
+
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -70,7 +58,7 @@ blocks:
             Label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_icon_input
-          type: text_area_input
+          type: TextArea
           style:
             _global: settings_input_style_indent
           defaultValue: "{}"
@@ -80,7 +68,7 @@ blocks:
             size: small
             Label:
               extra: CSS Object style properties. Should be in JSON format.
-      properties_form:
+      flex_properties_form: 
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -123,3 +111,6 @@ blocks:
             size: small
             Label:
               extra: Result title or primary text.
+              
+      actions_description: | 
+        ###### No available actions.

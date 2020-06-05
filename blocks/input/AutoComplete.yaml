@@ -17,7 +17,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Auto Complete Input
+      block_name: AutoComplete
       description_content: |
         Auto complete input block. Allows a user to select a single value from a set of options, or type in a value not in the set list of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
 
@@ -28,7 +28,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:

@@ -122,15 +122,14 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
-                  {
-                    "block_id": {{ value | safe }}
-                  }
+                  ```yaml
+                  {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
-                      _state: block_id
+                    _dump_yaml:
+                      block_id:
+                        _state: block_id
     - id: setup_divider
       type: Divider
       properties:
@@ -146,12 +145,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -182,6 +181,8 @@
             title: 'properties:'
           - key: actions
             title: 'actions:'
+          - key: methods
+            title: 'methods:'
           - key: visible
             title: 'visible:'
       blocks:
@@ -199,7 +200,7 @@
             defaultValue: true
             properties:
               title: visible
-              label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small
@@ -219,11 +220,19 @@
             blocks:
               _ref: blocks/label.yaml
         actions:
-          - id: available_actions_description
+          - id: actions_description
             type: Markdown
             properties:
               content:
-                _var: available_actions_description
+                _var: actions_description
+        methods:
+          - id: methods_form
+            type: Box
+            style:
+              Content:
+                --gap: 0
+            blocks:
+              _var: methods_form
 
 - id: subblocks_card
   type: Card

@@ -77,6 +77,16 @@ blocks:
             options:
               - horizontal
               - vertical
+        - id: block.properties.plain
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: plain
+            size: small
+            Label:
+              extra: Show text as plain style.
 
       available_actions_description: |
         ###### No available actions.

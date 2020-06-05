@@ -16,7 +16,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -237,15 +237,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "statistic",
-                    "properties": {
-                      "title": "Statistic"
-                      "value": 1000
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: Statistic
+                  properties:
+                    title: Statistic
+                    value: 1000
                   ```
         - id: example_2_card
           type: Card
@@ -266,18 +263,15 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "statistic",
-                    "properties":{
-                      "title": "Statistic",
-                      "value": 1000.9999,
-                      "decimalSeparator": ",",
-                      "groupSeparator": " ",
-                      "precision": 2
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: Statistic
+                  properties:
+                    title: Statistic
+                    value: 1000.9999
+                    decimalSeparator: ","
+                    groupSeparator: " "
+                    precision: 2
                   ```
         - id: example_3_card
           type: Card
@@ -297,17 +291,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "statistic",
-                    "properties":{
-                      "title": "Prefix and suffix",
-                      "value": 1000,
-                      "prefix": "$",
-                      "IconSuffix": "ShoppingCartOutlined"
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: Statistic
+                  properties:
+                    title: Prefix and suffix
+                    value: 1000
+                    prefix: "$"
+                    IconSuffix: ShoppingCartOutlined
                   ```
         - id: example_4_card
           type: Card
@@ -330,21 +321,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "statistic",
-                    "properties":{
-                      "title": "Date formatter",
-                      "value": "1999-12-31",
-                      "formatter":{
-                        "type": "date",
-                        "properties":{
-                          "format": "D MMMM YYYY"
-                        }
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: Statistic
+                  properties:
+                    title: Date formatter
+                    value: '1999-12-31'
+                    formatter:
+                      type: date
+                      properties:
+                        format: D MMMM YYYY
                   ```
         - id: example_5_card
           type: Card
@@ -365,18 +351,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_5",
-                    "type": "statistic",
-                    "properties":{
-                      "title": "Duration formatter",
-                      "value": 1000000000, // value should be milliseconds
-                      "formatter":{
-                        "type": "humanizeDuration"
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_5
+                  type: Statistic
+                  properties:
+                    title: Duration formatter
+                    value: 1000000000
+                    formatter:
+                      type: humanizeDuration
                   ```
         - id: example_6_card
           type: Card
@@ -401,20 +383,16 @@ blocks:
                   --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_6",
-                    "type": "statistic",
-                    "style": {
-                      "color": "green",
-                      "fontWeight": "bold",
-                      "fontSize": 40
-                    }
-                    "properties":{
-                      "title": "Value style",
-                      "value": 1000,
-                      "IconPrefix": "RiseOutlined",
-                      "suffix": "%"
-                    }
-                  }
+                  ```yaml
+                  id: example_6
+                  type: statistic
+                  style:
+                    color: green
+                    fontWeight: bold
+                    fontSize: 40
+                  properties:
+                    title: Value style
+                    value: 1000
+                    IconPrefix: RiseOutlined
+                    suffix: "%"
                   ```
