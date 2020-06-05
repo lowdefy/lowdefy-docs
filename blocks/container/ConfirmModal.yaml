@@ -1,0 +1,372 @@
+id: ConfirmModal
+type: PageSiderMenu
+public: true
+properties:
+  title: ConfirmModal
+actions:
+  onInit:
+    - id: init
+      type: setState()
+      params:
+        _ref: blocks/html_blocks.yaml
+
+blocks:
+  _ref:
+    path: blocks/popup_template.yaml
+    vars:
+      block_name: ConfirmModal
+      block_type: ConfirmModal
+      description_content: |
+        A popup container, presenting the user with a modal confirmation dialog.
+
+        > To open the confirm modal, invoke the open method.
+      popup_method: open
+      popup_button_title: Open ConfirmModal
+      label: false
+      kind: container
+      style_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Content:
+                      _parse:
+                        _state: style_content_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_content_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Content
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_form:
+        - id: block.properties.title
+          type: TextInput
+          defaultValue: block_id
+          style:
+            _global: settings_input_style
+          properties:
+            title: title
+            size: small
+            Label:
+              extra: The modal dialog's title.
+        - id: block.properties.status
+          type: Selector
+          defaultValue: confirm
+          style:
+            _global: settings_input_style
+          properties:
+            title: status
+            size: small
+            options:
+              - success
+              - error
+              - info
+              - warning
+              - confirm
+            Label:
+              extra: The confirm modal status type.
+        - id: block.properties.centered
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: centered
+            size: small
+            Label:
+              extra: Center the modal vertically.
+        - id: block.properties.content
+          type: TextArea
+          defaultValue: Are your sure you want to proceed?
+          style:
+            _global: settings_input_style
+          properties:
+            title: content
+            size: small
+            Label:
+              extra: Modal content.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
+              icon_description: Icon to be used in the confirm modal.
+              default_icon: QuestionCircleOutlined
+        - id: block.properties.mask
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: mask
+            size: small
+            Label:
+              extra: Whether show mask or not.
+        - id: block.properties.maskClosable
+          type: Switch
+          defaultValue: true
+          style:
+            _global: settings_input_style
+          properties:
+            title: maskClosable
+            size: small
+            Label:
+              extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
+        - id: block.properties.okText
+          type: TextInput
+          defaultValue: Ok
+          style:
+            _global: settings_input_style
+          properties:
+            title: okText
+            size: small
+            Label:
+              extra: Text of the Ok button.
+        - id: block.properties.cancelText
+          type: TextInput
+          defaultValue: Cancel
+          style:
+            _global: settings_input_style
+          properties:
+            title: cancelText
+            size: small
+            Label:
+              extra: Text of the Cancel button.
+        - id: block.properties.width
+          type: TextInput
+          defaultValue: '520px'
+          style:
+            _global: settings_input_style
+          properties:
+            title: cancelText
+            size: small
+            Label:
+              extra: Width of the modal dialog.
+        - id: block.properties.zIndex
+          type: NumberInput
+          defaultValue: 1000
+          style:
+            _global: settings_input_style
+          properties:
+            title: zIndex
+            size: small
+            Label:
+              extra: The z-index of the modal. Useful when displaying two modals simultaneously.
+      
+      actions_description: | 
+        #### onOk
+        Executed when then Ok button is clicked.
+
+        #### onCancel
+        Executed when then Cancel button is clicked.
+      
+      methods_form:
+        - id: method_open
+          type: Button
+          properties:
+            title: open
+          actions:
+            onClick:
+              - id: click_open
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: open
+        - id: desc_open
+          type: Markdown
+          properties:
+            content: |
+              Show the confirm modal by invoking the `open` method.
+              ```yaml
+                actions:
+                  onClick:
+                  - id: click_open
+                    type: callMethod()
+                    params:
+                      blockId: block_name
+                      method: open
+              ```
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: Context
+              actions:
+                onEnter:
+                  - id: setup
+                    type: setState()
+                    params:
+                      position: Dwight Schrute - Assistant Regional Manager! 🧐
+                      flag: true
+              style:
+                --span: 6
+              blocks:
+                - id: ex_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Confirm Modal to check before executing an action
+                - id: ex_1_info
+                  type: Title
+                  properties:
+                    content: 
+                      _state: position
+                    level: 3
+                - id: ex_1_modal_button
+                  type: Button
+                  properties:
+                    title: 
+                      _if: 
+                        test: 
+                          _state: flag
+                        then: Demote
+                        else: Promote
+                    type: danger
+                  actions:
+                    onClick:
+                      - id: click_method
+                        type: callMethod()
+                        params:
+                          blockId: ex_1_modal
+                          method: open
+                - id: ex_1_modal
+                  type: ConfirmModal
+                  properties:
+                    okText: Yes
+                    cancelText: No
+                    title: 
+                      _if: 
+                        test: 
+                          _state: flag
+                        then: Demote
+                        else: Promote
+                  actions:
+                    onOk: 
+                      - id: set_position
+                        type: setState()
+                        params:
+                          position:
+                            _if: 
+                              test: 
+                                _state: flag
+                              then: Dwight Schrute - Assistant to the Regional Manager! 🙇‍♂️
+                              else: Dwight Schrute - Assistant Regional Manager! 🧐
+                          flag: 
+                            _not:
+                              _state: flag
+                  blocks:
+                    - id: ex_1_markdown
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: |
+                              Should Dwight Schrute be {{ position }}?
+                            on:
+                              position:
+                                _if: 
+                                  test: 
+                                    _state: flag
+                                  then: Assistant to the Regional Manager
+                                  else: Assistant Regional Manager
+
+                          
+            - id: ex_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: ex_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: ex_1_info
+                          type: Title
+                          properties:
+                            content: 
+                              _state: position
+                            level: 3
+                        - id: ex_1_modal_button
+                          type: Button
+                          properties:
+                            title: 
+                              _if: 
+                                test: 
+                                  _state: flag
+                                then: Demote
+                                else: Promote
+                            type: danger
+                          actions:
+                            onClick:
+                              - id: click_method
+                                type: callMethod()
+                                params:
+                                  blockId: ex_1_modal
+                                  method: open
+                        - id: ex_1_modal
+                          type: ConfirmModal
+                          properties:
+                            okText: Yes
+                            cancelText: No
+                            title: 
+                              _if: 
+                                test: 
+                                  _state: flag
+                                then: Demote
+                                else: Promote
+                          actions:
+                            onOk: 
+                              - id: set_position
+                                type: setState()
+                                params:
+                                  position:
+                                    _if: 
+                                      test: 
+                                        _state: flag
+                                      then: Dwight Schrute - Assistant to the Regional Manager! 🙇‍♂️
+                                      else: Dwight Schrute - Assistant Regional Manager! 🧐
+                                  flag: 
+                                    _not:
+                                      _state: flag
+                          blocks:
+                            - id: ex_1_markdown
+                              type: Markdown
+                              properties:
+                                content: 
+                                  _nunjucks: 
+                                    template: |
+                                      Should Dwight Schrute be {{ position }}?
+                                    on:
+                                      position:
+                                        _if: 
+                                          test: 
+                                            _state: flag
+                                          then: Assistant to the Regional Manager
+                                          else: Assistant Regional Manager
+                      ```
+        
