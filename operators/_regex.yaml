@@ -1,0 +1,75 @@
+id: _regex
+type: PageSiderMenu
+public: true
+properties:
+  title: Nunjucks
+
+actions:
+  onInit:
+    - id: set_state
+      type: setState()
+      params:
+        string: A string value
+        boolean: true
+        # date:
+        #   _date: now
+        array_primitive:
+          - 1
+          - 2.5
+          - 3000
+        array_object:
+          - test: true
+            name: Adam
+            value: 10
+          - test: false
+            name: Bob
+            value: 50
+          - test: true
+            name: Carl
+            value: 1000
+        object:
+          string: text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _regex
+      operator_title: Regex
+      description_content: |
+        The `_regex` operator executes a regular expression to match a sequence of characters that define a search pattern and returns true is the pattern is matched or false if it is not.. [Read more](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285) or [play around](https://regex101.com/).
+
+        #### Parameters
+        `_regex` takes three parameters but can also be written in short-hand notation. The parameters are:
+
+        - `on` : The string on which the pattern will be run. If `on` is not defined, the regex pattern is evaluated on the block_id value on which `_regex` is called.
+        - `pattern` : The regex pattern used to evaluate the string.
+        - `flags` : Regular expressions have six optional flags that allow for functionality like global and case insensitive searching. These flags can be used separately or together in any order, and are included as part of the regular expression. If `flags` is undefined, `gm` is used.
+          - `g` : Global search.
+          - `i` : Case-insensitive search.
+          - `m` : Multi-line search.
+          - `s` : Allows . to match newline characters.
+          - `u` : "unicode"; treat a pattern as a sequence of unicode code points.
+          - `y` : Perform a "sticky" search that matches starting at the current position in the target string.
+
+      operator_default: |
+        pattern: "^The"
+        on: The quick brown fox jumps over the lazy dog.
+      operator_setup:
+        _ regex:
+          _load_yaml:
+            _state: operator
+      operator_output:
+        _regex: 
+          _load_yaml:
+            _state: operator
+      
+      # examples:
+ 

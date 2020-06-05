@@ -46,7 +46,7 @@ blocks:
               Label:
                 --span: 3
             defaultValue: |
-              "now"
+              "2000-01-01"
             properties:
               title: _date
               rows: 3

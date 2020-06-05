@@ -11,8 +11,8 @@ actions:
       params:
         string: A field value
         boolean: true
-        date:
-          _date: now
+        # date:
+        #   _date: now
         array:
           - 1
           - 2.5
@@ -27,268 +27,124 @@ actions:
             - B
             - C
 blocks:
-  - id: card_display
-    type: Card
-    blocks:
-      - id: title
-        type: Title
-        properties:
-          level: 2
-          content: State Operator
-      - id: description
-        type: Markdown
-        properties:
-          content: |
-            The `_state` operator allows you to access a value from the page [`state`](state).
+  _ref:
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _state
+      operator_title: State Operator
+      description_content: |
+        The `_state` operator allows you to access a value from the page [`state`](state).
 
-            #### Parameters
-            `_state` takes one of two parameters, which each also has a short-hand method. The two parameters are:
+        #### Parameters
+        `_state` takes one of two parameters, which each also has a short-hand method. The two parameters are:
 
-            - `all` : If set to `true` it returns everything in the page `state`.
-              - _Short-hand_ : Set `_state` directly to `true`.
-            - `key` : Returns the value of the field name specified.
-              - _Short-hand_ : Set `_state` directly to the field name.
+        - `all` : If set to `true` it returns everything in the page `state`.
+          - _Short-hand_ : Set `_state` directly to `true`.
+        - `key` : Returns the value of the field name specified.
+          - _Short-hand_ : Set `_state` directly to the field name.
+      operator_default: |
+        key: object
+      operator_setup:
+        __state:
+          _load_yaml:
+            _state: operator
+      operator_output:
+        _state: 
+          _load_yaml:
+            _state: operator
+      examples:
+        - id: example_1
+          type: Card
+          blocks:
+            - id: example_1_description
+              type: Markdown
+              properties:
+                renderHtml: true
+                content: |
+                  One field's value can be used as input for another field's property by using `key`. 
+                  This can be used eg. to control the blocks' properties or visibility based on other blocks' values. 
+                  
+                  Block 1's value is used to control Block 2 and 3's visibility while Block 2's value is used as Block 3 and 4's placeholder using the `key` parameter and its short-hand notation.
+            - id: example_1_block_box
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: block_1
+                  type: Switch
+                  defaultValue: true
+                  properties:
+                    title: Block 1
+                    Label:
+                      extra: Control Blocks 2 and 3's visibility.
+                - id: block_2
+                  type: TextInput
+                  defaultValue: Block 2 Value
+                  visible:
+                    _state: block_1
+                  properties:
+                    title: Block 2
+                    Label:
+                      extra: Control Blocks 3 and 4's placeholder. Visible using _state's short-hand key method.
+                - id: block_3
+                  type: TextInput
+                  visible:
+                    _state: 
+                      key: block_1
+                  properties:
+                    title: Block 3
+                    placeholder:
+                      _state:
+                        key: block_2
+                    Label:
+                      extra: Use _state's key parameter.
+                - id: block_4
+                  type: TextInput
+                  properties:
+                    title: Block 4
+                    placeholder:
+                      _state: block_2
+                    Label:
+                      extra: Use the short-hand key method.
 
-      - id: title_playground
-        type: Divider
-        properties:
-          title: Playground
-      - id: box_state
-        type: Box
-        style:
-          --span: 4
-        blocks:
-          - id: title_state
-            type: Divider
-            properties:
-              title: State
-          # - id: card_state
-          #   type: Card
-          #   blocks:
-          - id: state
-            type: Markdown
-            properties:
-              renderHtml: true
-              content:
-                _nunjucks:
-                  template: |
-                    ```json
-                    {{ state_all | safe }}
-                    ```
-                  on:
-                    state_all:
-                      _stringify:
-                        _state: true
-      - id: box_operator
-        type: Box
-        style:
-          --span: 4
-        blocks:
-          - id: title_operator
-            type: Divider
-            properties:
-              title: Operator
-          # - id: card_operator
-          #   type: Card
-          #   blocks:
-          - id: operator
-            type: TextArea
-            style:
-              --span: 11
-              sm:
-                --span: 11
-              Label:
-                --span: 3
-            defaultValue: |
-              {
-                "key": "object"
-              }
-            properties:
-              title: _state
-              autoSize: 
-                minRows: 6
-              Label:
-                colon: true
-      # - id: box_setup
-      #   type: Box
-      #   style:
-      #     --span: 4
-      #   blocks:
-          - id: title_setup
-            type: Divider
-            properties:
-              title: Operator Setup
-          # - id: card_setup
-          #   type: Card
-          #   blocks:
-          - id: setup
-            type: Markdown
-            properties:
-              renderHtml: true
-              content:
-                _nunjucks:
-                  template: |
-                    ```json
-                    {
-                      "_state": {{ operator | safe }}
-                    }
-                    ```
-                  on:
-                    operator:
-                      _stringify:
-                        _parse:
-                          _state: operator
-      - id: box_output
-        type: Box
-        style:
-          --span: 4
-        blocks:
-          - id: title_output
-            type: Divider
-            properties:
-              title: Output
-          # - id: card_output
-          #   type: Card
-          #   blocks:
-          - id: output
-            type: Markdown
-            properties:
-              renderHtml: true
-              content:
-                _nunjucks:
-                  template: |
-                    {% if is_primitive %}
-                    {{ value_key }}
-                    {% else %}
-                    ```json
-                    {{ value_all | safe  }}
-                    ```
-                    {% endif %}
-                  on:
-                    is_primitive:
-                      _type:
-                        type: primitive
-                        on:
-                          _state: 
-                            _parse:
-                              _state: operator
-                    value_key:
-                      _state: 
-                        _parse:
-                          _state: operator
-                    value_all:
-                      _stringify:
-                        _state: 
-                          _parse:
-                            _state: operator
-
-      - id: title_examples
-        type: Divider
-        properties:
-          title: Examples
-      - id: example_1
-        type: Card
-        blocks:
-          - id: example_1_description
-            type: Markdown
-            properties:
-              renderHtml: true
-              content: |
-                One field's value can be used as input for another field's property by using `key`. 
-                This can be used eg. to control the blocks' properties or visibility based on other blocks' values. 
-                
-                Block 1's value is used to control Block 2 and 3's visibility while Block 2's value is used as Block 3 and 4's placeholder using the `key` parameter and its short-hand notation.
-          - id: example_1_block_box
-            type: Box
-            style:
-              --span: 6
-            blocks:
-              - id: block_1
-                type: Switch
-                defaultValue: true
-                properties:
-                  title: Block 1
-                  Label:
-                    extra: Control Blocks 2 and 3's visibility.
-              - id: block_2
-                type: TextInput
-                defaultValue: Block 2 Value
-                visible:
-                  _state: block_1
-                properties:
-                  title: Block 2
-                  Label:
-                    extra: Control Blocks 3 and 4's placeholder. Visible using _state's short-hand key method.
-              - id: block_3
-                type: TextInput
-                visible:
-                  _state: 
-                    key: block_1
-                properties:
-                  title: Block 3
-                  placeholder:
-                    _state:
-                      key: block_2
-                  Label:
-                    extra: Use _state's key parameter.
-              - id: block_4
-                type: TextInput
-                properties:
-                  title: Block 4
-                  placeholder:
-                    _state: block_2
-                  Label:
-                    extra: Use the short-hand key method.
-
-          - id: example_1_code_box
-            type: Box
-            style:
-              --span: 6
-            blocks:
-              - id: example_1_code
-                type: Markdown
-                properties:
-                  renderHtml: true
-                  content: |
-                    ```json
-                    {
-                      "blocks": [
-                        {
-                          "id": "block_1",
-                          "type": "Switch"
-                        },
-                        {
-                          "id": "block_2",
-                          "type": "TextInput",
-                          "visible": {
-                            "_state": "block_1"
-                          }
-                        },
-                        {
-                          "id": "block_3",
-                          "type": "TextInput",
-                          "visible": {
-                            "_state": {
-                              "key": "block_1"
-                            }
-                          },
-                          "properties": {
-                            "placeholder": { 
-                              "_state": { 
-                                "key": "block_2" 
-                              } 
-                            }
-                          }
-                        },
-                        {
-                          "id": "block_4",
-                          "type": "TextInput",
-                          "properties": {
-                            "placeholder": { 
-                              "_state": "block_2" 
-                              }
-                          }
-                        }
-                      ]
-                    }
-                    ```
+            - id: example_1_code_box
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    renderHtml: true
+                    content: |
+                      ```yaml
+                      blocks:
+                        - id: block_1
+                          type: Switch
+                          defaultValue: true
+                          properties:
+                            title: Block 1
+                        - id: block_2
+                          type: TextInput
+                          defaultValue: Block 2 Value
+                          visible:
+                            _state: block_1
+                          properties:
+                            title: Block 2
+                        - id: block_3
+                          type: TextInput
+                          visible:
+                            _state: 
+                              key: block_1
+                          properties:
+                            title: Block 3
+                            placeholder:
+                              _state:
+                                key: block_2
+                        - id: block_4
+                          type: TextInput
+                          properties:
+                            title: Block 4
+                            placeholder:
+                              _state: block_2
+                      ```
