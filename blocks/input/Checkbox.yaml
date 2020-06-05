@@ -134,7 +134,7 @@ blocks:
                   - Primitive
                   - Label Value
         - id: block.properties.options
-          type: List
+          type: ControlledList
           required: true
           properties:
             title: 'options:'

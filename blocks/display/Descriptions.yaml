@@ -92,11 +92,11 @@ blocks:
                   - List
                   - Object
         - id: items_list
-          type: List
+          type: ControlledList
           required: true
           visible:
             _mql_test:
-              select_items_type: List
+              select_items_type: ControlledList
           properties:
             title: 'items:'
             size: small

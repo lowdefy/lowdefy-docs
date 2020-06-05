@@ -186,7 +186,7 @@
 
         blocks:
           - id: flex_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex

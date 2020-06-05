@@ -151,7 +151,7 @@ blocks:
               - dark
               - light
         - id: block.properties.links
-          type: List
+          type: ControlledList
           properties:
             title: 'links:'
             size: small
@@ -232,7 +232,7 @@ blocks:
                     Label:
                       extra: Menu item icon.
             - id: block.properties.links.$.links
-              type: List
+              type: ControlledList
               visible:
                 _eq:
                   - _state: block.properties.links.$.type
