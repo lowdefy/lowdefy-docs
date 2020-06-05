@@ -17,7 +17,7 @@ blocks:
       block_name: Drawer
       description_content: |
         A panel which slides in from the edge of the screen.
-      popup_method: toggleVisible
+      popup_method: toggleOpen
       popup_button_title: Open Drawer
       style_transform:
         _get:
@@ -108,16 +108,6 @@ blocks:
             size: small
             Label:
               extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
-        - id: block.properties.visible
-          type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
-          properties:
-            title: visible
-            size: small
-            Label:
-              extra: Whether the Drawer dialog is visible or not.
         - id: block.properties.mask
           type: Switch
           defaultValue: true
@@ -127,7 +117,7 @@ blocks:
             title: mask
             size: small
             Label:
-              extra: Whether to show mask or not.
+              extra: Whether to show mask (shaded out background) or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
@@ -200,66 +190,66 @@ blocks:
             title: keyboard
             size: small
             Label:
-              extra: Whether support press esc to close.
+              extra: Enable closing drawer with escape key.
         
       actions_description: | 
         #### onClose
         Called when the Drawer is closed.
 
       methods_form:
-        - id: method_toggleVisible
+        - id: method_toggleOpen
           type: Button
           properties:
-            title: toggleVisible
+            title: toggleOpen
           actions:
             onClick:
-              - id: click_toggleVisible
+              - id: click_toggleOpen
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: toggleVisible
-        - id: desc_toggleVisible
+                  method: toggleOpen
+        - id: desc_toggleOpen
           type: Markdown
           properties:
             content: |
-              Toggle to drawer visibility to the inverse state.
+              Toggle drawer open or closed.
               ```yaml
                 actions:
                   onClick:
-                  - id: click_toggleVisible
+                  - id: click_toggleOpen
                     type: callMethod()
                     params:
                       blockId: block_name
-                      method: toggleVisible
+                      method: toggleOpen
               ```
-        - id: method_setVisible
+        - id: method_setOpen
           type: Button
           properties:
-            title: setVisible
+            title: setOpen 
           actions:
             onClick:
-              - id: click_setVisible
+              - id: click_setOpen
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: setVisible
+                  method: setOpen
                   args:
-                    visible: true
-        - id: desc_setVisible
+                    open: true
+        - id: desc_setOpen
           type: Markdown
           properties:
             content: |
-              Set the drawer visibility state to true.
+              Set the drawer to open.
               ```yaml
                 actions:
                   onClick:
-                  - id: click_setVisible
+                  - id: click_setOpen
                     type: callMethod()
                     params:
                       blockId: block_name
-                      method: setVisible
+                      method: setOpen
                       args:
-                        visible: true
+                        open: true
               ```
 
       examples:
@@ -275,7 +265,7 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ##### Drawer with input form
+                      ##### Uncontrolled Drawer with input form
                 - id: drawer_button
                   type: Button
                   properties:
@@ -286,7 +276,7 @@ blocks:
                         type: callMethod()
                         params:
                           blockId: example_1_drawer
-                          method: toggleVisible
+                          method: toggleOpen
                 - id: example_1_drawer
                   type: Drawer
                   properties:
@@ -320,7 +310,7 @@ blocks:
                             type: callMethod()
                             params:
                               blockId: example_1_drawer
-                              method: toggleVisible
+                              method: toggleOpen
                           
             - id: example_1_code_grid
               type: Box
@@ -342,7 +332,7 @@ blocks:
                                 type: callMethod()
                                 params:
                                   blockId: example_1_drawer
-                                  method: toggleVisible
+                                  method: toggleOpen
                         - id: example_1_drawer
                           type: Drawer
                           properties:
@@ -376,7 +366,117 @@ blocks:
                                     type: callMethod()
                                     params:
                                       blockId: example_1_drawer
-                                      method: toggleVisible
+                                      method: toggleOpen
+                      ```
+        
+
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_2_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Controlled Drawer with details
+                - id: example_2_drawer_button
+                  type: Button
+                  properties:
+                    title: Open Drawer
+                  actions:
+                    onClick:
+                      - id: click_open
+                        type: setState()
+                        params:
+                          example_2_open:
+                            _not:
+                              _state: example_2_open
+                - id: example_2_drawer
+                  type: Drawer
+                  properties:
+                    title: More details
+                    open: 
+                      _not:
+                        _not:
+                          _state: example_2_open
+                  actions:
+                    onOk: 
+                      - id: click_ok
+                        type: setState()
+                        params:
+                          example_2_open:
+                            _not:
+                              _state: example_2_open
+                    onCancel: 
+                      - id: click_cancel
+                        type: setState()
+                        params:
+                          example_2_open:
+                            _not:
+                              _state: example_2_open
+                  blocks:
+                    - id: example_2_drawer
+                      type: Markdown
+                      properties:
+                        content: |
+                          This drawer is controlled by the external state `example_2_open`.
+
+                          
+            - id: example_2_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_2_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: example_2_drawer_button
+                          type: Button
+                          properties:
+                            title: Open Drawer
+                          actions:
+                            onClick:
+                              - id: click_open
+                                type: setState()
+                                params:
+                                  example_2_open:
+                                    _not:
+                                      _state: example_2_open
+                        - id: example_2_drawer
+                          type: Drawer
+                          properties:
+                            title: More details
+                            open: 
+                              _not:
+                                _not:
+                                  _state: example_2_open
+                          actions:
+                            onOk: 
+                              - id: click_ok
+                                type: setState()
+                                params:
+                                  example_2_open:
+                                    _not:
+                                      _state: example_2_open
+                            onCancel: 
+                              - id: click_cancel
+                                type: setState()
+                                params:
+                                  example_2_open:
+                                    _not:
+                                      _state: example_2_open
+                          blocks:
+                            - id: example_2_drawer
+                              type: Markdown
+                              properties:
+                                content: |
+                                  This drawer is controlled by the external state `example_2_open`.
                       ```
         
 

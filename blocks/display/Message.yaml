@@ -13,9 +13,9 @@ blocks:
       description_content: |
         Display a popup message on the page.
 
-        > To display a message, invoke a message method.
-      popup_method: message
-      popup_button_title: Show Message
+        > To display a message, invoke the open method.
+      popup_method: open
+      popup_button_title: Open Message
       label: false
       kind: display
       style_transform:
@@ -103,48 +103,48 @@ blocks:
         Trigger when message closed.
 
       methods_form:
-        - id: method_message
+        - id: method_open
           type: Button
           properties:
-            title: message
+            title: open
           actions:
             onClick:
-              - id: click_message
+              - id: click_open
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: message
-        - id: desc_message
+                  method: open
+        - id: desc_open
           type: Markdown
           properties:
             content: |
-              Show the message by invoking the `message` method.
+              Show the message by invoking the `open` method.
               ```yaml
                 actions:
                   onClick:
-                    - id: click_message
+                    - id: click_open
                       type: callMethod()
                       params:
                         blockId: block_name
-                        method: message
+                        method: open
               ```
-        - id: method_message_args
+        - id: method_open_args
           type: Button
           properties:
-            title: message with args
+            title: open with args
           actions:
             onClick:
-              - id: click_message_args
+              - id: click_open_args
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: message
+                  method: open
                   args:
                     content: Custom content 🐶
                     duration: 0
                     status: warning
 
-        - id: desc_message_args
+        - id: desc_open_args
           type: Markdown
           properties:
             content: |
@@ -152,11 +152,11 @@ blocks:
               ```yaml
                 actions:
                   onClick:
-                    - id: click_message_args
+                    - id: click_open_args
                       type: callMethod()
                       params:
                         blockId: block_name
-                        method: message
+                        method: open
                         args:
                           content: Custom content 🐶
                           duration: 0
@@ -177,33 +177,33 @@ blocks:
                   properties:
                     content: |
                       ##### Message with default and method specific args
-                - id: default_message_button
+                - id: default_open_button
                   type: Button
                   properties:
                     title: Default Message
                   actions:
                     onClick:
-                      - id: show_default_message
+                      - id: show_default_open
                         type: callMethod()
                         params:
-                          blockId: example_message
-                          method: message
-                - id: custom_message_button
+                          blockId: example_open
+                          method: open
+                - id: custom_open_button
                   type: Button
                   properties:
                     title: Message with Args
                   actions:
                     onClick:
-                      - id: show_custom_message
+                      - id: show_custom_open
                         type: callMethod()
                         params:
-                          blockId: example_message
-                          method: message
+                          blockId: example_open
+                          method: open
                           args:
                             content: Custom Args 💥
                             duration: 0
                             status: info
-                - id: example_message
+                - id: example_open
                   type: Message
                   properties:
                     content: Default content
@@ -220,34 +220,34 @@ blocks:
                   properties:
                     content: |
                       ```yaml
-                        - id: default_message_button
+                        - id: default_open_button
                           type: Button
                           properties:
                             title: Default Message
                           actions:
                             onClick:
-                              - id: show_default_message
+                              - id: show_default_open
                                 type: callMethod()
                                 params:
-                                  blockId: example_message
-                                  method: message
-                        - id: custom_message_button
+                                  blockId: example_open
+                                  method: open
+                        - id: custom_open_button
                           type: Button
                           properties:
                             title: Message with Args
                           actions:
                             onClick:
-                              - id: show_custom_message
+                              - id: show_custom_open
                                 type: callMethod()
                                 params:
-                                  blockId: example_message
-                                  method: message
+                                  blockId: example_open
+                                  method: open
                                   args:
                                     content: Custom Args 💥
                                     duration: 0
                                     status: info
-                        - id: example_message
-                          type: message
+                        - id: example_open
+                          type: Message
                           properties:
                             content: Default content
                             duration: 2

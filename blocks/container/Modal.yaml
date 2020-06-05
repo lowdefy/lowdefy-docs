@@ -20,7 +20,7 @@ blocks:
         A popup container, presenting the user with a modal dialog.
 
         > To open the modal, invoke a modal method.
-      popup_method: toggleVisible
+      popup_method: toggleOpen
       popup_button_title: Open Modal
       label: false
       kind: container
@@ -138,7 +138,7 @@ blocks:
             title: mask
             size: small
             Label:
-              extra: Whether show mask or not.
+              extra: Whether to show mask (shaded out background) or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
@@ -149,17 +149,6 @@ blocks:
             size: small
             Label:
               extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
-        - id: block.properties.visible
-          type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
-          properties:
-            title: visible
-            size: small
-            disable: true
-            Label:
-              extra: Overwrite the modal dialog is visibility.
         - id: block.properties.okText
           type: TextInput
           defaultValue: Ok
@@ -209,59 +198,59 @@ blocks:
         Executed when then Cancel button is clicked.
       
       methods_form:
-        - id: method_toggleVisible
+        - id: method_toggleOpen
           type: Button
           properties:
-            title: toggleVisible
+            title: toggleOpen
           actions:
             onClick:
-              - id: click_toggleVisible
+              - id: click_toggleOpen
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: toggleVisible
-        - id: desc_toggleVisible
+                  method: toggleOpen
+        - id: desc_toggleOpen
           type: Markdown
           properties:
             content: |
-              Toggle to modal visibility to the inverse state.
+              Toggle to modal open or closed.
               ```yaml
                 actions:
                   onClick:
-                  - id: click_toggleVisible
+                  - id: click_toggleOpen
                     type: callMethod()
                     params:
                       blockId: block_name
-                      method: toggleVisible
+                      method: toggleOpen
               ```
-        - id: method_setVisible
+        - id: method_setOpen
           type: Button
           properties:
-            title: setVisible
+            title: setOpen
           actions:
             onClick:
-              - id: click_setVisible
+              - id: click_setOpen
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: setVisible
+                  method: setOpen
                   args:
-                    visible: true
-        - id: desc_setVisible
+                    open: true
+        - id: desc_setOpen
           type: Markdown
           properties:
             content: |
-              Set the modal visibility state to true.
+              Set the modal open.
               ```yaml
                 actions:
                   onClick:
-                  - id: click_setVisible
+                  - id: click_setOpen
                     type: callMethod()
                     params:
                       blockId: block_name
-                      method: setVisible
+                      method: setOpen
                       args:
-                        visible: true
+                        open: true
               ```
 
       examples:
@@ -277,8 +266,8 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ##### Modal with input form
-                - id: modal_button
+                      ##### Uncontrolled Modal with input form
+                - id: example_1_modal_button
                   type: Button
                   properties:
                     title: Open Modal
@@ -288,7 +277,7 @@ blocks:
                         type: callMethod()
                         params:
                           blockId: example_1_modal
-                          method: toggleVisible
+                          method: toggleOpen
                 - id: example_1_modal
                   type: Modal
                   properties:
@@ -325,7 +314,7 @@ blocks:
                   properties:
                     content: |
                       ```yaml
-                        - id: modal_button
+                        - id: example_1_modal_button
                           type: Button
                           properties:
                             title: Open Modal
@@ -335,7 +324,7 @@ blocks:
                                 type: callMethod()
                                 params:
                                   blockId: example_1_modal
-                                  method: toggleVisible
+                                  method: toggleOpen
                         - id: example_1_modal
                           type: Modal
                           properties:
@@ -360,5 +349,114 @@ blocks:
                               required: true
                               properties:
                                 title: Surname
+                      ```
+
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_2_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Controlled Modal with details
+                - id: example_2_modal_button
+                  type: Button
+                  properties:
+                    title: Open Modal
+                  actions:
+                    onClick:
+                      - id: click_open
+                        type: setState()
+                        params:
+                          example_2_open:
+                            _not:
+                              _state: example_2_open
+                - id: example_2_modal
+                  type: Modal
+                  properties:
+                    title: More details
+                    open: 
+                      _not:
+                        _not:
+                          _state: example_2_open
+                  actions:
+                    onOk: 
+                      - id: click_ok
+                        type: setState()
+                        params:
+                          example_2_open:
+                            _not:
+                              _state: example_2_open
+                    onCancel: 
+                      - id: click_cancel
+                        type: setState()
+                        params:
+                          example_2_open:
+                            _not:
+                              _state: example_2_open
+                  blocks:
+                    - id: example_2_markdown
+                      type: Markdown
+                      properties:
+                        content: |
+                          This modal is controlled by the external state `example_2_open`.
+
+                          
+            - id: example_2_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_2_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: example_2_modal_button
+                          type: Button
+                          properties:
+                            title: Open Modal
+                          actions:
+                            onClick:
+                              - id: click_open
+                                type: setState()
+                                params:
+                                  example_2_open:
+                                    _not:
+                                      _state: example_2_open
+                        - id: example_2_modal
+                          type: Modal
+                          properties:
+                            title: More details
+                            open: 
+                              _not:
+                                _not:
+                                  _state: example_2_open
+                          actions:
+                            onOk: 
+                              - id: click_ok
+                                type: setState()
+                                params:
+                                  example_2_open:
+                                    _not:
+                                      _state: example_2_open
+                            onClose: 
+                              - id: click_close
+                                type: setState()
+                                params:
+                                  example_2_open:
+                                    _not:
+                                      _state: example_2_open
+                          blocks:
+                            - id: example_2_markdown
+                              type: Markdown
+                              properties:
+                                content: |
+                                  This modal is controlled by the external state `example_2_open`.
                       ```
         

@@ -13,9 +13,9 @@ blocks:
       description_content: |
         Display a popup notification on the page.
 
-        > To display a notification, invoke a notification method.
-      popup_method: notification
-      popup_button_title: Show Notification
+        > To display a notification, invoke the open method.
+      popup_method: open
+      popup_button_title: Open Notification
       label: false
       kind: display
       style_transform:
@@ -184,61 +184,61 @@ blocks:
         Trigger when the notification is clicked.
       
       methods_form:
-        - id: method_notification
+        - id: method_open
           type: Button
           properties:
-            title: notification
+            title: open
           actions:
             onClick:
-              - id: click_notification
+              - id: click_open
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: notification
+                  method: open
         - id: desc_toggleVisible
           type: Markdown
           properties:
             content: |
-              Show the notification by invoking the `notification` method.
+              Show the notification by invoking the `open` method.
               ```yaml
                 actions:
                   onClick:
-                  - id: click_notification
+                  - id: click_open
                     type: callMethod()
                     params:
                       blockId: block_name
-                      method: notification
+                      method: open
               ```
-        - id: method_notification_args
+        - id: method_open_args
           type: Button
           properties:
             title: notification with args
           actions:
             onClick:
-              - id: click_notification_args
+              - id: click_open_args
                 type: callMethod()
                 params:
                   blockId: block_name
-                  method: notification
+                  method: open
                   args:
                     message: Custom Args 💥
                     description: Pass custom args to the Notification.
                     duration: 0
                     status: warning
 
-        - id: desc_notification_args
+        - id: desc_open_args
           type: Markdown
           properties:
             content: |
-              Pass custom args to the notification.
+              Pass custom args to the open.
               ```yaml
                 actions:
                   onClick:
-                  - id: click_notification_args
+                  - id: click_open_args
                     type: callMethod()
                     params:
                       blockId: block_name
-                      method: notification
+                      method: open
                       args:
                         message: Custom Args 💥
                         description: Pass custom args to the Notification.
@@ -260,34 +260,34 @@ blocks:
                   properties:
                     content: |
                       ##### Notification with default and method specific args
-                - id: default_notification_button
+                - id: default_open_button
                   type: Button
                   properties:
                     title: Default Notification
                   actions:
                     onClick:
-                      - id: show_default_notification
+                      - id: show_default_open
                         type: callMethod()
                         params:
-                          blockId: example_notification
-                          method: notification
-                - id: custom_notification_button
+                          blockId: example_open
+                          method: open
+                - id: custom_open_button
                   type: Button
                   properties:
                     title: Notification with Args
                   actions:
                     onClick:
-                      - id: show_custom_notification
+                      - id: show_custom_open
                         type: callMethod()
                         params:
-                          blockId: example_notification
-                          method: notification
+                          blockId: example_open
+                          method: open
                           args:
                             message: Custom Args 💥
                             description: Pass custom args to the Notification.
                             duration: 0
                             status: info
-                - id: example_notification
+                - id: example_open
                   type: Notification
                   properties:
                     message: Default Notification
@@ -305,34 +305,34 @@ blocks:
                   properties:
                     content: |
                       ```yaml
-                        - id: default_notification_button
+                        - id: default_open_button
                           type: Button
                           properties:
                             title: Default Notification
                           actions:
                             onClick:
-                              - id: show_default_notification
+                              - id: show_default_open
                                 type: callMethod()
                                 params:
-                                  blockId: example_notification
-                                  method: notification
-                        - id: custom_notification_button
+                                  blockId: example_open
+                                  method: open
+                        - id: custom_open_button
                           type: Button
                           properties:
                             title: Notification with Args
                           actions:
                             onClick:
-                              - id: show_custom_notification
+                              - id: show_custom_open
                                 type: callMethod()
                                 params:
-                                  blockId: example_notification
-                                  method: notification
+                                  blockId: example_open
+                                  method: open
                                   args:
                                     message: Custom Args 💥
                                     description: Pass custom args to the Notification.
                                     duration: 0
                                     status: info
-                        - id: example_notification
+                        - id: example_open
                           type: Modal
                           properties:
                             message: Default Notification

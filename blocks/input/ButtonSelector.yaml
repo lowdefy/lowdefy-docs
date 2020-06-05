@@ -21,7 +21,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: ButtonSelectors
+      block_name: ButtonSelector
       description_content: |
         Button selector input block. Similar to RadioSelector except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
 

@@ -399,6 +399,11 @@ menus:
             pageId: Collapse
             properties:
               title: Collapse
+          - id: ConfirmModal
+            type: MenuLink
+            pageId: ConfirmModal
+            properties:
+              title: ConfirmModal
           - id: Content
             type: MenuLink
             pageId: Content
@@ -546,6 +551,7 @@ pages:
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
   - _ref: blocks/container/Collapse.yaml
+  - _ref: blocks/container/ConfirmModal.yaml
   - _ref: blocks/container/Content.yaml
   - _ref: blocks/container/Drawer.yaml
   - _ref: blocks/container/Footer.yaml

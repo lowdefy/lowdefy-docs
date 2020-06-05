@@ -60,5 +60,5 @@ blocks:
         
       actions_description: | 
         #### onChange
-        Called when Affix state is changed.
+        Called when Affix changes from on page to floating at fixed position in window or back.
 
