@@ -52,7 +52,7 @@ blocks:
 
             ## Lowdefy Objects
 
-            Since the configuration of a Lowdefy application consists of different objects, like [`pages`](pages), [`blocks`](blocks), [`connections`](connections) and [`requests`](requests-mutations).
+            The configuration of a Lowdefy application consists of different objects, like [`pages`](pages), [`blocks`](blocks), [`connections`](connections) and [`requests`](requests-mutations).
 
             ### Lowdefy ids
 
@@ -78,7 +78,7 @@ blocks:
             - A reference to another field. (If a title field is not specified, the name/id of that object will be used)
             - A empty array. (If the components array is not specified, an empty array is used, and no components are rendered)
 
-            ### Path to a Object
+            ### Path to an Object
 
             Any Lowdefy object can be referenced to by its path in the `lowdefy.json` file. This is often used to report where an error has occurred.
             See Lowdefy references for more details.
