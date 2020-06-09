@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _if
-      operator_title: If
       description_content: |
         The `_if` operator is a conditional statement that returns one of two values depending on the outcome of a test.
 
@@ -56,9 +55,8 @@ blocks:
         then: Yes
         else: No
       operator_setup:
-        __if:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _if: 
           _load_yaml:

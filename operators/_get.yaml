@@ -42,7 +42,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _get
-      operator_title: Get
       description_content: |
         The `_get` operator allows you to access a specific field in an object or an index in an array.
 
@@ -51,9 +50,11 @@ blocks:
 
         - `from` : The object or array field from which to retrieve a value.
         - `key` : The field within the object or index of the array specified in `on` from which to retrieve a value. The `key` should be a string, even if it is the index of an array, eg. index key '0' instead of 0.
+        - `default` : The value to return if `key` is not found.
       operator_height: 300
       operator_default: |
         key: array_primitive
+        default: Return if `key` not found
         from:
           string: Some text
           array_object:
@@ -68,11 +69,10 @@ blocks:
             - 2
             - 3
       operator_setup:
-        __get:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
-        _get: 
+        _get:
           _load_yaml:
             _state: operator
       examples:

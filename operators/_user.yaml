@@ -26,7 +26,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _user
-      operator_title: User Operator
       description_content: |
         The `_user` operator allows you to access properties from the currently logged-in user.
 
@@ -37,13 +36,14 @@ blocks:
           - _Short-hand_ : Set `_user` directly to `true`.
         - `key` : Returns the value of the attribute name specified.
           - _Short-hand_ : Set `_user` directly to the attribute name.
+        - `default` : The value to return if `key` is not found.
       state_name: User
       operator_default: |
         key: name
+        default: Return if `key` not found
       operator_setup:
-        __user:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _state: 
           _load_yaml:
