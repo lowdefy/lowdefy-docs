@@ -7,7 +7,7 @@ blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Input
+      block_name: DateSelector
       description_content: |
         Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
 
@@ -18,7 +18,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -194,14 +194,12 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "date_input",
-                    "properties": {
-                      "title": "Date input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: DateSelector
+                  properties:
+                    title: Date input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
@@ -221,19 +219,16 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "date_input",
-                    "properties": {
-                      "title": "showToday and suffix_icon",
-                      "showToday": false,
-                      "IconSuffix": "FilterOutlined",
-                      "label": {
-                        "extra": "Disable Today button and change the suffix icon"
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: DateSelector
+                  properties:
+                    title: showToday and suffix_icon
+                    showToday: false
+                    IconSuffix: FilterOutlined
+                    Label:
+                      extra: Disable Today button and change the suffix icon
+                  ```
         - id: example_3_card
           type: Card
           blocks:
@@ -254,18 +249,14 @@ blocks:
                 --span: 6
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "date_input",
-                    "defaultValue": { 
-                      "_date": "1993-02-02" 
-                    },
-                    "properties": {
-                      "title": "Date format",
-                      "format": "D MMMM YYYY",
-                      "label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: DateSelector
+                  defaultValue:
+                    _date: '1993-02-02'
+                  properties:
+                    title: Date format
+                    format: D MMMM YYYY
+                    Label:
+                      extra: Default date and custom date format.
+                  ```

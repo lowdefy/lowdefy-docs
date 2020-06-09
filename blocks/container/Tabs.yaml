@@ -41,7 +41,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -148,7 +148,7 @@ blocks:
               - bottom
               - left
         - id: block.properties.tabs
-          type: List
+          type: ControlledList
           style:
             Content:
               --gap: 0

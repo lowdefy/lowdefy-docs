@@ -37,7 +37,7 @@ blocks:
 
             ### Load the Sample Dataset
 
-            The demo account uses the MongoDB Atlas sample dataset, which can be loaded int your sandbox cluster.
+            The demo account uses the MongoDB Atlas sample dataset, which can be loaded into your sandbox cluster.
 
             ### Create a Lowdefy Account
 

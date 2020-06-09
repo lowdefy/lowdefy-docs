@@ -36,8 +36,8 @@
             _state: block.visible
           properties:
             _state: block.properties
-            label:
-              _state: block.label
+            Label:
+              _state: block.Label
           blocks:
             content1:
               - id: subblock_1
@@ -126,15 +126,14 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
-                  {
-                    "block_id": {{ value | safe }}
-                  }
+                  ```yaml
+                  {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
-                      _state: block_id
+                    _dump_yaml:
+                      block_id:
+                        _state: block_id
     - id: setup_divider
       type: Divider
       properties:
@@ -150,12 +149,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -193,7 +192,7 @@
             defaultValue: true
             properties:
               title: visible
-              label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small

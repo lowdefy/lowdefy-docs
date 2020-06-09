@@ -1,0 +1,256 @@
+id: Message
+type: PageSiderMenu
+public: true
+properties:
+  title: Message
+
+blocks:
+  _ref:
+    path: blocks/popup_template.yaml
+    vars:
+      block_name: Message
+      block_type: Message
+      description_content: |
+        Display a popup message on the page.
+
+        > To display a message, invoke the open method.
+      popup_method: open
+      popup_button_title: Open Message
+      label: false
+      kind: display
+      style_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    Icon:
+                      _parse:
+                        _state: style_icon_input
+              on:
+                _parse:
+                  _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          style:
+            _global: settings_input_style
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        - id: style_icon_input
+          type: TextArea
+          style:
+            _global: settings_input_style_indent
+          defaultValue: "{}"
+          properties:
+            title: Icon
+            rows: 3
+            size: small
+            Label:
+              extra: CSS Object style properties. Should be in JSON format.
+        
+      properties_form:
+        - id: block.properties.content
+          type: TextArea
+          defaultValue: Content of the message
+          style:
+            _global: settings_input_style
+          properties:
+            title: content
+            size: small
+            Label:
+              extra: 'The content of the message.'
+        - id: block.properties.duration
+          type: NumberInput
+          defaultValue: 4.5
+          style:
+            _global: settings_input_style
+          properties:
+            title: duration
+            size: small
+            Label:
+              extra: Time in seconds before message disappears. When set to 0 or null, it will never be dismissed automatically.
+        - _ref:
+            path: blocks/icon_template.yaml
+            vars:
+              icon_id: block.properties.Icon
+              icon_field_name: Icon
+              icon_description: Customized notification icon.
+        - id: block.properties.status
+          type: ButtonSelector
+          defaultValue: success
+          style:
+            _global: settings_input_style
+          properties:
+            title: status
+            size: small
+            options:
+              - success
+              - error
+              - info
+              - warning
+              - loading
+            Label:
+              extra: Message status type.
+      actions_description: | 
+        #### onClose
+        Trigger when message closed.
+
+      methods_form:
+        - id: method_open
+          type: Button
+          properties:
+            title: open
+          actions:
+            onClick:
+              - id: click_open
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: open
+        - id: desc_open
+          type: Markdown
+          properties:
+            content: |
+              Show the message by invoking the `open` method.
+              ```yaml
+                actions:
+                  onClick:
+                    - id: click_open
+                      type: callMethod()
+                      params:
+                        blockId: block_name
+                        method: open
+              ```
+        - id: method_open_args
+          type: Button
+          properties:
+            title: open with args
+          actions:
+            onClick:
+              - id: click_open_args
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method: open
+                  args:
+                    content: Custom content 🐶
+                    duration: 0
+                    status: warning
+
+        - id: desc_open_args
+          type: Markdown
+          properties:
+            content: |
+              Pass custom args to the message.
+              ```yaml
+                actions:
+                  onClick:
+                    - id: click_open_args
+                      type: callMethod()
+                      params:
+                        blockId: block_name
+                        method: open
+                        args:
+                          content: Custom content 🐶
+                          duration: 0
+                          status: warning
+              ```
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1_block_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_title
+                  type: Markdown
+                  properties:
+                    content: |
+                      ##### Message with default and method specific args
+                - id: default_open_button
+                  type: Button
+                  properties:
+                    title: Default Message
+                  actions:
+                    onClick:
+                      - id: show_default_open
+                        type: callMethod()
+                        params:
+                          blockId: example_open
+                          method: open
+                - id: custom_open_button
+                  type: Button
+                  properties:
+                    title: Message with Args
+                  actions:
+                    onClick:
+                      - id: show_custom_open
+                        type: callMethod()
+                        params:
+                          blockId: example_open
+                          method: open
+                          args:
+                            content: Custom Args 💥
+                            duration: 0
+                            status: info
+                - id: example_open
+                  type: Message
+                  properties:
+                    content: Default content
+                    duration: 2
+                    status: success
+
+            - id: example_1_code_grid
+              type: Box
+              style:
+                --span: 6
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    content: |
+                      ```yaml
+                        - id: default_open_button
+                          type: Button
+                          properties:
+                            title: Default Message
+                          actions:
+                            onClick:
+                              - id: show_default_open
+                                type: callMethod()
+                                params:
+                                  blockId: example_open
+                                  method: open
+                        - id: custom_open_button
+                          type: Button
+                          properties:
+                            title: Message with Args
+                          actions:
+                            onClick:
+                              - id: show_custom_open
+                                type: callMethod()
+                                params:
+                                  blockId: example_open
+                                  method: open
+                                  args:
+                                    content: Custom Args 💥
+                                    duration: 0
+                                    status: info
+                        - id: example_open
+                          type: Message
+                          properties:
+                            content: Default content
+                            duration: 2
+                            status: success
+                      ```
+        

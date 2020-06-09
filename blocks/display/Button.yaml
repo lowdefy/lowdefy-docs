@@ -16,7 +16,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -203,14 +203,11 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_1",
-                        "type": "button",
-                        "properties": {
-                          "title": "Click here"
-                        }
-                      }
+                      ```yaml
+                      id: example_1
+                      type: Button
+                      properties:
+                        title: Click here
                       ```
         - id: example_2_card
           type: Card
@@ -241,17 +238,14 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_2",
-                        "type": "button",
-                        "properties": {
-                          "title": "Let's Go",
-                          "block": true,
-                          "ghost": true,
-                          "Icon": "RocketOutlined"
-                        }
-                      }
+                      ```yaml
+                      id: example_2
+                      type: Button
+                      properties:
+                        title: Let's Go
+                        block: true
+                        ghost: true
+                        Icon: RocketOutlined
                       ```
         - id: example_3_card
           type: Card
@@ -283,16 +277,13 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_3",
-                        "type": "button",
-                        "properties": {
-                          "title": "Delete Forever",
-                          "block": false,
-                          "Icon": "WarningFilled",
-                          "shape": "round",
-                          "type": "danger"
-                        }
-                      }
+                      ```yaml
+                      id: example_3
+                      type: Button
+                      properties:
+                        title: Delete Forever
+                        block: false
+                        Icon: WarningFilled
+                        shape: round
+                        type: danger
                       ```

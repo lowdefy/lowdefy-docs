@@ -187,7 +187,7 @@ blocks:
                       content:
                         _nunjucks:
                           template: |
-                            ```json
+                            ```yaml
                             {{ value | safe }}
                             ```
                           on:
@@ -254,7 +254,7 @@ blocks:
                   defaultValue: true
                   properties:
                     title: visible
-                    label:
+                    Label:
                       extra: Toggle if block is visible and has a value in state.
                       inline: true
                     size: small
@@ -346,7 +346,7 @@ blocks:
                         Label:
                           extra: Force render for all panels.
                     - id: block.properties.panels
-                      type: List
+                      type: ControlledList
                       properties:
                         title: 'panels:'
                         size: small
@@ -402,7 +402,7 @@ blocks:
 
               blocks:
                 - id: flex_blocks
-                  type: List
+                  type: ControlledList
                   style:
                     Content:
                       --display: flex
@@ -446,7 +446,7 @@ blocks:
                         rows: 3
                 
                 - id: grid_blocks
-                  type: List
+                  type: ControlledList
                   style:
                     Content:
                       --display: flex

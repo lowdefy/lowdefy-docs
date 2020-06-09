@@ -1,0 +1,297 @@
+- id: card_title
+  type: Card
+  blocks:
+    - id: title
+      type: Title
+      properties:
+        level: 2
+        content:
+          _var: block_name
+    - id: description
+      type: Markdown
+      properties:
+        content:
+          _var: description_content
+
+- id: c1
+  type: Box
+  style:
+    --span: 6
+  blocks:
+    - id: block_divider
+      type: Divider
+      properties:
+        title: Block
+    - id: block_wrap2
+      type: Box
+      style:
+        --span: 12
+      blocks:
+        - id: block_name_button
+          type: Button
+          properties:
+            title:
+              _var: popup_button_title
+          actions:
+            onClick:
+              - id: click_method
+                type: callMethod()
+                params:
+                  blockId: block_name
+                  method:  
+                    _var: popup_method
+        - id: block_name
+          type:
+            _var: block_type
+          style:
+            _var: style_transform
+          visible:
+            _state: block.visible
+          properties:
+            _state: block.properties
+          blocks:
+            - id: grid_1
+              type: Html
+              properties:
+                html: '<div>ONE</div>'
+              visible:
+                _state: grid_blocks.0.visible
+              style:
+                _parse:
+                  _state: grid_blocks.0.style
+            - id: grid_2
+              type: Html
+              properties:
+                html: '<div>TWO</div>'
+              visible:
+                _state: grid_blocks.1.visible
+              style:
+                _parse:
+                  _state: grid_blocks.1.style
+            - id: grid_3
+              type: Html
+              properties:
+                html: '<div>THREE</div>'
+              visible:
+                _state: grid_blocks.2.visible
+              style:
+                _parse:
+                  _state: grid_blocks.2.style
+            - id: grid_4
+              type: Html
+              properties:
+                html: '<div>FOUR</div>'
+              visible:
+                _state: grid_blocks.3.visible
+              style:
+                _parse:
+                  _state: grid_blocks.3.style
+            - id: grid_5
+              type: Html
+              properties:
+                html: '<div>FIVE</div>'
+              visible:
+                _state: grid_blocks.4.visible
+              style:
+                _parse:
+                  _state: grid_blocks.4.style
+            - id: grid_6
+              type: Html
+              properties:
+                html: '<div>SIX</div>'
+              visible:
+                _state: grid_blocks.5.visible
+              style:
+                _parse:
+                  _state: grid_blocks.5.style
+
+    - id: state_divider
+      type: Divider
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+      properties:
+        title: State
+    - id: state_card
+      type: Card
+      properties: 
+        size: small
+      visible:
+        _eq:
+          - _var:
+              kind
+          - input
+      blocks:
+        - id: state_markdown
+          type: Markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```yaml
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _dump_yaml:
+                      block_id:
+                        _state: block_id
+    - id: setup_divider
+      type: Divider
+      properties:
+        title: Block Setup
+    - id: setup_card
+      type: Card
+      properties: 
+        size: small
+      blocks:
+        - id: setup_markdown
+          type: Markdown
+          properties:
+            content:
+              _nunjucks:
+                template: |
+                  ```yaml
+                  {{ value | safe }}
+                  ```
+                on:
+                  value:
+                    _dump_yaml:
+                      id: block_id
+                      type:
+                        _var: block_type
+                      style:
+                        _var: style_transform
+                      visible:
+                        _state: block.visible
+                      properties:
+                        _state: block.properties
+
+- id: settings_grid
+  type: Box
+  style:
+    --span: 6
+  blocks:
+    - id: settings_divider
+      type: Divider
+      properties:
+        title: Settings
+    - id: block_collapse
+      type: Collapse
+      properties:
+        defaultActiveKey: properties
+        panels:
+          - key: style
+            title: 'style:'
+          - key: properties
+            title: 'properties:'
+          - key: actions
+            title: 'actions:'
+          - key: blocks
+            title: 'blocks:'
+          - key: methods
+            title: 'methods:'
+          - key: visible
+            title: 'visible:'
+      blocks:
+        style:
+          - id: style_form
+            type: Box
+            style:
+              Content:
+                --gap: 0
+            blocks:
+              _var: style_form
+        visible:
+          - id: block.visible
+            type: Switch
+            defaultValue: true
+            properties:
+              title: visible
+              Label:
+                extra: Toggle if block is visible and has a value in state.
+                inline: true
+              size: small
+
+        properties:
+          - id: properties_form
+            type: Box
+            style:
+              Content:
+                --gap: 0
+            blocks:
+              _var: properties_form
+          - id: label_form
+            type: Box
+            visible:
+              _var: label
+            blocks:
+              _ref: blocks/label.yaml
+        actions:
+          - id: actions_description
+            type: Markdown
+            properties:
+              content:
+                _var: actions_description
+        methods:
+          - id: methods_form
+            type: Box
+            style:
+              Content:
+                --gap: 0
+            blocks:
+              _var: methods_form
+        blocks:
+          - id: grid_blocks
+            type: ControlledList
+            style:
+              Content:
+                --display: flex
+            properties:
+              hideAddButton: true
+              hideRemoveButton: true
+            blocks:
+              - id: grid_blocks.$.gd
+                type: Box
+                style:
+                  flex: 0 0 15ch
+                  Content:
+                    --display: flex
+                blocks:
+                  - id: grid_blocks.$.name
+                    type: Markdown
+                    properties:
+                      content: 
+                        _nunjucks: 
+                          template: '##### {{ name }}'
+                          on:
+                            _state: grid_blocks.$
+                  - id: grid_blocks.$.visible
+                    type: Switch
+                    style:
+                      Label:
+                        --inline: true
+                    properties:
+                      title: visible
+                      size: small
+              - id: grid_blocks.$.style
+                type: TextArea
+                style:
+                  flex: auto
+                  Label:
+                    --inline: true
+                properties:
+                  title: style
+                  size: small
+                  rows: 3
+
+- id: examples_divider
+  type: Divider
+  properties:
+    title: Examples
+- id: examples_grid
+  type: Box
+  blocks:
+    _var: examples

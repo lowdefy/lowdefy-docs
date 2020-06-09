@@ -103,11 +103,94 @@ menus:
             pageId: requests-mutations
             properties:
               title: Requests and Mutations
-          - id: operators
+
+      - id: operators
+        type: MenuGroup
+        properties:
+          title: Operators
+          Icon: ToolOutlined
+        links:
+          - id: _and
             type: MenuLink
-            pageId: operators
+            pageId: _and
             properties:
-              title: Operators
+              title: And
+          # - id: _date
+          #   type: MenuLink
+          #   pageId: _date
+          #   properties:
+          #     title: Date
+          - id: _eq
+            type: MenuLink
+            pageId: _eq
+            properties:
+              title: Eq
+          - id: _get
+            type: MenuLink
+            pageId: _get
+            properties:
+              title: Get
+          - id: _if
+            type: MenuLink
+            pageId: _if
+            properties:
+              title: If
+          - id: _mql_aggregate
+            type: MenuLink
+            pageId: _mql_aggregate
+            properties:
+              title: MQL Aggregate
+          - id: _mql_expr
+            type: MenuLink
+            pageId: _mql_expr
+            properties:
+              title: MQL Expr
+          - id: _mql_test
+            type: MenuLink
+            pageId: _mql_test
+            properties:
+              title: MQL Test
+          - id: _not
+            type: MenuLink
+            pageId: _not
+            properties:
+              title: Not
+          - id: _nunjucks
+            type: MenuLink
+            pageId: _nunjucks
+            properties:
+              title: Nunjucks
+          - id: _or
+            type: MenuLink
+            pageId: _or
+            properties:
+              title: Or
+          - id: _regex
+            type: MenuLink
+            pageId: _regex
+            properties:
+              title: Regex
+          - id: _request
+            type: MenuLink
+            pageId: _request
+            properties:
+              title: Request
+          - id: _state
+            type: MenuLink
+            pageId: _state
+            properties:
+              title: State
+          - id: _type
+            type: MenuLink
+            pageId: _type
+            properties:
+              title: Type
+          - id: _user
+            type: MenuLink
+            pageId: _user
+            properties:
+              title: User
+
       - id: blocks_input
         type: MenuGroup
         properties:
@@ -124,6 +207,11 @@ menus:
             pageId: Checkbox
             properties:
               title: Checkbox
+          - id: CodeEditor
+            type: MenuLink
+            pageId: CodeEditor
+            properties:
+              title: CodeEditor
           - id: ColorSelector
             type: MenuLink
             pageId: ColorSelector
@@ -265,11 +353,26 @@ menus:
             pageId: Menu
             properties:
               title: Menu
+          - id: Message
+            type: MenuLink
+            pageId: Message
+            properties:
+              title: Message
+          - id: Notification
+            type: MenuLink
+            pageId: Notification
+            properties:
+              title: Notification
           - id: Paragraph
             type: MenuLink
             pageId: Paragraph
             properties:
               title: Paragraph
+          - id: Progress
+            type: MenuLink
+            pageId: Progress
+            properties:
+              title: Progress
           - id: Skeleton
             type: MenuLink
             pageId: Skeleton
@@ -296,6 +399,11 @@ menus:
           title: Container Blocks
           Icon: ContainerOutlined
         links:
+          - id: Affix
+            type: MenuLink
+            pageId: Affix
+            properties:
+              title: Affix
           - id: Badge
             type: MenuLink
             pageId: Badge
@@ -316,11 +424,21 @@ menus:
             pageId: Collapse
             properties:
               title: Collapse
+          - id: ConfirmModal
+            type: MenuLink
+            pageId: ConfirmModal
+            properties:
+              title: ConfirmModal
           - id: Content
             type: MenuLink
             pageId: Content
             properties:
               title: Content
+          - id: Drawer
+            type: MenuLink
+            pageId: Drawer
+            properties:
+              title: Drawer
           - id: Footer
             type: MenuLink
             pageId: Footer
@@ -336,6 +454,11 @@ menus:
             pageId: Layout
             properties:
               title: Layout
+          - id: Modal
+            type: MenuLink
+            pageId: Modal
+            properties:
+              title: Modal
           - id: PageHCF
             type: MenuLink
             pageId: PageHCF
@@ -397,8 +520,27 @@ pages:
   - _ref: concepts/references.yaml
   - _ref: concepts/requests-mutations.yaml
   - _ref: concepts/state.yaml
+
+  - _ref: operators/_and.yaml
+  # - _ref: operators/_date.yaml
+  - _ref: operators/_eq.yaml
+  - _ref: operators/_get.yaml
+  - _ref: operators/_if.yaml
+  - _ref: operators/_mql_aggregate.yaml
+  - _ref: operators/_mql_test.yaml
+  - _ref: operators/_mql_expr.yaml
+  - _ref: operators/_not.yaml
+  - _ref: operators/_nunjucks.yaml
+  - _ref: operators/_or.yaml
+  - _ref: operators/_regex.yaml
+  - _ref: operators/_request.yaml
+  - _ref: operators/_state.yaml
+  - _ref: operators/_type.yaml
+  - _ref: operators/_user.yaml
+
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/Checkbox.yaml
+  - _ref: blocks/input/CodeEditor.yaml
   - _ref: blocks/input/ColorSelector.yaml
   - _ref: blocks/input/DateSelector.yaml
   - _ref: blocks/input/DateRangeSelector.yaml
@@ -426,19 +568,26 @@ pages:
   - _ref: blocks/display/Icon.yaml
   - _ref: blocks/display/Markdown.yaml
   - _ref: blocks/display/Menu.yaml
+  - _ref: blocks/display/Message.yaml
+  - _ref: blocks/display/Notification.yaml
   - _ref: blocks/display/Paragraph.yaml
+  - _ref: blocks/display/Progress.yaml
   - _ref: blocks/display/Skeleton.yaml
   - _ref: blocks/display/Statistic.yaml
   - _ref: blocks/display/Title.yaml
   - _ref: blocks/display/UserAvatar.yaml
+  - _ref: blocks/container/Affix.yaml
   - _ref: blocks/container/Badge.yaml
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
   - _ref: blocks/container/Collapse.yaml
+  - _ref: blocks/container/ConfirmModal.yaml
   - _ref: blocks/container/Content.yaml
+  - _ref: blocks/container/Drawer.yaml
   - _ref: blocks/container/Footer.yaml
   - _ref: blocks/container/Header.yaml
   - _ref: blocks/container/Layout.yaml
+  - _ref: blocks/container/Modal.yaml
   - _ref: blocks/container/PageHCF.yaml
   - _ref: blocks/container/PageHCSF.yaml
   - _ref: blocks/container/PageHeaderMenu.yaml
@@ -448,7 +597,4 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
-
-
-
-
+  

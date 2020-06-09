@@ -16,7 +16,7 @@ blocks:
       style_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -120,14 +120,11 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_1",
-                        "type": "anchor",
-                        "properties": {
-                          "title": "Click here"
-                        }
-                      }
+                      ```yaml
+                      id: example_1
+                      type: anchor
+                      properties:
+                        title: Click here
                       ```
         - id: example_2_card
           type: Card
@@ -157,16 +154,13 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_2",
-                        "type": "anchor",
-                        "properties": {
-                          "title": "Click here",
-                          "strong": true,
-                          "Icon": "LinkOutlined"
-                        }
-                      }
+                      ```yaml
+                      id: example_2
+                      type: anchor
+                      properties:
+                        title: Click here
+                        strong: true
+                        Icon: LinkOutlined
                       ```
         - id: example_3_card
           type: Card
@@ -200,22 +194,17 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_3",
-                        "type": "anchor",
-                        "style": {
-                          "color": "red !important",
-                          "fontSize": 18
-                        },
-                        "properties": {
-                          "title": "Click here",
-                          "Icon": {
-                            "twoToneColor": "red",
-                            "name": "RocketTwoTone"
-                          }
-                        }
-                      }
+                      ```yaml
+                      id: example_3
+                      type: anchor
+                      style:
+                        color: red !important
+                        fontSize: 18
+                      properties:
+                        title: Click here
+                        Icon:
+                          twoToneColor: red
+                          name: RocketTwoTone
                       ```
         - id: example_4_card
           type: Card
@@ -251,24 +240,18 @@ blocks:
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_4",
-                        "type": "anchor",
-                        "style": {
-                          "--span": 6,
-                          "color": "#000000 !important",
-                          "fontSize": 16
-                          "Icon": {
-                            "color": "orange",
-                            "fontSize": 30
-                          }
-                        },
-                        "properties": {
-                          "title": "Click here",
-                          "Icon": {
-                            "name": "FireFilled"
-                          }
-                        }
-                      }
+                      ```yaml
+                      id: example_4
+                      type: anchor
+                      style:
+                        "--span": 6
+                        color: "#000000 !important"
+                        fontSize: 16
+                        Icon:
+                          color: orange
+                          fontSize: 30
+                      properties:
+                        title: Click here
+                        Icon:
+                          name: FireFilled
                       ```

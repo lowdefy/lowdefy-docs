@@ -1,0 +1,61 @@
+id: _eq
+type: PageSiderMenu
+public: true
+properties:
+  title: Eq
+
+actions:
+  onInit:
+    - id: set_state
+      type: setState()
+      params:
+        string: A string value
+        boolean: true
+        # date:
+        #   _date: now
+        array_primitive:
+          - 1
+          - 2.5
+          - 3000
+        array_object:
+          - test: true
+            name: Adam
+            value: 10
+          - test: false
+            name: Bob
+            value: 50
+          - test: true
+            name: Carl
+            value: 1000
+        object:
+          string: text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _eq
+      operator_title: Eq
+      description_content: |
+        The `_eq` operator evaluates whether two primitive values are equal and returns `true` if they are equal and `false` if they are not.
+
+        #### Parameters
+        `_eq` takes an array of two primitive (not arrays or objects) values.
+      operator_default: |
+        - A
+        - A
+      operator_setup:
+        __eq:
+          _load_yaml:
+            _state: operator
+      operator_output:
+        _eq: 
+          _load_yaml:
+            _state: operator
+      # examples:

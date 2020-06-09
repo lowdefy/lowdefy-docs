@@ -109,12 +109,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _state: style_transform
@@ -164,7 +164,7 @@
             defaultValue: true
             properties:
               title: visible
-              label:
+              Label:
                 extra: Toggle if block is visible and has a value in state.
                 inline: true
               size: small
@@ -186,7 +186,7 @@
 
         blocks:
           - id: flex_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex

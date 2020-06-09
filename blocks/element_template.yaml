@@ -110,12 +110,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -186,7 +186,7 @@
           
         blocks:
           - id: grid_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -324,12 +324,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -400,7 +400,7 @@
           
         blocks:
           - id: flex_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -541,12 +541,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -617,7 +617,7 @@
           
         blocks:
           - id: block_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -761,12 +761,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: inlineBlock_id
                       type:
                         _var: block_type
@@ -837,7 +837,7 @@
           
         blocks:
           - id: inlineBlock_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex

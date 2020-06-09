@@ -276,12 +276,12 @@
             content:
               _nunjucks:
                 template: |
-                  ```json
+                  ```yaml
                   {{ value | safe }}
                   ```
                 on:
                   value:
-                    _stringify:
+                    _dump_yaml:
                       id: block_id
                       type:
                         _var: block_type
@@ -350,7 +350,7 @@
               size: small
         blocks:
           - id: flex_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -394,7 +394,7 @@
                   rows: 3
 
           - id: grid_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -438,7 +438,7 @@
                   rows: 3
           
           - id: block_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
@@ -482,7 +482,7 @@
                   rows: 3
                   
           - id: inlineBlock_blocks
-            type: List
+            type: ControlledList
             style:
               Content:
                 --display: flex
