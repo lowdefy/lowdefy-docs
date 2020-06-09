@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _eq
-      operator_title: Eq
       description_content: |
         The `_eq` operator evaluates whether two primitive values are equal and returns `true` if they are equal and `false` if they are not.
 
@@ -51,9 +50,8 @@ blocks:
         - A
         - A
       operator_setup:
-        __eq:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _eq: 
           _load_yaml:

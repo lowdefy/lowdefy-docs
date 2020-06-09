@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _mql_aggregate
-      operator_title: MQL Aggregate
       description_content: |
         The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on an array or object and returns the results of the aggregation pipeline as an array. Makes use of [mingo](https://github.com/kofrasa/mingo).
 
@@ -67,9 +66,8 @@ blocks:
           - test: true
             name: Carl
       operator_setup:
-        _ mql_aggregate:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _mql_aggregate: 
           _load_yaml:
