@@ -17,6 +17,7 @@ blocks:
     path: tutorial/template.yaml
     vars:
       title: Getting Started
+      buttons: true
       previous_page_title: Introduction
       previous_page_id: introduction
       next_page_title: Creating a Page

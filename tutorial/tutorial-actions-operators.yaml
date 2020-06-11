@@ -1,14 +1,14 @@
-id: tutorial-add-blocks
+id: tutorial-actions-operators
 type: PageSiderMenu
 public: true
 properties:
-  title: Making a Booking Form
+  title: Interactive Pages
   Sider:
     width: 256px
   Breadcrumb:
     list:
       - Tutorial
-      - Making a Booking Form
+      - Interactive Pages
 style:
   Content:
     background: '#FFFFFF'
@@ -16,19 +16,29 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Making a Booking Form
+      title: Interactive Pages
       buttons: true
-      previous_page_title: Creating a Page
-      previous_page_id: tutorial-create-page
-      next_page_title: Interactive Pages
-      next_page_id: tutorial-actions-operators
+      previous_page_title: Making a Booking Form
+      previous_page_id: tutorial-add-blocks
+      next_page_title: ''
+      next_page_id: ''
       content:
         - id: md1
           type: Markdown
           properties:
             content:
-              _ref: tutorial/tutorial-add-blocks-content-1.md
+              _ref: tutorial/tutorial-actions-operators-content-1.md
         - id: example1
+          type: TextInput
+          required: true
+          properties:
+            title: Meeting Name
+        - id: md2
+          type: Markdown
+          properties:
+            content:
+              _ref: tutorial/tutorial-actions-operators-content-2.md
+        - id: example2
           type: PageHeaderMenu
           style:
             minHeight: 300px
@@ -36,20 +46,22 @@ blocks:
             Menu:
               links: []
           blocks:
-            - id: example1_content_card
+            - id: example2_content_card
               type: Card
               blocks:
-                - id: example1_page_heading
+                - id: example2_page_heading
                   type: Title
                   properties:
                     content: Book a Meeting Room
                     level: 3
-                - id: example1_meeting_name
+                - id: example2_meeting_name
                   type: TextInput
+                  required: true
                   properties:
                     title: Meeting Name
-                - id: example1_meeting_room
+                - id: example2_meeting_room
                   type: Selector
+                  required: true
                   properties:
                     title: Meeting Room
                     options:
@@ -57,19 +69,22 @@ blocks:
                       - Meeting Room 2
                       - Meeting Room 3
                       - Boardroom
-                - id: example1_date
+                - id: example2_date
                   type: DateSelector
+                  required: true
                   properties:
                     title: Date
-                - id: example1_start_time
+                - id: example2_start_time
                   type: DateTimeSelector
+                  required: true
                   properties:
                     title: Start Time
                 - id: example1_end_time
                   type: DateTimeSelector
+                  required: true
                   properties:
                     title: End Time
-                - id: example1_reset_button
+                - id: example2_reset_button
                   type: Button
                   style:
                     --span: 3
@@ -78,7 +93,7 @@ blocks:
                     block: true
                     type: default
                     Icon: ClearOutlined
-                - id: example1_submit_button
+                - id: example2_submit_button
                   type: Button
                   style:
                     --span: 9
@@ -87,8 +102,7 @@ blocks:
                     block: true
                     type: primary
                     Icon: SaveOutlined
-        - id: md2
-          type: Markdown
-          properties:
-            content:
-              _ref: tutorial/tutorial-add-blocks-content-2.md
+                  actions:
+                    onClick:
+                      - id: validate
+                        type: validate()

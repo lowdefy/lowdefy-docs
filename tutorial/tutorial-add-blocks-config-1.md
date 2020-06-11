@@ -1,6 +1,4 @@
-### Updating the Page
-
-Lets create a form to allow users to book a meeting room. First, let's change our hello page into a booking page - replace the contents of your `lowdefy.yaml` file with this:
+### `lowdefy.yaml`
 
 ```yaml
 pages:
@@ -17,37 +15,6 @@ pages:
             properties:
               content: Book a Meeting Room # Change the title on the page
               level: 3 # Make the title a little smaller (an html `<h3>`).
-```
-
-Go to `app-id.lowdefy.com/booking` and make sure your changes are there.
-
-### Adding a Form
-
-The input form we would like to add on this page should have the following fields:
-
-- A name for the meeting.
-- Which meeting room should be booked. This should be a selection from a list of meeting rooms.
-- The date of the meeting.
-- The start and end times for the meeting.
-
-There should also be submit and reset buttons at the bottom of the page.
-
-Copy the following blocks and add them in the card's blocks array (YAML uses indentation to indicate nesting, so it is important that the indentation of the blocks is correct - at the same level as the title).
-
-```yaml
-pages:
-  - id: booking
-    # ...
-    blocks:
-      - id: content_card
-        # ...
-        blocks:
-          - id: page_heading
-            type: Title
-            properties:
-              content: Book a Meeting Room # Change the title on the page
-              level: 3 # Make the title a little smaller (an html `<h3>`).
-################ -------- Copy from here -------- ################
           - id: meeting_name
             type: TextInput
             properties:
@@ -92,5 +59,3 @@ pages:
               type: primary # Make the button a primary button with color
               Icon: SaveOutlined
 ```
-
-Refresh your page and you should see something like this:
