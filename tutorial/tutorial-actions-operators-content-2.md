@@ -1,4 +1,4 @@
-### Validate action
+### Validate Action
 
 We can now add a `validate()` action to the submit button. This will validate the inputs and give an error if any inputs are not filled in. We can add the validate action like this:
 

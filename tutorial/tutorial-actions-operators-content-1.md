@@ -36,17 +36,15 @@ pages:
             # ...
 ```
 
-
+If you add some inputs into the form and click the reset button, those inputs should be cleared.
 
 ### What Happened
 
-Each block defines a set of actions that it fires when a event happens. The button fires a event called `onClick` when it gets clicked on. We can add a list of action definitions that will be executed sequentially when this action is fired. We only added one action, the `reset()` action, that resets the page to the state it was in when it first loaded.
+Each block defines a set of actions that it fires when a event happens. The button fires a event called `onClick` when it gets clicked. We can add a list of action definitions that will be executed sequentially when this action is fired. We only added one action, the `reset()` action, that resets the page context to the state it was in when it first loaded.
 
 
 
-## Validating the User Input
-
-### Required Fields
+## Required Fields
 
 We should validate the data users are submitting to make sure our app has clean data and works as expected. All of the fields in the form are compulosry, and the user should not be able to submit if they are not completed. To make this fields required, add a required property to all the input blocks like this:
 

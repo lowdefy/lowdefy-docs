@@ -24,7 +24,7 @@ All blocks need to have an id that identifies the block. This id should be uniqu
 
 ### What Happened
 
-- We removed the` welcome` page preloaded on the app, and created a new page with type `PageHeaderMenu` and kind context and id `booking`.
+- We removed the` welcome` page preloaded on the app, and created a new page with type `PageHeaderMenu` and kind context and id `hello`.
 - We added a `Card` block (of kind container) inside the main content area of the page.
 - We added a `Title` block (of kind display) inside the main content area of the card block.
 - We changed the `content` property of the title to say hello to the world and to ourself.
