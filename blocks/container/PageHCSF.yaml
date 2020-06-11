@@ -2,7 +2,7 @@ id: PageHCSF
 type: PageSiderMenu
 public: true
 properties:
-  title: Page HCSF
+  title: PageHCSF
 actions:
   onInit:
     - id: init

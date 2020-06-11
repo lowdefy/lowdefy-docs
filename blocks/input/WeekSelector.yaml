@@ -2,7 +2,7 @@ id: WeekSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Week
+  title: WeekSelector
 blocks:
   _ref:
     path: blocks/template.yaml

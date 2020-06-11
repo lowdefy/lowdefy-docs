@@ -2,7 +2,7 @@ id: PageHeaderMenu
 type: PageSiderMenu
 public: true
 properties:
-  title: Page Header Menu
+  title: PageHeaderMenu
 actions:
   onInit:
     - id: init

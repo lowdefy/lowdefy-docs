@@ -2,7 +2,7 @@ id: AutoComplete
 type: PageSiderMenu
 public: true
 properties:
-  title: Auto Complete
+  title: AutoComplete
 actions:
   onInit:
     - id: initialize_state 

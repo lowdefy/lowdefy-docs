@@ -2,7 +2,7 @@ id: RatingSlider
 type: PageSiderMenu
 public: true
 properties:
-  title: Slider
+  title: RatingSlider
 blocks:
   _ref:
     path: blocks/template.yaml

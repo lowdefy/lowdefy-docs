@@ -2,7 +2,7 @@ id: NumberInput
 type: PageSiderMenu
 public: true
 properties:
-  title: Number
+  title: NumberInput
 blocks:
   _ref:
     path: blocks/template.yaml

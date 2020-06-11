@@ -2,7 +2,7 @@ id: MonthSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Month
+  title: MonthSelector
 blocks:
   _ref:
     path: blocks/template.yaml
