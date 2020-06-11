@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _or
-      operator_title: Or
       description_content: |
         The `_or` operator evaluates whether at least one of two values or statements (returing `true` or `false`) are true and returns `true` if they are and `false` if they are not.
 
@@ -51,9 +50,8 @@ blocks:
         - true
         - false
       operator_setup:
-        __or:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _or: 
           _load_yaml:

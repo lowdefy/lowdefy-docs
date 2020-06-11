@@ -32,7 +32,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _type
-      operator_title: Type
       description_content: |
         The `_type` operator evaluates whether a given field is of a certain type and returns true or false.
 
@@ -56,9 +55,8 @@ blocks:
         type: array
         on: [1,2,3]
       operator_setup:
-        _ type:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _type: 
           _load_yaml:

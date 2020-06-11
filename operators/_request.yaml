@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _request
-      operator_title: Request Operator
       description_content: |
         The `_request` operator returns a request result from the page's [`requests`](concepts/requests-mutations.yaml) array and returns the result of the request.
 
@@ -50,9 +49,8 @@ blocks:
       state_name: Requests
       operator_default: request_1
       operator_setup:
-        _ request:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _state: 
           _load_yaml:

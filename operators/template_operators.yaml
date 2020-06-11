@@ -6,7 +6,7 @@
       properties:
         level: 2
         content:
-          _var: operator_title
+          _var: operator_name
     - id: description
       type: Markdown
       properties:
@@ -97,10 +97,24 @@
             content:
               _nunjucks:
                 template: |
+                  {% if is_primitive %}
                   ```yaml
-                  {{ operator | safe }}
+                  {{ operator_name }}: {{ operator | safe  }}
                   ```
+                  {% else %}
+                  ```yaml
+                  {{ operator_name }}: 
+                    {{ operator | safe | indent(2) }}
+                  ```
+                  {% endif %}
                 on:
+                  is_primitive:
+                    _type:
+                      type: primitive
+                      on:
+                        _var: operator_setup
+                  operator_name:
+                    _var: operator_name
                   operator:
                     _dump_yaml:
                       _var: operator_setup

@@ -31,7 +31,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _state
-      operator_title: State Operator
       description_content: |
         The `_state` operator allows you to access a value from the page [`state`](state).
 
@@ -42,12 +41,13 @@ blocks:
           - _Short-hand_ : Set `_state` directly to `true`.
         - `key` : Returns the value of the field name specified.
           - _Short-hand_ : Set `_state` directly to the field name.
+        - `default` : The value to return if `key` is not found.
       operator_default: |
         key: object
+        default: Return if `key` not found
       operator_setup:
-        __state:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _state: 
           _load_yaml:

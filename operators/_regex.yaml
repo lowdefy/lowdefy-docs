@@ -42,7 +42,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _regex
-      operator_title: Regex
       description_content: |
         The `_regex` operator executes a regular expression to match a sequence of characters that define a search pattern and returns true is the pattern is matched or false if it is not.. [Read more](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285) or [play around](https://regex101.com/).
 
@@ -63,9 +62,8 @@ blocks:
         pattern: "^The"
         on: The quick brown fox jumps over the lazy dog.
       operator_setup:
-        _ regex:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _regex: 
           _load_yaml:

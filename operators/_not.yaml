@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _not
-      operator_title: Not
       description_content: |
         The `_not` operator returns the opposite of the boolean given. If given `true` it will return `false` and vice versa.
 
@@ -50,9 +49,8 @@ blocks:
       operator_default: |
         true
       operator_setup:
-        __not:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _not: 
           _load_yaml:

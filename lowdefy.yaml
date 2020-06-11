@@ -146,7 +146,7 @@ menus:
             type: MenuLink
             pageId: _and
             properties:
-              title: And
+              title: _and
           # - id: _date
           #   type: MenuLink
           #   pageId: _date
@@ -156,72 +156,72 @@ menus:
             type: MenuLink
             pageId: _eq
             properties:
-              title: Eq
+              title: _eq
           - id: _get
             type: MenuLink
             pageId: _get
             properties:
-              title: Get
+              title: _get
           - id: _if
             type: MenuLink
             pageId: _if
             properties:
-              title: If
+              title: _if
           - id: _mql_aggregate
             type: MenuLink
             pageId: _mql_aggregate
             properties:
-              title: MQL Aggregate
+              title: _mql_aggregate
           - id: _mql_expr
             type: MenuLink
             pageId: _mql_expr
             properties:
-              title: MQL Expr
+              title: _mql_expr
           - id: _mql_test
             type: MenuLink
             pageId: _mql_test
             properties:
-              title: MQL Test
+              title: _mql_test
           - id: _not
             type: MenuLink
             pageId: _not
             properties:
-              title: Not
+              title: _not
           - id: _nunjucks
             type: MenuLink
             pageId: _nunjucks
             properties:
-              title: Nunjucks
+              title: _nunjucks
           - id: _or
             type: MenuLink
             pageId: _or
             properties:
-              title: Or
+              title: _or
           - id: _regex
             type: MenuLink
             pageId: _regex
             properties:
-              title: Regex
+              title: _regex
           - id: _request
             type: MenuLink
             pageId: _request
             properties:
-              title: Request
+              title: _request
           - id: _state
             type: MenuLink
             pageId: _state
             properties:
-              title: State
+              title: _state
           - id: _type
             type: MenuLink
             pageId: _type
             properties:
-              title: Type
+              title: _type
           - id: _user
             type: MenuLink
             pageId: _user
             properties:
-              title: User
+              title: _user
 
       - id: blocks_input
         type: MenuGroup

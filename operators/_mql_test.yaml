@@ -41,7 +41,6 @@ blocks:
     path: operators/template_operators.yaml
     vars:
       operator_name: _mql_test
-      operator_title: MQL Test
       description_content: |
         The `_mql_test` operator allows you to execute a MongoDB Query Language query test and returns true or false. Makes use of [mingo](https://github.com/kofrasa/mingo).
 
@@ -60,9 +59,8 @@ blocks:
           more_text: text
           array_primitive: [1,2,3]
       operator_setup:
-        __mql_test:
-          _load_yaml:
-            _state: operator
+        _load_yaml:
+          _state: operator
       operator_output:
         _mql_test: 
           _load_yaml:
