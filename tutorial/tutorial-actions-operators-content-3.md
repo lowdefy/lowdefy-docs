@@ -18,8 +18,8 @@ pages:
         blocks:
           # ...
           - id: meeting_name
-            required: true
             type: TextInput
+            required: true
             properties:
               title: Meeting Name
 ################ -------- Copy from here -------- ################

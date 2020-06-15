@@ -35,4 +35,4 @@ Now if we click the submit button and all our inputs aren't complete, a message 
 
 
 
-The result should look and work like this:
+The result should look and work like this. The examples in this tutorial are live versions of the tutorial app, so you can verify that they work like your own app.

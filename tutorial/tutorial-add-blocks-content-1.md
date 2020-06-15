@@ -32,7 +32,7 @@ The input form we would like to add on this page should have the following field
 
 There should also be submit and reset buttons at the bottom of the page.
 
-Copy the following blocks and add them in the card's blocks array (YAML uses indentation to indicate nesting, so it is important that the indentation of the blocks is correct - at the same level as the title).
+Copy the following blocks and add them in the card's blocks array (YAML uses indentation to indicate nesting, so it is important that the indentation of the blocks is correct. Make sure the `meeting_name` block lines up with the `page_heading` block).
 
 ```yaml
 pages:

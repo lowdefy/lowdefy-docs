@@ -18,4 +18,4 @@ The rule has a status of warning. This means it does not stop the action from co
 
 ## Up Next
 
-We are happy with the frontend UI and logic of our booking form. The next thing we need to do is insert our data into a database. In the next section we will be creating a MongoDB Atlas free sandbox database, and connecting our app to it.
+While developing a app, you often need to be able to see what's happening 'behind the scenes'. In the next section we will look at how the [inspector](inspector) can help you do that.
