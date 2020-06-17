@@ -2,7 +2,7 @@ id: AmCharts4XY
 type: PageSiderMenu
 public: true
 properties:
-  title: amCharts 4 XY
+  title: amCharts4XY
 actions:
   onInit:
     - id: initialize_state 

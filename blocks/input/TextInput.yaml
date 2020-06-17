@@ -2,7 +2,7 @@ id: TextInput
 type: PageSiderMenu
 public: true
 properties:
-  title: Text
+  title: TextInput
 blocks:
   _ref:
     path: blocks/template.yaml

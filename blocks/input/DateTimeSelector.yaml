@@ -2,7 +2,7 @@ id: DateTimeSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Date Time
+  title: DateTimeSelector
 blocks:
   _ref:
     path: blocks/template.yaml

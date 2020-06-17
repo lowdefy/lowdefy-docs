@@ -2,7 +2,7 @@ id: RadioSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Radio
+  title: RadioSelector
 actions:
   onInit:
     - id: initialize_state 

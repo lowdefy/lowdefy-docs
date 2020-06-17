@@ -1,0 +1,51 @@
+id: tutorial-create-page
+type: PageSiderMenu
+public: true
+properties:
+  title: Creating a Page
+  Sider:
+    width: 256px
+  Breadcrumb:
+    list:
+      - Tutorial
+      - Create a Page
+style:
+  Content:
+    background: '#FFFFFF'
+blocks:
+  _ref: 
+    path: tutorial/template.yaml
+    vars:
+      title: Creating a Page
+      buttons: true
+      previous_page_title: Getting Started
+      previous_page_id: tutorial-start
+      next_page_title: Booking Form
+      next_page_id: tutorial-add-blocks
+      content:
+        - id: md1
+          type: Markdown
+          properties:
+            content:
+              _ref: tutorial/tutorial-create-page-content-1.md
+
+        - id: example1
+          type: PageHeaderMenu
+          style:
+            minHeight: 300px
+          properties:
+            Menu:
+              links: []
+          blocks:
+            - id: example1_content_card
+              type: Card
+              blocks:
+                - id: example1_title
+                  type: Title
+                  properties:
+                    content: Hello There
+        - id: md2
+          type: Markdown
+          properties:
+            content:
+              _ref: tutorial/tutorial-create-page-content-2.md

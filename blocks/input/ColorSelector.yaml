@@ -2,7 +2,7 @@ id: ColorSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Color Picker
+  title: ColorSelector
 actions:
   onInit:
     - id: initialize_state 

@@ -26,83 +26,115 @@ global:
 menus:
   - id: default
     links:
-      - id: start
+      - id: introduction
+        type: MenuLink
+        pageId: introduction
+        properties:
+          title: Introduction
+          Icon: CoffeeOutlined
+      - id: tutorial
         type: MenuGroup
         properties:
-          title: Getting Started
+          title: Tutorial
           Icon: RocketOutlined
         links:
-          - id: introduction
+          - id: tutorial-start
             type: MenuLink
-            pageId: introduction
+            pageId: tutorial-start
             properties:
-              title: Introduction
-          - id: alpha-start
+              title: Getting Started
+          - id: tutorial-create-page
             type: MenuLink
-            pageId: alpha-starter
+            pageId: tutorial-create-page
             properties:
-              title: Quick Start
-          # - id: quick-start
-          #   type: MenuLink
-          #   pageId: quick-start
-          #   properties:
-          #     title: Quick Start
-          - id: how-it-works
+              title: Creating a Page
+          - id: tutorial-add-blocks
             type: MenuLink
-            pageId: how-it-works
+            pageId: tutorial-add-blocks
             properties:
-              title: How It Works
-      - id: concepts
-        type: MenuGroup
-        properties:
-          title: Concepts
-          Icon: BulbOutlined
-        links:
-          - id: lowdefy-file
+              title: Making a Booking Form
+          - id: tutorial-actions-operators
             type: MenuLink
-            pageId: lowdefy-file
+            pageId: tutorial-actions-operators
             properties:
-              title: Lowdefy Configuration File
-          - id: references
-            type: MenuLink
-            pageId: references
-            properties:
-              title: References
-          # - id: groups
-          #   type: MenuLink
-          #   pageId: groups
-          #   properties:
-          #     title: Groups and Roles
-          - id: layout
-            type: MenuLink
-            pageId: layout
-            properties:
-              title: Layout
-          - id: pages
-            type: MenuLink
-            pageId: pages
-            properties:
-              title: Pages
-          - id: blocks
-            type: MenuLink
-            pageId: blocks
-            properties:
-              title: Blocks
-          - id: state
-            type: MenuLink
-            pageId: state
-            properties:
-              title: State
-          - id: connections
-            type: MenuLink
-            pageId: connections
-            properties:
-              title: Connections
-          - id: requests-mutations
-            type: MenuLink
-            pageId: requests-mutations
-            properties:
-              title: Requests and Mutations
+              title: Interactive Pages
+      # - id: start
+      #   type: MenuGroup
+      #   properties:
+      #     title: Getting Started
+      #     Icon: RocketOutlined
+      #   links:
+      #     - id: introduction
+      #       type: MenuLink
+      #       pageId: introduction
+      #       properties:
+      #         title: Introduction
+      #     - id: alpha-start
+      #       type: MenuLink
+      #       pageId: alpha-starter
+      #       properties:
+      #         title: Quick Start
+      #     - id: quick-start
+      #       type: MenuLink
+      #       pageId: quick-start
+      #       properties:
+      #         title: Quick Start
+      #     - id: how-it-works
+      #       type: MenuLink
+      #       pageId: how-it-works
+      #       properties:
+      #         title: How It Works
+      # - id: concepts
+      #   type: MenuGroup
+      #   properties:
+      #     title: Concepts
+      #     Icon: BulbOutlined
+      #   links:
+      #     - id: lowdefy-file
+      #       type: MenuLink
+      #       pageId: lowdefy-file
+      #       properties:
+      #         title: Lowdefy Configuration File
+      #     - id: references
+      #       type: MenuLink
+      #       pageId: references
+      #       properties:
+      #         title: References
+      #     # - id: groups
+      #     #   type: MenuLink
+      #     #   pageId: groups
+      #     #   properties:
+      #     #     title: Groups and Roles
+      #     - id: layout
+      #       type: MenuLink
+      #       pageId: layout
+      #       properties:
+      #         title: Layout
+      #     - id: pages
+      #       type: MenuLink
+      #       pageId: pages
+      #       properties:
+      #         title: Pages
+      #     - id: blocks
+      #       type: MenuLink
+      #       pageId: blocks
+      #       properties:
+      #         title: Blocks
+      #     - id: state
+      #       type: MenuLink
+      #       pageId: state
+      #       properties:
+      #         title: State
+      #     - id: connections
+      #       type: MenuLink
+      #       pageId: connections
+      #       properties:
+      #         title: Connections
+      #     - id: requests-mutations
+      #       type: MenuLink
+      #       pageId: requests-mutations
+      #       properties:
+      #         title: Requests and Mutations
 
       - id: operators
         type: MenuGroup
@@ -507,22 +539,28 @@ menus:
 
 pages:
   - _ref: start/introduction.yaml
-  - _ref: start/quick-start.yaml
-  - _ref: start/alpha-starter.yaml
-  - _ref: start/how-it-works.yaml
-  - _ref: concepts/blocks.yaml
-  - _ref: concepts/connections.yaml
-  - _ref: concepts/groups.yaml
-  - _ref: concepts/layout.yaml
-  - _ref: concepts/lowdefy-file.yaml
-  - _ref: concepts/operators.yaml
-  - _ref: concepts/pages.yaml
-  - _ref: concepts/references.yaml
-  - _ref: concepts/requests-mutations.yaml
-  - _ref: concepts/state.yaml
+  - _ref: tutorial/tutorial-start.yaml
+  - _ref: tutorial/tutorial-create-page.yaml
+  - _ref: tutorial/tutorial-add-blocks.yaml
+  - _ref: tutorial/tutorial-add-blocks-config.yaml
+  - _ref: tutorial/tutorial-actions-operators.yaml
+  - _ref: tutorial/tutorial-actions-operators-config.yaml
+  # - _ref: start/quick-start.yaml
+  # - _ref: start/alpha-starter.yaml
+  # - _ref: start/how-it-works.yaml
+  # - _ref: concepts/blocks.yaml
+  # - _ref: concepts/connections.yaml
+  # - _ref: concepts/groups.yaml
+  # - _ref: concepts/layout.yaml
+  # - _ref: concepts/lowdefy-file.yaml
+  # - _ref: concepts/operators.yaml
+  # - _ref: concepts/pages.yaml
+  # - _ref: concepts/references.yaml
+  # - _ref: concepts/requests-mutations.yaml
+  # - _ref: concepts/state.yaml
 
   - _ref: operators/_and.yaml
-  # - _ref: operators/_date.yaml
+  - _ref: operators/_date.yaml
   - _ref: operators/_eq.yaml
   - _ref: operators/_get.yaml
   - _ref: operators/_if.yaml
@@ -597,4 +635,3 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
-  

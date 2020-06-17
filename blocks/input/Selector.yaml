@@ -2,7 +2,7 @@ id: Selector
 type: PageSiderMenu
 public: true
 properties:
-  title: Select
+  title: Selector
 actions:
   onInit:
     - id: initialize_state 

@@ -2,7 +2,7 @@ id: DateRangeSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Date Range
+  title: DateRangeSelector
 actions:
   onInit:
     - id: initialize_state 

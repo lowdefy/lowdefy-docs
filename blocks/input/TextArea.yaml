@@ -2,7 +2,7 @@ id: TextArea
 type: PageSiderMenu
 public: true
 properties:
-  title: Text Area
+  title: TextArea
 blocks:
   _ref:
     path: blocks/template.yaml

@@ -2,7 +2,7 @@ id: MultipleSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Multiple Select
+  title: Multiple Selector
 actions:
   onInit:
     - id: initialize_state 

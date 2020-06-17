@@ -2,7 +2,7 @@ id: AgGrid
 type: PageSiderMenu
 public: true
 properties:
-  title: ag-Grid 
+  title: AgGrid 
 blocks:
   - id: card
     type: Card
