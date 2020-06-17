@@ -43,6 +43,13 @@ blocks:
                             - Boolean
                         - $avatar.boolean
                         - $avatar
+                    button:
+                      $cond:
+                        - _eq:
+                            - _state: skeleton_button_type
+                            - Boolean
+                        - $button.boolean
+                        - $button
                     paragraph:
                       $cond:
                         - _eq:
@@ -132,6 +139,69 @@ blocks:
               - small
               - default
               - large
+
+        - id: skeleton_button_type_card
+          type: Card
+          blocks:
+            - id: skeleton_button_type
+              type: ButtonSelector
+              defaultValue: Boolean
+              properties:
+                title: Button Type
+                size: small
+                Label:
+                  extra: Skeleton button can either be a boolean or an object with size and shape properties.
+                options:
+                  - Boolean
+                  - Object
+        - id: block.properties.button.boolean
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          visible:
+            _mql_test:
+              skeleton_button_type: Boolean
+          properties:
+            title: button
+            size: small
+            Label:
+              extra: Show button placeholder.
+        - id: block.properties.button.shape
+          type: ButtonSelector
+          style:
+            _global: settings_input_style_indent
+          visible:
+            _mql_test:
+              skeleton_button_type: Object
+          defaultValue: circle
+          properties:
+            title: button.shape
+            size: small
+            Label:
+              extra: The shape of the button.
+            options:
+              - circle
+              - round
+              - default
+        - id: block.properties.button.size
+          type: ButtonSelector
+          style:
+            _global: settings_input_style_indent
+          visible:
+            _mql_test:
+              skeleton_button_type: Object
+          defaultValue: default
+          properties:
+            title: button.size
+            size: small
+            Label:
+              extra: The size of the button.
+            options:
+              - small
+              - default
+              - large
+
         - id: skeleton_paragraph_type_card
           type: Card
           blocks:

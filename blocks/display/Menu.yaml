@@ -215,6 +215,15 @@ blocks:
                     title: collapsed
                     Label:
                       extra: Collapse the menu item.
+                - id: block.properties.links.$.properties.danger
+                  type: Switch
+                  defaultValue: false
+                  style:
+                    _global: settings_input_style
+                  properties:
+                    title: danger
+                    Label:
+                      extra: Apply danger style to menu item.
                 - id: block.properties.links.$.properties.icon
                   type: Selector
                   visible:
@@ -285,6 +294,15 @@ blocks:
                         title: title
                         Label:
                           extra: Menu item title.
+                    - id: block.properties.links.$.links.$.properties.danger
+                      type: Switch
+                      defaultValue: false
+                      style:
+                        _global: settings_input_style
+                      properties:
+                        title: danger
+                        Label:
+                          extra: Apply danger style to menu item.
 
       available_actions_description: |
         ###### No available actions.
