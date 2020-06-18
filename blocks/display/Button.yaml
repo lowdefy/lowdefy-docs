@@ -171,6 +171,7 @@ blocks:
               - dashed
               - danger
               - link
+              - text
 
       available_actions_description: |
         ###### onClick
