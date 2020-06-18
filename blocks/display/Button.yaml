@@ -62,6 +62,16 @@ blocks:
             size: small
             Label:
               extra: Fit the button's span to its parent container span.
+        - id: block.properties.danger
+          type: Switch
+          defaultValue: false
+          style:
+            _global: settings_input_style
+          properties:
+            title: danger
+            size: small
+            Label:
+              extra: Set button style to danger.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
