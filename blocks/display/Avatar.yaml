@@ -79,6 +79,16 @@ blocks:
             size: small
             Label:
               extra: Text to display inside avatar.
+        - id: block.properties.gap
+          type: NumberInput
+          defaultValue: 4
+          style:
+            _global: settings_input_style
+          properties:
+            title: gap
+            size: small
+            Label:
+              extra: Letter type unit distance between left and right sides.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
