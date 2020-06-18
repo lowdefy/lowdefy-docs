@@ -3,6 +3,8 @@ type: PageSiderMenu
 public: true
 properties:
   title: Making a Booking Form
+  Header:
+    theme: light
   Sider:
     width: 256px
   Breadcrumb:
@@ -25,6 +27,9 @@ blocks:
       content:
         - id: md1
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-add-blocks-content-1.md
@@ -53,9 +58,9 @@ blocks:
                   properties:
                     title: Meeting Room
                     options:
-                      - Meeting Room 1
-                      - Meeting Room 2
-                      - Meeting Room 3
+                      - Red Room
+                      - Blue Room
+                      - Green Room
                       - Boardroom
                 - id: example1_date
                   type: DateSelector
@@ -72,7 +77,7 @@ blocks:
                 - id: example1_reset_button
                   type: Button
                   style:
-                    --span: 3
+                    --span: 6
                   properties:
                     title: Reset
                     block: true
@@ -81,7 +86,7 @@ blocks:
                 - id: example1_submit_button
                   type: Button
                   style:
-                    --span: 9
+                    --span: 6
                   properties:
                     title: Submit
                     block: true
@@ -89,6 +94,9 @@ blocks:
                     Icon: SaveOutlined
         - id: md2
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-add-blocks-content-2.md

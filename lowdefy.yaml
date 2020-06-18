@@ -38,11 +38,16 @@ menus:
           title: Tutorial
           Icon: RocketOutlined
         links:
-          - id: tutorial-start
+          - id: tutorial-setup
             type: MenuLink
-            pageId: tutorial-start
+            pageId: tutorial-setup
             properties:
-              title: Getting Started
+              title: Setup
+          - id: tutorial-editing-page
+            type: MenuLink
+            pageId: tutorial-editing-page
+            properties:
+              title: Editing a Page
           - id: tutorial-create-page
             type: MenuLink
             pageId: tutorial-create-page
@@ -539,7 +544,8 @@ menus:
 
 pages:
   - _ref: start/introduction.yaml
-  - _ref: tutorial/tutorial-start.yaml
+  - _ref: tutorial/tutorial-setup.yaml
+  - _ref: tutorial/tutorial-editing-page.yaml
   - _ref: tutorial/tutorial-create-page.yaml
   - _ref: tutorial/tutorial-add-blocks.yaml
   - _ref: tutorial/tutorial-add-blocks-config.yaml
@@ -635,3 +641,4 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+

@@ -3,6 +3,8 @@ type: PageSiderMenu
 public: true
 properties:
   title: Interactive Pages Config
+  Header:
+    theme: light
   Sider:
     width: 256px
   Breadcrumb:

@@ -30,8 +30,8 @@ pages:
               title: Number of Attendees
               options:
                 - 1 - 2
-                - 3 - 6
-                - 7 - 12
+                - 3 - 7
+                - 8 - 12
 ################ ------- Copy to here ----------- ################
           - id: meeting_room
             type: Selector

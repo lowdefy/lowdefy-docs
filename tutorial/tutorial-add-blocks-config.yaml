@@ -3,6 +3,8 @@ type: PageSiderMenu
 public: true
 properties:
   title: Making a Booking Form Config
+  Header:
+    theme: light
   Sider:
     width: 256px
   Breadcrumb:
