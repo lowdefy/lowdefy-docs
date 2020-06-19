@@ -73,9 +73,9 @@ blocks:
                   properties:
                     title: Meeting room
                     options:
-                      - Meeting Room 1
-                      - Meeting Room 2
-                      - Meeting Room 3
+                      - Red Room
+                      - Blue Room
+                      - Green Room
                       - Boardroom
                 - id: example2_date
                   type: DateSelector

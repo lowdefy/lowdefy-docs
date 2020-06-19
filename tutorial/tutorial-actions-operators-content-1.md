@@ -46,7 +46,7 @@ Each block defines a set of actions that it fires when a event happens. The butt
 
 ## Required fields
 
-We should validate the data users are submitting to make sure our app has clean data and works as expected. All of the fields in the form are compulosry, and the user should not be able to submit if they are not completed. To make the fields required, add a required property to all the input blocks like this:
+We should validate the data users are submitting to make sure our app has clean data and works as expected. All of the fields in the form are compulsory, and the user should not be able to submit if they are not completed. To make the fields required, add a required property to all the input blocks like this:
 
 ```yaml
 - id: meeting_name

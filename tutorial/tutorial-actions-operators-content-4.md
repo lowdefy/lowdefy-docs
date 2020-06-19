@@ -2,7 +2,7 @@
 
 ### What happened
 
-We added a block to capture the number of attendees to the meeting, and then added a `validate` rule to the meeting room `Selector`. We use operators to calculate a value for the `pass` field of the validation rule. If the pass field receive a `true` value, the rule passes. Else it fails. The operators execute every time the context changes.
+We added a block to capture the number of attendees to the meeting, and then added a `validate` rule to the meeting room `Selector`. We use operators to calculate a value for the `pass` field of the validation rule. If the pass field receive a `true` value, the rule passes, else it fails. The operators execute every time the context changes.
 
 We use the [`_state`](_state) operator to get the values of the `meeting_room` and `number_of_attendees` blocks from state.
 

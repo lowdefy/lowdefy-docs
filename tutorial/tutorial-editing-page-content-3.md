@@ -8,7 +8,7 @@ In the `lowdefy.yaml` file, change the "Hello World" text of the title block to 
 
 ### How it works
 
-The CLI watches all the files in the directory it is running from, and uploads all those files to your app. Those files are then complied together to form the configuration for your app. Keep the CLI running while you are developing your app, and keep an eye on it for any warnings or errors. To stop the CLI, you can press `Ctrl + C`.
+The CLI watches all the files in the directory it is running from, and if a file in the project directory is saved, it gets uploaded to your app. Those files are then transformed to form the configuration for your app. Keep the CLI running while you are developing your app, and keep an eye on it for any warnings or errors. To stop the CLI, you can press `Ctrl + C`.
 
 ### Up next
 

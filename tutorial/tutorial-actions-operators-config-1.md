@@ -35,9 +35,9 @@ pages:
             properties:
               title: Meeting room
               options:
-                - Meeting Room 1
-                - Meeting Room 2
-                - Meeting Room 3
+                - Red Room
+                - Blue Room
+                - Green Room
                 - Boardroom
             validate:
               - message: The boardroom cannot be booked for meetings with less than 8 attendees.
