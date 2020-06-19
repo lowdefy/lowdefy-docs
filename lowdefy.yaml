@@ -47,22 +47,22 @@ menus:
             type: MenuLink
             pageId: tutorial-editing-page
             properties:
-              title: Editing a Page
+              title: Editing a page
           - id: tutorial-create-page
             type: MenuLink
             pageId: tutorial-create-page
             properties:
-              title: Creating a Page
+              title: Creating a page
           - id: tutorial-add-blocks
             type: MenuLink
             pageId: tutorial-add-blocks
             properties:
-              title: Making a Booking Form
+              title: Making a booking form
           - id: tutorial-actions-operators
             type: MenuLink
             pageId: tutorial-actions-operators
             properties:
-              title: Interactive Pages
+              title: Interactive pages
       # - id: start
       #   type: MenuGroup
       #   properties:
@@ -141,92 +141,6 @@ menus:
       #       properties:
       #         title: Requests and Mutations
 
-      - id: operators
-        type: MenuGroup
-        properties:
-          title: Operators
-          Icon: ToolOutlined
-        links:
-          - id: _and
-            type: MenuLink
-            pageId: _and
-            properties:
-              title: _and
-          # - id: _date
-          #   type: MenuLink
-          #   pageId: _date
-          #   properties:
-          #     title: Date
-          - id: _eq
-            type: MenuLink
-            pageId: _eq
-            properties:
-              title: _eq
-          - id: _get
-            type: MenuLink
-            pageId: _get
-            properties:
-              title: _get
-          - id: _if
-            type: MenuLink
-            pageId: _if
-            properties:
-              title: _if
-          - id: _mql_aggregate
-            type: MenuLink
-            pageId: _mql_aggregate
-            properties:
-              title: _mql_aggregate
-          - id: _mql_expr
-            type: MenuLink
-            pageId: _mql_expr
-            properties:
-              title: _mql_expr
-          - id: _mql_test
-            type: MenuLink
-            pageId: _mql_test
-            properties:
-              title: _mql_test
-          - id: _not
-            type: MenuLink
-            pageId: _not
-            properties:
-              title: _not
-          - id: _nunjucks
-            type: MenuLink
-            pageId: _nunjucks
-            properties:
-              title: _nunjucks
-          - id: _or
-            type: MenuLink
-            pageId: _or
-            properties:
-              title: _or
-          - id: _regex
-            type: MenuLink
-            pageId: _regex
-            properties:
-              title: _regex
-          - id: _request
-            type: MenuLink
-            pageId: _request
-            properties:
-              title: _request
-          - id: _state
-            type: MenuLink
-            pageId: _state
-            properties:
-              title: _state
-          - id: _type
-            type: MenuLink
-            pageId: _type
-            properties:
-              title: _type
-          - id: _user
-            type: MenuLink
-            pageId: _user
-            properties:
-              title: _user
 
       - id: blocks_input
         type: MenuGroup
@@ -541,6 +455,92 @@ menus:
             pageId: Tabs
             properties:
               title: Tabs
+      - id: operators
+        type: MenuGroup
+        properties:
+          title: Operators
+          Icon: ToolOutlined
+        links:
+          - id: _and
+            type: MenuLink
+            pageId: _and
+            properties:
+              title: _and
+          # - id: _date
+          #   type: MenuLink
+          #   pageId: _date
+          #   properties:
+          #     title: Date
+          - id: _eq
+            type: MenuLink
+            pageId: _eq
+            properties:
+              title: _eq
+          - id: _get
+            type: MenuLink
+            pageId: _get
+            properties:
+              title: _get
+          - id: _if
+            type: MenuLink
+            pageId: _if
+            properties:
+              title: _if
+          - id: _mql_aggregate
+            type: MenuLink
+            pageId: _mql_aggregate
+            properties:
+              title: _mql_aggregate
+          - id: _mql_expr
+            type: MenuLink
+            pageId: _mql_expr
+            properties:
+              title: _mql_expr
+          - id: _mql_test
+            type: MenuLink
+            pageId: _mql_test
+            properties:
+              title: _mql_test
+          - id: _not
+            type: MenuLink
+            pageId: _not
+            properties:
+              title: _not
+          - id: _nunjucks
+            type: MenuLink
+            pageId: _nunjucks
+            properties:
+              title: _nunjucks
+          - id: _or
+            type: MenuLink
+            pageId: _or
+            properties:
+              title: _or
+          - id: _regex
+            type: MenuLink
+            pageId: _regex
+            properties:
+              title: _regex
+          - id: _request
+            type: MenuLink
+            pageId: _request
+            properties:
+              title: _request
+          - id: _state
+            type: MenuLink
+            pageId: _state
+            properties:
+              title: _state
+          - id: _type
+            type: MenuLink
+            pageId: _type
+            properties:
+              title: _type
+          - id: _user
+            type: MenuLink
+            pageId: _user
+            properties:
+              title: _user
 
 pages:
   - _ref: start/introduction.yaml
@@ -564,23 +564,6 @@ pages:
   # - _ref: concepts/references.yaml
   # - _ref: concepts/requests-mutations.yaml
   # - _ref: concepts/state.yaml
-
-  - _ref: operators/_and.yaml
-  - _ref: operators/_date.yaml
-  - _ref: operators/_eq.yaml
-  - _ref: operators/_get.yaml
-  - _ref: operators/_if.yaml
-  - _ref: operators/_mql_aggregate.yaml
-  - _ref: operators/_mql_test.yaml
-  - _ref: operators/_mql_expr.yaml
-  - _ref: operators/_not.yaml
-  - _ref: operators/_nunjucks.yaml
-  - _ref: operators/_or.yaml
-  - _ref: operators/_regex.yaml
-  - _ref: operators/_request.yaml
-  - _ref: operators/_state.yaml
-  - _ref: operators/_type.yaml
-  - _ref: operators/_user.yaml
 
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/Checkbox.yaml
@@ -642,3 +625,19 @@ pages:
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
 
+  - _ref: operators/_and.yaml
+  - _ref: operators/_date.yaml
+  - _ref: operators/_eq.yaml
+  - _ref: operators/_get.yaml
+  - _ref: operators/_if.yaml
+  - _ref: operators/_mql_aggregate.yaml
+  - _ref: operators/_mql_test.yaml
+  - _ref: operators/_mql_expr.yaml
+  - _ref: operators/_not.yaml
+  - _ref: operators/_nunjucks.yaml
+  - _ref: operators/_or.yaml
+  - _ref: operators/_regex.yaml
+  - _ref: operators/_request.yaml
+  - _ref: operators/_state.yaml
+  - _ref: operators/_type.yaml
+  - _ref: operators/_user.yaml

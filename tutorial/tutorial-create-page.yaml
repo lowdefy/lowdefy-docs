@@ -2,7 +2,7 @@ id: tutorial-create-page
 type: PageSiderMenu
 public: true
 properties:
-  title: Creating a Page
+  title: Creating a page
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Create a Page
+      - Creating a page
 style:
   Content:
     background: '#FFFFFF'
@@ -18,10 +18,10 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Creating a Page
+      title: Creating a page
       buttons: true
-      previous_page_title: Modifying a Page
-      previous_page_id: tutorial-modify-page
+      previous_page_title: Editing a Page
+      previous_page_id: tutorial-editing-page
       next_page_title: Booking Form
       next_page_id: tutorial-add-blocks
       content:
@@ -70,7 +70,7 @@ blocks:
                 - id: example1_page_heading
                   type: Title
                   properties:
-                    content: Book a Meeting Room
+                    content: Book a meeting room
                     level: 3
         - id: md3
           type: Markdown

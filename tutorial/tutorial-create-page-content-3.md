@@ -27,7 +27,7 @@ menus:
         type: MenuLink
         properties:
           Icon: CalendarOutlined
-          title: Book a Meeting
+          title: Book a meeting
         pageId: booking
 ################ ------- Copy to here ----------- ################
 pages:
@@ -37,11 +37,7 @@ pages:
 
 The menu links will now have icons and titles.
 
-### How it works
-
-...
-
-### Up Next
+### Up next
 
 In the next section we will add some more blocks to our page to create a form for users to book a meeting room.
 

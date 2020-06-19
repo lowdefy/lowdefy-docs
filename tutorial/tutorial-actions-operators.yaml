@@ -2,7 +2,7 @@ id: tutorial-actions-operators
 type: PageSiderMenu
 public: true
 properties:
-  title: Interactive Pages
+  title: Interactive pages
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Interactive Pages
+      - Interactive pages
 style:
   Content:
     background: '#FFFFFF'
@@ -18,15 +18,18 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Interactive Pages
+      title: Interactive pages
       buttons: true
-      previous_page_title: Making a Booking Form
+      previous_page_title: Making a booking form
       previous_page_id: tutorial-add-blocks
-      next_page_title: 'Connecting to a Database'
-      next_page_id: ''
+      next_page_title: Inspector
+      next_page_id: tutorial-inspector
       content:
         - id: md1
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-actions-operators-content-1.md
@@ -34,9 +37,12 @@ blocks:
           type: TextInput
           required: true
           properties:
-            title: Meeting Name
+            title: Meeting name
         - id: md2
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-actions-operators-content-2.md
@@ -54,18 +60,18 @@ blocks:
                 - id: example2_page_heading
                   type: Title
                   properties:
-                    content: Book a Meeting Room
+                    content: Book a meeting room
                     level: 3
                 - id: example2_meeting_name
                   type: TextInput
                   required: true
                   properties:
-                    title: Meeting Name
+                    title: Meeting name
                 - id: example2_meeting_room
                   type: Selector
                   required: true
                   properties:
-                    title: Meeting Room
+                    title: Meeting room
                     options:
                       - Meeting Room 1
                       - Meeting Room 2
@@ -80,12 +86,12 @@ blocks:
                   type: DateTimeSelector
                   required: true
                   properties:
-                    title: Start Time
+                    title: Start time
                 - id: example2_end_time
                   type: DateTimeSelector
                   required: true
                   properties:
-                    title: End Time
+                    title: End time
                 - id: example2_reset_button
                   type: Button
                   style:
@@ -114,6 +120,9 @@ blocks:
                         type: validate()
         - id: md3
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             renderHtml: true
             content:
@@ -132,19 +141,19 @@ blocks:
                 - id: example3_page_heading
                   type: Title
                   properties:
-                    content: Book a Meeting Room
+                    content: Book a meeting room
                     level: 3
                 - id: example3_meeting_name
                   type: TextInput
                   required: true
                   properties:
-                    title: Meeting Name
+                    title: Meeting name
                 - id: example3_number_of_attendees
                   type: ButtonSelector
                   required: true
                   defaultValue: 2 - 3
                   properties:
-                    title: Number of Attendees
+                    title: Number of attendees
                     options:
                       - 2 - 3
                       - 4 - 7
@@ -154,7 +163,7 @@ blocks:
                   required: true
                   defaultValue: Boardroom
                   properties:
-                    title: Meeting Room
+                    title: Meeting room
                     options:
                       - Meeting Room 1
                       - Meeting Room 2
@@ -181,12 +190,12 @@ blocks:
                   type: DateTimeSelector
                   required: true
                   properties:
-                    title: Start Time
+                    title: Start time
                 - id: example3_end_time
                   type: DateTimeSelector
                   required: true
                   properties:
-                    title: End Time
+                    title: End time
                 - id: example3_reset_button
                   type: Button
                   style:
@@ -215,6 +224,9 @@ blocks:
                         type: validate()
         - id: md4
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-actions-operators-content-4.md

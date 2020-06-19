@@ -2,7 +2,7 @@ id: tutorial-editing-page
 type: PageSiderMenu
 public: true
 properties:
-  title: Editing a Page
+  title: Editing a page
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Editing a Page
+      - Editing a page
 style:
   Content:
     background: '#FFFFFF'
@@ -37,7 +37,7 @@ blocks:
           type: Alert
           properties:
             type: info
-            description: This folder can be a source control repository. We are working on a Github integration that will sync commits on your master branch to your app.
+            description: This folder can be a source control repository. We are working on a Github integration that will sync commits on your repository to your app.
         - id: md2
           type: Markdown
           style:

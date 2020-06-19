@@ -20,17 +20,17 @@ pages:
           - id: page_heading
             type: Title
             properties:
-              content: Book a Meeting Room # Change the title on the page
+              content: Book a meeting room # Change the title on the page
               level: 3 # Make the title a little smaller (an html `<h3>`).
 ################ -------- Copy from here -------- ################
           - id: meeting_name
             type: TextInput
             properties:
-              title: Meeting Name
+              title: Meeting name
           - id: meeting_room
             type: Selector
             properties:
-              title: Meeting Room
+              title: Meeting room
               options: # Set the allowed options
                 - Red Room
                 - Blue Room
@@ -43,11 +43,11 @@ pages:
           - id: start_time
             type: DateTimeSelector
             properties:
-              title: Start Time
+              title: Start time
           - id: end_time
             type: DateTimeSelector
             properties:
-              title: End Time
+              title: End time
           - id: reset_button
             type: Button
             style:
@@ -67,5 +67,7 @@ pages:
               type: primary # Make the button a primary button with color
               Icon: SaveOutlined
 ```
+
+>  If you would like to see how your config should look at this point, you can find it [here](tutorial-add-blocks-config).
 
 Refresh your page and you should see something like this:

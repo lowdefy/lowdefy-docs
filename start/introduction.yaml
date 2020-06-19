@@ -24,27 +24,12 @@ blocks:
           content: Introduction
       - id: markdown
         type: Markdown
+        style:
+          '.markdown-body':
+            fontSize: 14px
         properties:
-          content: |
-            Lowdefy allows you to create and publish web apps by just writing configuration files. You can easily build internal tools, reporting dashboards or surveys with Lowdefy.
-
-            Think of Lowdefy as everything you need to create a user interface and talk to your data. Our goal is to make it as simple as possible to create data enriched web apps.
-
-            ### Blocks
-
-            A block is a front end component like a chart, table or data input. Each block has a set of properties which defines how that block appears and behaves.
-
-            ### Connections
-
-            A connection is a link to an outside service, like a database or REST API. The various connection types support different requests, like database queries or API calls. Sensitive connection data, like passwords or API keys, can be securely stored using Lowdefy secrets.
-
-            ### YAML files
-
-            Lowdefy apps are written using YAML (or JSON) configuration files. This allows for the easy sharing of configuration inside a project, as well as between projects. It also means version control systems like Github can be used to keep track of changes to the app.
-
-            ### Tutorial
-
-            The easiest way to get started with Lowdefy is to follow the tutorial. In this tutorial we will be building a app that allows you to book meeting rooms and manage those bookings.
+          content:
+            _ref: start/introduction.md
 
       - id: nav_buttons
         type: Box
@@ -64,7 +49,7 @@ blocks:
               hideActionLoading: true
               Icon: RocketOutlined
               size: large
-              title: Start the Tutorial
+              title: Start the tutorial
               type: primary
             actions:
               onClick:

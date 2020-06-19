@@ -1,4 +1,4 @@
-In the `lowdefy.yaml` file, change the "Hello There" text of the title block to include your name. Refresh your browser and you should see your changes.
+In the `lowdefy.yaml` file, change the "Hello World" text of the title block to include your name. Refresh your browser and you should see your changes.
 
 ### What happened
 

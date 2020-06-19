@@ -2,7 +2,7 @@ id: tutorial-actions-operators-config
 type: PageSiderMenu
 public: true
 properties:
-  title: Interactive Pages Config
+  title: Interactive pages config
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Interactive Pages Config
+      - Interactive pages config
 style:
   Content:
     background: '#FFFFFF'
@@ -18,7 +18,7 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Interactive Pages Config
+      title: Interactive pages config
       buttons: false
       content:
         - id: md1

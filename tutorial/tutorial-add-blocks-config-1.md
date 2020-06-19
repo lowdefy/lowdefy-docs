@@ -14,7 +14,7 @@ menus:
         type: MenuLink
         properties:
           Icon: CalendarOutlined
-          title: Book a Meeting
+          title: Book a meeting
         pageId: booking
 pages:
   - id: welcome
@@ -40,16 +40,16 @@ pages:
           - id: page_heading
             type: Title
             properties:
-              content: Book a Meeting Room
+              content: Book a meeting room
               level: 3
           - id: meeting_name
             type: TextInput
             properties:
-              title: Meeting Name
+              title: Meeting name
           - id: meeting_room
             type: Selector
             properties:
-              title: Meeting Room
+              title: Meeting room
               options: # Set the allowed options
                 - Red Room
                 - Blue Room
@@ -62,11 +62,11 @@ pages:
           - id: start_time
             type: DateTimeSelector
             properties:
-              title: Start Time
+              title: Start time
           - id: end_time
             type: DateTimeSelector
             properties:
-              title: End Time
+              title: End time
           - id: reset_button
             type: Button
             style:

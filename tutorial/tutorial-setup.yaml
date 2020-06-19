@@ -22,7 +22,7 @@ blocks:
       buttons: true
       previous_page_title: Introduction
       previous_page_id: introduction
-      next_page_title: Editing a Page
+      next_page_title: Editing a page
       next_page_id: tutorial-editing-page
       content:
         - id: md1
@@ -30,11 +30,6 @@ blocks:
           style:
             '.markdown-body':
               fontSize: 14px
-          properties:
-            content: 
-              _ref: tutorial/tutorial-setup-content-1.md
-        - id: p1
-          type: Paragraph
           properties:
             content: 
               _ref: tutorial/tutorial-setup-content-1.md

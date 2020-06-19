@@ -5,7 +5,7 @@ pages:
   - id: booking
     type: PageHeaderMenu
     properties:
-      title: Book Meeting
+      title: Book meeting
     blocks:
       - id: content_card
         type: Card
@@ -13,18 +13,18 @@ pages:
           - id: page_heading
             type: Title
             properties:
-              content: Book a Meeting Room
+              content: Book a meeting room
               level: 3
           - id: meeting_name
             required: true
             type: TextInput
             properties:
-              title: Meeting Name
+              title: Meeting name
           - id: number_of_attendees
             type: ButtonSelector
             required: true
             properties:
-              title: Number of Attendees
+              title: Number of attendees
               options:
                 - 2 - 3
                 - 4 - 7
@@ -33,7 +33,7 @@ pages:
             type: Selector
             required: true
             properties:
-              title: Meeting Room
+              title: Meeting room
               options:
                 - Meeting Room 1
                 - Meeting Room 2
@@ -61,12 +61,12 @@ pages:
             type: DateTimeSelector
             required: true
             properties:
-              title: Start Time
+              title: Start time
           - id: end_time
             type: DateTimeSelector
             required: true
             properties:
-              title: End Time
+              title: End time
           - id: reset_button
             type: Button
             style:

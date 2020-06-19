@@ -2,7 +2,7 @@ id: tutorial-add-blocks-config
 type: PageSiderMenu
 public: true
 properties:
-  title: Making a Booking Form Config
+  title: Making a booking form config
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Making a Booking Form Config
+      - Making a booking form config
 style:
   Content:
     background: '#FFFFFF'
@@ -18,7 +18,7 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Making a Booking Form Config
+      title: Making a booking form config
       buttons: false
       content:
         - id: md1

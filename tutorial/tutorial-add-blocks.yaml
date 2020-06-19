@@ -2,7 +2,7 @@ id: tutorial-add-blocks
 type: PageSiderMenu
 public: true
 properties:
-  title: Making a Booking Form
+  title: Making a booking form
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Making a Booking Form
+      - Making a booking form
 style:
   Content:
     background: '#FFFFFF'
@@ -18,7 +18,7 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Making a Booking Form
+      title: Making a booking form
       buttons: true
       previous_page_title: Creating a Page
       previous_page_id: tutorial-create-page
@@ -47,16 +47,16 @@ blocks:
                 - id: example1_page_heading
                   type: Title
                   properties:
-                    content: Book a Meeting Room
+                    content: Making a booking form
                     level: 3
                 - id: example1_meeting_name
                   type: TextInput
                   properties:
-                    title: Meeting Name
+                    title: Meeting name
                 - id: example1_meeting_room
                   type: Selector
                   properties:
-                    title: Meeting Room
+                    title: Meeting room
                     options:
                       - Red Room
                       - Blue Room
@@ -69,11 +69,11 @@ blocks:
                 - id: example1_start_time
                   type: DateTimeSelector
                   properties:
-                    title: Start Time
+                    title: Start time
                 - id: example1_end_time
                   type: DateTimeSelector
                   properties:
-                    title: End Time
+                    title: End time
                 - id: example1_reset_button
                   type: Button
                   style:
