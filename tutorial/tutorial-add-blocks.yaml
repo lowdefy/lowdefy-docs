@@ -2,13 +2,15 @@ id: tutorial-add-blocks
 type: PageSiderMenu
 public: true
 properties:
-  title: Making a Booking Form
+  title: Making a booking form
+  Header:
+    theme: light
   Sider:
     width: 256px
   Breadcrumb:
     list:
       - Tutorial
-      - Making a Booking Form
+      - Making a booking form
 style:
   Content:
     background: '#FFFFFF'
@@ -16,7 +18,7 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Making a Booking Form
+      title: Making a booking form
       buttons: true
       previous_page_title: Creating a Page
       previous_page_id: tutorial-create-page
@@ -25,6 +27,9 @@ blocks:
       content:
         - id: md1
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-add-blocks-content-1.md
@@ -42,20 +47,20 @@ blocks:
                 - id: example1_page_heading
                   type: Title
                   properties:
-                    content: Book a Meeting Room
+                    content: Making a booking form
                     level: 3
                 - id: example1_meeting_name
                   type: TextInput
                   properties:
-                    title: Meeting Name
+                    title: Meeting name
                 - id: example1_meeting_room
                   type: Selector
                   properties:
-                    title: Meeting Room
+                    title: Meeting room
                     options:
-                      - Meeting Room 1
-                      - Meeting Room 2
-                      - Meeting Room 3
+                      - Red Room
+                      - Blue Room
+                      - Green Room
                       - Boardroom
                 - id: example1_date
                   type: DateSelector
@@ -64,15 +69,15 @@ blocks:
                 - id: example1_start_time
                   type: DateTimeSelector
                   properties:
-                    title: Start Time
+                    title: Start time
                 - id: example1_end_time
                   type: DateTimeSelector
                   properties:
-                    title: End Time
+                    title: End time
                 - id: example1_reset_button
                   type: Button
                   style:
-                    --span: 3
+                    --span: 6
                   properties:
                     title: Reset
                     block: true
@@ -81,7 +86,7 @@ blocks:
                 - id: example1_submit_button
                   type: Button
                   style:
-                    --span: 9
+                    --span: 6
                   properties:
                     title: Submit
                     block: true
@@ -89,6 +94,9 @@ blocks:
                     Icon: SaveOutlined
         - id: md2
           type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
           properties:
             content:
               _ref: tutorial/tutorial-add-blocks-content-2.md

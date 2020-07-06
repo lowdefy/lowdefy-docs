@@ -1,8 +1,8 @@
-id: tutorial-create-page
+id: tutorial-editing-page
 type: PageSiderMenu
 public: true
 properties:
-  title: Creating a page
+  title: Editing a page
   Header:
     theme: light
   Sider:
@@ -10,7 +10,7 @@ properties:
   Breadcrumb:
     list:
       - Tutorial
-      - Creating a page
+      - Editing a page
 style:
   Content:
     background: '#FFFFFF'
@@ -18,12 +18,12 @@ blocks:
   _ref: 
     path: tutorial/template.yaml
     vars:
-      title: Creating a page
+      title: Editing a page
       buttons: true
-      previous_page_title: Editing a Page
-      previous_page_id: tutorial-editing-page
-      next_page_title: Booking Form
-      next_page_id: tutorial-add-blocks
+      previous_page_title: Setup
+      previous_page_id: tutorial-setup
+      next_page_title: Creating a page
+      next_page_id: tutorial-create-page
       content:
         - id: md1
           type: Markdown
@@ -32,12 +32,12 @@ blocks:
               fontSize: 14px
           properties:
             content:
-              _ref: tutorial/tutorial-create-page-content-1.md
+              _ref: tutorial/tutorial-editing-page-content-1.md
         - id: alert1
           type: Alert
           properties:
-            type: warning
-            description: YAML uses indentation to indicate nesting, so it is important that both pages are at the same indentation level.
+            type: info
+            description: This folder can be a source control repository. We are working on a Github integration that will sync commits on your repository to your app.
         - id: md2
           type: Markdown
           style:
@@ -45,7 +45,7 @@ blocks:
               fontSize: 14px
           properties:
             content:
-              _ref: tutorial/tutorial-create-page-content-2.md
+              _ref: tutorial/tutorial-editing-page-content-2.md
         - id: example1
           type: PageHeaderMenu
           style:
@@ -57,21 +57,15 @@ blocks:
                   type: MenuLink
                   properties:
                     title: welcome
-                - id: booking
-                  properties:
-                    title: booking
-                  type: MenuLink
+                  url: ''
           blocks:
             - id: example1_content_card
               type: Card
-              style:
-                maxWidth: 600px
               blocks:
-                - id: example1_page_heading
+                - id: example1_title
                   type: Title
                   properties:
-                    content: Book a meeting room
-                    level: 3
+                    content: Hello World
         - id: md3
           type: Markdown
           style:
@@ -79,4 +73,4 @@ blocks:
               fontSize: 14px
           properties:
             content:
-              _ref: tutorial/tutorial-create-page-content-3.md
+              _ref: tutorial/tutorial-editing-page-content-3.md
