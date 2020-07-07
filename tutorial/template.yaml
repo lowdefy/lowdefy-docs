@@ -1,7 +1,7 @@
 - id: max_width
   type: Box
-  style:
-    maxWidth: 800px
+  layout:
+    size: 800
   blocks:
     - id: title
       type: Title
@@ -23,12 +23,12 @@
       blocks:
         - id: previous_button
           type: Button
-          style:
-            --span: 6
+          layout:
+            span: 12
           properties:
             block: true
             hideActionLoading: true
-            Icon: ArrowLeftOutlined
+            icon: ArrowLeftOutlined
             size: large
             title:
               _var: previous_page_title
@@ -46,12 +46,12 @@
                   top: 0
         - id: next_button
           type: Button
-          style:
-            --span: 6
+          layout:
+            span: 12
           properties:
             block: true
             hideActionLoading: true
-            Icon: ArrowRightOutlined
+            icon: ArrowRightOutlined
             size: large
             title:
               _var: next_page_title

@@ -3,80 +3,79 @@ type: PageSiderMenu
 public: true
 properties:
   title: Introduction
-  Sider:
+  sider:
     width: 256px
-  Breadcrumb:
+  breadcrumb:
     list:
       - Introduction
-style:
-  Content:
-    background: '#FFFFFF'
-blocks:
-  - id: max_width
-    type: Box
-    style:
-      maxWidth: 800px
+areas:
+  content:
+    justify: center
+    style: 
+      background: '#FFFFFF'
+      paddingTop: 50
     blocks:
-      - id: title
-        type: Title
-        properties:
-          content: Introduction
-      - id: markdown
-        type: Markdown
-        properties:
-          renderHtml: true
-          content: |
-            Lowdefy allows you to create and publish web apps by just writing configuration files. You can easily build internal tools, reporting dashboards or surveys with Lowdefy.
-
-            Think of Lowdefy as everything you need to create a user interface and talk to your data. Our goal is to make it as simple as possible to create data enriched web apps.
-
-            ### Blocks
-
-            A block is a front end component like a chart, table or data input. Each block has a set of properties which defines how that block appears and behaves.
-
-            ### Connections
-
-            A connection is a link to an outside service, like a database or REST API. The various connection types support different requests, like database queries or API calls. Sensitive connection data, like passwords or API keys, can be securely stored using Lowdefy secrets.
-
-            ### <a name="yaml"></a> YAML Files
-
-            Lowdefy apps are written using YAML (or JSON) configuration files. This allows for the easy sharing of configuration inside a project, as well as between projects. It also means version control systems like Github can be used to keep track of changes to the app.
-
-            ### Get Started
-
-            The easiest way to get started with Lowdefy is to follow the [tutorial](tutorial-start). In this tutorial we will be building a app that allows you to book meeting rooms and manage those bookings.
-
-            ** We'd love to know what you think ** 🚀
-
-            <a href="https://twitter.com/intent/tweet?screen_name=lowdefy&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-text="Wow! @lowdefy makes building web apps and internal tools so easy." data-related="@lowdefy" data-show-count="false">Tweet to @lowdefy</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      - id: nav_buttons
+      - id: max_width
         type: Box
-        style:
-          paddingTop: 60px
-          paddingBottom: 80px
+        layout:
+          size: 800
         blocks:
-          - id: previous_button_placeholder
+          - id: title
+            type: Title
+            properties:
+              content: Introduction
+          - id: markdown
+            type: Markdown
+            properties:
+              renderHtml: true
+              content: |
+                Lowdefy allows you to create and publish web apps by just writing configuration files. You can easily build internal tools, reporting dashboards or surveys with Lowdefy.
+
+                Think of Lowdefy as everything you need to create a user interface and talk to your data. Our goal is to make it as simple as possible to create data enriched web apps.
+
+                ### Blocks
+
+                A block is a front end component like a chart, table or data input. Each block has a set of properties which defines how that block appears and behaves.
+
+                ### Connections
+
+                A connection is a link to an outside service, like a database or REST API. The various connection types support different requests, like database queries or API calls. Sensitive connection data, like passwords or API keys, can be securely stored using Lowdefy secrets.
+
+                ### <a name="yaml"></a> YAML Files
+
+                Lowdefy apps are written using YAML (or JSON) configuration files. This allows for the easy sharing of configuration inside a project, as well as between projects. It also means version control systems like Github can be used to keep track of changes to the app.
+
+                ### Get Started
+
+                The easiest way to get started with Lowdefy is to follow the [tutorial](tutorial-start). In this tutorial we will be building a app that allows you to book meeting rooms and manage those bookings.
+
+                ** We'd love to know what you think ** 🚀
+
+                <a href="https://twitter.com/intent/tweet?screen_name=lowdefy&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-text="Wow! @lowdefy makes building web apps and internal tools so easy." data-related="@lowdefy" data-show-count="false">Tweet to @lowdefy</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          - id: nav_buttons
             type: Box
             style:
-              --span: 6
-          - id: next_button
-            type: Button
-            style:
-              --span: 6
-            properties:
-              block: true
-              hideActionLoading: true
-              Icon: ArrowRightOutlined
-              size: large
-              title: 'Tutorial: Getting Started'
-              type: default
-            actions:
-              onClick:
-                - id: link_forward
-                  type: link()
-                  params:
-                    pageId: tutorial-start
-                - id: scroll_to_top
-                  type: scrollTo()
-                  params:
-                    top: 0
+              paddingTop: 60px
+              paddingBottom: 80px
+            blocks:
+              - id: next_button
+                type: Button
+                layout:
+                  offset: 12
+                properties:
+                  block: true
+                  hideActionLoading: true
+                  icon: ArrowRightOutlined
+                  size: large
+                  title: 'Tutorial: Getting Started'
+                  type: default
+                actions:
+                  onClick:
+                    - id: link_forward
+                      type: link()
+                      params:
+                        pageId: tutorial-start
+                    - id: scroll_to_top
+                      type: scrollTo()
+                      params:
+                        top: 0

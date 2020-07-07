@@ -3,24 +3,26 @@ type: PageSiderMenu
 public: true
 properties:
   title: Making a Booking Form Config
-  Sider:
+  sider:
     width: 256px
-  Breadcrumb:
+  breadcrumb:
     list:
       - Tutorial
       - Making a Booking Form Config
-style:
-  Content:
-    background: '#FFFFFF'
-blocks:
-  _ref: 
-    path: tutorial/template.yaml
-    vars:
-      title: Making a Booking Form Config
-      buttons: false
-      content:
-        - id: md1
-          type: Markdown
-          properties:
-            content:
-              _ref: tutorial/tutorial-add-blocks-config-1.md
+areas:
+  content:
+    justify: center
+    style:
+      background: '#FFFFFF'
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Making a Booking Form Config
+          buttons: false
+          content:
+            - id: md1
+              type: Markdown
+              properties:
+                content:
+                  _ref: tutorial/tutorial-add-blocks-config-1.md
