@@ -1,8 +1,8 @@
-### What Happened
+### What happened
 
-The validate action we added to the submit button evaluates all the input blocks on the page, and gives an error if any of them fail the validation. This will also stop the action list, so any actions defined after it will not be executed. This means we won't insert bad data into our database later. The first time a validate action is called on a page it sets a flag that tells all the input blocks to show their validation errors.
+The validate action we added to the submit button evaluates all the input blocks on the page, and gives an error if any of them fail the validation. This will also stop the execution of any actions after that action. This means we won't insert the data into our database later. The first time a validate action is called on a page it sets a flag that tells all the input blocks to show their validation errors.
 
-## Advanced Validations
+## Advanced validations
 
 We would like to only allow users to book the boardroom if there are 8 or more attendees in the meeting. We can use [operators](operators) to do this test.
 
@@ -30,8 +30,8 @@ pages:
               title: Number of Attendees
               options:
                 - 1 - 2
-                - 3 - 6
-                - 7 - 12
+                - 3 - 7
+                - 8 - 12
 ################ ------- Copy to here ----------- ################
           - id: meeting_room
             type: Selector

@@ -1,32 +1,59 @@
 ### `lowdefy.yaml`
 
 ```yaml
+menus:
+  - id: default
+    links:
+      - id: welcome
+        type: MenuLink
+        properties:
+          Icon: HomeOutlined
+          title: Home
+        pageId: welcome
+      - id: booking
+        type: MenuLink
+        properties:
+          Icon: CalendarOutlined
+          title: Book a meeting
+        pageId: booking
 pages:
-  - id: booking # Change the page id from 'hello' to 'booking'
+  - id: welcome
     type: PageHeaderMenu
-    properties:
-      title: Book Meeting # Add a title which appears in the browser tab (the title in the html `<head>`)
     blocks:
       - id: content_card
         type: Card
         blocks:
+          - id: title
+            type: Title
+            properties:
+              content: Hello World
+  - id: booking
+    type: PageHeaderMenu
+    properties:
+      title: Book Meeting
+    blocks:
+      - id: content_card
+        type: Card
+        style:
+          maxWidth: 600px
+        blocks:
           - id: page_heading
             type: Title
             properties:
-              content: Book a Meeting Room # Change the title on the page
-              level: 3 # Make the title a little smaller (an html `<h3>`).
+              content: Book a meeting room
+              level: 3
           - id: meeting_name
             type: TextInput
             properties:
-              title: Meeting Name
+              title: Meeting name
           - id: meeting_room
             type: Selector
             properties:
-              title: Meeting Room
+              title: Meeting room
               options: # Set the allowed options
-                - Meeting Room 1
-                - Meeting Room 2
-                - Meeting Room 3
+                - Red Room
+                - Blue Room
+                - Green Room
                 - Boardroom
           - id: date
             type: DateSelector
@@ -35,15 +62,15 @@ pages:
           - id: start_time
             type: DateTimeSelector
             properties:
-              title: Start Time
+              title: Start time
           - id: end_time
             type: DateTimeSelector
             properties:
-              title: End Time
+              title: End time
           - id: reset_button
             type: Button
             style:
-              --span: 3 # Set the size of the button (span 3 of 12 columns)
+              --span: 6 # Set the size of the button (span 6 of 12 columns)
             properties:
               title: Reset
               block: true # Make the button fill all the space available to it
@@ -52,7 +79,7 @@ pages:
           - id: submit_button
             type: Button
             style:
-              --span: 9 # Set the size of the button (span 9 of 12 columns)
+              --span: 6
             properties:
               title: Submit
               block: true

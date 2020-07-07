@@ -2,219 +2,231 @@ id: tutorial-actions-operators
 type: PageSiderMenu
 public: true
 properties:
-  title: Interactive Pages
-  sider:
+  title: Interactive pages
+  Header:
+    theme: light
+  Sider:
     width: 256px
-  breadcrumb:
+  Breadcrumb:
     list:
       - Tutorial
-      - Interactive Pages
-areas:
-  content:
-    justify: center
-    style:
-      background: '#FFFFFF'
-    blocks:
-      _ref: 
-        path: tutorial/template.yaml
-        vars:
-          title: Interactive Pages
-          buttons: true
-          previous_page_title: Making a Booking Form
-          previous_page_id: tutorial-add-blocks
-          next_page_title: 'Connecting to a Database'
-          next_page_id: ''
-          content:
-            - id: md1
-              type: Markdown
-              properties:
-                content:
-                  _ref: tutorial/tutorial-actions-operators-content-1.md
-            - id: example1
-              type: TextInput
-              required: true
-              properties:
-                title: Meeting Name
-            - id: md2
-              type: Markdown
-              properties:
-                content:
-                  _ref: tutorial/tutorial-actions-operators-content-2.md
-            - id: example2
-              type: PageHeaderMenu
-              style:
-                minHeight: 300px
-              properties:
-                menu:
-                  links: []
+      - Interactive pages
+style:
+  Content:
+    background: '#FFFFFF'
+blocks:
+  _ref: 
+    path: tutorial/template.yaml
+    vars:
+      title: Interactive pages
+      buttons: true
+      previous_page_title: Making a booking form
+      previous_page_id: tutorial-add-blocks
+      next_page_title: Inspector
+      next_page_id: tutorial-inspector
+      content:
+        - id: md1
+          type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content:
+              _ref: tutorial/tutorial-actions-operators-content-1.md
+        - id: example1
+          type: TextInput
+          required: true
+          properties:
+            title: Meeting name
+        - id: md2
+          type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content:
+              _ref: tutorial/tutorial-actions-operators-content-2.md
+        - id: example2
+          type: PageHeaderMenu
+          style:
+            minHeight: 300px
+          properties:
+            Menu:
+              links: []
+          blocks:
+            - id: example2_content_card
+              type: Card
               blocks:
-                - id: example2_content_card
-                  type: Card
-                  blocks:
-                    - id: example2_page_heading
-                      type: Title
-                      properties:
-                        content: Book a Meeting Room
-                        level: 3
-                    - id: example2_meeting_name
-                      type: TextInput
-                      required: true
-                      properties:
-                        title: Meeting Name
-                    - id: example2_meeting_room
-                      type: Selector
-                      required: true
-                      properties:
-                        title: Meeting Room
-                        options:
-                          - Meeting Room 1
-                          - Meeting Room 2
-                          - Meeting Room 3
-                          - Boardroom
-                    - id: example2_date
-                      type: DateSelector
-                      required: true
-                      properties:
-                        title: Date
-                    - id: example2_start_time
-                      type: DateTimeSelector
-                      required: true
-                      properties:
-                        title: Start Time
-                    - id: example2_end_time
-                      type: DateTimeSelector
-                      required: true
-                      properties:
-                        title: End Time
-                    - id: example2_reset_button
-                      type: Button
-                      layout:
-                        span: 6
-                      properties:
-                        title: Reset
-                        block: true
-                        type: default
-                        icon: ClearOutlined
-                      actions:
-                        onClick:
-                          - id: reset
-                            type: reset()
-                    - id: example2_submit_button
-                      type: Button
-                      layout:
-                        span: 18
-                      properties:
-                        title: Submit
-                        block: true
-                        type: primary
-                        icon: SaveOutlined
-                      actions:
-                        onClick:
-                          - id: validate
-                            type: validate()
-            - id: md3
-              type: Markdown
-              properties:
-                renderHtml: true
-                content:
-                  _ref: tutorial/tutorial-actions-operators-content-3.md
-            - id: example3
-              type: PageHeaderMenu
-              style:
-                minHeight: 300px
-              properties:
-                menu:
-                  links: []
+                - id: example2_page_heading
+                  type: Title
+                  properties:
+                    content: Book a meeting room
+                    level: 3
+                - id: example2_meeting_name
+                  type: TextInput
+                  required: true
+                  properties:
+                    title: Meeting name
+                - id: example2_meeting_room
+                  type: Selector
+                  required: true
+                  properties:
+                    title: Meeting room
+                    options:
+                      - Red Room
+                      - Blue Room
+                      - Green Room
+                      - Boardroom
+                - id: example2_date
+                  type: DateSelector
+                  required: true
+                  properties:
+                    title: Date
+                - id: example2_start_time
+                  type: DateTimeSelector
+                  required: true
+                  properties:
+                    title: Start time
+                - id: example2_end_time
+                  type: DateTimeSelector
+                  required: true
+                  properties:
+                    title: End time
+                - id: example2_reset_button
+                  type: Button
+                  style:
+                    --span: 3
+                  properties:
+                    title: Reset
+                    block: true
+                    type: default
+                    Icon: ClearOutlined
+                  actions:
+                    onClick:
+                      - id: reset
+                        type: reset()
+                - id: example2_submit_button
+                  type: Button
+                  style:
+                    --span: 9
+                  properties:
+                    title: Submit
+                    block: true
+                    type: primary
+                    Icon: SaveOutlined
+                  actions:
+                    onClick:
+                      - id: validate
+                        type: validate()
+        - id: md3
+          type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            renderHtml: true
+            content:
+              _ref: tutorial/tutorial-actions-operators-content-3.md
+        - id: example3
+          type: PageHeaderMenu
+          style:
+            minHeight: 300px
+          properties:
+            Menu:
+              links: []
+          blocks:
+            - id: example3_content_card
+              type: Card
               blocks:
-                - id: example3_content_card
-                  type: Card
-                  blocks:
-                    - id: example3_page_heading
-                      type: Title
-                      properties:
-                        content: Book a Meeting Room
-                        level: 3
-                    - id: example3_meeting_name
-                      type: TextInput
-                      required: true
-                      properties:
-                        title: Meeting Name
-                    - id: example3_number_of_attendees
-                      type: ButtonSelector
-                      required: true
-                      defaultValue: 2 - 3
-                      properties:
-                        title: Number of Attendees
-                        options:
-                          - 2 - 3
-                          - 4 - 7
-                          - 8 - 12
-                    - id: example3_meeting_room
-                      type: Selector
-                      required: true
-                      defaultValue: Boardroom
-                      properties:
-                        title: Meeting Room
-                        options:
-                          - Meeting Room 1
-                          - Meeting Room 2
-                          - Meeting Room 3
-                          - Boardroom
-                      validate:
-                        - message: The boardroom cannot be booked for meetings with less than 8 attendees.
-                          status: warning
-                          pass:
-                            _or:
-                              - _eq:
-                                  - _state: example3_number_of_attendees
-                                  - 8 - 12
-                              - _not:
-                                  _eq:
-                                    - _state: example3_meeting_room
-                                    - Boardroom
-                    - id: example3_date
-                      type: DateSelector
-                      required: true
-                      properties:
-                        title: Date
-                    - id: example3_start_time
-                      type: DateTimeSelector
-                      required: true
-                      properties:
-                        title: Start Time
-                    - id: example3_end_time
-                      type: DateTimeSelector
-                      required: true
-                      properties:
-                        title: End Time
-                    - id: example3_reset_button
-                      type: Button
-                      layout:
-                        span: 6
-                      properties:
-                        title: Reset
-                        block: true
-                        type: default
-                        icon: ClearOutlined
-                      actions:
-                        onClick:
-                          - id: reset
-                            type: reset()
-                    - id: example3_submit_button
-                      type: Button
-                      layout:
-                        span: 18
-                      properties:
-                        title: Submit
-                        block: true
-                        type: primary
-                        icon: SaveOutlined
-                      actions:
-                        onClick:
-                          - id: validate
-                            type: validate()
-            - id: md4
-              type: Markdown
-              properties:
-                content:
-                  _ref: tutorial/tutorial-actions-operators-content-4.md
+                - id: example3_page_heading
+                  type: Title
+                  properties:
+                    content: Book a meeting room
+                    level: 3
+                - id: example3_meeting_name
+                  type: TextInput
+                  required: true
+                  properties:
+                    title: Meeting name
+                - id: example3_number_of_attendees
+                  type: ButtonSelector
+                  required: true
+                  defaultValue: 2 - 3
+                  properties:
+                    title: Number of attendees
+                    options:
+                      - 2 - 3
+                      - 4 - 7
+                      - 8 - 12
+                - id: example3_meeting_room
+                  type: Selector
+                  required: true
+                  defaultValue: Boardroom
+                  properties:
+                    title: Meeting room
+                    options:
+                      - Meeting Room 1
+                      - Meeting Room 2
+                      - Meeting Room 3
+                      - Boardroom
+                  validate:
+                    - message: The boardroom cannot be booked for meetings with less than 8 attendees.
+                      status: warning
+                      pass:
+                        _or:
+                          - _eq:
+                              - _state: example3_number_of_attendees
+                              - 8 - 12
+                          - _not:
+                              _eq:
+                                - _state: example3_meeting_room
+                                - Boardroom
+                - id: example3_date
+                  type: DateSelector
+                  required: true
+                  properties:
+                    title: Date
+                - id: example3_start_time
+                  type: DateTimeSelector
+                  required: true
+                  properties:
+                    title: Start time
+                - id: example3_end_time
+                  type: DateTimeSelector
+                  required: true
+                  properties:
+                    title: End time
+                - id: example3_reset_button
+                  type: Button
+                  style:
+                    --span: 3
+                  properties:
+                    title: Reset
+                    block: true
+                    type: default
+                    Icon: ClearOutlined
+                  actions:
+                    onClick:
+                      - id: reset
+                        type: reset()
+                - id: example3_submit_button
+                  type: Button
+                  style:
+                    --span: 9
+                  properties:
+                    title: Submit
+                    block: true
+                    type: primary
+                    Icon: SaveOutlined
+                  actions:
+                    onClick:
+                      - id: validate
+                        type: validate()
+        - id: md4
+          type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content:
+              _ref: tutorial/tutorial-actions-operators-content-4.md
