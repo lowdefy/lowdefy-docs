@@ -5,24 +5,10 @@ config:
 global:
   all_icons:
     _ref: blocks/all_icons.yaml
-  settings_input_style:
-    --span: 11
+  settings_input_layout:
+    span: 11
     sm:
-      --span: 11
-    Label:
-      --span: 4
-  settings_input_style_indent:
-    --span: 11
-    sm:
-      --span: 11
-    Label:
-      --span: 5
-  settings_input_style_double_indent:
-    --span: 11
-    sm:
-      --span: 11
-    Label:
-      --span: 6
+      span: 11
 menus:
   - id: default
     links:
@@ -370,6 +356,11 @@ menus:
             pageId: Divider
             properties:
               title: Divider
+          - id: Html
+            type: MenuLink
+            pageId: Html
+            properties:
+              title: Html
           - id: Icon
             type: MenuLink
             pageId: Icon
@@ -545,19 +536,19 @@ pages:
   - _ref: tutorial/tutorial-add-blocks-config.yaml
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
-  # - _ref: start/quick-start.yaml
-  # - _ref: start/alpha-starter.yaml
-  # - _ref: start/how-it-works.yaml
-  # - _ref: concepts/blocks.yaml
-  # - _ref: concepts/connections.yaml
-  # - _ref: concepts/groups.yaml
-  # - _ref: concepts/layout.yaml
-  # - _ref: concepts/lowdefy-file.yaml
-  # - _ref: concepts/operators.yaml
-  # - _ref: concepts/pages.yaml
-  # - _ref: concepts/references.yaml
-  # - _ref: concepts/requests-mutations.yaml
-  # - _ref: concepts/state.yaml
+  - _ref: start/quick-start.yaml
+  - _ref: start/alpha-starter.yaml
+  - _ref: start/how-it-works.yaml
+  - _ref: concepts/blocks.yaml
+  - _ref: concepts/connections.yaml
+  - _ref: concepts/groups.yaml
+  - _ref: concepts/layout.yaml
+  - _ref: concepts/lowdefy-file.yaml
+  - _ref: concepts/operators.yaml
+  - _ref: concepts/pages.yaml
+  - _ref: concepts/references.yaml
+  - _ref: concepts/requests-mutations.yaml
+  - _ref: concepts/state.yaml
 
   - _ref: operators/_and.yaml
   - _ref: operators/_date.yaml
@@ -603,6 +594,7 @@ pages:
   - _ref: blocks/display/Button.yaml
   - _ref: blocks/display/Descriptions.yaml
   - _ref: blocks/display/Divider.yaml
+  - _ref: blocks/display/Html.yaml
   - _ref: blocks/display/Icon.yaml
   - _ref: blocks/display/Markdown.yaml
   - _ref: blocks/display/Menu.yaml
