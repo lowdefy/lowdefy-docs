@@ -100,7 +100,7 @@
       visible:
         _eq:
           - _var:
-              kind
+              category
           - input
       properties:
         title: State
@@ -111,7 +111,7 @@
       visible:
         _eq:
           - _var:
-              kind
+              category
           - input
       blocks:
         - id: state_markdown

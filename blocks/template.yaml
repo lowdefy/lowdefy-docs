@@ -44,14 +44,14 @@
           visible:
             _eq:
               - _var:
-                  kind
+                  category
               - input
         - id: state_markdown
           type: Markdown
           visible:
             _eq:
               - _var:
-                  kind
+                  category
               - input
           properties:
             content:
@@ -119,7 +119,7 @@
                 disabled:
                   _not:
                     _eq:
-                      - _var: kind
+                      - _var: category
                       - input
               - key: visible
                 title: 'visible:'

@@ -12,7 +12,7 @@ blocks:
         Alert is used to render user feedback messages.
       block_type: Alert
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

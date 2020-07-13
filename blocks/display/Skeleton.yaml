@@ -13,7 +13,7 @@ blocks:
         Skeleton block.
       block_type: Skeleton
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

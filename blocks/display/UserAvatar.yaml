@@ -12,7 +12,7 @@ blocks:
         A block to show the user and avatar when logged in, or a login button if not authenticated.
       block_type: UserAvatar
       label: false
-      kind: display
+      category: display
       style_transform:
         _get:
           key: "0"

@@ -22,7 +22,7 @@ blocks:
         A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy with provided links.
       block_type: Breadcrumb
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

@@ -59,7 +59,7 @@ blocks:
         A menu block used to display page links.
       block_type: Menu
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

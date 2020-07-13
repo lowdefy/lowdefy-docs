@@ -12,7 +12,7 @@ blocks:
         A code editor input component based on the [Monaco Code Editor](https://github.com/Microsoft/monaco-editor).
       block_type: CodeEditor
       label: false
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input

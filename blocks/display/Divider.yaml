@@ -12,7 +12,7 @@ blocks:
         A divider line. Can be used horizontally or vertically.
       block_type: Divider
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

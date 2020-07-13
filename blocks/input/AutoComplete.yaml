@@ -24,7 +24,7 @@ blocks:
         >Other selector blocks are checkbox_input, select_input, multiple_select_input, RadioSelector and ButtonSelector
       block_type: AutoComplete
       label: true
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input

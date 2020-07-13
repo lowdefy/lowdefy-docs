@@ -12,7 +12,7 @@ blocks:
         Display multiple read-only fields in groups. Commonly used to display a detailed set of data.
       block_type: Descriptions
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

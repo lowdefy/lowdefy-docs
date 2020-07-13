@@ -20,7 +20,7 @@ blocks:
         Color picker input block. Allows a user to select a color as a hex string. Different types of pickers are available.
       block_type: ColorSelector
       label: true
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input

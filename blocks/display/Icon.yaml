@@ -12,7 +12,7 @@ blocks:
         A Icon component. Render Ant Design and other icons
       block_type: Icon
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

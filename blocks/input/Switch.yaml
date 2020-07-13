@@ -12,7 +12,7 @@ blocks:
         On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: Switch
       label: true
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input

@@ -12,7 +12,7 @@ blocks:
         Render markdown text content. For more details on markdown syntax see: [Markdown cheat sheet](https://guides.github.com/features/mastering-markdown/).
       block_type: Markdown
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

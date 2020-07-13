@@ -14,7 +14,7 @@ blocks:
         >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
       block_type: DateSelector
       label: true
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input

@@ -12,7 +12,7 @@ blocks:
         Button block.
       block_type: Button
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

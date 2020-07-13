@@ -12,7 +12,7 @@ blocks:
         A title component. Corresponds to html h1, h2, h3 and h4 elements
       block_type: Title
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input

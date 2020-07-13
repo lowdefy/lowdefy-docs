@@ -28,7 +28,7 @@ blocks:
         > Other selector blocks are checkbox_input, select_input, multiple_select_input and RadioSelector
       block_type: ButtonSelector
       label: true
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input

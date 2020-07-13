@@ -12,7 +12,7 @@ blocks:
         Rating slider input block. Allows the user to select a number value at a interval between a minimum and maximum value. The input to this field is saved in state, at the path name of the block.
       block_type: RatingSlider
       label: true
-      kind: input
+      category: input
       style_transform:
         _parse:
           _state: style_block_input
