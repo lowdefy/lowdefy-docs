@@ -31,54 +31,19 @@ blocks:
       label: true
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
+            label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _if:
@@ -102,22 +67,24 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Disable the block if true.
         - id: select_options_type_card
           type: Card
@@ -128,7 +95,7 @@ blocks:
               properties:
                 title: Options Type
                 size: small
-                Label:
+                label:
                   extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
@@ -143,53 +110,59 @@ blocks:
             - id: block.properties.options.$.primitive
               type: TextInput
               defaultValue: Option
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Primitive
               properties:
                 title: options.$
                 size: small
+                label:
+                  inline: true
             - id: block.properties.options.$.label
               type: TextInput
               defaultValue: Label
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: label
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: Label shown to user.
             - id: block.properties.options.$.value
               type: TextInput
               defaultValue: Value
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: value
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: Value selected.
             - id: block.properties.options.$.disabled
               type: Switch
               defaultValue: false
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: disabled
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: Disable the option if true.
+        - _ref: blocks/label.yaml
 
       available_actions_description: |
         ###### onChange
@@ -201,8 +174,8 @@ blocks:
           blocks:
             - id: example_1
               type: Checkbox
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Primitive options
                 options:
@@ -211,8 +184,8 @@ blocks:
                   - C
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -230,13 +203,13 @@ blocks:
           blocks:
             - id: example_2
               type: Checkbox
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue:
                 - C
               properties:
                 title: Object options
-                Label:
+                label:
                   extra: Value-Label object options and default value.
                 options:
                   - value: A
@@ -247,8 +220,8 @@ blocks:
                     label: Celeborn
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -258,7 +231,7 @@ blocks:
                     - C
                   properties:
                     title: Object options
-                    Label:
+                    label:
                       extra: Value-Label object options and default value.
                     options:
                       - value: A
@@ -273,11 +246,11 @@ blocks:
           blocks:
             - id: example_3
               type: Checkbox
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Disable options
-                Label:
+                label:
                   extra: Disable individual options.
                 options:
                   - value: A
@@ -291,8 +264,8 @@ blocks:
                     label: Denethor
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -300,7 +273,7 @@ blocks:
                   type: Checkbox
                   properties:
                     title: Disable options
-                    Label:
+                    label:
                       extra: Disable individual options.
                     options:
                       - value: A

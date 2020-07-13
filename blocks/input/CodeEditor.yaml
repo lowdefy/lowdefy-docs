@@ -14,40 +14,20 @@ blocks:
       label: false
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _get:
@@ -65,22 +45,24 @@ blocks:
         - id: block.properties.height
           type: NumberInput
           defaultValue: 300
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: height
             size: small
-            Label:
+            label:
+              span: 8
               extra: Height of the code editor.
         - id: block.properties.language
           type: ButtonSelector
           defaultValue: yaml
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: language
             size: small
-            Label:
+            label:
+              span: 8
               extra: Code language.
             options:
               - yaml
@@ -88,12 +70,13 @@ blocks:
         - id: block.properties.theme
           type: ButtonSelector
           defaultValue: vs-dark
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: theme
             size: small
-            Label:
+            label:
+              span: 8
               extra: Color theme.
             options:
               - vs-dark
@@ -109,34 +92,15 @@ blocks:
               },
               "showFoldingControls": "always"
             }
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: options
             size: small
+            label:
+              span: 8
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
 
-      examples:
-        - id: example_1_card
-          type: Card
-          blocks:
-            - id: example_1
-              type: TextInput
-              style:
-                --span: 6
-              properties:
-                title: Text input
-            - id: example_1_code
-              type: Markdown
-              style:
-                --span: 6
-              properties:
-                content: |
-                  ```yaml
-                  id: example_1
-                  type: TextInput
-                  properties:
-                    title: Text input
-                  ```
+      examples: []

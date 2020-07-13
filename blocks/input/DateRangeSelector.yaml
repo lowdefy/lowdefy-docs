@@ -26,68 +26,20 @@ blocks:
       label: true
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_suffix_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconSuffix
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -95,92 +47,101 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
+            label:
+              span: 8
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
+            label:
+              span: 8
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Disable the block if true.
         - id: block.properties.format
           type: TextInput
           defaultValue: YYYY-MM-DD
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: format
             size: small
-            Label:
+            label:
+              span: 8
               extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder.0
           type: TextInput
           defaultValue: Start Date
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             size: small
             title: placeholder.0
-            Label:
+            label:
+              span: 8
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.placeholder.1
           type: TextInput
           defaultValue: End Date
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             size: small
             title: placeholder.1
-            Label:
+            label:
+              span: 8
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.separator
           type: TextInput
           defaultValue: "~"
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: separator
             size: small
-            Label:
+            label:
+              span: 8
               extra: Separator symbol shown between start and end date inputs.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
+            label:
+              span: 8
               extra: Size of the block.
             options:
               - small
@@ -189,11 +150,11 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
               default_icon: CalendarOutlined
               icon_description: Icon on right-hand side of the date-range input.
-
+        - _ref: blocks/label.yaml
 
       available_actions_description: |
         ###### onChange
@@ -205,14 +166,14 @@ blocks:
           blocks:
             - id: example_1
               type: DateRangeSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Date input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -226,11 +187,11 @@ blocks:
           blocks:
             - id: example_2
               type: DateRangeSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Placeholder, separator and suffix icon
-                Label:
+                label:
                   extra: Custom placeholder, separator and suffix icon.
                 placeholder:
                   - From the start
@@ -239,8 +200,8 @@ blocks:
                 IconSuffix: ThunderboltOutlined
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -253,7 +214,7 @@ blocks:
                       - the end
                     separator: to
                     IconSuffix: ThunderboltOutlined
-                    Label:
+                    label:
                       extra: Custom placeholder, separator and suffix icon.
                   ```
         - id: example_3_card
@@ -261,20 +222,20 @@ blocks:
           blocks:
             - id: example_3
               type: DateRangeSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue:
                 - _date: 1955-11-12
                 - _date: 1985-10-26
               properties:
                 title: Date format
                 format: D MMMM YYYY
-                Label:
+                label:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -286,5 +247,5 @@ blocks:
                   properties:
                     title: Date format
                     format: D MMMM YYYY
-                    Label:
+                    label:
                       extra: Default date and custom date format.

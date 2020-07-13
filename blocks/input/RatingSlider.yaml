@@ -14,82 +14,19 @@ blocks:
       label: true
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconPrefix:
-                      _parse:
-                        _state: style_max_icon_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_min_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_max_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconMax
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_min_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconMin
-            rows: 3
-            size: small
-            Label:
+            label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -97,144 +34,156 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
+            label:
+              span: 8
               extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Disable the block if true.
         - id: block.properties.disableIcons
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disableIcons
             size: small
-            Label:
+            label:
+              span: 8
               extra: Hides minimum and maximum icons.
         - id: block.properties.disableNotApplicable
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disableNotApplicable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Hides not applicable checkbox.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconMin
-              icon_field_name: IconMin
+              icon_id: block.properties.minIcon
+              icon_field_name: minIcon
               default_icon: FrownOutlined
               icon_description: Icon to the left of the minimum side of the slider.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconMax
-              icon_field_name: IconMax 
+              icon_id: block.properties.maxIcon
+              icon_field_name: maxIcon 
               default_icon: SmileOutlined
               icon_description: Icon to the right of the minimum side of the slider.
 
         - id: block.properties.min
           type: NumberInput
           defaultValue: 0
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: min
             size: small
-            Label:
+            label:
+              span: 8
               extra: The minimum value of the slider.
         - id: block.properties.max
           type: NumberInput
           defaultValue: 10
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: max
             size: small
-            Label:
+            label:
+              span: 8
               extra: The maximum value of the slider.
         - id: block.properties.notApplicableLabel
           type: TextInput
           defaultValue: N/A
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: notApplicableLabel
             size: small
-            Label:
+            label:
+              span: 8
               extra: Label shown at the null value of the slider.
         - id: block.properties.showDots
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showDots
             size: small
-            Label:
+            label:
+              span: 8
               extra: Shows dots at values between step values when true.
         - id: block.properties.showMarks
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showMarks
             size: small
-            Label:
+            label:
+              span: 8
               extra: Shows values at specified min, max and step values.
         - id: block.properties.step
           type: NumberInput
           defaultValue: 1
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: step
             size: small
             precision: 1
-            Label:
+            label:
+              span: 8
               extra: The size of the step between values, has to be values greater than 0.
         - id: block.properties.tooltipVisible
           type: ButtonSelector
           defaultValue: onClick
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: tooltipVisible
             size: small
-            Label:
+            label:
+              span: 8
               extra: When tooltip should be visible.
             options:
               - never
               - onClick
               - always
-
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -245,14 +194,14 @@ blocks:
           blocks:
             - id: example_1
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Slider input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -266,16 +215,16 @@ blocks:
           blocks:
             - id: example_2
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Icons
-                IconMin: DislikeFilled
-                IconMax: LikeFilled
+                minIcon: DislikeFilled
+                maxIcon: LikeFilled
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -284,23 +233,23 @@ blocks:
                   defaultValue: 4
                   properties:
                     title: Icons
-                    IconMin: DislikeFilled
-                    IconMax: LikeFilled
+                    minIcon: DislikeFilled
+                    maxIcon: LikeFilled
                   ```
         - id: example_6_card
           type: Card
           blocks:
             - id: example_6
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Slider with no N/A
                 disableNotApplicable: true
             - id: example_6_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -315,15 +264,15 @@ blocks:
           blocks:
             - id: example_3
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Disable Icons
                 disableIcons: true
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -338,16 +287,16 @@ blocks:
           blocks:
             - id: example_4
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: No Marks or Dots
                 showDots: false
                 showMarks: false
             - id: example_4_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -364,14 +313,14 @@ blocks:
             - id: example_5
               type: RatingSlider
               defaultValue: 4
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Default Value
             - id: example_5_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml

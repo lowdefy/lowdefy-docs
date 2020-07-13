@@ -22,54 +22,20 @@ blocks:
       label: true
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -77,54 +43,58 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.circleSize
           type: NumberInput
           defaultValue: 28
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: circleSize
             size: small
-            Label:
+            label:
+              span: 8
               extra: Pixel value for circle size, only available for type circle.
         - id: block.properties.circleSpacing
           type: NumberInput
           defaultValue: 14
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: circleSpacing
             size: small
-            Label:
+            label:
+              span: 8
               extra: Pixel value for spacing between circles, only available for type circle.
         - id: block.properties.colors
           type: ControlledList
           properties:
             title: 'colors:'
-            size: small         
+            size: small
           blocks:
             - id: block.properties.colors.$
               type: TextInput
               defaultValue: '#000000'
               properties:
-                Label:
+                label:
                   disable: true
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
-            Label:
+            label:
+              span: 8
               extra: Type of picker.
             options:
               - block
@@ -134,15 +104,16 @@ blocks:
         - id: block.properties.width
           type: TextInput
           defaultValue: 100%
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: width
             size: small
-            Label:
+            label:
+              span: 8
               extra: Pixel value for picker width.
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChangeComplete
         Triggered when value is changed. Only fires once drag action has been completed.
 
-      examples:

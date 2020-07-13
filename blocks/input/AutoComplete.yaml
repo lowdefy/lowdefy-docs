@@ -26,54 +26,20 @@ blocks:
       label: true
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -81,63 +47,68 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
+            label:
+              span: 8
               extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
+            label:
+              span: 8
               extra: Autofocus to the block on page load.
         - id: block.properties.defaultActiveFirstOption
           type: Switch
           defaultValue: true
-          style:
-            Label:
-              --span: 4
+          layout:
+            _global: settings_input_layout
           properties:
             title: defaultActiveFirstOption
             size: small
-            Label:
+            label:
+              span: 12
               extra: Makes the first option in the selection list active when true.
         - id: block.properties.defaultOpen
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: defaultOpen
             size: small
-            Label:
+            label:
+              span: 8
               extra: Initial open state of dropdown.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Disables the block if true.
         - id: block.properties.options
           type: ControlledList
@@ -153,27 +124,30 @@ blocks:
         - id: block.properties.placeholder
           type: TextInput
           defaultValue: Select item
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
+            label:
+              span: 8
               extra: Placeholder text inside the block before user selects input.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
+            label:
+              span: 8
               extra: Size of the block.
             options:
               - small
               - default
               - large
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.

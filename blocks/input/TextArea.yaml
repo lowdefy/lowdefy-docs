@@ -14,54 +14,20 @@ blocks:
       label: true
       kind: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -69,32 +35,35 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
+            label:
+              span: 8
               extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
+            label:
+              span: 8
               extra: Autofocus to the block on page load.
         - id: select_autoSize_type_card
           type: Card
@@ -105,7 +74,8 @@ blocks:
               properties:
                 title: autoSize Type
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
                 options:
                   - Boolean
@@ -113,71 +83,77 @@ blocks:
         - id: block.properties.autoSize
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               select_autoSize_type: Boolean
           properties:
             title: autoSize
             size: small
-            Label:
+            label:
+              span: 8
               extra: Automatically extend the block number of rows.
         - id: block.properties.autoSize.minRows
           type: NumberInput
-          style:
-            Label:
-              --span: 4
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               select_autoSize_type: Object
           properties:
             title: autoSize.minRows
             size: small
-            Label:
+            label:
+              span: 8
               extra: Minimum number of rows the block can be.
         - id: block.properties.autoSize.maxRows
           type: NumberInput
-          style:
-            Label:
-              --span: 4
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               select_autoSize_type: Object
           properties:
             title: autoSize.maxRows
             size: small
-            Label:
+            label:
+              span: 8
               extra: Maximum number of rows the block can be.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Disable the block if true.
         - id: block.properties.placeholder
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
+            label:
+              span: 8
               extra: Placeholder text inside the block before user types input.
         - id: block.properties.rows
           type: NumberInput
-          style:
-            _global: settings_input_style
+          defaultValue: 3
+          layout:
+            _global: settings_input_layout
           properties:
             title: rows
             size: small
-            Label:
+            label:
+              span: 8
               extra: Number of rows of text area.
-
+        - _ref: blocks/label.yaml
+        
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -191,14 +167,14 @@ blocks:
           blocks:
             - id: example_1
               type: TextArea
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Text Area input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -212,20 +188,22 @@ blocks:
           blocks:
             - id: example_2
               type: TextArea
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
+                title: Placeholder example
                 placeholder: Placeholder
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
                   id: example_2
                   type: TextArea
                   properties:
+                    title: Placeholder example
                     placeholder: Placeholder
                   ```
         - id: example_3_card
@@ -233,17 +211,17 @@ blocks:
           blocks:
             - id: example_3
               type: TextArea
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Rows
-                rows: 3
-                Label:
+                rows: 5
+                label:
                   extra: Define fixed number of rows for text area.
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -252,7 +230,7 @@ blocks:
                   properties:
                     title: Rows
                     rows: 5
-                    Label:
+                    label:
                       extra: Define fixed number of rows for text area.
                   ```
         - id: example_4_card
@@ -260,19 +238,19 @@ blocks:
           blocks:
             - id: example_4
               type: TextArea
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Auto Rows
-                Label:
+                label:
                   extra: Automatically adjust text area size based on content.
                 autoSize:
                   minRows: 3
                   maxRows: 6
             - id: example_4_code
               type: Markdown
-              style:
-                  -span: 6
+              layout:
+                span: 6
               properties:
                 content: |
                   ```yaml
@@ -280,7 +258,7 @@ blocks:
                   type: TextArea
                   properties:
                     title: Auto Rows
-                    Label:
+                    label:
                       extra: Automatically adjust text area size based on content.
                     autoSize:
                       minRows: 2
