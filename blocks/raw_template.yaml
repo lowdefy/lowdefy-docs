@@ -18,8 +18,8 @@
           _var: description_content
     - id: block_card
       type: Card
-      style:
-        --span: 7
+      layout:
+        span: 14
       blocks:
         - id: block_name
           type:
@@ -32,8 +32,8 @@
             _state: block.properties
     - id: settings_card
       type: Card
-      style:
-        --span: 5
+      layout:
+        span: 10
       blocks:
         - id: properties_input
           type: TextArea

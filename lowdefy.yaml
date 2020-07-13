@@ -3,12 +3,52 @@ config:
     createUsers: 'sign_up'
 
 global:
+  style_blue_block: |
+    {
+      "color": "white",
+      "background": "#0480ff",
+      "border": "2px solid #04b0ff",
+      "borderRadius": 3,
+      "lineHeight": 2,
+      "height": 32,
+      "textAlign": "center"
+    }
+  style_red_block: |
+    {
+      "color": "white",
+      "background": "#af4448",
+      "border": "2px solid #e57373",
+      "borderRadius": 3,
+      "lineHeight": 2,
+      "height": 32,
+      "textAlign": "center"
+    }
+  style_green_block: |
+    {
+      "color": "white",
+      "background": "#048f8f",
+      "border": "2px solid #04bfbf",
+      "borderRadius": 3,
+      "lineHeight": 2,
+      "height": 32,
+      "textAlign": "center"
+    }
+  style_purple_block: |
+    {
+      "color": "white",
+      "background": "#883997",
+      "border": "2px solid #ba68c8",
+      "borderRadius": 3,
+      "lineHeight": 2,
+      "height": 32,
+      "textAlign": "center"
+    }
   all_icons:
     _ref: blocks/all_icons.yaml
   settings_input_layout:
-    span: 11
+    span: 23
     sm:
-      span: 11
+      span: 23
 menus:
   - id: default
     links:
@@ -17,12 +57,12 @@ menus:
         pageId: introduction
         properties:
           title: Introduction
-          Icon: CoffeeOutlined
+          icon: CoffeeOutlined
       - id: tutorial
         type: MenuGroup
         properties:
           title: Tutorial
-          Icon: RocketOutlined
+          icon: RocketOutlined
         links:
           - id: tutorial-setup
             type: MenuLink
@@ -53,7 +93,7 @@ menus:
       #   type: MenuGroup
       #   properties:
       #     title: Getting Started
-      #     Icon: RocketOutlined
+      #     icon: RocketOutlined
       #   links:
       #     - id: introduction
       #       type: MenuLink
@@ -79,7 +119,7 @@ menus:
       #   type: MenuGroup
       #   properties:
       #     title: Concepts
-      #     Icon: BulbOutlined
+      #     icon: BulbOutlined
       #   links:
       #     - id: lowdefy-file
       #       type: MenuLink
@@ -132,7 +172,7 @@ menus:
         type: MenuGroup
         properties:
           title: Input Blocks
-          Icon: FormOutlined
+          icon: FormOutlined
         links:
           - id: AutoComplete
             type: MenuLink
@@ -228,7 +268,7 @@ menus:
         type: MenuGroup
         properties:
           title: Display Blocks
-          Icon: PictureOutlined
+          icon: PictureOutlined
         links:
           - id: AgGrid
             type: MenuLink
@@ -339,7 +379,7 @@ menus:
         type: MenuGroup
         properties:
           title: Container Blocks
-          Icon: ContainerOutlined
+          icon: ContainerOutlined
         links:
           - id: Affix
             type: MenuLink
@@ -450,7 +490,7 @@ menus:
         type: MenuGroup
         properties:
           title: Operators
-          Icon: ToolOutlined
+          icon: ToolOutlined
         links:
           - id: _and
             type: MenuLink
