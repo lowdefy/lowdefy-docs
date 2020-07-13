@@ -22,8 +22,6 @@
         title: Block With Grid Content
     - id: grid_wrap
       type: Box
-      style:
-        --span: 12
       blocks:
         - id: grid_id
           type:
@@ -92,8 +90,8 @@
 
 - id: setup_grid
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: setup_grid_divider
       type: Divider
@@ -128,8 +126,8 @@
 
 - id: settings_grid
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: settings_grid_divider
       type: Divider
@@ -150,83 +148,76 @@
             title: 'visible:'
           - key: blocks
             title: 'blocks:'
-      blocks:
+      areas:
         style:
-          - id: grid_style_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: grid_style_form
+          blocks:
+            - id: grid_style_form
+              type: Box
+              blocks:
+                _var: grid_style_form
         properties:
-          - id: grid_properties_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: grid_properties_form
+          blocks:
+            - id: grid_properties_form
+              type: Box
+              blocks:
+                _var: grid_properties_form
         actions:
-          - id: grid_actions_description
-            type: Markdown
-            properties:
-              content:
-                _var: actions_description
+          blocks:
+            - id: grid_actions_description
+              type: Markdown
+              properties:
+                content:
+                  _var: actions_description
         visible:
-          - id: grid.visible
-            type: Switch
-            defaultValue: true
-            properties:
-              title: visible
-              Label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
+          blocks:
+            - id: grid.visible
+              type: Switch
+              defaultValue: true
+              properties:
+                title: visible
+                label:
+                  extra: Toggle if block is visible and has a value in state.
+                  inline: true
+                size: small
           
         blocks:
-          - id: grid_blocks
-            type: ControlledList
-            style:
-              Content:
-                --display: flex
-            properties:
-              hideAddButton: true
-              hideRemoveButton: true
-            blocks:
-              - id: grid_blocks.$.gd
-                type: Box
-                style:
-                  flex: 0 0 15ch
-                  Content:
-                    --display: flex
-                blocks:
-                  - id: grid_blocks.$.name
-                    type: Markdown
-                    properties:
-                      content: 
-                        _nunjucks: 
-                          template: '##### {{ name }}'
-                          on:
-                            _state: grid_blocks.$
-                  - id: grid_blocks.$.visible
-                    type: Switch
-                    style:
-                      Label:
-                        --inline: true
-                    properties:
-                      title: visible
-                      size: small
-              - id: grid_blocks.$.style
-                type: TextArea
-                style:
-                  flex: auto
-                  Label:
-                    --inline: true
-                properties:
-                  title: style
-                  size: small
-                  rows: 3
+          blocks:
+            - id: grid_blocks
+              type: ControlledList
+              properties:
+                hideAddButton: true
+                hideRemoveButton: true
+              blocks:
+                - id: grid_blocks.$.gd
+                  type: Box
+                  layout:
+                    flex: 0 0 15ch
+                  blocks:
+                    - id: grid_blocks.$.name
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: '##### {{ name }}'
+                            on:
+                              _state: grid_blocks.$
+                    - id: grid_blocks.$.visible
+                      type: Switch
+                      properties:
+                        title: visible
+                        size: small
+                        label:
+                          inline: true
+                - id: grid_blocks.$.style
+                  type: TextArea
+                  layout:
+                    flex: auto
+                  properties:
+                    title: style
+                    size: small
+                    rows: 3
+                    label:
+                      inline: true
 
 
 - id: flex_box
@@ -306,8 +297,8 @@
 
 - id: setup_flex
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: setup_flex_divider
       type: Divider
@@ -342,8 +333,8 @@
 
 - id: settings_flex
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: settings_flex_divider
       type: Divider
@@ -364,83 +355,76 @@
             title: 'visible:'
           - key: blocks
             title: 'blocks:'
-      blocks:
+      areas:
         style:
-          - id: flex_style_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: flex_style_form
+          blocks:
+            - id: flex_style_form
+              type: Box
+              blocks:
+                _var: flex_style_form
         properties:
-          - id: flex_properties_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: flex_properties_form
+          blocks:
+            - id: flex_properties_form
+              type: Box
+              blocks:
+                _var: flex_properties_form
         actions:
-          - id: flex_actions_description
-            type: Markdown
-            properties:
-              content:
-                _var: actions_description
+          blocks:
+            - id: flex_actions_description
+              type: Markdown
+              properties:
+                content:
+                  _var: actions_description
         visible:
-          - id: flex.visible
-            type: Switch
-            defaultValue: true
-            properties:
-              title: visible
-              Label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
+          blocks:
+            - id: flex.visible
+              type: Switch
+              defaultValue: true
+              properties:
+                title: visible
+                label:
+                  extra: Toggle if block is visible and has a value in state.
+                  inline: true
+                size: small
           
         blocks:
-          - id: flex_blocks
-            type: ControlledList
-            style:
-              Content:
-                --display: flex
-            properties:
-              hideAddButton: true
-              hideRemoveButton: true
-            blocks:
-              - id: flex_blocks.$.gd
-                type: Box
-                style:
-                  flex: 0 0 15ch
-                  Content:
-                    --display: flex
-                blocks:
-                  - id: flex_blocks.$.name
-                    type: Markdown
-                    properties:
-                      content: 
-                        _nunjucks: 
-                          template: '##### {{ name }}'
-                          on:
-                            _state: flex_blocks.$
-                  - id: flex_blocks.$.visible
-                    type: Switch
-                    style:
-                      Label:
-                        --inline: true
-                    properties:
-                      title: visible
-                      size: small
-              - id: flex_blocks.$.style
-                type: TextArea
-                style:
-                  flex: auto
-                  Label:
-                    --inline: true
-                properties:
-                  title: style
-                  size: small
-                  rows: 3
+          blocks:
+            - id: flex_blocks
+              type: ControlledList
+              properties:
+                hideAddButton: true
+                hideRemoveButton: true
+              blocks:
+                - id: flex_blocks.$.gd
+                  type: Box
+                  layout:
+                    flex: 0 0 15ch
+                  blocks:
+                    - id: flex_blocks.$.name
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: '##### {{ name }}'
+                            on:
+                              _state: flex_blocks.$
+                    - id: flex_blocks.$.visible
+                      type: Switch
+                      properties:
+                        title: visible
+                        size: small
+                        label:
+                          inline: true
+                - id: flex_blocks.$.style
+                  type: TextArea
+                  layout:
+                    flex: auto
+                  properties:
+                    title: style
+                    size: small
+                    rows: 3
+                    label:
+                      inline: true
 
 
 
@@ -453,8 +437,6 @@
         title: Block With Block Content
     - id: block_wrap
       type: Box
-      style:
-        --span: 12
       blocks:
         - id: block_id
           type:
@@ -523,8 +505,8 @@
 
 - id: setup_block
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: setup_block_divider
       type: Divider
@@ -559,8 +541,8 @@
 
 - id: settings_block
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: settings_block_divider
       type: Divider
@@ -581,88 +563,76 @@
             title: 'visible:'
           - key: blocks
             title: 'blocks:'
-      blocks:
+      areas:
         style:
-          - id: block_style_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: block_style_form
+          blocks:
+            - id: block_style_form
+              type: Box
+              blocks:
+                _var: block_style_form
         properties:
-          - id: block_properties_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: block_properties_form
+          blocks:
+            - id: block_properties_form
+              type: Box
+              blocks:
+                _var: block_properties_form
         actions:
-          - id: block_actions_description
-            type: Markdown
-            properties:
-              content:
-                _var: actions_description
+          blocks:
+            - id: block_actions_description
+              type: Markdown
+              properties:
+                content:
+                  _var: actions_description
         visible:
-          - id: block.visible
-            type: Switch
-            defaultValue: true
-            properties:
-              title: visible
-              Label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
+          blocks:
+            - id: block.visible
+              type: Switch
+              defaultValue: true
+              properties:
+                title: visible
+                label:
+                  extra: Toggle if block is visible and has a value in state.
+                  inline: true
+                size: small
           
         blocks:
-          - id: block_blocks
-            type: ControlledList
-            style:
-              Content:
-                --display: flex
-            properties:
-              hideAddButton: true
-              hideRemoveButton: true
-            blocks:
-              - id: block_blocks.$.gd
-                type: Box
-                style:
-                  flex: 0 0 15ch
-                  Content:
-                    --display: flex
-                blocks:
-                  - id: block_blocks.$.name
-                    type: Markdown
-                    properties:
-                      content: 
-                        _nunjucks: 
-                          template: '##### {{ name }}'
-                          on:
-                            _state: block_blocks.$
-                  - id: block_blocks.$.visible
-                    type: Switch
-                    style:
-                      Label:
-                        --inline: true
-                    properties:
-                      title: visible
-                      size: small
-              - id: block_blocks.$.style
-                type: TextArea
-                style:
-                  flex: auto
-                  Label:
-                    --inline: true
-                properties:
-                  title: style
-                  size: small
-                  rows: 3
-
-
-
-
-
+          blocks:
+            - id: block_blocks
+              type: ControlledList
+              properties:
+                hideAddButton: true
+                hideRemoveButton: true
+              blocks:
+                - id: block_blocks.$.gd
+                  type: Box
+                  layout:
+                    flex: 0 0 15ch
+                  blocks:
+                    - id: block_blocks.$.name
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: '##### {{ name }}'
+                            on:
+                              _state: block_blocks.$
+                    - id: block_blocks.$.visible
+                      type: Switch
+                      properties:
+                        title: visible
+                        size: small
+                        label:
+                          inline: true
+                - id: block_blocks.$.style
+                  type: TextArea
+                  layout:
+                    flex: auto
+                  properties:
+                    title: style
+                    size: small
+                    rows: 3
+                    label:
+                      inline: true
 
 - id: inlineBlock_box
   type: Box
@@ -673,8 +643,6 @@
         title: Block With Inline-block Content
     - id: inlineBlock_wrap
       type: Box
-      style:
-        --span: 12
       blocks:
         - id: inlineBlock_id
           type:
@@ -743,8 +711,8 @@
 
 - id: setup_inlineBlock
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: setup_inlineBlock_divider
       type: Divider
@@ -779,8 +747,8 @@
 
 - id: settings_inlineBlock
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: settings_inlineBlock_divider
       type: Divider
@@ -801,83 +769,76 @@
             title: 'visible:'
           - key: blocks
             title: 'blocks:'
-      blocks:
+      areas:
         style:
-          - id: inlineBlock_style_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: inlineBlock_style_form
+          blocks:
+            - id: inlineBlock_style_form
+              type: Box
+              blocks:
+                _var: inlineBlock_style_form
         properties:
-          - id: inlineBlock_properties_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: inlineBlock_properties_form
+          blocks:
+            - id: inlineBlock_properties_form
+              type: Box
+              blocks:
+                _var: inlineBlock_properties_form
         actions:
-          - id: inlineBlock_actions_description
-            type: Markdown
-            properties:
-              content:
-                _var: actions_description
+          blocks:
+            - id: inlineBlock_actions_description
+              type: Markdown
+              properties:
+                content:
+                  _var: actions_description
         visible:
-          - id: inlineBlock.visible
-            type: Switch
-            defaultValue: true
-            properties:
-              title: visible
-              Label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
+          blocks:
+            - id: inlineBlock.visible
+              type: Switch
+              defaultValue: true
+              properties:
+                title: visible
+                label:
+                  extra: Toggle if block is visible and has a value in state.
+                  inline: true
+                size: small
           
         blocks:
-          - id: inlineBlock_blocks
-            type: ControlledList
-            style:
-              Content:
-                --display: flex
-            properties:
-              hideAddButton: true
-              hideRemoveButton: true
-            blocks:
-              - id: inlineBlock_blocks.$.gd
-                type: Box
-                style:
-                  flex: 0 0 15ch
-                  Content:
-                    --display: flex
-                blocks:
-                  - id: inlineBlock_blocks.$.name
-                    type: Markdown
-                    properties:
-                      content: 
-                        _nunjucks: 
-                          template: '##### {{ name }}'
-                          on:
-                            _state: inlineBlock_blocks.$
-                  - id: inlineBlock_blocks.$.visible
-                    type: Switch
-                    style:
-                      Label:
-                        --inline: true
-                    properties:
-                      title: visible
-                      size: small
-              - id: inlineBlock_blocks.$.style
-                type: TextArea
-                style:
-                  flex: auto
-                  Label:
-                    --inline: true
-                properties:
-                  title: style
-                  size: small
-                  rows: 3
+          blocks:
+            - id: inlineBlock_blocks
+              type: ControlledList
+              properties:
+                hideAddButton: true
+                hideRemoveButton: true
+              blocks:
+                - id: inlineBlock_blocks.$.gd
+                  type: Box
+                  layout:
+                    flex: 0 0 15ch
+                  blocks:
+                    - id: inlineBlock_blocks.$.name
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: '##### {{ name }}'
+                            on:
+                              _state: inlineBlock_blocks.$
+                    - id: inlineBlock_blocks.$.visible
+                      type: Switch
+                      properties:
+                        title: visible
+                        size: small
+                        label:
+                          inline: true
+                - id: inlineBlock_blocks.$.style
+                  type: TextArea
+                  layout:
+                    flex: auto
+                  properties:
+                    title: style
+                    size: small
+                    rows: 3
+                    label:
+                      inline: true
 
 
 - id: examples_divider

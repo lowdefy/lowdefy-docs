@@ -22,8 +22,6 @@
         title: Block
     - id: block_wrap2
       type: Box
-      style:
-        --span: 12
       blocks:
         - id: block_name
           type:
@@ -39,6 +37,8 @@
               type: Html
               properties:
                 html: '<div>ONE</div>'
+              layout:
+                _state: flex_blocks.0.layout
               visible:
                 _state: flex_blocks.0.visible
               style:
@@ -48,51 +48,18 @@
               type: Html
               properties:
                 html: '<div>TWO</div>'
+              layout:
+                _state: flex_blocks.1.layout
               visible:
                 _state: flex_blocks.1.visible
               style:
                 _parse:
                   _state: flex_blocks.1.style
-            - id: flex_3
-              type: Html
-              properties:
-                html: '<div>THREE</div>'
-              visible:
-                _state: flex_blocks.2.visible
-              style:
-                _parse:
-                  _state: flex_blocks.2.style
-            - id: flex_4
-              type: Html
-              properties:
-                html: '<div>FOUR</div>'
-              visible:
-                _state: flex_blocks.3.visible
-              style:
-                _parse:
-                  _state: flex_blocks.3.style
-            - id: flex_5
-              type: Html
-              properties:
-                html: '<div>FIVE</div>'
-              visible:
-                _state: flex_blocks.4.visible
-              style:
-                _parse:
-                  _state: flex_blocks.4.style
-            - id: flex_6
-              type: Html
-              properties:
-                html: '<div>SIX</div>'
-              visible:
-                _state: flex_blocks.5.visible
-              style:
-                _parse:
-                  _state: flex_blocks.5.style
+                  
 - id: setup_flex
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: setup_divider
       type: Divider
@@ -127,8 +94,8 @@
 
 - id: settings_grid
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: settings_divider
       type: Divider
@@ -149,84 +116,77 @@
             title: 'visible:'
           - key: blocks
             title: 'blocks:'
-      blocks:
+      areas:
         style:
-          - id: style_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: style_form
+          blocks:
+            - id: style_form
+              type: Box
+              blocks:
+                _var: style_form
         visible:
-          - id: block.visible
-            type: Switch
-            defaultValue: true
-            properties:
-              title: visible
-              Label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
+          blocks:
+            - id: block.visible
+              type: Switch
+              defaultValue: true
+              properties:
+                title: visible
+                label:
+                  extra: Toggle if block is visible and has a value in state.
+                  inline: true
+                size: small
 
         properties:
-          - id: flex_properties_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: flex_properties_form
+          blocks:
+            - id: flex_properties_form
+              type: Box
+              blocks:
+                _var: flex_properties_form
         actions:
-          - id: actions_description
-            type: Markdown
-            properties:
-              content:
-                _var: actions_description
+          blocks:
+            - id: actions_description
+              type: Markdown
+              properties:
+                content:
+                  _var: actions_description
 
         blocks:
-          - id: flex_blocks
-            type: ControlledList
-            style:
-              Content:
-                --display: flex
-            properties:
-              hideAddButton: true
-              hideRemoveButton: true
-            blocks:
-              - id: flex_blocks.$.gd
-                type: Box
-                style:
-                  flex: 0 0 15ch
-                  Content:
-                    --display: flex
-                blocks:
-                  - id: flex_blocks.$.name
-                    type: Markdown
-                    properties:
-                      content: 
-                        _nunjucks: 
-                          template: '##### {{ name }}'
-                          on:
-                            _state: flex_blocks.$
-                  - id: flex_blocks.$.visible
-                    type: Switch
-                    style:
-                      Label:
-                        --inline: true
-                    properties:
-                      title: visible
-                      size: small
-              - id: flex_blocks.$.style
-                type: TextArea
-                style:
-                  flex: auto
-                  Label:
-                    --inline: true
-                properties:
-                  title: style
-                  size: small
-                  rows: 3
+          blocks:
+            - id: flex_blocks
+              type: ControlledList
+              properties:
+                hideAddButton: true
+                hideRemoveButton: true
+              blocks:
+                - id: flex_blocks.$.gd
+                  type: Box
+                  layout:
+                    flex: 0 0 15ch
+                  blocks:
+                    - id: flex_blocks.$.name
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: '##### {{ name }}'
+                            on:
+                              _state: flex_blocks.$
+                    - id: flex_blocks.$.visible
+                      type: Switch
+                      properties:
+                        title: visible
+                        size: small
+                        label:
+                          inline: true
+                - id: flex_blocks.$.style
+                  type: TextArea
+                  layout:
+                    flex: auto
+                  properties:
+                    title: style
+                    size: small
+                    rows: 3
+                    label:
+                      inline: true
         
 - id: examples_divider
   type: Divider
