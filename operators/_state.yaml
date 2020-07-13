@@ -67,15 +67,15 @@ blocks:
                   Block 1's value is used to control Block 2 and 3's visibility while Block 2's value is used as Block 3 and 4's placeholder using the `key` parameter and its short-hand notation.
             - id: example_1_block_box
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: block_1
                   type: Switch
                   defaultValue: true
                   properties:
                     title: Block 1
-                    Label:
+                    label:
                       extra: Control Blocks 2 and 3's visibility.
                 - id: block_2
                   type: TextInput
@@ -84,7 +84,7 @@ blocks:
                     _state: block_1
                   properties:
                     title: Block 2
-                    Label:
+                    label:
                       extra: Control Blocks 3 and 4's placeholder. Visible using _state's short-hand key method.
                 - id: block_3
                   type: TextInput
@@ -96,7 +96,7 @@ blocks:
                     placeholder:
                       _state:
                         key: block_2
-                    Label:
+                    label:
                       extra: Use _state's key parameter.
                 - id: block_4
                   type: TextInput
@@ -104,13 +104,13 @@ blocks:
                     title: Block 4
                     placeholder:
                       _state: block_2
-                    Label:
+                    label:
                       extra: Use the short-hand key method.
 
             - id: example_1_code_box
               type: Box
-              style:
-                --span: 6
+              layout:
+                pan: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
