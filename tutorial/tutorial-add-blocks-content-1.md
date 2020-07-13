@@ -50,22 +50,22 @@ pages:
               title: End time
           - id: reset_button
             type: Button
-            style:
-              --span: 6 # Set the size of the button (span 6 of 12 columns)
+            layout:
+              span: 12 # Set the size of the button (span 12 of 24 columns)
             properties:
               title: Reset
               block: true # Make the button fill all the space available to it
               type: default # Make the button a plain button
-              Icon: ClearOutlined
+              icon: ClearOutlined
           - id: submit_button
             type: Button
-            style:
-              --span: 6
+            layout:
+              span: 12
             properties:
               title: Submit
               block: true
               type: primary # Make the button a primary button with color
-              Icon: SaveOutlined
+              icon: SaveOutlined
 ```
 
 >  If you would like to see how your config should look at this point, you can find it [here](tutorial-add-blocks-config).

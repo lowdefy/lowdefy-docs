@@ -3,26 +3,29 @@ type: PageSiderMenu
 public: true
 properties:
   title: Making a booking form config
-  Header:
+  header:
     theme: light
-  Sider:
+  sider:
     width: 256px
-  Breadcrumb:
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
     list:
       - Tutorial
       - Making a booking form config
-style:
-  Content:
-    background: '#FFFFFF'
-blocks:
-  _ref: 
-    path: tutorial/template.yaml
-    vars:
-      title: Making a booking form config
-      buttons: false
-      content:
-        - id: md1
-          type: Markdown
-          properties:
-            content:
-              _ref: tutorial/tutorial-add-blocks-config-1.md
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Making a booking form config
+          buttons: false
+          content:
+            - id: md1
+              type: Markdown
+              properties:
+                content:
+                  _ref: tutorial/tutorial-add-blocks-config-1.md

@@ -3,100 +3,105 @@ type: PageSiderMenu
 public: true
 properties:
   title: Making a booking form
-  Header:
+  header:
     theme: light
-  Sider:
+  sider:
     width: 256px
-  Breadcrumb:
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
     list:
       - Tutorial
       - Making a booking form
-style:
-  Content:
-    background: '#FFFFFF'
-blocks:
-  _ref: 
-    path: tutorial/template.yaml
-    vars:
-      title: Making a booking form
-      buttons: true
-      previous_page_title: Creating a Page
-      previous_page_id: tutorial-create-page
-      next_page_title: Interactive Pages
-      next_page_id: tutorial-actions-operators
-      content:
-        - id: md1
-          type: Markdown
-          style:
-            '.markdown-body':
-              fontSize: 14px
-          properties:
-            content:
-              _ref: tutorial/tutorial-add-blocks-content-1.md
-        - id: example1
-          type: PageHeaderMenu
-          style:
-            minHeight: 300px
-          properties:
-            Menu:
-              links: []
-          blocks:
-            - id: example1_content_card
-              type: Card
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Making a booking form
+          buttons: true
+          previous_page_title: Creating a Page
+          previous_page_id: tutorial-create-page
+          next_page_title: Interactive Pages
+          next_page_id: tutorial-actions-operators
+          content:
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-add-blocks-content-1.md
+            - id: example1
+              type: PageHeaderMenu
+              style:
+                minHeight: 300px
+              properties:
+                menu:
+                  links: []
               blocks:
-                - id: example1_page_heading
-                  type: Title
-                  properties:
-                    content: Making a booking form
-                    level: 3
-                - id: example1_meeting_name
-                  type: TextInput
-                  properties:
-                    title: Meeting name
-                - id: example1_meeting_room
-                  type: Selector
-                  properties:
-                    title: Meeting room
-                    options:
-                      - Red Room
-                      - Blue Room
-                      - Green Room
-                      - Boardroom
-                - id: example1_date
-                  type: DateSelector
-                  properties:
-                    title: Date
-                - id: example1_start_time
-                  type: DateTimeSelector
-                  properties:
-                    title: Start time
-                - id: example1_end_time
-                  type: DateTimeSelector
-                  properties:
-                    title: End time
-                - id: example1_reset_button
-                  type: Button
-                  style:
-                    --span: 6
-                  properties:
-                    title: Reset
-                    block: true
-                    type: default
-                    Icon: ClearOutlined
-                - id: example1_submit_button
-                  type: Button
-                  style:
-                    --span: 6
-                  properties:
-                    title: Submit
-                    block: true
-                    type: primary
-                    Icon: SaveOutlined
-        - id: md2
-          type: Markdown
-          style:
-            '.markdown-body':
-              fontSize: 14px
-          properties:
-            content:
-              _ref: tutorial/tutorial-add-blocks-content-2.md
+                - id: example1_content_card
+                  type: Card
+                  layout:
+                    contentGutter: [16, 0]
+                  blocks:
+                    - id: example1_page_heading
+                      type: Title
+                      properties:
+                        content: Making a booking form
+                        level: 3
+                    - id: example1_meeting_name
+                      type: TextInput
+                      properties:
+                        title: Meeting name
+                    - id: example1_meeting_room
+                      type: Selector
+                      properties:
+                        title: Meeting room
+                        options:
+                          - Red Room
+                          - Blue Room
+                          - Green Room
+                          - Boardroom
+                    - id: example1_date
+                      type: DateSelector
+                      properties:
+                        title: Date
+                    - id: example1_start_time
+                      type: DateTimeSelector
+                      properties:
+                        title: Start time
+                    - id: example1_end_time
+                      type: DateTimeSelector
+                      properties:
+                        title: End time
+                    - id: example1_reset_button
+                      type: Button
+                      layout:
+                        span: 12
+                      properties:
+                        title: Reset
+                        block: true
+                        type: default
+                        icon: ClearOutlined
+                    - id: example1_submit_button
+                      type: Button
+                      layout:
+                        span: 12
+                      properties:
+                        title: Submit
+                        block: true
+                        type: primary
+                        icon: SaveOutlined
+            - id: md2
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-add-blocks-content-2.md

@@ -7,13 +7,13 @@ menus:
       - id: welcome
         type: MenuLink
         properties:
-          Icon: HomeOutlined
+          icon: HomeOutlined
           title: Home
         pageId: welcome
       - id: booking
         type: MenuLink
         properties:
-          Icon: CalendarOutlined
+          icon: CalendarOutlined
           title: Book a meeting
         pageId: booking
 pages:
@@ -34,8 +34,6 @@ pages:
     blocks:
       - id: content_card
         type: Card
-        style:
-          maxWidth: 600px
         blocks:
           - id: page_heading
             type: Title
@@ -69,20 +67,20 @@ pages:
               title: End time
           - id: reset_button
             type: Button
-            style:
-              --span: 6 # Set the size of the button (span 6 of 12 columns)
+            layout:
+              span: 12 # Set the size of the button (span 12 of 24 columns)
             properties:
               title: Reset
               block: true # Make the button fill all the space available to it
               type: default # Make the button a plain button
-              Icon: ClearOutlined
+              icon: ClearOutlined
           - id: submit_button
             type: Button
-            style:
-              --span: 6
+            layout:
+              span: 12
             properties:
               title: Submit
               block: true
               type: primary # Make the button a primary button with color
-              Icon: SaveOutlined
+              icon: SaveOutlined
 ```

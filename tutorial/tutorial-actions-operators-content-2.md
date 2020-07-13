@@ -16,13 +16,13 @@ pages:
             # ...
           - id: submit_button
             type: Button
-            style:
-              --span: 9
+            layout:
+              span: 12
             properties:
               title: Submit
               block: true
               type: primary
-              Icon: SaveOutlined
+              icon: SaveOutlined
 ################ -------- Copy from here -------- ################
             actions:
               onClick:
