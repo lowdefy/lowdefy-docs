@@ -14,68 +14,20 @@ blocks:
       label: false
       kind: display
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    IconPrefix:
-                      _parse:
-                        _state: style_prefix_icon_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_suffix_icon_input
-                    Value:
-                      _parse:
-                        _state: style_value_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_prefix_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: IconPrefix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: IconSuffix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_value_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Value
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -83,98 +35,109 @@ blocks:
         - id: block.properties.decimalSeparator
           type: TextInput
           defaultValue: "."
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: decimalSeparator
             size: small
-            Label:
+            label:
+              span: 8
               extra: Decimal separator.
         - id: block.properties.formatter.type
           type: Selector
-          defaultValue: default
-          style:
-            _global: settings_input_style_indent
+          defaultValue: intlNumberFormat
+          layout:
+            _global: settings_input_layout_indent
           properties:
             title: formatter.type
             size: small
-            Label:
+            label:
+              span: 8
               extra: Type of formatter to apply to value.
             options:
-              - default
-              - date
-              - humanizeDuration
+              - intlDateTimeFormat
+              - intlListFormat
+              - intlNumberFormat
+              - intlRelativeTimeFormat
+              - momentFormat
+              - momentHumanizeDuration
         - id: block.properties.formatter.properties.format
           type: TextInput
-          style:
-            _global: settings_input_style_double_indent
+          layout:
+            _global: settings_input_layout_double_indent
           visible:
             _mql_test:
-              block.properties.formatter.type: date
+              block.properties.formatter.type: momentFormat
           properties:
             title: formatter.properties.format
             size: small
-            Label:
+            label:
+              span: 8
               extra: Moment.js date format
         - id: block.properties.groupSeparator
           type: TextInput
           defaultValue: ","
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: groupSeparator
             size: small
-            Label:
+            label:
+              span: 8
               extra: Group separator.
         - id: block.properties.precision
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: precision
             size: small
-            Label:
+            label:
+              span: 8
               extra: Number of decimals to display.
         - id: block.properties.prefix
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: prefix
             size: small
-            Label:
-              extra: Prefix text, priority over IconPrefix.
+            label:
+              span: 8
+              extra: Prefix text, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconPrefix
-              icon_field_name: IconPrefix
+              icon_id: block.properties.prefixIcon
+              icon_field_name: prefixIcon
               icon_description: Icon to prefix statistic.
 
         - id: block.properties.suffix
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: suffix
             size: small
-            Label:
-              extra: Suffix text, priority over IconSuffix.
+            label:
+              span: 8
+              extra: Suffix text, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
               icon_description: Icon to suffix statistic.
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: select_value_type_card
           type: Card
@@ -185,7 +148,7 @@ blocks:
               properties:
                 title: value Type
                 size: small
-                Label:
+                label:
                   extra: The display value can be either a String or a Number.
                 options:
                   - Number
@@ -193,28 +156,30 @@ blocks:
         - id: value_number
           field: block.properties.value
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               select_value_type: Number
           properties:
             title: value
             size: small
-            Label:
+            label:
+              span: 8
               extra: Display number value.
         - id: value_text
           field: block.properties.value
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               select_value_type: String
           properties:
             title: value
             size: small
-            Label:
+            label:
+              span: 8
               extra: Display text value.
 
       available_actions_description: |
@@ -226,15 +191,15 @@ blocks:
           blocks:
             - id: example_1
               type: Statistic
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Statistic
                 value: 1000
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -249,8 +214,8 @@ blocks:
           blocks:
             - id: example_2
               type: Statistic
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Decimal, group separators and precision
                 value: 1000.9999
@@ -259,8 +224,8 @@ blocks:
                 precision: 2
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -278,17 +243,17 @@ blocks:
           blocks:
             - id: example_3
               type: Statistic
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Prefix and suffix
                 value: 1000
                 prefix: $
-                IconSuffix: ShoppingCartOutlined
+                suffixIcon: ShoppingCartOutlined
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -298,27 +263,27 @@ blocks:
                     title: Prefix and suffix
                     value: 1000
                     prefix: "$"
-                    IconSuffix: ShoppingCartOutlined
+                    suffixIcon: ShoppingCartOutlined
                   ```
         - id: example_4_card
           type: Card
           blocks:
             - id: example_4
               type: Statistic
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Date formatter
                 value: 1999-12-31
                 formatter:
-                  type: date
+                  type: momentFormat
                   properties:
                     format: D MMMM YYYY
 
             - id: example_4_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -328,7 +293,7 @@ blocks:
                     title: Date formatter
                     value: '1999-12-31'
                     formatter:
-                      type: date
+                      type: momentFormat
                       properties:
                         format: D MMMM YYYY
                   ```
@@ -337,18 +302,18 @@ blocks:
           blocks:
             - id: example_5
               type: Statistic
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Duration formatter
                 value: 1000000000
                 formatter:
-                  type: humanizeDuration
+                  type: momentHumanizeDuration
 
             - id: example_5_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -358,41 +323,41 @@ blocks:
                     title: Duration formatter
                     value: 1000000000
                     formatter:
-                      type: humanizeDuration
+                      type: momentHumanizeDuration
                   ```
         - id: example_6_card
           type: Card
           blocks:
             - id: example_6
               type: Statistic
-              style:
-                --span: 6
+              layout:
+                span: 12
                 color: green
                 fontWeight: bold
                 fontSize: 40
               properties:
                 title: Value style
                 value: 1000
-                IconPrefix: RiseOutlined
+                prefixIcon: RiseOutlined
                 suffix: "%"
 
             - id: example_6_code
               type: Markdown
-              style:
+              layout:
                 block:
-                  --span: 6
+                  span: 12
               properties:
                 content: |
                   ```yaml
                   id: example_6
                   type: statistic
-                  style:
+                  layout:
                     color: green
                     fontWeight: bold
                     fontSize: 40
                   properties:
                     title: Value style
                     value: 1000
-                    IconPrefix: RiseOutlined
+                    prefixIcon: RiseOutlined
                     suffix: "%"
                   ```

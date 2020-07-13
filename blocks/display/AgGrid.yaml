@@ -23,9 +23,6 @@ blocks:
 
             ## Default block settings
 
-            <!--DOCUSAURUS_CODE_TABS-->
-            <!--YAML-->
-
             ```yaml
             visible: true
             box:
@@ -35,9 +32,7 @@ blocks:
               theme: normal
               rowSelection: single
             ```
-
-            <!--END_DOCUSAURUS_CODE_TABS-->
-
+            
             ## Block properties
 
             - `rowData` : _[ Object ]_ - **REQUIRED** - An array of data objects with the fields and values you want to render in the agGrid block.

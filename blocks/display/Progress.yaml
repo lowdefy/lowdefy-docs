@@ -19,14 +19,15 @@ blocks:
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -34,8 +35,8 @@ blocks:
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: line
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
@@ -43,33 +44,36 @@ blocks:
               - line
               - circle
               - dashboard
-            Label:
+            label:
+              span: 8
               extra: Set type of progress display.
         - id: block.properties.showInfo
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showInfo
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether to display the progress value and the status icon.
         - id: block.properties.percent
           type: NumberInput
-          defaultValue: 0
-          style:
-            _global: settings_input_style
+          defaultValue: 30
+          layout:
+            _global: settings_input_layout
           properties:
             title: percent
             size: small
-            Label:
+            label:
+              span: 8
               extra: Set the completion percentage.
         - id: block.properties.status
           type: ButtonSelector
-          defaultValue: normal
-          style:
-            _global: settings_input_style
+          defaultValue: active
+          layout:
+            _global: settings_input_layout
           properties:
             title: status
             size: small
@@ -78,84 +82,92 @@ blocks:
               - exception
               - normal
               - active
-            Label:
+            label:
+              span: 8
               extra: Set the status of the Progress.
         - id: block.properties.strokeLinecap
           type: ButtonSelector
           defaultValue: normal
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: strokeLinecap
             size: small
             options: 
               - round
               - object
-            Label:
+            label:
+              span: 8
               extra: Set the style of the progress linecap.
         - id: block.properties.strokeColor
           type: TextInput
           defaultValue: normal
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: strokeColor
             size: small
-            Label:
+            label:
+              span: 8
               extra: Color of progress bar.
         - id: block.properties.successPercent
           type: NumberInput
           defaultValue: 0
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: successPercent
             size: small
-            Label:
+            label:
+              span: 8
               extra: Segmented success percent.
         - id: block.properties.trailColor
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: trailColor
             size: small
-            Label:
+            label:
+              span: 8
               extra: Color of unfilled part.
         - id: block.properties.strokeWidth
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: strokeWidth
             size: small
-            Label:
+            label:
+              span: 8
               extra: Set the width of the progress bar.
         - id: block.properties.width
           type: NumberInput
           defaultValue: 132
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: width
             size: small
-            Label:
+            label:
+              span: 8
               extra: Set the canvas width of the circular progress.
         - id: block.properties.gapDegree
           type: NumberInput
           defaultValue: 75
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: gapDegree
             size: small
-            Label:
+            label:
+              span: 8
               extra: The gap degree of half circle.
         - id: block.properties.gapPosition
           type: ButtonSelector
           defaultValue: normal
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: gapPosition
             size: small
@@ -164,7 +176,8 @@ blocks:
               - bottom
               - left
               - right
-            Label:
+            label:
+              span: 8
               extra: The gap position.
 
       available_actions_description: |

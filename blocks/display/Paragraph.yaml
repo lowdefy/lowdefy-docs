@@ -19,14 +19,14 @@ blocks:
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -34,93 +34,103 @@ blocks:
         - id: block.properties.code
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: code
             size: small
-            Label:
+            label:
+              span: 8
               extra: Apply code style.
         - id: block.properties.content
-          type: TextInput
+          type: TextArea
           defaultValue: |
             Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
+            rows: 5
+            label:
+              span: 8
               extra: Paragraph text content.
         - id: block.properties.copyable
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: copyable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Provide copy text button.
         - id: block.properties.delete
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: delete
             size: small
-            Label:
+            label:
+              span: 8
               extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: ellipsis
             size: small
-            Label:
+            label:
+              span: 8
               extra: Display ellipsis when text overflows a single line.
         - id: block.properties.mark
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mark
             size: small
-            Label:
+            label:
+              span: 8
               extra: Apply marked (highlighted) style.
         - id: block.properties.strong
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: strong
             size: small
-            Label:
+            label:
+              span: 8
               extra: Apply strong (bold) style.
         - id: block.properties.type
           type: Selector
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             allowClear: true
             title: type
             size: small
-            Label:
+            label:
+              span: 8
               extra: Additional types. Don't specify for default.
             options:
               - secondary
@@ -129,12 +139,13 @@ blocks:
         - id: block.properties.underline
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: underline
             size: small
-            Label:
+            label:
+              span: 8
               extra: Apply underline style.
 
       available_actions_description: |
@@ -146,8 +157,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -163,8 +174,8 @@ blocks:
 
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown

@@ -1,0 +1,51 @@
+id: Html
+type: PageSiderMenu
+public: true
+properties:
+  title: Html
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Html
+      description_content: |
+        Html content block.
+      block_type: Html
+      label: false
+      kind: display
+      style_transform:
+        _parse:
+          _state: style_block_input
+      style_form:
+        - id: style_block_input
+          type: TextArea
+          layout:
+            _global: settings_input_layout
+          defaultValue: "{}"
+          properties:
+            title: block
+            rows: 3
+            size: small
+            label:
+              span: 8
+              extra: CSS Object style properties. Should be in JSON format.
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.html
+          type: TextArea
+          defaultValue: |
+            <h3>The quick <span style="color: red;">brown</span> fox <b style="font-size: 10px;">jumped</b> over the <span style="background: yellow;">lazy</span> dog</h3>
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: html
+            size: small
+            rows: 8
+            label:
+              span: 8
+              extra: Html elements to render inside  the block.
+
+      available_actions_description: |
+        ###### No available actions.
+

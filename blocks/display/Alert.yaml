@@ -14,108 +14,94 @@ blocks:
       label: false
       kind: display
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.banner
           type: Switch
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: banner
             size: small
-            Label:
+            label:
+              span: 8
               extra: Style as banner at top of application window.
         - id: block.properties.closable
           type: Switch
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: closable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Allow alert to be closed.
         - id: block.properties.closeText
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: closeText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Close text to show.
         - id: block.properties.description
           type: TextArea
           defaultValue: This is a description to say well done.
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: description
             size: small
             rows: 2
-            Label:
+            label:
+              span: 8
               extra: Content description of alert.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Icon to be used in alert.
               default_icon: CheckCircleOutlined
         - id: block.properties.message
           type: TextInput
           defaultValue: Completed!
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: message
             size: small
-            Label:
+            label:
+              span: 8
               extra: Content message of alert.
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: success
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
-            Label:
+            label:
+              span: 8
               extra: Alert style type.
             options:
               - success

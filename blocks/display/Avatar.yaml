@@ -14,96 +14,93 @@ blocks:
       label: false
       kind: display
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_icon_input
           type: TextArea
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           defaultValue: "{}"
           properties:
             title: Icon
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.alt
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: alt
             size: small
-            Label:
+            label:
+              span: 8
               extra: This attribute defines the alternative text describing the image.
         - id: block.properties.color
           type: ColorSelector
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: color
             size: small
-            Label:
+            label:
+              span: 8
               extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
         - id: block.properties.content
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
+            label:
+              span: 8
               extra: Text to display inside avatar.
         - id: block.properties.gap
           type: NumberInput
           defaultValue: 4
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: gap
             size: small
-            Label:
+            label:
+              span: 8
               extra: Letter type unit distance between left and right sides.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Icon to be used in avatar.
         - id: block.properties.shape
           type: ButtonSelector
           defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: shape
             size: small
-            Label:
+            label:
+              span: 8
               extra: Shape of the avatar.
             options:
               - circle
@@ -111,12 +108,13 @@ blocks:
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
+            label:
+              span: 8
               extra: Size of the avatar.
             options:
               - default
@@ -124,12 +122,13 @@ blocks:
               - large
         - id: block.properties.src
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: src
             size: small
-            Label:
+            label:
+              span: 8
               extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
 
       available_actions_description: |

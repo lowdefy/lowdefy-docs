@@ -19,74 +19,55 @@ blocks:
       label: false
       kind: display
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        
       properties_form:
         - id: block.properties.content
           type: TextArea
           defaultValue: Content of the message
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
+            label:
+              span: 8
               extra: 'The content of the message.'
         - id: block.properties.duration
           type: NumberInput
           defaultValue: 4.5
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: duration
             size: small
-            Label:
+            label:
+              span: 8
               extra: Time in seconds before message disappears. When set to 0 or null, it will never be dismissed automatically.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Customized notification icon.
         - id: block.properties.status
           type: ButtonSelector
           defaultValue: success
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: status
             size: small
@@ -96,7 +77,8 @@ blocks:
               - info
               - warning
               - loading
-            Label:
+            label:
+              span: 8
               extra: Message status type.
       actions_description: | 
         #### onClose
@@ -169,8 +151,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -212,8 +194,8 @@ blocks:
 
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown

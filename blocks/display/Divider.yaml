@@ -19,14 +19,15 @@ blocks:
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -34,22 +35,24 @@ blocks:
         - id: block.properties.dashed
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: dashed
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether line is dashed.
         - id: block.properties.orientation
           type: ButtonSelector
           defaultValue: center
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: orientation
             size: small
-            Label:
+            label:
+              span: 8
               extra: Position of title inside divider.
             options:
               - center
@@ -57,22 +60,24 @@ blocks:
               - right
         - id: block.properties.title
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Divider title.
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: horizontal
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
-            Label:
+            label:
+              span: 8
               extra: Direction type of divider.
             options:
               - horizontal
@@ -80,12 +85,13 @@ blocks:
         - id: block.properties.plain
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: plain
             size: small
-            Label:
+            label:
+              span: 8
               extra: Show text as plain style.
 
       available_actions_description: |
