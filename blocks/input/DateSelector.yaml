@@ -169,7 +169,7 @@ blocks:
               layout:
                 span: 12
               properties:
-                title: showToday and IconSuffix
+                title: showToday and suffixIcon
                 showToday: false
                 suffixIcon: FilterOutlined
                 label:
