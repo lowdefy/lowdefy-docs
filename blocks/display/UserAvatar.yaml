@@ -69,13 +69,13 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.disable
+        - id: block.properties.disabled
           type: Switch
           defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
-            title: disable
+            title: disabled
             size: small
             label:
               span: 8
