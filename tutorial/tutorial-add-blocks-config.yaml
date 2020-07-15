@@ -26,6 +26,9 @@ areas:
           content:
             - id: md1
               type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
               properties:
                 content:
                   _ref: tutorial/tutorial-add-blocks-config-1.md

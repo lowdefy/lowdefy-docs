@@ -1,4 +1,4 @@
-> You can find the final configuration files for this section [here](tutorial-actions-operators-config-1).
+> You can find the final configuration files for this section [here](tutorial-actions-operators-config).
 
 ### What happened
 

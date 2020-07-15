@@ -37,6 +37,8 @@ pages:
 
 The menu links will now have icons and titles.
 
+>  If you would like to see how your config should look at this point, you can find it [here](tutorial-create-page-config).
+
 ### Up next
 
 In the next section we will add some more blocks to our page to create a form for users to book a meeting room.
