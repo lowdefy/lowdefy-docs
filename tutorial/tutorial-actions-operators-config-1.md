@@ -1,6 +1,22 @@
 ### `lowdefy.yaml`
 
 ```yaml
+menus:
+  - id: default
+    links:
+      - id: welcome
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Home
+        pageId: welcome
+      - id: booking
+        type: MenuLink
+        properties:
+          icon: CalendarOutlined
+          title: Book a meeting
+        pageId: booking
+
 pages:
   - id: booking
     type: PageHeaderMenu
