@@ -39,7 +39,7 @@ The input object is used when you need to provide variables to a page when linki
 
 ### Actions
 
-If you select the 'Actions' option in the inspector, you can see a list of all the actions that have been executed in that context. You can access this action log using the `_action`
+If you select the 'Actions' option in the inspector, you can see a list of all the actions that have been executed in that context. You can access this action log using the `_action_log` operator.
 
 ### Requests and Mutations
 
