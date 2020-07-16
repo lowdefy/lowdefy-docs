@@ -1,3 +1,5 @@
+##### Step 3
+
 If you click on the links in the menu, you should see that your browser path (the part after lowdefy.com) changes from `welcome` to `booking`.
 
 ### What happened
@@ -9,6 +11,8 @@ If you click on the links in the menu, you should see that your browser path (th
 ## Menus
 
 A menu is created by default from all the pages in your app, in the order that they appear in the pages array. Often more control is needed over the menu. You might want to group menu items into different groups, change the title, exclude a page or add an icon. To do this, we can define a menu in the `menus` section of the `lowdefy.yaml` file.
+
+##### Step 1
 
 Copy the following:
 

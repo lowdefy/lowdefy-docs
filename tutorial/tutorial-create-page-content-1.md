@@ -1,5 +1,8 @@
 
-Let's create a page for a form where users can book a meeting room. Copy the definition of the `booking` page below into your `lowdefy.yaml` file and save file so the CLI uploads it.
+Let's create a page for a form where users can book a meeting room.
+
+##### Step 1
+Copy the definition of the `booking` page below into your `lowdefy.yaml` file and save file so the CLI uploads it.
 
 ```yaml
 pages:
