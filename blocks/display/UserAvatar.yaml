@@ -153,7 +153,7 @@ blocks:
           actions:
             onClick: 
               - id: link_Avatar
-                type: link()
+                type: Link
                 params:
                   pageId: Avatar
         - id: block.properties.loginButton.title
@@ -175,7 +175,7 @@ blocks:
           actions:
             onClick: 
               - id: link_loginButton
-                type: link()
+                type: Link
                 params:
                   pageId: Button
 

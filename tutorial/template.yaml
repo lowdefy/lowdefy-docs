@@ -36,12 +36,12 @@
           actions:
             onClick:
               - id: link_back
-                type: link()
+                type: Link
                 params:
                   pageId:
                     _var: previous_page_id
               - id: scroll_to_top
-                type: scrollTo()
+                type: ScrollTo
                 params:
                   top: 0
         - id: next_button
@@ -59,11 +59,11 @@
           actions:
             onClick:
               - id: link_forward
-                type: link()
+                type: Link
                 params:
                   pageId:
                     _var: next_page_id
               - id: scroll_to_top
-                type: scrollTo()
+                type: ScrollTo
                 params:
                   top: 0

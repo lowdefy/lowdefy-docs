@@ -92,7 +92,7 @@ blocks:
           actions:
             onClick:
               - id: click_open
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: open
@@ -105,7 +105,7 @@ blocks:
                 actions:
                   onClick:
                     - id: click_open
-                      type: callMethod()
+                      type: CallMethod
                       params:
                         blockId: block_name
                         method: open
@@ -117,7 +117,7 @@ blocks:
           actions:
             onClick:
               - id: click_open_args
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: open
@@ -135,7 +135,7 @@ blocks:
                 actions:
                   onClick:
                     - id: click_open_args
-                      type: callMethod()
+                      type: CallMethod
                       params:
                         blockId: block_name
                         method: open
@@ -166,7 +166,7 @@ blocks:
                   actions:
                     onClick:
                       - id: show_default_open
-                        type: callMethod()
+                        type: CallMethod
                         params:
                           blockId: example_open
                           method: open
@@ -177,7 +177,7 @@ blocks:
                   actions:
                     onClick:
                       - id: show_custom_open
-                        type: callMethod()
+                        type: CallMethod
                         params:
                           blockId: example_open
                           method: open
@@ -209,7 +209,7 @@ blocks:
                           actions:
                             onClick:
                               - id: show_default_open
-                                type: callMethod()
+                                type: CallMethod
                                 params:
                                   blockId: example_open
                                   method: open
@@ -220,7 +220,7 @@ blocks:
                           actions:
                             onClick:
                               - id: show_custom_open
-                                type: callMethod()
+                                type: CallMethod
                                 params:
                                   blockId: example_open
                                   method: open

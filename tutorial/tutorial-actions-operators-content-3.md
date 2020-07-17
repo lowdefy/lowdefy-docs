@@ -6,7 +6,7 @@ The validate action we added to the submit button evaluates all the input blocks
 
 We would like to only allow users to book the boardroom if there are 8 or more attendees in the meeting. We can use [operators](operators) to do this test.
 
-Let's add a [`ButtonSelector`](ButtonSelector) for the number of attendees, and add a `validate` rule to the `meeting_room` selector.
+Let's add a [`ButtonSelector`](ButtonSelector) for the number of attendees, and add a `Validate` rule to the `meeting_room` selector.
 
 ```yaml
 pages:
@@ -69,6 +69,6 @@ If you select the boardroom, and don't select 8 - 12 attendees, the error messag
 
 
 
-Change the status property of the validation from `error` to `warning`. Then the  `meeting_room` block will be highlighted in orange when the rule is not met, and the warning will appear before the `validate()` action is called. The action will also not error when the rule is not met, so a user will still be able to submit the data.
+Change the status property of the validation from `error` to `warning`. Then the  `meeting_room` block will be highlighted in orange when the rule is not met, and the warning will appear before the `Validate` action is called. The action will also not error when the rule is not met, so a user will still be able to submit the data.
 
 Your final result should look and work like this:

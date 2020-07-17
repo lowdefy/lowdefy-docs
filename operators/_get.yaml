@@ -8,7 +8,7 @@ properties:
 actions:
   onInit:
     - id: set_state
-      type: setState()
+      type: SetState
       params:
         string: A string value
         boolean: true
