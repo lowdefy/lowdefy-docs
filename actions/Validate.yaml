@@ -1,0 +1,52 @@
+id: Validate
+type: PageSiderMenu
+public: true
+properties:
+  title: Validate
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+areas:  
+  content:
+    justify: center
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          content: Validate
+      - id: markdown
+        type: Markdown
+        style:
+          '.markdown-body':
+            fontSize: 14px
+        properties:
+          content: |
+            The `Validate` action is used to validate a users input, usually before information is inserted into a database using a mutation.
+            It is used in conjunction with the `required` and `validate` fields on input blocks. If the validation fails, the `Validate`
+            action will fail, and this will stop the execution of actions that are defined after it.
+            
+            The first time a `Validate` action is called, validation error are shown to the user. The `Reset` action resets this.
+
+            ### Parameters
+            - `blockId`: _String_ - Only validate a specific block. If this fails, other validation errors will still be visible to the user.
+
+            ### Examples
+
+            Fetch all requests by specifying no params:
+
+            ```
+            - id: validate
+              type: Validate
+            ```
+            
+            Validate a single input:
+            ```
+            - id: validateOne
+              type: Validate
+              params:
+                blockId: myTextInput
+            ```

@@ -371,6 +371,43 @@ menus:
           - id: Tabs
             type: MenuLink
             pageId: Tabs
+
+      - id: actions
+        type: MenuGroup
+        properties:
+          title: Actions
+          icon: ThunderboltOutlined
+        links:
+          - id: CallMethod
+            type: MenuLink
+            pageId: CallMethod
+          - id: Fetch
+            type: MenuLink
+            pageId: Fetch
+          - id: Link
+            type: MenuLink
+            pageId: Link
+          - id: Login
+            type: MenuLink
+            pageId: LoginAction # pageId can't be Login since this redirects to login page
+            properties:
+              title: Login
+          - id: Logout
+            type: MenuLink
+            pageId: Logout
+          - id: Reset
+            type: MenuLink
+            pageId: Reset
+          - id: SetGlobal
+            type: MenuLink
+            pageId: SetGlobal
+          - id: SetState
+            type: MenuLink
+            pageId: SetState
+          - id: Validate
+            type: MenuLink
+            pageId: Validate
+
       - id: operators
         type: MenuGroup
         properties:
@@ -515,6 +552,16 @@ pages:
   - _ref: blocks/container/Result.yaml
   - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+  - _ref: actions/CallMethod.yaml
+  - _ref: actions/Fetch.yaml
+  - _ref: actions/Link.yaml
+  - _ref: actions/Login.yaml
+  - _ref: actions/Logout.yaml
+  - _ref: actions/Reset.yaml
+  - _ref: actions/SetGlobal.yaml
+  - _ref: actions/SetState.yaml
+  - _ref: actions/Validate.yaml
 
   - _ref: operators/_and.yaml
   - _ref: operators/_date.yaml
