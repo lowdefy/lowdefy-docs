@@ -155,7 +155,7 @@
                   properties:
                     title: required
                     label:
-                      extra: Toggle if the field is indicated as compulsory and required when the validate() action is called.
+                      extra: Toggle if the field is indicated as compulsory and required when the Validate action is called.
                       span: 8
                     size: small
             

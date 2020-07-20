@@ -54,10 +54,10 @@ areas:
                 actions:
                   onClick:
                     - id: link_forward
-                      type: link()
+                      type: Link
                       params:
                         pageId: tutorial-setup
                     - id: scroll_to_top
-                      type: scrollTo()
+                      type: ScrollTo
                       params:
                         top: 0

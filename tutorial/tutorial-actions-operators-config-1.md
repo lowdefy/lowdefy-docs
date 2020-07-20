@@ -79,7 +79,7 @@ pages:
             actions:
               onClick:
                 - id: reset
-                  type: reset()
+                  type: Reset
           - id: submit_button
             type: Button
             layout:
@@ -92,5 +92,5 @@ pages:
             actions:
               onClick:
                 - id: validate
-                  type: validate()
+                  type: Validate
 ```

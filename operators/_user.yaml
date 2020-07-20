@@ -7,7 +7,7 @@ properties:
 actions:
   onInit:
     - id: set_state
-      type: setState()
+      type: SetState
       params:
         id: 8sdf78sd-98sd-3432-d8908-89dsfsd90989
         name: Robert Anderson
