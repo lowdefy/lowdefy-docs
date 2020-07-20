@@ -155,6 +155,17 @@ blocks:
             label:
               span: 8
               extra: Shows a button to easily select the current date if true.
+        - id: block.properties.showNow
+          type: Switch
+          defaultValue: true
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: showNow
+            size: small
+            label:
+              span: 8
+              extra: Shows a 'now' button to set current time.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
