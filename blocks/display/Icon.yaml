@@ -13,22 +13,6 @@ blocks:
       block_type: Icon
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: disableLoadingIcon
             size: small
             label:
-              span: 8
-              extra: While loading after the icon has been clicked, don't render the loading icon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: While loading after the icon has been clicked, don't render the loading icon.
         - id: block.properties.hideActionLoading
           type: Switch
           defaultValue: false
@@ -52,8 +38,10 @@ blocks:
             title: hideActionLoading
             size: small
             label:
-              span: 8
-              extra: While loading after the icon has been clicked, don't show the loading message.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: While loading after the icon has been clicked, don't show the loading message.
         - id: block.properties.name
           type: Selector
           defaultValue: FireOutlined
@@ -64,8 +52,10 @@ blocks:
             size: small
             showSearch: true
             label:
-              span: 8
-              extra: Name of icon to be displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Name of icon to be displayed.
             options:
               _global: all_icons
         - id: block.properties.rotate
@@ -77,8 +67,10 @@ blocks:
             title: rotate
             size: small
             label:
-              span: 8
-              extra: Number of degrees to rotate the icon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Number of degrees to rotate the icon.
         - id: block.properties.spin
           type: Switch
           defaultValue: false
@@ -88,8 +80,10 @@ blocks:
             title: spin
             size: small
             label:
-              span: 8
-              extra: Continuously spin icon with animation.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Continuously spin icon with animation.
         - id: block.properties.twoToneColor
           type: ColorSelector
           defaultValue: "#08c"
@@ -100,8 +94,10 @@ blocks:
             size: small
             type: twitter
             label:
-              span: 8
-              extra: Primary two-tone color, only supported with two-tone theme.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Primary two-tone color, only supported with two-tone theme.
 
       available_actions_description: |
         ###### onClick

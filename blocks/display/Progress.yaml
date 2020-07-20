@@ -13,22 +13,6 @@ blocks:
       block_type: Progress
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -45,8 +29,10 @@ blocks:
               - circle
               - dashboard
             label:
-              span: 8
-              extra: Set type of progress display.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set type of progress display.
         - id: block.properties.showInfo
           type: Switch
           defaultValue: false
@@ -56,8 +42,10 @@ blocks:
             title: showInfo
             size: small
             label:
-              span: 8
-              extra: Whether to display the progress value and the status icon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Whether to display the progress value and the status icon.
         - id: block.properties.percent
           type: NumberInput
           defaultValue: 30
@@ -67,8 +55,10 @@ blocks:
             title: percent
             size: small
             label:
-              span: 8
-              extra: Set the completion percentage.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the completion percentage.
         - id: block.properties.status
           type: ButtonSelector
           defaultValue: active
@@ -83,8 +73,10 @@ blocks:
               - normal
               - active
             label:
-              span: 8
-              extra: Set the status of the Progress.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the status of the Progress.
         - id: block.properties.strokeLinecap
           type: ButtonSelector
           defaultValue: normal
@@ -97,8 +89,10 @@ blocks:
               - round
               - object
             label:
-              span: 8
-              extra: Set the style of the progress linecap.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the style of the progress linecap.
         - id: block.properties.strokeColor
           type: TextInput
           defaultValue: normal
@@ -108,8 +102,10 @@ blocks:
             title: strokeColor
             size: small
             label:
-              span: 8
-              extra: Color of progress bar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color of progress bar.
         - id: block.properties.successPercent
           type: NumberInput
           defaultValue: 0
@@ -119,8 +115,10 @@ blocks:
             title: successPercent
             size: small
             label:
-              span: 8
-              extra: Segmented success percent.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Segmented success percent.
         - id: block.properties.trailColor
           type: TextInput
           layout:
@@ -129,8 +127,10 @@ blocks:
             title: trailColor
             size: small
             label:
-              span: 8
-              extra: Color of unfilled part.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color of unfilled part.
         - id: block.properties.strokeWidth
           type: NumberInput
           layout:
@@ -139,8 +139,10 @@ blocks:
             title: strokeWidth
             size: small
             label:
-              span: 8
-              extra: Set the width of the progress bar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the width of the progress bar.
         - id: block.properties.width
           type: NumberInput
           defaultValue: 132
@@ -150,8 +152,10 @@ blocks:
             title: width
             size: small
             label:
-              span: 8
-              extra: Set the canvas width of the circular progress.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the canvas width of the circular progress.
         - id: block.properties.gapDegree
           type: NumberInput
           defaultValue: 75
@@ -161,8 +165,10 @@ blocks:
             title: gapDegree
             size: small
             label:
-              span: 8
-              extra: The gap degree of half circle.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The gap degree of half circle.
         - id: block.properties.gapPosition
           type: ButtonSelector
           defaultValue: normal
@@ -177,8 +183,10 @@ blocks:
               - left
               - right
             label:
-              span: 8
-              extra: The gap position.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The gap position.
 
       available_actions_description: |
         ###### No available actions.

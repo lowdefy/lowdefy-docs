@@ -13,22 +13,6 @@ blocks:
       block_type: Divider
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: dashed
             size: small
             label:
-              span: 8
-              extra: Whether line is dashed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Whether line is dashed.
         - id: block.properties.orientation
           type: ButtonSelector
           defaultValue: center
@@ -52,8 +38,10 @@ blocks:
             title: orientation
             size: small
             label:
-              span: 8
-              extra: Position of title inside divider.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Position of title inside divider.
             options:
               - center
               - left
@@ -66,8 +54,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Divider title.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Divider title.
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: horizontal
@@ -77,8 +67,10 @@ blocks:
             title: type
             size: small
             label:
-              span: 8
-              extra: Direction type of divider.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Direction type of divider.
             options:
               - horizontal
               - vertical
@@ -91,8 +83,10 @@ blocks:
             title: plain
             size: small
             label:
-              span: 8
-              extra: Show text as plain style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show text as plain style.
 
       available_actions_description: |
         ###### No available actions.

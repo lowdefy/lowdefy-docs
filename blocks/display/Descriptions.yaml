@@ -13,22 +13,6 @@ blocks:
       block_type: Descriptions
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _get:
           key: "0"
@@ -57,8 +41,10 @@ blocks:
             title: bordered
             size: small
             label:
-              span: 8
-              extra: Puts items in a table.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Puts items in a table.
         - id: block.properties.colon
           type: Switch
           defaultValue: true
@@ -68,8 +54,10 @@ blocks:
             title: colon
             size: small
             label:
-              span: 8
-              extra: Include a colon in item labels.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Include a colon in item labels.
         - id: block.properties.column
           type: NumberInput
           defaultValue: 2
@@ -79,8 +67,10 @@ blocks:
             title: column
             size: small
             label:
-              span: 8
-              extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
         - id: select_items_type_card
           type: Card
           blocks:
@@ -158,8 +148,10 @@ blocks:
             rows: 5
             size: small
             label:
-              span: 6
-              extra: Data items to display.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Data items to display.
         - id: block.properties.layout
           type: ButtonSelector
           defaultValue: default
@@ -169,8 +161,10 @@ blocks:
             title: layout
             size: small
             label:
-              span: 8
-              extra: Put values next to or below their labels.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Put values next to or below their labels.
             options:
               - horizontal
               - vertical
@@ -183,8 +177,10 @@ blocks:
             title: size
             size: small
             label:
-              span: 8
-              extra: Size of the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - middle
@@ -197,8 +193,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: The title of the description block, placed at the top.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The title of the description block, placed at the top.
 
       available_actions_description: |
         ###### No available actions.

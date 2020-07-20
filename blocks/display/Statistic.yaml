@@ -13,22 +13,6 @@ blocks:
       block_type: Statistic
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: decimalSeparator
             size: small
             label:
-              span: 8
-              extra: Decimal separator.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Decimal separator.
         - id: block.properties.formatter.type
           type: Selector
           defaultValue: intlNumberFormat
@@ -52,8 +38,10 @@ blocks:
             title: formatter.type
             size: small
             label:
-              span: 8
-              extra: Type of formatter to apply to value.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Type of formatter to apply to value.
             options:
               - intlDateTimeFormat
               - intlListFormat
@@ -72,8 +60,10 @@ blocks:
             title: formatter.properties.format
             size: small
             label:
-              span: 8
-              extra: Moment.js date format
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Moment.js date format
         - id: block.properties.groupSeparator
           type: TextInput
           defaultValue: ","
@@ -83,8 +73,10 @@ blocks:
             title: groupSeparator
             size: small
             label:
-              span: 8
-              extra: Group separator.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Group separator.
         - id: block.properties.precision
           type: NumberInput
           layout:
@@ -93,8 +85,10 @@ blocks:
             title: precision
             size: small
             label:
-              span: 8
-              extra: Number of decimals to display.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Number of decimals to display.
         - id: block.properties.prefix
           type: TextInput
           layout:
@@ -103,8 +97,10 @@ blocks:
             title: prefix
             size: small
             label:
-              span: 8
-              extra: Prefix text, priority over prefixIcon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Prefix text, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -120,8 +116,10 @@ blocks:
             title: suffix
             size: small
             label:
-              span: 8
-              extra: Suffix text, priority over suffixIcon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Suffix text, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -137,8 +135,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: select_value_type_card
           type: Card
           blocks:
@@ -165,8 +165,10 @@ blocks:
             title: value
             size: small
             label:
-              span: 8
-              extra: Display number value.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Display number value.
         - id: value_text
           field: block.properties.value
           type: TextInput
@@ -179,8 +181,10 @@ blocks:
             title: value
             size: small
             label:
-              span: 8
-              extra: Display text value.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Display text value.
 
       available_actions_description: |
         ###### No available actions.

@@ -13,22 +13,6 @@ blocks:
       block_type: TextArea
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
           defaultValue: true
@@ -52,8 +38,10 @@ blocks:
             title: allowClear
             size: small
             label:
-              span: 8
-              extra: Allow the user to clear their input.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -63,8 +51,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              span: 8
-              extra: Autofocus to the block on page load.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: select_autoSize_type_card
           type: Card
           blocks:
@@ -75,8 +65,10 @@ blocks:
                 title: autoSize Type
                 size: small
                 label:
-                  span: 8
-                  extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
                 options:
                   - Boolean
                   - Object
@@ -92,8 +84,10 @@ blocks:
             title: autoSize
             size: small
             label:
-              span: 8
-              extra: Automatically extend the block number of rows.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Automatically extend the block number of rows.
         - id: block.properties.autoSize.minRows
           type: NumberInput
           layout:
@@ -105,8 +99,10 @@ blocks:
             title: autoSize.minRows
             size: small
             label:
-              span: 8
-              extra: Minimum number of rows the block can be.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Minimum number of rows the block can be.
         - id: block.properties.autoSize.maxRows
           type: NumberInput
           layout:
@@ -118,8 +114,10 @@ blocks:
             title: autoSize.maxRows
             size: small
             label:
-              span: 8
-              extra: Maximum number of rows the block can be.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Maximum number of rows the block can be.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -129,8 +127,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disable the block if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.placeholder
           type: TextInput
           layout:
@@ -139,8 +139,10 @@ blocks:
             title: placeholder
             size: small
             label:
-              span: 8
-              extra: Placeholder text inside the block before user types input.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user types input.
         - id: block.properties.rows
           type: NumberInput
           defaultValue: 3
@@ -150,8 +152,10 @@ blocks:
             title: rows
             size: small
             label:
-              span: 8
-              extra: Number of rows of text area.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Number of rows of text area.
         - _ref: blocks/label.yaml
         
       available_actions_description: |

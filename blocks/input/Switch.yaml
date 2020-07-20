@@ -13,22 +13,6 @@ blocks:
       block_type: Switch
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -52,8 +38,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              span: 8
-              extra: Autofocus to the block on page load.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -63,8 +51,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disable the block if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
@@ -74,8 +64,10 @@ blocks:
             size: small
             title: size
             label:
-              span: 8
-              extra: Size of the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
@@ -87,19 +79,20 @@ blocks:
             title: checkedText
             size: small
             label:
-              span: 8
-              extra: Text to shown when switch is checked (true).
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text to shown when switch is checked (true).
         - id: block.properties.uncheckedText
           type: TextInput
-          layout:
-            label:
-              --span: 3
           properties:
             title: uncheckedText
             size: small
             label:
-              span: 8
-              extra: Text to shown when switch is unchecked (true).
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text to shown when switch is unchecked (true).
         - _ref:
             path: blocks/icon_template.yaml
             vars:

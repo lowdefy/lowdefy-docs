@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 
@@ -23,59 +23,42 @@ blocks:
       popup_method: open
       popup_button_title: Open ConfirmModal
       label: false
-      kind: container
+      category: container
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Content:
-                      _parse:
-                        _state: style_content_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: The modal dialog's title.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The modal dialog's title.
         - id: block.properties.status
           type: Selector
           defaultValue: confirm
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: status
             size: small
@@ -85,94 +68,103 @@ blocks:
               - info
               - warning
               - confirm
-            Label:
+            label:
+              span: 8
               extra: The confirm modal status type.
         - id: block.properties.centered
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: centered
             size: small
-            Label:
+            label:
+              span: 8
               extra: Center the modal vertically.
         - id: block.properties.content
           type: TextArea
           defaultValue: Are your sure you want to proceed?
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
+            label:
+              span: 8
               extra: Modal content.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Icon to be used in the confirm modal.
               default_icon: QuestionCircleOutlined
         - id: block.properties.mask
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mask
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether show mask or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: maskClosable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
         - id: block.properties.okText
           type: TextInput
           defaultValue: Ok
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: okText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Text of the Ok button.
         - id: block.properties.cancelText
           type: TextInput
           defaultValue: Cancel
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: cancelText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Text of the Cancel button.
         - id: block.properties.width
           type: TextInput
           defaultValue: '520px'
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: cancelText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Width of the modal dialog.
         - id: block.properties.zIndex
           type: NumberInput
           defaultValue: 1000
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: zIndex
             size: small
-            Label:
+            label:
+              span: 8
               extra: The z-index of the modal. Useful when displaying two modals simultaneously.
       
       actions_description: | 
@@ -190,7 +182,7 @@ blocks:
           actions:
             onClick:
               - id: click_open
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: open
@@ -203,7 +195,7 @@ blocks:
                 actions:
                   onClick:
                   - id: click_open
-                    type: callMethod()
+                    type: CallMethod
                     params:
                       blockId: block_name
                       method: open
@@ -218,12 +210,12 @@ blocks:
               actions:
                 onEnter:
                   - id: setup
-                    type: setState()
+                    type: SetState
                     params:
                       position: Dwight Schrute - Assistant Regional Manager! 🧐
                       flag: true
-              style:
-                --span: 6
+              layout:
+                span: 6
               blocks:
                 - id: ex_1_title
                   type: Markdown
@@ -249,7 +241,7 @@ blocks:
                   actions:
                     onClick:
                       - id: click_method
-                        type: callMethod()
+                        type: CallMethod
                         params:
                           blockId: ex_1_modal
                           method: open
@@ -267,7 +259,7 @@ blocks:
                   actions:
                     onOk: 
                       - id: set_position
-                        type: setState()
+                        type: SetState
                         params:
                           position:
                             _if: 
@@ -297,8 +289,8 @@ blocks:
                           
             - id: ex_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 6
               blocks:
                 - id: ex_1_code
                   type: Markdown
@@ -324,7 +316,7 @@ blocks:
                           actions:
                             onClick:
                               - id: click_method
-                                type: callMethod()
+                                type: CallMethod
                                 params:
                                   blockId: ex_1_modal
                                   method: open
@@ -342,7 +334,7 @@ blocks:
                           actions:
                             onOk: 
                               - id: set_position
-                                type: setState()
+                                type: SetState
                                 params:
                                   position:
                                     _if: 

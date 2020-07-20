@@ -29,22 +29,6 @@ blocks:
       block_type: Selector
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _if:
           test:
@@ -73,8 +57,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
           defaultValue: true
@@ -84,8 +70,10 @@ blocks:
             title: allowClear
             size: small
             label:
-              span: 8
-              extra: Allow the user to clear the selected value, sets the value to null.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -95,8 +83,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              span: 8
-              extra: Autofocus to the block on page load.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -113,8 +103,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disables the block if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disables the block if true.
         - id: select_options_type_card
           type: Card
           blocks:
@@ -125,8 +117,10 @@ blocks:
                 title: Options Type
                 size: small
                 label:
-                  span: 8
-                  extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
                   - Label Value
@@ -160,8 +154,10 @@ blocks:
                 title: label
                 size: small
                 label:
-                  span: 8
-                  extra: Label shown to user.
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Label shown to user.
             - id: block.properties.options.$.value
               type: TextInput
               defaultValue: Value
@@ -174,8 +170,10 @@ blocks:
                 title: value
                 size: small
                 label:
-                  span: 8
-                  extra: Value selected.
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Value selected.
             - id: block.properties.options.$.disabled
               type: Switch
               defaultValue: false
@@ -188,8 +186,10 @@ blocks:
                 title: disabled
                 size: small
                 label:
-                  span: 8
-                  extra: Disable the option if true.
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Disable the option if true.
         - id: block.properties.placeholder
           type: TextInput
           defaultValue: Select item
@@ -199,8 +199,10 @@ blocks:
             title: placeholder
             size: small
             label:
-              span: 8
-              extra: Placeholder text inside the block before user selects input.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user selects input.
         - id: block.properties.showArrow
           type: Switch
           defaultValue: true
@@ -210,8 +212,10 @@ blocks:
             title: showArrow
             size: small
             label:
-              span: 8
-              extra: Show the suffix icon at the drop-down position of the selector.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show the suffix icon at the drop-down position of the selector.
         - id: block.properties.showSearch
           type: Switch
           defaultValue: false
@@ -221,8 +225,10 @@ blocks:
             title: showSearch
             size: small
             label:
-              span: 8
-              extra: Make the selector options searchable.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Make the selector options searchable.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
@@ -232,8 +238,10 @@ blocks:
             title: size
             size: small
             label:
-              span: 8
-              extra: Size of the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default

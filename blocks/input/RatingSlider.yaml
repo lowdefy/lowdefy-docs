@@ -13,21 +13,6 @@ blocks:
       block_type: RatingSlider
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -40,8 +25,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -51,8 +38,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              span: 8
-              extra: Autofocus to the block on page load.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -62,8 +51,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disable the block if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.disableIcons
           type: Switch
           defaultValue: false
@@ -73,8 +64,10 @@ blocks:
             title: disableIcons
             size: small
             label:
-              span: 8
-              extra: Hides minimum and maximum icons.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hides minimum and maximum icons.
         - id: block.properties.disableNotApplicable
           type: Switch
           defaultValue: false
@@ -84,8 +77,10 @@ blocks:
             title: disableNotApplicable
             size: small
             label:
-              span: 8
-              extra: Hides not applicable checkbox.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hides not applicable checkbox.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -110,8 +105,10 @@ blocks:
             title: min
             size: small
             label:
-              span: 8
-              extra: The minimum value of the slider.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The minimum value of the slider.
         - id: block.properties.max
           type: NumberInput
           defaultValue: 10
@@ -121,8 +118,10 @@ blocks:
             title: max
             size: small
             label:
-              span: 8
-              extra: The maximum value of the slider.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The maximum value of the slider.
         - id: block.properties.notApplicableLabel
           type: TextInput
           defaultValue: N/A
@@ -132,8 +131,10 @@ blocks:
             title: notApplicableLabel
             size: small
             label:
-              span: 8
-              extra: Label shown at the null value of the slider.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Label shown at the null value of the slider.
         - id: block.properties.showDots
           type: Switch
           defaultValue: true
@@ -143,8 +144,10 @@ blocks:
             title: showDots
             size: small
             label:
-              span: 8
-              extra: Shows dots at values between step values when true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shows dots at values between step values when true.
         - id: block.properties.showMarks
           type: Switch
           defaultValue: true
@@ -154,8 +157,10 @@ blocks:
             title: showMarks
             size: small
             label:
-              span: 8
-              extra: Shows values at specified min, max and step values.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shows values at specified min, max and step values.
         - id: block.properties.step
           type: NumberInput
           defaultValue: 1
@@ -166,8 +171,10 @@ blocks:
             size: small
             precision: 1
             label:
-              span: 8
-              extra: The size of the step between values, has to be values greater than 0.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The size of the step between values, has to be values greater than 0.
         - id: block.properties.tooltipVisible
           type: ButtonSelector
           defaultValue: onClick
@@ -177,8 +184,10 @@ blocks:
             title: tooltipVisible
             size: small
             label:
-              span: 8
-              extra: When tooltip should be visible.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: When tooltip should be visible.
             options:
               - never
               - onClick

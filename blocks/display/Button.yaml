@@ -13,22 +13,6 @@ blocks:
       block_type: Button
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: block
             size: small
             label:
-              span: 8
-              extra: Fit the button's span to its parent container span.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Fit the button's span to its parent container span.
         - id: block.properties.danger
           type: Switch
           defaultValue: false
@@ -52,8 +38,10 @@ blocks:
             title: danger
             size: small
             label:
-              span: 8
-              extra: Set button style to danger.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set button style to danger.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -63,8 +51,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disable the button if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the button if true.
         - id: block.properties.ghost
           type: Switch
           defaultValue: false
@@ -74,8 +64,10 @@ blocks:
             title: ghost
             size: small
             label:
-              span: 8
-              extra: Make the button's background transparent when true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Make the button's background transparent when true.
         - id: block.properties.hideActionLoading
           type: Switch
           defaultValue: false
@@ -85,8 +77,10 @@ blocks:
             title: hideActionLoading
             size: small
             label:
-              span: 8
-              extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: Switch
           defaultValue: false
@@ -96,8 +90,10 @@ blocks:
             title: hideTitle
             size: small
             label:
-              span: 8
-              extra: Hide the button's title.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hide the button's title.
         - id: block.properties.href
           type: TextInput
           layout:
@@ -106,8 +102,10 @@ blocks:
             title: href
             size: small
             label:
-              span: 8
-              extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -123,8 +121,10 @@ blocks:
             title: shape
             size: small
             label:
-              span: 8
-              extra: Shape of the button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shape of the button.
             options:
               - circle
               - round
@@ -138,8 +138,10 @@ blocks:
             title: size
             size: small
             label:
-              span: 8
-              extra: Size of the button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the button.
             options:
               - small
               - default
@@ -153,8 +155,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title text on the button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title text on the button.
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: primary
@@ -164,8 +168,10 @@ blocks:
             title: type
             size: small
             label:
-              span: 8
-              extra: The button type.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The button type.
             options:
               - primary
               - default

@@ -14,12 +14,14 @@ properties:
   options:
     _global: all_icons
   label:
-    span: 8
-    extra:
-      _if:
-        test: 
-          _not: 
-            _var: icon_description
-        then: Name of icon to be displayed.
-        else: 
-          _var: icon_description
+    _ref: 
+      path: blocks/label_extra.yaml
+      vars:
+        extra:
+          _if:
+            test: 
+              _not: 
+                _var: icon_description
+            then: Name of icon to be displayed.
+            else: 
+              _var: icon_description

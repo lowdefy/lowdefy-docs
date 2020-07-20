@@ -5,6 +5,7 @@ layout:
 properties:
   size: small
   title: 'label:'
+  inner: true
 blocks:
   - id: block.properties.label.span
     type: NumberInput
@@ -14,11 +15,13 @@ blocks:
       title: span
       size: small
       label:
-        span: 8
-        extra: Align label left or right when span is applied.
+        _ref: 
+          path: blocks/label_extra.yaml
+          vars:
+            extra: Align label left or right when span is applied.
   - id: block.properties.label.align
     type: ButtonSelector
-    defaultValue: right
+    defaultValue: left
     layout:
       _global: settings_input_layout
     properties:
@@ -28,8 +31,10 @@ blocks:
         - left
         - right
       label:
-        span: 8
-        extra: Align label left or right when span is applied.
+        _ref: 
+          path: blocks/label_extra.yaml
+          vars:
+            extra: Align label left or right when span is applied.
   - id: block.properties.label.inline
     type: Switch
     defaultValue: false
@@ -39,8 +44,10 @@ blocks:
       title: inline
       size: small
       label:
-        span: 8
-        extra: Set label inline with input.
+        _ref: 
+          path: blocks/label_extra.yaml
+          vars:
+            extra: Set label inline with input.
   - id: block.properties.label.disabled
     type: Switch
     defaultValue: false
@@ -50,8 +57,10 @@ blocks:
       title: disabled
       size: small
       label:
-        span: 8
-        extra: Remove label wrapper.
+        _ref: 
+          path: blocks/label_extra.yaml
+          vars:
+            extra: Remove label wrapper.
   - id: block.properties.label.colon
     type: Switch
     defaultValue: true
@@ -61,8 +70,10 @@ blocks:
       title: colon
       size: small
       label:
-        span: 8
-        extra: Postfix the label with a colon.
+        _ref: 
+          path: blocks/label_extra.yaml
+          vars:
+            extra: Postfix the label with a colon.
   - id: block.properties.label.extra
     type: TextInput
     layout:
@@ -71,5 +82,7 @@ blocks:
       title: extra
       size: small
       label:
-        span: 8
-        extra: Add additional description tag to the label.
+        _ref: 
+          path: blocks/label_extra.yaml
+          vars:
+            extra: Add additional description tag to the label.

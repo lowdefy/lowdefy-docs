@@ -13,22 +13,6 @@ blocks:
       block_type: NumberInput
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -52,8 +38,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              span: 8
-              extra: Autofocus to the block on page load.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.decimalSeparator
           type: TextInput
           defaultValue: "."
@@ -63,8 +51,10 @@ blocks:
             title: decimalSeparator
             size: small
             label:
-              span: 8
-              extra: Decimal separator.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Decimal separator.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -74,8 +64,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disables the block if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disables the block if true.
         - id: block.properties.min
           type: NumberInput
           layout:
@@ -84,8 +76,10 @@ blocks:
             title: min
             size: small
             label:
-              span: 8
-              extra: Minimum value allowed by the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Minimum value allowed by the block.
         - id: block.properties.max
           type: NumberInput
           layout:
@@ -94,8 +88,10 @@ blocks:
             title: max
             size: small
             label:
-              span: 8
-              extra: Maximum value allowed by the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Maximum value allowed by the block.
         - id: block.properties.placeholder
           type: TextInput
           layout:
@@ -104,8 +100,10 @@ blocks:
             title: placeholder
             size: small
             label:
-              span: 8
-              extra: Placeholder text inside the block to show message before user types input.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block to show message before user types input.
         - id: block.properties.precision
           type: NumberInput
           defaultValue: 0
@@ -116,8 +114,10 @@ blocks:
             size: small
             max: 100
             label:
-              span: 8
-              extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
@@ -127,8 +127,10 @@ blocks:
             title: size
             size: small
             label:
-              span: 8
-              extra: Size of the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
@@ -143,8 +145,10 @@ blocks:
             size: small
             precision: 2
             label:
-              span: 8
-              extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
         - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
