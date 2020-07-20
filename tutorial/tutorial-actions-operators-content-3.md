@@ -6,7 +6,7 @@ The validate action we added to the submit button evaluates all the input blocks
 
 We would like to only allow users to book the boardroom if there are 8 or more attendees in the meeting. We can use [operators](operators) to do this test.
 
-Let's add a [`ButtonSelector`](ButtonSelector) for the number of attendees, and add a `Validate` rule to the `meeting_room` selector.
+Let's add a [`ButtonSelector`](ButtonSelector) for the number of attendees, and add a `validate` rule to the `meeting_room` selector.
 
 ```yaml
 pages:
