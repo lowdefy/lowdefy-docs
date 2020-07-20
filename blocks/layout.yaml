@@ -1,16 +1,3 @@
-- id: block.layout.justify
-  type: ButtonSelector
-  defaultValue: start
-  properties:
-    title: justify
-    size: small
-    options:
-      - start
-      - center
-      - end
-    label:
-      span: 8
-      extra: Justify content in the block horizontally.
 - id: block.layout.align
   type: ButtonSelector
   defaultValue: top
