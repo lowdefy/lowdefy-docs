@@ -33,7 +33,7 @@
           actions:
             onClick:
               - id: click_method
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method:  

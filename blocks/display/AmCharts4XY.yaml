@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: setState()
+      type: SetState
       params:
         block:
           properties:
@@ -29,44 +29,24 @@ actions:
                   categoryX: x
                   valueY: "y"
         properties_input: |
-          {
-            "data": [
-              {
-                "x": "a",
-                "y": 1
-              },
-              {
-                "x": "b",
-                "y": 2
-              },
-              {
-                "x": "c",
-                "y": 3
-              }
-            ],
-            "xAxes": [
-              {
-                "type": "CategoryAxis",
-                "dataFields": {
-                  "category": "x"
-                }
-              }
-            ],
-            "yAxes": [
-              {
-                "type": "ValueAxis"
-              }
-            ],
-            "series": [
-              {
-                "type": "ColumnSeries",
-                "dataFields": {
-                  "categoryX": "x",
-                  "valueY": "y"
-                }
-              }
-            ]
-          } 
+          data:
+            - x: a
+              "y": 1
+            - x: b
+              "y": 2
+            - x: c
+              "y": 3
+          xAxes:
+            - type: CategoryAxis
+              dataFields:
+                category: x
+          yAxes:
+            - type: ValueAxis
+          series:
+            - type: ColumnSeries
+              dataFields:
+                categoryX: x
+                valueY: "y"
 blocks:
   _ref:
     path: blocks/raw_template.yaml
@@ -76,3 +56,5 @@ blocks:
       description_content: |
         amCharts 4 XY chart
       block_type: AmCharts4XY
+      style_transform: 
+        height: 100

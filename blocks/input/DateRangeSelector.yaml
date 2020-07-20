@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: setState()
+      type: SetState
       params:
         block:
           properties:
@@ -197,7 +197,7 @@ blocks:
                   - From the start
                   - the end
                 separator: to
-                IconSuffix: ThunderboltOutlined
+                suffixIcon: ThunderboltOutlined
             - id: example_2_code
               type: Markdown
               layout:
@@ -213,7 +213,7 @@ blocks:
                       - From the start
                       - the end
                     separator: to
-                    IconSuffix: ThunderboltOutlined
+                    suffixIcon: ThunderboltOutlined
                     label:
                       extra: Custom placeholder, separator and suffix icon.
                   ```

@@ -1,6 +1,6 @@
 ### Validate action
 
-We can now add a `validate()` action to the submit button. This will validate the inputs and give an error if any inputs are not filled in.
+We can now add a `Validate` action to the submit button. This will validate the inputs and give an error if any inputs are not filled in.
 
 ##### Step 2
 Add the validate action like this:
@@ -30,7 +30,7 @@ pages:
             actions:
               onClick:
                 - id: validate
-                  type: validate()
+                  type: Validate
 ################ ------- Copy to here ----------- ################
 ```
 

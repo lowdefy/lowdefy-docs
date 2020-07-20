@@ -3,62 +3,256 @@ type: PageSiderMenu
 public: true
 properties:
   title: Affix
-actions:
-  onInit:
-    - id: init
-      type: setState()
-      params:
-        _ref: blocks/html_blocks.yaml
 blocks:
-  _ref:
-    path: blocks/flex_template.yaml
-    vars:
-      block_type: Affix
-      block_name: Affix
-      page_description: |
-        Wrap an Affix block around other blocks to make it stick to the viewport.
+  - id: card_display
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Affix
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            An Affix block makes it's content stick to the viewport. 
+            The Affix has a single area, `content`.
 
-      style_transform:
-        _parse:
-          _state: flex_style_input
-      style_form:
-        - id: flex_style_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "flex"
-              } 
-            }
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      flex_properties_form:
-        - id: block.properties.offsetBottom
-          type: NumberInput
-          style:
-            _global: settings_input_style
-          properties:
-            title: offsetBottom
-            size: small
-            Label:
-              extra: Offset from the bottom of the viewport (in pixels).
-        - id: block.properties.offsetTop
-          type: NumberInput
-          style:
-            _global: settings_input_style
-          properties:
-            title: offsetBottom
-            size: small
-            Label:
-              extra: Offset from the top of the viewport (in pixels).
-        
-      actions_description: | 
-        #### onChange
-        Called when Affix changes from on page to floating at fixed position in window or back.
+      - id: c1
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: block_divider
+            type: Divider
+            properties:
+              title: Block
+          - id: block_grid
+            type: Box
+            blocks:
+              - id: block_id
+                type: Affix
+                style:
+                  _parse:
+                    _state: style_block_input
+                layout:
+                  _state: block.layout
+                visible:
+                  _state: block.visible
+                required:
+                  _state: block.required
+                properties:
+                  _state: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content 
+          - id: setup_divider
+            type: Divider
+            properties:
+              title: Block Setup
+          - id: setup_card
+            type: Card
+            properties: 
+              size: small
+            blocks:
+              - id: setup_markdown
+                type: Markdown
+                properties:
+                  content:
+                    _nunjucks:
+                      template: |
+                        ```yaml
+                        {{ value | safe }}
+                        ```
+                      on:
+                        value:
+                          _dump_yaml:
+                            id: block_id
+                            type: Affix
+                            layout:
+                              _state: block.layout
+                            style:
+                              _parse:
+                                _state: style_block_input
+                            visible:
+                              _state: block.visible
+                            properties:
+                              _state: block.properties
+                            areas:
+                              content:
+                                blocks: []
 
+      - id: settings_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: settings_divider
+            type: Divider
+            properties:
+              title: Settings
+          - id: block_collapse
+            type: Collapse
+            properties:
+              defaultActiveKey: properties
+              panels:
+                - key: layout
+                  title: 'layout:'
+                - key: style
+                  title: 'style:'
+                - key: properties
+                  title: 'properties:'
+                - key: visible
+                  title: 'visible:'
+                - key: areas
+                  title: 'areas:'
+                - key: actions
+                  title: 'actions:'
+            areas:
+              layout:
+                blocks:
+                  _ref: blocks/layout.yaml
+              style:
+                blocks:
+                  _ref: blocks/style.yaml
+              visible:
+                blocks:
+                  _ref: blocks/visible.yaml
+              properties:
+                blocks:
+                  - id: block.properties.offsetBottom
+                    type: NumberInput
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: offsetBottom
+                      size: small
+                      label:
+                        span: 8
+                        extra: Offset from the bottom of the viewport (in pixels).
+                  - id: block.properties.offsetTop
+                    type: NumberInput
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: offsetTop
+                      size: small
+                      label:
+                        span: 8
+                        extra: Offset from the top of the viewport (in pixels).
+              areas:
+                blocks: []
+              actions:
+                blocks:
+                  - id: actions_md
+                    type: Markdown
+                    properties:
+                      content: |
+                        #### onChange
+                        Called when Affix changes from on page to floating at fixed position in window or back.
+
+
+  - id: ex_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: ex_1_card
+    type: Card
+    blocks:
+      - id: ex_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                #### Affix with two blocks in content area and offsetBottom
+          - id: ex_1_box
+            type: Affix
+            properties:
+              offsetBottom: 30
+            areas:  
+              content:
+                blocks:
+                  - id: ex_1_block_1
+                    type: Html
+                    layout: 
+                      shrink: 1
+                    style:
+                      background: '#04b0ff'
+                      textAlign: center
+                      color: white
+                      padding: 10
+                    properties:
+                      html: block_1
+                  - id: ex_1_block_2
+                    type: Html
+                    layout: 
+                      shrink: 1
+                    style:
+                      background: '#e57373'
+                      textAlign: center
+                      color: white
+                      padding: 10
+                    properties:
+                      html: block_2
+      - id: ex_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                - id: affix
+                  type: Affix
+                  properties:
+                    offsetBottom: 30
+                  areas:  
+                    content:
+                      blocks:
+                        - id: block_1
+                          type: Html
+                          layout: 
+                            shrink: 1
+                          style:
+                            background: '#04b0ff'
+                            textAlign: center
+                            color: white
+                            padding: 10
+                          properties:
+                            html: block_1
+                        - id: block_2
+                          type: Html
+                          layout: 
+                            shrink: 1
+                          style:
+                            background: '#e57373'
+                            textAlign: center
+                            color: white
+                            padding: 10
+                          properties:
+                            html: block_2
+                ```
+  - id: scroll_margin
+    type: Box
+    style: 
+      height: 300

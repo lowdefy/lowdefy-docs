@@ -7,7 +7,7 @@ properties:
 actions:
   onInit:
     - id: set_state
-      type: setState()
+      type: SetState
       params:
         request_1:
           - id: 1

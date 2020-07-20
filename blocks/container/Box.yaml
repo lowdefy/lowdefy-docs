@@ -3,114 +3,440 @@ type: PageSiderMenu
 public: true
 properties:
   title: Box
-actions:
-  onInit:
-    - id: init
-      type: setState()
-      params:
-        _ref: blocks/html_blocks.yaml
 blocks:
-  _ref:
-    path: blocks/element_template.yaml
-    vars:
-      block_type: Box
-      block_name: Box
-      page_description: |
-        A box is a container that places sub-blocks into a html div with gird, flex, block or inline-block display format settings. 
-        
-        The default for display grid is 12 explicit columns and implicit rows. 
-        
-        The default display direction for flex is row.
+  - id: card_display
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Box
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            A Box is a container that places sub-blocks into a html div. 
+            The Box has a single area, `content`.
+      - id: c1
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: block_divider
+            type: Divider
+            properties:
+              title: Block
+          - id: block_grid
+            type: Box
+            blocks:
+              - id: block_id
+                type: Box
+                style:
+                  _parse:
+                    _state: style_block_input
+                layout:
+                  _state: block.layout
+                visible:
+                  _state: block.visible
+                required:
+                  _state: block.required
+                properties:
+                  _state: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content 
+          - id: setup_divider
+            type: Divider
+            properties:
+              title: Block Setup
+          - id: setup_card
+            type: Card
+            properties: 
+              size: small
+            blocks:
+              - id: setup_markdown
+                type: Markdown
+                properties:
+                  content:
+                    _nunjucks:
+                      template: |
+                        ```yaml
+                        {{ value | safe }}
+                        ```
+                      on:
+                        value:
+                          _dump_yaml:
+                            id: block_id
+                            type: Box
+                            layout:
+                              _state: block.layout
+                            style:
+                              _parse:
+                                _state: style_block_input
+                            visible:
+                              _state: block.visible
+                            properties:
+                              _state: block.properties
+                            areas:
+                              content:
+                                blocks: []
 
-      grid_style:
-        _parse:
-          _state: grid_style_input
-      grid_style_form:
-        - id: grid_style_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "grid"
-              } 
-            }
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      grid_properties_form: []
-      flex_style:
-        _parse:
-          _state: flex_style_input
-      flex_style_form:
-        - id: flex_style_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "flex"
-              } 
-            }
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      flex_properties_form: []
-      
-      block_style:
-        _parse:
-          _state: block_style_input
-      block_style_form:
-        - id: block_style_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "block"
-              } 
-            }
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      block_properties_form: []
-      
-      inlineBlock_style:
-        _parse:
-          _state: inlineBlock_style_input
-      inlineBlock_style_form:
-        - id: inlineBlock_style_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "inline-block"
-              } 
-            }
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      inlineBlock_properties_form: []
-              
-      actions_description: | 
-        ###### No available actions.
-        
+      - id: settings_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: settings_divider
+            type: Divider
+            properties:
+              title: Settings
+          - id: block_collapse
+            type: Collapse
+            properties:
+              defaultActiveKey: properties
+              panels:
+                - key: layout
+                  title: 'layout:'
+                - key: style
+                  title: 'style:'
+                - key: properties
+                  title: 'properties:'
+                - key: visible
+                  title: 'visible:'
+                - key: areas
+                  title: 'areas:'
+            areas:
+              layout:
+                blocks:
+                  _ref: blocks/layout.yaml
+              style:
+                blocks:
+                  _ref: blocks/style.yaml
+              visible:
+                blocks:
+                  _ref: blocks/visible.yaml
+              properties:
+                blocks: []
+              areas:
+                blocks: []
 
 
+  - id: ex_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: ex_1_card
+    type: Card
+    blocks:
+      - id: ex_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                #### Box with blocks in content area
+          - id: ex_1_box
+            type: Box
+            areas:  
+              content:
+                blocks:
+                  - id: ex_1_block_1
+                    type: Html
+                    style:
+                      background: '#04b0ff'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_1
+                  - id: ex_1_block_2
+                    type: Html
+                    style:
+                      background: '#e57373'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_2
+      - id: ex_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                - id: ex_1_box
+                  type: Box
+                  areas:
+                    content:
+                      blocks:
+                        - id: block_1
+                          type: Html
+                          style:
+                            background: '#04b0ff'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_1
+                        - id: block_2
+                          type: Html
+                          style:
+                            background: '#e57373'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_2
+                ```
+
+
+  - id: ex_2_card
+    type: Card
+    blocks:
+      - id: ex_2_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_2_title
+            type: Markdown
+            properties:
+              content: |
+                #### Box with blocks in content area at with different span
+          - id: ex_2_box
+            type: Box
+            areas:  
+              content:
+                blocks:
+                  - id: ex_2_block_1
+                    type: Html
+                    layout:
+                      span: 12
+                    style:
+                      background: '#04b0ff'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_1
+                  - id: ex_2_block_2
+                    type: Html
+                    layout:
+                      span: 12
+                    style:
+                      background: '#e57373'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_2
+                  - id: ex_2_block_3
+                    type: Html
+                    layout:
+                      span: 6
+                    style:
+                      background: '#ba68c8'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_3
+                  - id: ex_2_block_4
+                    type: Html
+                    layout:
+                      span: 15
+                    style:
+                      background: '#04bfbf'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_4
+      - id: ex_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                - id: ex_2_box
+                  type: Box
+                  areas:  
+                    content:
+                      blocks:
+                        - id: block_1
+                          type: Html
+                          layout:
+                            span: 12
+                          style:
+                            background: '#04b0ff'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_1
+                        - id: block_2
+                          type: Html
+                          layout:
+                            span: 12
+                          style:
+                            background: '#e57373'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_2
+                        - id: block_3
+                          type: Html
+                          layout:
+                            span: 6
+                          style:
+                            background: '#ba68c8'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_3
+                        - id: block_4
+                          type: Html
+                          layout:
+                            span: 15
+                          style:
+                            background: '#04bfbf'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_4
+                ```
+
+  - id: ex_3_card
+    type: Card
+    blocks:
+      - id: ex_3_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_3_title
+            type: Markdown
+            properties:
+              content: |
+                #### Two Boxes used to create two columns
+          - id: ex_3_box_1
+            type: Box
+            layout:
+              span: 12
+            areas:  
+              content:
+                blocks:
+                  - id: ex_3_block_1
+                    type: Html
+                    style:
+                      background: '#04b0ff'
+                      textAlign: center
+                      color: white
+                      height: 100
+                    properties:
+                      html: block_1
+          - id: ex_3_box_2
+            type: Box
+            layout:
+              span: 12
+            areas:  
+              content:
+                blocks:
+                  - id: ex_3_block_2
+                    type: Html
+                    style:
+                      background: '#e57373'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_2
+                  - id: ex_3_block_3
+                    type: Html
+                    style:
+                      background: '#ba68c8'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_3
+                  - id: ex_3_block_4
+                    type: Html
+                    style:
+                      background: '#04bfbf'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_4
+      - id: ex_3_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_3_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  - id: box_1
+                    type: Box
+                    layout:
+                      span: 12
+                    areas:  
+                      content:
+                        blocks:
+                          - id: block_1
+                            type: Html
+                            style:
+                              background: '#04b0ff'
+                              textAlign: center
+                              color: white
+                              height: 100
+                            properties:
+                              html: block_1
+                  - id: box_2
+                    type: Box
+                    layout:
+                      span: 12
+                    areas:  
+                      content:
+                        blocks:
+                          - id: block_2
+                            type: Html
+                            style:
+                              background: '#e57373'
+                              textAlign: center
+                              color: white
+                            properties:
+                              html: block_2
+                          - id: block_3
+                            type: Html
+                            style:
+                              background: '#ba68c8'
+                              textAlign: center
+                              color: white
+                            properties:
+                              html: block_3
+                          - id: block_4
+                            type: Html
+                            style:
+                              background: '#04bfbf'
+                              textAlign: center
+                              color: white
+                            properties:
+                              html: block_4
+                ```

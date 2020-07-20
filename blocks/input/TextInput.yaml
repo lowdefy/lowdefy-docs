@@ -95,7 +95,7 @@ blocks:
             size: small
             label:
               span: 8
-              extra: Prefix text for the block, priority over IconPrefix.
+              extra: Prefix text for the block, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -127,7 +127,7 @@ blocks:
             size: small
             label:
               span: 8
-              extra: Suffix text for the block, priority over IconSuffix.
+              extra: Suffix text for the block, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:

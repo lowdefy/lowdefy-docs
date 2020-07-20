@@ -74,7 +74,7 @@ areas:
                                   actions:
                                     onClick:
                                       - id: example1_link_to_docs
-                                        type: link()
+                                        type: Link
                                         params:
                                           url: https://docs.lowdefy.com
                                           newWindow: true           

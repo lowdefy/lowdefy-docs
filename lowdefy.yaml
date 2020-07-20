@@ -589,9 +589,10 @@ pages:
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
   - _ref: tutorial/tutorial-inspector.yaml
-  - _ref: start/quick-start.yaml
-  - _ref: start/alpha-starter.yaml
-  - _ref: start/how-it-works.yaml
+  
+  # - _ref: start/quick-start.yaml
+  # - _ref: start/alpha-starter.yaml
+  # - _ref: start/how-it-works.yaml
   - _ref: concepts/blocks.yaml
   - _ref: concepts/connections.yaml
   - _ref: concepts/groups.yaml
@@ -621,6 +622,7 @@ pages:
   - _ref: blocks/input/TextArea.yaml
   - _ref: blocks/input/TextInput.yaml
   - _ref: blocks/input/WeekSelector.yaml
+  
   - _ref: blocks/display/AgGrid.yaml
   - _ref: blocks/display/Alert.yaml
   - _ref: blocks/display/AmCharts4XY.yaml
@@ -642,27 +644,28 @@ pages:
   - _ref: blocks/display/Statistic.yaml
   - _ref: blocks/display/Title.yaml
   - _ref: blocks/display/UserAvatar.yaml
+
   - _ref: blocks/container/Affix.yaml
   - _ref: blocks/container/Badge.yaml
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
-  - _ref: blocks/container/Collapse.yaml
-  - _ref: blocks/container/ConfirmModal.yaml
-  - _ref: blocks/container/Content.yaml
-  - _ref: blocks/container/Drawer.yaml
-  - _ref: blocks/container/Footer.yaml
-  - _ref: blocks/container/Header.yaml
-  - _ref: blocks/container/Layout.yaml
-  - _ref: blocks/container/Modal.yaml
-  - _ref: blocks/container/PageHCF.yaml
-  - _ref: blocks/container/PageHCSF.yaml
-  - _ref: blocks/container/PageHeaderMenu.yaml
-  - _ref: blocks/container/PageHSCF.yaml
-  - _ref: blocks/container/PageSHCF.yaml
-  - _ref: blocks/container/PageSiderMenu.yaml
-  - _ref: blocks/container/Result.yaml
-  - _ref: blocks/container/Sider.yaml
-  - _ref: blocks/container/Tabs.yaml
+  # - _ref: blocks/container/Collapse.yaml
+  # - _ref: blocks/container/ConfirmModal.yaml
+  # - _ref: blocks/container/Content.yaml
+  # - _ref: blocks/container/Drawer.yaml
+  # - _ref: blocks/container/Footer.yaml
+  # - _ref: blocks/container/Header.yaml
+  # - _ref: blocks/container/Layout.yaml
+  # - _ref: blocks/container/Modal.yaml
+  # - _ref: blocks/container/PageHCF.yaml
+  # - _ref: blocks/container/PageHCSF.yaml
+  # - _ref: blocks/container/PageHeaderMenu.yaml
+  # - _ref: blocks/container/PageHSCF.yaml
+  # - _ref: blocks/container/PageSHCF.yaml
+  # - _ref: blocks/container/PageSiderMenu.yaml
+  # - _ref: blocks/container/Result.yaml
+  # - _ref: blocks/container/Sider.yaml
+  # - _ref: blocks/container/Tabs.yaml
 
   - _ref: operators/_and.yaml
   - _ref: operators/_date.yaml
@@ -680,3 +683,4 @@ pages:
   - _ref: operators/_state.yaml
   - _ref: operators/_type.yaml
   - _ref: operators/_user.yaml
+

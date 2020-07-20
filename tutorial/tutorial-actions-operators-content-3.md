@@ -70,6 +70,6 @@ If you select the boardroom, and don't select 8 - 12 attendees, the error messag
 
 
 ##### Step 2
-Change the status property of the validation from `error` to `warning`. Then the  `meeting_room` block will be highlighted in orange when the rule is not met, and the warning will appear before the `validate()` action is called. The action will also not error when the rule is not met, so a user will still be able to submit the data.
+Change the status property of the validation from `error` to `warning`. Then the  `meeting_room` block will be highlighted in orange when the rule is not met, and the warning will appear before the `Validate` action is called. The action will also not error when the rule is not met, so a user will still be able to submit the data.
 
 Your final result should look and work like this:

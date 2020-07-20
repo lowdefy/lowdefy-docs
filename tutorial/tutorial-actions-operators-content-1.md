@@ -33,7 +33,7 @@ pages:
             actions:
               onClick:
                 - id: reset
-                  type: reset()
+                  type: Reset
 ################ ------- Copy to here ----------- ################
           - id: submit_button
             type: Button
@@ -44,7 +44,7 @@ If you add some inputs into the form and click the reset button, those inputs sh
 
 ### What happened
 
-Each block defines a set of actions that it fires when a event happens. The button fires an event called `onClick` when it gets clicked. We can add a list of action definitions that will be executed sequentially when this action is fired. We only added one action, the `reset()` action, that resets the page context to the state it was in when it first loaded.
+Each block defines a set of actions that it fires when a event happens. The button fires an event called `onClick` when it gets clicked. We can add a list of action definitions that will be executed sequentially when this action is fired. We only added one action, the `Reset` action, that resets the page context to the state it was in when it first loaded.
 
 ## Required fields
 
