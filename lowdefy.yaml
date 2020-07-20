@@ -89,6 +89,11 @@ menus:
             pageId: tutorial-actions-operators
             properties:
               title: Interactive pages
+          - id: tutorial-inspector
+            type: MenuLink
+            pageId: tutorial-inspector
+            properties:
+              title: Inspector
       # - id: start
       #   type: MenuGroup
       #   properties:
@@ -578,10 +583,13 @@ pages:
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
   - _ref: tutorial/tutorial-create-page.yaml
+  - _ref: tutorial/tutorial-create-page-config.yaml
   - _ref: tutorial/tutorial-add-blocks.yaml
   - _ref: tutorial/tutorial-add-blocks-config.yaml
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
+  - _ref: tutorial/tutorial-inspector.yaml
+  
   # - _ref: start/quick-start.yaml
   # - _ref: start/alpha-starter.yaml
   # - _ref: start/how-it-works.yaml

@@ -2,6 +2,7 @@
   type: Box
   layout:
     size: 800
+    shrink: 1
   blocks:
     - id: title
       type: Title

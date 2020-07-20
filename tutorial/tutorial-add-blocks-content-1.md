@@ -7,6 +7,8 @@ We would like to add an input form with the following fields:
 
 There should also be submit and reset buttons at the bottom of the page.
 
+##### Step 1
+
 Copy the following blocks and add them in the card's blocks array.
 
 ```yaml
@@ -69,5 +71,7 @@ pages:
 ```
 
 >  If you would like to see how your config should look at this point, you can find it [here](tutorial-add-blocks-config).
+
+##### Step 2
 
 Refresh your page and you should see something like this:
