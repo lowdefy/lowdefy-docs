@@ -41,13 +41,13 @@ blocks:
       label:
         span: 8
         extra: Set label inline with input.
-  - id: block.properties.label.disable
+  - id: block.properties.label.disabled
     type: Switch
     defaultValue: false
     layout:
       _global: settings_input_layout
     properties:
-      title: disable
+      title: disabled
       size: small
       label:
         span: 8

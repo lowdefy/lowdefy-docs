@@ -19,8 +19,8 @@ blocks:
             Small numerical value or status descriptor for UI elements. Badge is used as a container block, describing its content block.
       - id: c1
         type: Box
-        style:
-          --span: 6
+        layout:
+          span: 12
         blocks:
           - id: block_divider
             type: Divider
@@ -31,30 +31,35 @@ blocks:
             blocks:
               - id: block_id
                 type: Badge
+                layout:
+                  _state: block.layout
                 style:
-                  _get:
-                    key: "0"
-                    on:
-                      _mql_aggregate:
-                        pipeline:
-                          - $addFields:
-                              Content:
-                                _parse:
-                                  _state: style_content_input
-                        on:
-                          _parse:
-                            _state: style_block_input
+                  _parse:
+                    _state: style_block_input
                 visible:
                   _state: block.visible
                 required:
                   _state: block.required
                 properties:
                   _state: block.properties
-                blocks:
-                  - id: avatar
-                    type: Avatar
-                    properties:
-                      shape: circle
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        layout:
+                          size: 100 
+                        properties:
+                          html: |
+                            content
           - id: setup_divider
             type: Divider
             properties:
@@ -77,34 +82,24 @@ blocks:
                         value:
                           _dump_yaml:
                             id: block_id
-                            type: Avatar
+                            type: Badge
+                            layout:
+                              _state: block.layout
                             style:
-                              _get:
-                                key: "0"
-                                on:
-                                  _mql_aggregate:
-                                    pipeline:
-                                      - $addFields:
-                                          Content:
-                                            _parse:
-                                              _state: style_content_input
-                                    on:
-                                      _parse:
-                                        _state: style_block_input
+                              _parse:
+                                _state: style_block_input
                             visible:
                               _state: block.visible
                             properties:
                               _state: block.properties
-                            blocks:
-                              - id: avatar
-                                type: Avatar
-                                properties:
-                                  shape: circle
+                            areas:
+                              content:
+                                blocks: []
 
       - id: settings_grid
         type: Box
-        style:
-          --span: 6
+        layout:
+          span: 12
         blocks:
           - id: settings_divider
             type: Divider
@@ -115,175 +110,194 @@ blocks:
             properties:
               defaultActiveKey: properties
               panels:
+                - key: layout
+                  title: 'layout:'
                 - key: style
                   title: 'style:'
                 - key: properties
                   title: 'properties:'
                 - key: visible
                   title: 'visible:'
-                - key: blocks
-                  title: 'blocks:'
-
-            blocks:
+                - key: areas
+                  title: 'areas:'
+            areas:
+              layout:
+                blocks:
+                  _ref: blocks/layout.yaml
               style:
-                - id: style_form
-                  type: Box
-                  style:
-                    Content:
-                      --gap: 0
-                  blocks:
-                    - id: style_block_input
-                      type: TextArea
-                      style:
-                        _global: settings_input_style
-                      defaultValue: "{}"
-                      properties:
-                        title: block
-                        rows: 3
-                        size: small
-                        Label:
-                          extra: CSS Object style properties. Should be in JSON format.
-                    - id: style_content_input
-                      type: TextArea
-                      style:
-                        _global: settings_input_style_indent
-                      defaultValue: "{}"
-                      properties:
-                        title: Content
-                        rows: 3
-                        size: small
-                        Label:
-                          extra: CSS Object style properties. Should be in JSON format.
+                blocks:
+                  _ref: blocks/style.yaml
               visible:
-                - id: block.visible
-                  type: Switch
-                  defaultValue: true
-                  properties:
-                    title: visible
-                    Label:
-                      extra: Toggle if block is visible and has a value in state.
-                      inline: true
-                    size: small
-              
+                blocks:
+                  _ref: blocks/visible.yaml
+              areas:
+                blocks: []
               properties:
-                - id: properties_form
-                  type: Box
-                  style:
-                    Content:
-                      --gap: 0
-                  blocks:
-                    _var: properties_form
-                - id: label_form
-                  type: Box
-                  visible:
-                    _var: label
-                  blocks:
-                    - id: block.properties.color
-                      type: ColorSelector
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: color
-                        size: small
-                        type: twitter
-                        Label:
-                          extra: Customize Badge dot color
-                    - id: block.properties.count
-                      type: TextInput
-                      defaultValue: "10"
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: count
-                        size: small
-                        Label:
-                          extra: Number or string to show in badge if Count blocks are not provided
-                    - id: block.properties.dot
-                      type: Switch
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: dot
-                        size: small
-                        Label:
-                          extra: Whether to display a red dot instead of count
-                    - id: block.properties.offset.0
-                      type: NumberInput
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: offset X
-                        size: small
-                        Label:
-                          extra: Set offset of the badge dot in X axis
-                    - id: block.properties.offset.1
-                      type: NumberInput
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: offset Y
-                        size: small
-                        Label:
-                          extra: Set offset of the badge dot in Y axis
-                    - id: block.properties.overflowCount
-                      type: NumberInput
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: overflowCount
-                        size: small
-                        Label:
-                          extra: Max count to show
-                    - id: block.properties.showZero
-                      type: Switch
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: showZero
-                        size: small
-                        Label:
-                          extra: Whether to show badge when count is zero
-                    - id: block.properties.status
-                      type: ButtonSelector
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: status
-                        size: small
-                        options:
-                          - success
-                          - processing
-                          - default
-                          - error
-                          - warning
-                          - null
-                        Label:
-                          extra: Set Badge as a status dot
-                    - id: block.properties.text
-                      type: Switch
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: text
-                        size: small
-                        Label:
-                          extra: If status is set, text sets the display text of the status dot
-                    - id: block.properties.title
-                      type: TextInput
-                      style:
-                        _global: settings_input_style
-                      properties:
-                        title: title
-                        size: small
-                        Label:
-                          extra: Text to show when hovering over the badge
-                
-            
-  - id: examples_divider
+                blocks:
+                  - id: properties_form
+                    type: Box
+                    blocks:
+                      _var: properties_form
+                  - id: label_form
+                    type: Box
+                    visible:
+                      _var: label
+                    blocks:
+                      - id: block.properties.color
+                        type: ColorSelector
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: color
+                          size: small
+                          type: twitter
+                          label:
+                            span: 8
+                            extra: Customize Badge dot color
+                      - id: block.properties.count
+                        type: TextInput
+                        defaultValue: "10"
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: count
+                          size: small
+                          label:
+                            span: 8
+                            extra: Number or string to show in badge if Count blocks are not provided
+                      - id: block.properties.dot
+                        type: Switch
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: dot
+                          size: small
+                          label:
+                            span: 8
+                            extra: Whether to display a red dot instead of count
+                      - id: block.properties.offset.0
+                        type: NumberInput
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: offset X
+                          size: small
+                          label:
+                            span: 8
+                            extra: Set offset of the badge dot in X axis
+                      - id: block.properties.offset.1
+                        type: NumberInput
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: offset Y
+                          size: small
+                          label:
+                            span: 8
+                            extra: Set offset of the badge dot in Y axis
+                      - id: block.properties.overflowCount
+                        type: NumberInput
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: overflowCount
+                          size: small
+                          label:
+                            span: 8
+                            extra: Max count to show
+                      - id: block.properties.showZero
+                        type: Switch
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: showZero
+                          size: small
+                          label:
+                            span: 8
+                            extra: Whether to show badge when count is zero
+                      - id: block.properties.status
+                        type: ButtonSelector
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: status
+                          size: small
+                          options:
+                            - success
+                            - processing
+                            - default
+                            - error
+                            - warning
+                            - null
+                          label:
+                            span: 8
+                            extra: Set Badge as a status dot
+                      - id: block.properties.text
+                        type: Switch
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: text
+                          size: small
+                          label:
+                            span: 8
+                            extra: If status is set, text sets the display text of the status dot
+                      - id: block.properties.title
+                        type: TextInput
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: title
+                          size: small
+                          label:
+                            span: 8
+                            extra: Text to show when hovering over the badge
+
+  - id: ex_divider
     type: Divider
     properties:
       title: Examples
-  - id: examples_grid
-    type: Box
-    blocks: []
+  - id: ex_1_card
+    type: Card
+    blocks:
+      - id: ex_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                #### Notification Badge for Avatar
+          - id: ex_1_box
+            type: Badge
+            properties:
+              count: 12
+            areas:  
+              content:
+                blocks:
+                  - id: block_1
+                    type: Avatar
+      - id: ex_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                - id: ex_1_box
+                  type: Badge
+                  properties:
+                    count: 12
+                  areas:  
+                    content:
+                      blocks:
+                        - id: block_1
+                          type: Avatar
+                ```
+
       

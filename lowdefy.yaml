@@ -474,21 +474,19 @@ pages:
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
   - _ref: tutorial/tutorial-inspector.yaml
-
-
   # - _ref: start/quick-start.yaml
   # - _ref: start/alpha-starter.yaml
   # - _ref: start/how-it-works.yaml
-  # - _ref: concepts/blocks.yaml
-  # - _ref: concepts/connections.yaml
-  # - _ref: concepts/groups.yaml
-  # - _ref: concepts/layout.yaml
-  # - _ref: concepts/lowdefy-file.yaml
-  # - _ref: concepts/operators.yaml
-  # - _ref: concepts/pages.yaml
-  # - _ref: concepts/references.yaml
-  # - _ref: concepts/requests-mutations.yaml
-  # - _ref: concepts/state.yaml
+  - _ref: concepts/blocks.yaml
+  - _ref: concepts/connections.yaml
+  - _ref: concepts/groups.yaml
+  - _ref: concepts/layout.yaml
+  - _ref: concepts/lowdefy-file.yaml
+  - _ref: concepts/operators.yaml
+  - _ref: concepts/pages.yaml
+  - _ref: concepts/references.yaml
+  - _ref: concepts/requests-mutations.yaml
+  - _ref: concepts/state.yaml
 
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/Checkbox.yaml
@@ -535,23 +533,23 @@ pages:
   - _ref: blocks/container/Badge.yaml
   - _ref: blocks/container/Box.yaml
   - _ref: blocks/container/Card.yaml
-  - _ref: blocks/container/Collapse.yaml
-  - _ref: blocks/container/ConfirmModal.yaml
-  - _ref: blocks/container/Content.yaml
-  - _ref: blocks/container/Drawer.yaml
-  - _ref: blocks/container/Footer.yaml
-  - _ref: blocks/container/Header.yaml
-  - _ref: blocks/container/Layout.yaml
-  - _ref: blocks/container/Modal.yaml
-  - _ref: blocks/container/PageHCF.yaml
-  - _ref: blocks/container/PageHCSF.yaml
-  - _ref: blocks/container/PageHeaderMenu.yaml
-  - _ref: blocks/container/PageHSCF.yaml
-  - _ref: blocks/container/PageSHCF.yaml
-  - _ref: blocks/container/PageSiderMenu.yaml
-  - _ref: blocks/container/Result.yaml
-  - _ref: blocks/container/Sider.yaml
-  - _ref: blocks/container/Tabs.yaml
+  # - _ref: blocks/container/Collapse.yaml
+  # - _ref: blocks/container/ConfirmModal.yaml
+  # - _ref: blocks/container/Content.yaml
+  # - _ref: blocks/container/Drawer.yaml
+  # - _ref: blocks/container/Footer.yaml
+  # - _ref: blocks/container/Header.yaml
+  # - _ref: blocks/container/Layout.yaml
+  # - _ref: blocks/container/Modal.yaml
+  # - _ref: blocks/container/PageHCF.yaml
+  # - _ref: blocks/container/PageHCSF.yaml
+  # - _ref: blocks/container/PageHeaderMenu.yaml
+  # - _ref: blocks/container/PageHSCF.yaml
+  # - _ref: blocks/container/PageSHCF.yaml
+  # - _ref: blocks/container/PageSiderMenu.yaml
+  # - _ref: blocks/container/Result.yaml
+  # - _ref: blocks/container/Sider.yaml
+  # - _ref: blocks/container/Tabs.yaml
 
   - _ref: actions/CallMethod.yaml
   - _ref: actions/Fetch.yaml
