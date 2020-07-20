@@ -84,7 +84,7 @@ blocks:
               defaultValue: '#000000'
               properties:
                 label:
-                  disable: true
+                  disabled: true
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: circle
