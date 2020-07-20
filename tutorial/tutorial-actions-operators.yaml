@@ -51,16 +51,16 @@ areas:
                   _ref: tutorial/tutorial-actions-operators-content-2.md
             - id: example2
               type: PageHeaderMenu
-              style:
-                minHeight: 300px
               properties:
+                style:
+                  minHeight: 300px
                 menu:
                   links: []
               blocks:
                 - id: example2_content_card
                   type: Card
                   layout:
-                    contentGutter: [16, 0]
+                    contentGutter: 16
                   blocks:
                     - id: example2_page_heading
                       type: Title
@@ -143,7 +143,7 @@ areas:
                 - id: example3_content_card
                   type: Card
                   layout:
-                    contentGutter: [16, 0]
+                    contentGutter: 16
                   blocks:
                     - id: example3_page_heading
                       type: Title

@@ -38,16 +38,16 @@ areas:
                   _ref: tutorial/tutorial-add-blocks-content-1.md
             - id: example1
               type: PageHeaderMenu
-              style:
-                minHeight: 300px
               properties:
+                style:
+                  minHeight: 300px
                 menu:
                   links: []
               blocks:
                 - id: example1_content_card
                   type: Card
                   layout:
-                    contentGutter: [16, 0]
+                    contentGutter: 16
                   blocks:
                     - id: example1_page_heading
                       type: Title
