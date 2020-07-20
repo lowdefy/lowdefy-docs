@@ -3,26 +3,29 @@ type: PageSiderMenu
 public: true
 properties:
   title: Interactive pages config
-  Header:
+  header:
     theme: light
-  Sider:
+  sider:
     width: 256px
-  Breadcrumb:
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
     list:
       - Tutorial
       - Interactive pages config
-style:
-  Content:
-    background: '#FFFFFF'
-blocks:
-  _ref: 
-    path: tutorial/template.yaml
-    vars:
-      title: Interactive pages config
-      buttons: false
-      content:
-        - id: md1
-          type: Markdown
-          properties:
-            content:
-              _ref: tutorial/tutorial-actions-operators-config-1.md
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Interactive pages config
+          buttons: false
+          content:
+            - id: md1
+              type: Markdown
+              properties:
+                content:
+                  _ref: tutorial/tutorial-actions-operators-config-1.md

@@ -27,8 +27,8 @@ blocks:
           title: Playground
       - id: box_operator
         type: Box
-        style:
-          --span: 4
+        layout:
+          span: 8
         blocks:
           - id: title_operator
             type: Divider
@@ -39,23 +39,20 @@ blocks:
           #   blocks:
           - id: operator
             type: TextArea
-            style:
-              --span: 11
-              sm:
-                --span: 11
-              Label:
-                --span: 3
+            layout:
+              _global: settings_input_layout
             defaultValue: |
               "2000-01-01"
             properties:
               title: _date
               rows: 3
-              Label:
+              label:
+                span: 6
                 colon: true
       - id: box_setup
         type: Box
-        style:
-          --span: 4
+        layout:
+          span: 8
         blocks:
           - id: title_setup
             type: Divider
@@ -82,8 +79,8 @@ blocks:
                           _state: operator
       - id: box_output
         type: Box
-        style:
-          --span: 4
+        layout:
+          span: 8
         blocks:
           - id: title_output
             type: Divider
@@ -109,8 +106,8 @@ blocks:
                             _state: operator
       # - id: box_state
       #   type: Box
-      #   style:
-      #     --span: 4
+      #   layout:
+      #     span: 8
       #   blocks:
       #     - id: title_state
       #       type: Divider
@@ -147,8 +144,8 @@ blocks:
                 The first date block uses a default value created from the string "2020-01-01" and the second references the current date and time using "now".
           - id: example_1_block_box
             type: Box
-            style:
-              --span: 6
+            layout:
+              span: 12
             blocks:
               - id: date_1
                 type: DateSelector
@@ -156,7 +153,7 @@ blocks:
                   _date: '2020-01-01'
                 properties:
                   title: Date 1
-                  Label:
+                  label:
                     extra: Date string
               - id: date_2
                 type: DateTimeSelector
@@ -164,12 +161,12 @@ blocks:
                   _date: now
                 properties:
                   title: Date 2
-                  Label:
+                  label:
                     extra: Current date and time
           - id: example_1_code_box
             type: Box
-            style:
-              --span: 6
+            layout:
+              span: 12
             blocks:
               - id: example_1_code
                 type: Markdown

@@ -18,13 +18,13 @@ pages:
             # ...
           - id: reset_button
             type: Button
-            style:
-              --span: 3
+            layout:
+              span: 12
             properties:
               title: Reset
               block: true
               type: default
-              Icon: ClearOutlined
+              icon: ClearOutlined
 ################ -------- Copy from here -------- ################
             actions:
               onClick:

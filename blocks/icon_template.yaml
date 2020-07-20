@@ -1,8 +1,8 @@
 id: 
   _var: icon_id
 type: Selector
-style:
-  _global: settings_input_style
+layout:
+  _global: settings_input_layout
 defaultValue: 
   _var: default_icon
 properties:
@@ -13,7 +13,8 @@ properties:
   allowClear: true
   options:
     _global: all_icons
-  Label:
+  label:
+    span: 8
     extra:
       _if:
         test: 

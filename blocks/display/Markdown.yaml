@@ -12,21 +12,22 @@ blocks:
         Render markdown text content. For more details on markdown syntax see: [Markdown cheat sheet](https://guides.github.com/features/mastering-markdown/).
       block_type: Markdown
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -38,22 +39,24 @@ blocks:
             In the animal kingdom, one of the keys to survival is to outwit your enemies. And when you're surrounded by carnivores, one of the best strategies is to fade into the background and disappear. I don't want to be the embarrassment of the galaxy to have had the power to deflect an asteroid, and then not and end up going extinct. We'd be the laughingstock of the aliens of the cosmos if that were the case.
 
             As an educator, I try to get people to be fundamentally curious and to question ideas that they might have or that are shared by others. In that state of mind, they have earned a kind of inoculation against the fuzzy thinking of these weird ideas floating around out there.
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
             rows: 7
-            Label:
+            label:
+              span: 8
               extra: Text content in markdown syntax format.
         - id: block.properties.renderHtml
           type: Switch
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: renderHtml
             size: small
-            Label:
+            label:
+              span: 8
               extra: Setting to true will cause HTML to be rendered. Be aware that setting this might cause security issues if the input is user-generated.
 
       available_actions_description: |
@@ -65,8 +68,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -85,8 +88,8 @@ blocks:
                         ###### h6 Heading
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
@@ -109,8 +112,8 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_title
                   type: Markdown
@@ -132,8 +135,8 @@ blocks:
                       ~~Strikethrough~~
             - id: example_2_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_code
                   type: Markdown
@@ -159,8 +162,8 @@ blocks:
           blocks:
             - id: example_3_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_title
                   type: Markdown
@@ -196,8 +199,8 @@ blocks:
                       1. C-3P0
             - id: example_3_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_code
                   type: Markdown
@@ -237,8 +240,8 @@ blocks:
           blocks:
             - id: example_4_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_4_title
                   type: Markdown
@@ -277,8 +280,8 @@ blocks:
                       ```
             - id: example_4_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_4_code
                   type: Markdown
@@ -321,8 +324,8 @@ blocks:
           blocks:
             - id: example_5_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_5_title
                   type: Markdown
@@ -340,8 +343,8 @@ blocks:
                       ![Lowdefy](https://lowdefy.com/logos/name_250.png "Lowdefy")
             - id: example_5_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_5_code
                   type: Markdown
@@ -363,8 +366,8 @@ blocks:
           blocks:
             - id: example_6_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_6_title
                   type: Markdown
@@ -390,8 +393,8 @@ blocks:
                       | Frodo | Hobbit |
             - id: example_6_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_6_code
                   type: Markdown
@@ -421,8 +424,8 @@ blocks:
           blocks:
             - id: example_7_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_7_title
                   type: Markdown
@@ -438,8 +441,8 @@ blocks:
                       > > > ...or with spaces between arrows.
             - id: example_7_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_7_code
                   type: Markdown
@@ -459,8 +462,8 @@ blocks:
           blocks:
             - id: example_8_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_8_title
                   type: Markdown
@@ -478,8 +481,8 @@ blocks:
 
             - id: example_8_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_8_code
                   type: Markdown
@@ -500,8 +503,8 @@ blocks:
           blocks:
             - id: example_9_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_9_title
                   type: Markdown
@@ -520,8 +523,8 @@ blocks:
 
             - id: example_9_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_9_code
                   type: Markdown

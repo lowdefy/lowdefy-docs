@@ -12,21 +12,22 @@ blocks:
         A Icon component. Render Ant Design and other icons
       block_type: Icon
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -34,66 +35,72 @@ blocks:
         - id: block.properties.disableLoadingIcon
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disableLoadingIcon
             size: small
-            Label:
+            label:
+              span: 8
               extra: While loading after the icon has been clicked, don't render the loading icon.
         - id: block.properties.hideActionLoading
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: hideActionLoading
             size: small
-            Label:
+            label:
+              span: 8
               extra: While loading after the icon has been clicked, don't show the loading message.
         - id: block.properties.name
           type: Selector
           defaultValue: FireOutlined
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: name
             size: small
             showSearch: true
-            Label:
+            label:
+              span: 8
               extra: Name of icon to be displayed.
             options:
               _global: all_icons
         - id: block.properties.rotate
           type: NumberInput
           defaultValue: 0
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: rotate
             size: small
-            Label:
+            label:
+              span: 8
               extra: Number of degrees to rotate the icon.
         - id: block.properties.spin
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: spin
             size: small
-            Label:
+            label:
+              span: 8
               extra: Continuously spin icon with animation.
         - id: block.properties.twoToneColor
           type: ColorSelector
           defaultValue: "#08c"
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: twoToneColor
             size: small
             type: twitter
-            Label:
+            label:
+              span: 8
               extra: Primary two-tone color, only supported with two-tone theme.
 
       available_actions_description: |

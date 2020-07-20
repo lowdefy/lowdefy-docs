@@ -12,21 +12,22 @@ blocks:
         Display multiple read-only fields in groups. Commonly used to display a detailed set of data.
       block_type: Descriptions
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _get:
@@ -38,7 +39,7 @@ blocks:
                     items:
                       $cond:
                         - _eq:
-                            - _state: select_items_type
+                            - _state: items_type
                             - List
                         - _state: items_list
                         - _parse:
@@ -49,44 +50,47 @@ blocks:
       properties_form:
         - id: block.properties.bordered
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          defaultValue: true
+          layout:
+            _global: settings_input_layout
           properties:
             title: bordered
             size: small
-            Label:
+            label:
+              span: 8
               extra: Puts items in a table.
         - id: block.properties.colon
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: colon
             size: small
-            Label:
+            label:
+              span: 8
               extra: Include a colon in item labels.
         - id: block.properties.column
           type: NumberInput
-          defaultValue: 3
-          style:
-            _global: settings_input_style
+          defaultValue: 2
+          layout:
+            _global: settings_input_layout
           properties:
             title: column
             size: small
-            Label:
+            label:
+              span: 8
               extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
         - id: select_items_type_card
           type: Card
           blocks:
-            - id: select_items_type
+            - id: items_type
               type: ButtonSelector
               defaultValue: List
               properties:
                 title: items Type
                 size: small
-                Label:
+                label:
                   extra: items can either be a list of value label pairs, or a object, where the keys are used as labels.
                 options:
                   - List
@@ -94,9 +98,16 @@ blocks:
         - id: items_list
           type: ControlledList
           required: true
+          defaultValue:
+            - label: Field One
+              value: 1
+            - label: Field Two
+              value: 2
+            - label: Field Three
+              value: 3
           visible:
             _mql_test:
-              select_items_type: ControlledList
+              items_type: List
           properties:
             title: 'items:'
             size: small
@@ -104,55 +115,61 @@ blocks:
             - id: items_list.$.label
               type: TextInput
               defaultValue: Label
-              style:
-                --span: 4
+              layout:
+                span: 12
               properties:
                 title: label
                 size: small
-                Label:
+                label:
                   extra: Item label.
-            - id: items_list.$.span
-              type: NumberInput
-              style:
-                --span: 4
-              properties:
-                title: span
-                size: small
-                Label:
-                  extra: Number of columns for this item to span.
             - id: items_list.$.value
               type: TextInput
               defaultValue: Value
-              style:
-                --span: 4
+              layout:
+                span: 12
               properties:
                 title: value
                 size: small
-                Label:
+                label:
                   extra: Value of item.
+            - id: items_list.$.span
+              type: NumberInput
+              properties:
+                title: span
+                size: small
+                label:
+                  inline: true
+                  extra: Number of columns for this item to span.
         - id: items_object
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
-              select_items_type: Object
-          defaultValue: "{}"
+              items_type: Object
+          defaultValue: |
+            { 
+              "field_one": "value one", 
+              "field_two": "value two",
+              "field_three": 3
+            }
           properties:
             title: items
             rows: 5
             size: small
-            Label:
+            label:
+              span: 6
               extra: Data items to display.
         - id: block.properties.layout
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: layout
             size: small
-            Label:
+            label:
+              span: 8
               extra: Put values next to or below their labels.
             options:
               - horizontal
@@ -160,12 +177,13 @@ blocks:
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
+            label:
+              span: 8
               extra: Size of the block.
             options:
               - small
@@ -173,12 +191,13 @@ blocks:
               - default
         - id: block.properties.title
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: The title of the description block, placed at the top.
 
       available_actions_description: |

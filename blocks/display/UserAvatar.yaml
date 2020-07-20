@@ -12,7 +12,7 @@ blocks:
         A block to show the user and avatar when logged in, or a login button if not authenticated.
       block_type: UserAvatar
       label: false
-      kind: display
+      category: display
       style_transform:
         _get:
           key: "0"
@@ -20,48 +20,51 @@ blocks:
             _mql_aggregate:
               pipeline:
                 - $addFields:
-                    Avatar:
+                    avatar:
                       _parse:
                         _state: style_avatar_input
-                    ButtonLogin:
+                    loginButton:
                       _parse:
                         _state: style_button_input
             on:
-                _parse:
-                  _state: style_block_input
+              _parse:
+                _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_avatar_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: Avatar
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_button_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
-            title: ButtonLogin
+            title: loginButton
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -69,18 +72,19 @@ blocks:
         - id: block.properties.disable
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Do not render the user menu.
         - id: block.properties.showName
           type: ButtonSelector
           defaultValue: left
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showName
             size: small
@@ -88,86 +92,92 @@ blocks:
               - left
               - right
               - none
-            Label:
+            label:
+              span: 8
               extra: Where to position the user name.
         - id: block.properties.name
           type: TextInput
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: name
             size: small
-            Label:
+            label:
+              span: 8
               extra: Replace user name text.
         - id: block.properties.theme
           type: ButtonSelector
           defaultValue: light
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: theme
             size: small
             options:
               - light
               - dark
-            Label:
+            label:
+              span: 8
               extra: Color theme, white or dark name text.
         - id: block.properties.loggedIn
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: loggedIn
             size: small
-            Label:
+            label:
+              span: 8
               extra: Toggle render as logged in or not.
-        - id: block.properties.Avatar.shape
+        - id: block.properties.avatar.shape
           type: ButtonSelector
           defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: Avatar.shape
+            title: avatar.shape
             size: small
-            Label:
+            label:
+              span: 8
               extra: Shape of the avatar.
             options:
               - circle
               - square
-        - id: block.properties.Avatar.link
+        - id: block.properties.avatar.link
           type: Anchor
           properties:
-            title: See all fields for properties.Avatar
-            Icon: LinkOutlined
+            title: See all fields for properties.avatar
+            icon: LinkOutlined
           actions:
             onClick: 
               - id: link_Avatar
                 type: link()
                 params:
                   pageId: Avatar
-        - id: block.properties.ButtonLogin.title
+        - id: block.properties.loginButton.title
           type: TextInput
           defaultValue: Login
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: ButtonLogin.title
+            title: loginButton.title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Edit login button title.
-        - id: block.properties.ButtonLogin.link
+        - id: block.properties.loginButton.link
           type: Anchor
           properties:
-            title: See all fields for properties.ButtonLogin
+            title: See all fields for properties.loginButton
             Icon: LinkOutlined
           actions:
             onClick: 
-              - id: link_ButtonLogin
+              - id: link_loginButton
                 type: link()
                 params:
-                  pageId: ButtonLogin
+                  pageId: Button
 
       available_actions_description: |
         ###### onClick when clicking on avatar, onLogin when clicking login button

@@ -86,14 +86,14 @@ blocks:
                   Use _get to access object keys in state.
             - id: example_1_block_box
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: block_1
                   type: TextInput
                   properties:
                     title: Block 1
-                    Label:
+                    label:
                       extra: Use _get to set a placeholder from an object.
                     placeholder:
                       _get:
@@ -104,7 +104,7 @@ blocks:
                   type: RadioSelector
                   properties:
                     title: Block 2
-                    Label:
+                    label:
                       extra: Set any selector type options.
                     options:
                       _get:
@@ -113,8 +113,8 @@ blocks:
                           _state: object
             - id: example_1_code_box
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
@@ -151,8 +151,8 @@ blocks:
                   Use _get to access array indexes in state.
             - id: example_2_block_box
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: block_3
                   type: NumberInput
@@ -163,7 +163,7 @@ blocks:
                         key: '2'
                         from:
                           _state: array_primitive
-                    Label:
+                    label:
                       extra: Use _get to set a defaultValue from an array.
                 - id: block_4
                   type: TextInput
@@ -176,8 +176,8 @@ blocks:
                           _state: array_object
             - id: example_2_code_box
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_code
                   type: Markdown

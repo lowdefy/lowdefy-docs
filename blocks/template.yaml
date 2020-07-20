@@ -14,8 +14,8 @@
           _var: description_content
     - id: c1
       type: Box
-      style:
-        --span: 6
+      layout:
+        span: 12
       blocks:
         - id: block_divider
           type: Divider
@@ -25,6 +25,8 @@
           type: Box
           blocks:
             - id: block_id
+              layout:
+                _state: block.layout
               type:
                 _var: block_type
               style:
@@ -42,21 +44,21 @@
           visible:
             _eq:
               - _var:
-                  kind
+                  category
               - input
         - id: state_markdown
           type: Markdown
           visible:
             _eq:
               - _var:
-                  kind
+                  category
               - input
           properties:
             content:
               _nunjucks:
                 template: |
                   ```yaml
-                    {{ value | safe }}
+                  {{ value | safe }}
                   ```
                 on:
                   value:
@@ -80,6 +82,8 @@
                   value:
                     _dump_yaml:
                       id: block_id
+                      layout:
+                        _state: block.layout
                       type:
                         _var: block_type
                       style:
@@ -90,8 +94,8 @@
                         _var: properties_transform
     - id: settings_grid
       type: Box
-      style:
-        --span: 6
+      layout:
+        span: 12
       blocks:
         - id: settings_divider
           type: Divider
@@ -102,6 +106,8 @@
           properties:
             defaultActiveKey: properties
             panels:
+              - key: layout
+                title: 'layout:'
               - key: style
                 title: 'style:'
               - key: properties
@@ -113,60 +119,61 @@
                 disabled:
                   _not:
                     _eq:
-                      - _var: kind
+                      - _var: category
                       - input
               - key: visible
                 title: 'visible:'
-          blocks:
+          areas:
+            layout:
+              blocks:
+                - id: layout_form
+                  type: Box
+                  blocks:
+                    _ref: blocks/layout.yaml
             style:
-              - id: style_form
-                type: Box
-                style:
-                  Content:
-                    --gap: 0
-                blocks:
-                  _var: style_form
+              blocks:
+                - id: style_form
+                  type: Box
+                  blocks:
+                    _var: style_form
             visible:
-              - id: block.visible
-                type: Switch
-                defaultValue: true
-                properties:
-                  title: visible
-                  Label:
-                    extra: Toggle if block is visible and has a value in state.
-                    inline: true
-                  size: small
+              blocks:
+                - id: block.visible
+                  type: Switch
+                  defaultValue: true
+                  properties:
+                    title: visible
+                    label:
+                      extra: Toggle if block is visible and has a value in state.
+                      span: 8
+                    size: small
             required:
-              - id: block.required
-                type: Switch
-                defaultValue: false
-                properties:
-                  title: required
-                  Label:
-                    extra: Toggle if the field is indicated as compulsory and required when the validate() action is called.
-                    inline: true
-                  size: small
+              blocks:
+                - id: block.required
+                  type: Switch
+                  defaultValue: false
+                  properties:
+                    title: required
+                    label:
+                      extra: Toggle if the field is indicated as compulsory and required when the validate() action is called.
+                      span: 8
+                    size: small
             
             properties:
-              - id: properties_form
-                type: Box
-                style:
-                  Content:
-                    --gap: 0
-                blocks:
-                  _var: properties_form
-              - id: label_form
-                type: Box
-                visible:
-                  _var: label
-                blocks:
-                  _ref: blocks/label.yaml
+              blocks:
+                - id: properties_form
+                  type: Box
+                  layout:
+                    contentGutter: 0
+                  blocks:
+                    _var: properties_form
             actions:
-              - id: available_actions_description
-                type: Markdown
-                properties:
-                  content:
-                    _var: available_actions_description
+              blocks:
+                - id: available_actions_description
+                  type: Markdown
+                  properties:
+                    content:
+                      _var: available_actions_description
           
     - id: examples_divider
       type: Divider

@@ -15,8 +15,8 @@
 
 - id: c1
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: block_divider
       type: Divider
@@ -24,8 +24,6 @@
         title: Block
     - id: block_wrap2
       type: Box
-      style:
-        --span: 12
       blocks:
         - id: block_name_button
           type: Button
@@ -110,7 +108,7 @@
       visible:
         _eq:
           - _var:
-              kind
+              category
           - input
       properties:
         title: State
@@ -121,7 +119,7 @@
       visible:
         _eq:
           - _var:
-              kind
+              category
           - input
       blocks:
         - id: state_markdown
@@ -171,8 +169,8 @@
 
 - id: settings_grid
   type: Box
-  style:
-    --span: 6
+  layout:
+    span: 12
   blocks:
     - id: settings_divider
       type: Divider
@@ -195,70 +193,62 @@
             title: 'methods:'
           - key: visible
             title: 'visible:'
-      blocks:
+      areas:
         style:
-          - id: style_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: style_form
+          blocks:
+            - id: style_form
+              type: Box
+              blocks:
+                _var: style_form
         visible:
-          - id: block.visible
-            type: Switch
-            defaultValue: true
-            properties:
-              title: visible
-              Label:
-                extra: Toggle if block is visible and has a value in state.
-                inline: true
-              size: small
+          blocks:
+            - id: block.visible
+              type: Switch
+              defaultValue: true
+              properties:
+                title: visible
+                label:
+                  extra: Toggle if block is visible and has a value in state.
+                  inline: true
+                size: small
 
         properties:
-          - id: properties_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: properties_form
-          - id: label_form
-            type: Box
-            visible:
-              _var: label
-            blocks:
-              _ref: blocks/label.yaml
+          blocks:
+            - id: properties_form
+              type: Box
+              blocks:
+                _var: properties_form
+            - id: label_form
+              type: Box
+              visible:
+                _var: label
+              blocks:
+                - _ref: blocks/label.yaml
         actions:
-          - id: actions_description
-            type: Markdown
-            properties:
-              content:
-                _var: actions_description
+          blocks:
+            - id: actions_description
+              type: Markdown
+              properties:
+                content:
+                  _var: actions_description
         methods:
-          - id: methods_form
-            type: Box
-            style:
-              Content:
-                --gap: 0
-            blocks:
-              _var: methods_form
+          blocks:
+            - id: methods_form
+              type: Box
+              blocks:
+                _var: methods_form
         blocks:
+          blocks:
           - id: grid_blocks
             type: ControlledList
-            style:
-              Content:
-                --display: flex
             properties:
               hideAddButton: true
               hideRemoveButton: true
             blocks:
               - id: grid_blocks.$.gd
                 type: Box
-                style:
+                layout:
                   flex: 0 0 15ch
-                  Content:
-                    --display: flex
                 blocks:
                   - id: grid_blocks.$.name
                     type: Markdown
@@ -270,22 +260,21 @@
                             _state: grid_blocks.$
                   - id: grid_blocks.$.visible
                     type: Switch
-                    style:
-                      Label:
-                        --inline: true
                     properties:
                       title: visible
                       size: small
+                      label:
+                        inline: true
               - id: grid_blocks.$.style
                 type: TextArea
-                style:
+                layout:
                   flex: auto
-                  Label:
-                    --inline: true
                 properties:
                   title: style
                   size: small
                   rows: 3
+                  label:
+                    inline: true
 
 - id: examples_divider
   type: Divider

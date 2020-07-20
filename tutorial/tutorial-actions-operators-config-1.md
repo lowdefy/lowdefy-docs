@@ -69,26 +69,26 @@ pages:
               title: End time
           - id: reset_button
             type: Button
-            style:
-              --span: 3
+            layout:
+              span: 12
             properties:
               title: Reset
               block: true
               type: default
-              Icon: ClearOutlined
+              icon: ClearOutlined
             actions:
               onClick:
                 - id: reset
                   type: reset()
           - id: submit_button
             type: Button
-            style:
-              --span: 9
+            layout:
+              span: 12
             properties:
               title: Submit
               block: true
               type: primary
-              Icon: SaveOutlined
+              icon: SaveOutlined
             actions:
               onClick:
                 - id: validate

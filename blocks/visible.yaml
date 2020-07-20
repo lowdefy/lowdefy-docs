@@ -1,0 +1,10 @@
+- id: block.visible
+  type: Switch
+  defaultValue: true
+  properties:
+    title: visible
+    label:
+      span: 8
+      extra: Toggle if block is visible and has a value in state.
+      inline: true
+    size: small

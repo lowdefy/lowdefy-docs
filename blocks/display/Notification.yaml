@@ -17,129 +17,85 @@ blocks:
       popup_method: open
       popup_button_title: Open Notification
       label: false
-      kind: display
+      category: display
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Button:
-                      _parse:
-                        _state: style_button_input
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-                    IconClose:
-                      _parse:
-                        _state: style_iconClose_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_button_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Button
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_iconClose_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: IconClose
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.bottom
           type: NumberInput
           defaultValue: 24
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: 'Distance from the bottom of the viewport, when placement is bottomRight or bottomLeft (unit: pixels).'
         - id: block.properties.description
           type: TextArea
           defaultValue: Notification description.
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: description
             size: small
-            Label:
+            label:
+              span: 8
               extra: The content description of notification box.
         - id: block.properties.duration
           type: NumberInput
           defaultValue: 4.5
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: duration
             size: small
-            Label:
+            label:
+              span: 8
               extra: Time in seconds before notification is closed. When set to 0 or null, it will not be closed automatically.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Customized notification icon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconClose
-              icon_field_name: IconClose
+              icon_id: block.properties.closeIcon
+              icon_field_name: closeIcon
               icon_description: Customized close icon.
         - id: block.properties.message
           type: TextInput
           defaultValue: Notification Message
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: message
             size: small
-            Label:
+            label:
+              span: 8
               extra: The title of notification box.
         - id: block.properties.placement
           type: ButtonSelector
           defaultValue: topRight
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placement
             size: small
@@ -148,23 +104,25 @@ blocks:
               - topRight
               - bottomLeft
               - bottomRight
-            Label:
+            label:
+              span: 8
               extra: Position of Notification.
         - id: block.properties.top
           type: NumberInput
           defaultValue: 24
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: top
             size: small
-            Label:
+            label:
+              span: 8
               extra: 'Distance from the top of the viewport, when placement is topRight or topLeft (unit: pixels).'
         - id: block.properties.status
           type: ButtonSelector
           defaultValue: success
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: status
             size: small
@@ -173,7 +131,8 @@ blocks:
               - error
               - info
               - warning
-            Label:
+            label:
+              span: 8
               extra: Notification status type.
 
       actions_description: | 
@@ -252,8 +211,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -297,8 +256,8 @@ blocks:
 
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown

@@ -21,8 +21,8 @@
 
     - id: box_state
       type: Box
-      style:
-        --span: 4
+      layout:
+        span: 8
       blocks:
         - id: title_state
           type: Divider
@@ -48,8 +48,8 @@
                       _state: true
     - id: box_operator
       type: Box
-      style:
-        --span: 4
+      layout:
+        span: 8
       blocks:
         - id: title_operator
           type: Divider
@@ -75,7 +75,7 @@
                   - _var: operator_height
                   - 200
           # type: TextArea
-          # style:
+          # layout:
           #   --span: 11
           #   sm:
           #     --span: 11
@@ -84,7 +84,7 @@
           #     _var: operator_name
           #   autoSize: 
           #     minRows: 6
-          #   Label:
+          #   label:
           #     colon: true
         - id: title_setup
           type: Divider
@@ -120,8 +120,8 @@
                       _var: operator_setup
     - id: box_output
       type: Box
-      style:
-        --span: 4
+      layout:
+        span: 8
       blocks:
         - id: title_output
           type: Divider

@@ -3,320 +3,370 @@ type: PageSiderMenu
 public: true
 properties:
   title: Card
-actions:
-  onInit:
-    - id: initialize_state 
-      type: setState()
-      params:
-        span_subblock_1: 12
-        visible_subblock_1: true
-        span_subblock_2: 12
-        visible_subblock_2: true
-        span_subblock_3: 6
-        visible_subblock_3: true
-        span_subblock_4: 6
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: false
-        span_subblock_6: 8
-        visible_subblock_6: false
 blocks:
-  _ref:
-    path: blocks/grid_template.yaml
-    vars:
-      block_name: Card
-      description_content: |
-        A card container.
-      block_type: Card
-      label: false
-      kind: container
-      style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Content:
-                      _parse:
-                        _state: style_content_input
-                    Header:
-                      _parse:
-                        _state: style_header_input
-                    Body:
-                      _parse:
-                        _state: style_body_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_body_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Body
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_header_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Header
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      properties_form:
-        - id: block.properties.title
-          type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
-          properties:
-            title: title
-            size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
-        - id: block.properties.bordered
-          type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
-          properties:
-            title: bordered
-            size: small
-            Label:
-              extra: Toggles rendering of the border around the card.
-        - id: block.properties.hoverable
-          type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
-          properties:
-            title: hoverable
-            size: small
-            Label:
-              extra: Lift up when hovering card.
-        - id: block.properties.loading
-          type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
-          properties:
-            title: loading
-            size: small
-            Label:
-              extra: Shows a loading indicator while the contents of the card are being fetched.
-        - id: block.properties.inner
-          type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
-          properties:
-            title: inner
-            size: small
-            Label:
-              extra: Change the card style to inner.
-        - id: block.properties.size
-          type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
-          properties:
-            title: size
-            size: small
-            options:
-              - default
-              - small
-            Label:
-              extra: Size of the card.
+  - id: card_display
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Card
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            A Card container places blocks on a white background with a card border.
+            The Box have `content` and `extra` areas.
+      - id: c1
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: block_divider
+            type: Divider
+            properties:
+              title: Block
+          - id: block_grid
+            type: Box
+            blocks:
+              - id: block_id
+                type: Card
+                style:
+                  _parse:
+                    _state: style_block_input
+                layout:
+                  _state: block.layout
+                visible:
+                  _state: block.visible
+                required:
+                  _state: block.required
+                properties:
+                  _state: block.properties
+                areas:
+                  extra:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: extra
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          padding: 2px 5px
+                          color: red
+                        properties:
+                          html: |
+                            extra
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content 
+          - id: setup_divider
+            type: Divider
+            properties:
+              title: Block Setup
+          - id: setup_card
+            type: Card
+            properties: 
+              size: small
+            blocks:
+              - id: setup_markdown
+                type: Markdown
+                properties:
+                  content:
+                    _nunjucks:
+                      template: |
+                        ```yaml
+                        {{ value | safe }}
+                        ```
+                      on:
+                        value:
+                          _dump_yaml:
+                            id: block_id
+                            type: Card
+                            layout:
+                              _state: block.layout
+                            style:
+                              _parse:
+                                _state: style_block_input
+                            visible:
+                              _state: block.visible
+                            properties:
+                              _state: block.properties
+                            areas:
+                              content:
+                                blocks: []
+                              extra:
+                                blocks: []
 
-      examples:
-        - id: example_1_card
-          type: Card
-          blocks:
-            - id: example_1_block_grid
-              type: Box
+      - id: settings_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: settings_divider
+            type: Divider
+            properties:
+              title: Settings
+          - id: block_collapse
+            type: Collapse
+            properties:
+              defaultActiveKey: properties
+              panels:
+                - key: layout
+                  title: 'layout:'
+                - key: style
+                  title: 'style:'
+                - key: properties
+                  title: 'properties:'
+                - key: visible
+                  title: 'visible:'
+                - key: areas
+                  title: 'areas:'
+            areas:
+              layout:
+                blocks:
+                  _ref: blocks/layout.yaml
               style:
-                --span: 6
-              blocks:
-                - id: example_1_title
-                  type: Markdown
-                  properties:
-                    content: |
-                      ##### Card with Extra blocks
-                - id: extra_card
+                blocks:
+                  _ref: blocks/style.yaml
+              visible:
+                blocks:
+                  _ref: blocks/visible.yaml
+              properties:
+                blocks:
+                  - id: block.properties.title
+                    type: TextInput
+                    defaultValue: block_id
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: title
+                      size: small
+                      label:
+                        span: 8
+                        extra: Title to describe the input component, if no title is specified the block id is displayed.
+                  - id: block.properties.bordered
+                    type: Switch
+                    defaultValue: true
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: bordered
+                      size: small
+                      label:
+                        span: 8
+                        extra: Toggles rendering of the border around the card.
+                  - id: block.properties.hoverable
+                    type: Switch
+                    defaultValue: false
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: hoverable
+                      size: small
+                      label:
+                        span: 8
+                        extra: Lift up when hovering card.
+                  - id: block.properties.loading
+                    type: Switch
+                    defaultValue: false
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: loading
+                      size: small
+                      label:
+                        span: 8
+                        extra: Shows a loading indicator while the contents of the card are being fetched.
+                  - id: block.properties.inner
+                    type: Switch
+                    defaultValue: false
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: inner
+                      size: small
+                      label:
+                        span: 8
+                        extra: Change the card style to inner.
+                  - id: block.properties.size
+                    type: ButtonSelector
+                    defaultValue: default
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: size
+                      size: small
+                      options:
+                        - default
+                        - small
+                      label:
+                        span: 8
+                        extra: Size of the card.
+              areas:
+                blocks: []
+
+  - id: ex_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: example_1_card
+    type: Card
+    blocks:
+      - id: example_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Card with Extra blocks
+          - id: extra_card
+            type: Card
+            properties:
+              title: Submit new details
+            areas:
+              content:
+                blocks:
+                  - id: extra_name
+                    type: TextInput
+                    layout:
+                      span: 12
+                    properties:
+                      title: Name
+                      disabled:
+                        _state: extra_not_applicable
+                  - id: extra_surname
+                    type: TextInput
+                    layout:
+                      span: 12
+                    properties:
+                      title: Surname
+                      disabled:
+                        _state: extra_not_applicable
+                  - id: extra_submit_btn
+                    type: Button
+                    properties:
+                      title: Submit 
+                      icon: SaveOutlined
+                      type: primary
+                      block: true
+                      disabled:
+                        _state: extra_not_applicable
+                    actions:
+                      onClick: 
+                        - id: extra_submit_ac
+                          type: SetState
+                          params:
+                            extra_name: null
+                            extra_surname: null 
+                  
+              extra:
+                gutter: [8, 0]
+                align: middle
+                blocks:
+                  - id: disable_fields
+                    type: Html
+                    layout:
+                      shrink: 1
+                    properties:
+                      html: 'N/A:'
+                  - id: extra_not_applicable
+                    type: Switch
+                    defaultValue: false
+                    style:
+                      marginBottom: 0px !important
+                    layout:
+                      shrink: 1
+                    properties:
+                      title: N/A 
+                      size: small
+                      label:
+                        disabled: true
+                  - id: extra_clear
+                    type: Button
+                    layout:
+                      shrink: 1
+                    properties:
+                      title: Clear
+                      icon: ReloadOutlined
+                      type: danger
+                      ghost: true
+                      size: small
+                    actions:
+                      onClick: 
+                        - id: extra_clear_ac
+                          type: SetState
+                          success: Input cleared 🙌
+                          params:
+                            extra_name: null
+                            extra_surname: null
+                  
+                    
+      - id: example_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_code
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  id: extra_card
                   type: Card
                   properties:
                     title: Submit new details
-                  style:
-                    Content:
-                      alignItems: end
-                  blocks:
-                    Content:
-                      - id: extra_name
-                        type: TextInput
-                        style:
-                          --span: 4
-                        properties:
-                          title: Name
-                          disabled:
-                            _state: extra_not_applicable
-                      - id: extra_surname
-                        type: TextInput
-                        style:
-                          --span: 4
-                        properties:
-                          title: Surname
-                          disabled:
-                            _state: extra_not_applicable
-                      - id: extra_submit_btn
-                        type: Button
-                        style:
-                          --span: 4
-                        properties:
-                          title: Submit 
-                          Icon: SaveOutlined
-                          type: primary
-                          block: true
-                          disabled:
-                            _state: extra_not_applicable
-                        actions:
-                          onClick: 
-                            - id: extra_submit_ac
-                              type: setState()
-                              params:
-                                extra_name: null
-                                extra_surname: null 
-                    Extra:
-                      - id: extra_not_applicable
-                        type: Switch
-                        defaultValue: false
-                        style:
-                          Label:
-                            --inline: true
-                        properties:
-                          title: N/A 
-                      - id: extra_clear
-                        type: Button
-                        properties:
-                          title: Clear
-                          Icon: ReloadOutlined
-                          type: danger
-                          ghost: true
-                          size: small
-                        actions:
-                          onClick: 
-                            - id: extra_clear_ac
-                              type: setState()
-                              params:
-                                extra_name: null
-                                extra_surname: null
-                          
-            - id: example_1_code_grid
-              type: Box
-              style:
-                --span: 6
-              blocks:
-                - id: example_1_code
-                  type: Markdown
-                  properties:
-                    content: |
-                      ```yaml
-                        id: extra_card
-                        type: Card
-                        properties:
-                          title: Submit new details
-                        style:
-                          Content:
-                            alignItems: end
-                        blocks:
-                          Content:
-                            - id: extra_name
-                              type: TextInput
-                              style:
-                                --span: 4
-                              properties:
-                                title: Name
-                                disabled:
-                                  _state: extra_not_applicable
-                            - id: extra_surname
-                              type: TextInput
-                              style:
-                                --span: 4
-                              properties:
-                                title: Surname
-                                disabled:
-                                  _state: extra_not_applicable
-                            - id: extra_submit_btn
-                              type: Button
-                              style:
-                                --span: 4
-                              properties:
-                                title: Submit 
-                                Icon: SaveOutlined
-                                type: primary
-                                block: true
-                                disabled:
-                                  _state: extra_not_applicable
-                              actions:
-                                onClick: 
-                                  - id: extra_submit_ac
-                                    type: setState()
-                                    params:
-                                      extra_name: null
-                                      extra_surname: null 
-                          Extra:
-                            - id: extra_not_applicable
-                              type: Switch
-                              defaultValue: false
-                              style:
-                                Label:
-                                  --inline: true
-                              properties:
-                                title: N/A 
-                            - id: extra_clear
-                              type: Button
-                              properties:
-                                title: Clear
-                                Icon: ReloadOutlined
-                                type: danger
-                                ghost: true
-                                size: small
-                              actions:
-                                onClick: 
-                                  - id: extra_clear_ac
-                                    type: setState()
-                                    params:
-                                      extra_name: null
-                                      extra_surname: null
-                      ```
-        
+                  areas:
+                    content:
+                      blocks:
+                        - id: extra_name
+                          type: TextInput
+                          layout:
+                            span: 12
+                          properties:
+                            title: Name
+                            disabled:
+                              _state: extra_not_applicable
+                        - id: extra_surname
+                          type: TextInput
+                          layout:
+                            span: 12
+                          properties:
+                            title: Surname
+                            disabled:
+                              _state: extra_not_applicable
+                        - id: extra_submit_btn
+                          type: Button
+                          properties:
+                            title: Submit 
+                            icon: SaveOutlined
+                            type: primary
+                            block: true
+                            disabled:
+                              _state: extra_not_applicable
+                          actions:
+                            onClick: 
+                              - id: extra_submit_ac
+                                type: SetState
+                                params:
+                                  extra_name: null
+                                  extra_surname: null 
+                ```
+

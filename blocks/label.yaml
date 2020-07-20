@@ -1,48 +1,75 @@
-- id: label_card
-  type: Card
-  style:
-    Content:
-      --gap: 0
-  properties:
-    size: small
-    title: 'Label:'
-  blocks:
-    - id: block.properties.Label.inline
-      type: Switch
-      defaultValue: false
-      style:
-        _global: settings_input_style
-      properties:
-        title: inline
-        size: small
-        Label:
-          extra: Set label inline with input.
-    - id: block.properties.Label.disable
-      type: Switch
-      defaultValue: false
-      style:
-        _global: settings_input_style
-      properties:
-        title: disable
-        size: small
-        Label:
-          extra: Remove label wrapper.
-    - id: block.properties.Label.colon
-      type: Switch
-      defaultValue: true
-      style:
-        _global: settings_input_style
-      properties:
-        title: colon
-        size: small
-        Label:
-          extra: Postfix the label with a colon.
-    - id: block.properties.Label.extra
-      type: TextInput
-      style:
-        _global: settings_input_style
-      properties:
-        title: extra
-        size: small
-        Label:
-          extra: Add additional description tag to the label.
+id: label_card
+type: Card
+layout:
+  contentGutter: 0
+properties:
+  size: small
+  title: 'label:'
+blocks:
+  - id: block.properties.label.span
+    type: NumberInput
+    layout:
+      _global: settings_input_layout
+    properties:
+      title: span
+      size: small
+      label:
+        span: 8
+        extra: Align label left or right when span is applied.
+  - id: block.properties.label.align
+    type: ButtonSelector
+    defaultValue: right
+    layout:
+      _global: settings_input_layout
+    properties:
+      title: align
+      size: small
+      options:
+        - left
+        - right
+      label:
+        span: 8
+        extra: Align label left or right when span is applied.
+  - id: block.properties.label.inline
+    type: Switch
+    defaultValue: false
+    layout:
+      _global: settings_input_layout
+    properties:
+      title: inline
+      size: small
+      label:
+        span: 8
+        extra: Set label inline with input.
+  - id: block.properties.label.disable
+    type: Switch
+    defaultValue: false
+    layout:
+      _global: settings_input_layout
+    properties:
+      title: disable
+      size: small
+      label:
+        span: 8
+        extra: Remove label wrapper.
+  - id: block.properties.label.colon
+    type: Switch
+    defaultValue: true
+    layout:
+      _global: settings_input_layout
+    properties:
+      title: colon
+      size: small
+      label:
+        span: 8
+        extra: Postfix the label with a colon.
+  - id: block.properties.label.extra
+    type: TextInput
+    layout:
+      _global: settings_input_layout
+    properties:
+      title: extra
+      size: small
+      label:
+        span: 8
+        extra: Add additional description tag to the label.

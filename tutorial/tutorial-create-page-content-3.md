@@ -12,7 +12,7 @@ A menu is created by default from all the pages in your app, in the order that t
 
 Copy the following:
 
-```
+```yaml
 ################ -------- Copy from here -------- ################
 menus:
   - id: default

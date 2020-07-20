@@ -22,21 +22,22 @@ blocks:
         A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy with provided links.
       block_type: Breadcrumb
       label: false
-      kind: display
+      category: display
       style_transform:
         _parse:
           _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -44,12 +45,13 @@ blocks:
         - id: block.properties.separator
           type: TextInput
           defaultValue: '/'
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: separator
             size: small
-            Label:
+            label:
+              span: 8
               extra: Use a custom separator string.
         - id: block.properties.list
           type: ControlledList
@@ -60,32 +62,35 @@ blocks:
             - id: block.properties.list.$.label
               type: TextInput
               defaultValue: label
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: label
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: Label of the breadcrumb link.
             - id: block.properties.list.$.pageId
               type: TextInput
               defaultValue: introduction
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: pageId
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: Page id to link to when clicked.
             - id: block.properties.list.$.url
               type: TextInput
               defaultValue: http://lowdefy.com
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: url
                 size: small
-                Label:
+                label:
+                  span: 8
                   extra: External url link.
 
       available_actions_description: |

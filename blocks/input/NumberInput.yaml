@@ -12,56 +12,22 @@ blocks:
         Number input block. The input to this field is saved in `state`, at the path name of the block.
       block_type: NumberInput
       label: true
-      kind: input
+      category: input
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
@@ -69,90 +35,99 @@ blocks:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
+            label:
+              span: 8
               extra: Autofocus to the block on page load.
         - id: block.properties.decimalSeparator
           type: TextInput
           defaultValue: "."
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: decimalSeparator
             size: small
-            Label:
+            label:
+              span: 8
               extra: Decimal separator.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Disables the block if true.
         - id: block.properties.min
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: min
             size: small
-            Label:
+            label:
+              span: 8
               extra: Minimum value allowed by the block.
         - id: block.properties.max
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: max
             size: small
-            Label:
+            label:
+              span: 8
               extra: Maximum value allowed by the block.
         - id: block.properties.placeholder
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
+            label:
+              span: 8
               extra: Placeholder text inside the block to show message before user types input.
         - id: block.properties.precision
           type: NumberInput
           defaultValue: 0
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: precision
             size: small
             max: 100
-            Label:
+            label:
+              span: 8
               extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
+            label:
+              span: 8
               extra: Size of the block.
             options:
               - small
@@ -161,14 +136,16 @@ blocks:
         - id: block.properties.step
           type: NumberInput
           defaultValue: 1
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: step
             size: small
             precision: 2
-            Label:
+            label:
+              span: 8
               extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -181,14 +158,14 @@ blocks:
           blocks:
             - id: example_1
               type: NumberInput
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Number input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -202,8 +179,8 @@ blocks:
           blocks:
             - id: example_2
               type: NumberInput
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue: 3.14
               properties:
                 title: Decimal separator
@@ -212,8 +189,8 @@ blocks:
                 step: 0.01
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
@@ -231,15 +208,15 @@ blocks:
           blocks:
             - id: example_3
               type: NumberInput
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Placeholder
                 placeholder: π
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
                   ```yaml
