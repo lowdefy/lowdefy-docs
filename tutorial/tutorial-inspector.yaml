@@ -23,10 +23,10 @@ areas:
         vars:
           title: Using the inspector
           buttons: true
-          previous_page_title: Interactive Pages
+          previous_page_title: Interactive pages
           previous_page_id: tutorial-actions-operators
-          next_page_title: MongoDB Connection
-          next_page_id: ''
+          next_page_title: MongoDB connection
+          next_page_id: tutorial-connection
           content:
             - id: md1
               type: Markdown

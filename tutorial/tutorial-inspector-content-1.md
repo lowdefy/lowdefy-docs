@@ -1,10 +1,10 @@
 The inspector is visible to users with the `developer` or `owner` roles. It allows you to see variables that are defined throughout the whole app, as well as in specific contexts, and the results of actions, requests, and mutations. This is also where you get access to your CLI token, and you can set an option to set block borders to help with layouts.
 
-You can bring up the inspector by clicking on the blue bar at the bottom of your screen.
+You can open the inspector by clicking on the blue bar at the bottom of your screen.
 
 ## Context 
 
-Lowdefy uses contexts to separate different parts of your app, so they can have their own independent states and requests. Each page has its own context, therefore the first block on any page should be of category context. You can place additional context blocks on the same page. You might want to do this if you have two different forms on the same page, and want to each have their own individual state. You can select the context you want to look at in the inspector using the first drop-down in top left of the inspector.
+Lowdefy uses contexts to separate different parts of your app, so they can have their own independent states and requests. Each page has its own context, therefore the first block on any page should be of category context. You can place additional context blocks on the same page. You might want to do this if you have two different forms on the same page, and you want them to be independent .of each other. You can select the context you want to look at in the inspector using the first drop-down in top left of the inspector.
 
 ## Global objects
 
@@ -23,7 +23,7 @@ You can define variables to be used across the whole app using the global object
 
 ### Config
 
-You can define certain app configuration settings settings, like if the app allows public sign ups, in the config object in the `lowdefy.yaml` file. You can use these settings using the `_config` operator.
+You can define certain app configuration settings, like if the app allows public sign ups, in the config object in the `lowdefy.yaml` file. You can use these settings using the `_config` operator.
 
 ## Context specific objects
 

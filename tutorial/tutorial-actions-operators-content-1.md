@@ -2,7 +2,11 @@
 
 ## Reset button
 
-The reset button should reset all the user's inputs. To do this, we can add a reset action to the reset button. Copy the following into the definition of the reset button:
+The reset button should reset all the user's inputs. To do this, we can add a reset action to the reset button.
+
+##### Step 1
+
+Copy the following into the definition of the reset button:
 
 ```yaml
 pages:
@@ -42,11 +46,13 @@ If you add some inputs into the form and click the reset button, those inputs sh
 
 Each block defines a set of actions that it fires when a event happens. The button fires an event called `onClick` when it gets clicked. We can add a list of action definitions that will be executed sequentially when this action is fired. We only added one action, the `reset()` action, that resets the page context to the state it was in when it first loaded.
 
-
-
 ## Required fields
 
-We should validate the data users are submitting to make sure our app has clean data and works as expected. All of the fields in the form are compulsory, and the user should not be able to submit if they are not completed. To make the fields required, add a required property to all the input blocks like this:
+We should validate the data users are submitting to make sure our app has clean data and works as expected. All of the fields in the form are compulsory, and the user should not be able to submit if they are not completed.
+
+##### Step 1
+
+To make the fields required, add a required property to all the input blocks like this:
 
 ```yaml
 - id: meeting_name
