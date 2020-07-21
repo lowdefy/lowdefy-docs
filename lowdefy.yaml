@@ -395,9 +395,15 @@ menus:
           - id: Logout
             type: MenuLink
             pageId: Logout
+          - id: Mutate
+            type: MenuLink
+            pageId: Mutate
           - id: Reset
             type: MenuLink
             pageId: Reset
+          - id: ScrollTo
+            type: MenuLink
+            pageId: ScrollTo
           - id: SetGlobal
             type: MenuLink
             pageId: SetGlobal
@@ -557,7 +563,9 @@ pages:
   - _ref: actions/Link.yaml
   - _ref: actions/Login.yaml
   - _ref: actions/Logout.yaml
+  - _ref: actions/Mutate.yaml
   - _ref: actions/Reset.yaml
+  - _ref: actions/ScrollTo.yaml
   - _ref: actions/SetGlobal.yaml
   - _ref: actions/SetState.yaml
   - _ref: actions/Validate.yaml
