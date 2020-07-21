@@ -1,8 +1,8 @@
-id: tutorial-actions-operators-config
+id: tutorial-create-page-config
 type: PageSiderMenu
 public: true
 properties:
-  title: Interactive pages config
+  title: Creating a page config
   header:
     theme: light
   sider:
@@ -13,7 +13,7 @@ properties:
   breadcrumb:
     list:
       - Tutorial
-      - Interactive pages config
+      - Creating a page config
 areas:
   content:
     justify: center
@@ -21,7 +21,7 @@ areas:
       _ref: 
         path: tutorial/template.yaml
         vars:
-          title: Interactive pages config
+          title: Creating a page config
           buttons: false
           content:
             - id: md1
@@ -31,4 +31,4 @@ areas:
                   fontSize: 14px
               properties:
                 content:
-                  _ref: tutorial/tutorial-actions-operators-config-1.md
+                  _ref: tutorial/tutorial-create-page-config-1.md

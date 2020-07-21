@@ -30,16 +30,19 @@ pages:
   - id: booking
     type: PageHeaderMenu
     properties:
-      title: Book Meeting
+      title: Book meeting
+    layout:
+      contentJustify: center
     blocks:
       - id: content_card
         type: Card
+        layout:
+          contentJustify: center # Center the contents of the page
         blocks:
-          - id: page_heading
-            type: Title
-            properties:
-              content: Book a meeting room
-              level: 3
+          - id: content_card
+            type: Card
+            layout:
+              size: 800 # Set the size of the card so it does not fill the full screen
           - id: meeting_name
             type: TextInput
             properties:

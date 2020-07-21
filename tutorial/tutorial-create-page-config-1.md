@@ -1,10 +1,21 @@
-
-Let's create a page for a form where users can book a meeting room.
-
-##### Step 1
-Copy the definition of the `booking` page below into your `lowdefy.yaml` file and save file so the CLI uploads it.
+### `lowdefy.yaml`
 
 ```yaml
+menus:
+  - id: default
+    links:
+      - id: welcome
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Home
+        pageId: welcome
+      - id: booking
+        type: MenuLink
+        properties:
+          icon: CalendarOutlined
+          title: Book a meeting
+        pageId: booking
 pages:
   - id: welcome
     type: PageHeaderMenu
@@ -16,23 +27,21 @@ pages:
             type: Title
             properties:
               content: Hello World
-################ -------- Copy from here -------- ################
   - id: booking
     type: PageHeaderMenu
     properties:
       title: Book meeting
     layout:
-      contentJustify: center # Center the contents of the page
+      contentJustify: center
     blocks:
       - id: content_card
         type: Card
         layout:
-          size: 800 # Set the size of the card so it does not fill the full screen
+          size: 800
         blocks:
           - id: page_heading
             type: Title
             properties:
               content: Book a meeting room # Change the title on the page
               level: 3 # Make the title a little smaller (an html `<h3>`).
-################ ------- Copy to here ----------- ################
 ```

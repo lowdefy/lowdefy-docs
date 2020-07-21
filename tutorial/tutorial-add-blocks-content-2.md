@@ -11,7 +11,7 @@ Lowdefy apps are made from blocks. These blocks can be the page layout with head
 
 The first block on a page needs to be a context block. For now, it is enough to understand that this context allows the Lowdefy magic to happen.
 
-All blocks need to have an id that identifies the block. This id should be unique in the context that block's context.
+All blocks need to have an id that identifies the block. This id should be unique in that block's context.
 
 
 ### Up next

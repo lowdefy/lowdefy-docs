@@ -1,8 +1,8 @@
-id: tutorial-actions-operators-config
+id: tutorial-inspector
 type: PageSiderMenu
 public: true
 properties:
-  title: Interactive pages config
+  title: Using the inspector
   header:
     theme: light
   sider:
@@ -13,7 +13,7 @@ properties:
   breadcrumb:
     list:
       - Tutorial
-      - Interactive pages config
+      - Using the inspector
 areas:
   content:
     justify: center
@@ -21,8 +21,12 @@ areas:
       _ref: 
         path: tutorial/template.yaml
         vars:
-          title: Interactive pages config
-          buttons: false
+          title: Using the inspector
+          buttons: true
+          previous_page_title: Interactive pages
+          previous_page_id: tutorial-actions-operators
+          next_page_title: MongoDB connection
+          next_page_id: tutorial-connection
           content:
             - id: md1
               type: Markdown
@@ -31,4 +35,4 @@ areas:
                   fontSize: 14px
               properties:
                 content:
-                  _ref: tutorial/tutorial-actions-operators-config-1.md
+                  _ref: tutorial/tutorial-inspector-content-1.md
