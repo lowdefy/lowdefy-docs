@@ -38,7 +38,7 @@ areas:
             A reset button:
 
             ```
-            - id: resetButton
+            - id: reset_button
               type: Button
               properties:
                 title: Reset

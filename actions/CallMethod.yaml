@@ -36,19 +36,19 @@ areas:
 
             Open a modal:
             ```
-            - id: toggleModal
+            - id: toggle_modal
               type: CallMethod
               params:
-                blockId: myModal
+                blockId: my_modal
                 method: toggleOpen
             ```
 
             Display a message with args:
             ```
-            - id: displayMessage
+            - id: display_message
               type: CallMethod
               params:
-                blockId: myMessage
+                blockId: my_message
                 method: open
                 args:
                   content: Hello

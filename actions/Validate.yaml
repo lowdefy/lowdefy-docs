@@ -31,6 +31,9 @@ areas:
             
             The first time a `Validate` action is called, validation error are shown to the user. The `Reset` action resets this.
 
+            Validate only validates the input blocks that are inside the context it is called from. Therefore, if you use two contexts
+            to separate two forms, only the one form will be validated.
+
             ### Parameters
             - `blockId`: _String_ - Only validate a specific block. If this fails, other validation errors will still be visible to the user.
 
@@ -45,8 +48,8 @@ areas:
             
             Validate a single input:
             ```
-            - id: validateOne
+            - id: validate_one
               type: Validate
               params:
-                blockId: myTextInput
+                blockId: my_text_input
             ```

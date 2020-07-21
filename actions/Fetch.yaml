@@ -42,7 +42,7 @@ areas:
             Fetch all requests by specifying no params:
 
             ```
-            - id: fetchAll
+            - id: fetch_all
               type: Fetch
             ```
 
@@ -50,14 +50,14 @@ areas:
 
             > Do we still want to do this?
             ```
-            - id: fetchAll
+            - id: fetch_all
               type: Fetch
               params: true
             ```
             
             Fetch a single request:
             ```
-            - id: fetchOneRequest
+            - id: fetch_one_request
               type: Fetch
-              params: myRequestId
+              params: my_request_id
             ```
