@@ -182,93 +182,57 @@ menus:
           - id: AutoComplete
             type: MenuLink
             pageId: AutoComplete
-            properties:
-              title: AutoComplete
           - id: Checkbox
             type: MenuLink
             pageId: Checkbox
-            properties:
-              title: Checkbox
           - id: CodeEditor
             type: MenuLink
             pageId: CodeEditor
-            properties:
-              title: CodeEditor
           - id: ColorSelector
             type: MenuLink
             pageId: ColorSelector
-            properties:
-              title: ColorSelector
           - id: DateSelector
             type: MenuLink
             pageId: DateSelector
-            properties:
-              title: DateSelector
           - id: DateRangeSelector
             type: MenuLink
             pageId: DateRangeSelector
-            properties:
-              title: DateRangeSelector
           - id: DateTimeSelector
             type: MenuLink
             pageId: DateTimeSelector
-            properties:
-              title: DateTimeSelector
           - id: MonthSelector
             type: MenuLink
             pageId: MonthSelector
-            properties:
-              title: MonthSelector
           - id: MultipleSelector
             type: MenuLink
             pageId: MultipleSelector
-            properties:
-              title: MultipleSelector
           - id: NumberInput
             type: MenuLink
             pageId: NumberInput
-            properties:
-              title: NumberInput
           - id: RadioSelector
             type: MenuLink
             pageId: RadioSelector
-            properties:
-              title: RadioSelector
           - id: ButtonSelector
             type: MenuLink
             pageId: ButtonSelector
-            properties:
-              title: ButtonSelector
           - id: Selector
             type: MenuLink
             pageId: Selector
-            properties:
-              title: Selector
           - id: RatingSlider
             type: MenuLink
             pageId: RatingSlider
-            properties:
-              title: RatingSlider
           - id: Switch
             type: MenuLink
             pageId: Switch
-            properties:
-              title: Switch
           - id: TextArea
             type: MenuLink
             pageId: TextArea
-            properties:
-              title: TextArea
           - id: TextInput
             type: MenuLink
             pageId: TextInput
-            properties:
-              title: TextInput
           - id: WeekSelector
             type: MenuLink
             pageId: WeekSelector
-            properties:
-              title: WeekSelector
       - id: blocks_display
         type: MenuGroup
         properties:
@@ -278,108 +242,66 @@ menus:
           - id: AgGrid
             type: MenuLink
             pageId: AgGrid
-            properties:
-              title: AgGrid
           - id: Alert
             type: MenuLink
             pageId: Alert
-            properties:
-              title: Alert
           - id: AmCharts4XY
             type: MenuLink
             pageId: AmCharts4XY
-            properties:
-              title: AmCharts4XY
           - id: Anchor
             type: MenuLink
             pageId: Anchor
-            properties:
-              title: Anchor
           - id: Avatar
             type: MenuLink
             pageId: Avatar
-            properties:
-              title: Avatar
           - id: Breadcrumb
             type: MenuLink
             pageId: Breadcrumb
-            properties:
-              title: Breadcrumb
           - id: Button
             type: MenuLink
             pageId: Button
-            properties:
-              title: Button
           - id: Descriptions
             type: MenuLink
             pageId: Descriptions
-            properties:
-              title: Descriptions
           - id: Divider
             type: MenuLink
             pageId: Divider
-            properties:
-              title: Divider
           - id: Html
             type: MenuLink
             pageId: Html
-            properties:
-              title: Html
           - id: Icon
             type: MenuLink
             pageId: Icon
-            properties:
-              title: Icon
           - id: Markdown
             type: MenuLink
             pageId: Markdown
-            properties:
-              title: Markdown
           - id: Menu
             type: MenuLink
             pageId: Menu
-            properties:
-              title: Menu
           - id: Message
             type: MenuLink
             pageId: Message
-            properties:
-              title: Message
           - id: Notification
             type: MenuLink
             pageId: Notification
-            properties:
-              title: Notification
           - id: Paragraph
             type: MenuLink
             pageId: Paragraph
-            properties:
-              title: Paragraph
           - id: Progress
             type: MenuLink
             pageId: Progress
-            properties:
-              title: Progress
           - id: Skeleton
             type: MenuLink
             pageId: Skeleton
-            properties:
-              title: Skeleton
           - id: Statistic
             type: MenuLink
             pageId: Statistic
-            properties:
-              title: Statistic
           - id: Title
             type: MenuLink
             pageId: Title
-            properties:
-              title: Title
           - id: UserAvatar
             type: MenuLink
             pageId: UserAvatar
-            properties:
-              title: UserAvatar
       - id: blocks_container
         type: MenuGroup
         properties:
@@ -389,108 +311,109 @@ menus:
           - id: Affix
             type: MenuLink
             pageId: Affix
-            properties:
-              title: Affix
           - id: Badge
             type: MenuLink
             pageId: Badge
-            properties:
-              title: Badge
           - id: Box
             type: MenuLink
             pageId: Box
-            properties:
-              title: Box
           - id: Card
             type: MenuLink
             pageId: Card
-            properties:
-              title: Card
           - id: Collapse
             type: MenuLink
             pageId: Collapse
-            properties:
-              title: Collapse
           - id: ConfirmModal
             type: MenuLink
             pageId: ConfirmModal
-            properties:
-              title: ConfirmModal
           - id: Content
             type: MenuLink
             pageId: Content
-            properties:
-              title: Content
           - id: Drawer
             type: MenuLink
             pageId: Drawer
-            properties:
-              title: Drawer
           - id: Footer
             type: MenuLink
             pageId: Footer
-            properties:
-              title: Footer
           - id: Header
             type: MenuLink
             pageId: Header
-            properties:
-              title: Header
           - id: Layout
             type: MenuLink
             pageId: Layout
-            properties:
-              title: Layout
           - id: Modal
             type: MenuLink
             pageId: Modal
-            properties:
-              title: Modal
           - id: PageHCF
             type: MenuLink
             pageId: PageHCF
-            properties:
-              title: PageHCF
           - id: PageHCSF
             type: MenuLink
             pageId: PageHCSF
-            properties:
-              title: PageHCSF
           - id: PageHeaderMenu
             type: MenuLink
             pageId: PageHeaderMenu
-            properties:
-              title: PageHeaderMenu
           - id: PageHSCF
             type: MenuLink
             pageId: PageHSCF
-            properties:
-              title: PageHSCF
           - id: PageSHCF
             type: MenuLink
             pageId: PageSHCF
-            properties:
-              title: PageSHCF
           - id: PageSiderMenu
             type: MenuLink
             pageId: PageSiderMenu
-            properties:
-              title: PageSiderMenu
           - id: Result
             type: MenuLink
             pageId: Result
-            properties:
-              title: Result
           - id: Sider
             type: MenuLink
             pageId: Sider
-            properties:
-              title: Sider
           - id: Tabs
             type: MenuLink
             pageId: Tabs
+
+      - id: actions
+        type: MenuGroup
+        properties:
+          title: Actions
+          icon: ThunderboltOutlined
+        links:
+          - id: CallMethod
+            type: MenuLink
+            pageId: CallMethod
+          - id: Fetch
+            type: MenuLink
+            pageId: Fetch
+          - id: Link
+            type: MenuLink
+            pageId: Link
+          - id: Login
+            type: MenuLink
+            pageId: LoginAction # pageId can't be Login since this redirects to login page
             properties:
-              title: Tabs
+              title: Login
+          - id: Logout
+            type: MenuLink
+            pageId: Logout
+          - id: Mutate
+            type: MenuLink
+            pageId: Mutate
+          - id: Reset
+            type: MenuLink
+            pageId: Reset
+          - id: ScrollTo
+            type: MenuLink
+            pageId: ScrollTo
+          - id: SetGlobal
+            type: MenuLink
+            pageId: SetGlobal
+          - id: SetState
+            type: MenuLink
+            pageId: SetState
+          - id: Validate
+            type: MenuLink
+            pageId: Validate
+
       - id: operators
         type: MenuGroup
         properties:
@@ -500,83 +423,51 @@ menus:
           - id: _and
             type: MenuLink
             pageId: _and
-            properties:
-              title: _and
           # - id: _date
           #   type: MenuLink
           #   pageId: _date
-          #   properties:
-          #     title: Date
           - id: _eq
             type: MenuLink
             pageId: _eq
-            properties:
-              title: _eq
           - id: _get
             type: MenuLink
             pageId: _get
-            properties:
-              title: _get
           - id: _if
             type: MenuLink
             pageId: _if
-            properties:
-              title: _if
           - id: _mql_aggregate
             type: MenuLink
             pageId: _mql_aggregate
-            properties:
-              title: _mql_aggregate
           - id: _mql_expr
             type: MenuLink
             pageId: _mql_expr
-            properties:
-              title: _mql_expr
           - id: _mql_test
             type: MenuLink
             pageId: _mql_test
-            properties:
-              title: _mql_test
           - id: _not
             type: MenuLink
             pageId: _not
-            properties:
-              title: _not
           - id: _nunjucks
             type: MenuLink
             pageId: _nunjucks
-            properties:
-              title: _nunjucks
           - id: _or
             type: MenuLink
             pageId: _or
-            properties:
-              title: _or
           - id: _regex
             type: MenuLink
             pageId: _regex
-            properties:
-              title: _regex
           - id: _request
             type: MenuLink
             pageId: _request
-            properties:
-              title: _request
           - id: _state
             type: MenuLink
             pageId: _state
-            properties:
-              title: _state
           - id: _type
             type: MenuLink
             pageId: _type
-            properties:
-              title: _type
           - id: _user
             type: MenuLink
             pageId: _user
-            properties:
-              title: _user
 
 pages:
   - _ref: start/introduction.yaml
@@ -622,7 +513,7 @@ pages:
   - _ref: blocks/input/TextArea.yaml
   - _ref: blocks/input/TextInput.yaml
   - _ref: blocks/input/WeekSelector.yaml
-  
+
   - _ref: blocks/display/AgGrid.yaml
   - _ref: blocks/display/Alert.yaml
   - _ref: blocks/display/AmCharts4XY.yaml
@@ -667,6 +558,18 @@ pages:
   # - _ref: blocks/container/Sider.yaml
   # - _ref: blocks/container/Tabs.yaml
 
+  - _ref: actions/CallMethod.yaml
+  - _ref: actions/Fetch.yaml
+  - _ref: actions/Link.yaml
+  - _ref: actions/Login.yaml
+  - _ref: actions/Logout.yaml
+  - _ref: actions/Mutate.yaml
+  - _ref: actions/Reset.yaml
+  - _ref: actions/ScrollTo.yaml
+  - _ref: actions/SetGlobal.yaml
+  - _ref: actions/SetState.yaml
+  - _ref: actions/Validate.yaml
+
   - _ref: operators/_and.yaml
   - _ref: operators/_date.yaml
   - _ref: operators/_eq.yaml
@@ -683,4 +586,3 @@ pages:
   - _ref: operators/_state.yaml
   - _ref: operators/_type.yaml
   - _ref: operators/_user.yaml
-
