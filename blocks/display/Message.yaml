@@ -18,22 +18,6 @@ blocks:
       popup_button_title: Open Message
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.content
           type: TextArea
@@ -44,8 +28,10 @@ blocks:
             title: content
             size: small
             label:
-              span: 8
-              extra: 'The content of the message.'
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: 'The content of the message.'
         - id: block.properties.duration
           type: NumberInput
           defaultValue: 4.5
@@ -55,8 +41,10 @@ blocks:
             title: duration
             size: small
             label:
-              span: 8
-              extra: Time in seconds before message disappears. When set to 0 or null, it will never be dismissed automatically.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Time in seconds before message disappears. When set to 0 or null, it will never be dismissed automatically.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -78,8 +66,10 @@ blocks:
               - warning
               - loading
             label:
-              span: 8
-              extra: Message status type.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Message status type.
       actions_description: | 
         #### onClose
         Trigger when message closed.

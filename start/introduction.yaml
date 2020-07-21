@@ -18,6 +18,7 @@ areas:
         type: Box
         layout:
           size: 800
+          contentGutter: 16
         blocks:
           - id: title
             type: Title

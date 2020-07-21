@@ -43,9 +43,9 @@ areas:
               blocks:
                 - id: example1_page
                   type: PageHeaderMenu
-                  style:
-                    minHeight: 300px
                   properties:
+                    style:
+                      minHeight: 300px
                     menu:
                       links: []
                   blocks:
@@ -88,13 +88,9 @@ areas:
                                   Made by a Lowdefy 🤖
                 - id: example1__INSPECTOR
                   type: Context
-                  layout:
-                    contentGutter: 0
                   blocks:
                     - id: example1__INSPECTOR_BAR
                       type: Affix
-                      layout:
-                        contentGutter: 0
                       style:
                         zIndex: 10000
                       properties:
@@ -103,7 +99,7 @@ areas:
                         - id: example1__INSPECTOR_footer
                           type: Box
                           layout:
-                            contentGutter: [8, 0]
+                            contentGutter: 8
                           style:
                             backgroundColor: '#1890ff'
                             width: '100%'
@@ -115,27 +111,27 @@ areas:
                               type: Anchor
                               layout:
                                 size: auto
-                              style:
-                                color: '#fff !important'
                               properties:
+                                style:
+                                  color: '#fff'
                                 icon: BranchesOutlined
                                 title: Branch
                             - id: example1_link_page
                               type: Anchor
                               layout:
                                 size: auto
-                              style:
-                                color: '#fff !important'
                               properties:
+                                style:
+                                  color: '#fff'
                                 icon: FileOutlined
                                 title: Page
                             - id: example1_link_user
                               type: Anchor
                               layout:
                                 size: auto
-                              style:
-                                color: '#fff !important'
                               properties:
+                                style:
+                                  color: '#fff'
                                 icon: UserOutlined
                                 title: User
     

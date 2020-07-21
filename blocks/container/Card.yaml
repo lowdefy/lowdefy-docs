@@ -157,8 +157,10 @@ blocks:
                       title: title
                       size: small
                       label:
-                        span: 8
-                        extra: Title to describe the input component, if no title is specified the block id is displayed.
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Title to describe the input component, if no title is specified the block id is displayed.
                   - id: block.properties.bordered
                     type: Switch
                     defaultValue: true
@@ -168,8 +170,10 @@ blocks:
                       title: bordered
                       size: small
                       label:
-                        span: 8
-                        extra: Toggles rendering of the border around the card.
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Toggles rendering of the border around the card.
                   - id: block.properties.hoverable
                     type: Switch
                     defaultValue: false
@@ -179,8 +183,10 @@ blocks:
                       title: hoverable
                       size: small
                       label:
-                        span: 8
-                        extra: Lift up when hovering card.
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Lift up when hovering card.
                   - id: block.properties.loading
                     type: Switch
                     defaultValue: false
@@ -190,8 +196,10 @@ blocks:
                       title: loading
                       size: small
                       label:
-                        span: 8
-                        extra: Shows a loading indicator while the contents of the card are being fetched.
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Shows a loading indicator while the contents of the card are being fetched.
                   - id: block.properties.inner
                     type: Switch
                     defaultValue: false
@@ -201,8 +209,10 @@ blocks:
                       title: inner
                       size: small
                       label:
-                        span: 8
-                        extra: Change the card style to inner.
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Change the card style to inner.
                   - id: block.properties.size
                     type: ButtonSelector
                     defaultValue: default
@@ -215,8 +225,10 @@ blocks:
                         - default
                         - small
                       label:
-                        span: 8
-                        extra: Size of the card.
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Size of the card.
               areas:
                 blocks: []
 
@@ -243,6 +255,7 @@ blocks:
               title: Submit new details
             areas:
               content:
+                gutter: 16
                 blocks:
                   - id: extra_name
                     type: TextInput
@@ -276,7 +289,6 @@ blocks:
                           params:
                             extra_name: null
                             extra_surname: null 
-                  
               extra:
                 gutter: [8, 0]
                 align: middle
@@ -335,6 +347,7 @@ blocks:
                     title: Submit new details
                   areas:
                     content:
+                      gutter: 16
                       blocks:
                         - id: extra_name
                           type: TextInput
@@ -368,5 +381,45 @@ blocks:
                                 params:
                                   extra_name: null
                                   extra_surname: null 
+                  extra:
+                    gutter: [8, 0]
+                    align: middle
+                    blocks:
+                      - id: disable_fields
+                        type: Html
+                        layout:
+                          shrink: 1
+                        properties:
+                          html: 'N/A:'
+                      - id: extra_not_applicable
+                        type: Switch
+                        defaultValue: false
+                        style:
+                          marginBottom: 0px !important
+                        layout:
+                          shrink: 1
+                        properties:
+                          title: N/A 
+                          size: small
+                          label:
+                            disabled: true
+                      - id: extra_clear
+                        type: Button
+                        layout:
+                          shrink: 1
+                        properties:
+                          title: Clear
+                          icon: ReloadOutlined
+                          type: danger
+                          ghost: true
+                          size: small
+                        actions:
+                          onClick: 
+                            - id: extra_clear_ac
+                              type: SetState
+                              success: Input cleared 🙌
+                              params:
+                                extra_name: null
+                                extra_surname: null
                 ```
 

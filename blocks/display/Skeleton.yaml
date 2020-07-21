@@ -14,22 +14,6 @@ blocks:
       block_type: Skeleton
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _get:
           key: "0"
@@ -79,8 +63,10 @@ blocks:
             title: active
             size: small
             label:
-              span: 8
-              extra: Show animation effect.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show animation effect.
         - id: skeleton_avatar_type_card
           type: Card
           blocks:
@@ -107,8 +93,10 @@ blocks:
             title: avatar
             size: small
             label:
-              span: 8
-              extra: Show avatar placeholder.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show avatar placeholder.
         - id: block.properties.avatar.shape
           type: ButtonSelector
           layout:
@@ -121,8 +109,10 @@ blocks:
             title: avatar.shape
             size: small
             label:
-              span: 8
-              extra: The shape of the avatar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The shape of the avatar.
             options:
               - circle
               - square
@@ -138,8 +128,10 @@ blocks:
             title: avatar.size
             size: small
             label:
-              span: 8
-              extra: The size of the avatar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The size of the avatar.
             options:
               - small
               - default
@@ -171,8 +163,10 @@ blocks:
             title: button
             size: small
             label:
-              span: 8
-              extra: Show button placeholder.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show button placeholder.
         - id: block.properties.button.shape
           type: ButtonSelector
           layout:
@@ -185,8 +179,10 @@ blocks:
             title: button.shape
             size: small
             label:
-              span: 8
-              extra: The shape of the button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The shape of the button.
             options:
               - circle
               - round
@@ -203,8 +199,10 @@ blocks:
             title: button.size
             size: small
             label:
-              span: 8
-              extra: The size of the button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The size of the button.
             options:
               - small
               - default
@@ -236,8 +234,10 @@ blocks:
             title: paragraph
             size: small
             label:
-              span: 8
-              extra: Show paragraph placeholder.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show paragraph placeholder.
         - id: block.properties.paragraph.rows
           type: NumberInput
           layout:
@@ -250,8 +250,10 @@ blocks:
             title: paragraph.rows
             size: small
             label:
-              span: 8
-              extra: The number of rows in the skeleton paragraph.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The number of rows in the skeleton paragraph.
         - id: block.properties.paragraph.width
           type: NumberInput
           layout:
@@ -264,8 +266,10 @@ blocks:
             title: paragraph.width
             size: small
             label:
-              span: 8
-              extra: Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width. Can be numbers or strings.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width. Can be numbers or strings.
         - id: skeleton_title_type_card
           type: Card
           blocks:
@@ -292,8 +296,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Show title placeholder.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show title placeholder.
         - id: block.properties.title.width
           type: NumberInput
           layout:
@@ -306,8 +312,10 @@ blocks:
             title: title.width
             size: small
             label:
-              span: 8
-              extra: Set the width of title. Can be a number or string.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the width of title. Can be a number or string.
       available_actions_description: |
         ###### onClick
         Triggered when the button is clicked.

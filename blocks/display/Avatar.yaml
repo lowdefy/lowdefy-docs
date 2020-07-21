@@ -13,34 +13,6 @@ blocks:
       block_type: Avatar
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -52,8 +24,10 @@ blocks:
             title: alt
             size: small
             label:
-              span: 8
-              extra: This attribute defines the alternative text describing the image.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: This attribute defines the alternative text describing the image.
         - id: block.properties.color
           type: ColorSelector
           layout:
@@ -62,8 +36,10 @@ blocks:
             title: color
             size: small
             label:
-              span: 8
-              extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
         - id: block.properties.content
           type: TextInput
           layout:
@@ -72,8 +48,10 @@ blocks:
             title: content
             size: small
             label:
-              span: 8
-              extra: Text to display inside avatar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text to display inside avatar.
         - id: block.properties.gap
           type: NumberInput
           defaultValue: 4
@@ -83,8 +61,10 @@ blocks:
             title: gap
             size: small
             label:
-              span: 8
-              extra: Letter type unit distance between left and right sides.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Letter type unit distance between left and right sides.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -100,8 +80,10 @@ blocks:
             title: shape
             size: small
             label:
-              span: 8
-              extra: Shape of the avatar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shape of the avatar.
             options:
               - circle
               - square
@@ -114,8 +96,10 @@ blocks:
             title: size
             size: small
             label:
-              span: 8
-              extra: Size of the avatar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the avatar.
             options:
               - default
               - small
@@ -128,8 +112,10 @@ blocks:
             title: src
             size: small
             label:
-              span: 8
-              extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
 
       available_actions_description: |
         ###### No available actions.

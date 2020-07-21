@@ -13,22 +13,6 @@ blocks:
       block_type: TextInput
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
           defaultValue: true
@@ -52,8 +38,10 @@ blocks:
             title: allowClear
             size: small
             label:
-              span: 8
-              extra: Allow the user to clear their input.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
           defaultValue: false
@@ -63,8 +51,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              span: 8
-              extra: Autofocus to the block on page load.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -74,8 +64,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disable the block if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.placeholder
           type: TextInput
           layout:
@@ -84,8 +76,10 @@ blocks:
             title: placeholder
             size: small
             label:
-              span: 8
-              extra: Placeholder text inside the block before user types input.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user types input.
         - id: block.properties.prefix
           type: TextInput
           layout:
@@ -94,8 +88,10 @@ blocks:
             title: prefix
             size: small
             label:
-              span: 8
-              extra: Prefix text for the block, priority over prefixIcon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Prefix text for the block, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -112,8 +108,10 @@ blocks:
             title: size
             size: small
             label:
-              span: 8
-              extra: Size of the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
@@ -126,8 +124,10 @@ blocks:
             title: suffix
             size: small
             label:
-              span: 8
-              extra: Suffix text for the block, priority over suffixIcon.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Suffix text for the block, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:

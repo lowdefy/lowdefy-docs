@@ -13,22 +13,6 @@ blocks:
       block_type: Markdown
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -46,8 +30,10 @@ blocks:
             size: small
             rows: 7
             label:
-              span: 8
-              extra: Text content in markdown syntax format.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text content in markdown syntax format.
         - id: block.properties.renderHtml
           type: Switch
           layout:
@@ -56,8 +42,10 @@ blocks:
             title: renderHtml
             size: small
             label:
-              span: 8
-              extra: Setting to true will cause HTML to be rendered. Be aware that setting this might cause security issues if the input is user-generated.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Setting to true will cause HTML to be rendered. Be aware that setting this might cause security issues if the input is user-generated.
 
       available_actions_description: |
         ###### No available actions.

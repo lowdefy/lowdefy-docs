@@ -142,8 +142,10 @@ blocks:
                       title: offsetBottom
                       size: small
                       label:
-                        span: 8
-                        extra: Offset from the bottom of the viewport (in pixels).
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Offset from the bottom of the viewport (in pixels).
                   - id: block.properties.offsetTop
                     type: NumberInput
                     layout:
@@ -152,8 +154,10 @@ blocks:
                       title: offsetTop
                       size: small
                       label:
-                        span: 8
-                        extra: Offset from the top of the viewport (in pixels).
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Offset from the top of the viewport (in pixels).
               areas:
                 blocks: []
               actions:

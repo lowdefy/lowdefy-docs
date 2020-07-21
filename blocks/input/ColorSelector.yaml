@@ -21,22 +21,6 @@ blocks:
       block_type: ColorSelector
       label: true
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -49,8 +33,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.circleSize
           type: NumberInput
           defaultValue: 28
@@ -60,8 +46,10 @@ blocks:
             title: circleSize
             size: small
             label:
-              span: 8
-              extra: Pixel value for circle size, only available for type circle.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Pixel value for circle size, only available for type circle.
         - id: block.properties.circleSpacing
           type: NumberInput
           defaultValue: 14
@@ -71,8 +59,10 @@ blocks:
             title: circleSpacing
             size: small
             label:
-              span: 8
-              extra: Pixel value for spacing between circles, only available for type circle.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Pixel value for spacing between circles, only available for type circle.
         - id: block.properties.colors
           type: ControlledList
           properties:
@@ -94,8 +84,10 @@ blocks:
             title: type
             size: small
             label:
-              span: 8
-              extra: Type of picker.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Type of picker.
             options:
               - block
               - chrome
@@ -110,8 +102,10 @@ blocks:
             title: width
             size: small
             label:
-              span: 8
-              extra: Pixel value for picker width.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Pixel value for picker width.
         - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChangeComplete

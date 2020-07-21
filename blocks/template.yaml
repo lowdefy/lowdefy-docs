@@ -1,5 +1,7 @@
 - id: card_display
   type: Card
+  layout:
+    contentGutter: 16
   blocks:
     - id: title
       type: Title
@@ -30,7 +32,8 @@
               type:
                 _var: block_type
               style:
-                _var: style_transform
+                _parse:
+                  _state: style_block_input
               visible:
                 _state: block.visible
               required:
@@ -87,7 +90,8 @@
                       type:
                         _var: block_type
                       style:
-                        _var: style_transform
+                        _parse:
+                          _state: style_block_input
                       visible:
                         _state: block.visible
                       properties:
@@ -132,10 +136,7 @@
                     _ref: blocks/layout.yaml
             style:
               blocks:
-                - id: style_form
-                  type: Box
-                  blocks:
-                    _var: style_form
+                _ref: blocks/style.yaml
             visible:
               blocks:
                 - id: block.visible

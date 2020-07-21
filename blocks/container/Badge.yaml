@@ -152,8 +152,10 @@ blocks:
                           size: small
                           type: twitter
                           label:
-                            span: 8
-                            extra: Customize Badge dot color
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Customize Badge dot color
                       - id: block.properties.count
                         type: TextInput
                         defaultValue: "10"
@@ -163,8 +165,10 @@ blocks:
                           title: count
                           size: small
                           label:
-                            span: 8
-                            extra: Number or string to show in badge if Count blocks are not provided
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Number or string to show in badge if Count blocks are not provided
                       - id: block.properties.dot
                         type: Switch
                         layout:
@@ -173,8 +177,10 @@ blocks:
                           title: dot
                           size: small
                           label:
-                            span: 8
-                            extra: Whether to display a red dot instead of count
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether to display a red dot instead of count
                       - id: block.properties.offset.0
                         type: NumberInput
                         layout:
@@ -183,8 +189,10 @@ blocks:
                           title: offset X
                           size: small
                           label:
-                            span: 8
-                            extra: Set offset of the badge dot in X axis
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Set offset of the badge dot in X axis
                       - id: block.properties.offset.1
                         type: NumberInput
                         layout:
@@ -193,8 +201,10 @@ blocks:
                           title: offset Y
                           size: small
                           label:
-                            span: 8
-                            extra: Set offset of the badge dot in Y axis
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Set offset of the badge dot in Y axis
                       - id: block.properties.overflowCount
                         type: NumberInput
                         layout:
@@ -203,8 +213,10 @@ blocks:
                           title: overflowCount
                           size: small
                           label:
-                            span: 8
-                            extra: Max count to show
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Max count to show
                       - id: block.properties.showZero
                         type: Switch
                         layout:
@@ -213,8 +225,10 @@ blocks:
                           title: showZero
                           size: small
                           label:
-                            span: 8
-                            extra: Whether to show badge when count is zero
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether to show badge when count is zero
                       - id: block.properties.status
                         type: ButtonSelector
                         layout:
@@ -230,8 +244,10 @@ blocks:
                             - warning
                             - null
                           label:
-                            span: 8
-                            extra: Set Badge as a status dot
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Set Badge as a status dot
                       - id: block.properties.text
                         type: Switch
                         layout:
@@ -240,8 +256,10 @@ blocks:
                           title: text
                           size: small
                           label:
-                            span: 8
-                            extra: If status is set, text sets the display text of the status dot
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: If status is set, text sets the display text of the status dot
                       - id: block.properties.title
                         type: TextInput
                         layout:
@@ -250,8 +268,10 @@ blocks:
                           title: title
                           size: small
                           label:
-                            span: 8
-                            extra: Text to show when hovering over the badge
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Text to show when hovering over the badge
 
   - id: ex_divider
     type: Divider

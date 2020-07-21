@@ -13,22 +13,6 @@ blocks:
       block_type: Anchor
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -41,8 +25,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Disable the anchor if true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the anchor if true.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -59,8 +45,10 @@ blocks:
             title: strong
             size: small
             label:
-              span: 8
-              extra: Makes the text bold when true.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Makes the text bold when true.
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
@@ -70,8 +58,10 @@ blocks:
             title: title
             size: small
             label:
-              span: 8
-              extra: Text to display in the anchor.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text to display in the anchor.
       available_actions_description: |
         ###### onClick
         Called when the anchor is clicked.

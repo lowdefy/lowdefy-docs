@@ -13,59 +13,6 @@ blocks:
       block_type: UserAvatar
       label: false
       category: display
-      style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    avatar:
-                      _parse:
-                        _state: style_avatar_input
-                    loginButton:
-                      _parse:
-                        _state: style_button_input
-            on:
-              _parse:
-                _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_avatar_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: Avatar
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_button_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: loginButton
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -78,8 +25,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Do not render the user menu.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Do not render the user menu.
         - id: block.properties.showName
           type: ButtonSelector
           defaultValue: left
@@ -93,8 +42,10 @@ blocks:
               - right
               - none
             label:
-              span: 8
-              extra: Where to position the user name.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Where to position the user name.
         - id: block.properties.name
           type: TextInput
           defaultValue: false
@@ -104,8 +55,10 @@ blocks:
             title: name
             size: small
             label:
-              span: 8
-              extra: Replace user name text.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Replace user name text.
         - id: block.properties.theme
           type: ButtonSelector
           defaultValue: light
@@ -118,8 +71,10 @@ blocks:
               - light
               - dark
             label:
-              span: 8
-              extra: Color theme, white or dark name text.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color theme, white or dark name text.
         - id: block.properties.loggedIn
           type: Switch
           defaultValue: true
@@ -129,8 +84,10 @@ blocks:
             title: loggedIn
             size: small
             label:
-              span: 8
-              extra: Toggle render as logged in or not.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Toggle render as logged in or not.
         - id: block.properties.avatar.shape
           type: ButtonSelector
           defaultValue: circle
@@ -140,8 +97,10 @@ blocks:
             title: avatar.shape
             size: small
             label:
-              span: 8
-              extra: Shape of the avatar.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shape of the avatar.
             options:
               - circle
               - square
@@ -165,13 +124,15 @@ blocks:
             title: loginButton.title
             size: small
             label:
-              span: 8
-              extra: Edit login button title.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Edit login button title.
         - id: block.properties.loginButton.link
           type: Anchor
           properties:
             title: See all fields for properties.loginButton
-            Icon: LinkOutlined
+            icon: LinkOutlined
           actions:
             onClick: 
               - id: link_loginButton

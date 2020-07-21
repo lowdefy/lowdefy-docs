@@ -13,21 +13,6 @@ blocks:
       block_type: Paragraph
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -40,8 +25,10 @@ blocks:
             title: code
             size: small
             label:
-              span: 8
-              extra: Apply code style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply code style.
         - id: block.properties.content
           type: TextArea
           defaultValue: |
@@ -53,8 +40,10 @@ blocks:
             size: small
             rows: 5
             label:
-              span: 8
-              extra: Paragraph text content.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Paragraph text content.
         - id: block.properties.copyable
           type: Switch
           defaultValue: false
@@ -64,8 +53,10 @@ blocks:
             title: copyable
             size: small
             label:
-              span: 8
-              extra: Provide copy text button.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Provide copy text button.
         - id: block.properties.delete
           type: Switch
           defaultValue: false
@@ -75,8 +66,10 @@ blocks:
             title: delete
             size: small
             label:
-              span: 8
-              extra: Apply deleted (strikethrough) style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: Switch
           defaultValue: false
@@ -86,8 +79,10 @@ blocks:
             title: disabled
             size: small
             label:
-              span: 8
-              extra: Apply disabled style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: Switch
           defaultValue: false
@@ -97,8 +92,10 @@ blocks:
             title: ellipsis
             size: small
             label:
-              span: 8
-              extra: Display ellipsis when text overflows a single line.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Display ellipsis when text overflows a single line.
         - id: block.properties.mark
           type: Switch
           defaultValue: false
@@ -108,8 +105,10 @@ blocks:
             title: mark
             size: small
             label:
-              span: 8
-              extra: Apply marked (highlighted) style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply marked (highlighted) style.
         - id: block.properties.strong
           type: Switch
           defaultValue: false
@@ -119,8 +118,10 @@ blocks:
             title: strong
             size: small
             label:
-              span: 8
-              extra: Apply strong (bold) style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply strong (bold) style.
         - id: block.properties.type
           type: Selector
           layout:
@@ -130,8 +131,10 @@ blocks:
             title: type
             size: small
             label:
-              span: 8
-              extra: Additional types. Don't specify for default.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Additional types. Don't specify for default.
             options:
               - secondary
               - warning
@@ -145,8 +148,10 @@ blocks:
             title: underline
             size: small
             label:
-              span: 8
-              extra: Apply underline style.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply underline style.
 
       available_actions_description: |
         ###### No available actions.

@@ -13,22 +13,6 @@ blocks:
       block_type: Html
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -43,8 +27,10 @@ blocks:
             size: small
             rows: 8
             label:
-              span: 8
-              extra: Html elements to render inside  the block.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Html elements to render inside  the block.
 
       available_actions_description: |
         ###### No available actions.

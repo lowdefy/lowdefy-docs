@@ -43,12 +43,15 @@ areas:
               layout:
                 contentJustify: center
               properties:
+                style:
+                  minHeight: 300px
                 menu:
                   links: []
               blocks:
                 - id: example1_content_card
                   type: Card
                   layout:
+                    contentGutter: 16
                     size: 600
                   blocks:
                     - id: example1_page_heading

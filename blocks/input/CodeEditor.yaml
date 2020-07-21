@@ -13,22 +13,6 @@ blocks:
       block_type: CodeEditor
       label: false
       category: input
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _get:
           key: "0"
@@ -51,8 +35,10 @@ blocks:
             title: height
             size: small
             label:
-              span: 8
-              extra: Height of the code editor.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Height of the code editor.
         - id: block.properties.language
           type: ButtonSelector
           defaultValue: yaml
@@ -62,8 +48,10 @@ blocks:
             title: language
             size: small
             label:
-              span: 8
-              extra: Code language.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Code language.
             options:
               - yaml
               - json
@@ -76,8 +64,10 @@ blocks:
             title: theme
             size: small
             label:
-              span: 8
-              extra: Color theme.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color theme.
             options:
               - vs-dark
               - vs-light
@@ -98,7 +88,8 @@ blocks:
             title: options
             size: small
             label:
-              span: 8
+              _ref: 
+                path: blocks/label_extra.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.

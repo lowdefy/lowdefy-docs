@@ -11,7 +11,8 @@
           _var: title
     - id: content
       type: Box
-      style:
+      layout:
+        contentGutter: 16
       blocks:
         _var: content
     - id: nav_buttons
@@ -21,6 +22,8 @@
       style:
         paddingTop: 60px
         paddingBottom: 80px
+      layout:
+        contentGutter: 16
       blocks:
         - id: previous_button
           type: Button

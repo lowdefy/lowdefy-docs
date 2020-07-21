@@ -13,22 +13,6 @@ blocks:
       block_type: Alert
       label: false
       category: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
       properties_transform:
         _state: block.properties
       properties_form:
@@ -40,8 +24,10 @@ blocks:
             title: banner
             size: small
             label:
-              span: 8
-              extra: Style as banner at top of application window.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Style as banner at top of application window.
         - id: block.properties.closable
           type: Switch
           layout:
@@ -50,8 +36,10 @@ blocks:
             title: closable
             size: small
             label:
-              span: 8
-              extra: Allow alert to be closed.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow alert to be closed.
         - id: block.properties.closeText
           type: TextInput
           layout:
@@ -60,8 +48,10 @@ blocks:
             title: closeText
             size: small
             label:
-              span: 8
-              extra: Close text to show.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Close text to show.
         - id: block.properties.description
           type: TextArea
           defaultValue: This is a description to say well done.
@@ -72,8 +62,10 @@ blocks:
             size: small
             rows: 2
             label:
-              span: 8
-              extra: Content description of alert.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Content description of alert.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
@@ -90,8 +82,10 @@ blocks:
             title: message
             size: small
             label:
-              span: 8
-              extra: Content message of alert.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Content message of alert.
         - id: block.properties.type
           type: ButtonSelector
           defaultValue: success
@@ -101,8 +95,10 @@ blocks:
             title: type
             size: small
             label:
-              span: 8
-              extra: Alert style type.
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Alert style type.
             options:
               - success
               - info
