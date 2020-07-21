@@ -51,7 +51,6 @@ areas:
                   layout:
                     contentGutter: 16
                     size: 600
-                    contentGutter: 16
                   blocks:
                     - id: example1_page_heading
                       type: Title
