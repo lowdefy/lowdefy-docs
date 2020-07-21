@@ -134,9 +134,9 @@ areas:
                   _ref: tutorial/tutorial-actions-operators-content-3.md
             - id: example3
               type: PageHeaderMenu
-              style:
-                minHeight: 300px
               properties:
+                style:
+                  minHeight: 300px
                 menu:
                   links: []
               blocks:
