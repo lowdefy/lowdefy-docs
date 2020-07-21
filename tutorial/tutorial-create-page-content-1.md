@@ -28,6 +28,7 @@ pages:
         type: Card
         layout:
           size: 800 # Set the size of the card so it does not fill the full screen
+          contentGutter: 16 # Make a 16px gap between all blocks in this card
         blocks:
           - id: page_heading
             type: Title

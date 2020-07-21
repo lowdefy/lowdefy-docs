@@ -38,8 +38,6 @@ areas:
                   _ref: tutorial/tutorial-add-blocks-content-1.md
             - id: example1
               type: PageHeaderMenu
-              style:
-                minHeight: 300px
               layout:
                 contentJustify: center
               properties:
@@ -53,6 +51,7 @@ areas:
                   layout:
                     contentGutter: 16
                     size: 600
+                    contentGutter: 16
                   blocks:
                     - id: example1_page_heading
                       type: Title

@@ -38,8 +38,6 @@ areas:
                   _ref: tutorial/tutorial-setup-content-1.md
             - id: example1
               type: Box
-              layout:
-                contentGutter: 0
               blocks:
                 - id: example1_page
                   type: PageHeaderMenu
@@ -91,8 +89,6 @@ areas:
                   blocks:
                     - id: example1__INSPECTOR_BAR
                       type: Affix
-                      style:
-                        zIndex: 10000
                       properties:
                         offsetBottom: 0
                       blocks:

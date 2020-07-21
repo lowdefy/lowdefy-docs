@@ -22,15 +22,20 @@ pages:
     type: PageHeaderMenu
     properties:
       title: Book meeting
+    layout:
+      contentJustify: center # Center the contents of the page
     blocks:
       - id: content_card
         type: Card
+        layout:
+          size: 800 # Set the size of the card so it does not fill the full screen
+          contentGutter: 16 # Make a 16px gap between all blocks in this card
         blocks:
           - id: page_heading
             type: Title
             properties:
-              content: Book a meeting room
-              level: 3
+              content: Book a meeting room # Change the title on the page
+              level: 3 # Make the title a little smaller (an html `<h3>`).
           - id: meeting_name
             required: true
             type: TextInput
@@ -50,7 +55,7 @@ pages:
             required: true
             properties:
               title: Meeting room
-              options:
+              options: # Set the allowed options
                 - Red Room
                 - Blue Room
                 - Green Room
@@ -86,11 +91,11 @@ pages:
           - id: reset_button
             type: Button
             layout:
-              span: 12
+              span: 12 # Set the size of the button (span 12 of 24 columns)
             properties:
               title: Reset
-              block: true
-              type: default
+              block: true # Make the button fill all the space available to it
+              type: default # Make the button a plain button
               icon: ClearOutlined
             actions:
               onClick:
@@ -103,7 +108,7 @@ pages:
             properties:
               title: Submit
               block: true
-              type: primary
+              type: primary # Make the button a primary button with color
               icon: SaveOutlined
             actions:
               onClick:
