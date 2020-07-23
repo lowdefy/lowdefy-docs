@@ -17,7 +17,7 @@ blocks:
         properties:
           content: |
             A Card container places blocks on a white background with a card border.
-            The Box have `content` and `extra` areas.
+            The Card has `content` and `extra` areas.
       - id: c1
         type: Box
         layout:
