@@ -24,13 +24,13 @@ menus:
       - id: welcome
         type: MenuLink
         properties:
-          Icon: HomeOutlined
+          icon: HomeOutlined
           title: Home
         pageId: welcome
       - id: booking
         type: MenuLink
         properties:
-          Icon: CalendarOutlined
+          icon: CalendarOutlined
           title: Book a meeting
         pageId: booking
 ################ ------- Copy to here ----------- ################
