@@ -30,7 +30,7 @@ pages:
   - id: booking
     type: PageHeaderMenu
     properties:
-      title: Book meeting
+      title: Book meeting # Where is this title shown (tab title?), and is compulsory?
     layout:
       contentJustify: center # Center the contents of the page
     blocks:
