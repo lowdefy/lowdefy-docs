@@ -1,5 +1,5 @@
 ##### Step 2
-Using your text editor, create a file called `lowdefy.yaml` in your project directory.
+Using your text editor, create a file called `lowdefy.yaml` in your project directory. A file named 'lowdefy.yaml' in the root of your project directory will always be the basis file of your project.
 
 ##### Step 3
 Paste the following configuration in the file (we will explain what this means below):
