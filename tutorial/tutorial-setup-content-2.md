@@ -17,4 +17,4 @@ v12.18.0
 
 ### YAML Files
 
-Lowdefy apps are written using YAML files. YAML files are useful for storing structured data, like the configuration of all of the elements of your app. YAML files focus on being easily readable by humans, this means they don't lots of syntactic elements like brackets that make it difficult for humans to read, but instead use indentation to indicate structure. While this does make the file easier to read, this means care has to be taken that the data structure is as you intended. If you don't have any experience using YAML, this video is a good introduction.
+Lowdefy apps are written using YAML files. YAML files are useful for storing structured data, like the configuration of all of the elements of your app. YAML files focus on being easily readable by humans, this means they don't have lots of syntactic elements like brackets that make it difficult for humans to read, but instead use indentation to indicate structure. While this does make the file easier to read, this means care has to be taken that the data structure is as you intended. If you don't have any experience using YAML, this video is a good introduction.
