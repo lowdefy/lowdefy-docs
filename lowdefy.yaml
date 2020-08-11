@@ -49,6 +49,16 @@ global:
     span: 23
     sm:
       span: 23
+connections:
+  - id: feedback_mongodb
+    type: MongoDBCollection
+    properties:
+      databaseUri:
+        _secret: feedback_mongodb
+      collection: feedback
+      read: true
+      write: true
+
 menus:
   - id: default
     links:
@@ -468,9 +478,16 @@ menus:
           - id: _user
             type: MenuLink
             pageId: _user
-
+      - id: feedback
+        type: MenuLink
+        pageId: feedback
+        properties:
+          title: Feedback
+          icon: BulbOutlined
 pages:
+
   - _ref: start/introduction.yaml
+  - _ref: feedback.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
   - _ref: tutorial/tutorial-create-page.yaml
