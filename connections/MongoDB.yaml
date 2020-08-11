@@ -1,0 +1,102 @@
+id: MongoDB
+type: PageSiderMenu
+public: true
+properties:
+  title: MongoDB
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+areas:  
+  content:
+    justify: center
+    blocks:
+    - id: max_width
+      type: Box
+      layout:
+        size: 800
+        shrink: 1
+      blocks:
+        - id: title
+          type: Title
+          properties:
+            content: MongoDB
+        - id: markdown
+          type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              ## Connections
+
+              ### MongoDBCollection
+
+              The `mongodb_collection` connection sets up a connection to a MongoDB deployment. A [connection URI](https://docs.mongodb.com/manual/reference/connection-string/index.html) with authentication credentials (username and password) is required. The URI can be in the standard or dns seedlist (srv) formats. Connections are defined on a collection level, since this allows for read/write access control on a per collection level. Access control can also be managed using the roles in the database.
+
+              >Since the connection URI contains authentication secrets, it should be stored using the [`_secret`](operators/secret.md) operator.
+
+              ### Parameters
+              - `databaseUri`: _String_ - **REQUIRED** - Connection uri string for the MongoDb deployment. Should be stored using the [_secret](operators/secret.md) operator. 
+              - `databaseName`: _String_ - Default: Database specified in connection string - The name of the database in the MongoDB deployment.
+              - `collection`: _String_ - **REQUIRED** - The name of the MongoDB collection.
+              - `read`: _Boolean_ - Default: `true` - Allow read operations like find on the collection.
+              - `write`: _Boolean_ - Default: `false` - Allow write operations like find or update on the collection.
+
+              ### Examples
+
+              MongoDB collection with reads and writes:
+              ```yaml
+              - id: my_collection
+                type: AwsS3Bucket
+                properties:
+                  databaseUri:
+                    _secret: my_database_uri
+                  collection: my_collection_name
+                  write: true
+              ```
+
+              ## Requests and Mutations
+
+              ### MongoDBAggregation
+
+              The `MongoDBAggregation` request or mutation executes an [aggregation pipeline](https://docs.mongodb.com/manual/core/aggregation-pipeline/) in the collection specified in the connectionId. It returns the array of documents returned by the aggregation. Aggregation pipelines are MongoDB's data processing and aggregation framework. They are based on a series of stages, each of which apply a transformation to the data passed through them, like sorting, grouping or calculating additional fields.
+
+              >Cursors are not supported. The request will return the whole body of the response as an array.
+
+              ### Properties
+              - `pipeline`: _Array_ - **REQUIRED** - Array containing all the aggregation framework commands for the execution.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#aggregate) for more information. Supported settings are:
+                - `readPreference`: _String_ **|** _Object_ - The preferred read preference.
+                - `allowDiskUse`: _Boolean_ - Default: `false` - Allow disk use on the MongoDB server to store temporary results for the aggregation.
+                - `maxTimeMS`: _Integer_ - Specifies a cumulative time limit in milliseconds for processing operations on the cursor.
+                - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher.
+                - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
+                - `comment`: _String_ - Add a [comment](https://docs.mongodb.com/manual/reference/operator/query/comment/index.html) to the aggregation. These comments are visible in the MongoDB profile log, making them easier to interpret.
+                - `hint`: _String_ **|** _Object_ - Add an index selection hint to an aggregation command.
+
+              ### Examples
+
+              Calculate average score by region:
+              ```yaml
+              id: avg_spend_by_region
+              type:  MongoDBAggregation
+              connectionId: mu_mongodb_collection_id
+              properties:
+                pipeline:
+                  - $group:
+                      _id: $region
+                      score:
+                        $avg: $score
+                  - $project:
+                      _id: 0
+                      region: $_id
+                      score: 1
+                  - $sort:
+                      score: 1
+              ```
+
+              

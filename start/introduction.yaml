@@ -10,7 +10,7 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
