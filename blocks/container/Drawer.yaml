@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 blocks:
@@ -20,157 +20,102 @@ blocks:
       popup_method: toggleOpen
       popup_button_title: Open Drawer
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Drawer:
-                      _parse:
-                        _state: style_drawer_input
-                    Header:
-                      _parse:
-                        _state: style_header_input
-                    Body:
-                      _parse:
-                        _state: style_body_input
-                    Mask:
-                      _parse:
-                        _state: style_mask_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_body_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Body
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_drawer_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Drawer
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_header_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Header
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_mask_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Mask
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.closable
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: closable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
         - id: block.properties.mask
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mask
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether to show mask (shaded out background) or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: maskClosable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Clicking on the mask (area outside the Drawer) to close the Drawer or not.
         - id: block.properties.title
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: The title of the Drawer.
         - id: block.properties.width
           type: TextInput
           defaultValue: 256px
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: width
             size: small
-            Label:
+            label:
+              span: 8
               extra: Width of the Drawer dialog.
         - id: block.properties.height
           type: TextInput
           defaultValue: 256px
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: height
             size: small
-            Label:
+            label:
+              span: 8
               extra: When placement is top or bottom, height of the Drawer dialog.
         - id: block.properties.zIndex
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: zIndex
             size: small
-            Label:
+            label:
+              span: 8
               extra: The z-index of the Drawer.
         - id: block.properties.placement
           type: ButtonSelector
           defaultValue: right
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placement
             size: small
@@ -179,17 +124,19 @@ blocks:
               - right
               - bottom
               - left
-            Label:
+            label:
+              span: 8
               extra: The placement of the Drawer.
         - id: block.properties.keyboard
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: keyboard
             size: small
-            Label:
+            label:
+              span: 8
               extra: Enable closing drawer with escape key.
         
       actions_description: | 
@@ -204,7 +151,7 @@ blocks:
           actions:
             onClick:
               - id: click_toggleOpen
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: toggleOpen
@@ -217,7 +164,7 @@ blocks:
                 actions:
                   onClick:
                   - id: click_toggleOpen
-                    type: callMethod()
+                    type: CallMethod
                     params:
                       blockId: block_name
                       method: toggleOpen
@@ -229,7 +176,7 @@ blocks:
           actions:
             onClick:
               - id: click_setOpen
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: setOpen
@@ -244,7 +191,7 @@ blocks:
                 actions:
                   onClick:
                   - id: click_setOpen
-                    type: callMethod()
+                    type: CallMethod
                     params:
                       blockId: block_name
                       method: setOpen
@@ -258,8 +205,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 6
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -273,7 +220,7 @@ blocks:
                   actions:
                     onClick:
                       - id: click_method
-                        type: callMethod()
+                        type: CallMethod
                         params:
                           blockId: example_1_drawer
                           method: toggleOpen
@@ -305,17 +252,17 @@ blocks:
                       actions:
                         onClick:
                           - id: validate_form
-                            type: validate()
+                            type: Validate
                           - id: click_method
-                            type: callMethod()
+                            type: CallMethod
                             params:
                               blockId: example_1_drawer
                               method: toggleOpen
                           
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 6
               blocks:
                 - id: example_1_code
                   type: Markdown
@@ -329,7 +276,7 @@ blocks:
                           actions:
                             onClick:
                               - id: click_method
-                                type: callMethod()
+                                type: CallMethod
                                 params:
                                   blockId: example_1_drawer
                                   method: toggleOpen
@@ -361,9 +308,9 @@ blocks:
                               actions:
                                 onClick:
                                   - id: validate_form
-                                    type: validate()
+                                    type: Validate
                                   - id: click_method
-                                    type: callMethod()
+                                    type: CallMethod
                                     params:
                                       blockId: example_1_drawer
                                       method: toggleOpen
@@ -375,8 +322,8 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 6
               blocks:
                 - id: example_2_title
                   type: Markdown
@@ -390,7 +337,7 @@ blocks:
                   actions:
                     onClick:
                       - id: click_open
-                        type: setState()
+                        type: SetState
                         params:
                           example_2_open:
                             _not:
@@ -406,14 +353,14 @@ blocks:
                   actions:
                     onOk: 
                       - id: click_ok
-                        type: setState()
+                        type: SetState
                         params:
                           example_2_open:
                             _not:
                               _state: example_2_open
                     onCancel: 
                       - id: click_cancel
-                        type: setState()
+                        type: SetState
                         params:
                           example_2_open:
                             _not:
@@ -428,8 +375,8 @@ blocks:
                           
             - id: example_2_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 6
               blocks:
                 - id: example_2_code
                   type: Markdown
@@ -443,7 +390,7 @@ blocks:
                           actions:
                             onClick:
                               - id: click_open
-                                type: setState()
+                                type: SetState
                                 params:
                                   example_2_open:
                                     _not:
@@ -459,14 +406,14 @@ blocks:
                           actions:
                             onOk: 
                               - id: click_ok
-                                type: setState()
+                                type: SetState
                                 params:
                                   example_2_open:
                                     _not:
                                       _state: example_2_open
                             onCancel: 
                               - id: click_cancel
-                                type: setState()
+                                type: SetState
                                 params:
                                   example_2_open:
                                     _not:

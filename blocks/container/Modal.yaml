@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 
@@ -23,7 +23,7 @@ blocks:
       popup_method: toggleOpen
       popup_button_title: Open Modal
       label: false
-      kind: container
+      category: container
       style_transform:
         _get:
           key: "0"
@@ -46,148 +46,161 @@ blocks:
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_content_input
           type: TextArea
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           defaultValue: "{}"
           properties:
             title: Content
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_mask_input
           type: TextArea
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           defaultValue: "{}"
           properties:
             title: Mask
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
         - id: style_wrapper_input
           type: TextArea
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           defaultValue: "{}"
           properties:
             title: Wrapper
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.title
           type: TextInput
           defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
+            label:
+              span: 8
               extra: The modal dialog's title.
         - id: block.properties.centered
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: centered
             size: small
-            Label:
+            label:
+              span: 8
               extra: Center the modal vertically.
         - id: block.properties.closable
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: closable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether a close (x) button is visible on top right of the modal dialog or not.
         - id: block.properties.footer
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: footer
             size: small
-            Label:
+            label:
+              span: 8
               extra: Show footer buttons.
         - id: block.properties.mask
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mask
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether to show mask (shaded out background) or not.
         - id: block.properties.maskClosable
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: maskClosable
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
         - id: block.properties.okText
           type: TextInput
           defaultValue: Ok
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: okText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Text of the Ok button.
         - id: block.properties.cancelText
           type: TextInput
           defaultValue: Cancel
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: cancelText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Text of the Cancel button.
         - id: block.properties.width
           type: TextInput
           defaultValue: '520px'
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: cancelText
             size: small
-            Label:
+            label:
+              span: 8
               extra: Width of the modal dialog.
         - id: block.properties.zIndex
           type: NumberInput
           defaultValue: 1000
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: zIndex
             size: small
-            Label:
+            label:
+              span: 8
               extra: The z-index of the modal. Useful when displaying two modals simultaneously.
       
       actions_description: | 
@@ -205,7 +218,7 @@ blocks:
           actions:
             onClick:
               - id: click_toggleOpen
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: toggleOpen
@@ -218,7 +231,7 @@ blocks:
                 actions:
                   onClick:
                   - id: click_toggleOpen
-                    type: callMethod()
+                    type: CallMethod
                     params:
                       blockId: block_name
                       method: toggleOpen
@@ -230,7 +243,7 @@ blocks:
           actions:
             onClick:
               - id: click_setOpen
-                type: callMethod()
+                type: CallMethod
                 params:
                   blockId: block_name
                   method: setOpen
@@ -245,7 +258,7 @@ blocks:
                 actions:
                   onClick:
                   - id: click_setOpen
-                    type: callMethod()
+                    type: CallMethod
                     params:
                       blockId: block_name
                       method: setOpen
@@ -259,8 +272,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -274,7 +287,7 @@ blocks:
                   actions:
                     onClick:
                       - id: click_method
-                        type: callMethod()
+                        type: CallMethod
                         params:
                           blockId: example_1_modal
                           method: toggleOpen
@@ -285,7 +298,7 @@ blocks:
                   actions:
                     onOk: 
                       - id: validate_form
-                        type: validate()
+                        type: Validate
                   blocks:
                     - id: example_1_markdown
                       type: Markdown
@@ -306,8 +319,8 @@ blocks:
                           
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
@@ -321,7 +334,7 @@ blocks:
                           actions:
                             onClick:
                               - id: click_method
-                                type: callMethod()
+                                type: CallMethod
                                 params:
                                   blockId: example_1_modal
                                   method: toggleOpen
@@ -332,7 +345,7 @@ blocks:
                           actions:
                             onOk: 
                               - id: validate_form
-                                type: validate()
+                                type: Validate
                           blocks:
                             - id: example_1_markdown
                               type: Markdown
@@ -356,8 +369,8 @@ blocks:
           blocks:
             - id: example_2_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_title
                   type: Markdown
@@ -371,7 +384,7 @@ blocks:
                   actions:
                     onClick:
                       - id: click_open
-                        type: setState()
+                        type: SetState
                         params:
                           example_2_open:
                             _not:
@@ -387,14 +400,14 @@ blocks:
                   actions:
                     onOk: 
                       - id: click_ok
-                        type: setState()
+                        type: SetState
                         params:
                           example_2_open:
                             _not:
                               _state: example_2_open
                     onCancel: 
                       - id: click_cancel
-                        type: setState()
+                        type: SetState
                         params:
                           example_2_open:
                             _not:
@@ -409,8 +422,8 @@ blocks:
                           
             - id: example_2_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_code
                   type: Markdown
@@ -424,7 +437,7 @@ blocks:
                           actions:
                             onClick:
                               - id: click_open
-                                type: setState()
+                                type: SetState
                                 params:
                                   example_2_open:
                                     _not:
@@ -440,14 +453,14 @@ blocks:
                           actions:
                             onOk: 
                               - id: click_ok
-                                type: setState()
+                                type: SetState
                                 params:
                                   example_2_open:
                                     _not:
                                       _state: example_2_open
                             onClose: 
                               - id: click_close
-                                type: setState()
+                                type: SetState
                                 params:
                                   example_2_open:
                                     _not:

@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 
@@ -19,174 +19,86 @@ blocks:
       description_content: |
         Page HSCF provides a minimal layout structure for a page container with a header, sider, content, and footer arrangement.
       label: false
-      kind: container
+      category: container
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Content:
-                      _parse:
-                        _state: style_content_input
-                    Footer:
-                      _parse:
-                        _state: style_footer_input
-                    Header:
-                      _parse:
-                        _state: style_header_input
-                    Main:
-                      _parse:
-                        _state: style_main_input
-                    Sider:
-                      _parse:
-                        _state: style_sider_input
-                - $addFields:
-                    Sider.Content:
-                      _parse:
-                        _state: style_siderContent_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_footer_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Footer
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_header_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Header
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_main_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Main
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_sider_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Sider
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_siderContent_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Sider.Content
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
-        - id: block.properties.Header.theme
+        - id: block.properties.header.theme
           type: ButtonSelector
           defaultValue: dark
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           properties:
-            title: Header.theme
+            title: header.theme
             size: small
-            Label: 
+            label: 
+              span: 8
               extra: Color theme of the Header
             options:
               - light
               - dark
-        - id: block.properties.Header.link
+        - id: block.properties.header.link
           type: Anchor
           properties:
             title: See all fields for properties.Header
-            Icon: LinkOutlined
+            icon: LinkOutlined
           actions:
             onClick: 
               - id: link_header
-                type: link()
+                type: Link
                 params:
                   pageId: header
-        - id: block.properties.Sider.collapsed
+        - id: block.properties.sider.collapsed
           type: ButtonSelector
           defaultValue: null
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: Sider.collapsed
+            title: sider.collapsed
             size: small
             options:
               - null
               - true
               - false
-            Label:
+            label:
+              span: 8
               extra: Set the current collapsed state for Sider
-        - id: block.properties.Sider.theme
+        - id: block.properties.sider.theme
           type: ButtonSelector
           defaultValue: dark
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: Sider.theme
+            title: sider.theme
             size: small
             options:
               - light
               - dark
-            Label:
+            label:
+              span: 8
               extra: Color theme of the Sider
-        - id: block.properties.Sider.link
+        - id: block.properties.sider.link
           type: Anchor
           properties:
             title: See all fields for properties.Sider
-            Icon: LinkOutlined
+            icon: LinkOutlined
           actions:
             onClick: 
               - id: link_sider
-                type: link()
+                type: Link
                 params:
                   pageId: sider
