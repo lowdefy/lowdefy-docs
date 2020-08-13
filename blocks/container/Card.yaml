@@ -250,12 +250,18 @@ blocks:
             type: Markdown
             properties:
               content: |
-                ##### Card with Extra blocks
+                ##### Card with Title and Extra blocks
           - id: extra_card
             type: Card
             properties:
               title: Submit new details
             areas:
+              title:
+                blocks:
+                  - id: extra_title
+                    type: Button
+                    properties:
+                      title: Title Area Button
               content:
                 gutter: 16
                 blocks:
@@ -348,6 +354,12 @@ blocks:
                   properties:
                     title: Submit new details
                   areas:
+                    title:
+                      blocks:
+                        - id: extra_title
+                          type: Button
+                          properties:
+                            title: Title Area Button
                     content:
                       gutter: 16
                       blocks:

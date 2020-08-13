@@ -73,6 +73,21 @@ blocks:
                         properties:
                           html: |
                             content_one 
+                  content_one_extra:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_1_extra
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          padding: 2px 5px
+                          color: red
+                        properties:
+                          html: |
+                            content_one_extra 
                   content_two:
                     gutter: 0
                     style:
@@ -88,6 +103,21 @@ blocks:
                         properties:
                           html: |
                             content_two 
+                  content_two_extra:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_1_extra
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          padding: 2px 5px
+                          color: red
+                        properties:
+                          html: |
+                            content_two_extra 
                   content_three:
                     gutter: 0
                     style:
@@ -103,6 +133,21 @@ blocks:
                         properties:
                           html: |
                             content_three 
+                  content_three_extra:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_3_extra
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          padding: 2px 5px
+                          color: red
+                        properties:
+                          html: |
+                            content_three_extra 
 
               - id: setup_divider
                 type: Divider
@@ -138,9 +183,15 @@ blocks:
                                 areas:
                                   content_one:
                                     blocks: []
+                                  content_one_extra:
+                                    blocks: []
                                   content_two:
                                     blocks: []
+                                  content_two_extra:
+                                    blocks: []
                                   content_three:
+                                    blocks: []
+                                  content_three_extra:
                                     blocks: []
 
           - id: settings_grid
@@ -329,6 +380,19 @@ blocks:
                                       path: blocks/label_extra.yaml
                                       vars:
                                         extra: Key of the panel.
+                              - id: block.properties.panels.$.extraKey
+                                type: TextInput
+                                defaultValue: extraKey
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: extraKey
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Key for the extra area of the panel.
                               - id: block.properties.panels.$.disabled
                                 type: Switch
                                 defaultValue: false

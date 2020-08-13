@@ -200,7 +200,6 @@ blocks:
                         blocks:
                           - id: block.properties.activeKey
                             type: TextInput
-                            defaultValue: content_one
                             layout:
                               _global: settings_input_layout
                             properties:
