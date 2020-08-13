@@ -81,7 +81,7 @@ blocks:
                         value:
                           _dump_yaml:
                             id: block_id
-                            type: Card
+                            type: Result
                             layout:
                               _state: block.layout
                             style:

@@ -99,15 +99,24 @@ blocks:
                             value:
                               _dump_yaml:
                                 id: block_id
-                                type:
-                                  _state: style_transform
+                                type: ConfirmModal
                                 layout:
-                                  _parse: 
-                                    _state: flex_style_input
+                                  _ref:
+                                    path: blocks/remove_nulls.yaml
+                                    vars:
+                                      input:
+                                        _state: block.layout
+                                style:
+                                  _parse:
+                                    _state: style_block_input
                                 visible:
                                   _state: block.visible
                                 properties:
-                                  _state: block.properties
+                                  _ref:
+                                    path: blocks/remove_nulls.yaml
+                                    vars:
+                                      input:
+                                        _state: block.properties
                                 areas:
                                   content:
                                     blocks: []

@@ -83,14 +83,22 @@ blocks:
                             id: block_id
                             type: Box
                             layout:
-                              _state: block.layout
+                              _ref:
+                                path: blocks/remove_nulls.yaml
+                                vars:
+                                  input:
+                                    _state: block.layout
                             style:
                               _parse:
                                 _state: style_block_input
                             visible:
                               _state: block.visible
                             properties:
-                              _state: block.properties
+                              _ref:
+                                path: blocks/remove_nulls.yaml
+                                vars:
+                                  input:
+                                    _state: block.properties
                             areas:
                               content:
                                 blocks: []
