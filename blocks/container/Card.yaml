@@ -17,7 +17,7 @@ blocks:
         properties:
           content: |
             A Card container places blocks on a white background with a card border.
-            The Box have `content` and `extra` areas.
+            The Card has `content`, `title` and `extra` areas. The `title` area replaces `properties.title` if defined.
       - id: c1
         type: Box
         layout:
@@ -108,6 +108,8 @@ blocks:
                               _state: block.properties
                             areas:
                               content:
+                                blocks: []
+                              title:
                                 blocks: []
                               extra:
                                 blocks: []

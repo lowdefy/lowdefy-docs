@@ -3,473 +3,558 @@ type: PageSiderMenu
 public: true
 properties:
   title: Modal
-actions:
-  onInit:
-    - id: init
-      type: SetState
-      params:
-        _ref: blocks/html_blocks.yaml
-
 blocks:
-  _ref:
-    path: blocks/popup_template.yaml
-    vars:
-      block_name: Modal
-      block_type: Modal
-      description_content: |
-        A popup container, presenting the user with a modal dialog.
+  - id: card_title
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Modal
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            A popup container, presenting the user with a modal dialog.
+            The Modal has a `content` and a `footer` content area. The default `footer` area is the `Ok` and `Cancel` buttons; defining a `footer` area overwrites these buttons.
 
-        > To open the modal, invoke a modal method.
-      popup_method: toggleOpen
-      popup_button_title: Open Modal
-      label: false
-      category: container
-      style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Content:
-                      _parse:
-                        _state: style_content_input
-                    Mask:
-                      _parse:
-                        _state: style_mask_input
-                    Wrapper:
-                      _parse:
-                        _state: style_wrapper_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout_indent
-          defaultValue: "{}"
-          properties:
-            title: Content
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_mask_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout_indent
-          defaultValue: "{}"
-          properties:
-            title: Mask
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_wrapper_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout_indent
-          defaultValue: "{}"
-          properties:
-            title: Wrapper
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-      properties_form:
-        - id: block.properties.title
-          type: TextInput
-          defaultValue: block_id
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: title
-            size: small
-            label:
-              span: 8
-              extra: The modal dialog's title.
-        - id: block.properties.centered
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: centered
-            size: small
-            label:
-              span: 8
-              extra: Center the modal vertically.
-        - id: block.properties.closable
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: closable
-            size: small
-            label:
-              span: 8
-              extra: Whether a close (x) button is visible on top right of the modal dialog or not.
-        - id: block.properties.footer
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: footer
-            size: small
-            label:
-              span: 8
-              extra: Show footer buttons.
-        - id: block.properties.mask
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: mask
-            size: small
-            label:
-              span: 8
-              extra: Whether to show mask (shaded out background) or not.
-        - id: block.properties.maskClosable
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: maskClosable
-            size: small
-            label:
-              span: 8
-              extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
-        - id: block.properties.okText
-          type: TextInput
-          defaultValue: Ok
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: okText
-            size: small
-            label:
-              span: 8
-              extra: Text of the Ok button.
-        - id: block.properties.cancelText
-          type: TextInput
-          defaultValue: Cancel
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: cancelText
-            size: small
-            label:
-              span: 8
-              extra: Text of the Cancel button.
-        - id: block.properties.width
-          type: TextInput
-          defaultValue: '520px'
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: cancelText
-            size: small
-            label:
-              span: 8
-              extra: Width of the modal dialog.
-        - id: block.properties.zIndex
-          type: NumberInput
-          defaultValue: 1000
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: zIndex
-            size: small
-            label:
-              span: 8
-              extra: The z-index of the modal. Useful when displaying two modals simultaneously.
-      
-      actions_description: | 
-        #### onOk
-        Executed when then Ok button is clicked.
+            > To open the modal, invoke a modal method.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_wrap2
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: block_divider
+                type: Divider
+                properties:
+                  title: Block
+              - id: block_wrap2
+                type: Box
+                layout:
+                  contentJustify: center
+                blocks:
+                  - id: block_name_button
+                    type: Button
+                    layout:
+                      size: 100
+                    properties:
+                      title: Open Modal
+                    actions:
+                      onClick:
+                        - id: click_method
+                          type: CallMethod
+                          params:
+                            blockId: block_name
+                            method: toggleOpen
 
-        #### onCancel
-        Executed when then Cancel button is clicked.
-      
-      methods_form:
-        - id: method_toggleOpen
-          type: Button
-          properties:
-            title: toggleOpen
-          actions:
-            onClick:
-              - id: click_toggleOpen
-                type: CallMethod
-                params:
-                  blockId: block_name
-                  method: toggleOpen
-        - id: desc_toggleOpen
-          type: Markdown
-          properties:
-            content: |
-              Toggle to modal open or closed.
-              ```yaml
-                actions:
-                  onClick:
-                  - id: click_toggleOpen
-                    type: CallMethod
-                    params:
-                      blockId: block_name
-                      method: toggleOpen
-              ```
-        - id: method_setOpen
-          type: Button
-          properties:
-            title: setOpen
-          actions:
-            onClick:
-              - id: click_setOpen
-                type: CallMethod
-                params:
-                  blockId: block_name
-                  method: setOpen
-                  args:
-                    open: true
-        - id: desc_setOpen
-          type: Markdown
-          properties:
-            content: |
-              Set the modal open.
-              ```yaml
-                actions:
-                  onClick:
-                  - id: click_setOpen
-                    type: CallMethod
-                    params:
-                      blockId: block_name
-                      method: setOpen
-                      args:
-                        open: true
-              ```
+              - id: block_name
+                type: Modal
+                layout:
+                  _parse: 
+                    _state: flex_style_input
+                visible:
+                  _state: block.visible
+                properties:
+                  _state: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_1
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content
 
-      examples:
-        - id: example_1_card
-          type: Card
-          blocks:
-            - id: example_1_block_grid
-              type: Box
-              layout:
-                span: 12
-              blocks:
-                - id: example_1_title
-                  type: Markdown
+              - id: setup_divider
+                type: Divider
+                properties:
+                  title: Block Setup
+              - id: setup_card
+                type: Card
+                properties: 
+                  size: small
+                blocks:
+                  - id: setup_markdown
+                    type: Markdown
+                    properties:
+                      content:
+                        _nunjucks:
+                          template: |
+                            ```yaml
+                            {{ value | safe }}
+                            ```
+                          on:
+                            value:
+                              _dump_yaml:
+                                id: block_id
+                                type:
+                                  _state: style_transform
+                                layout:
+                                  _parse: 
+                                    _state: flex_style_input
+                                visible:
+                                  _state: block.visible
+                                properties:
+                                  _state: block.properties
+                                areas:
+                                  content:
+                                    blocks: []
+                                  footer:
+                                    blocks: []
+
+          - id: settings_grid
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: settings_divider
+                type: Divider
+                properties:
+                  title: Settings
+              - id: block_collapse
+                type: Collapse
+                properties:
+                  defaultActiveKey: properties
+                  panels:
+                    - key: layout
+                      title: 'layout:'
+                    - key: style
+                      title: 'style:'
+                    - key: properties
+                      title: 'properties:'
+                    - key: actions
+                      title: 'actions:'
+                    - key: visible
+                      title: 'visible:'
+                    - key: methods
+                      title: 'methods:'
+                    - key: areas
+                      title: 'areas:'
+                areas:
+                  layout:
+                    blocks:
+                      _ref: blocks/layout.yaml
+                  style:
+                    blocks:
+                      _ref: blocks/style.yaml
+                  visible:
+                    blocks:
+                      _ref: blocks/visible.yaml
                   properties:
-                    content: |
-                      ##### Uncontrolled Modal with input form
-                - id: example_1_modal_button
-                  type: Button
-                  properties:
-                    title: Open Modal
+                    blocks:
+                      - id: block.properties.title
+                        type: TextInput
+                        defaultValue: block_id
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: title
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: The modal dialog's title.
+                      - id: block.properties.centered
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: centered
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Center the modal vertically.
+                      - id: block.properties.closable
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: closable
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether a close (x) button is visible on top right of the modal dialog or not.
+                      - id: block.properties.footer
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: footer
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Show footer area.
+                      - id: block.properties.mask
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: mask
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether to show mask (shaded out background) or not.
+                      - id: block.properties.maskClosable
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: maskClosable
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
+                      - id: block.properties.okText
+                        type: TextInput
+                        defaultValue: Ok
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: okText
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Text of the Ok button.
+                      - id: block.properties.cancelText
+                        type: TextInput
+                        defaultValue: Cancel
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: cancelText
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Text of the Cancel button.
+                      - id: block.properties.width
+                        type: TextInput
+                        defaultValue: '520px'
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: cancelText
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Width of the modal dialog.
+                      - id: block.properties.zIndex
+                        type: NumberInput
+                        defaultValue: 1000
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: zIndex
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: The z-index of the modal. Useful when displaying two modals simultaneously.
                   actions:
-                    onClick:
-                      - id: click_method
-                        type: CallMethod
-                        params:
-                          blockId: example_1_modal
-                          method: toggleOpen
-                - id: example_1_modal
-                  type: Modal
-                  properties:
-                    title: Add New Contact
-                  actions:
-                    onOk: 
-                      - id: validate_form
-                        type: Validate
-                  blocks:
-                    - id: example_1_markdown
-                      type: Markdown
-                      properties:
-                        content: |
-                          Please complete the details in this form to add a new contact.
-                    - id: example_1_name
-                      type: TextInput
-                      required: true
-                      properties:
-                        title: Name
-                    - id: example_1_surname
-                      type: TextInput
-                      required: true
-                      properties:
-                        title: Surname
+                    blocks:
+                      - id: actions_description
+                        type: Markdown
+                        properties:
+                          content: |
+                            #### onOk
+                            Executed when then Ok button is clicked.
 
-                          
-            - id: example_1_code_grid
-              type: Box
-              layout:
-                span: 12
-              blocks:
-                - id: example_1_code
-                  type: Markdown
-                  properties:
-                    content: |
-                      ```yaml
-                        - id: example_1_modal_button
-                          type: Button
-                          properties:
-                            title: Open Modal
-                          actions:
-                            onClick:
-                              - id: click_method
-                                type: CallMethod
-                                params:
-                                  blockId: example_1_modal
-                                  method: toggleOpen
-                        - id: example_1_modal
-                          type: Modal
-                          properties:
-                            title: Add New Contact
-                          actions:
-                            onOk: 
-                              - id: validate_form
-                                type: Validate
-                          blocks:
-                            - id: example_1_markdown
-                              type: Markdown
-                              properties:
-                                content: |
-                                  Please complete the details in this form to add a new contact.
-                            - id: example_1_name
-                              type: TextInput
-                              required: true
-                              properties:
-                                title: Name
-                            - id: example_1_surname
-                              type: TextInput
-                              required: true
-                              properties:
-                                title: Surname
-                      ```
+                            #### onCancel
+                            Executed when then Cancel button is clicked.
+                  methods:
+                    blocks:
+                      - id: method_toggleOpen
+                        type: Button
+                        properties:
+                          title: toggleOpen
+                        actions:
+                          onClick:
+                            - id: click_toggleOpen
+                              type: CallMethod
+                              params:
+                                blockId: block_name
+                                method: toggleOpen
+                      - id: desc_toggleOpen
+                        type: Markdown
+                        properties:
+                          content: |
+                            Toggle to modal open or closed.
+                            ```yaml
+                              actions:
+                                onClick:
+                                - id: click_toggleOpen
+                                  type: CallMethod
+                                  params:
+                                    blockId: block_name
+                                    method: toggleOpen
+                            ```
+                      - id: method_setOpen
+                        type: Button
+                        properties:
+                          title: setOpen
+                        actions:
+                          onClick:
+                            - id: click_setOpen
+                              type: CallMethod
+                              params:
+                                blockId: block_name
+                                method: setOpen
+                                args:
+                                  open: true
+                      - id: desc_setOpen
+                        type: Markdown
+                        properties:
+                          content: |
+                            Set the modal open.
+                            ```yaml
+                              actions:
+                                onClick:
+                                - id: click_setOpen
+                                  type: CallMethod
+                                  params:
+                                    blockId: block_name
+                                    method: setOpen
+                                    args:
+                                      open: true
+                            ```
+  - id: ex_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: example_1_card
+    type: Card
+    blocks:
+      - id: example_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Uncontrolled Modal with input form
+          - id: example_1_modal_button
+            type: Button
+            properties:
+              title: Open Modal
+            actions:
+              onClick:
+                - id: click_method
+                  type: CallMethod
+                  params:
+                    blockId: example_1_modal
+                    method: toggleOpen
+          - id: example_1_modal
+            type: Modal
+            properties:
+              title: Add New Contact
+            actions:
+              onOk: 
+                - id: validate_form
+                  type: Validate
+            blocks:
+              - id: example_1_markdown
+                type: Markdown
+                properties:
+                  content: |
+                    Please complete the details in this form to add a new contact.
+              - id: example_1_name
+                type: TextInput
+                required: true
+                properties:
+                  title: Name
+              - id: example_1_surname
+                type: TextInput
+                required: true
+                properties:
+                  title: Surname
+                    
+      - id: example_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_code
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  - id: example_1_modal_button
+                    type: Button
+                    properties:
+                      title: Open Modal
+                    actions:
+                      onClick:
+                        - id: click_method
+                          type: CallMethod
+                          params:
+                            blockId: example_1_modal
+                            method: toggleOpen
+                  - id: example_1_modal
+                    type: Modal
+                    properties:
+                      title: Add New Contact
+                    actions:
+                      onOk: 
+                        - id: validate_form
+                          type: Validate
+                    blocks:
+                      - id: example_1_markdown
+                        type: Markdown
+                        properties:
+                          content: |
+                            Please complete the details in this form to add a new contact.
+                      - id: example_1_name
+                        type: TextInput
+                        required: true
+                        properties:
+                          title: Name
+                      - id: example_1_surname
+                        type: TextInput
+                        required: true
+                        properties:
+                          title: Surname
+                ```
 
-        - id: example_2_card
-          type: Card
-          blocks:
-            - id: example_2_block_grid
-              type: Box
-              layout:
-                span: 12
-              blocks:
-                - id: example_2_title
-                  type: Markdown
-                  properties:
-                    content: |
-                      ##### Controlled Modal with details
-                - id: example_2_modal_button
-                  type: Button
-                  properties:
-                    title: Open Modal
-                  actions:
-                    onClick:
-                      - id: click_open
-                        type: SetState
-                        params:
-                          example_2_open:
-                            _not:
-                              _state: example_2_open
-                - id: example_2_modal
-                  type: Modal
-                  properties:
-                    title: More details
-                    open: 
+  - id: example_2_card
+    type: Card
+    blocks:
+      - id: example_2_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_2_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Controlled Modal with details
+          - id: example_2_modal_button
+            type: Button
+            properties:
+              title: Open Modal
+            actions:
+              onClick:
+                - id: click_open
+                  type: SetState
+                  params:
+                    example_2_open:
                       _not:
-                        _not:
-                          _state: example_2_open
-                  actions:
-                    onOk: 
-                      - id: click_ok
-                        type: SetState
-                        params:
-                          example_2_open:
-                            _not:
-                              _state: example_2_open
-                    onCancel: 
-                      - id: click_cancel
-                        type: SetState
-                        params:
-                          example_2_open:
-                            _not:
-                              _state: example_2_open
-                  blocks:
-                    - id: example_2_markdown
-                      type: Markdown
-                      properties:
-                        content: |
-                          This modal is controlled by the external state `example_2_open`.
-
-                          
-            - id: example_2_code_grid
-              type: Box
-              layout:
-                span: 12
-              blocks:
-                - id: example_2_code
-                  type: Markdown
-                  properties:
-                    content: |
-                      ```yaml
-                        - id: example_2_modal_button
-                          type: Button
-                          properties:
-                            title: Open Modal
-                          actions:
-                            onClick:
-                              - id: click_open
-                                type: SetState
-                                params:
-                                  example_2_open:
-                                    _not:
-                                      _state: example_2_open
-                        - id: example_2_modal
-                          type: Modal
-                          properties:
-                            title: More details
-                            open: 
+                        _state: example_2_open
+          - id: example_2_modal
+            type: Modal
+            properties:
+              title: More details
+              open: 
+                _not:
+                  _not:
+                    _state: example_2_open
+            actions:
+              onOk: 
+                - id: click_ok
+                  type: SetState
+                  params:
+                    example_2_open:
+                      _not:
+                        _state: example_2_open
+              onCancel: 
+                - id: click_cancel
+                  type: SetState
+                  params:
+                    example_2_open:
+                      _not:
+                        _state: example_2_open
+            blocks:
+              - id: example_2_markdown
+                type: Markdown
+                properties:
+                  content: |
+                    This modal is controlled by the external state `example_2_open`.
+                    
+      - id: example_2_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_2_code
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  - id: example_2_modal_button
+                    type: Button
+                    properties:
+                      title: Open Modal
+                    actions:
+                      onClick:
+                        - id: click_open
+                          type: SetState
+                          params:
+                            example_2_open:
                               _not:
-                                _not:
-                                  _state: example_2_open
-                          actions:
-                            onOk: 
-                              - id: click_ok
-                                type: SetState
-                                params:
-                                  example_2_open:
-                                    _not:
-                                      _state: example_2_open
-                            onClose: 
-                              - id: click_close
-                                type: SetState
-                                params:
-                                  example_2_open:
-                                    _not:
-                                      _state: example_2_open
-                          blocks:
-                            - id: example_2_markdown
-                              type: Markdown
-                              properties:
-                                content: |
-                                  This modal is controlled by the external state `example_2_open`.
-                      ```
-        
+                                _state: example_2_open
+                  - id: example_2_modal
+                    type: Modal
+                    properties:
+                      title: More details
+                      open: 
+                        _not:
+                          _not:
+                            _state: example_2_open
+                    actions:
+                      onOk: 
+                        - id: click_ok
+                          type: SetState
+                          params:
+                            example_2_open:
+                              _not:
+                                _state: example_2_open
+                      onClose: 
+                        - id: click_close
+                          type: SetState
+                          params:
+                            example_2_open:
+                              _not:
+                                _state: example_2_open
+                    blocks:
+                      - id: example_2_markdown
+                        type: Markdown
+                        properties:
+                          content: |
+                            This modal is controlled by the external state `example_2_open`.
+                ```

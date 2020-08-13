@@ -21,7 +21,7 @@ actions:
                 title: Title Three
                 extraKey: content_three_extra
 blocks:
-  - id: card_title
+  - id: card_display
     type: Card
     blocks:
       - id: title
@@ -35,320 +35,323 @@ blocks:
           content: |
             A container with collapsible panels.
             The key of each panel is the area keys of the container.
-  - id: c1
-    type: Box
-    blocks:
-      - id: block_wrap2
+      - id: c1
         type: Box
-        layout:
-          span: 12
         blocks:
-          - id: block_divider
-            type: Divider
-            properties:
-              title: Block
-
-          - id: block_name
-            type: Collapse
+          - id: block_wrap2
+            type: Box
             layout:
-              _parse: 
-                _state: flex_style_input
-            visible:
-              _state: block.visible
-            properties:
-              _state: block.properties
-            areas:
-              content_one:
-                gutter: 0
-                style:
-                  border: 1px dashed red
-                blocks:
-                  - id: content_1
-                    type: Html
-                    style:
-                      background: '#f0f2f5'
-                      textAlign: center
-                      color: red
-                      padding: 20
-                    properties:
-                      html: |
-                        content_one 
-              content_two:
-                gutter: 0
-                style:
-                  border: 1px dashed red
-                blocks:
-                  - id: content_2
-                    type: Html
-                    style:
-                      background: '#f0f2f5'
-                      textAlign: center
-                      color: red
-                      padding: 20
-                    properties:
-                      html: |
-                        content_two 
-              content_three:
-                gutter: 0
-                style:
-                  border: 1px dashed red
-                blocks:
-                  - id: content_3
-                    type: Html
-                    style:
-                      background: '#f0f2f5'
-                      textAlign: center
-                      color: red
-                      padding: 20
-                    properties:
-                      html: |
-                        content_three 
-
-          - id: setup_divider
-            type: Divider
-            properties:
-              title: Block Setup
-          - id: setup_card
-            type: Card
-            properties: 
-              size: small
+              span: 12
             blocks:
-              - id: setup_markdown
-                type: Markdown
+              - id: block_divider
+                type: Divider
                 properties:
-                  content:
-                    _nunjucks:
-                      template: |
-                        ```yaml
-                        {{ value | safe }}
-                        ```
-                      on:
-                        value:
-                          _dump_yaml:
-                            id: block_id
-                            type:
-                              _state: style_transform
-                            layout:
-                              _parse: 
-                                _state: flex_style_input
-                            visible:
-                              _state: block.visible
-                            properties:
-                              _state: block.properties
-                            areas:
-                              content_one:
-                                blocks: []
-                              content_two:
-                                blocks: []
+                  title: Block
 
-      - id: settings_grid
-        type: Box
-        layout:
-          span: 12
-        blocks:
-          - id: settings_divider
-            type: Divider
-            properties:
-              title: Settings
-          - id: block_collapse
-            type: Collapse
-            properties:
-              defaultActiveKey: properties
-              panels:
-                - key: layout
-                  title: 'layout:'
-                - key: style
-                  title: 'style:'
-                - key: properties
-                  title: 'properties:'
-                - key: actions
-                  title: 'actions:'
-                - key: visible
-                  title: 'visible:'
-                - key: areas
-                  title: 'areas:'
-            areas:
-              layout:
-                blocks:
-                  _ref: blocks/layout.yaml
-              style:
-                blocks:
-                  _ref: blocks/style.yaml
-              visible:
-                blocks:
-                  _ref: blocks/visible.yaml
-              properties:
-                blocks:
-                  - id: flex_properties_form
-                    type: Box
+              - id: block_name
+                type: Collapse
+                layout:
+                  _parse: 
+                    _state: flex_style_input
+                visible:
+                  _state: block.visible
+                properties:
+                  _state: block.properties
+                areas:
+                  content_one:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
                     blocks:
-                      - id: block.properties.accordion
-                        type: Switch
-                        defaultValue: false
-                        layout:
-                          _global: settings_input_layout
+                      - id: content_1
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
                         properties:
-                          title: accordion
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: If true, only one panel is open at a time.
-                      - id: block.properties.activeKey
-                        type: TextInput
-                        layout:
-                          _global: settings_input_layout
+                          html: |
+                            content_one 
+                  content_two:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_2
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
                         properties:
-                          title: activeKey
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Current panel's key.
-                      - id: block.properties.bordered
-                        type: Switch
-                        defaultValue: true
-                        layout:
-                          _global: settings_input_layout
+                          html: |
+                            content_two 
+                  content_three:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_3
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
                         properties:
-                          title: bordered
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Toggles rendering of the border around the collapse block.
-                      - id: block.properties.defaultActiveKey
-                        type: TextInput
-                        defaultValue: content_one
-                        layout:
-                          _global: settings_input_layout
-                        properties:
-                          title: defaultActiveKey
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Initial active panel's key, if activeKey is not set.
-                      - id: block.properties.destroyInactivePanel
-                        type: Switch
-                        defaultValue: false
-                        layout:
-                          _global: settings_input_layout
-                        properties:
-                          title: destroyInactivePanel
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Destroy inactive panel.
-                      - _ref:
-                          path: blocks/icon_template.yaml
-                          vars:
-                            icon_id: block.properties.expandIcon
-                            icon_field_name: expandIcon
-                            default_icon: RightOutlined
-                            icon_description: Icon to show as expand option.
-                      - id: block.properties.expandIconPosition
-                        type: ButtonSelector
-                        defaultValue: left
-                        layout:
-                          _global: settings_input_layout
-                        properties:
-                          title: expandIconPosition
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Set position of expand icon.
-                          options:
-                            - left
-                            - right
-                      - id: block.properties.forceRender
-                        type: Switch
-                        defaultValue: false
-                        layout:
-                          _global: settings_input_layout
-                        properties:
-                          title: forceRender
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Force render for all panels.
-                      - id: block.properties.showArrow
-                        type: Switch
-                        defaultValue: true
-                        layout:
-                          _global: settings_input_layout
-                        properties:
-                          title: showArrow
-                          size: small
-                          label:
-                            _ref: 
-                              path: blocks/label_extra.yaml
-                              vars:
-                                extra: Show expand icon.
-                      - id: block.properties.panels
-                        type: ControlledList
-                        properties:
-                          title: 'panels:'
-                          size: small
+                          html: |
+                            content_three 
+
+              - id: setup_divider
+                type: Divider
+                properties:
+                  title: Block Setup
+              - id: setup_card
+                type: Card
+                properties: 
+                  size: small
+                blocks:
+                  - id: setup_markdown
+                    type: Markdown
+                    properties:
+                      content:
+                        _nunjucks:
+                          template: |
+                            ```yaml
+                            {{ value | safe }}
+                            ```
+                          on:
+                            value:
+                              _dump_yaml:
+                                id: block_id
+                                type:
+                                  _state: style_transform
+                                layout:
+                                  _parse: 
+                                    _state: flex_style_input
+                                visible:
+                                  _state: block.visible
+                                properties:
+                                  _state: block.properties
+                                areas:
+                                  content_one:
+                                    blocks: []
+                                  content_two:
+                                    blocks: []
+                                  content_three:
+                                    blocks: []
+
+          - id: settings_grid
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: settings_divider
+                type: Divider
+                properties:
+                  title: Settings
+              - id: block_collapse
+                type: Collapse
+                properties:
+                  defaultActiveKey: properties
+                  panels:
+                    - key: layout
+                      title: 'layout:'
+                    - key: style
+                      title: 'style:'
+                    - key: properties
+                      title: 'properties:'
+                    - key: actions
+                      title: 'actions:'
+                    - key: visible
+                      title: 'visible:'
+                    - key: areas
+                      title: 'areas:'
+                areas:
+                  layout:
+                    blocks:
+                      _ref: blocks/layout.yaml
+                  style:
+                    blocks:
+                      _ref: blocks/style.yaml
+                  visible:
+                    blocks:
+                      _ref: blocks/visible.yaml
+                  properties:
+                    blocks:
+                      - id: flex_properties_form
+                        type: Box
                         blocks:
-                          - id: block.properties.panels.$.title
-                            type: TextInput
-                            defaultValue: title
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: title
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Title of the panel.
-                          - id: block.properties.panels.$.key
-                            type: TextInput
-                            defaultValue: key
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: key
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Key of the panel.
-                          - id: block.properties.panels.$.disabled
+                          - id: block.properties.accordion
                             type: Switch
                             defaultValue: false
                             layout:
                               _global: settings_input_layout
                             properties:
-                              title: disabled
+                              title: accordion
                               size: small
                               label:
                                 _ref: 
                                   path: blocks/label_extra.yaml
                                   vars:
-                                    extra: Disable the panel if true.
+                                    extra: If true, only one panel is open at a time.
+                          - id: block.properties.activeKey
+                            type: TextInput
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: activeKey
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Current panel's key.
+                          - id: block.properties.bordered
+                            type: Switch
+                            defaultValue: true
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: bordered
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Toggles rendering of the border around the collapse block.
+                          - id: block.properties.defaultActiveKey
+                            type: TextInput
+                            defaultValue: content_one
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: defaultActiveKey
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Initial active panel's key, if activeKey is not set.
+                          - id: block.properties.destroyInactivePanel
+                            type: Switch
+                            defaultValue: false
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: destroyInactivePanel
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Destroy inactive panel.
+                          - _ref:
+                              path: blocks/icon_template.yaml
+                              vars:
+                                icon_id: block.properties.expandIcon
+                                icon_field_name: expandIcon
+                                default_icon: RightOutlined
+                                icon_description: Icon to show as expand option.
+                          - id: block.properties.expandIconPosition
+                            type: ButtonSelector
+                            defaultValue: left
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: expandIconPosition
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Set position of expand icon.
+                              options:
+                                - left
+                                - right
+                          - id: block.properties.forceRender
+                            type: Switch
+                            defaultValue: false
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: forceRender
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Force render for all panels.
+                          - id: block.properties.showArrow
+                            type: Switch
+                            defaultValue: true
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: showArrow
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Show expand icon.
+                          - id: block.properties.panels
+                            type: ControlledList
+                            properties:
+                              title: 'panels:'
+                              size: small
+                            blocks:
+                              - id: block.properties.panels.$.title
+                                type: TextInput
+                                defaultValue: title
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: title
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Title of the panel.
+                              - id: block.properties.panels.$.key
+                                type: TextInput
+                                defaultValue: key
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: key
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Key of the panel.
+                              - id: block.properties.panels.$.disabled
+                                type: Switch
+                                defaultValue: false
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: disabled
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Disable the panel if true.
 
 
-              actions:
-                blocks:
-                  - id: actions_description
-                    type: Markdown
-                    properties:
-                      content: |
-                        ###### No available actions.
+                  actions:
+                    blocks:
+                      - id: actions_description
+                        type: Markdown
+                        properties:
+                          content: |
+                            ###### onChange
+                            Triggered when the panel is changed. Makes the `activeKey` available as an `arg`.
 
 
   - id: ex_divider

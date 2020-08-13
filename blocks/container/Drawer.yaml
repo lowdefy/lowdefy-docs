@@ -3,427 +3,574 @@ type: PageSiderMenu
 public: true
 properties:
   title: Drawer
-actions:
-  onInit:
-    - id: init
-      type: SetState
-      params:
-        _ref: blocks/html_blocks.yaml
 blocks:
-  _ref:
-    path: blocks/popup_template.yaml
-    vars:
-      block_type: Drawer
-      block_name: Drawer
-      description_content: |
-        A panel which slides in from the edge of the screen.
-      popup_method: toggleOpen
-      popup_button_title: Open Drawer
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          layout:
-            _global: settings_input_layout
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            label:
-              span: 8
-              extra: CSS Object style properties. Should be in JSON format.
-      properties_form:
-        - id: block.properties.closable
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: closable
-            size: small
-            label:
-              span: 8
-              extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
-        - id: block.properties.mask
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: mask
-            size: small
-            label:
-              span: 8
-              extra: Whether to show mask (shaded out background) or not.
-        - id: block.properties.maskClosable
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: maskClosable
-            size: small
-            label:
-              span: 8
-              extra: Clicking on the mask (area outside the Drawer) to close the Drawer or not.
-        - id: block.properties.title
-          type: TextInput
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: title
-            size: small
-            label:
-              span: 8
-              extra: The title of the Drawer.
-        - id: block.properties.width
-          type: TextInput
-          defaultValue: 256px
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: width
-            size: small
-            label:
-              span: 8
-              extra: Width of the Drawer dialog.
-        - id: block.properties.height
-          type: TextInput
-          defaultValue: 256px
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: height
-            size: small
-            label:
-              span: 8
-              extra: When placement is top or bottom, height of the Drawer dialog.
-        - id: block.properties.zIndex
-          type: NumberInput
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: zIndex
-            size: small
-            label:
-              span: 8
-              extra: The z-index of the Drawer.
-        - id: block.properties.placement
-          type: ButtonSelector
-          defaultValue: right
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: placement
-            size: small
-            options:
-              - top
-              - right
-              - bottom
-              - left
-            label:
-              span: 8
-              extra: The placement of the Drawer.
-        - id: block.properties.keyboard
-          type: Switch
-          defaultValue: true
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: keyboard
-            size: small
-            label:
-              span: 8
-              extra: Enable closing drawer with escape key.
-        
-      actions_description: | 
-        #### onClose
-        Called when the Drawer is closed.
+  - id: card_title
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Drawer
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            A panel which slides in from the edge of the screen.
+            The Drawer has a single area, `content`.
 
-      methods_form:
-        - id: method_toggleOpen
-          type: Button
-          properties:
-            title: toggleOpen
-          actions:
-            onClick:
-              - id: click_toggleOpen
-                type: CallMethod
-                params:
-                  blockId: block_name
-                  method: toggleOpen
-        - id: desc_toggleOpen
-          type: Markdown
-          properties:
-            content: |
-              Toggle drawer open or closed.
-              ```yaml
-                actions:
-                  onClick:
-                  - id: click_toggleOpen
-                    type: CallMethod
-                    params:
-                      blockId: block_name
-                      method: toggleOpen
-              ```
-        - id: method_setOpen
-          type: Button
-          properties:
-            title: setOpen 
-          actions:
-            onClick:
-              - id: click_setOpen
-                type: CallMethod
-                params:
-                  blockId: block_name
-                  method: setOpen
-                  args:
-                    open: true
-        - id: desc_setOpen
-          type: Markdown
-          properties:
-            content: |
-              Set the drawer to open.
-              ```yaml
-                actions:
-                  onClick:
-                  - id: click_setOpen
-                    type: CallMethod
-                    params:
-                      blockId: block_name
-                      method: setOpen
-                      args:
-                        open: true
-              ```
+            > To open the drawer, invoke a drawer method.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_wrap2
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: block_divider
+                type: Divider
+                properties:
+                  title: Block
+              - id: block_wrap2
+                type: Box
+                layout:
+                  contentJustify: center
+                blocks:
+                  - id: block_name_button
+                    type: Button
+                    layout:
+                      size: 100
+                    properties:
+                      title: Open Drawer
+                    actions:
+                      onClick:
+                        - id: click_method
+                          type: CallMethod
+                          params:
+                            blockId: block_name
+                            method: toggleOpen
 
-      examples:
-        - id: example_1_card
-          type: Card
-          blocks:
-            - id: example_1_block_grid
-              type: Box
-              layout:
-                span: 6
-              blocks:
-                - id: example_1_title
-                  type: Markdown
+              - id: block_name
+                type: Drawer
+                layout:
+                  _parse: 
+                    _state: flex_style_input
+                visible:
+                  _state: block.visible
+                properties:
+                  _state: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_1
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content
+
+              - id: setup_divider
+                type: Divider
+                properties:
+                  title: Block Setup
+              - id: setup_card
+                type: Card
+                properties: 
+                  size: small
+                blocks:
+                  - id: setup_markdown
+                    type: Markdown
+                    properties:
+                      content:
+                        _nunjucks:
+                          template: |
+                            ```yaml
+                            {{ value | safe }}
+                            ```
+                          on:
+                            value:
+                              _dump_yaml:
+                                id: block_id
+                                type:
+                                  _state: style_transform
+                                layout:
+                                  _parse: 
+                                    _state: flex_style_input
+                                visible:
+                                  _state: block.visible
+                                properties:
+                                  _state: block.properties
+                                areas:
+                                  content:
+                                    blocks: []
+
+          - id: settings_grid
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: settings_divider
+                type: Divider
+                properties:
+                  title: Settings
+              - id: block_collapse
+                type: Collapse
+                properties:
+                  defaultActiveKey: properties
+                  panels:
+                    - key: layout
+                      title: 'layout:'
+                    - key: style
+                      title: 'style:'
+                    - key: properties
+                      title: 'properties:'
+                    - key: actions
+                      title: 'actions:'
+                    - key: visible
+                      title: 'visible:'
+                    - key: methods
+                      title: 'methods:'
+                    - key: areas
+                      title: 'areas:'
+                areas:
+                  layout:
+                    blocks:
+                      _ref: blocks/layout.yaml
+                  style:
+                    blocks:
+                      _ref: blocks/style.yaml
+                  visible:
+                    blocks:
+                      _ref: blocks/visible.yaml
                   properties:
-                    content: |
-                      ##### Uncontrolled Drawer with input form
-                - id: drawer_button
-                  type: Button
-                  properties:
-                    title: Open Drawer
+                    blocks:
+                      - id: block.properties.closable
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: closable
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
+                      - id: block.properties.mask
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: mask
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Whether to show mask (shaded out background) or not.
+                      - id: block.properties.maskClosable
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: maskClosable
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Clicking on the mask (area outside the Drawer) to close the Drawer or not.
+                      - id: block.properties.title
+                        type: TextInput
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: title
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: The title of the Drawer.
+                      - id: block.properties.width
+                        type: TextInput
+                        defaultValue: 256px
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: width
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Width of the Drawer dialog.
+                      - id: block.properties.height
+                        type: TextInput
+                        defaultValue: 256px
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: height
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: When placement is top or bottom, height of the Drawer dialog.
+                      - id: block.properties.zIndex
+                        type: NumberInput
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: zIndex
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: The z-index of the Drawer.
+                      - id: block.properties.placement
+                        type: ButtonSelector
+                        defaultValue: right
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: placement
+                          size: small
+                          options:
+                            - top
+                            - right
+                            - bottom
+                            - left
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: The placement of the Drawer.
+                      - id: block.properties.keyboard
+                        type: Switch
+                        defaultValue: true
+                        layout:
+                          _global: settings_input_layout
+                        properties:
+                          title: keyboard
+                          size: small
+                          label:
+                            _ref: 
+                              path: blocks/label_extra.yaml
+                              vars:
+                                extra: Enable closing drawer with escape key.
                   actions:
-                    onClick:
-                      - id: click_method
-                        type: CallMethod
-                        params:
-                          blockId: example_1_drawer
-                          method: toggleOpen
-                - id: example_1_drawer
-                  type: Drawer
-                  properties:
-                    title: Add New Contact
-                    width: 400
-                  blocks:
-                    - id: example_1_markdown
-                      type: Markdown
-                      properties:
-                        content: |
-                          Please complete the details in this form to add a new contact.
-                    - id: example_1_name
-                      type: TextInput
-                      required: true
-                      properties:
-                        title: Name
-                    - id: example_1_surname
-                      type: TextInput
-                      required: true
-                      properties:
-                        title: Surname
-                    - id: save_button
-                      type: Button
-                      properties:
-                        title: Save
-                      actions:
-                        onClick:
-                          - id: validate_form
-                            type: Validate
-                          - id: click_method
-                            type: CallMethod
-                            params:
-                              blockId: example_1_drawer
-                              method: toggleOpen
-                          
-            - id: example_1_code_grid
-              type: Box
-              layout:
-                span: 6
-              blocks:
-                - id: example_1_code
-                  type: Markdown
-                  properties:
-                    content: |
-                      ```yaml
-                        - id: drawer_button
-                          type: Button
-                          properties:
-                            title: Open Drawer
-                          actions:
-                            onClick:
-                              - id: click_method
-                                type: CallMethod
-                                params:
-                                  blockId: example_1_drawer
-                                  method: toggleOpen
-                        - id: example_1_drawer
-                          type: Drawer
-                          properties:
-                            title: Add New Contact
-                            width: 400
-                          blocks:
-                            - id: example_1_markdown
-                              type: Markdown
-                              properties:
-                                content: |
-                                  Please complete the details in this form to add a new contact.
-                            - id: example_1_name
-                              type: TextInput
-                              required: true
-                              properties:
-                                title: Name
-                            - id: example_1_surname
-                              type: TextInput
-                              required: true
-                              properties:
-                                title: Surname
-                            - id: save_button
-                              type: Button
-                              properties:
-                                title: Save
+                    blocks:
+                      - id: actions_description
+                        type: Markdown
+                        properties:
+                          content: |
+                            #### onClose
+                            Called when the Drawer is closed.
+                  methods:
+                    blocks:
+                      - id: method_toggleOpen
+                        type: Button
+                        properties:
+                          title: toggleOpen
+                        actions:
+                          onClick:
+                            - id: click_toggleOpen
+                              type: CallMethod
+                              params:
+                                blockId: block_name
+                                method: toggleOpen
+                      - id: desc_toggleOpen
+                        type: Markdown
+                        properties:
+                          content: |
+                            Toggle drawer open or closed.
+                            ```yaml
                               actions:
                                 onClick:
-                                  - id: validate_form
-                                    type: Validate
-                                  - id: click_method
-                                    type: CallMethod
-                                    params:
-                                      blockId: example_1_drawer
-                                      method: toggleOpen
-                      ```
-        
+                                - id: click_toggleOpen
+                                  type: CallMethod
+                                  params:
+                                    blockId: block_name
+                                    method: toggleOpen
+                            ```
+                      - id: method_setOpen
+                        type: Button
+                        properties:
+                          title: setOpen 
+                        actions:
+                          onClick:
+                            - id: click_setOpen
+                              type: CallMethod
+                              params:
+                                blockId: block_name
+                                method: setOpen
+                                args:
+                                  open: true
+                      - id: desc_setOpen
+                        type: Markdown
+                        properties:
+                          content: |
+                            Set the drawer to open.
+                            ```yaml
+                              actions:
+                                onClick:
+                                - id: click_setOpen
+                                  type: CallMethod
+                                  params:
+                                    blockId: block_name
+                                    method: setOpen
+                                    args:
+                                      open: true
+                            ```
 
-        - id: example_2_card
-          type: Card
-          blocks:
-            - id: example_2_block_grid
-              type: Box
-              layout:
-                span: 6
-              blocks:
-                - id: example_2_title
-                  type: Markdown
-                  properties:
-                    content: |
-                      ##### Controlled Drawer with details
-                - id: example_2_drawer_button
-                  type: Button
-                  properties:
-                    title: Open Drawer
-                  actions:
-                    onClick:
-                      - id: click_open
-                        type: SetState
-                        params:
-                          example_2_open:
-                            _not:
-                              _state: example_2_open
-                - id: example_2_drawer
-                  type: Drawer
-                  properties:
-                    title: More details
-                    open: 
+  - id: ex_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: example_1_card
+    type: Card
+    blocks:
+      - id: example_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Uncontrolled Drawer with input form
+          - id: drawer_button
+            type: Button
+            properties:
+              title: Open Drawer
+            actions:
+              onClick:
+                - id: click_method
+                  type: CallMethod
+                  params:
+                    blockId: example_1_drawer
+                    method: toggleOpen
+          - id: example_1_drawer
+            type: Drawer
+            properties:
+              title: Add New Contact
+              width: 400
+            blocks:
+              - id: example_1_markdown
+                type: Markdown
+                properties:
+                  content: |
+                    Please complete the details in this form to add a new contact.
+              - id: example_1_name
+                type: TextInput
+                required: true
+                properties:
+                  title: Name
+              - id: example_1_surname
+                type: TextInput
+                required: true
+                properties:
+                  title: Surname
+              - id: save_button
+                type: Button
+                properties:
+                  title: Save
+                actions:
+                  onClick:
+                    - id: validate_form
+                      type: Validate
+                    - id: click_method
+                      type: CallMethod
+                      params:
+                        blockId: example_1_drawer
+                        method: toggleOpen
+                    
+      - id: example_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_code
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  - id: drawer_button
+                    type: Button
+                    properties:
+                      title: Open Drawer
+                    actions:
+                      onClick:
+                        - id: click_method
+                          type: CallMethod
+                          params:
+                            blockId: example_1_drawer
+                            method: toggleOpen
+                  - id: example_1_drawer
+                    type: Drawer
+                    properties:
+                      title: Add New Contact
+                      width: 400
+                    blocks:
+                      - id: example_1_markdown
+                        type: Markdown
+                        properties:
+                          content: |
+                            Please complete the details in this form to add a new contact.
+                      - id: example_1_name
+                        type: TextInput
+                        required: true
+                        properties:
+                          title: Name
+                      - id: example_1_surname
+                        type: TextInput
+                        required: true
+                        properties:
+                          title: Surname
+                      - id: save_button
+                        type: Button
+                        properties:
+                          title: Save
+                        actions:
+                          onClick:
+                            - id: validate_form
+                              type: Validate
+                            - id: click_method
+                              type: CallMethod
+                              params:
+                                blockId: example_1_drawer
+                                method: toggleOpen
+                ```
+  
+
+  - id: example_2_card
+    type: Card
+    blocks:
+      - id: example_2_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_2_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Controlled Drawer with details
+          - id: example_2_drawer_button
+            type: Button
+            properties:
+              title: Open Drawer
+            actions:
+              onClick:
+                - id: click_open
+                  type: SetState
+                  params:
+                    example_2_open:
                       _not:
-                        _not:
-                          _state: example_2_open
-                  actions:
-                    onOk: 
-                      - id: click_ok
-                        type: SetState
-                        params:
-                          example_2_open:
-                            _not:
-                              _state: example_2_open
-                    onCancel: 
-                      - id: click_cancel
-                        type: SetState
-                        params:
-                          example_2_open:
-                            _not:
-                              _state: example_2_open
-                  blocks:
-                    - id: example_2_drawer
-                      type: Markdown
-                      properties:
-                        content: |
-                          This drawer is controlled by the external state `example_2_open`.
+                        _state: example_2_open
+          - id: example_2_drawer
+            type: Drawer
+            properties:
+              title: More details
+              open: 
+                _not:
+                  _not:
+                    _state: example_2_open
+            actions:
+              onOk: 
+                - id: click_ok
+                  type: SetState
+                  params:
+                    example_2_open:
+                      _not:
+                        _state: example_2_open
+              onCancel: 
+                - id: click_cancel
+                  type: SetState
+                  params:
+                    example_2_open:
+                      _not:
+                        _state: example_2_open
+            blocks:
+              - id: example_2_drawer
+                type: Markdown
+                properties:
+                  content: |
+                    This drawer is controlled by the external state `example_2_open`.
+              - id: example_2_close_button
+                type: Button
+                properties:
+                  title: Close
+                actions:
+                  onClick:
+                    - id: click_cancel
+                      type: SetState
+                      params:
+                        example_2_open:
+                          _not:
+                            _state: example_2_open
 
-                          
-            - id: example_2_code_grid
-              type: Box
-              layout:
-                span: 6
-              blocks:
-                - id: example_2_code
-                  type: Markdown
-                  properties:
-                    content: |
-                      ```yaml
-                        - id: example_2_drawer_button
-                          type: Button
-                          properties:
-                            title: Open Drawer
-                          actions:
-                            onClick:
-                              - id: click_open
-                                type: SetState
-                                params:
-                                  example_2_open:
-                                    _not:
-                                      _state: example_2_open
-                        - id: example_2_drawer
-                          type: Drawer
-                          properties:
-                            title: More details
-                            open: 
+      - id: example_2_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_2_code
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  - id: example_2_drawer_button
+                    type: Button
+                    properties:
+                      title: Open Drawer
+                    actions:
+                      onClick:
+                        - id: click_open
+                          type: SetState
+                          params:
+                            example_2_open:
                               _not:
-                                _not:
-                                  _state: example_2_open
-                          actions:
-                            onOk: 
-                              - id: click_ok
-                                type: SetState
-                                params:
-                                  example_2_open:
-                                    _not:
-                                      _state: example_2_open
-                            onCancel: 
-                              - id: click_cancel
-                                type: SetState
-                                params:
-                                  example_2_open:
-                                    _not:
-                                      _state: example_2_open
-                          blocks:
-                            - id: example_2_drawer
-                              type: Markdown
-                              properties:
-                                content: |
-                                  This drawer is controlled by the external state `example_2_open`.
-                      ```
-        
-
+                                _state: example_2_open
+                  - id: example_2_drawer
+                    type: Drawer
+                    properties:
+                      title: More details
+                      open: 
+                        _not:
+                          _not:
+                            _state: example_2_open
+                    blocks:
+                      - id: example_2_drawer
+                        type: Markdown
+                        properties:
+                          content: |
+                            This drawer is controlled by the external state `example_2_open`.
+                      - id: example_2_close_button
+                        type: Button
+                        properties:
+                          title: Close
+                        actions:
+                          onClick:
+                            - id: click_cancel
+                              type: SetState
+                              params:
+                                example_2_open:
+                                  _not:
+                                    _state: example_2_open
+                ```
