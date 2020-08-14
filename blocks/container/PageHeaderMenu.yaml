@@ -6,266 +6,124 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 blocks:
   _ref:
     path: blocks/container_hscf_template.yaml
     vars:
-      block_name: Page Header Menu
+      block_name: PageHeaderMenu
       block_type: PageHeaderMenu
       description_content: |
         The Page Header Menu block provides a structured layout for a page with a header containing a default menu, content and footer area.
       label: false
-      kind: container
+      category: container
       style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Breadcrumb:
-                      _parse:
-                        _state: style_breadcrumb_input
-                    Content:
-                      _parse:
-                        _state: style_content_input
-                    Footer:
-                      _parse:
-                        _state: style_footer_input
-                    Header:
-                      _parse:
-                        _state: style_header_input
-                    Layout:
-                      _parse:
-                        _state: style_layout_input
-                    Logo:
-                      _parse:
-                        _state: style_logo_input
-                    Menu:
-                      _parse:
-                        _state: style_menu_input
-                    MenuLg:
-                      _parse:
-                        _state: style_lgMenu_input
-                    MenuMd:
-                      _parse:
-                        _state: style_mdMenu_input
-                    UserAvatar:
-                      _parse:
-                        _state: style_userAvatar_input
-              on:
-                _parse:
-                  _state: style_block_input
+        _parse:
+          _state: style_block_input
       style_form:
         - id: style_block_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: "{}"
           properties:
             title: block
             rows: 3
             size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_breadcrumb_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Breadcrumb
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_footer_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Footer
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_header_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Header
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_layout_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Layout
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_logo_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Logo
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_menu_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Menu
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_lgMenu_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: MenuLg
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_mdMenu_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: MenuMd
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_userAvatar_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: UserAvatar
-            rows: 3
-            size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       properties_form:
         - id: block.properties.logoSrc
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: logoSrc
             size: small
-            Label: 
+            label: 
+              span: 8
               extra: Header logo source url
         - id: block.properties.logoAlt
           type: TextInput
           defaultValue: Lowdefy
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: logoAlt
             size: small
-            Label: 
+            label: 
+              span: 8
               extra: Header logo alternative text
-        - id: block.properties.Header.theme
+        - id: block.properties.header.theme
           type: ButtonSelector
           defaultValue: dark
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: Header.theme
+            title: header.theme
             size: small
-            Label: 
+            label: 
+              span: 8
               extra: Color theme of the Header
             options:
               - light
               - dark
-        - id: block.properties.Header.link
+        - id: block.properties.header.link
           type: Anchor
           properties:
-            title: See all fields for properties.Header
-            Icon: LinkOutlined
+            title: See all fields for properties.header
+            icon: LinkOutlined
           actions:
             onClick: 
               - id: link_header
-                type: link()
+                type: Link
                 params:
                   pageId: header
-        - id: block.properties.Breadcrumb.list
+        - id: block.properties.breadcrumb.list
           type: MultipleSelector
           defaultValue: ['Page 1', 'Page 2']
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: Breadcrumb.list
+            title: breadcrumb.list
             size: small
             options:
               - Page 1
               - Page 2
               - Page 3
               - Page 4
-            Label:
+            label:
+              span: 8
               extra: Breadcrumb links
-        - id: block.properties.Breadcrumb.link
+        - id: block.properties.breadcrumb.link
           type: Anchor
           properties:
-            title: See all fields for properties.Breadcrumb
-            Icon: LinkOutlined
+            title: See all fields for properties.breadcrumb
+            icon: LinkOutlined
           actions:
             onClick:
               - id: link_breadcrumb
-                type: link()
+                type: Link
                 params:
                   pageId: breadcrumb
-        - id: block.properties.Menu.links
+        - id: block.properties.menu.links
           type: MultipleSelector
           defaultValue:
             - id: Introduction
               pageId: introduction
               properties: 
                 title: Introduction
-                Icon: RocketOutlined
+                icon: RocketOutlined
             - id: alert
               pageId: alert
               properties: 
                 title: Alert
-                Icon: ExclamationCircleOutlined
-          style:
-            _global: settings_input_style
+                icon: ExclamationCircleOutlined
+          layout:
+            _global: settings_input_layout
           properties:
             title: Menu.links
             size: small
@@ -276,72 +134,74 @@ blocks:
                   pageId: introduction
                   properties: 
                     title: Introduction
-                    Icon: RocketOutlined
+                    icon: RocketOutlined
               - label: Box
                 value: 
                   id: box
                   pageId: box
                   properties: 
                     title: Box
-                    Icon: GatewayOutlined
+                    icon: GatewayOutlined
               - label: Date
                 value: 
                   id: date
                   pageId: date
                   properties: 
                     title: Date
-                    Icon: CalendarOutlined
+                    icon: CalendarOutlined
               - label: Alert
                 value: 
                   id: alert
                   pageId: alert
                   properties: 
                     title: Alert
-                    Icon: ExclamationCircleOutlined
-            Label:
+                    icon: ExclamationCircleOutlined
+            label:
               extra: Menu links
-        - id: block.properties.Menu.link
+        - id: block.properties.menu.link
           type: Anchor
           properties:
             title: See all fields for properties.Menu
-            Icon: LinkOutlined
+            icon: LinkOutlined
           actions:
             onClick:
               - id: link_menu
-                type: link()
+                type: Link
                 params:
                   pageId: menu
-        - id: block.properties.UserAvatar.disable
+        - id: block.properties.userAvatar.disabled
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: UserAvatar.disable
+            title: userAvatar.disabled
             size: small
-            Label:
+            label:
+              span: 8
               extra: Do not render UserAvatar
-        - id: block.properties.UserAvatar.Avatar.shape
+        - id: block.properties.userAvatar.avatar.shape
           type: ButtonSelector
           defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: UserAvatar.Avatar.shape
+            title: userAvatar.avatar.shape
             size: small
-            Label:
+            label:
+              span: 8
               extra: Shape of the avatar.
             options:
               - circle
               - square
-        - id: block.properties.UserAvatar.link
+        - id: block.properties.userAvatar.link
           type: Anchor
           properties:
-            title: See all fields for properties.UserAvatar
-            Icon: LinkOutlined
+            title: See all fields for properties.userAvatar
+            icon: LinkOutlined
           actions:
             onClick:
               - id: link_UserAvatar
-                type: link()
+                type: Link
                 params:
                   pageId: UserAvatar

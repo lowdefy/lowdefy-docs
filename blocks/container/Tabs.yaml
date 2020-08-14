@@ -5,204 +5,669 @@ properties:
   title: Tabs
 actions:
   onInit:
-    - id: initialize_state 
-      type: setState()
+    - id: init_tabs
+      type: SetState
       params:
-        span_subblock_1: 12
-        visible_subblock_1: true
-        span_subblock_2: 6
-        visible_subblock_2: true
-        span_subblock_3: 6
-        visible_subblock_3: true
-        span_subblock_4: 12
-        visible_subblock_4: true
-        span_subblock_5: 4
-        visible_subblock_5: true
-        span_subblock_6: 8
-        visible_subblock_6: true
         block:
           properties:
             tabs:
-              - key: content1
-                title: content1
-              - key: content2
-          title: content2
-
+              - key: content_one
+                title: Title One
+              - key: content_two
+                title: Title Two
+              - key: content_three
+                title: Title Three
 blocks:
-  _ref:
-    path: blocks/grid_template_block_object.yaml
-    vars:
-      block_name: Tabs
-      description_content: |
-        A tabs container.
-      block_type: Tabs
-      label: false
-      kind: container
-      style_transform:
-        _get:
-          key: "0"
-          from:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Content1:
-                      _parse:
-                        _state: style_content1_input
-                    Content2:
-                      _parse:
-                        _state: style_content2_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content1_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content1
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_content2_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Content2
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-      properties_form:
-        - id: activeKey
-          type: TextInput
-          style:
-            _global: settings_input_style
-          properties:
-            title: activeKey
-            size: small
-            Label:
-              extra: Current TabPane's key.
-        - id: defaultActiveKey
-          type: TextInput
-          defaultValue: content1
-          style:
-            _global: settings_input_style
-          properties:
-            title: defaultActiveKey
-            size: small
-            Label:
-              extra: Initial active TabPane's key, if activeKey is not set.
-        - id: animated
-          type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
-          properties:
-            title: animated
-            size: small
-            Label:
-              extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
-        - id: block.properties.size
-          type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
-          properties:
-            title: size
-            size: small
-            Label:
-              extra: Size of the tabs.
-            options:
-              - small
-              - default
-              - large
-        - id: block.properties.tabPosition
-          type: ButtonSelector
-          defaultValue: top
-          style:
-            _global: settings_input_style
-          properties:
-            title: tabPosition
-            size: small
-            Label:
-              extra: Position of the tabs.
-            options:
-              - top
-              - right
-              - bottom
-              - left
-        - id: block.properties.tabs
-          type: ControlledList
-          style:
-            Content:
-              --gap: 0
-          properties:
-            title: 'tabs:'
-            size: small
-          blocks:
-            - id: block.properties.tabs.$.title
-              type: TextInput
-              defaultValue: title
-              style:
-                _global: settings_input_style
-              properties:
-                title: title
-                size: small
-                Label:
-                  extra: Title of the tab.
-            - id: block.properties.tabs.$.key
-              type: TextInput
-              defaultValue: key
-              style:
-                _global: settings_input_style
-              properties:
-                title: key
-                size: small
-                Label:
-                  extra: Key of the tab.
-            - _ref:
-                path: blocks/icon_template.yaml
-                vars:
-                  icon_id: block.properties.tabs.$.Icon
-                  icon_field_name: Icon
-                  icon_description: Icon to show in tab title.
-            - id: block.properties.tabs.$.disabled
-              type: Switch
-              defaultValue: false
-              style:
-                _global: settings_input_style
-              properties:
-                title: disabled
-                size: small
-                Label:
-                  extra: Disable the tab if true.
-        - id: block.properties.tabType
-          type: ButtonSelector
-          defaultValue: line
-          style:
-            _global: settings_input_style
-          properties:
-            title: tabType
-            size: small
-            Label:
-              extra: Type of tabs.
-            options:
-              - line
-              - card
-              - editable-card
+  - id: card_title
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Tabs
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            Tabs to easily switch between different views.
+            The key of each tabs is the area keys of the container and there is an `extra` content area.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_wrap2
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: block_divider
+                type: Divider
+                properties:
+                  title: Block
+
+              - id: block_name
+                type: Tabs
+                layout:
+                  _parse: 
+                    _state: flex_style_input
+                visible:
+                  _state: block.visible
+                properties:
+                  _state: block.properties
+                areas:
+                  extra:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: extra
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          padding: 2px 5px
+                          color: red
+                        properties:
+                          html: |
+                            extra
+                  content_one:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_1
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content_one 
+                  content_two:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_2
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content_two 
+                  content_three:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content_3
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content_three 
+
+              - id: setup_divider
+                type: Divider
+                properties:
+                  title: Block Setup
+              - id: setup_card
+                type: Card
+                properties: 
+                  size: small
+                blocks:
+                  - id: setup_markdown
+                    type: Markdown
+                    properties:
+                      content:
+                        _nunjucks:
+                          template: |
+                            ```yaml
+                            {{ value | safe }}
+                            ```
+                          on:
+                            value:
+                              _dump_yaml:
+                                id: block_id
+                                type: Tabs
+                                layout:
+                                  _ref:
+                                    path: blocks/remove_nulls.yaml
+                                    vars:
+                                      input:
+                                        _state: block.layout
+                                style:
+                                  _parse:
+                                    _state: style_block_input
+                                visible:
+                                  _state: block.visible
+                                properties:
+                                  _ref:
+                                    path: blocks/remove_nulls.yaml
+                                    vars:
+                                      input:
+                                        _state: block.properties
+                                areas:
+                                  extra:
+                                    blocks: []
+                                  content_one:
+                                    blocks: []
+                                  content_two:
+                                    blocks: []
+                                  content_three:
+                                    blocks: []
+
+          - id: settings_grid
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: settings_divider
+                type: Divider
+                properties:
+                  title: Settings
+              - id: block_collapse
+                type: Collapse
+                properties:
+                  defaultActiveKey: properties
+                  panels:
+                    - key: layout
+                      title: 'layout:'
+                    - key: style
+                      title: 'style:'
+                    - key: properties
+                      title: 'properties:'
+                    - key: actions
+                      title: 'actions:'
+                    - key: visible
+                      title: 'visible:'
+                    - key: areas
+                      title: 'areas:'
+                areas:
+                  layout:
+                    blocks:
+                      _ref: blocks/layout.yaml
+                  style:
+                    blocks:
+                      _ref: blocks/style.yaml
+                  visible:
+                    blocks:
+                      _ref: blocks/visible.yaml
+                  properties:
+                    blocks:
+                      - id: flex_properties_form
+                        type: Box
+                        blocks:
+                          - id: block.properties.activeKey
+                            type: TextInput
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: activeKey
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Current TabPane's key.
+                          - id: block.properties.animated
+                            type: Switch
+                            defaultValue: true
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: animated
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
+                          - id: block.properties.defaultActiveKey
+                            type: TextInput
+                            defaultValue: content_one
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: defaultActiveKey
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Initial active TabPane's key, if activeKey is not set.
+                          - id: block.properties.size
+                            type: ButtonSelector
+                            defaultValue: default
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: size
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Size of the tabs.
+                              options:
+                                - small
+                                - default
+                                - large
+                          - id: block.properties.tabPosition
+                            type: ButtonSelector
+                            defaultValue: top
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: tabPosition
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Position of the tabs.
+                              options:
+                                - top
+                                - right
+                                - bottom
+                                - left
+                          - id: block.properties.tabType
+                            type: ButtonSelector
+                            defaultValue: line
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: tabType
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Type of tabs.
+                              options:
+                                - line
+                                - card
+                                - editable-card
+                          # - id: block.properties.tabBarStyle
+                          #   type: TextArea
+                          #   layout:
+                          #     _global: settings_input_layout
+                          #   defaultValue: "{ \"color\": \"blue\" }"
+                          #   properties:
+                          #     title: tabBarStyle
+                          #     rows: 3
+                          #     size: small
+                          #     label:
+                          #       _ref: 
+                          #         path: blocks/label_extra.yaml
+                          #         vars:
+                          #           extra: CSS Object style properties. Should be in JSON format.
+                          - id: block.properties.tabs
+                            type: ControlledList
+                            properties:
+                              title: 'tabs:'
+                              size: small
+                            blocks:
+                              - id: block.properties.tabs.$.title
+                                type: TextInput
+                                defaultValue: title
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: title
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Title of the tab.
+                              - id: block.properties.tabs.$.key
+                                type: TextInput
+                                defaultValue: key
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: key
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Key of the tab.
+                              - id: block.properties.tabs.$.disabled
+                                type: Switch
+                                defaultValue: false
+                                layout:
+                                  _global: settings_input_layout
+                                properties:
+                                  title: disabled
+                                  size: small
+                                  label:
+                                    _ref: 
+                                      path: blocks/label_extra.yaml
+                                      vars:
+                                        extra: Disable the tab if true.
+                              - _ref:
+                                  path: blocks/icon_template.yaml
+                                  vars:
+                                    icon_id: block.properties.tabs.$.icon
+                                    icon_field_name: icon
+                                    icon_description: Icon to show in tab title.
+
+                  actions:
+                    blocks:
+                      - id: actions_description
+                        type: Markdown
+                        properties:
+                          content: |
+                            ###### onChange
+                            Triggered when the tab is changed. Makes the `activeKey` available as an `arg`.
+                            ###### onTabClick
+                            Triggered when a tab is clicked. Makes the `key` of the clicked tab available as an `arg`.
+
+  - id: ex_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: ex_1_card
+    type: Card
+    blocks:
+      - id: ex_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                #### Tabs with a block in the content area
+          - id: ex_1_box
+            type: Tabs
+            properties:
+              tabs:
+                - key: one
+                  title: One
+                - key: two
+                  title: Two
+            areas:  
+              one:
+                blocks:
+                  - id: ex_1_block_1
+                    type: Html
+                    style:
+                      background: '#04b0ff'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_1
+              two:
+                blocks:
+                  - id: ex_1_block_2
+                    type: Html
+                    style:
+                      background: '#e57373'
+                      textAlign: center
+                      color: white
+                    properties:
+                      html: block_2
+      - id: ex_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                - id: ex_1_box
+                  type: Tabs
+                  properties:
+                    tabs:
+                      - key: one
+                        title: One
+                      - key: two
+                        title: Two
+                  areas:  
+                    one:
+                      blocks:
+                        - id: ex_1_block_1
+                          type: Html
+                          style:
+                            background: '#04b0ff'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_1
+                    two:
+                      blocks:
+                        - id: ex_1_block_2
+                          type: Html
+                          style:
+                            background: '#e57373'
+                            textAlign: center
+                            color: white
+                          properties:
+                            html: block_2
+                ```
+
+
+  - id: ex_2_card
+    type: Card
+    blocks:
+      - id: ex_2_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_2_title
+            type: Markdown
+            properties:
+              content: |
+                #### Tabs with different form details
+          - id: ex_2_collapse
+            type: Tabs
+            properties:
+              tabs:
+                - key: personal_details
+                  title: Personal Details
+                - key: education
+                  title: Education
+                - key: work_experience
+                  title: Work Experience
+            areas:  
+              personal_details:
+                blocks:
+                  - id: Name
+                    type: TextInput
+                  - id: Surname
+                    type: TextInput
+                  - id: Email
+                    type: TextInput
+                  - id: Status
+                    type: RadioSelector
+                    properties:
+                      options:
+                        - Employed
+                        - Unemployed
+                        - Freelancer
+                        - Student
+                  - id: Company
+                    type: TextInput
+                    visible:
+                      _eq:
+                        - _state: Status
+                        - Employed
+                  - id: School
+                    type: TextInput
+                    visible:
+                      _eq:
+                        - _state: Status
+                        - Student
+              education:
+                blocks:
+                  - id: Education
+                    type: ControlledList
+                    blocks:
+                      - id: Education.$.School
+                        type: TextInput
+                        properties:
+                          title: School
+                        layout:
+                          span: 18
+                      - id: Education.$.Year
+                        type: NumberInput
+                        properties:
+                          title: Year
+                        layout:
+                          span: 6
+                      - id: Education.$.Qualification
+                        type: TextInput
+                        properties:
+                          title: Qualification
+              work_experience:
+                blocks:
+                  - id: work_experience
+                    type: ControlledList
+                    blocks:
+                      - id: work_experience.$.Company
+                        type: TextInput
+                        properties:
+                          title: Company
+                      - id: work_experience.$.Year_Start
+                        type: NumberInput
+                        properties:
+                          title: Year Start
+                        layout:
+                          span: 6
+                      - id: work_experience.$.Year_End
+                        type: NumberInput
+                        properties:
+                          title: Year End
+                        layout:
+                          span: 6
+                      - id: work_experience.$.Position
+                        type: TextInput
+                        properties:
+                          title: Position
+                      - id: work_experience.$.Position
+                        type: TextInput
+                        properties:
+                          title: Position
+                        layout:
+                          span: 12
+                
+
+                      
+      - id: ex_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: ex_1_title
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                id: ex_2_collapse
+                type: Tabs
+                properties:
+                  tabs:
+                    - key: personal_details
+                      title: Personal Details
+                    - key: education
+                      title: Education
+                    - key: work_experience
+                      title: Work Experience
+                areas:  
+                  personal_details:
+                    blocks:
+                      - id: Name
+                        type: TextInput
+                      - id: Surname
+                        type: TextInput
+                      - id: Email
+                        type: TextInput
+                      - id: Status
+                        type: RadioSelector
+                        properties:
+                          options:
+                            - Employed
+                            - Unemployed
+                            - Freelancer
+                            - Student
+                      - id: Company
+                        type: TextInput
+                        visible:
+                          _eq:
+                            - _state: Status
+                            - Employed
+                      - id: School
+                        type: TextInput
+                        visible:
+                          _eq:
+                            - _state: Status
+                            - Student
+                  education:
+                    blocks:
+                      - id: Education
+                        type: ControlledList
+                        blocks:
+                          - id: Education.$.School
+                            type: TextInput
+                            properties:
+                              title: School
+                            layout:
+                              span: 18
+                          - id: Education.$.Year
+                            type: NumberInput
+                            properties:
+                              title: Year
+                            layout:
+                              span: 6
+                          - id: Education.$.Qualification
+                            type: TextInput
+                            properties:
+                              title: Qualification
+                  work_experience:
+                    blocks:
+                      - id: work_experience
+                        type: ControlledList
+                        blocks:
+                          - id: work_experience.$.Company
+                            type: TextInput
+                            properties:
+                              title: Company
+                          - id: work_experience.$.Year_Start
+                            type: NumberInput
+                            properties:
+                              title: Year Start
+                            layout:
+                              span: 6
+                          - id: work_experience.$.Year_End
+                            type: NumberInput
+                            properties:
+                              title: Year End
+                            layout:
+                              span: 6
+                          - id: work_experience.$.Position
+                            type: TextInput
+                            properties:
+                              title: Position
+                          - id: work_experience.$.Position
+                            type: TextInput
+                            properties:
+                              title: Position
+                            layout:
+                              span: 12
+                ```

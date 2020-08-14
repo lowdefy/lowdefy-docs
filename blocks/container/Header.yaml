@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 blocks:
@@ -28,30 +28,27 @@ blocks:
       style_form:
         - id: flex_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "flex"
-              } 
-            }
+          layout:
+            _global: settings_input_layout
+          defaultValue: '{}'
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       flex_properties_form:
         - id: block.properties.theme
           type: ButtonSelector
           defaultValue: dark
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: theme
             size: small
-            Label:
+            label:
+              span: 8
               extra: Color theme of the header
             options:
               - light

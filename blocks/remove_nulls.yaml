@@ -1,0 +1,12 @@
+_mql_expr:
+  $arrayToObject:
+    $filter:
+      input:
+        $objectToArray:
+          _var: input
+      as: x
+      cond:
+        $not:
+          $eq:
+            - $$x.v
+            - null

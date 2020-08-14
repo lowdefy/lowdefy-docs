@@ -17,7 +17,7 @@ blocks:
         properties:
           content: |
             A Card container places blocks on a white background with a card border.
-            The Card has `content` and `extra` areas.
+            The Card has `content`, `title` and `extra` areas. The `title` area replaces `properties.title` if defined.
       - id: c1
         type: Box
         layout:
@@ -98,16 +98,26 @@ blocks:
                             id: block_id
                             type: Card
                             layout:
-                              _state: block.layout
+                              _ref:
+                                path: blocks/remove_nulls.yaml
+                                vars:
+                                  input:
+                                    _state: block.layout
                             style:
                               _parse:
                                 _state: style_block_input
                             visible:
                               _state: block.visible
                             properties:
-                              _state: block.properties
+                              _ref:
+                                path: blocks/remove_nulls.yaml
+                                vars:
+                                  input:
+                                    _state: block.properties
                             areas:
                               content:
+                                blocks: []
+                              title:
                                 blocks: []
                               extra:
                                 blocks: []
@@ -248,12 +258,18 @@ blocks:
             type: Markdown
             properties:
               content: |
-                ##### Card with Extra blocks
+                ##### Card with Title and Extra blocks
           - id: extra_card
             type: Card
             properties:
               title: Submit new details
             areas:
+              title:
+                blocks:
+                  - id: extra_title
+                    type: Button
+                    properties:
+                      title: Title Area Button
               content:
                 gutter: 16
                 blocks:
@@ -346,6 +362,12 @@ blocks:
                   properties:
                     title: Submit new details
                   areas:
+                    title:
+                      blocks:
+                        - id: extra_title
+                          type: Button
+                          properties:
+                            title: Title Area Button
                     content:
                       gutter: 16
                       blocks:
