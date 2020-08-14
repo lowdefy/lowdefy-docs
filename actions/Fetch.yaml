@@ -45,19 +45,20 @@ areas:
             - id: fetch_all
               type: Fetch
             ```
-
-            Fetch all requests by specifying true as param:
-
-            > Do we still want to do this?
-            ```
-            - id: fetch_all
-              type: Fetch
-              params: true
-            ```
             
             Fetch a single request:
             ```
             - id: fetch_one_request
               type: Fetch
               params: my_request_id
+            ```
+
+            Fetch a list of requests:
+            ```
+            - id: fetch_one_request
+              type: Fetch
+              params:
+                - my_request_id_1
+                - my_request_id_2
+                - my_request_id_3
             ```
