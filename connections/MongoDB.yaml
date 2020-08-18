@@ -33,33 +33,52 @@ areas:
             content: |
               ## Connections
 
+              Connection types:
+                - MongoDBCollection
+
               ### MongoDBCollection
 
               The `mongodb_collection` connection sets up a connection to a MongoDB deployment. A [connection URI](https://docs.mongodb.com/manual/reference/connection-string/index.html) with authentication credentials (username and password) is required. The URI can be in the standard or dns seedlist (srv) formats. Connections are defined on a collection level, since this allows for read/write access control on a per collection level. Access control can also be managed using the roles in the database.
 
               >Since the connection URI contains authentication secrets, it should be stored using the [`_secret`](operators/secret.md) operator.
 
-              ### Parameters
+              #### Properties
               - `databaseUri`: _String_ - **REQUIRED** - Connection uri string for the MongoDb deployment. Should be stored using the [_secret](operators/secret.md) operator. 
               - `databaseName`: _String_ - Default: Database specified in connection string - The name of the database in the MongoDB deployment.
               - `collection`: _String_ - **REQUIRED** - The name of the MongoDB collection.
               - `read`: _Boolean_ - Default: `true` - Allow read operations like find on the collection.
               - `write`: _Boolean_ - Default: `false` - Allow write operations like find or update on the collection.
 
-              ### Examples
+              #### Examples
 
               MongoDB collection with reads and writes:
               ```yaml
-              - id: my_collection
-                type: AwsS3Bucket
-                properties:
-                  databaseUri:
-                    _secret: my_database_uri
-                  collection: my_collection_name
-                  write: true
+              connections:
+                - id: my_collection
+                  type: AwsS3Bucket
+                  properties:
+                    databaseUri:
+                      _secret: my_database_uri
+                    collection: my_collection_name
+                    write: true
               ```
 
               ## Requests and Mutations
+
+              Request types:
+                - MongoDBAggregation
+                - MongoDBFind
+                - MongoDBFindOne
+
+              Mutation types:
+                - MongoDBAggregation
+                - MongoDBDeleteOne
+                - MongoDBDeleteMany
+                - MongoDBInsertOne
+                - MongoDBInsertMany
+                - MongoDBUpdateOne
+                - MongoDBUpdateMany
+
 
               ### MongoDBAggregation
 
@@ -67,7 +86,7 @@ areas:
 
               >Cursors are not supported. The request will return the whole body of the response as an array.
 
-              ### Properties
+              #### Properties
               - `pipeline`: _Array_ - **REQUIRED** - Array containing all the aggregation framework commands for the execution.
               - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#aggregate) for more information. Supported settings are:
                 - `readPreference`: _String_ **|** _Object_ - The preferred read preference.
@@ -78,25 +97,96 @@ areas:
                 - `comment`: _String_ - Add a [comment](https://docs.mongodb.com/manual/reference/operator/query/comment/index.html) to the aggregation. These comments are visible in the MongoDB profile log, making them easier to interpret.
                 - `hint`: _String_ **|** _Object_ - Add an index selection hint to an aggregation command.
 
-              ### Examples
+              #### Examples
 
               Calculate average score by region:
               ```yaml
-              id: avg_spend_by_region
-              type:  MongoDBAggregation
-              connectionId: mu_mongodb_collection_id
-              properties:
-                pipeline:
-                  - $group:
-                      _id: $region
-                      score:
-                        $avg: $score
-                  - $project:
-                      _id: 0
-                      region: $_id
-                      score: 1
-                  - $sort:
-                      score: 1
+              requests:
+                - id: avg_spend_by_region
+                  type:  MongoDBAggregation
+                  connectionId: my_mongodb_collection_id
+                  properties:
+                    pipeline:
+                      - $group:
+                          _id: $region
+                          score:
+                            $avg: $score
+                      - $project:
+                          _id: 0
+                          region: $_id
+                          score: 1
+                      - $sort:
+                          score: 1
               ```
 
-              
+              ### MongoDBFind
+
+              The `MongoDBFind` request executes a MongoDB [query](https://docs.mongodb.com/manual/tutorial/query-documents/) on the collection specified in the connectionId. It returns the array of documents returned by the query.
+
+              >Cursors are not supported. The request will return the whole body of the response as an array.
+
+              #### Properties
+              - `query`: _Object_ - **REQUIRED** - A MongoDB query object.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#find) for more information. Supported settings are:
+                - `limit`: _Integer_ - Sets the limit of documents returned in the query.
+                - `sort`: _Array_ **|** _Object_  - Set to sort the documents coming back from the query. Array of indexes, `[['a', 1]]`.
+                - `projection`: _Object_ - The fields to return in the query. Object of fields to either include or exclude (one of, not both), `{'a':1, 'b': 1}` or `{'a': 0, 'b': 0}`.
+                - `skip`: _Integer_ - Set to skip N documents ahead in your query (useful for pagination).
+                - `hint`: _Object_ - Tell the query to use specific indexes in the query. Object of indexes to use, `{'_id':1}`.
+                - `comment`: _String_ - Add a [comment](https://docs.mongodb.com/manual/reference/operator/query/comment/index.html) to the query. These comments are visible in the MongoDB profile log, making them easier to interpret.
+                - `readPreference`: _String_ **|** _Object_ - The preferred read preference.
+                - `maxTimeMS`: _Integer_ - Number of milliseconds to wait before aborting the query.
+                - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
+
+              #### Examples
+
+              Find top ten scores above 90:
+              ```yaml
+              requests:
+                - id: scores_top_ten_scores_above_90
+                  type:  MongoDBFind
+                  properties:
+                    query:
+                      score:
+                        $gt: 90
+                    options:
+                      sort:
+                        - - score
+                          - -1
+                      limit: 10
+                      projection:
+                        score: 1
+                        name: 1
+              ```
+
+              ### MongoDBFindOne
+
+              The `MongoDBFindOne` request executes a MongoDB [query](https://docs.mongodb.com/manual/tutorial/query-documents/) on the collection specified in the connectionId. It returns the first document that matches the specified query.
+
+              >Cursors are not supported. The request will return the whole body of the response as an array.
+
+              #### Properties
+              - `query`: _Object_ - **REQUIRED** - A MongoDB query object.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#find) for more information. Supported settings are:
+                - `limit`: _Integer_ - Sets the limit of documents returned in the query.
+                - `sort`: _Array_ **|** _Object_  - Set to sort the documents coming back from the query. Array of indexes, `[['a', 1]]`.
+                - `projection`: _Object_ - The fields to return in the query. Object of fields to either include or exclude (one of, not both), `{'a':1, 'b': 1}` or `{'a': 0, 'b': 0}`.
+                - `skip`: _Integer_ - Set to skip N documents ahead in your query (useful for pagination).
+                - `hint`: _Object_ - Tell the query to use specific indexes in the query. Object of indexes to use, `{'_id':1}`.
+                - `comment`: _String_ - Add a [comment](https://docs.mongodb.com/manual/reference/operator/query/comment/index.html) to the query. These comments are visible in the MongoDB profile log, making them easier to interpret.
+                - `readPreference`: _String_ **|** _Object_ - The preferred read preference.
+                - `maxTimeMS`: _Integer_ - Number of milliseconds to wait before aborting the query.
+                - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
+
+              #### Examples
+
+              Find a document by id:
+              ```yaml
+              requests:
+                - id: find_by_id
+                  type:  MongoDBFindOne
+                  properties:
+                    query:
+                      _id:
+                        _input: _id
+              ```
