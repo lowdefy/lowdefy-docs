@@ -1,0 +1,153 @@
+id: feedback
+type: PageSiderMenu
+public: true
+properties:
+  title: Feedback
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+areas:
+  content:
+    justify: center
+    blocks:
+      - id: max_width
+        type: Box
+        layout:
+          flex: 0 1 600px   
+        blocks:
+          - id: title
+            type: Title
+            properties:
+              content: Feedback
+          - id: not_logged_in_box
+            type: Box
+            visible:
+              _eq:
+                - _user: true
+                - null
+            layout:
+              contentJustify: center
+            blocks:
+              - id: not_logged_in_message
+                type: Paragraph
+                properties:
+                  content: Please log in or sign up so we can get back to you with updates on your feedback.
+              - id: feedback_login_button
+                type: Button
+                layout:
+                  size: auto
+                properties:
+                  title: Login
+                  shape: round
+                  icon: LoginOutlined
+                  hideActionLoading: true
+                actions:
+                  onClick:
+                    - id: login
+                      type: Login
+          - id: logged_in_box
+            type: Box
+            visible:
+              _not:
+                _eq:
+                  - _user: true
+                  - null
+            layout:
+              contentGutter: 8
+            blocks:
+              - id: title
+                type: TextInput
+                properties:
+                  title: Please provide a descriptive title for your feedback.
+                  label:
+                    colon: false
+              - id: category
+                type: Selector
+                properties:
+                  title: What would you like to give feedback about?
+                  label:
+                    colon: false
+                  options:
+                    - Lowdefy App
+                    - Documentation
+                    - Other
+              - id: type
+                type: Selector
+                visible:
+                  _mql_test:
+                    $or:
+                      - category: Lowdefy App
+                      - category: Documentation
+                properties:
+                  title: What type of feedback do you have?
+                  label:
+                    colon: false
+                  options:
+                    _if:
+                      test:
+                        _mql_test:
+                          category: Lowdefy App
+                      then:
+                        - Feature request
+                        - Bug Report
+                        - Other
+                      else:
+                        - Correction
+                        - Suggestion
+                        - Something is unclear
+                        - Other
+              - id: description
+                type: TextArea
+                visible:
+                  _mql_test:
+                    $or:
+                      - category: Other
+                      - type:
+                          $ne: null
+                properties:
+                  title:
+                    _if:
+                      test:
+                        _mql_test:
+                          $or:
+                            - type: Feature request
+                            - type: Suggestion
+                      then: Please describe your suggestion in as much detail as possible.
+                      else: Please describe your issue in as much detail as possible.
+                  label:
+                    colon: false
+                  rows: 7
+
+              - id: lowdefy_version
+                type: TextInput
+                visible:
+                  _mql_test:
+                    type_app: Bug Report
+                properties:
+                  title: What version of Lowdefy are you using?
+                  label:
+                    colon: false
+              - id: submit
+                type: Button
+                mutations:
+                  - id: submit_feedback
+                    type: MongoDBInsertOne
+                    connectionId: feedback_mongodb
+                    properties:
+                      doc:
+                        _state: true
+                properties:
+                  block: true
+                  title: Submit
+                actions:
+                  onClick:
+                    - id: submit
+                      type: Mutate
+                      params: submit_feedback
+                    - id: reset
+                      type: Reset
+                      successMessage: Thank you for your feedback

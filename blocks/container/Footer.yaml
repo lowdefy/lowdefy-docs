@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 blocks:
@@ -28,19 +28,14 @@ blocks:
       style_form:
         - id: flex_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "flex"
-              } 
-            }
+          defaultValue: '{}'
+          layout:
+            _global: settings_input_layout
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
               extra: CSS Object style properties. Should be in JSON format.
       flex_properties_form: []
       actions_description: | 

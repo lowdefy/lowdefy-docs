@@ -1,12 +1,10 @@
 - id: block.properties.breakpoint
   type: ButtonSelector
-  style:
-    Label:
-      --span: 2
   properties:
     title: breakpoint
     size: small
-    Label:
+    label:
+      span: 4
       extra: Breakpoints of the responsive layout
     options:
       - xs
@@ -17,62 +15,68 @@
 - id: block.properties.collapsed
   type: Switch
   defaultValue: false
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: collapsed
     size: small
-    Label:
+    label:
+      span: 8
       extra: Set the current collapsed state
 - id: block.properties.collapsedWidth
   type: NumberInput
   defaultValue: 80
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: collapsedWidth
     size: small
-    Label:
+    label:
+      span: 8
       extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
 - id: block.properties.collapsible
   type: Switch
   defaultValue: false
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: collapsible
     size: small
-    Label:
+    label:
+      span: 8
       extra: Whether can be collapsed
 - id: block.properties.defaultCollapsed
   type: Switch
   defaultValue: false
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: defaultCollapsed
     size: small
-    Label:
+    label:
+      span: 8
       extra: Set the initial collapsed state
 - id: block.properties.reverseArrow
   type: Switch
   defaultValue: false
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: reverseArrow
     size: small
-    Label:
+    label:
+      span: 8
       extra: Direction of arrow, for a sider that expands from the right
 - id: block.properties.theme
   type: ButtonSelector
   defaultValue: dark
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: theme
     size: small
-    Label:
+    label:
+      span: 8
       extra: Color theme of the sidebar
     options:
       - light
@@ -80,10 +84,11 @@
 - id: block.properties.width
   type: NumberInput
   defaultValue: 80
-  style:
-    _global: settings_input_style
+  layout:
+    _global: settings_input_layout
   properties:
     title: width
     size: small
-    Label:
+    label:
+      span: 8
       extra: width of the sidebar
