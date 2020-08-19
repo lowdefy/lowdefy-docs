@@ -16,8 +16,9 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: ColorSelector
+      value_type: String
       description_content: |
-        Color picker input block. Allows a user to select a color as a hex string. Different types of pickers are available.
+        The `ColorSelector` block allows a user to select a color as a hex string. Different types are available, some only allow the user to choose from a specified list, while others allow the user to specify any color.
       block_type: ColorSelector
       label: true
       category: input

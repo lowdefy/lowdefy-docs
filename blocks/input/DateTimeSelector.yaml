@@ -8,10 +8,13 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: DateTimeSelector
+      value_type: Date
       description_content: |
-        Date and time picker input block. Allows a user to select a single date and time from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+       The `DateTimeSelector` block allows a user to select a date and a time from a calender.
 
-        >Other date type blocks are date_input, week_input, month_input and date_range_input.
+       By default, the time selected by the user is converted to GMT time, based on the timezone of the user. The selector will also display the selected time in the correct timezone for that user. If the `selectGMT` property is set to true, the value of the selector will be the time selected by the user as GMT time, and not in the timezone of the user.
+
+        >Other date type blocks are `DateRangeSelector`, `DateTimeSelector`, `MonthSelector` and `WeekSelector`.
       block_type: DateTimeSelector
       label: true
       category: input

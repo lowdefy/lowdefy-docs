@@ -22,10 +22,13 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: MultipleSelector
+      value_type: Array
       description_content: |
-        Drop down selector input block. Allows a user to select multiple values from a set of options. Values can be any primitive type. The input to this field is saved as an array in `state`, at the path name of the block.
+        The `MultipleSelector` block is a drop down selector that allows a user to select multiple values from a set of options.
 
-        >Other selector blocks are checkbox_input, multiple_select_input, RadioSelector and ButtonSelector
+        The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
+
+        > Other selector blocks are `ButtonSelector`, `CheckBox`, `RadioSelector` and `Selector`.
       block_type: MultipleSelector
       label: true
       category: input

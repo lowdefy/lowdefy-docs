@@ -8,10 +8,11 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: DateSelector
+      value_type: Date
       description_content: |
-        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+       The `DateSelector` block allows a user to select a date from a calender.
 
-        >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
+        >Other date type blocks are `DateRangeSelector`, `DateTimeSelector`, `MonthSelector` and `WeekSelector`.
       block_type: DateSelector
       label: true
       category: input

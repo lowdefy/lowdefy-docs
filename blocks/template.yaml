@@ -9,6 +9,21 @@
         level: 2
         content:
           _var: block_name
+    - id: value_type
+      type: Markdown
+      visible:
+        _not:
+          _eq:
+            - _var: value_type
+            - null
+      properties:
+        content:
+          _nunjucks:
+            template: |
+              **Value Type**: {{ value_type }}
+            on:
+              value_type:
+                _var: value_type
     - id: description
       type: Markdown
       properties:
