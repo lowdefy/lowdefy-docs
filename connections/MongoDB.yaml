@@ -31,6 +31,29 @@ areas:
               fontSize: 14px
           properties:
             content: |
+              MongoDB is a NoSQL database that stores JSON-like documents. These documents are stored in collections, which are like database tables. The fields inside these document can differ from document to document, but generally they are all more or less the same. However documents with different schemas can be stored in the same collection.
+
+              ##### ObjectIds
+
+              MongoDB uses the _id field as the id for a document. This has to be unique for every document in the collection. If no _id is provided when the document is created, a MongoDB [ObjectId](https://docs.mongodb.com/manual/reference/method/ObjectId/) is created for that document. This id includes a timestamp, a random element and an incrementing counter, to ensure it is unique even if multiple ids are created at the same time.
+              
+              The _id is often represented as:
+
+              ```js
+              {
+                _id: ObjectId("507f1f77bcf86cd799439011")
+              }
+              ```
+
+              To be able to transmit these ids over JSON network connections, and to use them in Lowdefy apps, Lowdefy serializes these ids as (in YAML):
+              ```yaml
+              _id:
+                _oid: 507f1f77bcf86cd799439011
+              ```
+
+              Ids specified in this way will be treated as ObjectIds by MongoDB requests and mutations.
+
+
               ## Connections
 
               Connection types:
