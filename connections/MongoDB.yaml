@@ -190,3 +190,178 @@ areas:
                       _id:
                         _input: _id
               ```
+
+              ### MongoDBInsertOne
+
+              The `MongoDBInsertOne` mutation inserts a document into the collection specified in the connectionId. If a `_id` field is not specified, a MongoDB `ObjectID` will be generated.
+
+              #### Properties
+              - `doc`: _Object_ - **REQUIRED** - The document to be inserted.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#insertOne) for more information. Supported settings are:
+                - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher
+                - `checkKeys`: _Boolean_ - Default: `true` - If true, will throw if bson documents start with $ or include a . in any key value.
+                - `forceServerObjectId`: _Boolean_ - Default: `false` - Force server to assign _id values instead of driver.
+                - `j`: _Boolean_ - Default: `false` - Specify a journal write concern.
+                - `ignoreUndefined`: _Boolean_ - Default: `false` - Specify if the BSON serializer should ignore undefined fields.
+                - `w`: _Integer_ **|** _String_ - The write concern
+                - `wtimeout`: _Integer_  - The write concern timeout.
+
+              #### Examples
+
+              Insert a document:
+              ```yaml
+              mutations:
+                - id: insert_new_comment
+                  type:  MongoDBInsertOne
+                  properties:
+                    doc:
+                      comment:
+                        _state: comment_input
+                      user_id:
+                        _user: id
+                      timestamp:
+                        _date: now
+              ```
+
+              ### MongoDBInsertMany
+
+              The `MongoDBInsertMany` mutation inserts an array of documents into the collection specified in the connectionId. If a `_id` field is not specified on a document, a MongoDB `ObjectID` will be generated.
+
+              #### Properties
+              - `docs`: _Array_ of _Object_ - **REQUIRED** - The array of documents to be inserted.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#insertMany) for more information. Supported settings are:
+                - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher
+                - `checkKeys`: _Boolean_ - Default: `true` - If true, will throw if bson documents start with $ or include a . in any key value.
+                - `forceServerObjectId`: _Boolean_ - Default: `false` - Force server to assign _id values instead of driver.
+                - `j`: _Boolean_ - Default: `false` - Specify a journal write concern.
+                - `ignoreUndefined`: _Boolean_ - Default: `false` - Specify if the BSON serializer should ignore undefined fields.
+                - `w`: _Integer_ **|** _String_ - The write concern
+                - `wtimeout`: _Integer_  - The write concern timeout.
+
+
+              #### Examples
+
+              Insert a set of documents:
+              ```yaml
+              mutations:
+                - id: insert_new_comment
+                  type:  MongoDBInsertOne
+                  properties:
+                    docs:
+                      - _id: 1
+                        value: 4 
+                      - _id: 2
+                        value: 1 
+                      - _id: 3
+                        value: 7 
+
+              ```
+
+              ### MongoDBUpdateOne
+
+              The `MongoDBUpdateOne` mutation updates a single document in the collection specified in the connectionId. It requires a filter, which is written in the query syntax, to select a document to update. It will update the first document that matches the filter. If the `upsert` option is set to true, it will insert a new document if no document is found to update.
+
+              #### Properties
+              - `filter`: _Object_ - **REQUIRED** - The filter used to select the document to update.
+              - `update`: _Object_ - **REQUIRED** - The update operations to be applied to the document.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#updateOne) for more information. Supported settings are:
+                - `arrayFilters`: _Array_ - Array filters for the [`$[<identifier>]`](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/) array update operator.  
+                - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher.
+                - `checkKeys`: _Boolean_ - Default: `false` - If true, will throw if bson documents start with $ or include a . in any key value.
+                - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
+                - `forceServerObjectId`: _Boolean_ - Force server to assign _id values instead of driver.
+                - `hint`: _Object_ - An optional hint for query optimization.
+                - `ignoreUndefined`: _Boolean_ - Default: `false` - Specify if the BSON serializer should ignore undefined fields.
+                - `j`: _Boolean_ - Specify a journal write concern.
+                - `upsert`: _Boolean_ - Default: `false` - Insert document if no match is found.
+                - `w`: _Integer_ **|** _String_ - The write concern
+                - `wtimeout`: _Integer_  - The write concern timeout.
+
+
+              #### Examples
+
+              Update a document:
+              ```yaml
+              mutations:
+                - id: update
+                  type:  MongoDBUpdateOne
+                  properties:
+                    filter:
+                      _id:
+                        _state: _id
+                    update:
+                      $set:
+                        _state: true
+              ```
+
+              Like a comment:
+              ```yaml
+              mutations:
+                - id: like_comment
+                  type:  MongoDBUpdateOne
+                  properties:
+                    filter:
+                      _id:
+                        _state: comments.$_id
+                    update:
+                      $inc:
+                        likes: 1
+                      $push:
+                        liked_by:
+                          _user.id: 
+                      $set:
+                        last_liked:
+                          _date: now
+              ```
+
+              ### MongoDBUpdateMany
+
+              The `MongoDBUpdateMany` mutation updates multiple documents that match a certain criteria in the collection specified in the connectionId. It requires a filter, which is written in the query syntax, to select the documents to update.
+
+              #### Properties
+              - `filter`: _Object_ - **REQUIRED** - The filter used to select the document to update.
+              - `update`: _Object_ - **REQUIRED** - The update operations to be applied to the document.
+              - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#updateOne) for more information. Supported settings are:
+                - `arrayFilters`: _Array_ - Array filters for the [`$[<identifier>]`](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/) array update operator.  
+                - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher.
+                - `checkKeys`: _Boolean_ - Default: `false` - If true, will throw if bson documents start with $ or include a . in any key value.
+                - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
+                - `forceServerObjectId`: _Boolean_ - Force server to assign _id values instead of driver.
+                - `hint`: _Object_ - An optional hint for query optimization.
+                - `ignoreUndefined`: _Boolean_ - Default: `false` - Specify if the BSON serializer should ignore undefined fields.
+                - `j`: _Boolean_ - Specify a journal write concern.
+                - `upsert`: _Boolean_ - Default: `false` - Insert document if no match is found.
+                - `w`: _Integer_ **|** _String_ - The write concern
+                - `wtimeout`: _Integer_  - The write concern timeout.
+
+              #### Examples
+
+              Set a list of documents as resolved:
+              ```yaml
+              mutations:
+                - id: set_resolved
+                  type:  MongoDBUpdateMany
+                  properties:
+                    # Select all documents where the _id is in selected_issues_list in state
+                    filter:
+                      _id:
+                        $in: 
+                          _state: selected_issues_list
+                    update:
+                      $set:
+                        resolved: true
+              ```
+
+              Mark all documents with score less than 6 as urgent:
+              ```yaml
+              mutations:
+                - id: set_resolved
+                  type:  MongoDBUpdateMany
+                  properties:
+                    filter:
+                      score:
+                        $lt: 6
+                    update:
+                      $set:
+                        status: urgent
+              ```
