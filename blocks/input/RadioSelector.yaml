@@ -28,7 +28,7 @@ blocks:
 
         The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
 
-        > Other selector blocks are `ButtonSelector`, `CheckBox`, `MultipleSelector` and `Selector`.
+        > Other selector blocks are `ButtonSelector`, `Checkbox`, `MultipleSelector` and `Selector`.
       block_type: RadioSelector
       label: true
       category: input
