@@ -10,7 +10,7 @@ blocks:
       block_name: RatingSlider
       value_type: Number
       description_content: |
-        The `RatingSlider` block allows a user to chose a numerical value. It is typically used for scores or ratings. It has the option to have a "Not Applicable" checkbox, which leaves the value as null.
+        The `RatingSlider` block allows a user to choose a numerical value. It is typically used for scores or ratings. It has the option to have a "Not Applicable" checkbox, which leaves the value as null.
       block_type: RatingSlider
       label: true
       category: input
