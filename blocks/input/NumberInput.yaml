@@ -8,8 +8,9 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: NumberInput
+      value_type: Number
       description_content: |
-        Number input block. The input to this field is saved in `state`, at the path name of the block.
+        The `NumberInput` allows a user to input a number.
       block_type: NumberInput
       label: true
       category: input

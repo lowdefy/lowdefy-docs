@@ -8,10 +8,11 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: MonthSelector
+      value_type: Date
       description_content: |
-        Month picker input block. Allows a user to select a specific month from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+        The `MonthSelector` block allows a user to select a month. The value is a date object, with day and time values of midnight on the first day of the month GMT.
 
-        >Other date type blocks are date_input, date_time_input, month_input and date_range_input.
+        >Other date type blocks are `DateRangeSelector`, `DateSelector`, `DateTimeSelector` and `WeekSelector`.
       block_type: MonthSelector
       label: true
       category: input

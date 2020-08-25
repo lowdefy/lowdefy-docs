@@ -8,8 +8,9 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: TextInput
+      value_type: String
       description_content: |
-        Text input block. The input to this field is saved in `state`, at the path name of the block.
+        The `TextInput` block is a single line text input.
       block_type: TextInput
       label: true
       category: input

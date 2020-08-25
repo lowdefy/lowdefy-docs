@@ -8,8 +8,9 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: Switch
+      value_type: Boolean
       description_content: |
-        On/off switch input block. The input to this field is saved in `state`, at the path name of the block.
+        The `Switch` block is an on/off input. It has a boolean value (true/false).
       block_type: Switch
       label: true
       category: input
