@@ -311,6 +311,7 @@ menus:
           - id: UserAvatar
             type: MenuLink
             pageId: UserAvatar
+
       - id: blocks_container
         type: MenuGroup
         properties:
@@ -353,33 +354,43 @@ menus:
           - id: Modal
             type: MenuLink
             pageId: Modal
-          # - id: PageHCF
-          #   type: MenuLink
-          #   pageId: PageHCF
-          # - id: PageHCSF
-          #   type: MenuLink
-          #   pageId: PageHCSF
-          # - id: PageHeaderMenu
-          #   type: MenuLink
-          #   pageId: PageHeaderMenu
-          # - id: PageHSCF
-          #   type: MenuLink
-          #   pageId: PageHSCF
-          # - id: PageSHCF
-          #   type: MenuLink
-          #   pageId: PageSHCF
-          # - id: PageSiderMenu
-          #   type: MenuLink
-          #   pageId: PageSiderMenu
-          # - id: Result
-          #   type: MenuLink
-          #   pageId: Result
+          - id: Result
+            type: MenuLink
+            pageId: Result
           # - id: Sider
           #   type: MenuLink
           #   pageId: Sider
           - id: Tabs
             type: MenuLink
             pageId: Tabs
+
+      - id: blocks_context
+        type: MenuGroup
+        properties:
+          title: Context Blocks
+          icon: GroupOutlined
+        links:
+          - id: Context
+            type: MenuLink
+            pageId: Context
+          - id: PageHCF
+            type: MenuLink
+            pageId: PageHCF
+          - id: PageHCSF
+            type: MenuLink
+            pageId: PageHCSF
+          - id: PageHeaderMenu
+            type: MenuLink
+            pageId: PageHeaderMenu
+          - id: PageHSCF
+            type: MenuLink
+            pageId: PageHSCF
+          - id: PageSHCF
+            type: MenuLink
+            pageId: PageSHCF
+          - id: PageSiderMenu
+            type: MenuLink
+            pageId: PageSiderMenu
 
       - id: actions
         type: MenuGroup
@@ -404,17 +415,9 @@ menus:
           - id: Logout
             type: MenuLink
             pageId: Logout
-          - id: MessageAction
-            type: MenuLink
-            pageId: MessageAction # Clash with Message block
-            properties:
-              title: Message
           - id: Mutate
             type: MenuLink
             pageId: Mutate
-          - id: Notification
-            type: MenuLink
-            pageId: Notification
           - id: Reset
             type: MenuLink
             pageId: Reset
@@ -485,16 +488,10 @@ menus:
           - id: _user
             type: MenuLink
             pageId: _user
-      - id: feedback
-        type: MenuLink
-        pageId: feedback
-        properties:
-          title: Feedback
-          icon: BulbOutlined
+
 pages:
 
   - _ref: start/introduction.yaml
-  - _ref: feedback.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
   - _ref: tutorial/tutorial-create-page.yaml
@@ -572,24 +569,24 @@ pages:
   # - _ref: blocks/container/Header.yaml
   # - _ref: blocks/container/Layout.yaml
   - _ref: blocks/container/Modal.yaml
-  # - _ref: blocks/container/PageHCF.yaml
-  # - _ref: blocks/container/PageHCSF.yaml
-  # - _ref: blocks/container/PageHeaderMenu.yaml
-  # - _ref: blocks/container/PageHSCF.yaml
-  # - _ref: blocks/container/PageSHCF.yaml
-  # - _ref: blocks/container/PageSiderMenu.yaml
-  # - _ref: blocks/container/Result.yaml
+  - _ref: blocks/container/Result.yaml
   # - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+  - _ref: blocks/context/Context.yaml
+  - _ref: blocks/context/PageHCF.yaml
+  - _ref: blocks/context/PageHCSF.yaml
+  - _ref: blocks/context/PageHeaderMenu.yaml
+  - _ref: blocks/context/PageHSCF.yaml
+  - _ref: blocks/context/PageSHCF.yaml
+  - _ref: blocks/context/PageSiderMenu.yaml
 
   - _ref: actions/CallMethod.yaml
   - _ref: actions/Fetch.yaml
   - _ref: actions/Link.yaml
   - _ref: actions/Login.yaml
   - _ref: actions/Logout.yaml
-  - _ref: actions/Message.yaml
   - _ref: actions/Mutate.yaml
-  - _ref: actions/Notification.yaml
   - _ref: actions/Reset.yaml
   - _ref: actions/ScrollTo.yaml
   - _ref: actions/SetGlobal.yaml

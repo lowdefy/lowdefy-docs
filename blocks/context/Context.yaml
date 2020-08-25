@@ -1,0 +1,208 @@
+id: Context
+type: PageSiderMenu
+public: true
+properties:
+  title: Context
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: hideActionLoading
+            v: false
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_properties
+blocks:
+  - id: card_display
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Context
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            Context provides a minimal layout structure for a page container with only a context area.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_divider
+            type: Divider
+            properties:
+              title: Block
+          - id: block_grid
+            type: Box
+            blocks:
+              - id: block_id
+                type: Context
+                style:
+                  _parse:
+                    _operator:
+                      name: _state
+                      params:
+                        contextId: 'master:Context:Context:{}'
+                        key: style_block_input
+                layout:
+                  _operator:
+                    name: _state
+                    params:
+                      contextId: 'master:Context:Context:{}'
+                      key: block.layout
+                properties:
+                  _operator:
+                    name: _state
+                    params:
+                      contextId: 'master:Context:Context:{}'
+                      key: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content 
+      - id: setup_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: setup_divider
+            type: Divider
+            properties:
+              title: Block Setup
+          - id: setup_card
+            type: Card
+            properties: 
+              size: small
+            blocks:
+              - id: setup_markdown
+                type: Markdown
+                properties:
+                  content:
+                    _nunjucks:
+                      template: |
+                        ```yaml
+                        {{ value | safe }}
+                        ```
+                      on:
+                        value:
+                          _dump_yaml:
+                            id: block_id
+                            type: Context
+                            layout:
+                              _ref:
+                                path: blocks/block_setup.yaml
+                                vars:
+                                  setup_input: 
+                                    _state: block.layout
+                                  default_array:  
+                                    _state: default_layout
+                            style:
+                              _parse:
+                                _state: style_block_input
+                            properties:
+                              _ref:
+                                path: blocks/block_setup.yaml
+                                vars:
+                                  setup_input: 
+                                    _state: block.properties
+                                  default_array:  
+                                    _state: default_properties
+                            areas:
+                              content:
+                                blocks: []
+
+      - id: settings_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: settings_divider
+            type: Divider
+            properties:
+              title: Settings
+          - id: block_collapse
+            type: Collapse
+            properties:
+              defaultActiveKey: properties
+              panels:
+                - key: layout
+                  title: 'layout:'
+                - key: style
+                  title: 'style:'
+                - key: properties
+                  title: 'properties:'
+                - key: actions
+                  title: 'actions:'
+                - key: areas
+                  title: 'areas:'
+            areas:
+              layout:
+                blocks:
+                  _ref: blocks/layout.yaml
+              style:
+                blocks:
+                  _ref: blocks/style.yaml
+              properties:
+                blocks:
+                  - id: block.properties.hideActionLoading
+                    type: Switch
+                    defaultValue: false
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: hideActionLoading
+                      size: small
+                      label:
+                        _ref: 
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Hide the loading message when an action is in progress.
+              actions:
+                blocks:
+                  - id: actions_description
+                    type: Markdown
+                    properties:
+                      content: |
+                        #### onEnter
+                        Executed each time page is loaded.
+
+                        #### onInit
+                        Executed when the page is first loaded into the cache.
+
+                        #### onClick
+                        Called when the content area is clicked.
+              areas:
+                blocks: []
+
+  # - id: ex_divider
+  #   type: Divider
+  #   properties:
+  #     title: Examples

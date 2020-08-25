@@ -1,0 +1,19 @@
+_mql_expr:
+  $arrayToObject:
+    $filter:
+      input:
+        $objectToArray:
+          _var: setup_input
+      as: x
+      cond:
+        $and:
+          - $not:
+              $eq:
+                - $$x.v
+                - null
+          - $not:
+              $and:
+                - $in:
+                    - k: $$x.k
+                      v: $$x.v
+                    - _var: default_array
