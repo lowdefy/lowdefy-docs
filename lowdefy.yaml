@@ -415,9 +415,17 @@ menus:
           - id: Logout
             type: MenuLink
             pageId: Logout
+          - id: MessageAction
+            type: MenuLink
+            pageId: MessageAction # Clash with Message block
+            properties:
+              title: Message
           - id: Mutate
             type: MenuLink
             pageId: Mutate
+          - id: Notification
+            type: MenuLink
+            pageId: Notification
           - id: Reset
             type: MenuLink
             pageId: Reset
@@ -488,10 +496,17 @@ menus:
           - id: _user
             type: MenuLink
             pageId: _user
+      - id: feedback
+        type: MenuLink
+        pageId: feedback
+        properties:
+          title: Feedback
+          icon: BulbOutlined
 
 pages:
 
   - _ref: start/introduction.yaml
+  - _ref: feedback.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
   - _ref: tutorial/tutorial-create-page.yaml
@@ -586,7 +601,9 @@ pages:
   - _ref: actions/Link.yaml
   - _ref: actions/Login.yaml
   - _ref: actions/Logout.yaml
+  - _ref: actions/Message.yaml
   - _ref: actions/Mutate.yaml
+  - _ref: actions/Notification.yaml
   - _ref: actions/Reset.yaml
   - _ref: actions/ScrollTo.yaml
   - _ref: actions/SetGlobal.yaml
