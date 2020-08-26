@@ -31,7 +31,7 @@ areas:
               fontSize: 14px
           properties:
             content: |
-              The `AxiosHTTP` connection is used to APIs and web servers using HTTP or HTTPS.
+              The `AxiosHTTP` connection is used to connect to APIs and web servers using HTTP or HTTPS.
 
               It uses the [axios](https://github.com/axios/axios) library.
               
