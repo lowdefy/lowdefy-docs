@@ -3,6 +3,43 @@ type: PageSiderMenu
 public: true
 properties:
   title: Card
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: bordered
+            v: true
+          - k: hoverable
+            v: false
+          - k: loading
+            v: false
+          - k: inner
+            v: false
+          - k: size
+            v: default
+        init_properties:
+          - k: title
+            v: block_id
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_display
     type: Card
@@ -99,10 +136,12 @@ blocks:
                             type: Card
                             layout:
                               _ref:
-                                path: blocks/remove_nulls.yaml
+                                path: blocks/block_setup.yaml
                                 vars:
-                                  input:
+                                  setup_input: 
                                     _state: block.layout
+                                  default_array:  
+                                    _state: default_layout
                             style:
                               _parse:
                                 _state: style_block_input
@@ -110,10 +149,12 @@ blocks:
                               _state: block.visible
                             properties:
                               _ref:
-                                path: blocks/remove_nulls.yaml
+                                path: blocks/block_setup.yaml
                                 vars:
-                                  input:
+                                  setup_input:
                                     _state: block.properties
+                                  default_array:  
+                                    _state: default_properties
                             areas:
                               content:
                                 blocks: []
@@ -160,7 +201,7 @@ blocks:
                 blocks:
                   - id: block.properties.title
                     type: TextInput
-                    defaultValue: block_id
+                    # defaultValue: block_id
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -173,7 +214,7 @@ blocks:
                             extra: Title to describe the input component, if no title is specified the block id is displayed.
                   - id: block.properties.bordered
                     type: Switch
-                    defaultValue: true
+                    # defaultValue: true
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -186,7 +227,7 @@ blocks:
                             extra: Toggles rendering of the border around the card.
                   - id: block.properties.hoverable
                     type: Switch
-                    defaultValue: false
+                    # defaultValue: false
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -199,7 +240,7 @@ blocks:
                             extra: Lift up when hovering card.
                   - id: block.properties.loading
                     type: Switch
-                    defaultValue: false
+                    # defaultValue: false
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -212,7 +253,7 @@ blocks:
                             extra: Shows a loading indicator while the contents of the card are being fetched.
                   - id: block.properties.inner
                     type: Switch
-                    defaultValue: false
+                    # defaultValue: false
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -225,7 +266,7 @@ blocks:
                             extra: Change the card style to inner.
                   - id: block.properties.size
                     type: ButtonSelector
-                    defaultValue: default
+                    # defaultValue: default
                     layout:
                       _global: settings_input_layout
                     properties:

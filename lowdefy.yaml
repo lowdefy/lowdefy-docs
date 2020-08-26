@@ -311,6 +311,7 @@ menus:
           - id: UserAvatar
             type: MenuLink
             pageId: UserAvatar
+
       - id: blocks_container
         type: MenuGroup
         properties:
@@ -353,33 +354,43 @@ menus:
           - id: Modal
             type: MenuLink
             pageId: Modal
-          # - id: PageHCF
-          #   type: MenuLink
-          #   pageId: PageHCF
-          # - id: PageHCSF
-          #   type: MenuLink
-          #   pageId: PageHCSF
-          # - id: PageHeaderMenu
-          #   type: MenuLink
-          #   pageId: PageHeaderMenu
-          # - id: PageHSCF
-          #   type: MenuLink
-          #   pageId: PageHSCF
-          # - id: PageSHCF
-          #   type: MenuLink
-          #   pageId: PageSHCF
-          # - id: PageSiderMenu
-          #   type: MenuLink
-          #   pageId: PageSiderMenu
-          # - id: Result
-          #   type: MenuLink
-          #   pageId: Result
+          - id: Result
+            type: MenuLink
+            pageId: Result
           # - id: Sider
           #   type: MenuLink
           #   pageId: Sider
           - id: Tabs
             type: MenuLink
             pageId: Tabs
+
+      - id: blocks_context
+        type: MenuGroup
+        properties:
+          title: Context Blocks
+          icon: GroupOutlined
+        links:
+          - id: Context
+            type: MenuLink
+            pageId: Context
+          - id: PageHCF
+            type: MenuLink
+            pageId: PageHCF
+          - id: PageHCSF
+            type: MenuLink
+            pageId: PageHCSF
+          - id: PageHeaderMenu
+            type: MenuLink
+            pageId: PageHeaderMenu
+          - id: PageHSCF
+            type: MenuLink
+            pageId: PageHSCF
+          - id: PageSHCF
+            type: MenuLink
+            pageId: PageSHCF
+          - id: PageSiderMenu
+            type: MenuLink
+            pageId: PageSiderMenu
 
       - id: connections
         type: MenuGroup
@@ -400,6 +411,7 @@ menus:
           - id: MongoDB
             type: MenuLink
             pageId: MongoDB
+
       - id: actions
         type: MenuGroup
         properties:
@@ -510,6 +522,7 @@ menus:
         properties:
           title: Feedback
           icon: BulbOutlined
+
 pages:
 
   - _ref: start/introduction.yaml
@@ -591,15 +604,17 @@ pages:
   # - _ref: blocks/container/Header.yaml
   # - _ref: blocks/container/Layout.yaml
   - _ref: blocks/container/Modal.yaml
-  # - _ref: blocks/container/PageHCF.yaml
-  # - _ref: blocks/container/PageHCSF.yaml
-  # - _ref: blocks/container/PageHeaderMenu.yaml
-  # - _ref: blocks/container/PageHSCF.yaml
-  # - _ref: blocks/container/PageSHCF.yaml
-  # - _ref: blocks/container/PageSiderMenu.yaml
-  # - _ref: blocks/container/Result.yaml
+  - _ref: blocks/container/Result.yaml
   # - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+  - _ref: blocks/context/Context.yaml
+  - _ref: blocks/context/PageHCF.yaml
+  - _ref: blocks/context/PageHCSF.yaml
+  - _ref: blocks/context/PageHeaderMenu.yaml
+  - _ref: blocks/context/PageHSCF.yaml
+  - _ref: blocks/context/PageSHCF.yaml
+  - _ref: blocks/context/PageSiderMenu.yaml
 
   - _ref: connections/AWSS3.yaml
   - _ref: connections/AxiosHttp.yaml
