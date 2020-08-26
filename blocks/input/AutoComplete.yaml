@@ -18,10 +18,11 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: AutoComplete
+      value_type: String
       description_content: |
-        Auto complete input block. Allows a user to select a single value from a set of options, or type in a value not in the set list of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+        The AutoComplete block is a text input that has a list of suggestions for the user. These suggestions are filtered as the user fills in the input. The user is also allowed to fill in an input not part of that list.
 
-        >Other selector blocks are checkbox_input, select_input, multiple_select_input, RadioSelector and ButtonSelector
+        >If you need the user to select only from a list of options, use a block like the `Selector` block instead.
       block_type: AutoComplete
       label: true
       category: input
@@ -120,7 +121,7 @@ blocks:
                 size: small
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select item
+          defaultValue: Type or select item
           layout:
             _global: settings_input_layout
           properties:

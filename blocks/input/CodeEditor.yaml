@@ -8,8 +8,9 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: CodeEditor
+      value_type: String
       description_content: |
-        A code editor input component based on the [Monaco Code Editor](https://github.com/Microsoft/monaco-editor).
+        A code editor input component based on the [Monaco Code Editor](https://github.com/Microsoft/monaco-editor). The Monaco Editor is the code editor used by VS Code. The editor supports a wide range of options. These options can be found [here](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html).
       block_type: CodeEditor
       label: false
       category: input

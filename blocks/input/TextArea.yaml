@@ -8,8 +8,9 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: TextArea
+      value_type: String
       description_content: |
-        Text area input block. The input to this field is saved in `state`, at the path name of the block.
+        The `TextArea` block is a text input that has multiple rows of input. It can be set to a fixed number of rows, or it can expand automatically as the user inputs more text.
       block_type: TextArea
       label: true
       category: input

@@ -22,10 +22,13 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: ButtonSelector
+      value_type: Any
       description_content: |
-        Button selector input block. Similar to RadioSelector except for its appearance, which is a row of buttons instead of a traditional radio selector. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in state, at the path name of the block.
+        The `ButtonSelector` block allows a user to select a single value from a set of options. The user cannot deselect an option once they have selected an input.
 
-        > Other selector blocks are checkbox_input, select_input, multiple_select_input and RadioSelector
+        The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
+
+        > Other selector blocks are `Checkbox`, `MultipleSelector`, `RadioSelector` and `Selector`.
       block_type: ButtonSelector
       label: true
       category: input

@@ -22,10 +22,13 @@ blocks:
     path: blocks/template.yaml
     vars:
       block_name: Selector
+      value_type: Any
       description_content: |
-        Drop down selector input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+        The `Selector` block is a drop down selector that allows a user to select a single value from a set of options.
 
-        >Other selector blocks are checkbox_input, multiple_select_input, RadioSelector and ButtonSelector
+        The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
+
+        > Other selector blocks are `ButtonSelector`, `Checkbox`, `MultipleSelector` and `RadioSelector`.
       block_type: Selector
       label: true
       category: input

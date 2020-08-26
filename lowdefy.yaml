@@ -191,6 +191,9 @@ menus:
           - id: AutoComplete
             type: MenuLink
             pageId: AutoComplete
+          - id: ButtonSelector
+            type: MenuLink
+            pageId: ButtonSelector
           - id: Checkbox
             type: MenuLink
             pageId: Checkbox
@@ -200,12 +203,12 @@ menus:
           - id: ColorSelector
             type: MenuLink
             pageId: ColorSelector
-          - id: DateSelector
-            type: MenuLink
-            pageId: DateSelector
           - id: DateRangeSelector
             type: MenuLink
             pageId: DateRangeSelector
+          - id: DateSelector
+            type: MenuLink
+            pageId: DateSelector
           - id: DateTimeSelector
             type: MenuLink
             pageId: DateTimeSelector
@@ -221,15 +224,12 @@ menus:
           - id: RadioSelector
             type: MenuLink
             pageId: RadioSelector
-          - id: ButtonSelector
-            type: MenuLink
-            pageId: ButtonSelector
-          - id: Selector
-            type: MenuLink
-            pageId: Selector
           - id: RatingSlider
             type: MenuLink
             pageId: RatingSlider
+          - id: Selector
+            type: MenuLink
+            pageId: Selector
           - id: Switch
             type: MenuLink
             pageId: Switch
@@ -391,6 +391,26 @@ menus:
           - id: PageSiderMenu
             type: MenuLink
             pageId: PageSiderMenu
+
+      - id: connections
+        type: MenuGroup
+        properties:
+          title: Connections
+          icon: ApiOutlined
+        links:
+          - id: AWSS3
+            type: MenuLink
+            pageId: AWSS3
+            properties:
+              title: AWS S3
+          - id: AxiosHttp
+            type: MenuLink
+            pageId: AxiosHttp
+            properties:
+              title: Axios HTTP
+          - id: MongoDB
+            type: MenuLink
+            pageId: MongoDB
 
       - id: actions
         type: MenuGroup
@@ -596,6 +616,10 @@ pages:
   - _ref: blocks/context/PageSHCF.yaml
   - _ref: blocks/context/PageSiderMenu.yaml
 
+  - _ref: connections/AWSS3.yaml
+  - _ref: connections/AxiosHttp.yaml
+  - _ref: connections/MongoDB.yaml
+
   - _ref: actions/CallMethod.yaml
   - _ref: actions/Fetch.yaml
   - _ref: actions/Link.yaml
@@ -626,3 +650,4 @@ pages:
   - _ref: operators/_state.yaml
   - _ref: operators/_type.yaml
   - _ref: operators/_user.yaml
+

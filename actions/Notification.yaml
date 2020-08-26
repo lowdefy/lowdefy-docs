@@ -14,18 +14,6 @@ areas:
   content:
     justify: center
     blocks:
-      - id: test
-        type: Button
-        actions:
-          onClick:
-            - id: warning
-              type: Notification
-              params:
-                message: Something bad might happen.
-                status: warning
-                description: This is a longer description of the thing that happened, you know why it happened.
-                duration: 0
-                placement: topRight
       - id: title
         type: Title
         properties:
