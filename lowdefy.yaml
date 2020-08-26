@@ -381,6 +381,25 @@ menus:
             type: MenuLink
             pageId: Tabs
 
+      - id: connections
+        type: MenuGroup
+        properties:
+          title: Connections
+          icon: ApiOutlined
+        links:
+          - id: AWSS3
+            type: MenuLink
+            pageId: AWSS3
+            properties:
+              title: AWS S3
+          - id: AxiosHttp
+            type: MenuLink
+            pageId: AxiosHttp
+            properties:
+              title: Axios HTTP
+          - id: MongoDB
+            type: MenuLink
+            pageId: MongoDB
       - id: actions
         type: MenuGroup
         properties:
@@ -582,6 +601,10 @@ pages:
   # - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
 
+  - _ref: connections/AWSS3.yaml
+  - _ref: connections/AxiosHttp.yaml
+  - _ref: connections/MongoDB.yaml
+
   - _ref: actions/CallMethod.yaml
   - _ref: actions/Fetch.yaml
   - _ref: actions/Link.yaml
@@ -612,3 +635,4 @@ pages:
   - _ref: operators/_state.yaml
   - _ref: operators/_type.yaml
   - _ref: operators/_user.yaml
+
