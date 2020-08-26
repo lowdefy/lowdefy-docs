@@ -40,7 +40,7 @@ blocks:
         type: Markdown
         properties:
           content: |
-            Context provides a minimal layout structure for a page container with only a context area.
+            The `Context` block creates a new context. It can be used at a page level to create the context for the page, or it can be used inside a page to create a separate context (for example to create a new context for a web form).
       - id: c1
         type: Box
         blocks:
