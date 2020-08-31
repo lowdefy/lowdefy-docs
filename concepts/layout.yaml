@@ -2,139 +2,369 @@ id: layout
 type: PageSiderMenu
 public: true
 properties:
-  title: Layout and Menu
-blocks:
-  - id: card
-    type: Card
+  title: Layout
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+areas:  
+  content:
+    justify: center
     blocks:
-      - id: markdown
-        type: Markdown
-        properties:
-          content: |
-            # Layout and Menu
+    - id: max_width
+      type: Box
+      layout:
+        size: 800
+        shrink: 1
+      blocks:
+        - id: title
+          type: Title
+          properties:
+            content: Layout
+        - id: markdown_intro
+          type: Markdown
+          style:
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              Containers are used to lay out other blocks on a page. Blocks of category `Container` or `Context` both function as container blocks.
 
-            The layout object contains the overall app layout settings. Currently only the menu structure is defined here.
+              ## Content areas
 
-            ## Menu Settings
+              Each container has content areas - these are areas where other blocks can be placed. All container blocks have a primary content area. This area is called `content`. Container blocks might have other content areas, like `header`, `footer`, or `title`. These content areas are implemented specifically by the block.
 
-            Lowdefy offers various menu configuration options to accommodate popular menu designs while maintaining the same structure and schema. Ant design layout components are used, as described [here](https://ant.design/components/layout/).
+              To place blocks in the primary content area of a container, the block definitions for those blocks can be placed inside the `blocks` array of the container block.
 
-            User access is determined on a page level using groups. Signed in users only see the menu items to which they have been granted access.
+              > In the following examples, blocks of type `Container` will represent a generic container block, and blocks of type `Block` will represent a generic block. The `Container` block might be a `Box`, a `Card`, a `PageHeaderMenu` or any other container or context block. The `Block` blocks could be any type of block, including other container blocks.
 
-            By default Lowdefy compiles the menu from the list of `pages` and page properties, thus if no menu settings are provided a default menu is derived. The default `menu` is a non-collapsing `side_menu` populated by the list of page titles in the order set by the pages array.
 
-            However, if a menu object is provided, no default assumptions will be made, and pages not listed in the menu will not be linked to. Users will still be able to navigate to pages that are not listed in the menu by using the page url.
+              ###### Two blocks in the primary content area, `content`, of a container:
+              ```yaml
+              - id: container
+                type: Container
+                blocks:
+                  - id: block1
+                    type: Block
+                  - id: block2
+                    type: Block
 
-            ### Menu Types
-
-            The following menu types are available:
-
-            - `primary_side_menu` - _default_: A side bar menu with a large logo inside the side bar
-            - `side_menu` - A side bar menu with the logo inside the header
-            - `drawer_menu` - A menu which opens up as a sliding drawer
-            - `header_menu` - The menu is contained within the header bar
-
-            ### Menu Item Types
-
-            The items in the menu can either be a `MenuLink` or a `MenuGroup`. A `MenuLink` is a link to a page in the app. A `MenuGroup` can be used to group `MenuLink`'s. The menu supports up to two levels of grouping. Icons on  `MenuLink`'s or `MenuGroup`'s will only be rendered if they are at the top level of the menu.
-
-            ### Example
-            <!--DOCUSAURUS_CODE_TABS-->
-            <!--JSON-->
-            ```json5
-            {
-              "layout": {
-                "menu": {
-                  "name": "my_menu",
-                  "type": "primary_side_menu",
-                  "links": [
-                    {
-                      "type": "MenuLink",
-                      "name": "m_page_1",
-                      "pageId": "page_1",
-                      "properties": {
-                        "title": "Page 1",
-                        "icon": "shopping-cart"
-                      }
-                    },
-                    {
-                      "type": "MenuGroup",
-                      "name": "m_page_2",
-                      "properties": {
-                        "title": "Page 2",
-                        "icon": "user"
-                      },
-                      "links": [
-                        {
-                          "type": "MenuLink",
-                          "name": "m_page_2_1",
-                          "pageId": "page_2_1",
-                          "properties": {
-                            "title": "Page 2.1"
-                          }
-                        },
-                        {
-                          "type": "MenuGroup",
-                          "name": "m_page_2_2",
-                          "properties": {
-                            "title": "Page 2.2"
-                          },
-                          "links": [
-                            {
-                              "type": "MenuLink",
-                              "name": "m_page_2_2_1",
-                              "pageId": "page_2_2_1",
-                              "properties": {
-                                "title": "Page 2.2.1"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-            ```
-            <!--YAML-->
-            ```yaml
-            layout:
-              menu:
-                name: my_menu
-                type: primary_side_menu
-                links:
-                - 
-                  type: MenuLink
-                  name: m_page_1
-                  pageId: page_1
-                  properties:
-                    title: Page 1
-                    icon: shopping-cart
-                - 
-                  type: MenuGroup
-                  name: m_page_2
-                  properties:
-                    title: Page 2
-                    icon: user
-                  links:
-                  - 
-                    type: MenuLink
-                    name: m_page_2_1
-                    pageId: page_2_1
-                    properties:
-                      title: Page 2.1
-                  - 
-                    type: MenuGroup
-                    name: m_page_2_2
-                    properties:
-                      title: Page 2.2
-                    links:
-                    - 
-                      type: MenuLink
-                      name: m_page_2_2_1
-                      pageId: page_2_2_1
+        - id: ex_content_c1
+          type: Box
+          style:
+            background: '#d9d9d9'
+            padding: 16px
+            marginTop: 16px
+          blocks:
+            - id: ex_content_area1
+              type: Box
+              blocks:
+                - id: ex_content_bor1
+                  type: Box
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_content_b1
+                      type: Html
+                      style:
+                        textAlign: center
                       properties:
-                        title: Page 2.2.1
-            ```
-            <!--END_DOCUSAURUS_CODE_TABS-->
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 1</div>
+                    - id: ex_content_b2
+                      type: Html
+                      style:
+                        textAlign: center
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 2</div>
+
+        - id: markdown_areas
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              To place blocks in other content areas, the block definitions can be placed in the `blocks` array of the specific area in the `areas` object:
+
+              > Note the blocks are placed under `areas.[areaName].blocks`
+
+
+              ###### Blocks in the `header`, `content` and `footer` areas:
+              ```yaml
+              - id: container
+                type: Container
+                areas:
+                  header:
+                    blocks:
+                      - id: block1
+                        type: Block
+                  content:
+                    blocks:
+                      - id: block2
+                        type: Block
+                  footer:
+                    blocks:
+                      - id: block3
+                        type: Block
+        - id: ex_areas_c1
+          type: Box
+          style:
+            background: '#d9d9d9'
+            padding: 16px
+            marginTop: 16px
+          layout:
+            contentGutter: 16
+          blocks:
+            - id: ex_areas_area1
+              type: Box
+              blocks:
+                - id: ex_areas_bor1
+                  type: Box
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_areas_b1
+                      type: Html
+                      style:
+                        textAlign: center
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 1</div>
+            - id: ex_areas_area2
+              type: Box
+              blocks:
+                - id: ex_areas_bor2
+                  type: Box
+                  style:
+                    height: 250px
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_areas_b2
+                      type: Html
+                      style:
+                        textAlign: center
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 2</div>
+            - id: ex_areas_area3
+              type: Box
+              blocks:
+                - id: ex_areas_bor3
+                  type: Box
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_areas_b2
+                      type: Html
+                      style:
+                        textAlign: center
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500;">Block 3</div>
+
+        - id: markdown_overwrite
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              If blocks are placed in the `blocks` array, as well as the under `areas.content.blocks`, the blocks under `blocks` overwrite those under `areas.content.blocks`.
+
+
+              ###### Blocks in the `blocks` and `areas.content.blocks`:
+              ```yaml
+              - id: container
+                type: Container
+                blocks:
+                  - id: block1
+                    type: Block
+                areas:
+                  content:
+                    blocks:
+                      - id: block2
+                        type: Block
+
+        - id: ex_overwrite_c1
+          type: Box
+          style:
+            background: '#d9d9d9'
+            padding: 16px
+            marginTop: 16px
+          blocks:
+            - id: ex_overwrite_area1
+              type: Box
+              blocks:
+                - id: ex_overwrite_bor1
+                  type: Box
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_areas_b1
+                      type: Html
+                      style:
+                        textAlign: center
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 1</div>
+
+        - id: markdown_row_col
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              > Lowdefy layouts are based on the [Ant Design Grid System](https://ant.design/components/grid/). The content areas are implemented as a `row`, and blocks are implemented as a `column`.
+
+        - id: markdown_grid_layout
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              ## Grid layouts
+
+              Each content area has 24 columns. Blocks have a `span` property, which determines how may columns the block occupies. Blocks are laid out horizontally, until the sum of the spans would be more than 24, then the block is placed in the next row.
+
+              By default a block is given a span of 24. This is what makes blocks lay out vertically below each other.
+
+              > Blocks are also given a default span of 24 for mobile layouts, even if another span is given, to provide a good default mobile experience. Read more about responsive layouts below.
+
+              ```
+              - id: container
+                type: Container
+                blocks:
+                  - id: block1
+                    type: Block # Default span of 24
+                  - id: block2
+                    type: Block
+                    layout:
+                      span: 16 # Two thirds of the area
+                  - id: block3
+                    type: Block
+                    layout:
+                      span: 8 # Remaining one third of the area
+                  - id: block4
+                    type: Block
+                    layout:
+                      span: 12
+                  - id: block5
+                    type: Block
+                    layout:
+                      span: 18 # Sum would be over 24, so wraps to the next row
+              ```
+        - id: ex_grid_layout_c1
+          type: Box
+          style:
+            background: '#d9d9d9'
+            padding: 16px
+            marginTop: 16px
+          blocks:
+            - id: ex_grid_layout_area1
+              type: Box
+              blocks:
+                - id: ex_grid_layout_bor1
+                  type: Box
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_grid_layout_b1
+                      type: Html
+                      style:
+                        textAlign: center
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 1</div>
+                    - id: ex_grid_layout_b2
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 16
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 2</div>
+                    - id: ex_grid_layout_b3
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 8
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500;">Block 3</div>
+                    - id: ex_grid_layout_b4
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 12
+                      properties:
+                        html: |
+                          <div style="background: #91d5ff; font-size: 16px; font-weight: 500;">Block 4</div>
+                    - id: ex_grid_layout_b5
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 18
+                      properties:
+                        html: |
+                          <div style="background: #bae7ff; font-size: 16px; font-weight: 500;">Block 5</div>
+
+        - id: markdown_block_properties
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              Properties can be set on each block to control how it is placed. These properties are defined in the `layout` object. The properties that can be defined are:
+
+              - `align`
+              - `flex`
+              - `grow`
+              - `shrink`
+              - `size`
+              - `order`
+              - `offset`
+              - `pull`
+              - `push`
+              - `span`
+
+
+
+        - id: markdown_area_properties
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              Properties can be set on each area to control how blocks are layed out inside that area. These properties are set under the `areaName` key:
+
+              The properties that can be set are:
+                - `align` - Align content vertically inside the area.
+                - `direction` - Set css flex-direction for the area.
+                - `gutter` - Create gutter between blocks placed in the area.
+                - `justify` - Justify content horizontally inside the area.
+                - `overflow` - Set css overflow for the area.
+                - `wrap` - Set css flex-wrap for the area.
+
+
+
+
+
