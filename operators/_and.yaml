@@ -42,7 +42,7 @@ blocks:
     vars:
       operator_name: _and
       description_content: |
-        The `_and` operator evaluates whether two values or statements (returing `true` or `false`) are both true and returns `true` if they are and `false` if they are not.
+        The `_and` operator evaluates whether two values or statements (returning `true` or `false`) are both true and returns `true` if they are and `false` if they are not.
 
         #### Parameters
         `_and` takes an array of two values or statements (returning `true` or `false`).
