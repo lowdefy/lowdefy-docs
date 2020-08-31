@@ -29,7 +29,7 @@ areas:
 
             ### Parameters
             - `status`: _Enum_ - Message status type. One of `success`, `error`, `info`, `warning`, or `loading`. Defaults to `success`.
-            - `duration`: _Number_ - Time in seconds before the notification disappears. When set to 0 or null, it will never be closed automatically.
+            - `duration`: _Number_ - Time in seconds before the notification disappears. When set to 0 or null, it will never be closed automatically. The default is 5.
             - `message`: _String_ - The title of notification. Default is "Success".
             - `description`: _String_ - The content of the notification.
             - `placement`: _Enum_ - Position of the notification, can be one of `topLeft`, `topRight`, `bottomLeft`, or `bottomRight`. Default is `bottomRight`.
@@ -55,7 +55,7 @@ areas:
               params:
                 message: Something happened
                 status: info
-                description: This is a longer description of the thing that happened, you know why it happened.
+                description: This is a longer description of the thing that happened, so that you know why it happened.
                 duration: 10
                 placement: topRight
             ```
@@ -68,7 +68,7 @@ areas:
               params:
                 message: Something bad might happen.
                 status: warning
-                description: This is a longer description of the thing that happened, you know why it happened.
+                description: This is a longer description of the thing that happened, so that you know why it happened.
                 duration: 0
                 placement: topRight
             ```

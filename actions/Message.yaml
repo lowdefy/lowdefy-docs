@@ -29,7 +29,7 @@ areas:
 
             ### Parameters
             - `status`: _Enum_ - Message status type. One of `success`, `error`, `info`, `warning`, or `loading`. Defaults to `success`.
-            - `duration`: _Number_ - Time in seconds before message disappears.
+            - `duration`: _Number_ - Time in seconds before message disappears. The default is 5.
             - `content`: _String_ - The content of the message.
 
             > If the duration is set to zero or null, the message never disappears and cannot be dismissed.
