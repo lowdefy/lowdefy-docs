@@ -163,7 +163,7 @@ areas:
               ```yaml
               mutations:
                 - id: delete_old_documents
-                  type:  MongoDBUpdateMany
+                  type:  MongoDBDeleteMany
                   properties:
                     filter:
                       created_date:
