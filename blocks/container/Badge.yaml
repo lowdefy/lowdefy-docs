@@ -3,6 +3,39 @@ type: PageSiderMenu
 public: true
 properties:
   title: Badge
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: dot
+            v: true
+          - k: showZero
+            v: false
+          - k: text
+            v: false
+        init_properties:
+          - k: count
+            v: '10'
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_display
     type: Card
@@ -85,10 +118,12 @@ blocks:
                             type: Badge
                             layout:
                               _ref:
-                                path: blocks/remove_nulls.yaml
+                                path: blocks/block_setup.yaml
                                 vars:
-                                  input:
+                                  setup_input: 
                                     _state: block.layout
+                                  default_array:  
+                                    _state: default_layout
                             style:
                               _parse:
                                 _state: style_block_input
@@ -96,10 +131,12 @@ blocks:
                               _state: block.visible
                             properties:
                               _ref:
-                                path: blocks/remove_nulls.yaml
+                                path: blocks/block_setup.yaml
                                 vars:
-                                  input:
+                                  setup_input:
                                     _state: block.properties
+                                  default_array:  
+                                    _state: default_properties
                             areas:
                               content:
                                 blocks: []
@@ -166,7 +203,6 @@ blocks:
                                 extra: Customize Badge dot color
                       - id: block.properties.count
                         type: TextInput
-                        defaultValue: "10"
                         layout:
                           _global: settings_input_layout
                         properties:

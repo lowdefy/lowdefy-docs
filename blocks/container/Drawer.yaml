@@ -3,6 +3,49 @@ type: PageSiderMenu
 public: true
 properties:
   title: Drawer
+actions:
+  onInit:
+    - id: init_panels
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: closable
+            v: true
+          - k: height
+            v: "256px"
+          - k: keyboard
+            v: true
+          - k: mask
+            v: true
+          - k: maskClosable
+            v: true
+          - k: placement
+            v: right
+          - k: width
+            v: "256px"
+          - k: zIndex
+            v: 1000
+        init_properties:
+          - k: title
+            v: block_id
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_title
     type: Card
@@ -102,10 +145,12 @@ blocks:
                                 type: Drawer
                                 layout:
                                   _ref:
-                                    path: blocks/remove_nulls.yaml
+                                    path: blocks/block_setup.yaml
                                     vars:
-                                      input:
+                                      setup_input: 
                                         _state: block.layout
+                                      default_array:  
+                                        _state: default_layout
                                 style:
                                   _parse:
                                     _state: style_block_input
@@ -113,10 +158,12 @@ blocks:
                                   _state: block.visible
                                 properties:
                                   _ref:
-                                    path: blocks/remove_nulls.yaml
+                                    path: blocks/block_setup.yaml
                                     vars:
-                                      input:
+                                      setup_input:
                                         _state: block.properties
+                                      default_array:  
+                                        _state: default_properties
                                 areas:
                                   content:
                                     blocks: []
@@ -163,7 +210,6 @@ blocks:
                     blocks:
                       - id: block.properties.closable
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -176,7 +222,6 @@ blocks:
                                 extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
                       - id: block.properties.mask
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -189,7 +234,6 @@ blocks:
                                 extra: Whether to show mask (shaded out background) or not.
                       - id: block.properties.maskClosable
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -214,7 +258,6 @@ blocks:
                                 extra: The title of the Drawer.
                       - id: block.properties.width
                         type: TextInput
-                        defaultValue: 256px
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -227,7 +270,6 @@ blocks:
                                 extra: Width of the Drawer dialog.
                       - id: block.properties.height
                         type: TextInput
-                        defaultValue: 256px
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -252,7 +294,6 @@ blocks:
                                 extra: The z-index of the Drawer.
                       - id: block.properties.placement
                         type: ButtonSelector
-                        defaultValue: right
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -270,7 +311,6 @@ blocks:
                                 extra: The placement of the Drawer.
                       - id: block.properties.keyboard
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:

@@ -3,6 +3,49 @@ type: PageSiderMenu
 public: true
 properties:
   title: ConfirmModal
+actions:
+  onInit:
+    - id: init_panels
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: centered
+            v: false
+          - k: mask
+            v: true
+          - k: maskClosable
+            v: false
+          - k: status
+            v: confirm
+          - k: okText
+            v: Ok
+          - k: cancelText
+            v: Cancel
+          - k: width
+            v: "520px"
+          - k: zIndex
+            v: 1000
+        init_properties:
+          - k: title
+            v: block_id
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_title
     type: Card
@@ -102,10 +145,12 @@ blocks:
                                 type: ConfirmModal
                                 layout:
                                   _ref:
-                                    path: blocks/remove_nulls.yaml
+                                    path: blocks/block_setup.yaml
                                     vars:
-                                      input:
+                                      setup_input: 
                                         _state: block.layout
+                                      default_array:  
+                                        _state: default_layout
                                 style:
                                   _parse:
                                     _state: style_block_input
@@ -113,10 +158,12 @@ blocks:
                                   _state: block.visible
                                 properties:
                                   _ref:
-                                    path: blocks/remove_nulls.yaml
+                                    path: blocks/block_setup.yaml
                                     vars:
-                                      input:
+                                      setup_input:
                                         _state: block.properties
+                                      default_array:  
+                                        _state: default_properties
                                 areas:
                                   content:
                                     blocks: []
@@ -166,7 +213,6 @@ blocks:
                         blocks:
                           - id: block.properties.title
                             type: TextInput
-                            defaultValue: block_id
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -179,7 +225,6 @@ blocks:
                                     extra: The modal dialog's title.
                           - id: block.properties.status
                             type: Selector
-                            defaultValue: confirm
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -198,7 +243,6 @@ blocks:
                                     extra: The confirm modal status type.
                           - id: block.properties.centered
                             type: Switch
-                            defaultValue: true
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -228,10 +272,8 @@ blocks:
                                 icon_id: block.properties.icon
                                 icon_field_name: icon
                                 icon_description: Icon to be used in the confirm modal.
-                                default_icon: QuestionCircleOutlined
                           - id: block.properties.mask
                             type: Switch
-                            defaultValue: true
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -244,7 +286,6 @@ blocks:
                                     extra: Whether show mask or not.
                           - id: block.properties.maskClosable
                             type: Switch
-                            defaultValue: true
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -257,7 +298,6 @@ blocks:
                                     extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
                           - id: block.properties.okText
                             type: TextInput
-                            defaultValue: Ok
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -270,7 +310,6 @@ blocks:
                                     extra: Text of the Ok button.
                           - id: block.properties.cancelText
                             type: TextInput
-                            defaultValue: Cancel
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -283,7 +322,6 @@ blocks:
                                     extra: Text of the Cancel button.
                           - id: block.properties.width
                             type: TextInput
-                            defaultValue: '520px'
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -296,7 +334,6 @@ blocks:
                                     extra: Width of the modal dialog.
                           - id: block.properties.zIndex
                             type: NumberInput
-                            defaultValue: 1000
                             layout:
                               _global: settings_input_layout
                             properties:

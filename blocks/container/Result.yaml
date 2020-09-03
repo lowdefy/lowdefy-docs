@@ -3,6 +3,33 @@ type: PageSiderMenu
 public: true
 properties:
   title: Result
+actions:
+  onInit:
+    - id: init_panels
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: status
+            v: info
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_display
     type: Card
@@ -84,10 +111,12 @@ blocks:
                             type: Result
                             layout:
                               _ref:
-                                path: blocks/remove_nulls.yaml
+                                path: blocks/block_setup.yaml
                                 vars:
-                                  input:
+                                  setup_input: 
                                     _state: block.layout
+                                  default_array:  
+                                    _state: default_layout
                             style:
                               _parse:
                                 _state: style_block_input
@@ -95,10 +124,12 @@ blocks:
                               _state: block.visible
                             properties:
                               _ref:
-                                path: blocks/remove_nulls.yaml
+                                path: blocks/block_setup.yaml
                                 vars:
-                                  input:
+                                  setup_input:
                                     _state: block.properties
+                                  default_array:  
+                                    _state: default_properties
                             areas:
                               content:
                                 blocks: []
@@ -149,7 +180,6 @@ blocks:
                         icon_description: Ant icon to use as image.
                   - id: block.properties.status
                     type: ButtonSelector
-                    defaultValue: 'info'
                     layout:
                       _global: settings_input_layout
                     properties:
