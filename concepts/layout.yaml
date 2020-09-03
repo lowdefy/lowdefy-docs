@@ -646,7 +646,7 @@ areas:
                 - `gutter`: _Number_ | _Array_  - Create gutter between blocks placed in the area.
                 - `justify`: _Enum_ - Justify blocks horizontally inside the area. Options are `start`, `end`, `center`, `space-around`, and `space-between`. Default `start`.
                 - `overflow`: _Enum_ - Set CSS overflow for the area. Options are `visible`, `hidden`, `scroll`, and `space-between`. Default `visible`.
-                - `wrap`: _Enum_ - Set CSS flex-wrap for the area. Options are `wrap`, `nowrap`, and `rap-reverse`. Default `wrap`.
+                - `wrap`: _Enum_ - Set CSS flex-wrap for the area. Options are `wrap`, `nowrap`, and `wrap-reverse`. Default `wrap`.
 
               ###### Align examples:
               ```yaml
@@ -658,28 +658,34 @@ areas:
                     blocks:
                       - id: block1
                         type: Block
-                        style:
-                          height: 80
+                        layout:
+                          span: 12
                       - id: block2
                         type: Block
+                        layout:
+                          span: 12
                   area2:
                     align: middle
                     blocks:
                       - id: block3
                         type: Block
-                        style:
-                          height: 80
+                        layout:
+                          span: 12
                       - id: block4
                         type: Block
+                        layout:
+                          span: 12
                   area3:
                     align: bottom
                     blocks:
                       - id: block5
                         type: Block
-                        style:
-                          height: 80
+                        layout:
+                          span: 12
                       - id: block6
                         type: Block
+                        layout:
+                          span: 12
         - id: ex_area_align_c1
           type: Box
           style:
@@ -692,7 +698,7 @@ areas:
             - id: ex_area_align_area1_title
               type: Markdown
               properties: 
-                content: "##### Area 1"
+                content: "##### Area 1 - `top`"
             - id: ex_area_align_area1
               type: Box
               areas:
@@ -700,19 +706,29 @@ areas:
                   align: top
                   style:
                     border: '1px dashed #eb2f96'
-                    height: 100
                   blocks:
                     - id: ex_area_align_b1
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        span: 12
                       properties:
                         html: |
-                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 1</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; height: 70px;">Block 1</div>
+                    - id: ex_area_align_b2
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 12
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 1</div>
             - id: ex_area_align_area2_title
               type: Markdown
               properties:
-                content: "##### Area 2"
+                content: "##### Area 2 - `middle`"
             - id: ex_area_align_area2
               type: Box
               areas:
@@ -720,19 +736,29 @@ areas:
                   align: middle
                   style:
                     border: '1px dashed #eb2f96'
-                    height: 100
                   blocks:
-                    - id: ex_area_align_b2
+                    - id: ex_area_align_b3
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        span: 12
                       properties:
                         html: |
-                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 2</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; height: 70px;">Block 3</div>
+                    - id: ex_area_align_b4
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 12
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 4</div>
             - id: ex_area_align_area3_title
               type: Markdown
               properties: 
-                content: "##### Area 3"
+                content: "##### Area 3 - `bottom`"
             - id: ex_area_align_area3
               type: Box
               areas:
@@ -740,15 +766,25 @@ areas:
                   align: bottom
                   style:
                     border: '1px dashed #eb2f96'
-                    height: 100
                   blocks:
-                    - id: ex_area_align_b3
+                    - id: ex_area_align_b5
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        span: 12
                       properties:
                         html: |
-                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500;">Block 3</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; height: 70px;">Block 5</div>
+                    - id: ex_area_align_b6
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        span: 12
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 6</div>
 
         - id: markdown_direction_example
           type: Markdown
@@ -768,29 +804,45 @@ areas:
                     blocks:
                       - id: block1
                         type: Block
+                        layout:
+                          size: auto
                       - id: block2
                         type: Block
+                        layout:
+                          size: auto
                   area2:
                     direction: row-reverse
                     blocks:
                       - id: block3
                         type: Block
+                        layout:
+                          size: auto
                       - id: block4
                         type: Block
+                        layout:
+                          size: auto
                   area3:
                     direction: column
                     blocks:
                       - id: block5
                         type: Block
+                        layout:
+                          size: auto
                       - id: block6
                         type: Block
+                        layout:
+                          size: auto
                   area4:
                     direction: column-reverse
                     blocks:
                       - id: block7
                         type: Block
+                        layout:
+                          size: auto
                       - id: block8
                         type: Block
+                        layout:
+                          size: auto
         - id: ex_area_direction_c1
           type: Box
           style:
@@ -803,7 +855,7 @@ areas:
             - id: ex_area_direction_area1_title
               type: Markdown
               properties: 
-                content: "##### Area 1"
+                content: "##### Area 1 - `row`"
             - id: ex_area_direction_area1
               type: Box
               areas:
@@ -816,20 +868,24 @@ areas:
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 1</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 1</div>
                     - id: ex_area_direction_b2
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 2</div>
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 2</div>
             - id: ex_area_direction_area2_title
               type: Markdown
               properties:
-                content: "##### Area 2"
+                content: "##### Area 2 - `row-reverse`"
             - id: ex_area_direction_area2
               type: Box
               areas:
@@ -842,20 +898,24 @@ areas:
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 3</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 3</div>
                     - id: ex_area_direction_b4
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 4</div>
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 4</div>
             - id: ex_area_direction_area3_title
               type: Markdown
               properties: 
-                content: "##### Area 3"
+                content: "##### Area 3 - `column`"
             - id: ex_area_direction_area3
               type: Box
               areas:
@@ -868,20 +928,24 @@ areas:
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500;">Block 5</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 5</div>
                     - id: ex_area_direction_b6
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 6</div>
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 6</div>
             - id: ex_area_direction_area4_title
               type: Markdown
               properties: 
-                content: "##### Area 4"
+                content: "##### Area 4  - `column-reverse`"
             - id: ex_area_direction_area4
               type: Box
               areas:
@@ -894,13 +958,310 @@ areas:
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500;">Block 7</div>
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 7</div>
                     - id: ex_area_direction_b8
                       type: Html
                       style:
                         textAlign: center
+                      layout:
+                        size: auto
                       properties:
                         html: |
-                          <div style="background: #1890ff; font-size: 16px; font-weight: 500;">Block 8</div>
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 8</div>
+
+        - id: markdown_justify_example
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              ###### Justify examples:
+              ```yaml
+              - id: container
+                type: Container
+                areas:
+                  area1:
+                    justify: start
+                    blocks:
+                      - id: block1
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block2
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block3
+                        type: Block
+                        layout:
+                          size: auto
+                  area2:
+                    justify: end
+                    blocks:
+                      - id: block4
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block5
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block6
+                        type: Block
+                        layout:
+                          size: auto
+                  area3:
+                    justify: center
+                    blocks:
+                      - id: block7
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block8
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block9
+                        type: Block
+                        layout:
+                          size: auto
+                  area4:
+                    justify: space-around
+                    blocks:
+                      - id: block10
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block11
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block12
+                        type: Block
+                        layout:
+                          size: auto
+                  area5:
+                    justify: space-between
+                    blocks:
+                      - id: block13
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block14
+                        type: Block
+                        layout:
+                          size: auto
+                      - id: block15
+                        type: Block
+                        layout:
+                          size: auto
+        - id: ex_area_justify_c1
+          type: Box
+          style:
+            background: '#d9d9d9'
+            padding: 16px
+            marginTop: 16px
+          layout:
+            contentGutter: 16
+          blocks:
+            - id: ex_area_justify_area1_title
+              type: Markdown
+              properties: 
+                content: "##### Area 1 - `start`"
+            - id: ex_area_justify_area1
+              type: Box
+              areas:
+                content:
+                  justify: start
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_area_justify_b1
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 1</div>
+                    - id: ex_area_justify_b2
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 2</div>
+                    - id: ex_area_justify_b3
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 3</div>
+            - id: ex_area_justify_area2_title
+              type: Markdown
+              properties: 
+                content: "##### Area 2 - `end`"
+            - id: ex_area_justify_area2
+              type: Box
+              areas:
+                content:
+                  justify: end
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_area_justify_b4
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 4</div>
+                    - id: ex_area_justify_b5
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 5</div>
+                    - id: ex_area_justify_b6
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 6</div>
+            - id: ex_area_justify_area3_title
+              type: Markdown
+              properties: 
+                content: "##### Area 3 - `center`"
+            - id: ex_area_justify_area3
+              type: Box
+              areas:
+                content:
+                  justify: center
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_area_justify_b7
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 7</div>
+                    - id: ex_area_justify_b8
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 8</div>
+                    - id: ex_area_justify_b9
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 9</div>
+            - id: ex_area_justify_area4_title
+              type: Markdown
+              properties: 
+                content: "##### Area 4 - `space-around`"
+            - id: ex_area_justify_area4
+              type: Box
+              areas:
+                content:
+                  justify: space-around
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_area_justify_b10
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 10</div>
+                    - id: ex_area_justify_b11
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 11</div>
+                    - id: ex_area_justify_b12
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 12</div>
+            - id: ex_area_justify_area5_title
+              type: Markdown
+              properties: 
+                content: "##### Area 5 - `space-between`"
+            - id: ex_area_justify_area5
+              type: Box
+              areas:
+                content:
+                  justify: space-between
+                  style:
+                    border: '1px dashed #eb2f96'
+                  blocks:
+                    - id: ex_area_justify_b13
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #1890ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 13</div>
+                    - id: ex_area_justify_b14
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 14</div>
+                    - id: ex_area_justify_b15
+                      type: Html
+                      style:
+                        textAlign: center
+                      layout:
+                        size: auto
+                      properties:
+                        html: |
+                          <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 15</div>
