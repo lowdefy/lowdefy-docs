@@ -724,7 +724,7 @@ areas:
                         span: 12
                       properties:
                         html: |
-                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 1</div>
+                          <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 2</div>
             - id: ex_area_align_area2_title
               type: Markdown
               properties:

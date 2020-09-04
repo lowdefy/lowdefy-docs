@@ -130,12 +130,17 @@ menus:
       #       pageId: how-it-works
       #       properties:
       #         title: How It Works
-      # - id: concepts
-      #   type: MenuGroup
-      #   properties:
-      #     title: Concepts
-      #     icon: BulbOutlined
-      #   links:
+      - id: concepts
+        type: MenuGroup
+        properties:
+          title: Concepts
+          icon: BulbOutlined
+        links:
+          - id: layout
+            type: MenuLink
+            pageId: layout
+            properties:
+              title: Layout
       #     - id: lowdefy-file
       #       type: MenuLink
       #       pageId: lowdefy-file
@@ -151,11 +156,7 @@ menus:
       #     #   pageId: groups
       #     #   properties:
       #     #     title: Groups and Roles
-      #     - id: layout
-      #       type: MenuLink
-      #       pageId: layout
-      #       properties:
-      #         title: Layout
+
       #     - id: pages
       #       type: MenuLink
       #       pageId: pages
@@ -521,12 +522,11 @@ menus:
         pageId: feedback
         properties:
           title: Feedback
-          icon: BulbOutlined
+          icon: FormOutlined
 
 pages:
 
   - _ref: start/introduction.yaml
-  - _ref: feedback.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
   - _ref: tutorial/tutorial-create-page.yaml
@@ -543,7 +543,7 @@ pages:
   # - _ref: concepts/blocks.yaml
   # - _ref: concepts/connections.yaml
   # - _ref: concepts/groups.yaml
-  # - _ref: concepts/layout.yaml
+  - _ref: concepts/layout.yaml
   # - _ref: concepts/lowdefy-file.yaml
   # - _ref: concepts/operators.yaml
   # - _ref: concepts/pages.yaml
@@ -651,3 +651,4 @@ pages:
   - _ref: operators/_type.yaml
   - _ref: operators/_user.yaml
 
+  - _ref: feedback.yaml
