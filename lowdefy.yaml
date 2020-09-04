@@ -444,9 +444,9 @@ menus:
           - id: Mutate
             type: MenuLink
             pageId: Mutate
-          - id: Notification
+          - id: NotificationAction
             type: MenuLink
-            pageId: Notification
+            pageId: NotificationAction # Clash with Notification block
           - id: Reset
             type: MenuLink
             pageId: Reset

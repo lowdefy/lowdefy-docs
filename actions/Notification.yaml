@@ -1,4 +1,4 @@
-id: Notification
+id: NotificationAction
 type: PageSiderMenu
 public: true
 properties:

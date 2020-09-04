@@ -3,6 +3,51 @@ type: PageSiderMenu
 public: true
 properties:
   title: Modal
+actions:
+  onInit:
+    - id: init_panels
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: centered
+            v: false
+          - k: closable
+            v: true
+          - k: mask
+            v: true
+          - k: maskClosable
+            v: true
+          - k: footer
+            v: true
+          - k: okText
+            v: Ok
+          - k: cancelText
+            v: Cancel
+          - k: width
+            v: "520px"
+          - k: zIndex
+            v: 1000
+        init_properties:
+          - k: title
+            v: block_id
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_title
     type: Card
@@ -98,30 +143,39 @@ blocks:
                           on:
                             value:
                               _dump_yaml:
-                                id: block_id
-                                type: Modal
-                                layout:
-                                  _ref:
-                                    path: blocks/remove_nulls.yaml
-                                    vars:
-                                      input:
+                                _ref:
+                                  path: blocks/block_setup.yaml
+                                  vars:
+                                    block:
+                                      id: block_id
+                                      type: Modal
+                                      layout:
                                         _state: block.layout
-                                style:
-                                  _parse:
-                                    _state: style_block_input
-                                visible:
-                                  _state: block.visible
-                                properties:
-                                  _ref:
-                                    path: blocks/remove_nulls.yaml
-                                    vars:
-                                      input:
+                                      default_layout:  
+                                        _state: default_layout
+                                      style:
+                                        _parse:
+                                          _state: style_block_input
+                                      visible:
+                                        _state: block.visible
+                                      properties:
                                         _state: block.properties
-                                areas:
-                                  content:
-                                    blocks: []
-                                  footer:
-                                    blocks: []
+                                      default_properties:  
+                                        _state: default_properties
+                                      areas:
+                                        content:
+                                          blocks: []
+                                        footer:
+                                          blocks: []
+                                    default_block:
+                                      - k: properties
+                                        v: {}
+                                      - k: layout
+                                        v: {}
+                                      - k: style
+                                        v: {}
+                                      - k: visible
+                                        v: true
 
           - id: settings_grid
             type: Box
@@ -165,7 +219,6 @@ blocks:
                     blocks:
                       - id: block.properties.title
                         type: TextInput
-                        defaultValue: block_id
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -178,7 +231,6 @@ blocks:
                                 extra: The modal dialog's title.
                       - id: block.properties.centered
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -191,7 +243,6 @@ blocks:
                                 extra: Center the modal vertically.
                       - id: block.properties.closable
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -204,7 +255,6 @@ blocks:
                                 extra: Whether a close (x) button is visible on top right of the modal dialog or not.
                       - id: block.properties.footer
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -217,7 +267,6 @@ blocks:
                                 extra: Show footer area.
                       - id: block.properties.mask
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -230,7 +279,6 @@ blocks:
                                 extra: Whether to show mask (shaded out background) or not.
                       - id: block.properties.maskClosable
                         type: Switch
-                        defaultValue: true
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -243,7 +291,6 @@ blocks:
                                 extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
                       - id: block.properties.okText
                         type: TextInput
-                        defaultValue: Ok
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -256,7 +303,6 @@ blocks:
                                 extra: Text of the Ok button.
                       - id: block.properties.cancelText
                         type: TextInput
-                        defaultValue: Cancel
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -267,9 +313,20 @@ blocks:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Text of the Cancel button.
+                      # - id: block.properties.open
+                      #   type: Switch
+                      #   layout:
+                      #     _global: settings_input_layout
+                      #   properties:
+                      #     title: open
+                      #     size: small
+                      #     label:
+                      #       _ref: 
+                      #         path: blocks/label_extra.yaml
+                      #         vars:
+                      #           extra: Overwrite the modal dialog is open.
                       - id: block.properties.width
                         type: TextInput
-                        defaultValue: '520px'
                         layout:
                           _global: settings_input_layout
                         properties:
@@ -282,7 +339,6 @@ blocks:
                                 extra: Width of the modal dialog.
                       - id: block.properties.zIndex
                         type: NumberInput
-                        defaultValue: 1000
                         layout:
                           _global: settings_input_layout
                         properties:

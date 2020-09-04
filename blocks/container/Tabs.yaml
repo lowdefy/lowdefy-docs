@@ -5,18 +5,56 @@ properties:
   title: Tabs
 actions:
   onInit:
-    - id: init_tabs
+    - id: init
       type: SetState
       params:
-        block:
-          properties:
-            tabs:
+        # block:
+        #   properties:
+        #     tabs:
+        #       - key: content_one
+        #         title: Title One
+        #       - key: content_two
+        #         title: Title Two
+        #       - key: content_three
+        #         title: Title Three
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: animated
+            v: true
+          - k: size
+            v: default
+          - k: tabPosition
+            v: top
+          - k: tabType
+            v: line
+        init_properties:
+          - k: tabs
+            v:
               - key: content_one
                 title: Title One
               - key: content_two
                 title: Title Two
               - key: content_three
                 title: Title Three
+          - k: defaultActiveKey
+            v: content_one
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   - id: card_title
     type: Card
@@ -137,34 +175,43 @@ blocks:
                           on:
                             value:
                               _dump_yaml:
-                                id: block_id
-                                type: Tabs
-                                layout:
-                                  _ref:
-                                    path: blocks/remove_nulls.yaml
-                                    vars:
-                                      input:
+                                _ref:
+                                  path: blocks/block_setup.yaml
+                                  vars:
+                                    block:
+                                      id: block_id
+                                      type: Tabs
+                                      layout:
                                         _state: block.layout
-                                style:
-                                  _parse:
-                                    _state: style_block_input
-                                visible:
-                                  _state: block.visible
-                                properties:
-                                  _ref:
-                                    path: blocks/remove_nulls.yaml
-                                    vars:
-                                      input:
+                                      default_layout:  
+                                        _state: default_layout
+                                      style:
+                                        _parse:
+                                          _state: style_block_input
+                                      visible:
+                                        _state: block.visible
+                                      properties:
                                         _state: block.properties
-                                areas:
-                                  extra:
-                                    blocks: []
-                                  content_one:
-                                    blocks: []
-                                  content_two:
-                                    blocks: []
-                                  content_three:
-                                    blocks: []
+                                      default_properties:  
+                                        _state: default_properties
+                                      areas:
+                                        extra:
+                                          blocks: []
+                                        content_one:
+                                          blocks: []
+                                        content_two:
+                                          blocks: []
+                                        content_three:
+                                          blocks: []
+                                    default_block:
+                                      - k: properties
+                                        v: {}
+                                      - k: layout
+                                        v: {}
+                                      - k: style
+                                        v: {}
+                                      - k: visible
+                                        v: true
 
           - id: settings_grid
             type: Box
@@ -221,7 +268,6 @@ blocks:
                                     extra: Current TabPane's key.
                           - id: block.properties.animated
                             type: Switch
-                            defaultValue: true
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -234,7 +280,6 @@ blocks:
                                     extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
                           - id: block.properties.defaultActiveKey
                             type: TextInput
-                            defaultValue: content_one
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -247,7 +292,6 @@ blocks:
                                     extra: Initial active TabPane's key, if activeKey is not set.
                           - id: block.properties.size
                             type: ButtonSelector
-                            defaultValue: default
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -264,7 +308,6 @@ blocks:
                                 - large
                           - id: block.properties.tabPosition
                             type: ButtonSelector
-                            defaultValue: top
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -282,7 +325,6 @@ blocks:
                                 - left
                           - id: block.properties.tabType
                             type: ButtonSelector
-                            defaultValue: line
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -319,7 +361,6 @@ blocks:
                             blocks:
                               - id: block.properties.tabs.$.title
                                 type: TextInput
-                                defaultValue: title
                                 layout:
                                   _global: settings_input_layout
                                 properties:
@@ -332,7 +373,6 @@ blocks:
                                         extra: Title of the tab.
                               - id: block.properties.tabs.$.key
                                 type: TextInput
-                                defaultValue: key
                                 layout:
                                   _global: settings_input_layout
                                 properties:
