@@ -1,19 +1,77 @@
-_mql_expr:
-  $arrayToObject:
-    $filter:
-      input:
-        $objectToArray:
-          _var: setup_input
-      as: x
-      cond:
-        $and:
-          - $not:
-              $eq:
-                - $$x.v
-                - null
-          - $not:
-              $and:
-                - $in:
-                    - k: $$x.k
-                      v: $$x.v
-                    - _var: default_array
+_get:
+  key: 0.block
+  from:
+    _mql_aggregate:
+      on: 
+        - block: 
+            _var: 
+              name: block
+              default: {}
+      pipeline:
+        - $project:
+            block.id: $block.id
+            block.type: $block.type
+            block.style: $block.style
+            block.visible: $block.visible
+            block.areas: $block.areas
+            block.layout: 
+                $arrayToObject:
+                  $filter:
+                    input:
+                      $objectToArray: $block.layout  
+                    as: x
+                    cond:
+                      $and:
+                        - $not:
+                            $eq:
+                              - $$x.v
+                              - null
+                        - $not:
+                            $and:
+                              - $in:
+                                  - k: $$x.k
+                                    v: $$x.v
+                                  - _var: 
+                                      name: block.default_layout
+                                      default: []
+            block.properties: 
+                $arrayToObject:
+                  $filter:
+                    input:
+                      $objectToArray: $block.properties  
+                    as: x
+                    cond:
+                      $and:
+                        - $not:
+                            $eq:
+                              - $$x.v
+                              - null
+                        - $not:
+                            $and:
+                              - $in:
+                                  - k: $$x.k
+                                    v: $$x.v
+                                  - _var: 
+                                      name: block.default_properties
+                                      default: []
+        - $project: 
+            block: 
+              $arrayToObject:
+                $filter:
+                  input:
+                    $objectToArray: $block
+                  as: x
+                  cond:
+                    $and:
+                      - $not:
+                          $eq:
+                            - $$x.v
+                            - null
+                      - $not:
+                          $and:
+                            - $in:
+                                - k: $$x.k
+                                  v: $$x.v
+                                - _var: 
+                                    name: default_block
+                                    default: []
