@@ -15,7 +15,7 @@ actions:
             v: 24
         default_properties:
           - k: dot
-            v: true
+            v: false
           - k: showZero
             v: false
           - k: text
@@ -114,32 +114,38 @@ blocks:
                       on:
                         value:
                           _dump_yaml:
-                            id: block_id
-                            type: Badge
-                            layout:
-                              _ref:
-                                path: blocks/block_setup.yaml
-                                vars:
-                                  setup_input: 
+                            _ref:
+                              path: blocks/block_setup.yaml
+                              vars:
+                                block:
+                                  id: block_id
+                                  type: Badge
+                                  layout:
                                     _state: block.layout
-                                  default_array:  
+                                  default_layout:  
                                     _state: default_layout
-                            style:
-                              _parse:
-                                _state: style_block_input
-                            visible:
-                              _state: block.visible
-                            properties:
-                              _ref:
-                                path: blocks/block_setup.yaml
-                                vars:
-                                  setup_input:
+                                  style:
+                                    _parse:
+                                      _state: style_block_input
+                                  visible:
+                                    _state: block.visible
+                                  properties:
                                     _state: block.properties
-                                  default_array:  
+                                  default_properties:  
                                     _state: default_properties
-                            areas:
-                              content:
-                                blocks: []
+                                  areas:
+                                    content:
+                                      blocks: []
+                                default_block:
+                                  - k: properties
+                                    v: {}
+                                  - k: layout
+                                    v: {}
+                                  - k: style
+                                    v: {}
+                                  - k: visible
+                                    v: true
+                                
 
       - id: settings_grid
         type: Box
