@@ -169,10 +169,9 @@ areas:
               fontSize: 14px
           properties:
             content: |
-              If blocks are placed in the `blocks` array, as well as the under `areas.content.blocks`, the blocks under `blocks` overwrite those under `areas.content.blocks`.
+              To pleace blocks both in the `blocks` array, as well as the under `areas.content.blocks` array is an anti-pattern, and in this case the blocks under `blocks` will overwrite those under `areas.content.blocks`.
 
-
-              ###### Blocks in the `blocks` and `areas.content.blocks`:
+              ###### Anti-pattern: Blocks in the `blocks` and `areas.content.blocks`:
               ```yaml
               - id: container
                 type: Container
@@ -698,7 +697,7 @@ areas:
             - id: ex_area_align_area1_title
               type: Markdown
               properties: 
-                content: "##### Area 1 - `top`"
+                content: "##### Area 1 - `align: top`"
             - id: ex_area_align_area1
               type: Box
               areas:
@@ -728,7 +727,7 @@ areas:
             - id: ex_area_align_area2_title
               type: Markdown
               properties:
-                content: "##### Area 2 - `middle`"
+                content: "##### Area 2 - `align: middle`"
             - id: ex_area_align_area2
               type: Box
               areas:
@@ -758,7 +757,7 @@ areas:
             - id: ex_area_align_area3_title
               type: Markdown
               properties: 
-                content: "##### Area 3 - `bottom`"
+                content: "##### Area 3 - `align: bottom`"
             - id: ex_area_align_area3
               type: Box
               areas:
@@ -855,7 +854,7 @@ areas:
             - id: ex_area_direction_area1_title
               type: Markdown
               properties: 
-                content: "##### Area 1 - `row`"
+                content: "##### Area 1 - `direction: row`"
             - id: ex_area_direction_area1
               type: Box
               areas:
@@ -885,7 +884,7 @@ areas:
             - id: ex_area_direction_area2_title
               type: Markdown
               properties:
-                content: "##### Area 2 - `row-reverse`"
+                content: "##### Area 2 - `direction: row-reverse`"
             - id: ex_area_direction_area2
               type: Box
               areas:
@@ -915,7 +914,7 @@ areas:
             - id: ex_area_direction_area3_title
               type: Markdown
               properties: 
-                content: "##### Area 3 - `column`"
+                content: "##### Area 3 - `direction: column`"
             - id: ex_area_direction_area3
               type: Box
               areas:
@@ -945,7 +944,7 @@ areas:
             - id: ex_area_direction_area4_title
               type: Markdown
               properties: 
-                content: "##### Area 4  - `column-reverse`"
+                content: "##### Area 4  - `direction: column-reverse`"
             - id: ex_area_direction_area4
               type: Box
               areas:
@@ -1073,7 +1072,7 @@ areas:
             - id: ex_area_justify_area1_title
               type: Markdown
               properties: 
-                content: "##### Area 1 - `start`"
+                content: "##### Area 1 - `justify: start`"
             - id: ex_area_justify_area1
               type: Box
               areas:
@@ -1112,7 +1111,7 @@ areas:
             - id: ex_area_justify_area2_title
               type: Markdown
               properties: 
-                content: "##### Area 2 - `end`"
+                content: "##### Area 2 - `justify: end`"
             - id: ex_area_justify_area2
               type: Box
               areas:
@@ -1151,7 +1150,7 @@ areas:
             - id: ex_area_justify_area3_title
               type: Markdown
               properties: 
-                content: "##### Area 3 - `center`"
+                content: "##### Area 3 - `justify: center`"
             - id: ex_area_justify_area3
               type: Box
               areas:
@@ -1190,7 +1189,7 @@ areas:
             - id: ex_area_justify_area4_title
               type: Markdown
               properties: 
-                content: "##### Area 4 - `space-around`"
+                content: "##### Area 4 - `justify: space-around`"
             - id: ex_area_justify_area4
               type: Box
               areas:
@@ -1229,7 +1228,7 @@ areas:
             - id: ex_area_justify_area5_title
               type: Markdown
               properties: 
-                content: "##### Area 5 - `space-between`"
+                content: "##### Area 5 - `justify: space-between`"
             - id: ex_area_justify_area5
               type: Box
               areas:
