@@ -8,11 +8,54 @@ actions:
     - id: initialize_state 
       type: SetState
       params:
-        block:
-          properties:
-            placeholder:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: format
+            v: "YYYY-MM-DD"
+          - k: separator
+            v: "~"
+          - k: suffixIcon
+            v: CalendarOutlined
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: placeholder
+            v:
               - Start Date
               - End Date
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -31,7 +74,6 @@ blocks:
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:
@@ -44,7 +86,6 @@ blocks:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
           layout:
             _global: settings_input_layout
           properties:
@@ -57,7 +98,6 @@ blocks:
                   extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -70,7 +110,6 @@ blocks:
                   extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -83,7 +122,6 @@ blocks:
                   extra: Disable the block if true.
         - id: block.properties.format
           type: TextInput
-          defaultValue: YYYY-MM-DD
           layout:
             _global: settings_input_layout
           properties:
@@ -96,7 +134,6 @@ blocks:
                   extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder.0
           type: TextInput
-          defaultValue: Start Date
           layout:
             _global: settings_input_layout
           properties:
@@ -109,7 +146,6 @@ blocks:
                   extra: Placeholder text inside the block before user types input.
         - id: block.properties.placeholder.1
           type: TextInput
-          defaultValue: End Date
           layout:
             _global: settings_input_layout
           properties:
@@ -122,7 +158,6 @@ blocks:
                   extra: Placeholder text inside the block before user types input.
         - id: block.properties.separator
           type: TextInput
-          defaultValue: "~"
           layout:
             _global: settings_input_layout
           properties:
@@ -135,7 +170,6 @@ blocks:
                   extra: Separator symbol shown between start and end date inputs.
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
           layout:
             _global: settings_input_layout
           properties:
@@ -155,7 +189,6 @@ blocks:
             vars:
               icon_id: block.properties.suffixIcon
               icon_field_name: suffixIcon
-              default_icon: CalendarOutlined
               icon_description: Icon on right-hand side of the date-range input.
         - _ref: blocks/label.yaml
 

@@ -115,6 +115,8 @@
                                 _state: style_block_input
                             visible:
                               _state: block.visible
+                            required:
+                              _state: block.required
                             properties:
                               _var: properties_transform
                             default_properties:  
@@ -128,6 +130,8 @@
                               v: {}
                             - k: visible
                               v: true
+                            - k: required
+                              v: false
                       # id: block_id
                       # layout:
                       #   _state: block.layout

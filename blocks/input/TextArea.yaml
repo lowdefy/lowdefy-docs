@@ -3,6 +3,51 @@ type: PageSiderMenu
 public: true
 properties:
   title: TextArea
+actions:
+  onInit:
+    - id: initialize_state 
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: autoSize
+            v: false
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -15,11 +60,24 @@ blocks:
       label: true
       category: input
       properties_transform:
-        _state: block.properties
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    autoSize:
+                      $cond:
+                        - _eq:
+                            - _state: select_autoSize_type
+                            - Boolean
+                        - $autoSize.boolean
+                        - $autoSize
+              on:
+                - _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:
@@ -32,7 +90,6 @@ blocks:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
           layout:
             _global: settings_input_layout
           properties:
@@ -45,7 +102,6 @@ blocks:
                   extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -69,13 +125,12 @@ blocks:
                   _ref: 
                     path: blocks/label_extra.yaml
                     vars:
-                      extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.  Defining autoSize disables any prefix or suffix defined.
+                      extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.
                 options:
                   - Boolean
                   - Object
-        - id: block.properties.autoSize
+        - id: block.properties.autoSize.boolean
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           visible:
@@ -121,7 +176,6 @@ blocks:
                   extra: Maximum number of rows the block can be.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -146,7 +200,6 @@ blocks:
                   extra: Placeholder text inside the block before user types input.
         - id: block.properties.rows
           type: NumberInput
-          defaultValue: 3
           layout:
             _global: settings_input_layout
           properties:

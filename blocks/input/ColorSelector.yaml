@@ -8,9 +8,51 @@ actions:
     - id: initialize_state 
       type: SetState
       params:
-        block:
-          properties:
-            colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+        # block:
+        #   properties:
+        #     colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: circleSize
+            v: 28
+          - k: circleSpacing
+            v: 14
+          - k: type
+            v: circle
+          - k: width
+            v: 100%
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties:
+          - k: colors
+            v: ["#f44336", "#673ab7", "#3f51b5", "#2196f3", "#009688", "#4caf50",  "#ffeb3b", "#ffc107", "#795548", "#607d8b"]
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -27,7 +69,6 @@ blocks:
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:
@@ -40,7 +81,6 @@ blocks:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.circleSize
           type: NumberInput
-          defaultValue: 28
           layout:
             _global: settings_input_layout
           properties:
@@ -53,7 +93,6 @@ blocks:
                   extra: Pixel value for circle size, only available for type circle.
         - id: block.properties.circleSpacing
           type: NumberInput
-          defaultValue: 14
           layout:
             _global: settings_input_layout
           properties:
@@ -78,7 +117,6 @@ blocks:
                   disabled: true
         - id: block.properties.type
           type: ButtonSelector
-          defaultValue: circle
           layout:
             _global: settings_input_layout
           properties:
@@ -96,7 +134,6 @@ blocks:
               - twitter
         - id: block.properties.width
           type: TextInput
-          defaultValue: 100%
           layout:
             _global: settings_input_layout
           properties:

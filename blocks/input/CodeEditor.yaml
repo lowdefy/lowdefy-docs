@@ -3,6 +3,47 @@ type: PageSiderMenu
 public: true
 properties:
   title: CodeEditor
+actions:
+  onInit:
+    - id: initialize_state 
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: height
+            v: 300
+          - k: language
+            v: yaml
+          - k: theme
+            v: vs-dark
+          - k: options
+            v: |
+              {
+                "tabSize": 2,
+                "readOnly": false,
+                "minimap": {
+                  "enabled": false
+                },
+                "showFoldingControls": "always"
+              }
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -29,7 +70,6 @@ blocks:
       properties_form:
         - id: block.properties.height
           type: NumberInput
-          defaultValue: 300
           layout:
             _global: settings_input_layout
           properties:
@@ -42,7 +82,6 @@ blocks:
                   extra: Height of the code editor.
         - id: block.properties.language
           type: ButtonSelector
-          defaultValue: yaml
           layout:
             _global: settings_input_layout
           properties:
@@ -58,7 +97,6 @@ blocks:
               - json
         - id: block.properties.theme
           type: ButtonSelector
-          defaultValue: vs-dark
           layout:
             _global: settings_input_layout
           properties:
@@ -74,15 +112,15 @@ blocks:
               - vs-light
         - id: block.properties.options
           type: TextArea
-          defaultValue: |
-            {
-              "tabSize": 2,
-              "readOnly": false,
-              "minimap": {
-                "enabled": false
-              },
-              "showFoldingControls": "always"
-            }
+          # defaultValue: |
+          #   {
+          #     "tabSize": 2,
+          #     "readOnly": false,
+          #     "minimap": {
+          #       "enabled": false
+          #     },
+          #     "showFoldingControls": "always"
+          #   }
           layout:
             _global: settings_input_layout
           properties:
