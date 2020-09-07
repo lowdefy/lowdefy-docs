@@ -308,7 +308,7 @@ blocks:
             - id: example_4_code
               type: Markdown
               layout:
-                span: 6
+                span: 12
               properties:
                 content: |
                   ```yaml
