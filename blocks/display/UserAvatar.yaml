@@ -3,6 +3,45 @@ type: PageSiderMenu
 public: true
 properties:
   title: UserAvatar
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: disabled
+            v: false
+          - k: showName
+            v: left
+          - k: theme
+            v: light
+          - k: loggedIn
+            v: true
+          - k: avatar
+            v: 
+              shape: circle
+          - k: loginButton
+            v: 
+              title: Login
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -18,7 +57,6 @@ blocks:
       properties_form:
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -31,7 +69,6 @@ blocks:
                   extra: Do not render the user menu.
         - id: block.properties.showName
           type: ButtonSelector
-          defaultValue: left
           layout:
             _global: settings_input_layout
           properties:
@@ -48,7 +85,6 @@ blocks:
                   extra: Where to position the user name.
         - id: block.properties.name
           type: TextInput
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -61,7 +97,6 @@ blocks:
                   extra: Replace user name text.
         - id: block.properties.theme
           type: ButtonSelector
-          defaultValue: light
           layout:
             _global: settings_input_layout
           properties:
@@ -77,7 +112,6 @@ blocks:
                   extra: Color theme, white or dark name text.
         - id: block.properties.loggedIn
           type: Switch
-          defaultValue: true
           layout:
             _global: settings_input_layout
           properties:
@@ -90,7 +124,6 @@ blocks:
                   extra: Toggle render as logged in or not.
         - id: block.properties.avatar.shape
           type: ButtonSelector
-          defaultValue: circle
           layout:
             _global: settings_input_layout
           properties:
@@ -117,7 +150,6 @@ blocks:
                   pageId: Avatar
         - id: block.properties.loginButton.title
           type: TextInput
-          defaultValue: Login
           layout:
             _global: settings_input_layout
           properties:

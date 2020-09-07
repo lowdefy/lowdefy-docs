@@ -157,15 +157,43 @@
                 on:
                   value:
                     _dump_yaml:
-                      id: block_id
-                      type:
-                        _var: block_type
-                      style:
-                        _var: style_transform
-                      visible:
-                        _state: block.visible
-                      properties:
-                        _state: block.properties
+                      _ref:
+                        path: blocks/block_setup.yaml
+                        vars:
+                          block:
+                            id: block_id
+                            type:
+                              _var: block_type
+                            layout:
+                              _state: block.layout
+                            default_layout:  
+                              _state: default_layout
+                            style:
+                              _var: style_transform
+                            visible:
+                              _state: block.visible
+                            properties:
+                              _state: block.properties
+                            default_properties:  
+                              _state: default_properties
+                          default_block:
+                            - k: properties
+                              v: {}
+                            - k: layout
+                              v: {}
+                            - k: style
+                              v: {}
+                            - k: visible
+                              v: true
+                      # id: block_id
+                      # type:
+                      #   _var: block_type
+                      # style:
+                      #   _var: style_transform
+                      # visible:
+                      #   _state: block.visible
+                      # properties:
+                      #   _state: block.properties
 
 - id: settings_grid
   type: Box
@@ -239,42 +267,42 @@
                 _var: methods_form
         blocks:
           blocks:
-          - id: grid_blocks
-            type: ControlledList
-            properties:
-              hideAddButton: true
-              hideRemoveButton: true
-            blocks:
-              - id: grid_blocks.$.gd
-                type: Box
-                layout:
-                  flex: 0 0 15ch
-                blocks:
-                  - id: grid_blocks.$.name
-                    type: Markdown
-                    properties:
-                      content: 
-                        _nunjucks: 
-                          template: '##### {{ name }}'
-                          on:
-                            _state: grid_blocks.$
-                  - id: grid_blocks.$.visible
-                    type: Switch
-                    properties:
-                      title: visible
-                      size: small
-                      label:
-                        inline: true
-              - id: grid_blocks.$.style
-                type: TextArea
-                layout:
-                  flex: auto
-                properties:
-                  title: style
-                  size: small
-                  rows: 3
-                  label:
-                    inline: true
+            - id: grid_blocks
+              type: ControlledList
+              properties:
+                hideAddButton: true
+                hideRemoveButton: true
+              blocks:
+                - id: grid_blocks.$.gd
+                  type: Box
+                  layout:
+                    flex: 0 0 15ch
+                  blocks:
+                    - id: grid_blocks.$.name
+                      type: Markdown
+                      properties:
+                        content: 
+                          _nunjucks: 
+                            template: '##### {{ name }}'
+                            on:
+                              _state: grid_blocks.$
+                    - id: grid_blocks.$.visible
+                      type: Switch
+                      properties:
+                        title: visible
+                        size: small
+                        label:
+                          inline: true
+                - id: grid_blocks.$.style
+                  type: TextArea
+                  layout:
+                    flex: auto
+                  properties:
+                    title: style
+                    size: small
+                    rows: 3
+                    label:
+                      inline: true
 
 - id: examples_divider
   type: Divider

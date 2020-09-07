@@ -3,6 +3,47 @@ type: PageSiderMenu
 public: true
 properties:
   title: Notification
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: bottom
+            v: 24
+          - k: duration
+            v: 4.5
+          - k: placement
+            v: topRight
+          - k: top
+            v: 24
+          - k: status
+            v: success
+          - k: label
+            v: {}
+        init_properties:
+          - k: description
+            v: Notification description.
+          - k: message
+            v: Notification Message
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 
 blocks:
   _ref:
@@ -21,11 +62,10 @@ blocks:
       properties_form:
         - id: block.properties.bottom
           type: NumberInput
-          defaultValue: 24
           layout:
             _global: settings_input_layout
           properties:
-            title: title
+            title: bottom
             size: small
             label:
               _ref: 
@@ -34,7 +74,6 @@ blocks:
                   extra: 'Distance from the bottom of the viewport, when placement is bottomRight or bottomLeft (unit: pixels).'
         - id: block.properties.description
           type: TextArea
-          defaultValue: Notification description.
           layout:
             _global: settings_input_layout
           properties:
@@ -47,12 +86,12 @@ blocks:
                   extra: The content description of notification box.
         - id: block.properties.duration
           type: NumberInput
-          defaultValue: 4.5
           layout:
             _global: settings_input_layout
           properties:
             title: duration
             size: small
+            precision: 1
             label:
               _ref: 
                 path: blocks/label_extra.yaml
@@ -72,7 +111,6 @@ blocks:
               icon_description: Customized close icon.
         - id: block.properties.message
           type: TextInput
-          defaultValue: Notification Message
           layout:
             _global: settings_input_layout
           properties:
@@ -85,7 +123,6 @@ blocks:
                   extra: The title of notification box.
         - id: block.properties.placement
           type: ButtonSelector
-          defaultValue: topRight
           layout:
             _global: settings_input_layout
           properties:
@@ -103,7 +140,6 @@ blocks:
                   extra: Position of Notification.
         - id: block.properties.top
           type: NumberInput
-          defaultValue: 24
           layout:
             _global: settings_input_layout
           properties:
@@ -116,7 +152,6 @@ blocks:
                   extra: 'Distance from the top of the viewport, when placement is topRight or topLeft (unit: pixels).'
         - id: block.properties.status
           type: ButtonSelector
-          defaultValue: success
           layout:
             _global: settings_input_layout
           properties:

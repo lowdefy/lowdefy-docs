@@ -3,6 +3,43 @@ type: PageSiderMenu
 public: true
 properties:
   title: Skeleton
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: active
+            v: false
+          - k: round
+            v: false
+          - k: avatar
+            v: false
+          - k: button
+            v: false
+          - k: paragraph
+            v: true
+          - k: title
+            v: true
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 
 blocks:
   _ref:
@@ -56,7 +93,6 @@ blocks:
       properties_form:
         - id: block.properties.active
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:

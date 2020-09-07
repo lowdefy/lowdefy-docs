@@ -3,6 +3,39 @@ type: PageSiderMenu
 public: true
 properties:
   title: Anchor
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: disabled
+            v: false
+          - k: strong
+            v: false
+          - k: title
+            v: block_id
+        init_properties:
+          - k: icon
+            v: FireOutlined
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -18,7 +51,6 @@ blocks:
       properties_form:
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -34,11 +66,9 @@ blocks:
             vars:
               icon_id: block.properties.icon
               icon_field_name: icon
-              default_icon: FireOutlined
               icon_description: Icon to prefix anchor.
         - id: block.properties.strong
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -51,7 +81,6 @@ blocks:
                   extra: Makes the text bold when true.
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:

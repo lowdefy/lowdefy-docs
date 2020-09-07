@@ -5,12 +5,26 @@ properties:
   title: Menu
 actions:
   onInit:
-    - id: initialize_state 
+    - id: init
       type: SetState
       params:
-        block:
-          properties:
-            links:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: mode
+            v: vertical
+          - k: selectable
+            v: true
+          - k: theme
+            v: dark
+          - k: selectedKeys
+            v: []
+        init_properties:
+          - k: links
+            v: 
               - id: page_1
                 type: MenuLink
                 pageId: page_1
@@ -50,6 +64,66 @@ actions:
                 properties:
                   title: Page 4
                   icon: UserOutlined
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
+# actions:
+#   onInit:
+#     - id: initialize_state 
+#       type: SetState
+#       params:
+#         block:
+#           properties:
+#             links:
+#               - id: page_1
+#                 type: MenuLink
+#                 pageId: page_1
+#                 properties:
+#                   title: Page 1
+#                   icon: FlagOutlined
+#               - id: page_2
+#                 type: MenuLink
+#                 pageId: page_2
+#                 properties:
+#                   title: Page 2
+#                   icon: FileOutlined
+#               - id: page_3
+#                 type: MenuGroup
+#                 properties:
+#                   title: Group 3
+#                   icon: RocketOutlined
+#                 links:
+#                   - id: page_3_1
+#                     type: MenuLink
+#                     pageId: page_3_1
+#                     properties:
+#                       title: Page 3.1
+#                   - id: page_3_2
+#                     type: MenuLink
+#                     pageId: page_3_2
+#                     properties:
+#                       title: Page 3.2
+#                   - id: page_3_3
+#                     type: MenuLink
+#                     pageId: page_3_3
+#                     properties:
+#                       title: Page 3.3
+#               - id: page_4
+#                 type: MenuLink
+#                 pageId: page_4
+#                 properties:
+#                   title: Page 4
+#                   icon: UserOutlined
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -65,7 +139,6 @@ blocks:
       properties_form:
         - id: block.properties.mode
           type: ButtonSelector
-          defaultValue: vertical
           layout:
             _global: settings_input_layout
           properties:
@@ -82,7 +155,6 @@ blocks:
               - inline
         - id: block.properties.selectable
           type: Switch
-          defaultValue: true
           layout:
             _global: settings_input_layout
           properties:
@@ -139,7 +211,6 @@ blocks:
                   extra: Delay time to show submenu when mouse enters (in seconds).
         - id: block.properties.theme
           type: ButtonSelector
-          defaultValue: dark
           layout:
             _global: settings_input_layout
           properties:
