@@ -169,7 +169,7 @@ areas:
               fontSize: 14px
           properties:
             content: |
-              To pleace blocks both in the `blocks` array, as well as the under `areas.content.blocks` array is an anti-pattern, and in this case the blocks under `blocks` will overwrite those under `areas.content.blocks`.
+              To place blocks both in the `blocks` array, as well as the under `areas.content.blocks` array is an anti-pattern, and in this case the blocks under `blocks` will overwrite those under `areas.content.blocks`.
 
               ###### Anti-pattern: Blocks in the `blocks` and `areas.content.blocks`:
               ```yaml
