@@ -8,7 +8,7 @@ Lowdefy allows you to connect to data sources and build internal tools and dashb
 
 ### Only your own business logic
 
-Using Lowdefy means all the complicated parts of developing your own web app, allowing to to focus on the business logic. This is what allows you to move so quickly, while still having an app that conforms to industry best practices.
+Using Lowdefy means all the complicated parts of developing your own web app are taken care of, allowing you to to focus on the business logic. This is what allows you to move so quickly, while still having an app that conforms to industry best practices.
 
 ![Lowdefy](https://lowdefy.com/static/product_comp-77df458f04b628f65e0a7d3be6fa0946.png "Lowdefy")
 
