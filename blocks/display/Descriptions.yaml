@@ -3,6 +3,41 @@ type: PageSiderMenu
 public: true
 properties:
   title: Descriptions
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: bordered
+            v: false
+          - k: colon
+            v: true
+          - k: layout
+            v: horizontal
+          - k: size
+            v: default
+          - k: column
+            v: 3
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -34,7 +69,6 @@ blocks:
       properties_form:
         - id: block.properties.bordered
           type: Switch
-          defaultValue: true
           layout:
             _global: settings_input_layout
           properties:
@@ -47,7 +81,6 @@ blocks:
                   extra: Puts items in a table.
         - id: block.properties.colon
           type: Switch
-          defaultValue: true
           layout:
             _global: settings_input_layout
           properties:
@@ -60,7 +93,6 @@ blocks:
                   extra: Include a colon in item labels.
         - id: block.properties.column
           type: NumberInput
-          defaultValue: 2
           layout:
             _global: settings_input_layout
           properties:
@@ -71,12 +103,55 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
+        - id: block.properties.layout
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: layout
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Put values next to or below their labels.
+            options:
+              - horizontal
+              - vertical
+        - id: block.properties.size
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: size
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
+            options:
+              - small
+              - middle
+              - default
+        - id: block.properties.title
+          type: TextInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: title
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The title of the description block, placed at the top.
         - id: select_items_type_card
           type: Card
           blocks:
             - id: items_type
               type: ButtonSelector
-              defaultValue: List
+              defaultValue: Object
               properties:
                 title: items Type
                 size: small
@@ -152,51 +227,6 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Data items to display.
-        - id: block.properties.layout
-          type: ButtonSelector
-          defaultValue: default
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: layout
-            size: small
-            label:
-              _ref: 
-                path: blocks/label_extra.yaml
-                vars:
-                  extra: Put values next to or below their labels.
-            options:
-              - horizontal
-              - vertical
-        - id: block.properties.size
-          type: ButtonSelector
-          defaultValue: default
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: size
-            size: small
-            label:
-              _ref: 
-                path: blocks/label_extra.yaml
-                vars:
-                  extra: Size of the block.
-            options:
-              - small
-              - middle
-              - default
-        - id: block.properties.title
-          type: TextInput
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: title
-            size: small
-            label:
-              _ref: 
-                path: blocks/label_extra.yaml
-                vars:
-                  extra: The title of the description block, placed at the top.
 
       available_actions_description: |
         ###### No available actions.

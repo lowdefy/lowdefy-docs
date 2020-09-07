@@ -99,18 +99,51 @@
                 on:
                   value:
                     _dump_yaml:
-                      id: block_id
-                      layout:
-                        _state: block.layout
-                      type:
-                        _var: block_type
-                      style:
-                        _parse:
-                          _state: style_block_input
-                      visible:
-                        _state: block.visible
-                      properties:
-                        _var: properties_transform
+                      _ref:
+                        path: blocks/block_setup.yaml
+                        vars:
+                          block:
+                            id: block_id
+                            type:
+                              _var: block_type
+                            layout:
+                              _state: block.layout
+                            default_layout:  
+                              _state: default_layout
+                            style:
+                              _parse:
+                                _state: style_block_input
+                            visible:
+                              _state: block.visible
+                            required:
+                              _state: block.required
+                            properties:
+                              _var: properties_transform
+                            default_properties:  
+                              _state: default_properties
+                          default_block:
+                            - k: properties
+                              v: {}
+                            - k: layout
+                              v: {}
+                            - k: style
+                              v: {}
+                            - k: visible
+                              v: true
+                            - k: required
+                              v: false
+                      # id: block_id
+                      # layout:
+                      #   _state: block.layout
+                      # type:
+                      #   _var: block_type
+                      # style:
+                      #   _parse:
+                      #     _state: style_block_input
+                      # visible:
+                      #   _state: block.visible
+                      # properties:
+                      #   _var: properties_transform
     - id: settings_grid
       type: Box
       layout:

@@ -3,6 +3,55 @@ type: PageSiderMenu
 public: true
 properties:
   title: NumberInput
+actions:
+  onInit:
+    - id: initialize_state 
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: precision
+            v: 0
+          - k: step
+            v: 1
+          - k: decimalSeparator
+            v: "."
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -19,7 +68,6 @@ blocks:
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:
@@ -32,7 +80,6 @@ blocks:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -45,7 +92,6 @@ blocks:
                   extra: Autofocus to the block on page load.
         - id: block.properties.decimalSeparator
           type: TextInput
-          defaultValue: "."
           layout:
             _global: settings_input_layout
           properties:
@@ -58,7 +104,6 @@ blocks:
                   extra: Decimal separator.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -107,7 +152,6 @@ blocks:
                   extra: Placeholder text inside the block to show message before user types input.
         - id: block.properties.precision
           type: NumberInput
-          defaultValue: 0
           layout:
             _global: settings_input_layout
           properties:
@@ -121,7 +165,6 @@ blocks:
                   extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
           layout:
             _global: settings_input_layout
           properties:
@@ -138,13 +181,13 @@ blocks:
               - large
         - id: block.properties.step
           type: NumberInput
-          defaultValue: 1
           layout:
             _global: settings_input_layout
           properties:
             title: step
             size: small
-            precision: 2
+            precision:
+              _state: block.properties.precision
             label:
               _ref: 
                 path: blocks/label_extra.yaml

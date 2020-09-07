@@ -8,11 +8,37 @@ actions:
     - id: initialize_state 
       type: SetState
       params:
-        block:
-          properties:
-            list:
+        # block:
+        #   properties:
+        #     list:
+        #       - label: Page 1
+        #       - label: Page 2
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: separator
+            v: '/'
+        init_properties:
+          - k: list
+            v:
               - label: Page 1
               - label: Page 2
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -28,7 +54,6 @@ blocks:
       properties_form:
         - id: block.properties.separator
           type: TextInput
-          defaultValue: '/'
           layout:
             _global: settings_input_layout
           properties:

@@ -3,6 +3,39 @@ type: PageSiderMenu
 public: true
 properties:
   title: Divider
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: dashed
+            v: false
+          - k: orientation
+            v: center
+          - k: type
+            v: horizontal
+          - k: plain
+            v: false
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -18,7 +51,6 @@ blocks:
       properties_form:
         - id: block.properties.dashed
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -31,7 +63,6 @@ blocks:
                   extra: Whether line is dashed.
         - id: block.properties.orientation
           type: ButtonSelector
-          defaultValue: center
           layout:
             _global: settings_input_layout
           properties:
@@ -60,7 +91,6 @@ blocks:
                   extra: Divider title.
         - id: block.properties.type
           type: ButtonSelector
-          defaultValue: horizontal
           layout:
             _global: settings_input_layout
           properties:
@@ -76,7 +106,6 @@ blocks:
               - vertical
         - id: block.properties.plain
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:

@@ -3,6 +3,50 @@ type: PageSiderMenu
 public: true
 properties:
   title: Paragraph
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: code
+            v: false
+          - k: copyable
+            v: false
+          - k: delete
+            v: false
+          - k: disabled
+            v: false
+          - k: ellipsis
+            v: false
+          - k: mark
+            v: false
+          - k: strong
+            v: false
+          - k: underline
+            v: false
+        init_properties:
+          - k: content
+            v: |
+              Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -18,7 +62,6 @@ blocks:
       properties_form:
         - id: block.properties.code
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -46,7 +89,6 @@ blocks:
                   extra: Paragraph text content.
         - id: block.properties.copyable
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -59,7 +101,6 @@ blocks:
                   extra: Provide copy text button.
         - id: block.properties.delete
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -72,7 +113,6 @@ blocks:
                   extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -85,7 +125,6 @@ blocks:
                   extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -98,7 +137,6 @@ blocks:
                   extra: Display ellipsis when text overflows a single line.
         - id: block.properties.mark
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -111,7 +149,6 @@ blocks:
                   extra: Apply marked (highlighted) style.
         - id: block.properties.strong
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -141,7 +178,6 @@ blocks:
               - danger
         - id: block.properties.underline
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:

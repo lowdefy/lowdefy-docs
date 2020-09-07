@@ -3,6 +3,41 @@ type: PageSiderMenu
 public: true
 properties:
   title: Statistic
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: decimalSeparator
+            v: "."
+          - k: groupSeparator
+            v: ","
+          - k: formatter
+            v: 
+              type: null
+              properties: {}
+        init_properties:
+          - k: title
+            v: block_id
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -18,7 +53,6 @@ blocks:
       properties_form:
         - id: block.properties.decimalSeparator
           type: TextInput
-          defaultValue: "."
           layout:
             _global: settings_input_layout
           properties:
@@ -31,7 +65,6 @@ blocks:
                   extra: Decimal separator.
         - id: block.properties.formatter.type
           type: Selector
-          defaultValue: intlNumberFormat
           layout:
             _global: settings_input_layout_indent
           properties:
@@ -66,7 +99,6 @@ blocks:
                   extra: Moment.js date format
         - id: block.properties.groupSeparator
           type: TextInput
-          defaultValue: ","
           layout:
             _global: settings_input_layout
           properties:
@@ -128,7 +160,6 @@ blocks:
               icon_description: Icon to suffix statistic.
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:

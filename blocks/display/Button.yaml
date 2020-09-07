@@ -3,6 +3,51 @@ type: PageSiderMenu
 public: true
 properties:
   title: Button
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: block
+            v: false
+          - k: danger
+            v: false
+          - k: disabled
+            v: false
+          - k: ghost
+            v: false
+          - k: hideActionLoading
+            v: false
+          - k: hideTitle
+            v: false
+          - k: shape
+            v: square
+          - k: size
+            v: default
+          - k: type
+            v: primary
+          - k: title
+            v: block_id
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -18,7 +63,6 @@ blocks:
       properties_form:
         - id: block.properties.block
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -31,7 +75,6 @@ blocks:
                   extra: Fit the button's span to its parent container span.
         - id: block.properties.danger
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -44,7 +87,6 @@ blocks:
                   extra: Set button style to danger.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -57,7 +99,6 @@ blocks:
                   extra: Disable the button if true.
         - id: block.properties.ghost
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -70,7 +111,6 @@ blocks:
                   extra: Make the button's background transparent when true.
         - id: block.properties.hideActionLoading
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -83,7 +123,6 @@ blocks:
                   extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: Switch
-          defaultValue: false
           layout:
             _global: settings_input_layout
           properties:
@@ -114,7 +153,6 @@ blocks:
               icon_description: Icon to be used in button.
         - id: block.properties.shape
           type: ButtonSelector
-          defaultValue: square
           layout:
             _global: settings_input_layout
           properties:
@@ -131,7 +169,6 @@ blocks:
               - square
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
           layout:
             _global: settings_input_layout
           properties:
@@ -148,7 +185,6 @@ blocks:
               - large
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
           layout:
             _global: settings_input_layout
           properties:
@@ -161,7 +197,6 @@ blocks:
                   extra: Title text on the button.
         - id: block.properties.type
           type: ButtonSelector
-          defaultValue: primary
           layout:
             _global: settings_input_layout
           properties:
