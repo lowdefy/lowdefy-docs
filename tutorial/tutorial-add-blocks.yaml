@@ -28,6 +28,20 @@ areas:
           next_page_title: Interactive pages
           next_page_id: tutorial-actions-operators
           content:
+            - id: video
+              type: Html
+              properties:
+                html: |
+                  <iframe
+                    id="ytplayer-yaml-video"
+                    type="text/html"
+                    width="800"
+                    height="470"
+                    src="https://www.youtube.com//embed/Ya9TZnHegfA?origin=https://docs.lowdefy.com"
+                    allowfullscreen="true"
+
+                    frameborder="0">
+                  </iframe>
             - id: md1
               type: Markdown
               style:
