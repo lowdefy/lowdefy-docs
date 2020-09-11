@@ -10,28 +10,34 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
-      - id: title
-        type: Title
-        properties:
-          content: Logout
-      - id: markdown
-        type: Markdown
-        style:
-          '.markdown-body':
-            fontSize: 14px
-        properties:
-          content: |
-            The `Logout` action logs a user out of their currently signed in profile. Users will bee redirected to be logged out, and redirected to the page they came from. If this page it is not a public page they will be redirected
-            to the login page. Since users are redirected away from the app to log out, you shouldn't define actions after the `Logout` action.
+      - id: max_width
+        type: Box
+        layout:
+          size: 800
+          shrink: 1
+        blocks:
+          - id: title
+            type: Title
+            properties:
+              content: Logout
+          - id: markdown
+            type: Markdown
+            style:
+              '.markdown-body':
+                fontSize: 14px
+            properties:
+              content: |
+                The `Logout` action logs a user out of their currently signed in profile. Users will bee redirected to be logged out, and redirected to the page they came from. If this page it is not a public page they will be redirected
+                to the login page. Since users are redirected away from the app to log out, you shouldn't define actions after the `Logout` action.
 
-            ### Examples
+                ### Examples
 
-            Log a user out:
-            ```
-            - id: logout
-              type: Logout
-            ```
+                Log a user out:
+                ```
+                - id: logout
+                  type: Logout
+                ```
