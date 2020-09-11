@@ -447,6 +447,8 @@ menus:
           - id: NotificationAction
             type: MenuLink
             pageId: NotificationAction # Clash with Notification block
+            properties:
+              title: Notification
           - id: Reset
             type: MenuLink
             pageId: Reset
@@ -536,7 +538,7 @@ pages:
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
   - _ref: tutorial/tutorial-inspector.yaml
-  
+
   # - _ref: start/quick-start.yaml
   # - _ref: start/alpha-starter.yaml
   # - _ref: start/how-it-works.yaml
