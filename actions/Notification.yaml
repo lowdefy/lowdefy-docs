@@ -14,16 +14,16 @@ areas:
   content:
     justify: center
     blocks:
-      - id: title
-        type: Title
-        properties:
-          content: Notification
       - id: max_width
         type: Box
         layout:
           size: 800
           shrink: 1
         blocks:
+          - id: title
+            type: Title
+            properties:
+              content: Notification
           - id: markdown
             type: Markdown
             style:

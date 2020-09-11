@@ -13,13 +13,13 @@ properties:
 areas:
   content:
     justify: center
-    gutter: 16
     blocks:
       - id: max_width
         type: Box
         layout:
           size: 800
           shrink: 1
+          contentGutter: 16
         blocks:
           - id: title
             type: Title

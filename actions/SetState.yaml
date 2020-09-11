@@ -31,7 +31,7 @@ areas:
                 fontSize: 14px
             properties:
               content: |
-                `SetState` sets values in state. It takes an object as parameters, and sets each of those values to the `state` object.
+                The `SetState` action sets values in state. It takes an object as parameters, and sets each of those values to the `state` object.
                 This is useful if you want to initialize state, set a flag after an action has executed (eg. to disable a button), or to set the result
                 of a mutation to state.
 

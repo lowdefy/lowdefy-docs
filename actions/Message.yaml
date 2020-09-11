@@ -63,13 +63,13 @@ areas:
                     duration: 10
                 ```
 
-            Display an error message that never disappears:
+                Display an error message that never disappears:
 
-            ```
-            - id: error_message
-              type: Message
-              params:
-                content: Something bad happened
-                status: error
-                duration: 0
-            ```
+                ```
+                - id: error_message
+                  type: Message
+                  params:
+                    content: Something bad happened
+                    status: error
+                    duration: 0
+                ```
