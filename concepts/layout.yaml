@@ -10,7 +10,7 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
@@ -169,7 +169,7 @@ areas:
               fontSize: 14px
           properties:
             content: |
-              To place blocks both in the `blocks` array, as well as the under `areas.content.blocks` array is an anti-pattern, and in this case the blocks under `blocks` will overwrite those under `areas.content.blocks`.
+              Placing blocks both in the `blocks` array, as well as under the `areas.content.blocks` array is an anti-pattern, and in this case the blocks under `blocks` will overwrite those under `areas.content.blocks`.
 
               ###### Anti-pattern: Blocks in the `blocks` and `areas.content.blocks`:
               ```yaml
@@ -221,7 +221,7 @@ areas:
               fontSize: 14px
           properties:
             content: |
-              # Grid layouts
+              # Span
 
               Each content area has 24 columns. Blocks have a `span` property, which determines how may columns the block occupies. Blocks are laid out horizontally, until the sum of the spans would be more than 24, then the block is placed in the next row.
 
@@ -308,6 +308,18 @@ areas:
                     html: |
                       <div style="background: #bae7ff; font-size: 16px; font-weight: 500;">Block 5</div>
 
+        - id: markdown_flex_layout
+          type: Markdown
+          style:
+            marginTop: 16px
+            '.markdown-body':
+              fontSize: 14px
+          properties:
+            content: |
+              # Flex
+
+              Blocks can also be laid out using [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) properties. These properties are `grow` (`flex-grow`), `shrink` (`flex-shrink`), `size` (`flex-basis`) and `flex` (`flex`). If any of these properties are set, the default span of 24 or any span set in the configuration is not used. If one of `grow`, `shrink`, or `size` are set, the other properties take their default values. The `flex` property overwrites the `grow`, `shrink`, and `size` properties.
+
         - id: markdown_block_properties
           type: Markdown
           style:
@@ -321,13 +333,15 @@ areas:
               Properties can be set on each block to control how it is placed. These properties are defined in the `layout` object. The properties that can be defined are:
 
               - `align`: _Enum_ - Align block vertically in the area. Options are `top`, `middle`, and `bottom`. Default `top.`
-              - `order`: _Number_ - Change the order blocks are rendered in. By default blocks are rendered in the order they appear in the blocks array. 
+              - `flex`: _String_ - Set the [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) CSS property. This overwrites the `grow`, `shrink`, and `size` properties.
+              - `grow`: _Number_ - Set the [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) CSS property. Default 0.
+              - `order`: _Number_ - Change the order blocks are rendered in. By default blocks are rendered in the order they appear in the blocks array.
               - `offset`: _Number_ - Number of grid cells to shift the block to the right.
               - `pull`: _Number_ - Shift the block this number of cells to the left. This will make it overlap above with previous blocks.
-              - `push`: _Number_ - Shift the block this number of cells to the right. This will make it overlap under with the following blocks. 
+              - `push`: _Number_ - Shift the block this number of cells to the right. This will make it overlap under with the following blocks.
+              - `shrink`: _Number_ - Set the [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) CSS property. Default 1.
+              - `size`: _String_ | _Number_ - Set the [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) CSS property. Default `auto`.
               - `span`: _Number_ - Number of grid cells the block should occupy.
-
-              Blocks also have `flex`, `grow`, `shrink`, and `size` layout properties. These will be discussed in the flex layout section below.
 
               ###### Align example:
               ```
@@ -551,7 +565,7 @@ areas:
                 - id: ex_pull_b1
                   type: Html
                   style:
-                    textAlign: center      
+                    textAlign: center
                   layout:
                     span: 12
                   properties:
@@ -609,7 +623,7 @@ areas:
                 - id: ex_push_b1
                   type: Html
                   style:
-                    textAlign: center    
+                    textAlign: center
                   layout:
                     push: 3
                     span: 12
@@ -619,8 +633,8 @@ areas:
                 - id: ex_push_b2
                   type: Html
                   style:
-                    textAlign: center               
-                    opacity: 0.5 
+                    textAlign: center
+                    opacity: 0.5
                   layout:
                     span: 12
                   properties:
@@ -641,11 +655,11 @@ areas:
 
               The properties that can be set are:
                 - `align`: _Enum_ - Align blocks vertically in the area. Options are `top`, `middle`, and `bottom`. Default `top.`
-                - `direction`: _Enum_ - Set CSS flex-direction for the area. Options are `row`, `row-reverse`, `column`, and and `column-reverse`. Default `row`.
+                - `direction`: _Enum_ - Set the [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) CSS property for the area. Options are `row`, `row-reverse`, `column`, and and `column-reverse`. Default `row`.
                 - `gutter`: _Number_ | _Array_  - Create gutter between blocks placed in the area.
                 - `justify`: _Enum_ - Justify blocks horizontally inside the area. Options are `start`, `end`, `center`, `space-around`, and `space-between`. Default `start`.
-                - `overflow`: _Enum_ - Set CSS overflow for the area. Options are `visible`, `hidden`, `scroll`, and `space-between`. Default `visible`.
-                - `wrap`: _Enum_ - Set CSS flex-wrap for the area. Options are `wrap`, `nowrap`, and `wrap-reverse`. Default `wrap`.
+                - `overflow`: _Enum_ - Set the [`overflow`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) CSS property for the area. Options are `visible`, `hidden`, `scroll`, and `space-between`. Default `visible`.
+                - `wrap`: _Enum_ - Set the [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) CSS property for the area. Options are `wrap`, `nowrap`, and `wrap-reverse`. Default `wrap`.
 
               ###### Align examples:
               ```yaml
@@ -696,7 +710,7 @@ areas:
           blocks:
             - id: ex_area_align_area1_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 1 - `align: top`"
             - id: ex_area_align_area1
               type: Box
@@ -756,7 +770,7 @@ areas:
                           <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 4</div>
             - id: ex_area_align_area3_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 3 - `align: bottom`"
             - id: ex_area_align_area3
               type: Box
@@ -853,7 +867,7 @@ areas:
           blocks:
             - id: ex_area_direction_area1_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 1 - `direction: row`"
             - id: ex_area_direction_area1
               type: Box
@@ -913,7 +927,7 @@ areas:
                           <div style="background: #40a9ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 4</div>
             - id: ex_area_direction_area3_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 3 - `direction: column`"
             - id: ex_area_direction_area3
               type: Box
@@ -943,7 +957,7 @@ areas:
                           <div style="background: #40a9ff; font-size: 16px; font-weight: 500;">Block 6</div>
             - id: ex_area_direction_area4_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 4  - `direction: column-reverse`"
             - id: ex_area_direction_area4
               type: Box
@@ -1071,7 +1085,7 @@ areas:
           blocks:
             - id: ex_area_justify_area1_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 1 - `justify: start`"
             - id: ex_area_justify_area1
               type: Box
@@ -1110,7 +1124,7 @@ areas:
                           <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 3</div>
             - id: ex_area_justify_area2_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 2 - `justify: end`"
             - id: ex_area_justify_area2
               type: Box
@@ -1149,7 +1163,7 @@ areas:
                           <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 6</div>
             - id: ex_area_justify_area3_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 3 - `justify: center`"
             - id: ex_area_justify_area3
               type: Box
@@ -1188,7 +1202,7 @@ areas:
                           <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 9</div>
             - id: ex_area_justify_area4_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 4 - `justify: space-around`"
             - id: ex_area_justify_area4
               type: Box
@@ -1227,7 +1241,7 @@ areas:
                           <div style="background: #69c0ff; font-size: 16px; font-weight: 500; padding-left: 8px; padding-right: 8px">Block 12</div>
             - id: ex_area_justify_area5_title
               type: Markdown
-              properties: 
+              properties:
                 content: "##### Area 5 - `justify: space-between`"
             - id: ex_area_justify_area5
               type: Box
