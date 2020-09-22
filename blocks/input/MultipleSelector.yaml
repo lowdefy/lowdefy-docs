@@ -87,7 +87,7 @@ blocks:
               - Primitive
           then:
             _get:
-              key: "0"
+              key: '0'
               from:
                 _mql_aggregate:
                   pipeline:
@@ -171,7 +171,7 @@ blocks:
           type: ControlledList
           required: true
           properties:
-            title: "options:"
+            title: 'options:'
             size: small
           blocks:
             - id: block.properties.options.$.primitive
