@@ -136,6 +136,19 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
+        - id: block.properties.backgroundColor
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: backgroundColor
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Menu background color.
         - id: block.properties.color
           type: ColorSelector
           layout:
