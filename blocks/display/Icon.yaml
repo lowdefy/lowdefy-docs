@@ -100,6 +100,18 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Number of degrees to rotate the icon.
+        - id: block.properties.size
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: size
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the icon.
         - id: block.properties.spin
           type: Switch
           layout:
