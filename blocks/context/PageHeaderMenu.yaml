@@ -241,19 +241,6 @@ blocks:
                   _ref: blocks/style.yaml
               properties:
                 blocks:
-                  - id: block.properties.color
-                    type: ColorSelector
-                    layout:
-                      _global: settings_input_layout
-                    properties:
-                      title: color
-                      circleSize: 16
-                      circleSpacing: 6
-                      label:
-                        _ref:
-                          path: blocks/label_extra.yaml
-                          vars:
-                            extra: Page color.
                   - id: block.properties.logoSrc
                     type: TextInput
                     layout:
@@ -278,7 +265,19 @@ blocks:
                           path: blocks/label_extra.yaml
                           vars:
                             extra: Header logo alternative text
-
+                  - id: block.properties.header.color
+                    type: ColorSelector
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: header.color
+                      circleSize: 16
+                      circleSpacing: 6
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Page header color.
                   - id: block.properties.header.theme
                     type: ButtonSelector
                     layout:
@@ -333,6 +332,19 @@ blocks:
                           type: Link
                           params:
                             pageId: Breadcrumb
+                  - id: block.properties.menu.color
+                    type: ColorSelector
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: menu.color
+                      circleSize: 16
+                      circleSpacing: 6
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Page menu color.
                   - id: block.properties.menu.links
                     type: MultipleSelector
                     # defaultValue:
