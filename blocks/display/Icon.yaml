@@ -119,8 +119,8 @@ blocks:
             _global: settings_input_layout
           properties:
             title: color
-            size: small
-            type: twitter
+            circleSize: 16
+            circleSpacing: 6
             label:
               _ref:
                 path: blocks/label_extra.yaml

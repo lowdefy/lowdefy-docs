@@ -5,7 +5,7 @@ properties:
   title: RatingSlider
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -27,7 +27,7 @@ actions:
           - k: max
             v: 10
           - k: notApplicableLabel
-            v: "N/A"
+            v: 'N/A'
           - k: showDots
             v: true
           - k: showMarks
@@ -92,7 +92,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -104,10 +104,23 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Rating slider color.
         - id: block.properties.disabled
           type: Switch
           layout:
@@ -116,7 +129,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -128,7 +141,7 @@ blocks:
             title: disableIcons
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Hides minimum and maximum icons.
@@ -140,7 +153,7 @@ blocks:
             title: disableNotApplicable
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Hides not applicable checkbox.
@@ -154,7 +167,7 @@ blocks:
             path: blocks/icon_template.yaml
             vars:
               icon_id: block.properties.maxIcon
-              icon_field_name: maxIcon 
+              icon_field_name: maxIcon
               icon_description: Icon to the right of the minimum side of the slider.
 
         - id: block.properties.min
@@ -165,7 +178,7 @@ blocks:
             title: min
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The minimum value of the slider.
@@ -177,7 +190,7 @@ blocks:
             title: max
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The maximum value of the slider.
@@ -189,7 +202,7 @@ blocks:
             title: notApplicableLabel
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Label shown at the null value of the slider.
@@ -201,7 +214,7 @@ blocks:
             title: showDots
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shows dots at values between step values when true.
@@ -213,7 +226,7 @@ blocks:
             title: showMarks
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shows values at specified min, max and step values.
@@ -226,7 +239,7 @@ blocks:
             size: small
             precision: 1
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The size of the step between values, has to be values greater than 0.
@@ -238,7 +251,7 @@ blocks:
             title: tooltipVisible
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: When tooltip should be visible.

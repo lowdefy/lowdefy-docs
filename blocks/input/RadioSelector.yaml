@@ -5,7 +5,7 @@ properties:
   title: RadioSelector
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -71,7 +71,7 @@ blocks:
               - Primitive
           then:
             _get:
-              key: "0"
+              key: '0'
               from:
                 _mql_aggregate:
                   pipeline:
@@ -90,10 +90,23 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Selected radio color.
         - id: block.properties.disabled
           type: Switch
           layout:
@@ -102,7 +115,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -150,7 +163,7 @@ blocks:
                 title: label
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Label shown to user.
@@ -166,7 +179,7 @@ blocks:
                 title: value
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Value selected.
@@ -182,7 +195,7 @@ blocks:
                 title: disabled
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Disable the option if true.
