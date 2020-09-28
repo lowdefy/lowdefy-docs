@@ -1,4 +1,4 @@
-id: Checkbox
+id: CheckboxSelector
 type: PageSiderMenu
 public: true
 actions:
@@ -48,20 +48,20 @@ actions:
                 - _state: init_properties
 
 properties:
-  title: Checkbox
+  title: CheckboxSelector
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Checkbox
+      block_name: CheckboxSelector
       value_type: Any
       description_content: |
-        The `Checkbox` block allows a user to select multiple values from a set of options.
+        The `CheckboxSelector` block allows a user to select multiple values from a set of options.
 
         The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans, ), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
 
         > Other selector blocks are `ButtonSelector`, `MultipleSelector`, `RadioSelector` and `Selector`.
-      block_type: Checkbox
+      block_type: CheckboxSelector
       label: true
       category: input
       properties_transform:
@@ -213,7 +213,7 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: Checkbox
+              type: CheckboxSelector
               layout:
                 span: 12
               properties:
@@ -230,7 +230,7 @@ blocks:
                 content: |
                   ```yaml
                   id: example_1
-                  type: Checkbox
+                  type: CheckboxSelector
                   properties:
                     title: Primitive options
                     options:
@@ -242,7 +242,7 @@ blocks:
           type: Card
           blocks:
             - id: example_2
-              type: Checkbox
+              type: CheckboxSelector
               layout:
                 span: 12
               defaultValue:
@@ -266,7 +266,7 @@ blocks:
                 content: |
                   ```yaml
                   id: example_2
-                  type: Checkbox
+                  type: CheckboxSelector
                   defaultValue:
                     - C
                   properties:
@@ -285,7 +285,7 @@ blocks:
           type: Card
           blocks:
             - id: example_3
-              type: Checkbox
+              type: CheckboxSelector
               layout:
                 span: 12
               properties:
@@ -310,7 +310,7 @@ blocks:
                 content: |
                   ```yaml
                   id: example_3
-                  type: Checkbox
+                  type: CheckboxSelector
                   properties:
                     title: Disable options
                     label:
