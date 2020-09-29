@@ -27,7 +27,7 @@ actions:
           - k: cancelText
             v: Cancel
           - k: width
-            v: "520px"
+            v: '520px'
           - k: zIndex
             v: 1000
         init_properties:
@@ -97,7 +97,7 @@ blocks:
               - id: block_name
                 type: ConfirmModal
                 layout:
-                  _parse: 
+                  _parse:
                     _state: flex_style_input
                 visible:
                   _state: block.visible
@@ -126,7 +126,7 @@ blocks:
                   title: Block Setup
               - id: setup_card
                 type: Card
-                properties: 
+                properties:
                   size: small
                 blocks:
                   - id: setup_markdown
@@ -149,7 +149,7 @@ blocks:
                                       type: ConfirmModal
                                       layout:
                                         _state: block.layout
-                                      default_layout:  
+                                      default_layout:
                                         _state: default_layout
                                       style:
                                         _parse:
@@ -158,7 +158,7 @@ blocks:
                                         _state: block.visible
                                       properties:
                                         _state: block.properties
-                                      default_properties:  
+                                      default_properties:
                                         _state: default_properties
                                       areas:
                                         content:
@@ -224,12 +224,12 @@ blocks:
                               title: title
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: The modal dialog's title.
                           - id: block.properties.status
-                            type: Selector
+                            type: ButtonSelector
                             layout:
                               _global: settings_input_layout
                             properties:
@@ -242,7 +242,7 @@ blocks:
                                 - warning
                                 - confirm
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: The confirm modal status type.
@@ -254,7 +254,7 @@ blocks:
                               title: centered
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Center the modal vertically.
@@ -267,7 +267,7 @@ blocks:
                               title: content
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Modal content. Overwrites the area content if defined.
@@ -285,7 +285,7 @@ blocks:
                               title: mask
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Whether show mask or not.
@@ -297,7 +297,7 @@ blocks:
                               title: maskClosable
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
@@ -309,7 +309,7 @@ blocks:
                               title: okText
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Text of the Ok button.
@@ -321,7 +321,7 @@ blocks:
                               title: cancelText
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Text of the Cancel button.
@@ -333,7 +333,7 @@ blocks:
                               title: width
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Width of the modal dialog.
@@ -345,7 +345,7 @@ blocks:
                               title: zIndex
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: The z-index of the modal. Useful when displaying two modals simultaneously.
@@ -415,15 +415,15 @@ blocks:
           - id: ex_1_info
             type: Title
             properties:
-              content: 
+              content:
                 _state: position
               level: 3
           - id: ex_1_modal_button
             type: Button
             properties:
-              title: 
-                _if: 
-                  test: 
+              title:
+                _if:
+                  test:
                     _state: flag
                   then: Demote
                   else: Promote
@@ -440,43 +440,42 @@ blocks:
             properties:
               okText: Yes
               cancelText: No
-              title: 
-                _if: 
-                  test: 
+              title:
+                _if:
+                  test:
                     _state: flag
                   then: Demote
                   else: Promote
             actions:
-              onOk: 
+              onOk:
                 - id: set_position
                   type: SetState
                   params:
                     position:
-                      _if: 
-                        test: 
+                      _if:
+                        test:
                           _state: flag
                         then: Dwight Schrute - Assistant to the Regional Manager! 🙇‍♂️
                         else: Dwight Schrute - Assistant Regional Manager! 🧐
-                    flag: 
+                    flag:
                       _not:
                         _state: flag
             blocks:
               - id: ex_1_markdown
                 type: Markdown
                 properties:
-                  content: 
-                    _nunjucks: 
+                  content:
+                    _nunjucks:
                       template: |
                         Should Dwight Schrute be {{ position }}?
                       on:
                         position:
-                          _if: 
-                            test: 
+                          _if:
+                            test:
                               _state: flag
                             then: Assistant to the Regional Manager
                             else: Assistant Regional Manager
 
-                    
       - id: ex_1_code_grid
         type: Box
         layout:

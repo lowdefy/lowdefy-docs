@@ -67,10 +67,23 @@ blocks:
             title: code
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply code style.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title color.
         - id: block.properties.content
           type: TextInput
           layout:
@@ -79,7 +92,7 @@ blocks:
             title: content
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title text content.
@@ -91,7 +104,7 @@ blocks:
             title: copyable
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Provide copy text button.
@@ -103,7 +116,7 @@ blocks:
             title: delete
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply deleted (strikethrough) style.
@@ -115,7 +128,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply disabled style.
@@ -127,7 +140,7 @@ blocks:
             title: ellipsis
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Display ellipsis when text overflows.
@@ -139,7 +152,7 @@ blocks:
             title: level
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set title type. Matches with h1, h2, h3 and h4.
@@ -156,7 +169,7 @@ blocks:
             title: mark
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply marked (highlighted) style.
@@ -169,7 +182,7 @@ blocks:
             title: type
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Additional types. Don't specify for default.
@@ -185,11 +198,10 @@ blocks:
             title: underline
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply underline style.
 
       available_actions_description: |
         ###### No available actions.
-

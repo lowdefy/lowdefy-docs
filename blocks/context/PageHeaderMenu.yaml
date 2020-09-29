@@ -17,28 +17,28 @@ actions:
           - k: logoAlt
             v: Lowdefy
           - k: header
-            v: 
+            v:
               theme: dark
           - k: userAvatar
-            v: 
+            v:
               disabled: false
               avatar:
                 shape: circle
         init_properties:
           - k: breadcrumb
-            v: 
+            v:
               list: ['Page 1', 'Page 2']
           - k: menu
-            v: 
+            v:
               links:
                 - id: Introduction
                   pageId: introduction
-                  properties: 
+                  properties:
                     title: Introduction
                     icon: RocketOutlined
                 - id: alert
                   pageId: Alert
-                  properties: 
+                  properties:
                     title: Alert
                     icon: ExclamationCircleOutlined
     - id: set_init
@@ -114,7 +114,7 @@ blocks:
                           padding: 20
                         properties:
                           html: |
-                            content 
+                            content
                   header:
                     gutter: 0
                     style:
@@ -145,7 +145,7 @@ blocks:
                           padding: 20
                         properties:
                           html: |
-                            footer  
+                            footer
       - id: setup_grid
         type: Box
         layout:
@@ -157,7 +157,7 @@ blocks:
               title: Block Setup
           - id: setup_card
             type: Card
-            properties: 
+            properties:
               size: small
             blocks:
               - id: setup_markdown
@@ -180,7 +180,7 @@ blocks:
                                   type: PageHeaderMenu
                                   layout:
                                     _state: block.layout
-                                  default_layout:  
+                                  default_layout:
                                     _state: default_layout
                                   style:
                                     _parse:
@@ -189,7 +189,7 @@ blocks:
                                     _state: block.visible
                                   properties:
                                     _state: block.properties
-                                  default_properties:  
+                                  default_properties:
                                     _state: default_properties
                                   areas:
                                     header:
@@ -248,9 +248,11 @@ blocks:
                     properties:
                       title: logoSrc
                       size: small
-                      label: 
-                        span: 8
-                        extra: Header logo source url
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Header logo source url
                   - id: block.properties.logoAlt
                     type: TextInput
                     layout:
@@ -258,9 +260,24 @@ blocks:
                     properties:
                       title: logoAlt
                       size: small
-                      label: 
-                        span: 8
-                        extra: Header logo alternative text
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Header logo alternative text
+                  - id: block.properties.header.color
+                    type: ColorSelector
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: header.color
+                      circleSize: 16
+                      circleSpacing: 6
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Page header color.
                   - id: block.properties.header.theme
                     type: ButtonSelector
                     layout:
@@ -268,9 +285,11 @@ blocks:
                     properties:
                       title: header.theme
                       size: small
-                      label: 
-                        span: 8
-                        extra: Color theme of the Header
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Color theme of the Header
                       options:
                         - light
                         - dark
@@ -280,7 +299,7 @@ blocks:
                   #     title: See all fields for properties.header
                   #     icon: LinkOutlined
                   #   actions:
-                  #     onClick: 
+                  #     onClick:
                   #       - id: link_header
                   #         type: Link
                   #         params:
@@ -298,8 +317,10 @@ blocks:
                         - Page 3
                         - Page 4
                       label:
-                        span: 8
-                        extra: Breadcrumb links
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Breadcrumb links
                   - id: block.properties.breadcrumb.link
                     type: Anchor
                     properties:
@@ -311,17 +332,30 @@ blocks:
                           type: Link
                           params:
                             pageId: Breadcrumb
+                  - id: block.properties.menu.color
+                    type: ColorSelector
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: menu.color
+                      circleSize: 16
+                      circleSpacing: 6
+                      label:
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Page menu color.
                   - id: block.properties.menu.links
                     type: MultipleSelector
                     # defaultValue:
                     #   - id: Introduction
                     #     pageId: introduction
-                    #     properties: 
+                    #     properties:
                     #       title: Introduction
                     #       icon: RocketOutlined
                     #   - id: alert
                     #     pageId: Alert
-                    #     properties: 
+                    #     properties:
                     #       title: Alert
                     #       icon: ExclamationCircleOutlined
                     layout:
@@ -331,35 +365,38 @@ blocks:
                       size: small
                       options:
                         - label: Introduction
-                          value: 
+                          value:
                             id: Introduction
                             pageId: introduction
-                            properties: 
+                            properties:
                               title: Introduction
                               icon: RocketOutlined
                         - label: Box
-                          value: 
+                          value:
                             id: box
                             pageId: Box
-                            properties: 
+                            properties:
                               title: Box
                               icon: GatewayOutlined
                         - label: Date
-                          value: 
+                          value:
                             id: date
                             pageId: DateSelector
-                            properties: 
+                            properties:
                               title: Date
                               icon: CalendarOutlined
                         - label: Alert
-                          value: 
+                          value:
                             id: alert
                             pageId: Alert
-                            properties: 
+                            properties:
                               title: Alert
                               icon: ExclamationCircleOutlined
                       label:
-                        extra: Menu links
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Menu links
                   - id: block.properties.menu.link
                     type: Anchor
                     properties:
@@ -379,8 +416,10 @@ blocks:
                       title: userAvatar.disabled
                       size: small
                       label:
-                        span: 8
-                        extra: Do not render UserAvatar
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Do not render UserAvatar
                   - id: block.properties.userAvatar.avatar.shape
                     type: ButtonSelector
                     layout:
@@ -389,8 +428,10 @@ blocks:
                       title: userAvatar.avatar.shape
                       size: small
                       label:
-                        span: 8
-                        extra: Shape of the avatar.
+                        _ref:
+                          path: blocks/label_extra.yaml
+                          vars:
+                            extra: Shape of the avatar.
                       options:
                         - circle
                         - square

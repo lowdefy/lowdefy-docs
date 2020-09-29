@@ -1,9 +1,9 @@
-id: Checkbox
+id: CheckboxSelector
 type: PageSiderMenu
 public: true
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -48,20 +48,20 @@ actions:
                 - _state: init_properties
 
 properties:
-  title: Checkbox
+  title: CheckboxSelector
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Checkbox
+      block_name: CheckboxSelector
       value_type: Any
       description_content: |
-        The `Checkbox` block allows a user to select multiple values from a set of options.
+        The `CheckboxSelector` block allows a user to select multiple values from a set of options.
 
         The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans, ), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
 
         > Other selector blocks are `ButtonSelector`, `MultipleSelector`, `RadioSelector` and `Selector`.
-      block_type: Checkbox
+      block_type: CheckboxSelector
       label: true
       category: input
       properties_transform:
@@ -72,7 +72,7 @@ blocks:
               - Primitive
           then:
             _get:
-              key: "0"
+              key: '0'
               from:
                 _mql_aggregate:
                   pipeline:
@@ -91,10 +91,23 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Selected checkbox color.
         - id: block.properties.disabled
           type: Switch
           layout:
@@ -103,7 +116,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -153,7 +166,7 @@ blocks:
                 title: label
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Label shown to user.
@@ -169,7 +182,7 @@ blocks:
                 title: value
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Value selected.
@@ -185,7 +198,7 @@ blocks:
                 title: disabled
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Disable the option if true.
@@ -200,7 +213,7 @@ blocks:
           type: Card
           blocks:
             - id: example_1
-              type: Checkbox
+              type: CheckboxSelector
               layout:
                 span: 12
               properties:
@@ -217,7 +230,7 @@ blocks:
                 content: |
                   ```yaml
                   id: example_1
-                  type: Checkbox
+                  type: CheckboxSelector
                   properties:
                     title: Primitive options
                     options:
@@ -229,7 +242,7 @@ blocks:
           type: Card
           blocks:
             - id: example_2
-              type: Checkbox
+              type: CheckboxSelector
               layout:
                 span: 12
               defaultValue:
@@ -253,7 +266,7 @@ blocks:
                 content: |
                   ```yaml
                   id: example_2
-                  type: Checkbox
+                  type: CheckboxSelector
                   defaultValue:
                     - C
                   properties:
@@ -272,7 +285,7 @@ blocks:
           type: Card
           blocks:
             - id: example_3
-              type: Checkbox
+              type: CheckboxSelector
               layout:
                 span: 12
               properties:
@@ -297,7 +310,7 @@ blocks:
                 content: |
                   ```yaml
                   id: example_3
-                  type: Checkbox
+                  type: CheckboxSelector
                   properties:
                     title: Disable options
                     label:

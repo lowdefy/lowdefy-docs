@@ -54,7 +54,7 @@ blocks:
     vars:
       block_name: Progress
       description_content: |
-        Display the current progress as a percentage of completion. 
+        Display the current progress as a percentage of completion.
       block_type: Progress
       label: false
       category: display
@@ -68,12 +68,12 @@ blocks:
           properties:
             title: type
             size: small
-            options: 
+            options:
               - line
               - circle
               - dashboard
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set type of progress display.
@@ -85,7 +85,7 @@ blocks:
             title: showInfo
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Whether to display the progress value and the status icon.
@@ -97,7 +97,7 @@ blocks:
             title: percent
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the completion percentage.
@@ -108,13 +108,13 @@ blocks:
           properties:
             title: status
             size: small
-            options: 
+            options:
               - success
               - exception
               - normal
               - active
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the status of the Progress.
@@ -125,23 +125,24 @@ blocks:
           properties:
             title: strokeLinecap
             size: small
-            options: 
+            options:
               - round
               - square
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the style of the progress linecap.
         - id: block.properties.strokeColor
-          type: TextInput
+          type: ColorSelector
           layout:
             _global: settings_input_layout
           properties:
             title: strokeColor
-            size: small
+            circleSize: 16
+            circleSpacing: 6
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Color of progress bar.
@@ -153,19 +154,20 @@ blocks:
             title: successPercent
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Segmented success percent.
         - id: block.properties.trailColor
-          type: TextInput
+          type: ColorSelector
           layout:
             _global: settings_input_layout
           properties:
             title: trailColor
-            size: small
+            circleSize: 16
+            circleSpacing: 6
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Color of unfilled part.
@@ -177,7 +179,7 @@ blocks:
             title: strokeWidth
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the width of the progress bar.
@@ -189,7 +191,7 @@ blocks:
             title: width
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the canvas width of the circular progress.
@@ -201,7 +203,7 @@ blocks:
             title: gapDegree
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The gap degree of half circle.
@@ -212,13 +214,13 @@ blocks:
           properties:
             title: gapPosition
             size: small
-            options: 
+            options:
               - top
               - bottom
               - left
               - right
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The gap position.

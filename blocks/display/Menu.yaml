@@ -24,7 +24,7 @@ actions:
             v: []
         init_properties:
           - k: links
-            v: 
+            v:
               - id: page_1
                 type: MenuLink
                 pageId: page_1
@@ -36,7 +36,6 @@ actions:
                 pageId: page_2
                 properties:
                   title: Page 2
-                  icon: FileOutlined
               - id: page_3
                 type: MenuGroup
                 properties:
@@ -79,7 +78,7 @@ actions:
                 - _state: init_properties
 # actions:
 #   onInit:
-#     - id: initialize_state 
+#     - id: initialize_state
 #       type: SetState
 #       params:
 #         block:
@@ -137,6 +136,32 @@ blocks:
       properties_transform:
         _state: block.properties
       properties_form:
+        - id: block.properties.backgroundColor
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: backgroundColor
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Menu background color.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Menu primary color.
         - id: block.properties.mode
           type: ButtonSelector
           layout:
@@ -145,7 +170,7 @@ blocks:
             title: mode
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Type of menu to render.
@@ -161,7 +186,7 @@ blocks:
             title: selectable
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allows selecting menu items.
@@ -173,7 +198,7 @@ blocks:
             title: selectedKeys
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Array with the keys of currently selected menu items.
@@ -193,7 +218,7 @@ blocks:
             title: subMenuCloseDelay
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Delay time to hide submenu when mouse leaves (in seconds).
@@ -205,7 +230,7 @@ blocks:
             title: subMenuOpenDelay
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Delay time to show submenu when mouse enters (in seconds).
@@ -217,7 +242,7 @@ blocks:
             title: theme
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Color theme of menu.
@@ -239,7 +264,7 @@ blocks:
                 title: id
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Menu item id.
@@ -252,7 +277,7 @@ blocks:
                 title: type
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Menu item type.
@@ -271,7 +296,7 @@ blocks:
                 title: pageId
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Page to link to.
@@ -287,8 +312,9 @@ blocks:
                     _global: settings_input_layout
                   properties:
                     title: title
+                    size: small
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Menu item title.
@@ -299,8 +325,9 @@ blocks:
                     _global: settings_input_layout
                   properties:
                     title: collapsed
+                    size: small
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Collapse the menu item.
@@ -311,27 +338,25 @@ blocks:
                     _global: settings_input_layout
                   properties:
                     title: danger
+                    size: small
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Apply danger style to menu item.
                 - id: block.properties.links.$.properties.icon
                   type: Selector
-                  visible:
-                    _eq:
-                      - _state: block.properties.links.$.type
-                      - MenuGroup
                   layout:
                     _global: settings_input_layout
                   properties:
                     showSearch: true
                     allowClear: true
                     title: icon
+                    size: small
                     options:
                       _global: all_icons
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Menu item icon.
@@ -343,6 +368,7 @@ blocks:
                   - MenuGroup
               properties:
                 title: 'links:'
+                size: small
               blocks:
                 - id: block.properties.links.$.links.$.id
                   type: TextInput
@@ -353,7 +379,7 @@ blocks:
                     title: id
                     size: small
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Sub-menu item id.
@@ -366,7 +392,7 @@ blocks:
                     title: type
                     size: small
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Menu item type.
@@ -380,7 +406,7 @@ blocks:
                     title: pageId
                     size: small
                     label:
-                      _ref: 
+                      _ref:
                         path: blocks/label_extra.yaml
                         vars:
                           extra: Page to link to.
@@ -396,8 +422,9 @@ blocks:
                         _global: settings_input_layout
                       properties:
                         title: title
+                        size: small
                         label:
-                          _ref: 
+                          _ref:
                             path: blocks/label_extra.yaml
                             vars:
                               extra: Menu item title.
@@ -408,12 +435,12 @@ blocks:
                         _global: settings_input_layout
                       properties:
                         title: danger
+                        size: small
                         label:
-                          _ref: 
+                          _ref:
                             path: blocks/label_extra.yaml
                             vars:
                               extra: Apply danger style to menu item.
 
       available_actions_description: |
         ###### No available actions.
-

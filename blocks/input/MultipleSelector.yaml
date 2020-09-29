@@ -5,7 +5,7 @@ properties:
   title: Multiple Selector
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -75,7 +75,7 @@ blocks:
 
         The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
 
-        > Other selector blocks are `ButtonSelector`, `Checkbox`, `RadioSelector` and `Selector`.
+        > Other selector blocks are `ButtonSelector`, `CheckboxSelector`, `RadioSelector` and `Selector`.
       block_type: MultipleSelector
       label: true
       category: input
@@ -87,7 +87,7 @@ blocks:
               - Primitive
           then:
             _get:
-              key: "0"
+              key: '0'
               from:
                 _mql_aggregate:
                   pipeline:
@@ -106,7 +106,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -118,7 +118,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear the selected value, sets the value to null.
@@ -130,7 +130,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -149,7 +149,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disables the block if true.
@@ -197,7 +197,7 @@ blocks:
                 title: label
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Label shown to user.
@@ -213,7 +213,7 @@ blocks:
                 title: value
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Value selected.
@@ -229,7 +229,7 @@ blocks:
                 title: disabled
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: Disable the option if true.
@@ -241,7 +241,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block to show message before user selects input.
@@ -259,7 +259,7 @@ blocks:
             title: showArrow
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Show the suffix icon at the drop-down position of the selector.
@@ -271,7 +271,7 @@ blocks:
             size: small
             title: size
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -382,8 +382,8 @@ blocks:
               properties:
                 title: Change icons
                 allowClear: true
-                clearIcon: delete
-                selectedIcon: fire
+                clearIcon: DeleteOutlined
+                selectedIcon: FireOutlined
                 suffixIcon: EllipsisOutlined
                 label:
                   extra: Custom suffix, clear and selected icons and default value.
@@ -410,8 +410,8 @@ blocks:
                     label:
                       extra: Custom suffix, clear and selected icons and default value.
                     allowClear: true
-                    clearIcon: delete
-                    selectedIcon: fire
+                    clearIcon: DeleteOutlined
+                    selectedIcon: FireOutlined
                     suffixIcon: EllipsisOutlined
                     options:
                     - value: A

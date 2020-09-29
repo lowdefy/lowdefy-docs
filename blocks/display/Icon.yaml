@@ -57,7 +57,7 @@ blocks:
             title: disableLoadingIcon
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: While loading after the icon has been clicked, don't render the loading icon.
@@ -69,7 +69,7 @@ blocks:
             title: hideActionLoading
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: While loading after the icon has been clicked, don't show the loading message.
@@ -82,7 +82,7 @@ blocks:
             size: small
             showSearch: true
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Name of icon to be displayed.
@@ -96,10 +96,22 @@ blocks:
             title: rotate
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Number of degrees to rotate the icon.
+        - id: block.properties.size
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: size
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the icon.
         - id: block.properties.spin
           type: Switch
           layout:
@@ -108,26 +120,25 @@ blocks:
             title: spin
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Continuously spin icon with animation.
-        - id: block.properties.twoToneColor
+        - id: block.properties.color
           type: ColorSelector
           # defaultValue: "#08c"
           layout:
             _global: settings_input_layout
           properties:
-            title: twoToneColor
-            size: small
-            type: twitter
+            title: color
+            circleSize: 16
+            circleSpacing: 6
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
-                  extra: Primary two-tone color, only supported with two-tone theme.
+                  extra: Primary icon color.
 
       available_actions_description: |
         ###### onClick
         Called when the icon is clicked
-
