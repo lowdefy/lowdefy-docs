@@ -18,8 +18,8 @@
           _var: description_content
     - id: block_card
       type: Card
-      style:
-        --span: 7
+      layout:
+        span: 14
       blocks:
         - id: block_name
           type:
@@ -32,14 +32,18 @@
             _state: block.properties
     - id: settings_card
       type: Card
-      style:
-        --span: 5
+      layout:
+        span: 10
       blocks:
-        - id: properties_input
-          type: TextArea
+        - id: properties_input_title
+          type: Divider
           properties:
-            title: properties
-            rows: 30
+            title: 'properties:'
+        - id: properties_input
+          type: CodeEditor
+          properties:
+            theme: vs-light
+            height: 500
         - id: apply_properties_button
           type: Button
           properties:
@@ -50,8 +54,8 @@
           actions:
             onClick:
               - id: apply_properties
-                type: setState()
+                type: SetState
                 params:
                   block.properties:
-                    _parse:
+                    _load_yaml:
                       _state: properties_input

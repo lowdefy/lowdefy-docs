@@ -1,0 +1,163 @@
+- id: card_display
+  type: Card
+  blocks:
+    - id: title
+      type: Title
+      properties:
+        level: 2
+        content:
+          _var: operator_name
+    - id: description
+      type: Markdown
+      properties:
+        renderHtml: true
+        content:
+          _var: description_content
+
+    - id: title_playground
+      type: Divider
+      properties:
+        title: Playground
+
+    - id: box_state
+      type: Box
+      layout:
+        span: 8
+      blocks:
+        - id: title_state
+          type: Divider
+          properties:
+            title:
+              _mql_expr:
+                $ifNull:
+                  - _var: state_name
+                  - State
+        - id: state
+          type: Markdown
+          properties:
+            renderHtml: true
+            content:
+              _nunjucks:
+                template: |
+                  ```yaml
+                  {{ state_all | safe }}
+                  ```
+                on:
+                  state_all:
+                    _dump_yaml:
+                      _state: true
+    - id: box_operator
+      type: Box
+      layout:
+        span: 8
+      blocks:
+        - id: title_operator
+          type: Divider
+          properties:
+            title: Operator
+        - id: operator_name
+          type: Html
+          properties:
+            html:
+              _mql_expr:
+                $concat:
+                  - _var: operator_name
+                  - ":"
+        - id: operator
+          type: CodeEditor
+          defaultValue:
+            _var: operator_default
+          properties:
+            theme: vs-light
+            height:
+              _mql_expr:
+                $ifNull:
+                  - _var: operator_height
+                  - 200
+          # type: TextArea
+          # layout:
+          #   --span: 11
+          #   sm:
+          #     --span: 11
+          # properties:
+          #   title:
+          #     _var: operator_name
+          #   autoSize: 
+          #     minRows: 6
+          #   label:
+          #     colon: true
+        - id: title_setup
+          type: Divider
+          properties:
+            title: Operator Setup
+        - id: setup
+          type: Markdown
+          properties:
+            renderHtml: true
+            content:
+              _nunjucks:
+                template: |
+                  {% if is_primitive %}
+                  ```yaml
+                  {{ operator_name }}: {{ operator | safe  }}
+                  ```
+                  {% else %}
+                  ```yaml
+                  {{ operator_name }}: 
+                    {{ operator | safe | indent(2) }}
+                  ```
+                  {% endif %}
+                on:
+                  is_primitive:
+                    _type:
+                      type: primitive
+                      on:
+                        _var: operator_setup
+                  operator_name:
+                    _var: operator_name
+                  operator:
+                    _dump_yaml:
+                      _var: operator_setup
+    - id: box_output
+      type: Box
+      layout:
+        span: 8
+      blocks:
+        - id: title_output
+          type: Divider
+          properties:
+            title: Output
+        - id: output
+          type: Markdown
+          properties:
+            renderHtml: true
+            content:
+              _nunjucks:
+                template: |
+                  {% if is_primitive %}
+                  {{ value_key }}
+                  {% else %}
+                  ```yaml
+                  {{ value_all | safe  }}
+                  ```
+                  {% endif %}
+                on:
+                  is_primitive:
+                    _type:
+                      type: primitive
+                      on:
+                        _var: operator_output
+                  value_key:
+                    _var: operator_output
+                  value_all:
+                    _dump_yaml:
+                      _var: operator_output
+
+    - id: title_examples
+      type: Divider
+      properties:
+        title: Examples
+    - id: box_examples
+      type: Box
+      blocks:
+        _var: examples

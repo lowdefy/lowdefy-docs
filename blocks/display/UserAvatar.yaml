@@ -3,6 +3,45 @@ type: PageSiderMenu
 public: true
 properties:
   title: UserAvatar
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: disabled
+            v: false
+          - k: showName
+            v: left
+          - k: theme
+            v: light
+          - k: loggedIn
+            v: true
+          - k: avatar
+            v: 
+              shape: circle
+          - k: loginButton
+            v: 
+              title: Login
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,75 +51,26 @@ blocks:
         A block to show the user and avatar when logged in, or a login button if not authenticated.
       block_type: UserAvatar
       label: false
-      kind: display
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Avatar:
-                      _parse:
-                        _state: style_avatar_input
-                    ButtonLogin:
-                      _parse:
-                        _state: style_button_input
-            on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_avatar_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Avatar
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_button_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: ButtonLogin
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
-        - id: block.properties.disable
+        - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: disable
+            title: disabled
             size: small
-            Label:
-              extra: Do not render the user menu.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Do not render the user menu.
         - id: block.properties.showName
           type: ButtonSelector
-          defaultValue: left
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showName
             size: small
@@ -88,86 +78,99 @@ blocks:
               - left
               - right
               - none
-            Label:
-              extra: Where to position the user name.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Where to position the user name.
         - id: block.properties.name
           type: TextInput
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: name
             size: small
-            Label:
-              extra: Replace user name text.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Replace user name text.
         - id: block.properties.theme
           type: ButtonSelector
-          defaultValue: light
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: theme
             size: small
             options:
               - light
               - dark
-            Label:
-              extra: Color theme, white or dark name text.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color theme, white or dark name text.
         - id: block.properties.loggedIn
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: loggedIn
             size: small
-            Label:
-              extra: Toggle render as logged in or not.
-        - id: block.properties.Avatar.shape
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Toggle render as logged in or not.
+        - id: block.properties.avatar.shape
           type: ButtonSelector
-          defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: Avatar.shape
+            title: avatar.shape
             size: small
-            Label:
-              extra: Shape of the avatar.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shape of the avatar.
             options:
               - circle
               - square
-        - id: block.properties.Avatar.link
+        - id: block.properties.avatar.link
           type: Anchor
           properties:
-            title: See all fields for properties.Avatar
-            Icon: LinkOutlined
+            title: See all fields for properties.avatar
+            icon: LinkOutlined
           actions:
             onClick: 
               - id: link_Avatar
-                type: link()
+                type: Link
                 params:
                   pageId: Avatar
-        - id: block.properties.ButtonLogin.title
+        - id: block.properties.loginButton.title
           type: TextInput
-          defaultValue: Login
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
-            title: ButtonLogin.title
+            title: loginButton.title
             size: small
-            Label:
-              extra: Edit login button title.
-        - id: block.properties.ButtonLogin.link
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Edit login button title.
+        - id: block.properties.loginButton.link
           type: Anchor
           properties:
-            title: See all fields for properties.ButtonLogin
-            Icon: LinkOutlined
+            title: See all fields for properties.loginButton
+            icon: LinkOutlined
           actions:
             onClick: 
-              - id: link_ButtonLogin
-                type: link()
+              - id: link_loginButton
+                type: Link
                 params:
-                  pageId: ButtonLogin
+                  pageId: Button
 
       available_actions_description: |
         ###### onClick when clicking on avatar, onLogin when clicking login button

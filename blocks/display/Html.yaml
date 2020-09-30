@@ -1,0 +1,63 @@
+id: Html
+type: PageSiderMenu
+public: true
+properties:
+  title: Html
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties: []
+        init_properties:
+          - k: html
+            v: |
+              <h3>The quick <span style="color: red;">brown</span> fox <b style="font-size: 10px;">jumped</b> over the <span style="background: yellow;">lazy</span> dog</h3>
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Html
+      description_content: |
+        Html content block.
+      block_type: Html
+      label: false
+      category: display
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.html
+          type: TextArea
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: html
+            size: small
+            rows: 8
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Html elements to render inside  the block.
+
+      available_actions_description: |
+        ###### No available actions.
+

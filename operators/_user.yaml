@@ -1,0 +1,51 @@
+id: _user
+type: PageSiderMenu
+public: true
+properties:
+  title: User Operator
+
+actions:
+  onInit:
+    - id: set_state
+      type: SetState
+      params:
+        id: 8sdf78sd-98sd-3432-d8908-89dsfsd90989
+        name: Robert Anderson
+        given_name: Bob
+        family_name: Anderson
+        nickname: Bob
+        email: bob@anderson.com
+        phone_number: "0234567343"
+        roles: ["developer", "owner"]
+        groupIds: ["lowdefy_root"]
+        attributes:
+          department: "Sales"
+          designation: "Manager"
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _user
+      description_content: |
+        The `_user` operator allows you to access properties from the currently logged-in user.
+
+        #### Parameters
+        `_user` takes one of two parameters, which each also has a short-hand method. The two parameters are:
+
+        - `all` : If set to `true` it returns all the attributes from the user.
+          - _Short-hand_ : Set `_user` directly to `true`.
+        - `key` : Returns the value of the attribute name specified.
+          - _Short-hand_ : Set `_user` directly to the attribute name.
+        - `default` : The value to return if `key` is not found.
+      state_name: User
+      operator_default: |
+        key: name
+        default: Return if `key` not found
+      operator_setup:
+        _load_yaml:
+          _state: operator
+      operator_output:
+        _state: 
+          _load_yaml:
+            _state: operator
+      # examples:

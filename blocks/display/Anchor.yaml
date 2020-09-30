@@ -3,6 +3,39 @@ type: PageSiderMenu
 public: true
 properties:
   title: Anchor
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: disabled
+            v: false
+          - k: strong
+            v: false
+          - k: title
+            v: block_id
+        init_properties:
+          - k: icon
+            v: FireOutlined
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,83 +45,52 @@ blocks:
         Anchor block. Creates a clickable icon and/ or text.
       block_type: Anchor
       label: false
-      kind: display
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the anchor if true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the anchor if true.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
-              default_icon: FireOutlined
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Icon to prefix anchor.
         - id: block.properties.strong
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: strong
             size: small
-            Label:
-              extra: Makes the text bold when true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Makes the text bold when true.
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Text to display in the anchor.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text to display in the anchor.
       available_actions_description: |
         ###### onClick
         Called when the anchor is clicked.
@@ -99,8 +101,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -113,29 +115,26 @@ blocks:
                     title: Click here
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_1",
-                        "type": "anchor",
-                        "properties": {
-                          "title": "Click here"
-                        }
-                      }
+                      ```yaml
+                      id: example_1
+                      type: anchor
+                      properties:
+                        title: Click here
                       ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_title
                   type: Markdown
@@ -147,34 +146,31 @@ blocks:
                   properties:
                     title: Click here
                     strong: true
-                    Icon: LinkOutlined
+                    icon: LinkOutlined
             - id: example_2_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_2",
-                        "type": "anchor",
-                        "properties": {
-                          "title": "Click here",
-                          "strong": true,
-                          "Icon": "LinkOutlined"
-                        }
-                      }
+                      ```yaml
+                      id: example_2
+                      type: anchor
+                      properties:
+                        title: Click here
+                        strong: true
+                        icon: LinkOutlined
                       ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_title
                   type: Markdown
@@ -188,42 +184,37 @@ blocks:
                     color: 'red !important'
                   properties:
                     title: Click here
-                    Icon: 
+                    icon: 
                       twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_3",
-                        "type": "anchor",
-                        "style": {
-                          "color": "red !important",
-                          "fontSize": 18
-                        },
-                        "properties": {
-                          "title": "Click here",
-                          "Icon": {
-                            "twoToneColor": "red",
-                            "name": "RocketTwoTone"
-                          }
-                        }
-                      }
+                      ```yaml
+                      id: example_3
+                      type: anchor
+                      style:
+                        color: red !important
+                        fontSize: 18
+                      properties:
+                        title: Click here
+                        icon:
+                          twoToneColor: red
+                          name: RocketTwoTone
                       ```
         - id: example_4_card
           type: Card
           blocks:
             - id: example_4_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_4_title
                   type: Markdown
@@ -235,40 +226,33 @@ blocks:
                   style:
                     color: "#000000 !important"
                     fontSize: 16
-                    Icon:
-                      color: orange
-                      fontSize: 30
                   properties:
                     title: Click here
-                    Icon: 
+                    icon: 
                       name: FireFilled
+                      style:
+                        color: orange
+                        fontSize: 30
             - id: example_4_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_4_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_4",
-                        "type": "anchor",
-                        "style": {
-                          "--span": 6,
-                          "color": "#000000 !important",
-                          "fontSize": 16
-                          "Icon": {
-                            "color": "orange",
-                            "fontSize": 30
-                          }
-                        },
-                        "properties": {
-                          "title": "Click here",
-                          "Icon": {
-                            "name": "FireFilled"
-                          }
-                        }
-                      }
+                      ```yaml
+                      id: example_4
+                      type: anchor
+                      style:
+                        color: "#000000 !important"
+                        fontSize: 16
+                      properties:
+                        title: Click here
+                        icon:
+                          name: FireFilled
+                          style:
+                            color: orange
+                            fontSize: 30
                       ```

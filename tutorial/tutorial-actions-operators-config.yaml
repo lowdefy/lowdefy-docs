@@ -1,0 +1,34 @@
+id: tutorial-actions-operators-config
+type: PageSiderMenu
+public: true
+properties:
+  title: Interactive pages config
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
+    list:
+      - Tutorial
+      - Interactive pages config
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Interactive pages config
+          buttons: false
+          content:
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-actions-operators-config-1.md

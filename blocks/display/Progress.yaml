@@ -1,0 +1,229 @@
+id: Progress
+type: PageSiderMenu
+public: true
+properties:
+  title: Progress
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: type
+            v: line
+          - k: showInfo
+            v: false
+          - k: percent
+            v: 0
+          - k: strokeLinecap
+            v: round
+          - k: successPercent
+            v: 0
+          - k: width
+            v: 132
+          - k: gapDegree
+            v: 75
+          - k: gapPosition
+            v: bottom
+        init_properties:
+          - k: status
+            v: active
+          - k: percent
+            v: 30
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: Progress
+      description_content: |
+        Display the current progress as a percentage of completion.
+      block_type: Progress
+      label: false
+      category: display
+      properties_transform:
+        _state: block.properties
+      properties_form:
+        - id: block.properties.type
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: type
+            size: small
+            options:
+              - line
+              - circle
+              - dashboard
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set type of progress display.
+        - id: block.properties.showInfo
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: showInfo
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Whether to display the progress value and the status icon.
+        - id: block.properties.percent
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: percent
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the completion percentage.
+        - id: block.properties.status
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: status
+            size: small
+            options:
+              - success
+              - exception
+              - normal
+              - active
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the status of the Progress.
+        - id: block.properties.strokeLinecap
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: strokeLinecap
+            size: small
+            options:
+              - round
+              - square
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the style of the progress linecap.
+        - id: block.properties.strokeColor
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: strokeColor
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color of progress bar.
+        - id: block.properties.successPercent
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: successPercent
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Segmented success percent.
+        - id: block.properties.trailColor
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: trailColor
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color of unfilled part.
+        - id: block.properties.strokeWidth
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: strokeWidth
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the width of the progress bar.
+        - id: block.properties.width
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: width
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the canvas width of the circular progress.
+        - id: block.properties.gapDegree
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: gapDegree
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The gap degree of half circle.
+        - id: block.properties.gapPosition
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: gapPosition
+            size: small
+            options:
+              - top
+              - bottom
+              - left
+              - right
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The gap position.
+
+      available_actions_description: |
+        ###### No available actions.

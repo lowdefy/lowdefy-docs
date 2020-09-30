@@ -1,0 +1,319 @@
+id: PageSHCF
+type: PageSiderMenu
+public: true
+properties:
+  title: PageSHCF
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: header
+            v: 
+              theme: dark
+          - k: sider
+            v: 
+              collapsed: null
+              theme: dark
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_properties
+blocks:
+  - id: card_display
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: PageSHCF
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            Page SHCF provides a minimal layout structure for a page container with a sider, header, content, and footer arrangement.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_divider
+            type: Divider
+            properties:
+              title: Block
+          - id: block_grid
+            type: Box
+            blocks:
+              - id: block_id
+                type: PageSHCF
+                style:
+                  _parse:
+                    _operator:
+                      name: _state
+                      params:
+                        contextId: 'master:PageSHCF:PageSHCF:{}'
+                        key: style_block_input
+                layout:
+                  _operator:
+                    name: _state
+                    params:
+                      contextId: 'master:PageSHCF:PageSHCF:{}'
+                      key: block.layout
+                properties:
+                  _operator:
+                    name: _state
+                    params:
+                      contextId: 'master:PageSHCF:PageSHCF:{}'
+                      key: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            content 
+                  header:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: header
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          maxHeight: 60
+                          color: red
+                          padding: 0 10px 10px 10px
+                        properties:
+                          html: |
+                            header
+                  sider:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: sider
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            sider 
+                  footer:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: footer
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: |
+                            footer  
+      - id: setup_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: setup_divider
+            type: Divider
+            properties:
+              title: Block Setup
+          - id: setup_card
+            type: Card
+            properties: 
+              size: small
+            blocks:
+              - id: setup_markdown
+                type: Markdown
+                properties:
+                  content:
+                    _nunjucks:
+                      template: |
+                        ```yaml
+                        {{ value | safe }}
+                        ```
+                      on:
+                        value:
+                          _dump_yaml:
+                            _ref:
+                              path: blocks/block_setup.yaml
+                              vars:
+                                block:
+                                  id: block_id
+                                  type: PageSHCF
+                                  layout:
+                                    _state: block.layout
+                                  default_layout:  
+                                    _state: default_layout
+                                  style:
+                                    _parse:
+                                      _state: style_block_input
+                                  visible:
+                                    _state: block.visible
+                                  properties:
+                                    _state: block.properties
+                                  default_properties:  
+                                    _state: default_properties
+                                  areas:
+                                    sider:
+                                      blocks: []
+                                    header:
+                                      blocks: []
+                                    content:
+                                      blocks: []
+                                    footer:
+                                      blocks: []
+                                default_block:
+                                  - k: properties
+                                    v: {}
+                                  - k: layout
+                                    v: {}
+                                  - k: style
+                                    v: {}
+                                  - k: visible
+                                    v: true
+
+      - id: settings_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: settings_divider
+            type: Divider
+            properties:
+              title: Settings
+          - id: block_collapse
+            type: Collapse
+            properties:
+              defaultActiveKey: properties
+              panels:
+                - key: layout
+                  title: 'layout:'
+                - key: style
+                  title: 'style:'
+                - key: properties
+                  title: 'properties:'
+                - key: actions
+                  title: 'actions:'
+                - key: areas
+                  title: 'areas:'
+            areas:
+              layout:
+                blocks:
+                  _ref: blocks/layout.yaml
+              style:
+                blocks:
+                  _ref: blocks/style.yaml
+              properties:
+                blocks:
+                  - id: block.properties.header.theme
+                    type: ButtonSelector
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: header.theme
+                      size: small
+                      label: 
+                        span: 8
+                        extra: Color theme of the Header
+                      options:
+                        - light
+                        - dark
+                  # - id: block.properties.header.link
+                  #   type: Anchor
+                  #   properties:
+                  #     title: See all fields for properties.header
+                  #     icon: LinkOutlined
+                  #   actions:
+                  #     onClick: 
+                  #       - id: link_header
+                  #         type: Link
+                  #         params:
+                  #           pageId: Header
+                  - id: block.properties.sider.collapsed
+                    type: ButtonSelector
+                    defaultValue: null
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: sider.collapsed
+                      size: small
+                      options:
+                        - null
+                        - true
+                        - false
+                      label:
+                        span: 8
+                        extra: The current collapsed state for Sider
+                  - id: block.properties.sider.theme
+                    type: ButtonSelector
+                    layout:
+                      _global: settings_input_layout
+                    properties:
+                      title: sider.theme
+                      size: small
+                      options:
+                        - light
+                        - dark
+                      label:
+                        span: 8
+                        extra: Color theme of the Sider
+                  # - id: block.properties.sider.link
+                  #   type: Anchor
+                  #   properties:
+                  #     title: See all fields for properties.sider
+                  #     icon: LinkOutlined
+                  #   actions:
+                  #     onClick: 
+                  #       - id: link_sider
+                  #         type: Link
+                  #         params:
+                  #           pageId: sider
+              actions:
+                blocks:
+                  - id: actions_description
+                    type: Markdown
+                    properties:
+                      content: |
+                        #### onEnter
+                        Executed each time page is loaded.
+
+                        #### onInit
+                        Executed when the page is first loaded into the cache.
+              areas:
+                blocks: []
+
+  # - id: ex_divider
+  #   type: Divider
+  #   properties:
+  #     title: Examples

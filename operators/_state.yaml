@@ -1,0 +1,150 @@
+id: _state
+type: PageSiderMenu
+public: true
+properties:
+  title: State Operator
+
+actions:
+  onInit:
+    - id: set_state
+      type: SetState
+      params:
+        string: A field value
+        boolean: true
+        # date:
+        #   _date: now
+        array:
+          - 1
+          - 2.5
+          - 3000
+        object:
+          string: Some text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+blocks:
+  _ref:
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _state
+      description_content: |
+        The `_state` operator allows you to access a value from the page [`state`](state).
+
+        #### Parameters
+        `_state` takes one of two parameters, which each also has a short-hand method. The two parameters are:
+
+        - `all` : If set to `true` it returns everything in the page `state`.
+          - _Short-hand_ : Set `_state` directly to `true`.
+        - `key` : Returns the value of the field name specified.
+          - _Short-hand_ : Set `_state` directly to the field name.
+        - `default` : The value to return if `key` is not found.
+      operator_default: |
+        key: object
+        default: Return if `key` not found
+      operator_setup:
+        _load_yaml:
+          _state: operator
+      operator_output:
+        _state: 
+          _load_yaml:
+            _state: operator
+      examples:
+        - id: example_1
+          type: Card
+          blocks:
+            - id: example_1_description
+              type: Markdown
+              properties:
+                renderHtml: true
+                content: |
+                  One field's value can be used as input for another field's property by using `key`. 
+                  This can be used eg. to control the blocks' properties or visibility based on other blocks' values. 
+                  
+                  Block 1's value is used to control Block 2 and 3's visibility while Block 2's value is used as Block 3 and 4's placeholder using the `key` parameter and its short-hand notation.
+            - id: example_1_block_box
+              type: Box
+              layout:
+                span: 12
+              blocks:
+                - id: block_1
+                  type: Switch
+                  defaultValue: true
+                  properties:
+                    title: Block 1
+                    label:
+                      extra: Control Blocks 2 and 3's visibility.
+                - id: block_2
+                  type: TextInput
+                  defaultValue: Block 2 Value
+                  visible:
+                    _state: block_1
+                  properties:
+                    title: Block 2
+                    label:
+                      extra: Control Blocks 3 and 4's placeholder. Visible using _state's short-hand key method.
+                - id: block_3
+                  type: TextInput
+                  visible:
+                    _state: 
+                      key: block_1
+                  properties:
+                    title: Block 3
+                    placeholder:
+                      _state:
+                        key: block_2
+                    label:
+                      extra: Use _state's key parameter.
+                - id: block_4
+                  type: TextInput
+                  properties:
+                    title: Block 4
+                    placeholder:
+                      _state: block_2
+                    label:
+                      extra: Use the short-hand key method.
+
+            - id: example_1_code_box
+              type: Box
+              layout:
+                pan: 12
+              blocks:
+                - id: example_1_code
+                  type: Markdown
+                  properties:
+                    renderHtml: true
+                    content: |
+                      ```yaml
+                      blocks:
+                        - id: block_1
+                          type: Switch
+                          defaultValue: true
+                          properties:
+                            title: Block 1
+                        - id: block_2
+                          type: TextInput
+                          defaultValue: Block 2 Value
+                          visible:
+                            _state: block_1
+                          properties:
+                            title: Block 2
+                        - id: block_3
+                          type: TextInput
+                          visible:
+                            _state: 
+                              key: block_1
+                          properties:
+                            title: Block 3
+                            placeholder:
+                              _state:
+                                key: block_2
+                        - id: block_4
+                          type: TextInput
+                          properties:
+                            title: Block 4
+                            placeholder:
+                              _state: block_2
+                      ```

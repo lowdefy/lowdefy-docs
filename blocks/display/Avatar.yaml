@@ -3,6 +3,37 @@ type: PageSiderMenu
 public: true
 properties:
   title: Avatar
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: shape
+            v: circle
+          - k: size
+            v: default
+          - k: gap
+            v: 4
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,116 +43,111 @@ blocks:
         Avatars can be used to represent people or objects. It supports images, Icons, or letters.
       block_type: Avatar
       label: false
-      kind: display
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.alt
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: alt
             size: small
-            Label:
-              extra: This attribute defines the alternative text describing the image.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: This attribute defines the alternative text describing the image.
         - id: block.properties.color
           type: ColorSelector
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: color
-            size: small
-            Label:
-              extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
         - id: block.properties.content
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
-              extra: Text to display inside avatar.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Text to display inside avatar.
+        - id: block.properties.gap
+          type: NumberInput
+          defaultValue: 4
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: gap
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Letter type unit distance between left and right sides.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Icon to be used in avatar.
         - id: block.properties.shape
           type: ButtonSelector
           defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: shape
             size: small
-            Label:
-              extra: Shape of the avatar.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shape of the avatar.
             options:
               - circle
               - square
         - id: block.properties.size
           type: ButtonSelector
           defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the avatar.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the avatar.
             options:
               - default
               - small
               - large
         - id: block.properties.src
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: src
             size: small
-            Label:
-              extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
 
       available_actions_description: |
         ###### No available actions.
-

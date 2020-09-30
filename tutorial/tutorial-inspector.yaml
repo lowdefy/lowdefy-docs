@@ -1,0 +1,38 @@
+id: tutorial-inspector
+type: PageSiderMenu
+public: true
+properties:
+  title: Using the inspector
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
+    list:
+      - Tutorial
+      - Using the inspector
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Using the inspector
+          buttons: true
+          previous_page_title: Interactive pages
+          previous_page_id: tutorial-actions-operators
+          next_page_title: MongoDB connection
+          next_page_id: tutorial-connection
+          content:
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-inspector-content-1.md

@@ -2,119 +2,83 @@ id: Selector
 type: PageSiderMenu
 public: true
 properties:
-  title: Select
+  title: Selector
 actions:
   onInit:
-    - id: initialize_state 
-      type: setState()
+    - id: initialize_state
+      type: SetState
       params:
-        block:
-          properties:
-            options:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: clearIcon
+            v: CloseCircleOutlined
+          - k: showSearch
+            v: false
+          - k: showArrow
+            v: true
+          - k: suffixIcon
+            v: DownOutlined
+          - k: placeholder
+            v: Select item
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties:
+          - k: options
+            v:
               - primitive: Option 1
                 value: Value1
                 label: Label 1
               - primitive: Option 2
                 value: Value2
                 label: Label 2
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Select Input
+      block_name: Selector
+      value_type: Any
       description_content: |
-        Drop down selector input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+        The `Selector` block is a drop down selector that allows a user to select a single value from a set of options.
 
-        >Other selector blocks are checkbox_input, multiple_select_input, RadioSelector and ButtonSelector
+        The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
+
+        > Other selector blocks are `ButtonSelector`, `CheckboxSelector`, `MultipleSelector` and `RadioSelector`.
       block_type: Selector
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconPrefix:
-                      _parse:
-                        _state: style_clear_icon_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_suffix_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_clear_icon_input
-          type: TextArea
-          style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
-          defaultValue: "{}"
-          properties:
-            title: IconClear
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
-          type: TextArea
-          style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
-          defaultValue: "{}"
-          properties:
-            title: IconSuffix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _if:
           test:
@@ -123,8 +87,8 @@ blocks:
               - Primitive
           then:
             _get:
-              key: "0"
-              on:
+              key: '0'
+              from:
                 _mql_aggregate:
                   pipeline:
                     - $addFields:
@@ -136,51 +100,58 @@ blocks:
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
-              extra: Allow the user to clear the selected value, sets the value to null.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
-              extra: Autofocus to the block on page load.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconClear
-              icon_field_name: IconClear
-              default_icon: CloseCircleOutlined
+              icon_id: block.properties.clearIcon
+              icon_field_name: clearIcon
               icon_description: Icon on right-hand side of the selector, when allowClear is set to true.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disables the block if true.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disables the block if true.
         - id: select_options_type_card
           type: Card
           blocks:
@@ -190,13 +161,16 @@ blocks:
               properties:
                 title: Options Type
                 size: small
-                Label:
-                  extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
                   - Label Value
         - id: block.properties.options
-          type: List
+          type: ControlledList
           required: true
           properties:
             title: 'options:'
@@ -209,86 +183,106 @@ blocks:
                 _mql_test:
                   select_options_type: Primitive
               properties:
+                title: options.$
                 size: small
+                label:
+                  inline: true
             - id: block.properties.options.$.label
               type: TextInput
               defaultValue: Label
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: label
                 size: small
-                Label:
-                  extra: Label shown to user.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Label shown to user.
             - id: block.properties.options.$.value
               type: TextInput
               defaultValue: Value
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: value
                 size: small
-                Label:
-                  extra: Value selected.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Value selected.
             - id: block.properties.options.$.disabled
               type: Switch
               defaultValue: false
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: disabled
                 size: small
-                Label:
-                  extra: Disable the option if true.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Disable the option if true.
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select item
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
-              extra: Placeholder text inside the block before user selects input.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user selects input.
         - id: block.properties.showArrow
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showArrow
             size: small
-            Label:
-              extra: Show the suffix icon at the drop-down position of the selector.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show the suffix icon at the drop-down position of the selector.
         - id: block.properties.showSearch
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showSearch
             size: small
-            Label:
-              extra: Make the selector options searchable.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Make the selector options searchable.
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the block.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
@@ -296,11 +290,10 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.suffix_icon
-              icon_field_name: IconSuffix
-              default_icon: DownOutlined
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
               icon_description: Icon at the drop-down position of the selector.
-
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -311,8 +304,8 @@ blocks:
           blocks:
             - id: example_1
               type: Selector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Primitive options
                 options:
@@ -321,31 +314,32 @@ blocks:
                   - C
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "select_input",
-                    "properties": {
-                      "title": "Primitive options"
-                      "options": [ "A", "B", "C" ]
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: Selector
+                  properties:
+                    title: Primitive options
+                    options:
+                      - A
+                      - B
+                      - C
+                  ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
               type: Selector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Object options
                 allowClear: true
                 placeholder: Choose an option
-                Label:
+                label:
                   extra: Value-Label object options and allow clearing of selection.
                 options:
                   - value: A
@@ -359,56 +353,43 @@ blocks:
                     label: Denethor
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "select_input",
-                    "properties": {
-                      "title": "Object options",
-                      "allowClear": true,
-                      "placeholder": "Choose an option",
-                      "Label": {
-                        "extra": "Value-Label object options and allow clearing of selection."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir",
-                          "disabled": true
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: Selector
+                  properties:
+                    title: Object options
+                    allowClear: true
+                    placeholder: Choose an option
+                    label:
+                      extra: Value-Label object options and allow clearing of selection.
+                    options:
+                      - value: A
+                        label: Aragorn
+                      - value: B
+                        label: Boromir
+                        disabled: true
+                      - value: C
+                        label: Celebron
+                      - value: D
+                        label: Denethor
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
               type: Selector
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue: B
               properties:
                 title: Change icons
                 allowClear: true
-                IconClear: DeleteOutlined
-                IconSuffix: EllipsisOutlined
-                Label:
+                clearIcon: DeleteOutlined
+                suffixIcon: EllipsisOutlined
+                label:
                   extra: Custom suffix and clear icons and default value.
                 options:
                   - value: A
@@ -419,50 +400,40 @@ blocks:
                     label: Celeborn
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "select_input",
-                    "defaultValue": "B",
-                    "properties": {
-                      "title": "Change icons",
-                      "allowClear": true,
-                      "IconClear": "DeleteOutlined",
-                      "IconSuffix": "EllipsisOutlined",
-                      "Label": {
-                        "extra": "Custom suffix and clear icons and default value."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: Selector
+                  defaultValue: B
+                  properties:
+                    title: Change icons
+                    allowClear: true
+                    clearIcon: DeleteOutlined
+                    suffixIcon: EllipsisOutlined
+                    label:
+                      extra: Custom suffix and clear icons and default value.
+                    options:
+                      - value: A
+                        label: Aragorn
+                      - value: B
+                        label: Boromir
+                      - value: C
+                        label: Celebron
+                  ```
         - id: example_4_card
           type: Card
           blocks:
             - id: example_4
               type: Selector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Search options
                 showSearch: true
-                Label:
+                label:
                   extra: Make options searchable.
                 options:
                   - value: A
@@ -491,69 +462,40 @@ blocks:
                     label: Legolas
             - id: example_4_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "select_input",
-                    "properties": {
-                      "title": "Search options",
-                      "showSearch": true,
-                      "Label": {
-                        "extra": "Make options searchable."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Bilbo"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        },
-                        {
-                          "value": "E",
-                          "label": "Eowyn"
-                        },
-                        {
-                          "value": "F",
-                          "label": "Frodo"
-                        },
-                        {
-                          "value": "G",
-                          "label": "Gandalf"
-                        },
-                        {
-                          "value": "H",
-                          "label": "Halfling"
-                        },
-                        {
-                          "value": "I",
-                          "label": "Isildur"
-                        },
-                        {
-                          "value": "J",
-                          "label": "J.R.R. Tolkien"
-                        },
-                        {
-                          "value": "K",
-                          "label": "Kili"
-                        },
-                        {
-                          "value": "L",
-                          "label": "Legolas"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: Selector
+                  properties:
+                    title: Search options
+                    showSearch: true
+                    label:
+                      extra: Make options searchable.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Bilbo
+                    - value: C
+                      label: Celebron
+                    - value: D
+                      label: Denethor
+                    - value: E
+                      label: Eowyn
+                    - value: F
+                      label: Frodo
+                    - value: G
+                      label: Gandalf
+                    - value: H
+                      label: Halfling
+                    - value: I
+                      label: Isildur
+                    - value: J
+                      label: J.R.R. Tolkien
+                    - value: K
+                      label: Kili
+                    - value: L
+                      label: Legolas

@@ -1,0 +1,34 @@
+id: tutorial-add-blocks-config
+type: PageSiderMenu
+public: true
+properties:
+  title: Making a booking form config
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
+    list:
+      - Tutorial
+      - Making a booking form config
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Making a booking form config
+          buttons: false
+          content:
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-add-blocks-config-1.md

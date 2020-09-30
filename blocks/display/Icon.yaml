@@ -3,6 +3,39 @@ type: PageSiderMenu
 public: true
 properties:
   title: Icon
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: disableLoadingIcon
+            v: false
+          - k: hideActionLoading
+            v: false
+          - k: spin
+            v: false
+        init_properties:
+          - k: name
+            v: FireOutlined
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,91 +45,100 @@ blocks:
         A Icon component. Render Ant Design and other icons
       block_type: Icon
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.disableLoadingIcon
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disableLoadingIcon
             size: small
-            Label:
-              extra: While loading after the icon has been clicked, don't render the loading icon.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: While loading after the icon has been clicked, don't render the loading icon.
         - id: block.properties.hideActionLoading
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: hideActionLoading
             size: small
-            Label:
-              extra: While loading after the icon has been clicked, don't show the loading message.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: While loading after the icon has been clicked, don't show the loading message.
         - id: block.properties.name
           type: Selector
-          defaultValue: FireOutlined
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: name
             size: small
             showSearch: true
-            Label:
-              extra: Name of icon to be displayed.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Name of icon to be displayed.
             options:
               _global: all_icons
         - id: block.properties.rotate
           type: NumberInput
-          defaultValue: 0
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: rotate
             size: small
-            Label:
-              extra: Number of degrees to rotate the icon.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Number of degrees to rotate the icon.
+        - id: block.properties.size
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: size
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the icon.
         - id: block.properties.spin
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: spin
             size: small
-            Label:
-              extra: Continuously spin icon with animation.
-        - id: block.properties.twoToneColor
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Continuously spin icon with animation.
+        - id: block.properties.color
           type: ColorSelector
-          defaultValue: "#08c"
-          style:
-            _global: settings_input_style
+          # defaultValue: "#08c"
+          layout:
+            _global: settings_input_layout
           properties:
-            title: twoToneColor
-            size: small
-            type: twitter
-            Label:
-              extra: Primary two-tone color, only supported with two-tone theme.
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Primary icon color.
 
       available_actions_description: |
-         ###### onClick
-         Called when the icon is clicked
-
+        ###### onClick
+        Called when the icon is clicked

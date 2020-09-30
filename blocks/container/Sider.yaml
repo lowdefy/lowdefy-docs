@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 blocks:
@@ -28,39 +28,41 @@ blocks:
       style_form:
         - id: flex_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           defaultValue: |
             {}
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
-      flex_properties_form: 
+      flex_properties_form:
         - id: block.properties.breakpoint
           type: ButtonSelector
           defaultValue: md
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: breakpoint
             size: small
             options:
               - xs
               - sm
-              - md 
+              - md
               - lg
               - xl
               - xxl
-            Label:
+            label:
+              span: 8
               extra: Breakpoints of the responsive layout
         - id: block.properties.collapsed
           type: ButtonSelector
           defaultValue: null
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: collapsed
             size: small
@@ -68,62 +70,80 @@ blocks:
               - null
               - true
               - false
-            Label:
+            label:
+              span: 8
               extra: Set the current collapsed state
         - id: block.properties.collapsedWidth
           type: NumberInput
           defaultValue: 80
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: collapsedWidth
             size: small
-            Label:
+            label:
+              span: 8
               extra: Width of the collapsed sidebar, by setting to 0 a special trigger will appear
         - id: block.properties.collapsible
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: collapsible
             size: small
-            Label:
+            label:
+              span: 8
               extra: Whether can be collapsed
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Sider primary color.
         - id: block.properties.defaultCollapsed
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: defaultCollapsed
             size: small
-            Label:
+            label:
+              span: 8
               extra: Direction of arrow, for a sider that expands from the right
         - id: block.properties.theme
           type: ButtonSelector
           defaultValue: dark
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: theme
             size: small
             options:
               - light
               - dark
-            Label:
+            label:
+              span: 8
               extra: Color theme of the sider
         - id: block.properties.width
           type: TextInput
           defaultValue: '200'
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: width
             size: small
-            Label:
+            label:
+              span: 8
               extra: width of the sidebar
-        
-      actions_description: | 
-        ###### No available actions.
 
+      actions_description: |
+        ###### No available actions.

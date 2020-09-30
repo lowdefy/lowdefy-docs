@@ -3,6 +3,39 @@ type: PageSiderMenu
 public: true
 properties:
   title: Divider
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: dashed
+            v: false
+          - k: orientation
+            v: center
+          - k: type
+            v: horizontal
+          - k: plain
+            v: false
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,71 +45,77 @@ blocks:
         A divider line. Can be used horizontally or vertically.
       block_type: Divider
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.dashed
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: dashed
             size: small
-            Label:
-              extra: Whether line is dashed.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Whether line is dashed.
         - id: block.properties.orientation
           type: ButtonSelector
-          defaultValue: center
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: orientation
             size: small
-            Label:
-              extra: Position of title inside divider.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Position of title inside divider.
             options:
               - center
               - left
               - right
         - id: block.properties.title
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Divider title.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Divider title.
         - id: block.properties.type
           type: ButtonSelector
-          defaultValue: horizontal
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
-            Label:
-              extra: Direction type of divider.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Direction type of divider.
             options:
               - horizontal
               - vertical
+        - id: block.properties.plain
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: plain
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show text as plain style.
 
       available_actions_description: |
         ###### No available actions.

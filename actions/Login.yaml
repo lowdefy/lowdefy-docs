@@ -1,0 +1,43 @@
+id: LoginAction
+type: PageSiderMenu
+public: true
+properties:
+  title: Login
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+areas:
+  content:
+    justify: center
+    blocks:
+      - id: max_width
+        type: Box
+        layout:
+          size: 800
+          shrink: 1
+        blocks:
+          - id: title
+            type: Title
+            properties:
+              content: Login
+          - id: markdown
+            type: Markdown
+            style:
+              '.markdown-body':
+                fontSize: 14px
+            properties:
+              content: |
+                The `Login` action redirects a user to the login page, so they can login. If they are already logged in they will then be redirected to the homepage.
+                Since users are redirected away from the app to log in, you shouldn't define actions after the `Login` action.
+
+                ### Examples
+
+                Log a user in:
+                ```
+                - id: login
+                  type: Login
+                ```

@@ -6,13 +6,39 @@ properties:
 actions:
   onInit:
     - id: initialize_state 
-      type: setState()
+      type: SetState
       params:
-        block:
-          properties:
-            list:
+        # block:
+        #   properties:
+        #     list:
+        #       - label: Page 1
+        #       - label: Page 2
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: separator
+            v: '/'
+        init_properties:
+          - k: list
+            v:
               - label: Page 1
               - label: Page 2
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -22,37 +48,24 @@ blocks:
         A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy with provided links.
       block_type: Breadcrumb
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.separator
           type: TextInput
-          defaultValue: '/'
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: separator
             size: small
-            Label:
-              extra: Use a custom separator string.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Use a custom separator string.
         - id: block.properties.list
-          type: List
+          type: ControlledList
           properties:
             title: 'list:'
             size: small
@@ -60,33 +73,42 @@ blocks:
             - id: block.properties.list.$.label
               type: TextInput
               defaultValue: label
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: label
                 size: small
-                Label:
-                  extra: Label of the breadcrumb link.
+                label:
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Label of the breadcrumb link.
             - id: block.properties.list.$.pageId
               type: TextInput
               defaultValue: introduction
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: pageId
                 size: small
-                Label:
-                  extra: Page id to link to when clicked.
+                label:
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Page id to link to when clicked.
             - id: block.properties.list.$.url
               type: TextInput
               defaultValue: http://lowdefy.com
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: url
                 size: small
-                Label:
-                  extra: External url link.
+                label:
+                  _ref: 
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: External url link.
 
       available_actions_description: |
         ###### No available actions.

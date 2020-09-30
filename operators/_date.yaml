@@ -1,0 +1,190 @@
+id: _date
+type: PageSiderMenu
+public: true
+properties:
+  title: Date Operator
+blocks:
+  - id: card_display
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: Date Operator
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            The `_date` operator can be used to create _Date_ objects.
+            
+            #### Parameters
+            Create a date object by setting `_date` equal to a [JavaScript parsable date string](https://momentjs.com/docs/#/parsing/string/) or the string `'now'` - which references the current date and time.
+
+      - id: title_playground
+        type: Divider
+        properties:
+          title: Playground
+      - id: box_operator
+        type: Box
+        layout:
+          span: 8
+        blocks:
+          - id: title_operator
+            type: Divider
+            properties:
+              title: Operator
+          # - id: card_operator
+          #   type: Card
+          #   blocks:
+          - id: operator
+            type: TextArea
+            layout:
+              _global: settings_input_layout
+            defaultValue: |
+              "2000-01-01"
+            properties:
+              title: _date
+              rows: 3
+              label:
+                span: 6
+                colon: true
+      - id: box_setup
+        type: Box
+        layout:
+          span: 8
+        blocks:
+          - id: title_setup
+            type: Divider
+            properties:
+              title: Operator Setup
+          # - id: card_setup
+          #   type: Card
+          #   blocks:
+          - id: setup
+            type: Markdown
+            properties:
+              content:
+                _nunjucks:
+                  template: |
+                    ```json
+                    {
+                      "_date": {{ operator | safe }}
+                    }
+                    ```
+                  on:
+                    operator:
+                      _stringify:
+                        _parse:
+                          _state: operator
+      - id: box_output
+        type: Box
+        layout:
+          span: 8
+        blocks:
+          - id: title_output
+            type: Divider
+            properties:
+              title: Output
+          # - id: card_output
+          #   type: Card
+          #   blocks:
+          - id: output
+            type: Markdown
+            properties:
+              content:
+                _nunjucks:
+                  template: |
+                    ```json
+                    {{ value | safe }}
+                    ```
+                  on:
+                    value:
+                      _stringify:
+                        _date: 
+                          _parse:
+                            _state: operator
+      # - id: box_state
+      #   type: Box
+      #   layout:
+      #     span: 8
+      #   blocks:
+      #     - id: title_state
+      #       type: Divider
+      #       properties:
+      #         title: State
+      #     # - id: card_state
+      #     #   type: Card
+      #     #   blocks:
+      #     - id: state
+      #       type: Markdown
+      #       properties:
+      #         content:
+      #           _nunjucks:
+      #             template: |
+      #               ```json
+      #               {{ state_all | safe }}
+      #               ```
+      #             on:
+      #               state_all:
+      #                 _stringify:
+      #                   _state: true
+
+      - id: title_examples
+        type: Divider
+        properties:
+          title: Examples
+      - id: example_1_card
+        type: Card
+        blocks:
+          - id: example_1_description
+            type: Markdown
+            properties:
+              content: |
+                The first date block uses a default value created from the string "2020-01-01" and the second references the current date and time using "now".
+          - id: example_1_block_box
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: date_1
+                type: DateSelector
+                defaultValue:
+                  _date: '2020-01-01'
+                properties:
+                  title: Date 1
+                  label:
+                    extra: Date string
+              - id: date_2
+                type: DateTimeSelector
+                defaultValue:
+                  _date: now
+                properties:
+                  title: Date 2
+                  label:
+                    extra: Current date and time
+          - id: example_1_code_box
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: example_1_code
+                type: Markdown
+                properties:
+                  content: |
+                    ```json
+                    {
+                      "blocks": [
+                        {
+                          "id": "date_1",
+                          "type": "DateSelector",
+                          "defaultValue": { "_date": "2020-01-01" }
+                        },
+                        {
+                          "id": "date_2",
+                          "type": "DateTimeSelector",
+                          "defaultValue": { "_date": "now" }
+                        }
+                      ]
+                    }
+                    ```

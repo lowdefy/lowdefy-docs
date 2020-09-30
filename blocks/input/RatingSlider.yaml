@@ -2,239 +2,264 @@ id: RatingSlider
 type: PageSiderMenu
 public: true
 properties:
-  title: Slider
+  title: RatingSlider
+actions:
+  onInit:
+    - id: initialize_state
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: disableIcons
+            v: false
+          - k: disableNotApplicable
+            v: false
+          - k: minIcon
+            v: FrownOutlined
+          - k: maxIcon
+            v: SmileOutlined
+          - k: min
+            v: 0
+          - k: max
+            v: 10
+          - k: notApplicableLabel
+            v: 'N/A'
+          - k: showDots
+            v: true
+          - k: showMarks
+            v: true
+          - k: step
+            v: 1
+          - k: tooltipVisible
+            v: onClick
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: placeholder
+            v: Select Date & Time
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Rating Slider
+      block_name: RatingSlider
+      value_type: Number
       description_content: |
-        Rating slider input block. Allows the user to select a number value at a interval between a minimum and maximum value. The input to this field is saved in state, at the path name of the block.
+        The `RatingSlider` block allows a user to choose a numerical value. It is typically used for scores or ratings. It has the option to have a "Not Applicable" checkbox, which leaves the value as null.
       block_type: RatingSlider
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconPrefix:
-                      _parse:
-                        _state: style_max_icon_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_min_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_max_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconMax
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_min_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconMin
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
-              extra: Autofocus to the block on page load.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Rating slider color.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the block if true.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.disableIcons
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disableIcons
             size: small
-            Label:
-              extra: Hides minimum and maximum icons.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hides minimum and maximum icons.
         - id: block.properties.disableNotApplicable
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disableNotApplicable
             size: small
-            Label:
-              extra: Hides not applicable checkbox.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hides not applicable checkbox.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconMin
-              icon_field_name: IconMin
-              default_icon: FrownOutlined
+              icon_id: block.properties.minIcon
+              icon_field_name: minIcon
               icon_description: Icon to the left of the minimum side of the slider.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconMax
-              icon_field_name: IconMax 
-              default_icon: SmileOutlined
+              icon_id: block.properties.maxIcon
+              icon_field_name: maxIcon
               icon_description: Icon to the right of the minimum side of the slider.
 
         - id: block.properties.min
           type: NumberInput
-          defaultValue: 0
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: min
             size: small
-            Label:
-              extra: The minimum value of the slider.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The minimum value of the slider.
         - id: block.properties.max
           type: NumberInput
-          defaultValue: 10
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: max
             size: small
-            Label:
-              extra: The maximum value of the slider.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The maximum value of the slider.
         - id: block.properties.notApplicableLabel
           type: TextInput
-          defaultValue: N/A
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: notApplicableLabel
             size: small
-            Label:
-              extra: Label shown at the null value of the slider.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Label shown at the null value of the slider.
         - id: block.properties.showDots
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showDots
             size: small
-            Label:
-              extra: Shows dots at values between step values when true.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shows dots at values between step values when true.
         - id: block.properties.showMarks
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showMarks
             size: small
-            Label:
-              extra: Shows values at specified min, max and step values.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shows values at specified min, max and step values.
         - id: block.properties.step
           type: NumberInput
-          defaultValue: 1
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: step
             size: small
             precision: 1
-            Label:
-              extra: The size of the step between values, has to be values greater than 0.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The size of the step between values, has to be values greater than 0.
         - id: block.properties.tooltipVisible
           type: ButtonSelector
-          defaultValue: onClick
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: tooltipVisible
             size: small
-            Label:
-              extra: When tooltip should be visible.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: When tooltip should be visible.
             options:
               - never
               - onClick
               - always
-
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -245,133 +270,118 @@ blocks:
           blocks:
             - id: example_1
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Slider input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "Slider input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: RatingSlider
+                  properties:
+                    title: Slider input
                   ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Icons
-                IconMin: DislikeFilled
-                IconMax: LikeFilled
+                minIcon: DislikeFilled
+                maxIcon: LikeFilled
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "slider_input",
-                    "defaultValue": 4,
-                    "properties": {
-                      "title": "Icons",
-                      "IconMin": "DislikeFilled",
-                      "IconMax": "LikeFilled"
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: RatingSlider
+                  defaultValue: 4
+                  properties:
+                    title: Icons
+                    minIcon: DislikeFilled
+                    maxIcon: LikeFilled
                   ```
         - id: example_6_card
           type: Card
           blocks:
             - id: example_6
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Slider with no N/A
                 disableNotApplicable: true
             - id: example_6_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_6",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "Slider with no N/A",
-                      "disableNotApplicable": true
-                    }
-                  }
+                  ```yaml
+                  id: example_6
+                  type: RatingSlider
+                  properties:
+                    title: Slider with no N/A
+                    disableNotApplicable: true
                   ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Disable Icons
                 disableIcons: true
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "Disable Icons",
-                      "disableIcons": true
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: RatingSlider
+                  properties:
+                    title: Disable Icons
+                    disableIcons: true
                   ```
         - id: example_4_card
           type: Card
           blocks:
             - id: example_4
               type: RatingSlider
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: No Marks or Dots
                 showDots: false
                 showMarks: false
             - id: example_4_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "slider_input",
-                    "properties": {
-                      "title": "No Marks or Dots",
-                      "showDots": false,
-                      "showMarks": false
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: RatingSlider
+                  properties:
+                    title: No Marks or Dots
+                    showDots: false
+                    showMarks: false
                   ```
         - id: example_5_card
           type: Card
@@ -379,23 +389,20 @@ blocks:
             - id: example_5
               type: RatingSlider
               defaultValue: 4
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Default Value
             - id: example_5_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_5",
-                    "type": "slider_input",
-                    "defaultValue": 4,
-                    "properties": {
-                      "title": "Default Value",
-                    }
-                  }
-                    ```
+                  ```yaml
+                  id: example_5
+                  type: RatingSlider
+                  defaultValue: 4
+                  properties:
+                    title: Default Value
+                  ```

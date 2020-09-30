@@ -3,6 +3,50 @@ type: PageSiderMenu
 public: true
 properties:
   title: Paragraph
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: code
+            v: false
+          - k: copyable
+            v: false
+          - k: delete
+            v: false
+          - k: disabled
+            v: false
+          - k: ellipsis
+            v: false
+          - k: mark
+            v: false
+          - k: strong
+            v: false
+          - k: underline
+            v: false
+        init_properties:
+          - k: content
+            v: |
+              Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,130 +56,138 @@ blocks:
         A paragraph text component. 
       block_type: Paragraph
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.code
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: code
             size: small
-            Label:
-              extra: Apply code style.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply code style.
         - id: block.properties.content
-          type: TextInput
+          type: TextArea
           defaultValue: |
             Cosmic fugue great turbulent clouds white dwarf radio telescope a mote of dust suspended in a sunbeam Vangelis. Star stuff harvesting star light the sky calls to us dispassionate extraterrestrial observer globular star cluster globular star cluster bits of moving fluff. The ash of stellar alchemy something incredible is waiting to be known the carbon in our apple pies with pretty stories for which there's little good evidence cosmic ocean something incredible is waiting to be known. White dwarf Hypatia extraplanetary Drake Equation at the edge of forever concept of the number one. Cambrian explosion gathered by gravity invent the universe dispassionate extraterrestrial observer invent the universe intelligent beings? Apollonius of Perga Orion's sword with pretty stories for which there's little good evidence with pretty stories for which there's little good evidence made in the interiors of collapsing stars with pretty stories for which there's little good evidence and billions upon billions upon billions upon billions upon billions upon billions upon billions.
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
-              extra: Paragraph text content.
+            rows: 5
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Paragraph text content.
         - id: block.properties.copyable
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: copyable
             size: small
-            Label:
-              extra: Provide copy text button.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Provide copy text button.
         - id: block.properties.delete
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: delete
             size: small
-            Label:
-              extra: Apply deleted (strikethrough) style.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Apply disabled style.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: ellipsis
             size: small
-            Label:
-              extra: Display ellipsis when text overflows a single line.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Display ellipsis when text overflows a single line.
         - id: block.properties.mark
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mark
             size: small
-            Label:
-              extra: Apply marked (highlighted) style.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply marked (highlighted) style.
         - id: block.properties.strong
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: strong
             size: small
-            Label:
-              extra: Apply strong (bold) style.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply strong (bold) style.
         - id: block.properties.type
           type: Selector
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             allowClear: true
             title: type
             size: small
-            Label:
-              extra: Additional types. Don't specify for default.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Additional types. Don't specify for default.
             options:
               - secondary
               - warning
               - danger
         - id: block.properties.underline
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: underline
             size: small
-            Label:
-              extra: Apply underline style.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply underline style.
 
       available_actions_description: |
         ###### No available actions.
@@ -146,8 +198,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -163,8 +215,8 @@ blocks:
 
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown

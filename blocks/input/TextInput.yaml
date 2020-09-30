@@ -2,201 +2,179 @@ id: TextInput
 type: PageSiderMenu
 public: true
 properties:
-  title: Text
+  title: TextInput
+actions:
+  onInit:
+    - id: initialize_state 
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Text Input
+      block_name: TextInput
+      value_type: String
       description_content: |
-        Text input block. The input to this field is saved in `state`, at the path name of the block.
+        The `TextInput` block is a single line text input.
       block_type: TextInput
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconPrefix:
-                      _parse:
-                        _state: style_prefix_icon_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_suffix_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_prefix_icon_input
-          type: TextArea
-          style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
-          defaultValue: "{}"
-          properties:
-            title: IconPrefix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
-          type: TextArea
-          style:
-            --span: 11
-            sm:
-              --span: 11
-            Label:
-              --span: 3
-          defaultValue: "{}"
-          properties:
-            title: IconSuffix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
-              extra: Allow the user to clear their input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
-              extra: Autofocus to the block on page load.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the block if true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.placeholder
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
-              extra: Placeholder text inside the block before user types input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user types input.
         - id: block.properties.prefix
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: prefix
             size: small
-            Label:
-              extra: Prefix text for the block, priority over IconPrefix.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Prefix text for the block, priority over prefixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconPrefix
-              icon_field_name: IconPrefix
+              icon_id: block.properties.prefixIcon
+              icon_field_name: prefixIcon
               icon_description: Icon to prefix the text input.
 
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the block.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
               - large
         - id: block.properties.suffix
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: suffix
             size: small
-            Label:
-              extra: Suffix text for the block, priority over IconSuffix.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Suffix text for the block, priority over suffixIcon.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
               icon_description: Icon to suffix the text input.
-
+        -  _ref: blocks/label.yaml
+        
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -209,121 +187,123 @@ blocks:
           blocks:
             - id: example_1
               type: TextInput
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Text input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "TextInput",
-                    "properties": {
-                      "title": "Text input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: TextInput
+                  properties:
+                    title: Text input
+                  ```
+        - id: example_req_card
+          type: Card
+          blocks:
+            - id: example_required
+              type: TextInput
+              required: true
+              layout:
+                span: 12
+              properties:
+                title: Required text input
+            - id: example_req_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_required
+                  type: TextInput
+                  required: true
+                  properties:
+                    title: Required text input
                   ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
               type: TextInput
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 placeholder: Placeholder
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "TextInput",
-                    "properties": {
-                      "placeholder": "Placeholder"
-                    }
-
-                  }
+                  ```yaml
+                  id: example_2
+                  type: TextInput
+                  properties:
+                    placeholder: Placeholder
                   ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
               type: TextInput
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
-                Label:
+                label:
                   extra: Prefix and suffix text
                 prefix: The cat
                 suffix: the rat.
                 placeholder: chased
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "TextInput",
-                    "properties": {
-                      "prefix": "The cat",
-                      "suffix": "the rat.",
-                      "placeholder": "chased",
-                      "Label": {
-                        "extra": "Prefix and suffix text"
-                      },
-                    }
-
-                  }
+                  ```yaml
+                  id: example_3
+                  type: TextInput
+                  properties:
+                    prefix: The cat
+                    suffix: the rat.
+                    placeholder: chased
+                    label:
+                      extra: Prefix and suffix text
                   ```
         - id: example_4_card
           type: Card
           blocks:
             - id: example_4
               type: TextInput
-              style:
-                --span: 6
-                Label:
-                  --span: 3
+              layout:
+                span: 12
               properties:
                 title: First Name
-                IconSuffix: UserOutlined
+                suffixIcon: UserOutlined
                 placeholder: Your name
-                Label:
+                label:
+                  span: 6
                   extra: Place label next to block and add suffix icon.
             - id: example_4_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_4",
-                    "type": "TextInput",
-                    "style": { 
-                      "Label": {
-                        "--span": 3
-                      }
-                    },
-                    "properties": {
-                      "title": "First Name",
-                      "IconSuffix": "UserOutlined",
-                      "placeholder": "Your name",
-                      "Label": {
-                        "extra": "Place label next to block and add suffix icon."
-                      },
-                    }
-                  }
+                  ```yaml
+                  id: example_4
+                  type: TextInput
+                  properties:
+                    title: First Name
+                    suffixIcon: UserOutlined
+                    placeholder: Your name
+                    label:
+                      span: 6
+                      extra: Place label next to block and add suffix icon.
                   ```

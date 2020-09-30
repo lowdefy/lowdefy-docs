@@ -1,0 +1,76 @@
+id: _mql_aggregate
+type: PageSiderMenu
+public: true
+properties:
+  title: MQL Aggregate
+
+actions:
+  onInit:
+    - id: set_state
+      type: SetState
+      params:
+        string: A string value
+        boolean: true
+        # date:
+        #   _date: now
+        array_primitive:
+          - 1
+          - 2.5
+          - 3000
+        array_object:
+          - test: true
+            name: Adam
+            value: 10
+          - test: false
+            name: Bob
+            value: 50
+          - test: true
+            name: Carl
+            value: 1000
+        object:
+          string: text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _mql_aggregate
+      description_content: |
+        The `_mql_aggregate` operator allows you to execute a MongoDB Aggregation on an array or object and returns the results of the aggregation pipeline as an array. Makes use of [mingo](https://github.com/kofrasa/mingo).
+
+        >Other MQL operators are _mql_expr and _mql_test
+
+        #### Parameters
+        `_mql_aggregate` takes two parameters:
+
+        - `on` : The array or object on which the aggregation will be run.
+        - `pipeline` : The [MongoDB Aggregation](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/) pipeline.
+      operator_height: 300
+      operator_default: |
+        pipeline:
+          - $match:
+              test: true
+          - $project:
+              name: 1
+        on:
+          - test: true
+            name: Alice
+          - test: false
+            name: Bob
+          - test: true
+            name: Carl
+      operator_setup:
+        _load_yaml:
+          _state: operator
+      operator_output:
+        _mql_aggregate: 
+          _load_yaml:
+            _state: operator
+      
+      # examples:

@@ -2,83 +2,67 @@ id: RadioSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Radio
+  title: RadioSelector
 actions:
   onInit:
-    - id: initialize_state 
-      type: setState()
+    - id: initialize_state
+      type: SetState
       params:
-        block:
-          properties:
-            options:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties:
+          - k: options
+            v:
               - primitive: Option 1
                 value: Value1
                 label: Label 1
               - primitive: Option 2
                 value: Value2
                 label: Label 2
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Radio Input
+      block_name: RadioSelector
+      value_type: Any
       description_content: |
-        Radio input block. Allows a user to select a single value from a set of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+        The `RadioSelector` block is a set of radio buttons that allow a user to select a single value from a set of options.
 
-        >Other selector blocks are checkbox_input, select_input, multiple_select_input and ButtonSelector
+        The options for the selector can be provides as either an array of primitive values (Strings, numbers, booleans or dates), or as an array of label-value pairs, where the label is a string, and the value can be of any type, including objects like dates and arrays.
+
+        > Other selector blocks are `ButtonSelector`, `CheckboxSelector`, `MultipleSelector` and `Selector`.
       block_type: RadioSelector
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _if:
           test:
@@ -87,8 +71,8 @@ blocks:
               - Primitive
           then:
             _get:
-              key: "0"
-              on:
+              key: '0'
+              from:
                 _mql_aggregate:
                   pipeline:
                     - $addFields:
@@ -100,24 +84,41 @@ blocks:
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Selected radio color.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the block if true.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: select_options_type_card
           type: Card
           blocks:
@@ -127,13 +128,13 @@ blocks:
               properties:
                 title: Options Type
                 size: small
-                Label:
+                label:
                   extra: Selector options can either be an array of primitive values, on an array of label, value pairs.
                 options:
                   - Primitive
                   - Label Value
         - id: block.properties.options
-          type: List
+          type: ControlledList
           required: true
           properties:
             title: 'options:'
@@ -146,47 +147,59 @@ blocks:
                 _mql_test:
                   select_options_type: Primitive
               properties:
+                title: options.$
                 size: small
+                label:
+                  inline: true
             - id: block.properties.options.$.label
               type: TextInput
               defaultValue: Label
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: label
                 size: small
-                Label:
-                  extra: Label shown to user.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Label shown to user.
             - id: block.properties.options.$.value
               type: TextInput
               defaultValue: Value
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: value
                 size: small
-                Label:
-                  extra: Value selected.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Value selected.
             - id: block.properties.options.$.disabled
               type: Switch
               defaultValue: false
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               visible:
                 _mql_test:
                   select_options_type: Label Value
               properties:
                 title: disabled
                 size: small
-                Label:
-                  extra: Disable the option if true.
-
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Disable the option if true.
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -197,8 +210,8 @@ blocks:
           blocks:
             - id: example_1
               type: RadioSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Primitive options
                 options:
@@ -207,31 +220,32 @@ blocks:
                   - C
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "RadioSelector",
-                    "properties": {
-                      "title": "Primitive options"
-                      "options": [ "A", "B", "C" ]
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: RadioSelector
+                  properties:
+                    title: Primitive options
+                    options:
+                      - A
+                      - B
+                      - C
+                  ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
               type: RadioSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue:
                 - C
               properties:
                 title: Object options
-                Label:
+                label:
                   extra: Value-Label object options and default value.
                 options:
                   - value: A
@@ -242,46 +256,36 @@ blocks:
                     label: Celeborn
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "RadioSelector",
-                    "defaultValue": "C",
-                    "properties": {
-                      "title": "Object options",
-                      "Label": {
-                        "extra": "Value-Label object options and default value."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir"
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: RadioSelector
+                  defaultValue: C
+                  properties:
+                    title: Object options
+                    label:
+                      extra: Value-Label object options and default value.
+                    options:
+                      - value: A
+                        label: Aragorn
+                      - value: B
+                        label: Boromir
+                      - value: C
+                        label: Celebron
+                  ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
               type: RadioSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Disable options
-                Label:
+                label:
                   extra: Disable individual options.
                 options:
                   - value: A
@@ -295,37 +299,25 @@ blocks:
                     label: Denethor
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "RadioSelector",
-                    "properties": {
-                      "title": "Disable options",
-                      "Label": {
-                        "extra": "Disable individual options."
-                      },
-                      "options": [
-                        {
-                          "value": "A",
-                          "label": "Aragorn"
-                        },
-                        {
-                          "value": "B",
-                          "label": "Boromir",
-                          "disabled": true
-                        },
-                        {
-                          "value": "C",
-                          "label": "Celebron"
-                        },
-                        {
-                          "value": "D",
-                          "label": "Denethor"
-                        }
-                      ]
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: RadioSelector
+                  properties:
+                    title: Disable options
+                    label:
+                      extra: Disable individual options.
+                    options:
+                    - value: A
+                      label: Aragorn
+                    - value: B
+                      label: Boromir
+                      disabled: true
+                    - value: C
+                      label: Celebron
+                    - value: D
+                      label: Denethor
+                  ```

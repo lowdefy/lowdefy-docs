@@ -2,130 +2,131 @@ id: ColorSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Color Picker
+  title: ColorSelector
 actions:
   onInit:
     - id: initialize_state 
-      type: setState()
+      type: SetState
       params:
-        block:
-          properties:
-            colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+        # block:
+        #   properties:
+        #     colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: circleSize
+            v: 28
+          - k: circleSpacing
+            v: 14
+          - k: type
+            v: circle
+          - k: width
+            v: 100%
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties:
+          - k: colors
+            v: ["#f44336", "#673ab7", "#3f51b5", "#2196f3", "#009688", "#4caf50",  "#ffeb3b", "#ffc107", "#795548", "#607d8b"]
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Color Picker Input
+      block_name: ColorSelector
+      value_type: String
       description_content: |
-        Color picker input block. Allows a user to select a color as a hex string. Different types of pickers are available.
+        The `ColorSelector` block allows a user to select a color as a hex string. Different types are available, some only allow the user to choose from a specified list, while others allow the user to specify any color.
       block_type: ColorSelector
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.circleSize
           type: NumberInput
-          defaultValue: 28
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: circleSize
             size: small
-            Label:
-              extra: Pixel value for circle size, only available for type circle.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Pixel value for circle size, only available for type circle.
         - id: block.properties.circleSpacing
           type: NumberInput
-          defaultValue: 14
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: circleSpacing
             size: small
-            Label:
-              extra: Pixel value for spacing between circles, only available for type circle.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Pixel value for spacing between circles, only available for type circle.
         - id: block.properties.colors
-          type: List
+          type: ControlledList
           properties:
             title: 'colors:'
-            size: small         
+            size: small
           blocks:
             - id: block.properties.colors.$
               type: TextInput
               defaultValue: '#000000'
               properties:
-                Label:
-                  disable: true
+                label:
+                  disabled: true
         - id: block.properties.type
           type: ButtonSelector
-          defaultValue: circle
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
-            Label:
-              extra: Type of picker.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Type of picker.
             options:
               - block
               - chrome
@@ -133,16 +134,18 @@ blocks:
               - twitter
         - id: block.properties.width
           type: TextInput
-          defaultValue: 100%
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: width
             size: small
-            Label:
-              extra: Pixel value for picker width.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Pixel value for picker width.
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChangeComplete
         Triggered when value is changed. Only fires once drag action has been completed.
 
-      examples:

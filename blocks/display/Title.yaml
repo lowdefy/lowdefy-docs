@@ -3,6 +3,49 @@ type: PageSiderMenu
 public: true
 properties:
   title: Title
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: code
+            v: false
+          - k: copyable
+            v: false
+          - k: delete
+            v: false
+          - k: disabled
+            v: false
+          - k: ellipsis
+            v: false
+          - k: mark
+            v: false
+          - k: level
+            v: 1
+          - k: underline
+            v: false
+        init_properties:
+          - k: content
+            v: Title
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,95 +55,107 @@ blocks:
         A title component. Corresponds to html h1, h2, h3 and h4 elements
       block_type: Title
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.code
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: code
             size: small
-            Label:
-              extra: Apply code style.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply code style.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title color.
         - id: block.properties.content
           type: TextInput
-          defaultValue: Title
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: content
             size: small
-            Label:
-              extra: Title text content.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title text content.
         - id: block.properties.copyable
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: copyable
             size: small
-            Label:
-              extra: Provide copy text button.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Provide copy text button.
         - id: block.properties.delete
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: delete
             size: small
-            Label:
-              extra: Apply deleted (strikethrough) style.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply deleted (strikethrough) style.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Apply disabled style.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply disabled style.
         - id: block.properties.ellipsis
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: ellipsis
             size: small
-            Label:
-              extra: Display ellipsis when text overflows.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Display ellipsis when text overflows.
         - id: block.properties.level
           type: ButtonSelector
-          defaultValue: 1
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: level
             size: small
-            Label:
-              extra: Set title type. Matches with h1, h2, h3 and h4.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set title type. Matches with h1, h2, h3 and h4.
             options:
               - 1
               - 2
@@ -108,39 +163,45 @@ blocks:
               - 4
         - id: block.properties.mark
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mark
             size: small
-            Label:
-              extra: Apply marked (highlighted) style.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply marked (highlighted) style.
         - id: block.properties.type
           type: Selector
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             allowClear: true
             title: type
             size: small
-            Label:
-              extra: Additional types. Don't specify for default.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Additional types. Don't specify for default.
             options:
               - secondary
               - warning
               - danger
         - id: block.properties.underline
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: underline
             size: small
-            Label:
-              extra: Apply underline style.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Apply underline style.
 
       available_actions_description: |
         ###### No available actions.
-

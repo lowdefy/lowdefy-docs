@@ -1,0 +1,66 @@
+id: _type
+type: PageSiderMenu
+public: true
+properties:
+  title: Type
+
+actions:
+  onInit:
+    - id: set_state
+      type: SetState
+      params:
+        string: A string value
+        boolean: true
+        date:
+          _date: "2020-01-01"
+        array:
+          - 1
+          - 2.5
+          - 3000
+        object:
+          string: text
+          boolean: false
+          date:
+            _date: "2000-01-01"
+          array:
+            - A
+            - B
+            - C
+
+blocks:
+  _ref: 
+    path: operators/template_operators.yaml
+    vars:
+      operator_name: _type
+      description_content: |
+        The `_type` operator evaluates whether a given field is of a certain type and returns true or false.
+
+        #### Parameters
+        `_type` takes two parameters but can also be written in short-hand notation. The parameters are:
+
+        - `on` : The field on which to evaluate the type.
+        - `type` : The type to check.
+          - `array`
+          - `boolean`
+          - `integer`
+          - `none`
+          - `null`
+          - `number`
+          - `object`
+          - `primitive` : Any type that is not an `array` or `object`.
+          - `string`
+          - `undefined`
+
+      operator_default: |
+        type: array
+        on: [1,2,3]
+      operator_setup:
+        _load_yaml:
+          _state: operator
+      operator_output:
+        _type: 
+          _load_yaml:
+            _state: operator
+      
+      # examples:
+ 

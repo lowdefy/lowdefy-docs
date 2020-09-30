@@ -1,0 +1,136 @@
+id: CodeEditor
+type: PageSiderMenu
+public: true
+properties:
+  title: CodeEditor
+actions:
+  onInit:
+    - id: initialize_state 
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: height
+            v: 300
+          - k: language
+            v: yaml
+          - k: theme
+            v: vs-dark
+          - k: options
+            v: |
+              {
+                "tabSize": 2,
+                "readOnly": false,
+                "minimap": {
+                  "enabled": false
+                },
+                "showFoldingControls": "always"
+              }
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
+blocks:
+  _ref:
+    path: blocks/template.yaml
+    vars:
+      block_name: CodeEditor
+      value_type: String
+      description_content: |
+        A code editor input component based on the [Monaco Code Editor](https://github.com/Microsoft/monaco-editor). The Monaco Editor is the code editor used by VS Code. The editor supports a wide range of options. These options can be found [here](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html).
+      block_type: CodeEditor
+      label: false
+      category: input
+      properties_transform:
+        _get:
+          key: "0"
+          from:
+            _mql_aggregate:
+              pipeline:
+                - $addFields:
+                    options:
+                      _parse:
+                        _state: block.properties.options
+              on:
+                _state: block.properties
+      properties_form:
+        - id: block.properties.height
+          type: NumberInput
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: height
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Height of the code editor.
+        - id: block.properties.language
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: language
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Code language.
+            options:
+              - yaml
+              - json
+        - id: block.properties.theme
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: theme
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color theme.
+            options:
+              - vs-dark
+              - vs-light
+        - id: block.properties.options
+          type: TextArea
+          # defaultValue: |
+          #   {
+          #     "tabSize": 2,
+          #     "readOnly": false,
+          #     "minimap": {
+          #       "enabled": false
+          #     },
+          #     "showFoldingControls": "always"
+          #   }
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: options
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+      available_actions_description: |
+        ###### onChange
+        Triggered when value is changed.
+
+      examples: []

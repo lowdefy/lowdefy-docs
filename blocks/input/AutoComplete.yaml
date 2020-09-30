@@ -2,145 +2,151 @@ id: AutoComplete
 type: PageSiderMenu
 public: true
 properties:
-  title: Auto Complete
+  title: AutoComplete
 actions:
   onInit:
     - id: initialize_state 
-      type: setState()
+      type: SetState
       params:
-        block:
-          properties:
-            options:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: autoFocus
+            v: false
+          - k: defaultActiveFirstOption
+            v: false
+          - k: defaultOpen
+            v: false
+          - k: allowClear
+            v: true
+          - k: placeholder
+            v: Type or select item
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties:
+          - k: options
+            v:
               - Option 1
               - Option 2
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Auto Complete Input
+      block_name: AutoComplete
+      value_type: String
       description_content: |
-        Auto complete input block. Allows a user to select a single value from a set of options, or type in a value not in the set list of options. Values can be any primitive type. The input to this field is saved as a primitive type in `state`, at the path name of the block.
+        The AutoComplete block is a text input that has a list of suggestions for the user. These suggestions are filtered as the user fills in the input. The user is also allowed to fill in an input not part of that list.
 
-        >Other selector blocks are checkbox_input, select_input, multiple_select_input, RadioSelector and ButtonSelector
+        >If you need the user to select only from a list of options, use a block like the `Selector` block instead.
       block_type: AutoComplete
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
-              extra: Allow the user to clear the selected value, sets the value to null.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear the selected value, sets the value to null.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
-              extra: Autofocus to the block on page load.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.defaultActiveFirstOption
           type: Switch
-          defaultValue: true
-          style:
-            Label:
-              --span: 4
+          layout:
+            _global: settings_input_layout
           properties:
             title: defaultActiveFirstOption
             size: small
-            Label:
-              extra: Makes the first option in the selection list active when true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  span: 12
+                  extra: Makes the first option in the selection list active when true.
         - id: block.properties.defaultOpen
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: defaultOpen
             size: small
-            Label:
-              extra: Initial open state of dropdown.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Initial open state of dropdown.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disables the block if true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disables the block if true.
         - id: block.properties.options
-          type: List
+          type: ControlledList
           required: true
           properties:
             title: 'options:'
@@ -152,28 +158,34 @@ blocks:
                 size: small
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select item
-          style:
-            _global: settings_input_style
+          defaultValue: Type or select item
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
-              extra: Placeholder text inside the block before user selects input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user selects input.
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the block.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
               - large
+        - _ref: blocks/label.yaml
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.

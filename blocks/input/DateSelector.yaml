@@ -2,166 +2,170 @@ id: DateSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Date
+  title: DateSelector
+actions:
+  onInit:
+    - id: initialize_state 
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: format
+            v: "YYYY-MM-DD"
+          - k: showToday
+            v: true
+          - k: suffixIcon
+            v: CalendarOutlined
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: placeholder
+            v: Select Date
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Input
+      block_name: DateSelector
+      value_type: Date
       description_content: |
-        Date picker input block. Allows a user to select a single date from a calender form. The input to this field is saved as a Date type in state, at the path name of the block.
+        The `DateSelector` block allows a user to select a date from a calender.
 
-        >Other date type blocks are date_time_input, week_input, month_input and date_range_input.
+        >Other date type blocks are `DateRangeSelector`, `DateTimeSelector`, `MonthSelector` and `WeekSelector`.
       block_type: DateSelector
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_suffix_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconSuffix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
-              extra: Allow the user to clear their input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
-              extra: Autofocus to the block on page load.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the block if true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.format
           type: TextInput
-          defaultValue: YYYY-MM-DD
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: format
             size: small
-            Label:
-              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder
           type: TextInput
-          defaultValue: Select Date
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: placeholder
             size: small
-            Label:
-              extra: Placeholder text inside the block before user selects input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user selects input.
         - id: block.properties.showToday
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: showToday
             size: small
-            Label:
-              extra: Shows a button to easily select the current date if true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shows a button to easily select the current date if true.
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the block.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
@@ -169,11 +173,11 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
-              default_icon: CalendarOutlined
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
               icon_description: Icon on right-hand side of the date input.
-
+        - _ref: blocks/label.yaml
+        
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
@@ -184,88 +188,79 @@ blocks:
           blocks:
             - id: example_1
               type: DateSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Date input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "date_input",
-                    "properties": {
-                      "title": "Date input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: DateSelector
+                  properties:
+                    title: Date input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
               type: DateSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
-                title: showToday and IconSuffix
+                title: showToday and suffixIcon
                 showToday: false
-                IconSuffix: FilterOutlined
-                Label:
+                suffixIcon: FilterOutlined
+                label:
                   extra: Disable Today button and change the suffix icon.
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "date_input",
-                    "properties": {
-                      "title": "showToday and suffix_icon",
-                      "showToday": false,
-                      "IconSuffix": "FilterOutlined",
-                      "label": {
-                        "extra": "Disable Today button and change the suffix icon"
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: DateSelector
+                  properties:
+                    title: showToday and suffix_icon
+                    showToday: false
+                    suffixIcon: FilterOutlined
+                    label:
+                      extra: Disable Today button and change the suffix icon
+                  ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
               type: DateSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue:
                 _date: 1993-02-02
               properties:
                 title: Date format
                 format: D MMMM YYYY
-                Label:
+                label:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "date_input",
-                    "defaultValue": { 
-                      "_date": "1993-02-02" 
-                    },
-                    "properties": {
-                      "title": "Date format",
-                      "format": "D MMMM YYYY",
-                      "label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: DateSelector
+                  defaultValue:
+                    _date: '1993-02-02'
+                  properties:
+                    title: Date format
+                    format: D MMMM YYYY
+                    label:
+                      extra: Default date and custom date format.
+                  ```

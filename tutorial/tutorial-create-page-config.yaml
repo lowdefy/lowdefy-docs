@@ -1,0 +1,34 @@
+id: tutorial-create-page-config
+type: PageSiderMenu
+public: true
+properties:
+  title: Creating a page config
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
+    list:
+      - Tutorial
+      - Creating a page config
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Creating a page config
+          buttons: false
+          content:
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-create-page-config-1.md

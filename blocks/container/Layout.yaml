@@ -6,7 +6,7 @@ properties:
 actions:
   onInit:
     - id: init
-      type: setState()
+      type: SetState
       params:
         _ref: blocks/html_blocks.yaml
 blocks:
@@ -28,19 +28,14 @@ blocks:
       grid_style_form:
         - id: grid_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "grid"
-              } 
-            }
+          layout:
+            _global: settings_input_layout
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       grid_properties_form: []
       flex_style:
@@ -49,19 +44,14 @@ blocks:
       flex_style_form:
         - id: flex_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "flex"
-              } 
-            }
+          layout:
+            _global: settings_input_layout
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       flex_properties_form: []
       
@@ -71,19 +61,14 @@ blocks:
       block_style_form:
         - id: block_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "block"
-              } 
-            }
+          layout:
+            _global: settings_input_layout
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       block_properties_form: []
       
@@ -93,19 +78,14 @@ blocks:
       inlineBlock_style_form:
         - id: inlineBlock_style_input
           type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: |
-            {
-              "Content": {
-                "--display": "inline-block"
-              } 
-            }
+          layout:
+            _global: settings_input_layout
           properties:
             title: block
             rows: 3
             size: small
-            Label:
+            label:
+              span: 8
               extra: CSS Object style properties. Should be in JSON format.
       inlineBlock_properties_form: []
               

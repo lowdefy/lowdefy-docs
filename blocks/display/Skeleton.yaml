@@ -3,6 +3,43 @@ type: PageSiderMenu
 public: true
 properties:
   title: Skeleton
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: active
+            v: false
+          - k: round
+            v: false
+          - k: avatar
+            v: false
+          - k: button
+            v: false
+          - k: paragraph
+            v: true
+          - k: title
+            v: true
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 
 blocks:
   _ref:
@@ -13,26 +50,11 @@ blocks:
         Skeleton block.
       block_type: Skeleton
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _get:
           key: "0"
-          on:
+          from:
             _mql_aggregate:
               pipeline:
                 - $addFields:
@@ -43,6 +65,13 @@ blocks:
                             - Boolean
                         - $avatar.boolean
                         - $avatar
+                    button:
+                      $cond:
+                        - _eq:
+                            - _state: skeleton_button_type
+                            - Boolean
+                        - $button.boolean
+                        - $button
                     paragraph:
                       $cond:
                         - _eq:
@@ -64,14 +93,16 @@ blocks:
       properties_form:
         - id: block.properties.active
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: active
             size: small
-            Label:
-              extra: Show animation effect.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show animation effect.
         - id: skeleton_avatar_type_card
           type: Card
           blocks:
@@ -81,7 +112,7 @@ blocks:
               properties:
                 title: Avatar Type
                 size: small
-                Label:
+                label:
                   extra: Skeleton avatar can either be a boolean or an object with size and shape properties.
                 options:
                   - Boolean
@@ -89,20 +120,23 @@ blocks:
         - id: block.properties.avatar.boolean
           type: Switch
           defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               skeleton_avatar_type: Boolean
           properties:
             title: avatar
             size: small
-            Label:
-              extra: Show avatar placeholder.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show avatar placeholder.
         - id: block.properties.avatar.shape
           type: ButtonSelector
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           visible:
             _mql_test:
               skeleton_avatar_type: Object
@@ -110,15 +144,18 @@ blocks:
           properties:
             title: avatar.shape
             size: small
-            Label:
-              extra: The shape of the avatar.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The shape of the avatar.
             options:
               - circle
               - square
         - id: block.properties.avatar.size
           type: ButtonSelector
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           visible:
             _mql_test:
               skeleton_avatar_type: Object
@@ -126,12 +163,87 @@ blocks:
           properties:
             title: avatar.size
             size: small
-            Label:
-              extra: The size of the avatar.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The size of the avatar.
             options:
               - small
               - default
               - large
+
+        - id: skeleton_button_type_card
+          type: Card
+          blocks:
+            - id: skeleton_button_type
+              type: ButtonSelector
+              defaultValue: Boolean
+              properties:
+                title: Button Type
+                size: small
+                label:
+                  extra: Skeleton button can either be a boolean or an object with size and shape properties.
+                options:
+                  - Boolean
+                  - Object
+        - id: block.properties.button.boolean
+          type: Switch
+          defaultValue: false
+          layout:
+            _global: settings_input_layout
+          visible:
+            _mql_test:
+              skeleton_button_type: Boolean
+          properties:
+            title: button
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show button placeholder.
+        - id: block.properties.button.shape
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout_indent
+          visible:
+            _mql_test:
+              skeleton_button_type: Object
+          defaultValue: circle
+          properties:
+            title: button.shape
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The shape of the button.
+            options:
+              - circle
+              - round
+              - default
+        - id: block.properties.button.size
+          type: ButtonSelector
+          layout:
+            _global: settings_input_layout_indent
+          visible:
+            _mql_test:
+              skeleton_button_type: Object
+          defaultValue: default
+          properties:
+            title: button.size
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The size of the button.
+            options:
+              - small
+              - default
+              - large
+
         - id: skeleton_paragraph_type_card
           type: Card
           blocks:
@@ -141,7 +253,7 @@ blocks:
               properties:
                 title: Paragraph Type
                 size: small
-                Label:
+                label:
                   extra: Skeleton paragraph can either be a boolean or an object with paragraph size properties.
                 options:
                   - Boolean
@@ -149,20 +261,23 @@ blocks:
         - id: block.properties.paragraph.boolean
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               skeleton_paragraph_type: Boolean
           properties:
             title: paragraph
             size: small
-            Label:
-              extra: Show paragraph placeholder.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show paragraph placeholder.
         - id: block.properties.paragraph.rows
           type: NumberInput
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           visible:
             _mql_test:
               skeleton_paragraph_type: Object
@@ -170,12 +285,15 @@ blocks:
           properties:
             title: paragraph.rows
             size: small
-            Label:
-              extra: The number of rows in the skeleton paragraph.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The number of rows in the skeleton paragraph.
         - id: block.properties.paragraph.width
           type: NumberInput
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           visible:
             _mql_test:
               skeleton_paragraph_type: Object
@@ -183,8 +301,11 @@ blocks:
           properties:
             title: paragraph.width
             size: small
-            Label:
-              extra: Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width. Can be numbers or strings.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width. Can be numbers or strings.
         - id: skeleton_title_type_card
           type: Card
           blocks:
@@ -194,7 +315,7 @@ blocks:
               properties:
                 title: Title Type
                 size: small
-                Label:
+                label:
                   extra: Skeleton title can either be a boolean or an object with size properties.
                 options:
                   - Boolean
@@ -202,20 +323,23 @@ blocks:
         - id: block.properties.title.boolean
           type: Switch
           defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           visible:
             _mql_test:
               skeleton_title_type: Boolean
           properties:
             title: title
             size: small
-            Label:
-              extra: Show title placeholder.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show title placeholder.
         - id: block.properties.title.width
           type: NumberInput
-          style:
-            _global: settings_input_style_indent
+          layout:
+            _global: settings_input_layout_indent
           visible:
             _mql_test:
               skeleton_title_type: Object
@@ -223,8 +347,11 @@ blocks:
           properties:
             title: title.width
             size: small
-            Label:
-              extra: Set the width of title. Can be a number or string.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set the width of title. Can be a number or string.
       available_actions_description: |
         ###### onClick
         Triggered when the button is clicked.
@@ -235,8 +362,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -247,27 +374,24 @@ blocks:
                   type: Skeleton
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_1",
-                        "type": "skeleton"
-                        }
-                      }
+                      ```yaml
+                      id: example_1
+                      type: Skeleton
                       ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_title
                   type: Markdown
@@ -280,30 +404,26 @@ blocks:
                     active: false
             - id: example_2_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_2",
-                        "type": "skeleton",
-                        "properties": {
-                          "active": false
-                        }
-                        }
-                      }
+                      ```yaml
+                      id: example_2
+                      type: Skeleton
+                      properties:
+                        active: false
                       ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_title
                   type: Markdown
@@ -317,21 +437,17 @@ blocks:
                     title: false
             - id: example_3_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_3",
-                        "type": "skeleton",
-                        "properties": {
-                          "avatar": true,
-                          "title": false
-                        }
-                        }
-                      }
+                      ```yaml
+                      id: example_3
+                      type: Skeleton
+                      properties:
+                        avatar: true
+                        title: false
                       ```

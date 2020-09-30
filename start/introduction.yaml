@@ -3,42 +3,62 @@ type: PageSiderMenu
 public: true
 properties:
   title: Introduction
-  breadcrumb:
-    list:
-      - Getting Started
-      - Introduction
-blocks:
-  - id: card
-    type: Card
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+areas:
+  content:
+    justify: center
     blocks:
-      - id: markdown
-        type: Markdown
-        properties:
-          content: |
-            # Introduction
+      - id: max_width
+        type: Box
+        layout:
+          size: 800
+          contentGutter: 16
+        blocks:
+          - id: title
+            type: Title
+            properties:
+              content: Introduction
+          - id: markdown
+            type: Markdown
+            style:
+              '.markdown-body':
+                fontSize: 14px
+            properties:
+              content:
+                _ref: start/introduction.md
 
-            Lowdefy allows you to create and publish a web app in minutes.
-
-            Think of Lowdefy as everything you need to create a UI and talk to your data. Our goal is to make it as simple as possible to create data enriched web apps.
-
-            To do this, we automate and standardize all elements between what your users interacts with, _blocks_, and your data _connections_.
-
-            Everything on Lowdefy is standard in, standard out. So you do not have to stress about keeping all the bits in the right place.
-
-            ### Blocks
-
-            A block is a front end component like a chart, table or form component. Each block has a set of properties which defines how that block is rendered and behaves. When using libraries like amCharts or ag-Grid, the properties of the block are used directly by that library. We try to make all features of the library available, and any examples or documentation that are available for that library, applicable.
-
-            ### Connections
-
-            A connection is a link to an outside service, like a database or REST API. Secrets for these connections are stored securely using AWS Secrets Manager, and never stored in the project repository. The various connection types support different requests, like database queries or API calls.
-
-            ### GitHub Integration
-
-            Lowdefy apps live in a GitHub repository, as `JSON` or `YAML` configuration files. If changes are made to the files in the repository, the app is updated accordingly.
-
-            ### Get Started
-
-            **The easiest way to get started with Lowdefy is to follow the [quick start guide](quick-start) and fiddle with the blocks. We'd love to know if you are surprised by the simplicity** 🚀
-
-            <a href="https://twitter.com/intent/tweet?screen_name=lowdefy&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-text="Wow! @lowdefy makes building web apps and internal tools so easy." data-related="@lowdefy" data-show-count="false">Tweet to @lowdefy</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          - id: nav_buttons
+            type: Box
+            style:
+              paddingTop: 60px
+              paddingBottom: 80px
+            blocks:
+              - id: previous_button_placeholder
+                type: Box
+                layout:
+                  span: 12
+              - id: next_button
+                type: Button
+                properties:
+                  block: true
+                  hideActionLoading: true
+                  icon: RocketOutlined
+                  size: large
+                  title: Start the tutorial
+                  type: primary
+                actions:
+                  onClick:
+                    - id: link_forward
+                      type: Link
+                      params:
+                        pageId: tutorial-setup
+                    - id: scroll_to_top
+                      type: ScrollTo
+                      params:
+                        top: 0

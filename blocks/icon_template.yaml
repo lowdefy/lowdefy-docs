@@ -1,8 +1,8 @@
 id: 
   _var: icon_id
 type: Selector
-style:
-  _global: settings_input_style
+layout:
+  _global: settings_input_layout
 defaultValue: 
   _var: default_icon
 properties:
@@ -13,12 +13,15 @@ properties:
   allowClear: true
   options:
     _global: all_icons
-  Label:
-    extra:
-      _if:
-        test: 
-          _not: 
-            _var: icon_description
-        then: Name of icon to be displayed.
-        else: 
-          _var: icon_description
+  label:
+    _ref: 
+      path: blocks/label_extra.yaml
+      vars:
+        extra:
+          _if:
+            test: 
+              _not: 
+                _var: icon_description
+            then: Name of icon to be displayed.
+            else: 
+              _var: icon_description

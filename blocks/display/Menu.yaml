@@ -5,29 +5,42 @@ properties:
   title: Menu
 actions:
   onInit:
-    - id: initialize_state 
-      type: setState()
+    - id: init
+      type: SetState
       params:
-        block:
-          properties:
-            links:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: mode
+            v: vertical
+          - k: selectable
+            v: true
+          - k: theme
+            v: dark
+          - k: selectedKeys
+            v: []
+        init_properties:
+          - k: links
+            v:
               - id: page_1
                 type: MenuLink
                 pageId: page_1
                 properties:
                   title: Page 1
-                  Icon: FlagOutlined
+                  icon: FlagOutlined
               - id: page_2
                 type: MenuLink
                 pageId: page_2
                 properties:
                   title: Page 2
-                  Icon: FileOutlined
               - id: page_3
                 type: MenuGroup
                 properties:
                   title: Group 3
-                  Icon: RocketOutlined
+                  icon: RocketOutlined
                 links:
                   - id: page_3_1
                     type: MenuLink
@@ -49,7 +62,67 @@ actions:
                 pageId: page_4
                 properties:
                   title: Page 4
-                  Icon: UserOutlined
+                  icon: UserOutlined
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
+# actions:
+#   onInit:
+#     - id: initialize_state
+#       type: SetState
+#       params:
+#         block:
+#           properties:
+#             links:
+#               - id: page_1
+#                 type: MenuLink
+#                 pageId: page_1
+#                 properties:
+#                   title: Page 1
+#                   icon: FlagOutlined
+#               - id: page_2
+#                 type: MenuLink
+#                 pageId: page_2
+#                 properties:
+#                   title: Page 2
+#                   icon: FileOutlined
+#               - id: page_3
+#                 type: MenuGroup
+#                 properties:
+#                   title: Group 3
+#                   icon: RocketOutlined
+#                 links:
+#                   - id: page_3_1
+#                     type: MenuLink
+#                     pageId: page_3_1
+#                     properties:
+#                       title: Page 3.1
+#                   - id: page_3_2
+#                     type: MenuLink
+#                     pageId: page_3_2
+#                     properties:
+#                       title: Page 3.2
+#                   - id: page_3_3
+#                     type: MenuLink
+#                     pageId: page_3_3
+#                     properties:
+#                       title: Page 3.3
+#               - id: page_4
+#                 type: MenuLink
+#                 pageId: page_4
+#                 properties:
+#                   title: Page 4
+#                   icon: UserOutlined
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -59,58 +132,76 @@ blocks:
         A menu block used to display page links.
       block_type: Menu
       label: false
-      kind: display
-      style_transform:
-        _parse:
-          _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
+        - id: block.properties.backgroundColor
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: backgroundColor
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Menu background color.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Menu primary color.
         - id: block.properties.mode
           type: ButtonSelector
-          defaultValue: vertical
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: mode
             size: small
-            Label:
-              extra: Type of menu to render.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Type of menu to render.
             options:
               - vertical
               - horizontal
               - inline
         - id: block.properties.selectable
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: selectable
             size: small
-            Label:
-              extra: Allows selecting menu items.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allows selecting menu items.
         - id: block.properties.selectedKeys
           type: MultipleSelector
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: selectedKeys
             size: small
-            Label:
-              extra: Array with the keys of currently selected menu items.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Array with the keys of currently selected menu items.
             options:
               - page_1
               - page_2
@@ -121,37 +212,45 @@ blocks:
               - page_5
         - id: block.properties.subMenuCloseDelay
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: subMenuCloseDelay
             size: small
-            Label:
-              extra: Delay time to hide submenu when mouse leaves (in seconds).
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Delay time to hide submenu when mouse leaves (in seconds).
         - id: block.properties.subMenuOpenDelay
           type: NumberInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: subMenuOpenDelay
             size: small
-            Label:
-              extra: Delay time to show submenu when mouse enters (in seconds).
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Delay time to show submenu when mouse enters (in seconds).
         - id: block.properties.theme
           type: ButtonSelector
-          defaultValue: dark
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: theme
             size: small
-            Label:
-              extra: Color theme of menu.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Color theme of menu.
             options:
               - dark
               - light
         - id: block.properties.links
-          type: List
+          type: ControlledList
           properties:
             title: 'links:'
             size: small
@@ -159,23 +258,29 @@ blocks:
             - id: block.properties.links.$.id
               type: TextInput
               defaultValue: id_i
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: id
                 size: small
-                Label:
-                  extra: Menu item id.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Menu item id.
             - id: block.properties.links.$.type
               type: ButtonSelector
               defaultValue: MenuLink
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: type
                 size: small
-                Label:
-                  extra: Menu item type.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Menu item type.
                 options:
                   - MenuLink
                   - MenuGroup
@@ -185,13 +290,16 @@ blocks:
                 _eq:
                   - _state: block.properties.links.$.type
                   - MenuLink
-              style:
-                _global: settings_input_style
+              layout:
+                _global: settings_input_layout
               properties:
                 title: pageId
                 size: small
-                Label:
-                  extra: Page to link to.
+                label:
+                  _ref:
+                    path: blocks/label_extra.yaml
+                    vars:
+                      extra: Page to link to.
             - id: block.properties.links.$.properties
               type: Card
               properties:
@@ -200,77 +308,108 @@ blocks:
               blocks:
                 - id: block.properties.links.$.properties.title
                   type: TextInput
-                  style:
-                    _global: settings_input_style
+                  layout:
+                    _global: settings_input_layout
                   properties:
                     title: title
-                    Label:
-                      extra: Menu item title.
+                    size: small
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Menu item title.
                 - id: block.properties.links.$.properties.collapsed
                   type: Switch
                   defaultValue: true
-                  style:
-                    _global: settings_input_style
+                  layout:
+                    _global: settings_input_layout
                   properties:
                     title: collapsed
-                    Label:
-                      extra: Collapse the menu item.
+                    size: small
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Collapse the menu item.
+                - id: block.properties.links.$.properties.danger
+                  type: Switch
+                  defaultValue: false
+                  layout:
+                    _global: settings_input_layout
+                  properties:
+                    title: danger
+                    size: small
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Apply danger style to menu item.
                 - id: block.properties.links.$.properties.icon
                   type: Selector
-                  visible:
-                    _eq:
-                      - _state: block.properties.links.$.type
-                      - MenuGroup
-                  style:
-                    _global: settings_input_style
+                  layout:
+                    _global: settings_input_layout
                   properties:
                     showSearch: true
                     allowClear: true
                     title: icon
+                    size: small
                     options:
                       _global: all_icons
-                    Label:
-                      extra: Menu item icon.
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Menu item icon.
             - id: block.properties.links.$.links
-              type: List
+              type: ControlledList
               visible:
                 _eq:
                   - _state: block.properties.links.$.type
                   - MenuGroup
               properties:
                 title: 'links:'
+                size: small
               blocks:
                 - id: block.properties.links.$.links.$.id
                   type: TextInput
                   defaultValue: id_k
-                  style:
-                    _global: settings_input_style
+                  layout:
+                    _global: settings_input_layout
                   properties:
                     title: id
                     size: small
-                    Label:
-                      extra: Sub-menu item id.
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Sub-menu item id.
                 - id: block.properties.links.$.links.$.type
                   type: ButtonSelector
                   defaultValue: MenuLink
-                  style:
-                    _global: settings_input_style
+                  layout:
+                    _global: settings_input_layout
                   properties:
                     title: type
                     size: small
-                    Label:
-                      extra: Menu item type.
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Menu item type.
                     options:
                       - MenuLink
                 - id: block.properties.links.$.links.$.pageId
                   type: TextInput
-                  style:
-                    _global: settings_input_style
+                  layout:
+                    _global: settings_input_layout
                   properties:
                     title: pageId
                     size: small
-                    Label:
-                      extra: Page to link to.
+                    label:
+                      _ref:
+                        path: blocks/label_extra.yaml
+                        vars:
+                          extra: Page to link to.
                 - id: block.properties.links.$.links.$.properties
                   type: Card
                   properties:
@@ -279,13 +418,29 @@ blocks:
                   blocks:
                     - id: block.properties.links.$.links.$.properties.title
                       type: TextInput
-                      style:
-                        _global: settings_input_style
+                      layout:
+                        _global: settings_input_layout
                       properties:
                         title: title
-                        Label:
-                          extra: Menu item title.
+                        size: small
+                        label:
+                          _ref:
+                            path: blocks/label_extra.yaml
+                            vars:
+                              extra: Menu item title.
+                    - id: block.properties.links.$.links.$.properties.danger
+                      type: Switch
+                      defaultValue: false
+                      layout:
+                        _global: settings_input_layout
+                      properties:
+                        title: danger
+                        size: small
+                        label:
+                          _ref:
+                            path: blocks/label_extra.yaml
+                            vars:
+                              extra: Apply danger style to menu item.
 
       available_actions_description: |
         ###### No available actions.
-

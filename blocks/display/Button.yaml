@@ -3,6 +3,51 @@ type: PageSiderMenu
 public: true
 properties:
   title: Button
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: block
+            v: false
+          - k: danger
+            v: false
+          - k: disabled
+            v: false
+          - k: ghost
+            v: false
+          - k: hideActionLoading
+            v: false
+          - k: hideTitle
+            v: false
+          - k: shape
+            v: square
+          - k: size
+            v: default
+          - k: type
+            v: primary
+          - k: title
+            v: block_id
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
@@ -12,165 +57,176 @@ blocks:
         Button block.
       block_type: Button
       label: false
-      kind: display
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Icon:
-                      _parse:
-                        _state: style_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style_indent
-          defaultValue: "{}"
-          properties:
-            title: Icon
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: display
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.block
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: block
             size: small
-            Label:
-              extra: Fit the button's span to its parent container span.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Fit the button's span to its parent container span.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Primary button color.
+        - id: block.properties.danger
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: danger
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Set button style to danger.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the button if true.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the button if true.
         - id: block.properties.ghost
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: ghost
             size: small
-            Label:
-              extra: Make the button's background transparent when true.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Make the button's background transparent when true.
         - id: block.properties.hideActionLoading
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: hideActionLoading
             size: small
-            Label:
-              extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: hideTitle
             size: small
-            Label:
-              extra: Hide the button's title.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Hide the button's title.
         - id: block.properties.href
           type: TextInput
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: href
             size: small
-            Label:
-              extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.Icon
-              icon_field_name: Icon
+              icon_id: block.properties.icon
+              icon_field_name: icon
               icon_description: Icon to be used in button.
         - id: block.properties.shape
           type: ButtonSelector
-          defaultValue: square
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: shape
             size: small
-            Label:
-              extra: Shape of the button.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Shape of the button.
             options:
               - circle
               - round
               - square
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the button.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the button.
             options:
               - small
               - default
               - large
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title text on the button.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title text on the button.
         - id: block.properties.type
           type: ButtonSelector
-          defaultValue: primary
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: type
             size: small
-            Label:
-              extra: The button type.
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: The button type.
             options:
               - primary
               - default
               - dashed
               - danger
               - link
+              - text
 
       available_actions_description: |
         ###### onClick
@@ -182,8 +238,8 @@ blocks:
           blocks:
             - id: example_1_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_title
                   type: Markdown
@@ -196,29 +252,26 @@ blocks:
                     title: Click here
             - id: example_1_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_1_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_1",
-                        "type": "button",
-                        "properties": {
-                          "title": "Click here"
-                        }
-                      }
+                      ```yaml
+                      id: example_1
+                      type: Button
+                      properties:
+                        title: Click here
                       ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_title
                   type: Markdown
@@ -234,32 +287,29 @@ blocks:
                     Icon: RocketOutlined
             - id: example_2_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_2_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_2",
-                        "type": "button",
-                        "properties": {
-                          "title": "Let's Go",
-                          "block": true,
-                          "ghost": true,
-                          "Icon": "RocketOutlined"
-                        }
-                      }
+                      ```yaml
+                      id: example_2
+                      type: Button
+                      properties:
+                        title: Let's Go
+                        block: true
+                        ghost: true
+                        Icon: RocketOutlined
                       ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3_block_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_title
                   type: Markdown
@@ -276,23 +326,20 @@ blocks:
                     type: danger
             - id: example_3_code_grid
               type: Box
-              style:
-                --span: 6
+              layout:
+                span: 12
               blocks:
                 - id: example_3_code
                   type: Markdown
                   properties:
                     content: |
-                      ```json
-                      {
-                        "id": "example_3",
-                        "type": "button",
-                        "properties": {
-                          "title": "Delete Forever",
-                          "block": false,
-                          "Icon": "WarningFilled",
-                          "shape": "round",
-                          "type": "danger"
-                        }
-                      }
+                      ```yaml
+                      id: example_3
+                      type: Button
+                      properties:
+                        title: Delete Forever
+                        block: false
+                        Icon: WarningFilled
+                        shape: round
+                        type: danger
                       ```

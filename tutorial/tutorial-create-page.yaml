@@ -1,0 +1,101 @@
+id: tutorial-create-page
+type: PageSiderMenu
+public: true
+properties:
+  title: Creating a page
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
+    list:
+      - Tutorial
+      - Creating a page
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref: 
+        path: tutorial/template.yaml
+        vars:
+          title: Creating a page
+          buttons: true
+          previous_page_title: Editing a page
+          previous_page_id: tutorial-editing-page
+          next_page_title: Booking form
+          next_page_id: tutorial-add-blocks
+          content:
+            - id: video
+              type: Html
+              properties:
+                html: |
+                  <iframe
+                    id="ytplayer-yaml-video"
+                    type="text/html"
+                    width="800"
+                    height="470"
+                    src="https://www.youtube.com//embed/Mx-kCNmxilE?origin=https://docs.lowdefy.com"
+                    allowfullscreen="true"
+
+                    frameborder="0">
+                  </iframe>
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-create-page-content-1.md
+            - id: alert1
+              type: Alert
+              properties:
+                type: warning
+                description: YAML uses indentation to indicate nesting, so it is important that both pages are at the same indentation level.
+            - id: md2
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-create-page-content-2.md
+            - id: example1
+              type: PageHeaderMenu
+              layout:
+                contentJustify: center
+              properties:
+                style:
+                  minHeight: 300px
+                menu:
+                  links:
+                    - id: welcome
+                      type: MenuLink
+                      properties:
+                        title: welcome
+                    - id: booking
+                      properties:
+                        title: booking
+                      type: MenuLink
+              blocks:
+                - id: example1_content_card
+                  type: Card
+                  layout:
+                    size: 600
+                  blocks:
+                    - id: example1_page_heading
+                      type: Title
+                      properties:
+                        content: Book a meeting room
+                        level: 3
+            - id: md3
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-create-page-content-3.md

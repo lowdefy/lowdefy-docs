@@ -2,7 +2,7 @@ id: AgGrid
 type: PageSiderMenu
 public: true
 properties:
-  title: ag-Grid 
+  title: AgGrid 
 blocks:
   - id: card
     type: Card
@@ -23,25 +23,6 @@ blocks:
 
             ## Default block settings
 
-            <!--DOCUSAURUS_CODE_TABS-->
-            <!--JSON-->
-
-            ```json5
-            {
-              "visible": true,
-              "box": {
-                "height": 10
-              },
-              "properties": {
-                "disabled": false,
-                "theme": "normal",
-                "rowSelection": "single",
-              },
-            }
-            ```
-
-            <!--YAML-->
-
             ```yaml
             visible: true
             box:
@@ -51,9 +32,7 @@ blocks:
               theme: normal
               rowSelection: single
             ```
-
-            <!--END_DOCUSAURUS_CODE_TABS-->
-
+            
             ## Block properties
 
             - `rowData` : _[ Object ]_ - **REQUIRED** - An array of data objects with the fields and values you want to render in the agGrid block.

@@ -2,186 +2,184 @@ id: DateRangeSelector
 type: PageSiderMenu
 public: true
 properties:
-  title: Date Range
+  title: DateRangeSelector
 actions:
   onInit:
     - id: initialize_state 
-      type: setState()
+      type: SetState
       params:
-        block:
-          properties:
-            placeholder:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: format
+            v: "YYYY-MM-DD"
+          - k: separator
+            v: "~"
+          - k: suffixIcon
+            v: CalendarOutlined
+          - k: allowClear
+            v: true
+          - k: autoFocus
+            v: false
+          - k: placeholder
+            v:
               - Start Date
               - End Date
+          - k: size
+            v: default
+          - k: title
+            v: block_id
+          - k: disabled
+            v: false
+          - k: label
+            v:
+              align: left
+              colon: true
+              disabled: false
+              extra: null
+              inline: false
+              span: null
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
 blocks:
   _ref:
     path: blocks/template.yaml
     vars:
-      block_name: Date Range Input
+      block_name: DateRangeSelector
+      value_type: Array of Dates
       description_content: |
-        Date range picker input block. Allows the user to select a date range from a calender form, with a start and an end date. The input to this field is saved as an array of Date types in state, at the path name of the block.
+        The `DateRangeSelector` block allows the user to choose a start date and an end date for a date range. The selected range is saved as an array with two date elements, the start and end dates.
 
-        >Other date type blocks are date_range_input, date_time_input, week_input and month_input.
+        >Other date type blocks are `DateSelector`, `DateTimeSelector`, `MonthSelector` and `WeekSelector`.
       block_type: DateRangeSelector
       label: true
-      kind: input
-      style_transform:
-        _get:
-          key: "0"
-          on:
-            _mql_aggregate:
-              pipeline:
-                - $addFields:
-                    Label: 
-                      _parse:
-                        _state: style_label_input
-                    Input:
-                      _parse:
-                        _state: style_input_input
-                    IconSuffix:
-                      _parse:
-                        _state: style_suffix_icon_input
-              on:
-                _parse:
-                  _state: style_block_input
-      style_form:
-        - id: style_block_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: block
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_label_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Label
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_input_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: Input
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
-        - id: style_suffix_icon_input
-          type: TextArea
-          style:
-            _global: settings_input_style
-          defaultValue: "{}"
-          properties:
-            title: IconSuffix
-            rows: 3
-            size: small
-            Label:
-              extra: CSS Object style properties. Should be in JSON format.
+      category: input
       properties_transform:
         _state: block.properties
       properties_form:
         - id: block.properties.title
           type: TextInput
-          defaultValue: block_id
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: title
             size: small
-            Label:
-              extra: Title to describe the input component, if no title is specified the block id is displayed.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Title to describe the input component, if no title is specified the block id is displayed.
         - id: block.properties.allowClear
           type: Switch
-          defaultValue: true
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: allowClear
             size: small
-            Label:
-              extra: Allow the user to clear their input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Allow the user to clear their input.
         - id: block.properties.autoFocus
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: autoFocus
             size: small
-            Label:
-              extra: Autofocus to the block on page load.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Autofocus to the block on page load.
         - id: block.properties.disabled
           type: Switch
-          defaultValue: false
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: disabled
             size: small
-            Label:
-              extra: Disable the block if true.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Disable the block if true.
         - id: block.properties.format
           type: TextInput
-          defaultValue: YYYY-MM-DD
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: format
             size: small
-            Label:
-              extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
         - id: block.properties.placeholder.0
           type: TextInput
-          defaultValue: Start Date
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             size: small
             title: placeholder.0
-            Label:
-              extra: Placeholder text inside the block before user types input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user types input.
         - id: block.properties.placeholder.1
           type: TextInput
-          defaultValue: End Date
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             size: small
             title: placeholder.1
-            Label:
-              extra: Placeholder text inside the block before user types input.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Placeholder text inside the block before user types input.
         - id: block.properties.separator
           type: TextInput
-          defaultValue: "~"
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: separator
             size: small
-            Label:
-              extra: Separator symbol shown between start and end date inputs.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Separator symbol shown between start and end date inputs.
         - id: block.properties.size
           type: ButtonSelector
-          defaultValue: default
-          style:
-            _global: settings_input_style
+          layout:
+            _global: settings_input_layout
           properties:
             title: size
             size: small
-            Label:
-              extra: Size of the block.
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Size of the block.
             options:
               - small
               - default
@@ -189,11 +187,10 @@ blocks:
         - _ref:
             path: blocks/icon_template.yaml
             vars:
-              icon_id: block.properties.IconSuffix
-              icon_field_name: IconSuffix
-              default_icon: CalendarOutlined
+              icon_id: block.properties.suffixIcon
+              icon_field_name: suffixIcon
               icon_description: Icon on right-hand side of the date-range input.
-
+        - _ref: blocks/label.yaml
 
       available_actions_description: |
         ###### onChange
@@ -205,94 +202,86 @@ blocks:
           blocks:
             - id: example_1
               type: DateRangeSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Date input
             - id: example_1_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_1",
-                    "type": "date_range_input",
-                    "properties": {
-                      "title": "Date input"
-                    }
-                  }
+                  ```yaml
+                  id: example_1
+                  type: DateRangeSelector
+                  properties:
+                    title: Date input
+                  ```
         - id: example_2_card
           type: Card
           blocks:
             - id: example_2
               type: DateRangeSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 title: Placeholder, separator and suffix icon
-                Label:
+                label:
                   extra: Custom placeholder, separator and suffix icon.
                 placeholder:
                   - From the start
                   - the end
                 separator: to
-                IconSuffix: ThunderboltOutlined
+                suffixIcon: ThunderboltOutlined
             - id: example_2_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_2",
-                    "type": "date_range_input",
-                    "properties": {
-                      "title": "Placeholder, separator and suffix icon",
-                      "placeholder": [ "From the start", "the end" ],
-                      "separator": "to",
-                      "IconSuffix": "ThunderboltOutlined",
-                      "Label": {
-                        "extra": "Custom placeholder, separator and suffix icon."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_2
+                  type: DateRangeSelector
+                  properties:
+                    title: Placeholder, separator and suffix icon
+                    placeholder:
+                      - From the start
+                      - the end
+                    separator: to
+                    suffixIcon: ThunderboltOutlined
+                    label:
+                      extra: Custom placeholder, separator and suffix icon.
+                  ```
         - id: example_3_card
           type: Card
           blocks:
             - id: example_3
               type: DateRangeSelector
-              style:
-                --span: 6
+              layout:
+                span: 12
               defaultValue:
                 - _date: 1955-11-12
                 - _date: 1985-10-26
               properties:
                 title: Date format
                 format: D MMMM YYYY
-                Label:
+                label:
                   extra: Default date and custom date format.
             - id: example_3_code
               type: Markdown
-              style:
-                --span: 6
+              layout:
+                span: 12
               properties:
                 content: |
-                  ```json
-                  {
-                    "id": "example_3",
-                    "type": "date_range_input",
-                    "defaultValue": [
-                      { "_date": "1955-11-12" },
-                      { "_date": "1985-10-26" }
-                    ],
-                    "properties": {
-                      "title": "Date format",
-                      "format": "D MMMM YYYY",
-                      "label": {
-                        "extra": "Default date and custom date format."
-                      }
-                    }
-                  }
+                  ```yaml
+                  id: example_3
+                  type: DateRangeSelector
+                  defaultValue:
+                    - _date: '1955-11-12'
+                    - _date: '1985-10-26'
+                  properties:
+                    title: Date format
+                    format: D MMMM YYYY
+                    label:
+                      extra: Default date and custom date format.
