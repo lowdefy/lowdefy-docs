@@ -1,8 +1,8 @@
-id: Timeline
+id: List
 type: PageSiderMenu
 public: true
 properties:
-  title: Timeline
+  title: List
 actions:
   onInit:
     - id: init
@@ -14,15 +14,7 @@ actions:
             v: top
           - k: span
             v: 24
-        default_properties:
-          - k: colorField
-            v: color
-          - k: iconField
-            v: icon
-          - k: positionField
-            v: position
-          - k: reverse
-            v: false
+        default_properties: []
         init_properties: []
     - id: set_init
       type: SetState
@@ -42,11 +34,11 @@ actions:
       params:
         example_1:
           - title: Title 1
-            text: Text for the first entry in the timeline.
+            text: Text for the first entry in the list.
           - title: Title 2
-            text: Text for the second entry in the timeline.
+            text: Text for the second entry in the list.
           - title: Title 3
-            text: Text for the third entry in the timeline.
+            text: Text for the third entry in the list.
 blocks:
   - id: card_title
     type: Card
@@ -55,12 +47,12 @@ blocks:
         type: Title
         properties:
           level: 2
-          content: Timeline
+          content: List
       - id: description
         type: Markdown
         properties:
           content: |
-            A list block with a vertical display timeline.
+            A basic list block.
       - id: c1
         type: Box
         blocks:
@@ -75,7 +67,7 @@ blocks:
                   title: Block
 
               - id: block_id
-                type: Timeline
+                type: List
                 visible:
                   _state: block.visible
                 properties:
@@ -122,7 +114,7 @@ blocks:
                                   vars:
                                     block:
                                       id: block_id
-                                      type: Timeline
+                                      type: List
                                       areas:
                                         content:
                                           blocks: []
@@ -205,125 +197,7 @@ blocks:
                           size: small
 
                   properties:
-                    blocks:
-                      - id: flex_properties_form
-                        type: Box
-                        blocks:
-                          - id: block.properties.colorField
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: colorField
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Field from properties.data to use to determine which color to use for the icon.
-                          - id: block.properties.iconField
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: iconField
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Field from properties.data to use to determine which icon to use.
-                          - id: block.properties.mode
-                            type: Selector
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: mode
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Set which side of the blocks the icons should be.
-                              options:
-                                - alternate
-                                - left
-                                - right
-                          - id: block.properties.pending
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: pending
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Enables and sets the text for pending when set.
-                          - id: block.properties.positionField
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: positionField
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Field from properties.data to use to determine the position of the entry on the timeline.
-                          - id: block.properties.reverse
-                            type: Switch
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: reverse
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: If true, reverse the order of the timeline.
-                          - id: block.properties.data
-                            type: ControlledList
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: 'data:'
-                              size: small
-                              # hideAddButton: true
-                              # hideRemoveButton: true
-                            blocks:
-                              - _ref:
-                                  path: blocks/icon_template.yaml
-                                  vars:
-                                    icon_id: block.properties.data.$.icon
-                                    icon_field_name: icon
-                                    icon_description: Timeline entry icon.
-                              - id: block.properties.data.$.color
-                                type: TextInput
-                                properties:
-                                  title: color
-                                  size: small
-                                  label:
-                                    _ref: 
-                                      path: blocks/label_extra.yaml
-                                      vars:
-                                        extra: Timeline entry icon color.
-                              - id: block.properties.data.$.position
-                                type: Selector
-                                properties:
-                                  title: position
-                                  size: small
-                                  label:
-                                    _ref: 
-                                      path: blocks/label_extra.yaml
-                                      vars:
-                                        extra: Set the position of the blocks.
-                                  options:
-                                    - left
-                                    - right
+                    blocks: []
                   actions:
                     blocks:
                       - id: actions_description
@@ -352,17 +226,7 @@ blocks:
               content: |
                 ##### Basic Timeline
           - id: example_1
-            type: Timeline
-            properties:
-              data:
-                - icon: FireOutlined
-                  color: red
-                  position: right
-                - color: green
-                  position: right
-                - icon: RocketOutlined
-                  position: left
-              mode: alternate
+            type: List
             blocks:
               - id: example_1.$.title
                 type: Title
@@ -375,7 +239,6 @@ blocks:
                 properties:
                   content:
                     _state: example_1.$.text
-                    
       - id: example_1_code_grid
         type: Box
         layout:
@@ -411,17 +274,7 @@ blocks:
               content: |
                 ```yaml
                   - id: example_1
-                    type: Timeline
-                    properties:
-                      data:
-                        - icon: FireOutlined
-                          color: red
-                          position: right
-                        - color: green
-                          position: right
-                        - icon: RocketOutlined
-                          position: left
-                      mode: alternate
+                    type: List
                     blocks:
                       - id: example_1.$.title
                         type: Title
@@ -434,4 +287,3 @@ blocks:
                         properties:
                           content:
                             _state: example_1.$.text
-                ```

@@ -1,28 +1,33 @@
-id: Timeline
+id: ControlledList
 type: PageSiderMenu
 public: true
 properties:
-  title: Timeline
+  title: ControlledList
 actions:
   onInit:
     - id: init
       type: SetState
       params:
-        block_id: [1,2,3]
         default_layout:
           - k: align
             v: top
           - k: span
             v: 24
         default_properties:
-          - k: colorField
-            v: color
-          - k: iconField
-            v: icon
-          - k: positionField
-            v: position
-          - k: reverse
+          - k: addToFront
             v: false
+          - k: hideAddButton
+            v: false
+          - k: hideRemoveButton
+            v: false
+          - k: size
+            v: default
+          - k: addItemButton
+            v: 
+              title: Add Item
+          - k: removeItemButton
+            v: 
+              shape: circle
         init_properties: []
     - id: set_init
       type: SetState
@@ -37,16 +42,6 @@ actions:
               $concatArrays:
                 - _state: default_properties
                 - _state: init_properties
-    - id: set_examples
-      type: SetState
-      params:
-        example_1:
-          - title: Title 1
-            text: Text for the first entry in the timeline.
-          - title: Title 2
-            text: Text for the second entry in the timeline.
-          - title: Title 3
-            text: Text for the third entry in the timeline.
 blocks:
   - id: card_title
     type: Card
@@ -55,12 +50,12 @@ blocks:
         type: Title
         properties:
           level: 2
-          content: Timeline
+          content: ControlledList
       - id: description
         type: Markdown
         properties:
           content: |
-            A list block with a vertical display timeline.
+            A list block with predefined styling and controls to add or remove items.
       - id: c1
         type: Box
         blocks:
@@ -75,7 +70,7 @@ blocks:
                   title: Block
 
               - id: block_id
-                type: Timeline
+                type: ControlledList
                 visible:
                   _state: block.visible
                 properties:
@@ -86,7 +81,7 @@ blocks:
                     style:
                       border: 1px dashed red
                     blocks:
-                      - id: block_id.$
+                      - id: content
                         type: Html
                         style:
                           background: '#f0f2f5'
@@ -95,7 +90,6 @@ blocks:
                           padding: 20
                         properties:
                           html: content
-
               - id: setup_divider
                 type: Divider
                 properties:
@@ -122,7 +116,7 @@ blocks:
                                   vars:
                                     block:
                                       id: block_id
-                                      type: Timeline
+                                      type: ControlledList
                                       areas:
                                         content:
                                           blocks: []
@@ -209,121 +203,124 @@ blocks:
                       - id: flex_properties_form
                         type: Box
                         blocks:
-                          - id: block.properties.colorField
+                          - id: block.properties.title
                             type: TextInput
                             layout:
                               _global: settings_input_layout
                             properties:
-                              title: colorField
+                              title: title
                               size: small
                               label:
                                 _ref: 
                                   path: blocks/label_extra.yaml
                                   vars:
-                                    extra: Field from properties.data to use to determine which color to use for the icon.
-                          - id: block.properties.iconField
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: iconField
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Field from properties.data to use to determine which icon to use.
-                          - id: block.properties.mode
-                            type: Selector
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: mode
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Set which side of the blocks the icons should be.
-                              options:
-                                - alternate
-                                - left
-                                - right
-                          - id: block.properties.pending
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: pending
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Enables and sets the text for pending when set.
-                          - id: block.properties.positionField
-                            type: TextInput
-                            layout:
-                              _global: settings_input_layout
-                            properties:
-                              title: positionField
-                              size: small
-                              label:
-                                _ref: 
-                                  path: blocks/label_extra.yaml
-                                  vars:
-                                    extra: Field from properties.data to use to determine the position of the entry on the timeline.
-                          - id: block.properties.reverse
+                                    extra: Title to describe the list component, if no title is specified nothing is displayed.
+                          - id: block.properties.addToFront
                             type: Switch
                             layout:
                               _global: settings_input_layout
+                            defaultValue: false
                             properties:
-                              title: reverse
+                              title: addToFront
                               size: small
                               label:
                                 _ref: 
                                   path: blocks/label_extra.yaml
                                   vars:
-                                    extra: If true, reverse the order of the timeline.
-                          - id: block.properties.data
-                            type: ControlledList
+                                    extra: If true, adds new entries to the start of the list and moves the add item button to the top of the list.
+                          - id: block.properties.hideAddButton
+                            type: Switch
+                            layout:
+                              _global: settings_input_layout
+                            defaultValue: false
+                            properties:
+                              title: hideAddButton
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: If true, hides the add button.
+                          - id: block.properties.hideRemoveButton
+                            type: Switch
+                            layout:
+                              _global: settings_input_layout
+                            defaultValue: false
+                            properties:
+                              title: hideRemoveButton
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: If true, hides the remove button.
+                          - id: block.properties.noDataTitle
+                            type: TextInput
                             layout:
                               _global: settings_input_layout
                             properties:
-                              title: 'data:'
+                              title: noDataTitle
                               size: small
-                              # hideAddButton: true
-                              # hideRemoveButton: true
-                            blocks:
-                              - _ref:
-                                  path: blocks/icon_template.yaml
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
                                   vars:
-                                    icon_id: block.properties.data.$.icon
-                                    icon_field_name: icon
-                                    icon_description: Timeline entry icon.
-                              - id: block.properties.data.$.color
-                                type: TextInput
-                                properties:
-                                  title: color
-                                  size: small
-                                  label:
-                                    _ref: 
-                                      path: blocks/label_extra.yaml
-                                      vars:
-                                        extra: Timeline entry icon color.
-                              - id: block.properties.data.$.position
-                                type: Selector
-                                properties:
-                                  title: position
-                                  size: small
-                                  label:
-                                    _ref: 
-                                      path: blocks/label_extra.yaml
-                                      vars:
-                                        extra: Set the position of the blocks.
-                                  options:
-                                    - left
-                                    - right
+                                    extra: The title to display if the list is empty.
+                          - id: block.properties.size
+                            type: ButtonSelector
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: size
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Size of the block.
+                              options:
+                                - small
+                                - default
+                                - large
+                          - id: block.properties.addItemButton.title
+                            type: TextInput
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: addItemButton.title
+                              size: small
+                              label:
+                                _ref:
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Title of the add item button.
+                          - id: block.properties.removeItemButton.shape
+                            type: ButtonSelector
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: removeItemButton.shape
+                              size: small
+                              label:
+                                _ref:
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Title of the add button.
+                              options:
+                                - circle
+                                - round
+                                - square
+                          - id: block.properties.buttons.link
+                            type: Anchor
+                            properties:
+                              title: See all fields for properties.addItemButton and properties.removeItemButton
+                              icon: LinkOutlined
+                            actions:
+                              onClick:
+                                - id: link_Button
+                                  type: Link
+                                  params:
+                                    pageId: Button
                   actions:
                     blocks:
                       - id: actions_description
@@ -350,31 +347,28 @@ blocks:
             type: Markdown
             properties:
               content: |
-                ##### Basic Timeline
+                ##### Basic ControlledList
           - id: example_1
-            type: Timeline
+            type: ControlledList
             properties:
-              data:
-                - icon: FireOutlined
-                  color: red
-                  position: right
-                - color: green
-                  position: right
-                - icon: RocketOutlined
-                  position: left
-              mode: alternate
+              title: Contact Details
             blocks:
-              - id: example_1.$.title
-                type: Title
+              - id: example_1.$.name
+                type: TextInput
                 properties:
-                  level: 4
-                  content:
-                    _state: example_1.$.title
-              - id: example_1.$.text
-                type: Paragraph
+                  title: Name
+              - id: example_1.$.phone
+                type: TextInput
+                layout:
+                  span: 12
                 properties:
-                  content:
-                    _state: example_1.$.text
+                  title: Phone
+              - id: example_1.$.email
+                type: TextInput
+                layout:
+                  span: 12
+                properties:
+                  title: Email
                     
       - id: example_1_code_grid
         type: Box
@@ -411,27 +405,24 @@ blocks:
               content: |
                 ```yaml
                   - id: example_1
-                    type: Timeline
+                    type: ControlledList
                     properties:
-                      data:
-                        - icon: FireOutlined
-                          color: red
-                          position: right
-                        - color: green
-                          position: right
-                        - icon: RocketOutlined
-                          position: left
-                      mode: alternate
+                      title: Example 1
                     blocks:
-                      - id: example_1.$.title
-                        type: Title
+                      - id: example_1.$.name
+                        type: TextInput
                         properties:
-                          level: 4
-                          content:
-                            _state: example_1.$.title
-                      - id: example_1.$.text
-                        type: Paragraph
+                          title: Name
+                      - id: example_1.$.phone
+                        type: TextInput
+                        layout:
+                          span: 12
                         properties:
-                          content:
-                            _state: example_1.$.text
+                          title: Phone
+                      - id: example_1.$.email
+                        type: TextInput
+                        layout:
+                          span: 12
+                        properties:
+                          title: Email
                 ```
