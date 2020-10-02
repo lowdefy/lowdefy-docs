@@ -71,6 +71,11 @@ blocks:
 
               - id: block_id
                 type: ControlledList
+                style:
+                  _parse:
+                    _state: style_block_input
+                layout:
+                  _state: block.layout
                 visible:
                   _state: block.visible
                 properties:
@@ -158,6 +163,8 @@ blocks:
                 properties:
                   defaultActiveKey: properties
                   panels:
+                    - key: layout
+                      title: 'layout:'
                     - key: style
                       title: 'style:'
                     - key: properties
@@ -169,35 +176,15 @@ blocks:
                     - key: areas
                       title: 'areas:'
                 areas:
+                  layout:
+                    blocks:
+                      _ref: blocks/layout.yaml
                   style:
                     blocks:
-                      - id: style_form
-                        type: Box
-                        blocks:
-                          - id: flex_style_input
-                            type: TextArea
-                            style:
-                              _global: settings_input_style
-                            defaultValue: |
-                              {}
-                            properties:
-                              title: block
-                              rows: 3
-                              size: small
-                              Label:
-                                extra: CSS Object style properties. Should be in JSON format.
+                      _ref: blocks/style.yaml
                   visible:
                     blocks:
-                      - id: block.visible
-                        type: Switch
-                        defaultValue: true
-                        properties:
-                          title: visible
-                          label:
-                            extra: Toggle if block is visible and has a value in state.
-                            inline: true
-                          size: small
-
+                      _ref: blocks/visible.yaml
                   properties:
                     blocks:
                       - id: flex_properties_form
