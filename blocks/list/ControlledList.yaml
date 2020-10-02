@@ -1,0 +1,428 @@
+id: ControlledList
+type: PageSiderMenu
+public: true
+properties:
+  title: ControlledList
+actions:
+  onInit:
+    - id: init
+      type: SetState
+      params:
+        default_layout:
+          - k: align
+            v: top
+          - k: span
+            v: 24
+        default_properties:
+          - k: addToFront
+            v: false
+          - k: hideAddButton
+            v: false
+          - k: hideRemoveButton
+            v: false
+          - k: size
+            v: default
+          - k: addItemButton
+            v: 
+              title: Add Item
+          - k: removeItemButton
+            v: 
+              shape: circle
+        init_properties: []
+    - id: set_init
+      type: SetState
+      params:
+        block.layout:
+          _mql_expr:
+            $arrayToObject:
+              _state: default_layout
+        block.properties:
+          _mql_expr:
+            $arrayToObject:
+              $concatArrays:
+                - _state: default_properties
+                - _state: init_properties
+blocks:
+  - id: card_title
+    type: Card
+    blocks:
+      - id: title
+        type: Title
+        properties:
+          level: 2
+          content: ControlledList
+      - id: description
+        type: Markdown
+        properties:
+          content: |
+            A list block with predefined styling and controls to add or remove items.
+      - id: c1
+        type: Box
+        blocks:
+          - id: block_wrap2
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: block_divider
+                type: Divider
+                properties:
+                  title: Block
+
+              - id: block_id
+                type: ControlledList
+                visible:
+                  _state: block.visible
+                properties:
+                  _state: block.properties
+                areas:
+                  content:
+                    gutter: 0
+                    style:
+                      border: 1px dashed red
+                    blocks:
+                      - id: content
+                        type: Html
+                        style:
+                          background: '#f0f2f5'
+                          textAlign: center
+                          color: red
+                          padding: 20
+                        properties:
+                          html: content
+              - id: setup_divider
+                type: Divider
+                properties:
+                  title: Block Setup
+              - id: setup_card
+                type: Card
+                properties: 
+                  size: small
+                blocks:
+                  - id: setup_markdown
+                    type: Markdown
+                    properties:
+                      content:
+                        _nunjucks:
+                          template: |
+                            ```yaml
+                            {{ value | safe }}
+                            ```
+                          on:
+                            value:
+                              _dump_yaml:
+                                _ref:
+                                  path: blocks/block_setup.yaml
+                                  vars:
+                                    block:
+                                      id: block_id
+                                      type: ControlledList
+                                      areas:
+                                        content:
+                                          blocks: []
+                                      style:
+                                        _parse:
+                                          _state: style_block_input
+                                      visible:
+                                        _state: block.visible
+
+                                      layout:
+                                        _state: block.layout
+                                      default_layout: 
+                                        _state: default_layout
+                                      properties:
+                                        _state: block.properties
+                                      default_properties:  
+                                        _state: default_properties
+                                    default_block:
+                                      - k: properties
+                                        v: {}
+                                      - k: layout
+                                        v: {}
+                                      - k: style
+                                        v: {}
+                                      - k: visible
+                                        v: true
+                                    
+          - id: settings_grid
+            type: Box
+            layout:
+              span: 12
+            blocks:
+              - id: settings_divider
+                type: Divider
+                properties:
+                  title: Settings
+              - id: block_collapse
+                type: Collapse
+                properties:
+                  defaultActiveKey: properties
+                  panels:
+                    - key: style
+                      title: 'style:'
+                    - key: properties
+                      title: 'properties:'
+                    - key: actions
+                      title: 'actions:'
+                    - key: visible
+                      title: 'visible:'
+                    - key: areas
+                      title: 'areas:'
+                areas:
+                  style:
+                    blocks:
+                      - id: style_form
+                        type: Box
+                        blocks:
+                          - id: flex_style_input
+                            type: TextArea
+                            style:
+                              _global: settings_input_style
+                            defaultValue: |
+                              {}
+                            properties:
+                              title: block
+                              rows: 3
+                              size: small
+                              Label:
+                                extra: CSS Object style properties. Should be in JSON format.
+                  visible:
+                    blocks:
+                      - id: block.visible
+                        type: Switch
+                        defaultValue: true
+                        properties:
+                          title: visible
+                          label:
+                            extra: Toggle if block is visible and has a value in state.
+                            inline: true
+                          size: small
+
+                  properties:
+                    blocks:
+                      - id: flex_properties_form
+                        type: Box
+                        blocks:
+                          - id: block.properties.title
+                            type: TextInput
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: title
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Title to describe the list component, if no title is specified nothing is displayed.
+                          - id: block.properties.addToFront
+                            type: Switch
+                            layout:
+                              _global: settings_input_layout
+                            defaultValue: false
+                            properties:
+                              title: addToFront
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: If true, adds new entries to the start of the list and moves the add item button to the top of the list.
+                          - id: block.properties.hideAddButton
+                            type: Switch
+                            layout:
+                              _global: settings_input_layout
+                            defaultValue: false
+                            properties:
+                              title: hideAddButton
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: If true, hides the add button.
+                          - id: block.properties.hideRemoveButton
+                            type: Switch
+                            layout:
+                              _global: settings_input_layout
+                            defaultValue: false
+                            properties:
+                              title: hideRemoveButton
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: If true, hides the remove button.
+                          - id: block.properties.noDataTitle
+                            type: TextInput
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: noDataTitle
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: The title to display if the list is empty.
+                          - id: block.properties.size
+                            type: ButtonSelector
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: size
+                              size: small
+                              label:
+                                _ref: 
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Size of the block.
+                              options:
+                                - small
+                                - default
+                                - large
+                          - id: block.properties.addItemButton.title
+                            type: TextInput
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: addItemButton.title
+                              size: small
+                              label:
+                                _ref:
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Title of the add item button.
+                          - id: block.properties.removeItemButton.shape
+                            type: ButtonSelector
+                            layout:
+                              _global: settings_input_layout
+                            properties:
+                              title: removeItemButton.shape
+                              size: small
+                              label:
+                                _ref:
+                                  path: blocks/label_extra.yaml
+                                  vars:
+                                    extra: Title of the add button.
+                              options:
+                                - circle
+                                - round
+                                - square
+                          - id: block.properties.buttons.link
+                            type: Anchor
+                            properties:
+                              title: See all fields for properties.addItemButton and properties.removeItemButton
+                              icon: LinkOutlined
+                            actions:
+                              onClick:
+                                - id: link_Button
+                                  type: Link
+                                  params:
+                                    pageId: Button
+                  actions:
+                    blocks:
+                      - id: actions_description
+                        type: Markdown
+                        properties:
+                          content: |
+                            ###### No available actions.
+                  areas:
+                    blocks: []
+
+  - id: examples_divider
+    type: Divider
+    properties:
+      title: Examples
+  - id: example_1_card
+    type: Card
+    blocks:
+      - id: example_1_block_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Basic ControlledList
+          - id: example_1
+            type: ControlledList
+            properties:
+              title: Contact Details
+            blocks:
+              - id: example_1.$.name
+                type: TextInput
+                properties:
+                  title: Name
+              - id: example_1.$.phone
+                type: TextInput
+                layout:
+                  span: 12
+                properties:
+                  title: Phone
+              - id: example_1.$.email
+                type: TextInput
+                layout:
+                  span: 12
+                properties:
+                  title: Email
+                    
+      - id: example_1_code_grid
+        type: Box
+        layout:
+          span: 12
+        blocks:
+          - id: example_1_state_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Example 1 State
+          - id: example_1_state
+            type: Markdown
+            properties:
+              content:
+                _nunjucks:
+                  template: |
+                    ```yaml
+                    {{ value | safe }}
+                    ```
+                  on:
+                    value:
+                      _dump_yaml:
+                        example_1: 
+                          _state: example_1
+          - id: example_1_code_title
+            type: Markdown
+            properties:
+              content: |
+                ##### Setup
+          - id: example_1_code
+            type: Markdown
+            properties:
+              content: |
+                ```yaml
+                  - id: example_1
+                    type: ControlledList
+                    properties:
+                      title: Example 1
+                    blocks:
+                      - id: example_1.$.name
+                        type: TextInput
+                        properties:
+                          title: Name
+                      - id: example_1.$.phone
+                        type: TextInput
+                        layout:
+                          span: 12
+                        properties:
+                          title: Phone
+                      - id: example_1.$.email
+                        type: TextInput
+                        layout:
+                          span: 12
+                        properties:
+                          title: Email
+                ```

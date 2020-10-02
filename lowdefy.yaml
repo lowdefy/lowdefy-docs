@@ -393,6 +393,28 @@ menus:
             type: MenuLink
             pageId: PageSiderMenu
 
+      - id: blocks_list
+        type: MenuGroup
+        properties:
+          title: List Blocks
+          icon: UnorderedListOutlined
+        links:
+          - id: ControlledList
+            type: MenuLink
+            pageId: ControlledList
+            properties:
+              title: ControlledList
+          - id: List
+            type: MenuLink
+            pageId: List
+            properties:
+              title: List
+          - id: Timeline
+            type: MenuLink
+            pageId: Timeline
+            properties:
+              title: Timeline
+
       - id: connections
         type: MenuGroup
         properties:
@@ -526,6 +548,7 @@ menus:
           title: Feedback
           icon: FormOutlined
 
+
 pages:
   - _ref: start/introduction.yaml
   - _ref: tutorial/tutorial-setup.yaml
@@ -608,6 +631,10 @@ pages:
   - _ref: blocks/container/Result.yaml
   # - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+  - _ref: blocks/list/ControlledList.yaml
+  - _ref: blocks/list/List.yaml
+  - _ref: blocks/list/Timeline.yaml
 
   - _ref: blocks/context/Context.yaml
   - _ref: blocks/context/PageHCF.yaml
