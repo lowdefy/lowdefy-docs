@@ -195,9 +195,9 @@ menus:
           - id: ButtonSelector
             type: MenuLink
             pageId: ButtonSelector
-          - id: Checkbox
+          - id: CheckboxSelector
             type: MenuLink
-            pageId: Checkbox
+            pageId: CheckboxSelector
           - id: CodeEditor
             type: MenuLink
             pageId: CodeEditor
