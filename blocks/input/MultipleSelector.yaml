@@ -153,6 +153,18 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disables the block if true.
+        - id: block.properties.showSearch
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: showSearch
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Enables search within MultipleSelector
         - id: select_options_type_card
           type: Card
           blocks:
