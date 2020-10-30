@@ -20,6 +20,8 @@ actions:
             v: CheckOutlined
           - k: showArrow
             v: true
+          - k: showSearch
+            v: true
           - k: suffixIcon
             v: DownOutlined
           - k: placeholder
