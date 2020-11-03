@@ -17,7 +17,7 @@ actions:
           - k: format
             v: "YYYY-MM-DD"
           - k: showToday
-            v: true
+            v: false
           - k: suffixIcon
             v: CalendarOutlined
           - k: allowClear
