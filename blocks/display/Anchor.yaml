@@ -124,7 +124,7 @@ blocks:
                     content: |
                       ```yaml
                       id: example_1
-                      type: anchor
+                      type: Anchor
                       properties:
                         title: Click here
                       ```
@@ -158,7 +158,7 @@ blocks:
                     content: |
                       ```yaml
                       id: example_2
-                      type: anchor
+                      type: Anchor
                       properties:
                         title: Click here
                         strong: true
@@ -198,7 +198,7 @@ blocks:
                     content: |
                       ```yaml
                       id: example_3
-                      type: anchor
+                      type: Anchor
                       style:
                         color: red !important
                         fontSize: 18
@@ -244,7 +244,7 @@ blocks:
                     content: |
                       ```yaml
                       id: example_4
-                      type: anchor
+                      type: Anchor
                       style:
                         color: "#000000 !important"
                         fontSize: 16
