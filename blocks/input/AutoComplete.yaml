@@ -16,8 +16,6 @@ actions:
         default_properties:
           - k: autoFocus
             v: false
-          - k: defaultActiveFirstOption
-            v: false
           - k: defaultOpen
             v: false
           - k: allowClear
@@ -108,19 +106,6 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
-        - id: block.properties.defaultActiveFirstOption
-          type: Switch
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: defaultActiveFirstOption
-            size: small
-            label:
-              _ref: 
-                path: blocks/label_extra.yaml
-                vars:
-                  span: 12
-                  extra: Makes the first option in the selection list active when true.
         - id: block.properties.defaultOpen
           type: Switch
           layout:
