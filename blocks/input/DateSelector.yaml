@@ -5,7 +5,7 @@ properties:
   title: DateSelector
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -78,7 +78,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -90,7 +90,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear their input.
@@ -102,7 +102,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -114,7 +114,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -126,7 +126,7 @@ blocks:
             title: format
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
@@ -138,7 +138,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user selects input.
@@ -150,10 +150,35 @@ blocks:
             title: showToday
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shows a button to easily select the current date if true.
+        - id: "block.properties.disabledDates.min"
+          type: DateSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: disabledDates.min
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Prevents you from selecting dates before specified date.
+        - id: "block.properties.disabledDates.max"
+          type: DateSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: disabledDates.max
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Prevents you from selecting dates after specified date.
+
         - id: block.properties.size
           type: ButtonSelector
           layout:
@@ -162,7 +187,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -177,7 +202,7 @@ blocks:
               icon_field_name: suffixIcon
               icon_description: Icon on right-hand side of the date input.
         - _ref: blocks/label.yaml
-        
+
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
