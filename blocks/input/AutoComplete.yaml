@@ -5,7 +5,7 @@ properties:
   title: AutoComplete
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -78,7 +78,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -90,7 +90,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear the selected value, sets the value to null.
@@ -102,7 +102,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -114,7 +114,7 @@ blocks:
             title: defaultOpen
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Initial open state of dropdown.
@@ -126,15 +126,27 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disables the block if true.
+        - id: block.properties.backfill
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: backfill
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Backfill selected item when using keyboard.
         - id: block.properties.options
           type: ControlledList
           required: true
           properties:
-            title: 'options:'
+            title: "options:"
             size: small
           blocks:
             - id: block.properties.options.$
@@ -150,7 +162,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user selects input.
@@ -162,7 +174,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -174,3 +186,21 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+        - id: "properties.inputStyle: CSS style applied"
+          type: AutoComplete
+          properties:
+            options:
+              - Option 1
+              - Option 2
+            inputStyle:
+              border: 1px solid red
+        - id: "properties.optionsStyle: CSS style applied"
+          type: AutoComplete
+          properties:
+            options:
+              - Option 1
+              - Option 2
+            optionsStyle:
+              color: blue
