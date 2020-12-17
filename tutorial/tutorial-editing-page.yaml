@@ -54,7 +54,8 @@ areas:
               type: Alert
               properties:
                 type: info
-                description: This folder can be a source control repository. We are working on a Github integration that will sync commits on your repository to your app.
+                showIcon: false
+                message: This folder can be a source control repository. We are working on a Github integration that will sync commits on your repository to your app.
             - id: md2
               type: Markdown
               style:

@@ -54,7 +54,8 @@ areas:
               type: Alert
               properties:
                 type: warning
-                description: YAML uses indentation to indicate nesting, so it is important that both pages are at the same indentation level.
+                showIcon: false
+                message: YAML uses indentation to indicate nesting, so it is important that both pages are at the same indentation level.
             - id: md2
               type: Markdown
               style:
