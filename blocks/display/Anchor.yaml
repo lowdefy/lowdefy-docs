@@ -185,7 +185,7 @@ blocks:
                   properties:
                     title: Click here
                     icon:
-                      twoToneColor: 'red'
+                      color: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
               type: Box
@@ -205,7 +205,7 @@ blocks:
                       properties:
                         title: Click here
                         icon:
-                          twoToneColor: red
+                          color: red
                           name: RocketTwoTone
                       ```
         - id: example_4_card

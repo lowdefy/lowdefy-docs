@@ -18,7 +18,7 @@ areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Setup
@@ -48,7 +48,7 @@ areas:
                 '.markdown-body':
                   fontSize: 14px
               properties:
-                content: 
+                content:
                   _ref: tutorial/tutorial-setup-content-1.md
             - id: example1
               type: Box
@@ -74,9 +74,9 @@ areas:
                                 title: Welcome to your Lowdefy app
                                 subTitle: We are excited to see what you are going to build
                                 status: success
-                                icon: 
+                                icon:
                                   name: HeartTwoTone
-                                  twoToneColor: '#f00'
+                                  color: '#f00'
                               blocks:
                                 - id: example1docs_button
                                   type: Button
@@ -89,7 +89,7 @@ areas:
                                         type: Link
                                         params:
                                           url: https://docs.lowdefy.com
-                                          newWindow: true           
+                                          newWindow: true
                         footer:
                           blocks:
                             - id: example1_footer
@@ -144,14 +144,14 @@ areas:
                                   color: '#fff'
                                 icon: UserOutlined
                                 title: User
-    
+
             - id: md2
               type: Markdown
               style:
                 '.markdown-body':
                   fontSize: 14px
               properties:
-                content: 
+                content:
                   _ref: tutorial/tutorial-setup-content-2.md
             - id: yaml_video
               type: Html
@@ -174,5 +174,5 @@ areas:
                 '.markdown-body':
                   fontSize: 14px
               properties:
-                content: 
+                content:
                   _ref: tutorial/tutorial-setup-content-3.md
