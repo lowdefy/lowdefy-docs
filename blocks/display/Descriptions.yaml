@@ -50,7 +50,7 @@ blocks:
       category: display
       properties_transform:
         _get:
-          key: "0"
+          key: '0'
           from:
             _mql_aggregate:
               pipeline:
@@ -75,7 +75,7 @@ blocks:
             title: bordered
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Puts items in a table.
@@ -87,7 +87,7 @@ blocks:
             title: colon
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Include a colon in item labels.
@@ -99,10 +99,10 @@ blocks:
             title: column
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
-                  extra: "The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}."
+                  extra: 'The number of DescriptionItems in a row, could be a number or a object like { xs: 8, sm: 16, md: 24}.'
         - id: block.properties.layout
           type: ButtonSelector
           layout:
@@ -111,7 +111,7 @@ blocks:
             title: layout
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Put values next to or below their labels.
@@ -126,7 +126,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -142,7 +142,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The title of the description block, placed at the top.
@@ -213,8 +213,8 @@ blocks:
             _mql_test:
               items_type: Object
           defaultValue: |
-            { 
-              "field_one": "value one", 
+            {
+              "field_one": "value one",
               "field_two": "value two",
               "field_three": 3
             }
@@ -223,7 +223,7 @@ blocks:
             rows: 5
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Data items to display.

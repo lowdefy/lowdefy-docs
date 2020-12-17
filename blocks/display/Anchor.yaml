@@ -57,7 +57,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the anchor if true.
@@ -75,7 +75,7 @@ blocks:
             title: strong
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Makes the text bold when true.
@@ -87,7 +87,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Text to display in the anchor.
@@ -181,10 +181,10 @@ blocks:
                   type: Anchor
                   style:
                     fontSize: 18
-                    color: 'red !important'
+                    color: "red !important"
                   properties:
                     title: Click here
-                    icon: 
+                    icon:
                       twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
@@ -224,11 +224,11 @@ blocks:
                 - id: example_4
                   type: Anchor
                   style:
-                    color: "#000000 !important"
+                    color: '#000000 !important'
                     fontSize: 16
                   properties:
                     title: Click here
-                    icon: 
+                    icon:
                       name: FireFilled
                       style:
                         color: orange
@@ -246,7 +246,7 @@ blocks:
                       id: example_4
                       type: Anchor
                       style:
-                        color: "#000000 !important"
+                        color: '#000000 !important'
                         fontSize: 16
                       properties:
                         title: Click here

@@ -22,8 +22,6 @@ actions:
             v: false
           - k: ghost
             v: false
-          - k: hideActionLoading
-            v: false
           - k: hideTitle
             v: false
           - k: shape
@@ -122,18 +120,6 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Make the button's background transparent when true.
-        - id: block.properties.hideActionLoading
-          type: Switch
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: hideActionLoading
-            size: small
-            label:
-              _ref:
-                path: blocks/label_extra.yaml
-                vars:
-                  extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: Switch
           layout:
@@ -284,7 +270,7 @@ blocks:
                     title: Let's Go
                     block: true
                     ghost: true
-                    Icon: RocketOutlined
+                    icon: RocketOutlined
             - id: example_2_code_grid
               type: Box
               layout:
@@ -301,7 +287,7 @@ blocks:
                         title: Let's Go
                         block: true
                         ghost: true
-                        Icon: RocketOutlined
+                        icon: RocketOutlined
                       ```
         - id: example_3_card
           type: Card
@@ -321,7 +307,7 @@ blocks:
                   properties:
                     title: Delete Forever
                     block: false
-                    Icon: WarningFilled
+                    icon: WarningFilled
                     shape: round
                     type: danger
             - id: example_3_code_grid
@@ -339,7 +325,7 @@ blocks:
                       properties:
                         title: Delete Forever
                         block: false
-                        Icon: WarningFilled
+                        icon: WarningFilled
                         shape: round
                         type: danger
                       ```

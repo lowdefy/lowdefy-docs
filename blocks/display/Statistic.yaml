@@ -15,11 +15,11 @@ actions:
             v: 24
         default_properties:
           - k: decimalSeparator
-            v: "."
+            v: '.'
           - k: groupSeparator
-            v: ","
+            v: ','
           - k: formatter
-            v: 
+            v:
               type: null
               properties: {}
         init_properties:
@@ -59,7 +59,7 @@ blocks:
             title: decimalSeparator
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Decimal separator.
@@ -71,7 +71,7 @@ blocks:
             title: formatter.type
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Type of formatter to apply to value.
@@ -93,7 +93,7 @@ blocks:
             title: formatter.properties.format
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Moment.js date format
@@ -105,7 +105,7 @@ blocks:
             title: groupSeparator
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Group separator.
@@ -117,7 +117,7 @@ blocks:
             title: precision
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Number of decimals to display.
@@ -129,7 +129,7 @@ blocks:
             title: prefix
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Prefix text, priority over prefixIcon.
@@ -148,7 +148,7 @@ blocks:
             title: suffix
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Suffix text, priority over suffixIcon.
@@ -166,7 +166,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -196,7 +196,7 @@ blocks:
             title: value
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Display number value.
@@ -212,7 +212,7 @@ blocks:
             title: value
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Display text value.
@@ -254,8 +254,8 @@ blocks:
               properties:
                 title: Decimal, group separators and precision
                 value: 1000.9999
-                decimalSeparator: ","
-                groupSeparator: " "
+                decimalSeparator: ','
+                groupSeparator: ' '
                 precision: 2
             - id: example_2_code
               type: Markdown
@@ -269,8 +269,8 @@ blocks:
                   properties:
                     title: Statistic
                     value: 1000.9999
-                    decimalSeparator: ","
-                    groupSeparator: " "
+                    decimalSeparator: ','
+                    groupSeparator: ' '
                     precision: 2
                   ```
         - id: example_3_card
@@ -297,7 +297,7 @@ blocks:
                   properties:
                     title: Prefix and suffix
                     value: 1000
-                    prefix: "$"
+                    prefix: '$'
                     suffixIcon: ShoppingCartOutlined
                   ```
         - id: example_4_card
@@ -374,7 +374,7 @@ blocks:
                 title: Value style
                 value: 1000
                 prefixIcon: RiseOutlined
-                suffix: "%"
+                suffix: '%'
 
             - id: example_6_code
               type: Markdown
@@ -394,5 +394,5 @@ blocks:
                     title: Value style
                     value: 1000
                     prefixIcon: RiseOutlined
-                    suffix: "%"
+                    suffix: '%'
                   ```

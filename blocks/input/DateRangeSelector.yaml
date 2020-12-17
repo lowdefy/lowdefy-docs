@@ -5,7 +5,7 @@ properties:
   title: DateRangeSelector
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -15,9 +15,9 @@ actions:
             v: 24
         default_properties:
           - k: format
-            v: "YYYY-MM-DD"
+            v: 'YYYY-MM-DD'
           - k: separator
-            v: "~"
+            v: '~'
           - k: suffixIcon
             v: CalendarOutlined
           - k: allowClear
@@ -80,7 +80,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -92,7 +92,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear their input.
@@ -104,7 +104,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -116,7 +116,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -128,10 +128,10 @@ blocks:
             title: format
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
-                  extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+                  extra: Format in which to format the date value, eg. 'DD MMMM YYYY' will format a date value of 1999-12-31 as '31 December 1999'. The format has to conform to moment.js formats.
         - id: block.properties.placeholder.0
           type: TextInput
           layout:
@@ -140,7 +140,7 @@ blocks:
             size: small
             title: placeholder.0
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user types input.
@@ -152,7 +152,7 @@ blocks:
             size: small
             title: placeholder.1
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user types input.
@@ -164,7 +164,7 @@ blocks:
             title: separator
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Separator symbol shown between start and end date inputs.
@@ -176,7 +176,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.

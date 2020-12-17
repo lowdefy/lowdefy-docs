@@ -53,7 +53,7 @@ blocks:
       category: display
       properties_transform:
         _get:
-          key: "0"
+          key: '0'
           from:
             _mql_aggregate:
               pipeline:
@@ -99,7 +99,7 @@ blocks:
             title: active
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Show animation effect.
@@ -129,7 +129,7 @@ blocks:
             title: avatar
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Show avatar placeholder.
@@ -145,7 +145,7 @@ blocks:
             title: avatar.shape
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The shape of the avatar.
@@ -164,7 +164,7 @@ blocks:
             title: avatar.size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The size of the avatar.
@@ -199,7 +199,7 @@ blocks:
             title: button
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Show button placeholder.
@@ -215,7 +215,7 @@ blocks:
             title: button.shape
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The shape of the button.
@@ -235,7 +235,7 @@ blocks:
             title: button.size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The size of the button.
@@ -270,7 +270,7 @@ blocks:
             title: paragraph
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Show paragraph placeholder.
@@ -286,7 +286,7 @@ blocks:
             title: paragraph.rows
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The number of rows in the skeleton paragraph.
@@ -302,7 +302,7 @@ blocks:
             title: paragraph.width
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width. Can be numbers or strings.
@@ -332,7 +332,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Show title placeholder.
@@ -348,7 +348,7 @@ blocks:
             title: title.width
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set the width of title. Can be a number or string.
