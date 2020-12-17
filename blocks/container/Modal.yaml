@@ -29,7 +29,7 @@ actions:
           - k: cancelText
             v: Cancel
           - k: width
-            v: "520px"
+            v: 520px
           - k: zIndex
             v: 1000
         init_properties:
@@ -99,7 +99,7 @@ blocks:
               - id: block_name
                 type: Modal
                 layout:
-                  _parse: 
+                  _parse:
                     _state: flex_style_input
                 visible:
                   _state: block.visible
@@ -128,7 +128,7 @@ blocks:
                   title: Block Setup
               - id: setup_card
                 type: Card
-                properties: 
+                properties:
                   size: small
                 blocks:
                   - id: setup_markdown
@@ -151,7 +151,7 @@ blocks:
                                       type: Modal
                                       layout:
                                         _state: block.layout
-                                      default_layout:  
+                                      default_layout:
                                         _state: default_layout
                                       style:
                                         _parse:
@@ -160,7 +160,7 @@ blocks:
                                         _state: block.visible
                                       properties:
                                         _state: block.properties
-                                      default_properties:  
+                                      default_properties:
                                         _state: default_properties
                                       areas:
                                         content:
@@ -225,7 +225,7 @@ blocks:
                           title: title
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: The modal dialog's title.
@@ -237,7 +237,7 @@ blocks:
                           title: centered
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Center the modal vertically.
@@ -249,7 +249,7 @@ blocks:
                           title: closable
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether a close (x) button is visible on top right of the modal dialog or not.
@@ -261,7 +261,7 @@ blocks:
                           title: footer
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Show footer area.
@@ -273,7 +273,7 @@ blocks:
                           title: mask
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether to show mask (shaded out background) or not.
@@ -285,7 +285,7 @@ blocks:
                           title: maskClosable
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether to close the modal dialog when the mask (area outside the modal) is clicked.
@@ -297,7 +297,7 @@ blocks:
                           title: okText
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Text of the Ok button.
@@ -309,7 +309,7 @@ blocks:
                           title: cancelText
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Text of the Cancel button.
@@ -321,7 +321,7 @@ blocks:
                       #     title: open
                       #     size: small
                       #     label:
-                      #       _ref: 
+                      #       _ref:
                       #         path: blocks/label_extra.yaml
                       #         vars:
                       #           extra: Overwrite the modal dialog is open.
@@ -333,7 +333,7 @@ blocks:
                           title: cancelText
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Width of the modal dialog.
@@ -345,7 +345,7 @@ blocks:
                           title: zIndex
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: The z-index of the modal. Useful when displaying two modals simultaneously.
@@ -449,7 +449,7 @@ blocks:
             properties:
               title: Add New Contact
             actions:
-              onOk: 
+              onOk:
                 - id: validate_form
                   type: Validate
             blocks:
@@ -468,7 +468,7 @@ blocks:
                 required: true
                 properties:
                   title: Surname
-                    
+
       - id: example_1_code_grid
         type: Box
         layout:
@@ -495,7 +495,7 @@ blocks:
                     properties:
                       title: Add New Contact
                     actions:
-                      onOk: 
+                      onOk:
                         - id: validate_form
                           type: Validate
                     blocks:
@@ -545,19 +545,19 @@ blocks:
             type: Modal
             properties:
               title: More details
-              open: 
+              open:
                 _not:
                   _not:
                     _state: example_2_open
             actions:
-              onOk: 
+              onOk:
                 - id: click_ok
                   type: SetState
                   params:
                     example_2_open:
                       _not:
                         _state: example_2_open
-              onCancel: 
+              onCancel:
                 - id: click_cancel
                   type: SetState
                   params:
@@ -570,7 +570,7 @@ blocks:
                 properties:
                   content: |
                     This modal is controlled by the external state `example_2_open`.
-                    
+
       - id: example_2_code_grid
         type: Box
         layout:
@@ -597,19 +597,19 @@ blocks:
                     type: Modal
                     properties:
                       title: More details
-                      open: 
+                      open:
                         _not:
                           _not:
                             _state: example_2_open
                     actions:
-                      onOk: 
+                      onOk:
                         - id: click_ok
                           type: SetState
                           params:
                             example_2_open:
                               _not:
                                 _state: example_2_open
-                      onClose: 
+                      onClose:
                         - id: click_close
                           type: SetState
                           params:

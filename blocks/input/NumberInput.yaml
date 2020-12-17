@@ -5,7 +5,7 @@ properties:
   title: NumberInput
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -19,7 +19,7 @@ actions:
           - k: step
             v: 1
           - k: decimalSeparator
-            v: "."
+            v: '.'
           - k: allowClear
             v: true
           - k: autoFocus
@@ -74,7 +74,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -86,7 +86,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -98,7 +98,7 @@ blocks:
             title: decimalSeparator
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Decimal separator.
@@ -110,7 +110,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disables the block if true.
@@ -122,7 +122,7 @@ blocks:
             title: min
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Minimum value allowed by the block.
@@ -134,7 +134,7 @@ blocks:
             title: max
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Maximum value allowed by the block.
@@ -146,7 +146,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block to show message before user types input.
@@ -159,7 +159,7 @@ blocks:
             size: small
             max: 100
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Precision (number of decimal places) allowed by the block. Maximum of 100.
@@ -171,7 +171,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -189,7 +189,7 @@ blocks:
             precision:
               _state: block.properties.precision
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The number to which the current value is increased or decreased. It can be an integer or decimal.
@@ -232,7 +232,7 @@ blocks:
               defaultValue: 3.14
               properties:
                 title: Decimal separator
-                decimalSeparator: ","
+                decimalSeparator: ','
                 precision: 2
                 step: 0.01
             - id: example_2_code
@@ -247,7 +247,7 @@ blocks:
                   defaultValue: 3.14
                   properties:
                     title: Decimal separator
-                    decimalSeparator: ","
+                    decimalSeparator: ','
                     precision: 2
                     step: 0.01
                   ```

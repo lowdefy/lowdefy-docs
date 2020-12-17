@@ -17,7 +17,7 @@ actions:
           - k: closable
             v: true
           - k: height
-            v: "256px"
+            v: 256px
           - k: keyboard
             v: true
           - k: mask
@@ -27,7 +27,7 @@ actions:
           - k: placement
             v: right
           - k: width
-            v: "256px"
+            v: 256px
           - k: zIndex
             v: 1000
         init_properties:
@@ -97,7 +97,7 @@ blocks:
               - id: block_name
                 type: Drawer
                 layout:
-                  _parse: 
+                  _parse:
                     _state: flex_style_input
                 visible:
                   _state: block.visible
@@ -126,7 +126,7 @@ blocks:
                   title: Block Setup
               - id: setup_card
                 type: Card
-                properties: 
+                properties:
                   size: small
                 blocks:
                   - id: setup_markdown
@@ -149,7 +149,7 @@ blocks:
                                       type: Drawer
                                       layout:
                                         _state: block.layout
-                                      default_layout:  
+                                      default_layout:
                                         _state: default_layout
                                       style:
                                         _parse:
@@ -158,7 +158,7 @@ blocks:
                                         _state: block.visible
                                       properties:
                                         _state: block.properties
-                                      default_properties:  
+                                      default_properties:
                                         _state: default_properties
                                       areas:
                                         content:
@@ -221,7 +221,7 @@ blocks:
                           title: closable
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether a close (x) button is visible on top right of the Drawer dialog or not.
@@ -233,7 +233,7 @@ blocks:
                           title: mask
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether to show mask (shaded out background) or not.
@@ -245,7 +245,7 @@ blocks:
                           title: maskClosable
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Clicking on the mask (area outside the Drawer) to close the Drawer or not.
@@ -257,7 +257,7 @@ blocks:
                           title: title
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: The title of the Drawer.
@@ -269,7 +269,7 @@ blocks:
                           title: width
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Width of the Drawer dialog.
@@ -281,7 +281,7 @@ blocks:
                           title: height
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: When placement is top or bottom, height of the Drawer dialog.
@@ -293,7 +293,7 @@ blocks:
                           title: zIndex
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: The z-index of the Drawer.
@@ -310,7 +310,7 @@ blocks:
                             - bottom
                             - left
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: The placement of the Drawer.
@@ -322,7 +322,7 @@ blocks:
                           title: keyboard
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Enable closing drawer with escape key.
@@ -364,7 +364,7 @@ blocks:
                       - id: method_setOpen
                         type: Button
                         properties:
-                          title: setOpen 
+                          title: setOpen
                         actions:
                           onClick:
                             - id: click_setOpen
@@ -453,7 +453,7 @@ blocks:
                       params:
                         blockId: example_1_drawer
                         method: toggleOpen
-                    
+
       - id: example_1_code_grid
         type: Box
         layout:
@@ -510,7 +510,7 @@ blocks:
                                 blockId: example_1_drawer
                                 method: toggleOpen
                 ```
-  
+
 
   - id: example_2_card
     type: Card
@@ -541,19 +541,19 @@ blocks:
             type: Drawer
             properties:
               title: More details
-              open: 
+              open:
                 _not:
                   _not:
                     _state: example_2_open
             actions:
-              onOk: 
+              onOk:
                 - id: click_ok
                   type: SetState
                   params:
                     example_2_open:
                       _not:
                         _state: example_2_open
-              onCancel: 
+              onCancel:
                 - id: click_cancel
                   type: SetState
                   params:
@@ -605,7 +605,7 @@ blocks:
                     type: Drawer
                     properties:
                       title: More details
-                      open: 
+                      open:
                         _not:
                           _not:
                             _state: example_2_open

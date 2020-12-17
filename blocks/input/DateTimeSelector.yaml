@@ -5,7 +5,7 @@ properties:
   title: DateTimeSelector
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -15,9 +15,9 @@ actions:
             v: 24
         default_properties:
           - k: format
-            v: "YYYY-MM-DD HH:mm"
+            v: 'YYYY-MM-DD HH:mm'
           - k: timeFormat
-            v: "HH:mm"
+            v: 'HH:mm'
           - k: showToday
             v: true
           - k: showNow
@@ -92,7 +92,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -104,7 +104,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear their input.
@@ -116,7 +116,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -128,7 +128,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -140,10 +140,10 @@ blocks:
             title: format
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
-                  extra: Format in which to format the date value, eg. "DD MMMM YYYY" will format a date value of 1999-12-31 as "31 December 1999". The format has to conform to moment.js formats.
+                  extra: Format in which to format the date value, eg. 'DD MMMM YYYY' will format a date value of 1999-12-31 as '31 December 1999'. The format has to conform to moment.js formats.
         - id: block.properties.hourStep
           type: NumberInput
           layout:
@@ -152,7 +152,7 @@ blocks:
             title: hourStep
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Hour intervals to show in the time selector.
@@ -164,7 +164,7 @@ blocks:
             title: minuteStep
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Minute intervals to show in the time selector.
@@ -177,7 +177,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user selects input.
@@ -189,7 +189,7 @@ blocks:
             title: secondStep
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Second intervals to show in the time selector.
@@ -201,7 +201,7 @@ blocks:
             title: selectGMT
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shows the user's selection as GMT time, not time-zone based.
@@ -213,7 +213,7 @@ blocks:
             title: showToday
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shows a button to easily select the current date if true.
@@ -225,7 +225,7 @@ blocks:
             title: showNow
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shows a 'now' button to set current time.
@@ -237,7 +237,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -260,7 +260,7 @@ blocks:
             title: timeFormat
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Time format to show in the time selector. HH:mm:ss will show hours, minutes and seconds, HH:mm only hours and minutes and HH only hours.

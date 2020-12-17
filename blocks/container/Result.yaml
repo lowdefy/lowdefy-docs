@@ -85,14 +85,14 @@ blocks:
                           padding: 20
                         properties:
                           html: |
-                            content 
+                            content
           - id: setup_divider
             type: Divider
             properties:
               title: Block Setup
           - id: setup_card
             type: Card
-            properties: 
+            properties:
               size: small
             blocks:
               - id: setup_markdown
@@ -115,7 +115,7 @@ blocks:
                                   type: Result
                                   layout:
                                     _state: block.layout
-                                  default_layout:  
+                                  default_layout:
                                     _state: default_layout
                                   style:
                                     _parse:
@@ -124,7 +124,7 @@ blocks:
                                     _state: block.visible
                                   properties:
                                     _state: block.properties
-                                  default_properties:  
+                                  default_properties:
                                     _state: default_properties
                                   areas:
                                     content:
@@ -191,7 +191,7 @@ blocks:
                       title: status
                       size: small
                       label:
-                        _ref: 
+                        _ref:
                           path: blocks/label_extra.yaml
                           vars:
                             extra: Status of the result. Determines image and color.
@@ -200,9 +200,9 @@ blocks:
                         - error
                         - info
                         - warning
-                        - "404"
-                        - "403"
-                        - "500"
+                        - '404'
+                        - '403'
+                        - '500'
                   - id: block.properties.subTitle
                     type: TextInput
                     layout:
@@ -211,7 +211,7 @@ blocks:
                       title: subTitle
                       size: small
                       label:
-                        _ref: 
+                        _ref:
                           path: blocks/label_extra.yaml
                           vars:
                             extra: Result subtitle or secondary text.
@@ -223,7 +223,7 @@ blocks:
                       title: title
                       size: small
                       label:
-                        _ref: 
+                        _ref:
                           path: blocks/label_extra.yaml
                           vars:
                             extra: Result title or primary text.

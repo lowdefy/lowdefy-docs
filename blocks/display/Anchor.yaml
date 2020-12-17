@@ -185,7 +185,7 @@ blocks:
                   properties:
                     title: Click here
                     icon:
-                      twoToneColor: "red"
+                      twoToneColor: 'red'
                       name: RocketTwoTone
             - id: example_3_code_grid
               type: Box
@@ -203,7 +203,7 @@ blocks:
                         color: red !important
                         fontSize: 18
                       properties:
-                        title: Click here 
+                        title: Click here
                         icon:
                           twoToneColor: red
                           name: RocketTwoTone
@@ -224,7 +224,7 @@ blocks:
                 - id: example_4
                   type: Anchor
                   style:
-                    color: "#000000 !important"
+                    color: '#000000 !important'
                     fontSize: 16
                   properties:
                     title: Click here
@@ -246,7 +246,7 @@ blocks:
                       id: example_4
                       type: Anchor
                       style:
-                        color: "#000000 !important"
+                        color: '#000000 !important'
                         fontSize: 16
                       properties:
                         title: Click here
