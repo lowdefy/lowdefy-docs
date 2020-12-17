@@ -1,6 +1,4 @@
-config:
-  auth:
-    createUsers: 'sign_up'
+version: 0.0.0-alpha.7
 
 global:
   style_blue_block: |
@@ -309,9 +307,6 @@ menus:
           - id: Title
             type: MenuLink
             pageId: Title
-          - id: UserAvatar
-            type: MenuLink
-            pageId: UserAvatar
 
       - id: blocks_container
         type: MenuGroup
@@ -548,8 +543,10 @@ menus:
           title: Feedback
           icon: FormOutlined
 
-
 pages:
+  - id: new
+    type: Context
+
   - _ref: start/introduction.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
@@ -567,7 +564,7 @@ pages:
   # - _ref: concepts/blocks.yaml
   # - _ref: concepts/connections.yaml
   # - _ref: concepts/groups.yaml
-  - _ref: concepts/layout.yaml
+  # - _ref: concepts/layout.yaml
   # - _ref: concepts/lowdefy-file.yaml
   # - _ref: concepts/operators.yaml
   # - _ref: concepts/pages.yaml
@@ -577,7 +574,7 @@ pages:
 
   - _ref: blocks/input/AutoComplete.yaml
   - _ref: blocks/input/CheckboxSelector.yaml
-  - _ref: blocks/input/CodeEditor.yaml
+  # - _ref: blocks/input/CodeEditor.yaml
   - _ref: blocks/input/ColorSelector.yaml
   - _ref: blocks/input/DateSelector.yaml
   - _ref: blocks/input/DateRangeSelector.yaml
@@ -594,89 +591,88 @@ pages:
   - _ref: blocks/input/TextInput.yaml
   - _ref: blocks/input/WeekSelector.yaml
 
-  - _ref: blocks/display/AgGrid.yaml
-  - _ref: blocks/display/Alert.yaml
-  - _ref: blocks/display/AmCharts4XY.yaml
-  - _ref: blocks/display/Anchor.yaml
-  - _ref: blocks/display/Avatar.yaml
-  - _ref: blocks/display/Breadcrumb.yaml
-  - _ref: blocks/display/Button.yaml
-  - _ref: blocks/display/Descriptions.yaml
-  - _ref: blocks/display/Divider.yaml
-  - _ref: blocks/display/Html.yaml
-  - _ref: blocks/display/Icon.yaml
-  - _ref: blocks/display/Markdown.yaml
-  - _ref: blocks/display/Menu.yaml
-  - _ref: blocks/display/Message.yaml
-  - _ref: blocks/display/Notification.yaml
-  - _ref: blocks/display/Paragraph.yaml
-  - _ref: blocks/display/Progress.yaml
-  - _ref: blocks/display/Skeleton.yaml
-  - _ref: blocks/display/Statistic.yaml
-  - _ref: blocks/display/Title.yaml
-  - _ref: blocks/display/UserAvatar.yaml
+  # - _ref: blocks/display/AgGrid.yaml
+  # - _ref: blocks/display/Alert.yaml
+  # - _ref: blocks/display/AmCharts4XY.yaml
+  # - _ref: blocks/display/Anchor.yaml
+  # - _ref: blocks/display/Avatar.yaml
+  # - _ref: blocks/display/Breadcrumb.yaml
+  # - _ref: blocks/display/Button.yaml
+  # - _ref: blocks/display/Descriptions.yaml
+  # - _ref: blocks/display/Divider.yaml
+  # - _ref: blocks/display/Html.yaml
+  # - _ref: blocks/display/Icon.yaml
+  # - _ref: blocks/display/Markdown.yaml
+  # - _ref: blocks/display/Menu.yaml
+  # - _ref: blocks/display/Message.yaml
+  # - _ref: blocks/display/Notification.yaml
+  # - _ref: blocks/display/Paragraph.yaml
+  # - _ref: blocks/display/Progress.yaml
+  # - _ref: blocks/display/Skeleton.yaml
+  # - _ref: blocks/display/Statistic.yaml
+  # - _ref: blocks/display/Title.yaml
 
-  - _ref: blocks/container/Affix.yaml
-  - _ref: blocks/container/Badge.yaml
-  - _ref: blocks/container/Box.yaml
-  - _ref: blocks/container/Card.yaml
-  - _ref: blocks/container/Collapse.yaml
-  - _ref: blocks/container/ConfirmModal.yaml
-  # - _ref: blocks/container/Content.yaml
-  - _ref: blocks/container/Drawer.yaml
-  # - _ref: blocks/container/Footer.yaml
-  # - _ref: blocks/container/Header.yaml
-  # - _ref: blocks/container/Layout.yaml
-  - _ref: blocks/container/Modal.yaml
-  - _ref: blocks/container/Result.yaml
-  # - _ref: blocks/container/Sider.yaml
-  - _ref: blocks/container/Tabs.yaml
+  # - _ref: blocks/container/Affix.yaml
+  # - _ref: blocks/container/Badge.yaml
+  # - _ref: blocks/container/Box.yaml
+  # - _ref: blocks/container/Card.yaml
+  # - _ref: blocks/container/Collapse.yaml
+  # - _ref: blocks/container/ConfirmModal.yaml
+  # # - _ref: blocks/container/Content.yaml
+  # - _ref: blocks/container/Drawer.yaml
+  # # - _ref: blocks/container/Footer.yaml
+  # # - _ref: blocks/container/Header.yaml
+  # # - _ref: blocks/container/Layout.yaml
+  # - _ref: blocks/container/Modal.yaml
+  # - _ref: blocks/container/Result.yaml
+  # # - _ref: blocks/container/Sider.yaml
+  # - _ref: blocks/container/Tabs.yaml
 
-  - _ref: blocks/list/ControlledList.yaml
-  - _ref: blocks/list/List.yaml
-  - _ref: blocks/list/Timeline.yaml
+  # - _ref: blocks/list/ControlledList.yaml
+  # - _ref: blocks/list/List.yaml
+  # - _ref: blocks/list/Timeline.yaml
 
-  - _ref: blocks/context/Context.yaml
-  - _ref: blocks/context/PageHCF.yaml
-  - _ref: blocks/context/PageHCSF.yaml
-  - _ref: blocks/context/PageHeaderMenu.yaml
-  - _ref: blocks/context/PageHSCF.yaml
-  - _ref: blocks/context/PageSHCF.yaml
-  - _ref: blocks/context/PageSiderMenu.yaml
+  # - _ref: blocks/context/Context.yaml
+  # - _ref: blocks/context/PageHCF.yaml
+  # - _ref: blocks/context/PageHCSF.yaml
+  # - _ref: blocks/context/PageHeaderMenu.yaml
+  # - _ref: blocks/context/PageHSCF.yaml
+  # - _ref: blocks/context/PageSHCF.yaml
+  # - _ref: blocks/context/PageSiderMenu.yaml
 
-  - _ref: connections/AWSS3.yaml
-  - _ref: connections/AxiosHttp.yaml
-  - _ref: connections/MongoDB.yaml
+  # - _ref: connections/AWSS3.yaml
+  # - _ref: connections/AxiosHttp.yaml
+  # - _ref: connections/MongoDB.yaml
 
-  - _ref: actions/CallMethod.yaml
-  - _ref: actions/Fetch.yaml
-  - _ref: actions/Link.yaml
-  - _ref: actions/Login.yaml
-  - _ref: actions/Logout.yaml
-  - _ref: actions/Message.yaml
-  - _ref: actions/Mutate.yaml
-  - _ref: actions/Notification.yaml
-  - _ref: actions/Reset.yaml
-  - _ref: actions/ScrollTo.yaml
-  - _ref: actions/SetGlobal.yaml
-  - _ref: actions/SetState.yaml
-  - _ref: actions/Validate.yaml
+  # - _ref: actions/CallMethod.yaml
+  # - _ref: actions/Fetch.yaml
+  # - _ref: actions/Link.yaml
+  # - _ref: actions/Login.yaml
+  # - _ref: actions/Logout.yaml
+  # - _ref: actions/Message.yaml
+  # - _ref: actions/Mutate.yaml
+  # - _ref: actions/Notification.yaml
+  # - _ref: actions/Reset.yaml
+  # - _ref: actions/ScrollTo.yaml
+  # - _ref: actions/SetGlobal.yaml
+  # - _ref: actions/SetState.yaml
+  # - _ref: actions/Validate.yaml
 
-  - _ref: operators/_and.yaml
-  - _ref: operators/_date.yaml
-  - _ref: operators/_eq.yaml
-  - _ref: operators/_get.yaml
-  - _ref: operators/_if.yaml
-  - _ref: operators/_mql_aggregate.yaml
-  - _ref: operators/_mql_test.yaml
-  - _ref: operators/_mql_expr.yaml
-  - _ref: operators/_not.yaml
-  - _ref: operators/_nunjucks.yaml
-  - _ref: operators/_or.yaml
-  - _ref: operators/_regex.yaml
-  - _ref: operators/_request.yaml
-  - _ref: operators/_state.yaml
-  - _ref: operators/_type.yaml
-  - _ref: operators/_user.yaml
+  # - _ref: operators/_and.yaml
+  # - _ref: operators/_date.yaml
+  # - _ref: operators/_eq.yaml
+  # - _ref: operators/_get.yaml
+  # - _ref: operators/_if.yaml
+  # - _ref: operators/_mql_aggregate.yaml
+  # - _ref: operators/_mql_test.yaml
+  # - _ref: operators/_mql_expr.yaml
+  # - _ref: operators/_not.yaml
+  # - _ref: operators/_nunjucks.yaml
+  # - _ref: operators/_or.yaml
+  # - _ref: operators/_regex.yaml
+  # - _ref: operators/_request.yaml
+  # - _ref: operators/_state.yaml
+  # - _ref: operators/_type.yaml
+  # - _ref: operators/_user.yaml
 
-  - _ref: feedback.yaml
+  # - _ref: feedback.yaml
