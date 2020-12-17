@@ -181,7 +181,7 @@ blocks:
                   type: Anchor
                   style:
                     fontSize: 18
-                    color: 'red !important'
+                    color: "red !important"
                   properties:
                     title: Click here
                     icon:
