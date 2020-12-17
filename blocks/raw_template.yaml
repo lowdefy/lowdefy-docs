@@ -6,7 +6,7 @@
       properties:
         content:
           _nunjucks:
-            template: "### {{ title }}"
+            template: '### {{ title }}'
             on:
               title:
                 _var: block_name
@@ -47,7 +47,7 @@
         - id: apply_properties_button
           type: Button
           properties:
-            title: "Apply"
+            title: Apply
             block: false
             Icon: ReloadOutlined
             type: primary

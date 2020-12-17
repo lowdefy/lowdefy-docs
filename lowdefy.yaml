@@ -195,9 +195,9 @@ menus:
           - id: ButtonSelector
             type: MenuLink
             pageId: ButtonSelector
-          - id: Checkbox
+          - id: CheckboxSelector
             type: MenuLink
-            pageId: Checkbox
+            pageId: CheckboxSelector
           - id: CodeEditor
             type: MenuLink
             pageId: CodeEditor
@@ -393,6 +393,28 @@ menus:
             type: MenuLink
             pageId: PageSiderMenu
 
+      - id: blocks_list
+        type: MenuGroup
+        properties:
+          title: List Blocks
+          icon: UnorderedListOutlined
+        links:
+          - id: ControlledList
+            type: MenuLink
+            pageId: ControlledList
+            properties:
+              title: ControlledList
+          - id: List
+            type: MenuLink
+            pageId: List
+            properties:
+              title: List
+          - id: Timeline
+            type: MenuLink
+            pageId: Timeline
+            properties:
+              title: Timeline
+
       - id: connections
         type: MenuGroup
         properties:
@@ -447,6 +469,8 @@ menus:
           - id: NotificationAction
             type: MenuLink
             pageId: NotificationAction # Clash with Notification block
+            properties:
+              title: Notification
           - id: Reset
             type: MenuLink
             pageId: Reset
@@ -524,8 +548,8 @@ menus:
           title: Feedback
           icon: FormOutlined
 
-pages:
 
+pages:
   - _ref: start/introduction.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
@@ -536,7 +560,7 @@ pages:
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
   - _ref: tutorial/tutorial-inspector.yaml
-  
+
   # - _ref: start/quick-start.yaml
   # - _ref: start/alpha-starter.yaml
   # - _ref: start/how-it-works.yaml
@@ -552,7 +576,7 @@ pages:
   # - _ref: concepts/state.yaml
 
   - _ref: blocks/input/AutoComplete.yaml
-  - _ref: blocks/input/Checkbox.yaml
+  - _ref: blocks/input/CheckboxSelector.yaml
   - _ref: blocks/input/CodeEditor.yaml
   - _ref: blocks/input/ColorSelector.yaml
   - _ref: blocks/input/DateSelector.yaml
@@ -607,6 +631,10 @@ pages:
   - _ref: blocks/container/Result.yaml
   # - _ref: blocks/container/Sider.yaml
   - _ref: blocks/container/Tabs.yaml
+
+  - _ref: blocks/list/ControlledList.yaml
+  - _ref: blocks/list/List.yaml
+  - _ref: blocks/list/Timeline.yaml
 
   - _ref: blocks/context/Context.yaml
   - _ref: blocks/context/PageHCF.yaml

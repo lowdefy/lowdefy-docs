@@ -5,7 +5,7 @@ properties:
   title: AutoComplete
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -15,8 +15,6 @@ actions:
             v: 24
         default_properties:
           - k: autoFocus
-            v: false
-          - k: defaultActiveFirstOption
             v: false
           - k: defaultOpen
             v: false
@@ -80,7 +78,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -92,7 +90,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear the selected value, sets the value to null.
@@ -104,23 +102,10 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
-        - id: block.properties.defaultActiveFirstOption
-          type: Switch
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: defaultActiveFirstOption
-            size: small
-            label:
-              _ref: 
-                path: blocks/label_extra.yaml
-                vars:
-                  span: 12
-                  extra: Makes the first option in the selection list active when true.
         - id: block.properties.defaultOpen
           type: Switch
           layout:
@@ -129,7 +114,7 @@ blocks:
             title: defaultOpen
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Initial open state of dropdown.
@@ -141,10 +126,22 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disables the block if true.
+        - id: block.properties.backfill
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: backfill
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Backfill selected item when using keyboard.
         - id: block.properties.options
           type: ControlledList
           required: true
@@ -165,7 +162,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user selects input.
@@ -177,7 +174,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -302,11 +299,10 @@ blocks:
               layout:
                 span: 12
               properties:
-                title: Default open and first option active
+                title: Default open
                 defaultOpen: true
-                defaultActiveFirstOption: true
                 label:
-                  extra: Open dropdown on load and make the first option active.
+                  extra: Open dropdown on load.
                 options:
                   - A
                   - B
@@ -321,11 +317,10 @@ blocks:
                   id: example_3
                   type: AutoComplete
                   properties:
-                    title: Default open and first option active
+                    title: Default open
                     defaultOpen: true
-                    defaultActiveFirstOption: true
                     label:
-                      extra: Open dropdown on load and make the first option active.
+                      extra: Open dropdown on load.
                     options:
                       - A
                       - B

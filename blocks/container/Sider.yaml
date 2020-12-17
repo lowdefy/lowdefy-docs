@@ -39,7 +39,7 @@ blocks:
             label:
               span: 8
               extra: CSS Object style properties. Should be in JSON format.
-      flex_properties_form: 
+      flex_properties_form:
         - id: block.properties.breakpoint
           type: ButtonSelector
           defaultValue: md
@@ -51,7 +51,7 @@ blocks:
             options:
               - xs
               - sm
-              - md 
+              - md
               - lg
               - xl
               - xxl
@@ -95,6 +95,19 @@ blocks:
             label:
               span: 8
               extra: Whether can be collapsed
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Sider primary color.
         - id: block.properties.defaultCollapsed
           type: Switch
           defaultValue: false
@@ -131,7 +144,6 @@ blocks:
             label:
               span: 8
               extra: width of the sidebar
-        
-      actions_description: | 
-        ###### No available actions.
 
+      actions_description: |
+        ###### No available actions.

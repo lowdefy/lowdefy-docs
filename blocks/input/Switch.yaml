@@ -5,7 +5,7 @@ properties:
   title: Switch
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -74,7 +74,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -86,10 +86,23 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Switch checked color.
         - id: block.properties.disabled
           type: Switch
           layout:
@@ -98,7 +111,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -110,7 +123,7 @@ blocks:
             size: small
             title: size
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -125,7 +138,7 @@ blocks:
             title: checkedText
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Text to shown when switch is checked (true).
@@ -135,7 +148,7 @@ blocks:
             title: uncheckedText
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Text to shown when switch is unchecked (true).
@@ -216,8 +229,8 @@ blocks:
                 span: 12
               properties:
                 title: No Icons
-                checkedText: ""
-                uncheckedText: ""
+                checkedText: ''
+                uncheckedText: ''
                 label:
                   extra: Hide the checked and unchecked icons.
             - id: example_3_code

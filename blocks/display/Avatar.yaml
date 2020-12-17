@@ -55,7 +55,7 @@ blocks:
             title: alt
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: This attribute defines the alternative text describing the image.
@@ -65,9 +65,10 @@ blocks:
             _global: settings_input_layout
           properties:
             title: color
-            size: small
+            circleSize: 16
+            circleSpacing: 6
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The background color of the avatar if not using a src url. Should be a hex color string. Color is a random color if not specified.
@@ -79,7 +80,7 @@ blocks:
             title: content
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Text to display inside avatar.
@@ -92,7 +93,7 @@ blocks:
             title: gap
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Letter type unit distance between left and right sides.
@@ -111,7 +112,7 @@ blocks:
             title: shape
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shape of the avatar.
@@ -127,7 +128,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the avatar.
@@ -143,11 +144,10 @@ blocks:
             title: src
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
-                  extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
+                  extra: 'The address of the image for an image avatar. You can use "_user: picture" for this.'
 
       available_actions_description: |
         ###### No available actions.
-

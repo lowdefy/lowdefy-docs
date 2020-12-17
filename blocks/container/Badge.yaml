@@ -89,7 +89,7 @@ blocks:
                           color: red
                           padding: 20
                         layout:
-                          size: 100 
+                          size: 100
                         properties:
                           html: |
                             content
@@ -99,7 +99,7 @@ blocks:
               title: Block Setup
           - id: setup_card
             type: Card
-            properties: 
+            properties:
               size: small
             blocks:
               - id: setup_markdown
@@ -122,7 +122,7 @@ blocks:
                                   type: Badge
                                   layout:
                                     _state: block.layout
-                                  default_layout:  
+                                  default_layout:
                                     _state: default_layout
                                   style:
                                     _parse:
@@ -131,7 +131,7 @@ blocks:
                                     _state: block.visible
                                   properties:
                                     _state: block.properties
-                                  default_properties:  
+                                  default_properties:
                                     _state: default_properties
                                   areas:
                                     content:
@@ -145,7 +145,6 @@ blocks:
                                     v: {}
                                   - k: visible
                                     v: true
-                                
 
       - id: settings_grid
         type: Box
@@ -200,10 +199,10 @@ blocks:
                           _global: settings_input_layout
                         properties:
                           title: color
-                          size: small
-                          type: twitter
+                          circleSize: 16
+                          circleSpacing: 6
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Customize Badge dot color
@@ -215,7 +214,7 @@ blocks:
                           title: count
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Number or string to show in badge if Count blocks are not provided
@@ -227,7 +226,7 @@ blocks:
                           title: dot
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether to display a red dot instead of count
@@ -239,7 +238,7 @@ blocks:
                           title: offset X
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Set offset of the badge dot in X axis
@@ -251,7 +250,7 @@ blocks:
                           title: offset Y
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Set offset of the badge dot in Y axis
@@ -263,7 +262,7 @@ blocks:
                           title: overflowCount
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Max count to show
@@ -275,7 +274,7 @@ blocks:
                           title: showZero
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Whether to show badge when count is zero
@@ -294,7 +293,7 @@ blocks:
                             - warning
                             - null
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Set Badge as a status dot
@@ -306,7 +305,7 @@ blocks:
                           title: text
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: If status is set, text sets the display text of the status dot
@@ -318,7 +317,7 @@ blocks:
                           title: title
                           size: small
                           label:
-                            _ref: 
+                            _ref:
                               path: blocks/label_extra.yaml
                               vars:
                                 extra: Text to show when hovering over the badge
@@ -344,7 +343,7 @@ blocks:
             type: Badge
             properties:
               count: 12
-            areas:  
+            areas:
               content:
                 blocks:
                   - id: block_1
@@ -369,5 +368,3 @@ blocks:
                         - id: block_1
                           type: Avatar
                 ```
-
-      

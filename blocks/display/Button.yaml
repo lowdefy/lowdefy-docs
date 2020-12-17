@@ -22,8 +22,6 @@ actions:
             v: false
           - k: ghost
             v: false
-          - k: hideActionLoading
-            v: false
           - k: hideTitle
             v: false
           - k: shape
@@ -69,10 +67,23 @@ blocks:
             title: block
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Fit the button's span to its parent container span.
+        - id: block.properties.color
+          type: ColorSelector
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: color
+            circleSize: 16
+            circleSpacing: 6
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Primary button color.
         - id: block.properties.danger
           type: Switch
           layout:
@@ -81,7 +92,7 @@ blocks:
             title: danger
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Set button style to danger.
@@ -93,7 +104,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the button if true.
@@ -105,22 +116,10 @@ blocks:
             title: ghost
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Make the button's background transparent when true.
-        - id: block.properties.hideActionLoading
-          type: Switch
-          layout:
-            _global: settings_input_layout
-          properties:
-            title: hideActionLoading
-            size: small
-            label:
-              _ref: 
-                path: blocks/label_extra.yaml
-                vars:
-                  extra: Hide the loading message when an action is in progress. Useful when using the button as a link to a new page.
         - id: block.properties.hideTitle
           type: Switch
           layout:
@@ -129,7 +128,7 @@ blocks:
             title: hideTitle
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Hide the button's title.
@@ -141,7 +140,7 @@ blocks:
             title: href
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The URL to redirect to when the button is clicked. Useful when used with a type link button.
@@ -159,7 +158,7 @@ blocks:
             title: shape
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Shape of the button.
@@ -175,7 +174,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the button.
@@ -191,7 +190,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title text on the button.
@@ -203,7 +202,7 @@ blocks:
             title: type
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: The button type.
@@ -271,7 +270,7 @@ blocks:
                     title: Let's Go
                     block: true
                     ghost: true
-                    Icon: RocketOutlined
+                    icon: RocketOutlined
             - id: example_2_code_grid
               type: Box
               layout:
@@ -288,7 +287,7 @@ blocks:
                         title: Let's Go
                         block: true
                         ghost: true
-                        Icon: RocketOutlined
+                        icon: RocketOutlined
                       ```
         - id: example_3_card
           type: Card
@@ -308,7 +307,7 @@ blocks:
                   properties:
                     title: Delete Forever
                     block: false
-                    Icon: WarningFilled
+                    icon: WarningFilled
                     shape: round
                     type: danger
             - id: example_3_code_grid
@@ -326,7 +325,7 @@ blocks:
                       properties:
                         title: Delete Forever
                         block: false
-                        Icon: WarningFilled
+                        icon: WarningFilled
                         shape: round
                         type: danger
                       ```

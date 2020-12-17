@@ -10,47 +10,53 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
-      - id: title
-        type: Title
-        properties:
-          content: CallMethod
-      - id: markdown
-        type: Markdown
-        style:
-          '.markdown-body':
-            fontSize: 14px
-        properties:
-          content: |
-            The `CallMethod` action is used to call a method defined by another block.
+      - id: max_width
+        type: Box
+        layout:
+          size: 800
+          shrink: 1
+        blocks:
+          - id: title
+            type: Title
+            properties:
+              content: CallMethod
+          - id: markdown
+            type: Markdown
+            style:
+              '.markdown-body':
+                fontSize: 14px
+            properties:
+              content: |
+                The `CallMethod` action is used to call a method defined by another block.
 
-            ### Parameters
-            - `blockId`: _String_ - The id of the block.
-            - `method`: _String_ - The name of the method that should be called.
-            - `args`: _Any_ - The arguments with which the method should be called. If this is an array, each item will be a positional argument to the method, else the args are only the first argument. (The arguments are spread if they are an array).
+                ### Parameters
+                - `blockId`: _String_ - The id of the block.
+                - `method`: _String_ - The name of the method that should be called.
+                - `args`: _Any_ - The arguments with which the method should be called. If this is an array, each item will be a positional argument to the method, else the args are only the first argument. (The arguments are spread if they are an array).
 
-            ### Examples
+                ### Examples
 
-            Open a modal:
-            ```
-            - id: toggle_modal
-              type: CallMethod
-              params:
-                blockId: my_modal
-                method: toggleOpen
-            ```
+                Open a modal:
+                ```
+                - id: toggle_modal
+                  type: CallMethod
+                  params:
+                    blockId: my_modal
+                    method: toggleOpen
+                ```
 
-            Display a message with args:
-            ```
-            - id: display_message
-              type: CallMethod
-              params:
-                blockId: my_message
-                method: open
-                args:
-                  content: Hello
-                  duration: 4
-            ```
+                Display a message with args:
+                ```
+                - id: display_message
+                  type: CallMethod
+                  params:
+                    blockId: my_message
+                    method: open
+                    args:
+                      content: Hello
+                      duration: 4
+                ```

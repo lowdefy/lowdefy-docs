@@ -10,84 +10,90 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
-      - id: title
-        type: Title
-        properties:
-          content: SetState
-      - id: markdown
-        type: Markdown
-        style:
-          '.markdown-body':
-            fontSize: 14px
-        properties:
-          content: |
-            `SetState` sets values in state. It takes an object as parameters, and sets each of those values to the `state` object.
-            This is useful if you want to initialize state, set a flag after an action has executed (eg. to disable a button), or to set the result
-            of a mutation to state.
+      - id: max_width
+        type: Box
+        layout:
+          size: 800
+          shrink: 1
+        blocks:
+          - id: title
+            type: Title
+            properties:
+              content: SetState
+          - id: markdown
+            type: Markdown
+            style:
+              '.markdown-body':
+                fontSize: 14px
+            properties:
+              content: |
+                The `SetState` action sets values in state. It takes an object as parameters, and sets each of those values to the `state` object.
+                This is useful if you want to initialize state, set a flag after an action has executed (eg. to disable a button), or to set the result
+                of a mutation to state.
 
-            ### Parameters
-            - values: Object with key value pairs to set in state.
+                ### Parameters
+                - values: Object with key value pairs to set in state.
 
 
-            ### Examples
+                ### Examples
 
-            Set a single value to state:
+                Set a single value to state:
 
-            ```
-            - id: single_value
-              type: SetState
-              params:
-                message: Hello
-            ```
+                ```
+                - id: single_value
+                  type: SetState
+                  params:
+                    message: Hello
+                ```
 
-            Set multiple values to state:
-            ```
-            - id: multiple_values
-              type: SetState
-              params:
-                firstName: Monica
-                lastName: Geller
-                address:
-                  street: 90 Bedford St
-                  city: New York
-                  zipCode: '10014'
-                  country: US
-                friends:
-                  - Ross Geller
-                  - Rachel Green
-                  - Chandler Bing
-                  - Phoebe Buffay
-                  - Joey Tribbiani
-            ```
+                Set multiple values to state:
+                ```
+                - id: multiple_values
+                  type: SetState
+                  params:
+                    firstName: Monica
+                    lastName: Geller
+                    address:
+                      street: 90 Bedford St
+                      city: New York
+                      zipCode: '10014'
+                      country: US
+                    friends:
+                      - Ross Geller
+                      - Rachel Green
+                      - Chandler Bing
+                      - Phoebe Buffay
+                      - Joey Tribbiani
+                ```
 
-            Using dot notation:
+                Using dot notation:
 
-            ```
-            - id: dot_notation
-              type: SetState
-              params:
-                firstName: Monica
-                lastName: Geller
-                address.street: 90 Bedford St
-                address.city: New York
-                address.zipCode: '10014'
-                address.country: US
-                friends.0: Ross Geller
-                friends.1: Rachel Green
-                friends.2: Chandler Bing
-                friends.3: Phoebe Buffay
-                friends.5: Joey Tribbiani
-            ```
+                ```
+                - id: dot_notation
+                  type: SetState
+                  params:
+                    firstName: Monica
+                    lastName: Geller
+                    address.street: 90 Bedford St
+                    address.city: New York
+                    address.zipCode: '10014'
+                    address.country: US
+                    friends.0: Ross Geller
+                    friends.1: Rachel Green
+                    friends.2: Chandler Bing
+                    friends.3: Phoebe Buffay
+                    friends.5: Joey Tribbiani
+                ```
 
-            Initialize state with the value of a request:
+                Initialize state with the value of a request:
 
-            ```
-            - id: initialize
-              type: SetState
-              params:
-                _request: getUser
-            ```
+                ```
+                - id: initialize
+                  type: SetState
+                  params:
+                    _request: getUser
+                ```
