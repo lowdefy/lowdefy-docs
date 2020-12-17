@@ -5,12 +5,12 @@ properties:
   title: ColorSelector
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         # block:
         #   properties:
-        #     colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+        #     colors: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548', '#607d8b']
         default_layout:
           - k: align
             v: top
@@ -39,7 +39,7 @@ actions:
               span: null
         init_properties:
           - k: colors
-            v: ["#f44336", "#673ab7", "#3f51b5", "#2196f3", "#009688", "#4caf50",  "#ffeb3b", "#ffc107", "#795548", "#607d8b"]
+            v: ['#f44336', '#673ab7', '#3f51b5', '#2196f3', '#009688', '#4caf50',  '#ffeb3b', '#ffc107', '#795548', '#607d8b']
     - id: set_init
       type: SetState
       params:
@@ -75,7 +75,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -87,7 +87,7 @@ blocks:
             title: circleSize
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Pixel value for circle size, only available for type circle.
@@ -99,7 +99,7 @@ blocks:
             title: circleSpacing
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Pixel value for spacing between circles, only available for type circle.
@@ -123,7 +123,7 @@ blocks:
             title: type
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Type of picker.
@@ -140,7 +140,7 @@ blocks:
             title: width
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Pixel value for picker width.

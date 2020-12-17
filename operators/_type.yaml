@@ -12,7 +12,7 @@ actions:
         string: A string value
         boolean: true
         date:
-          _date: "2020-01-01"
+          _date: '2020-01-01'
         array:
           - 1
           - 2.5
@@ -21,14 +21,14 @@ actions:
           string: text
           boolean: false
           date:
-            _date: "2000-01-01"
+            _date: '2000-01-01'
           array:
             - A
             - B
             - C
 
 blocks:
-  _ref: 
+  _ref:
     path: operators/template_operators.yaml
     vars:
       operator_name: _type
@@ -58,9 +58,8 @@ blocks:
         _load_yaml:
           _state: operator
       operator_output:
-        _type: 
+        _type:
           _load_yaml:
             _state: operator
-      
+
       # examples:
- 

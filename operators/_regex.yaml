@@ -31,14 +31,14 @@ actions:
           string: text
           boolean: false
           date:
-            _date: "2000-01-01"
+            _date: '2000-01-01'
           array:
             - A
             - B
             - C
 
 blocks:
-  _ref: 
+  _ref:
     path: operators/template_operators.yaml
     vars:
       operator_name: _regex
@@ -65,9 +65,8 @@ blocks:
         _load_yaml:
           _state: operator
       operator_output:
-        _regex: 
+        _regex:
           _load_yaml:
             _state: operator
-      
+
       # examples:
- 
