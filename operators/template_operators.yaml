@@ -62,7 +62,7 @@
               _mql_expr:
                 $concat:
                   - _var: operator_name
-                  - ":"
+                  - ':'
         - id: operator
           type: CodeEditor
           defaultValue:
@@ -82,7 +82,7 @@
           # properties:
           #   title:
           #     _var: operator_name
-          #   autoSize: 
+          #   autoSize:
           #     minRows: 6
           #   label:
           #     colon: true
@@ -103,7 +103,7 @@
                   ```
                   {% else %}
                   ```yaml
-                  {{ operator_name }}: 
+                  {{ operator_name }}:
                     {{ operator | safe | indent(2) }}
                   ```
                   {% endif %}

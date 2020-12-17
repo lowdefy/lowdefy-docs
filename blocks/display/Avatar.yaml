@@ -147,7 +147,7 @@ blocks:
               _ref:
                 path: blocks/label_extra.yaml
                 vars:
-                  extra: "The address of the image for an image avatar. You can use '_user: picture' for this."
+                  extra: 'The address of the image for an image avatar. You can use "_user: picture" for this.'
 
       available_actions_description: |
         ###### No available actions.

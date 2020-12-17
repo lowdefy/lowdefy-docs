@@ -53,7 +53,7 @@ blocks:
     vars:
       block_name: Paragraph
       description_content: |
-        A paragraph text component. 
+        A paragraph text component.
       block_type: Paragraph
       label: false
       category: display
@@ -68,7 +68,7 @@ blocks:
             title: code
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply code style.
@@ -83,7 +83,7 @@ blocks:
             size: small
             rows: 5
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Paragraph text content.
@@ -95,7 +95,7 @@ blocks:
             title: copyable
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Provide copy text button.
@@ -107,7 +107,7 @@ blocks:
             title: delete
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply deleted (strikethrough) style.
@@ -119,7 +119,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply disabled style.
@@ -131,7 +131,7 @@ blocks:
             title: ellipsis
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Display ellipsis when text overflows a single line.
@@ -143,7 +143,7 @@ blocks:
             title: mark
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply marked (highlighted) style.
@@ -155,7 +155,7 @@ blocks:
             title: strong
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply strong (bold) style.
@@ -168,7 +168,7 @@ blocks:
             title: type
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Additional types. Don't specify for default.
@@ -184,7 +184,7 @@ blocks:
             title: underline
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Apply underline style.
@@ -211,7 +211,7 @@ blocks:
                   properties:
                     copyable:
                       text: password123
-                    content: "************"
+                    content: '************'
 
             - id: example_1_code_grid
               type: Box
@@ -228,5 +228,5 @@ blocks:
                         properties:
                           copyable:
                             text: password123
-                          content: "***********"
+                          content: '***********'
                       ```

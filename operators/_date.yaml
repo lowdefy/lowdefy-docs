@@ -17,7 +17,7 @@ blocks:
         properties:
           content: |
             The `_date` operator can be used to create _Date_ objects.
-            
+
             #### Parameters
             Create a date object by setting `_date` equal to a [JavaScript parsable date string](https://momentjs.com/docs/#/parsing/string/) or the string `'now'` - which references the current date and time.
 
@@ -42,7 +42,7 @@ blocks:
             layout:
               _global: settings_input_layout
             defaultValue: |
-              "2000-01-01"
+              '2000-01-01'
             properties:
               title: _date
               rows: 3
@@ -101,7 +101,7 @@ blocks:
                   on:
                     value:
                       _stringify:
-                        _date: 
+                        _date:
                           _parse:
                             _state: operator
       # - id: box_state

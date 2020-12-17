@@ -5,18 +5,18 @@ properties:
   title: amCharts4XY
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         block:
           properties:
             data:
               - x: a
-                "y": 1
+                'y': 1
               - x: b
-                "y": 2
+                'y': 2
               - x: c
-                "y": 3
+                'y': 3
             xAxes:
               - type: CategoryAxis
                 dataFields:
@@ -27,15 +27,15 @@ actions:
               - type: ColumnSeries
                 dataFields:
                   categoryX: x
-                  valueY: "y"
+                  valueY: 'y'
         properties_input: |
           data:
             - x: a
-              "y": 1
+              'y': 1
             - x: b
-              "y": 2
+              'y': 2
             - x: c
-              "y": 3
+              'y': 3
           xAxes:
             - type: CategoryAxis
               dataFields:
@@ -46,7 +46,7 @@ actions:
             - type: ColumnSeries
               dataFields:
                 categoryX: x
-                valueY: "y"
+                valueY: 'y'
 blocks:
   _ref:
     path: blocks/raw_template.yaml
@@ -56,5 +56,5 @@ blocks:
       description_content: |
         amCharts 4 XY chart
       block_type: AmCharts4XY
-      style_transform: 
+      style_transform:
         height: 100

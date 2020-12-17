@@ -39,7 +39,7 @@
               type: Button
               properties:
                 block: true
-                title: "1"
+                title: '1'
               visible:
                 _state: visible_subblock_1
               layout:
@@ -49,7 +49,7 @@
               type: Button
               properties:
                 block: true
-                title: "2"
+                title: '2'
               visible:
                 _state: visible_subblock_2
               layout:
@@ -59,7 +59,7 @@
               type: Button
               properties:
                 block: true
-                title: "3"
+                title: '3'
               visible:
                 _state: visible_subblock_3
               layout:
@@ -69,7 +69,7 @@
               type: Button
               properties:
                 block: true
-                title: "4"
+                title: '4'
               visible:
                 _state: visible_subblock_4
               layout:
@@ -79,7 +79,7 @@
               type: Button
               properties:
                 block: true
-                title: "5"
+                title: '5'
               visible:
                 _state: visible_subblock_5
               layout:
@@ -89,7 +89,7 @@
               type: Button
               properties:
                 block: true
-                title: "6"
+                title: '6'
               visible:
                 _state: visible_subblock_6
               layout:
@@ -106,7 +106,7 @@
         title: State
     - id: state_card
       type: Card
-      properties: 
+      properties:
         size: small
       visible:
         _eq:
@@ -134,7 +134,7 @@
         title: Block Setup
     - id: setup_card
       type: Card
-      properties: 
+      properties:
         size: small
       blocks:
         - id: setup_markdown
@@ -318,7 +318,7 @@
       properties:
         size: small
         title: Block 6 Visible
-        
+
 - id: examples_divider
   type: Divider
   properties:

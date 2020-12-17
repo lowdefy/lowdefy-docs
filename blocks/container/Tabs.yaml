@@ -86,7 +86,7 @@ blocks:
               - id: block_name
                 type: Tabs
                 layout:
-                  _parse: 
+                  _parse:
                     _state: flex_style_input
                 visible:
                   _state: block.visible
@@ -122,7 +122,7 @@ blocks:
                           padding: 20
                         properties:
                           html: |
-                            content_one 
+                            content_one
                   content_two:
                     gutter: 0
                     style:
@@ -137,7 +137,7 @@ blocks:
                           padding: 20
                         properties:
                           html: |
-                            content_two 
+                            content_two
                   content_three:
                     gutter: 0
                     style:
@@ -152,7 +152,7 @@ blocks:
                           padding: 20
                         properties:
                           html: |
-                            content_three 
+                            content_three
 
               - id: setup_divider
                 type: Divider
@@ -160,7 +160,7 @@ blocks:
                   title: Block Setup
               - id: setup_card
                 type: Card
-                properties: 
+                properties:
                   size: small
                 blocks:
                   - id: setup_markdown
@@ -183,7 +183,7 @@ blocks:
                                       type: Tabs
                                       layout:
                                         _state: block.layout
-                                      default_layout:  
+                                      default_layout:
                                         _state: default_layout
                                       style:
                                         _parse:
@@ -192,7 +192,7 @@ blocks:
                                         _state: block.visible
                                       properties:
                                         _state: block.properties
-                                      default_properties:  
+                                      default_properties:
                                         _state: default_properties
                                       areas:
                                         extra:
@@ -262,7 +262,7 @@ blocks:
                               title: activeKey
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Current TabPane's key.
@@ -274,7 +274,7 @@ blocks:
                               title: animated
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Whether to change tabs with animation. Only works while tabPosition is top or bottom.
@@ -286,7 +286,7 @@ blocks:
                               title: defaultActiveKey
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Initial active TabPane's key, if activeKey is not set.
@@ -298,7 +298,7 @@ blocks:
                               title: size
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Size of the tabs.
@@ -314,7 +314,7 @@ blocks:
                               title: tabPosition
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Position of the tabs.
@@ -331,7 +331,7 @@ blocks:
                               title: tabType
                               size: small
                               label:
-                                _ref: 
+                                _ref:
                                   path: blocks/label_extra.yaml
                                   vars:
                                     extra: Type of tabs.
@@ -343,13 +343,12 @@ blocks:
                           #   type: TextArea
                           #   layout:
                           #     _global: settings_input_layout
-                          #   defaultValue: "{ \"color\": \"blue\" }"
                           #   properties:
                           #     title: tabBarStyle
                           #     rows: 3
                           #     size: small
                           #     label:
-                          #       _ref: 
+                          #       _ref:
                           #         path: blocks/label_extra.yaml
                           #         vars:
                           #           extra: CSS Object style properties. Should be in JSON format.
@@ -367,7 +366,7 @@ blocks:
                                   title: title
                                   size: small
                                   label:
-                                    _ref: 
+                                    _ref:
                                       path: blocks/label_extra.yaml
                                       vars:
                                         extra: Title of the tab.
@@ -379,7 +378,7 @@ blocks:
                                   title: key
                                   size: small
                                   label:
-                                    _ref: 
+                                    _ref:
                                       path: blocks/label_extra.yaml
                                       vars:
                                         extra: Key of the tab.
@@ -392,7 +391,7 @@ blocks:
                                   title: disabled
                                   size: small
                                   label:
-                                    _ref: 
+                                    _ref:
                                       path: blocks/label_extra.yaml
                                       vars:
                                         extra: Disable the tab if true.
@@ -439,7 +438,7 @@ blocks:
                   title: One
                 - key: two
                   title: Two
-            areas:  
+            areas:
               one:
                 blocks:
                   - id: ex_1_block_1
@@ -478,7 +477,7 @@ blocks:
                         title: One
                       - key: two
                         title: Two
-                  areas:  
+                  areas:
                     one:
                       blocks:
                         - id: ex_1_block_1
@@ -525,7 +524,7 @@ blocks:
                   title: Education
                 - key: work_experience
                   title: Work Experience
-            areas:  
+            areas:
               personal_details:
                 blocks:
                   - id: Name
@@ -606,9 +605,9 @@ blocks:
                           title: Position
                         layout:
                           span: 12
-                
 
-                      
+
+
       - id: ex_1_code_grid
         type: Box
         layout:
@@ -629,7 +628,7 @@ blocks:
                       title: Education
                     - key: work_experience
                       title: Work Experience
-                areas:  
+                areas:
                   personal_details:
                     blocks:
                       - id: Name

@@ -15,14 +15,14 @@ actions:
         family_name: Anderson
         nickname: Bob
         email: bob@anderson.com
-        phone_number: "0234567343"
-        roles: ["developer", "owner"]
-        groupIds: ["lowdefy_root"]
+        phone_number: '0234567343'
+        roles: ['developer', 'owner']
+        groupIds: ['lowdefy_root']
         attributes:
-          department: "Sales"
-          designation: "Manager"
+          department: 'Sales'
+          designation: 'Manager'
 blocks:
-  _ref: 
+  _ref:
     path: operators/template_operators.yaml
     vars:
       operator_name: _user
@@ -45,7 +45,7 @@ blocks:
         _load_yaml:
           _state: operator
       operator_output:
-        _state: 
+        _state:
           _load_yaml:
             _state: operator
       # examples:
