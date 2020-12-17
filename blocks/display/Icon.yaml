@@ -125,7 +125,7 @@ blocks:
                 vars:
                   extra: Continuously spin icon with animation.
         - id: block.properties.color
-          type: ColorSelector
+          type: TwitterColorSelector
           # defaultValue: "#08c"
           layout:
             _global: settings_input_layout

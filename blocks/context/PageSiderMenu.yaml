@@ -287,7 +287,7 @@ blocks:
                           vars:
                             extra: Header logo alternative text
                   - id: block.properties.header.color
-                    type: ColorSelector
+                    type: TwitterColorSelector
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -326,7 +326,7 @@ blocks:
                   #         params:
                   #           pageId: Header
                   - id: block.properties.sider.color
-                    type: ColorSelector
+                    type: TwitterColorSelector
                     layout:
                       _global: settings_input_layout
                     properties:
@@ -393,7 +393,7 @@ blocks:
                           params:
                             pageId: Breadcrumb
                   - id: block.properties.menu.color
-                    type: ColorSelector
+                    type: TwitterColorSelector
                     layout:
                       _global: settings_input_layout
                     properties:

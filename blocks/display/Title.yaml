@@ -72,7 +72,7 @@ blocks:
                 vars:
                   extra: Apply code style.
         - id: block.properties.color
-          type: ColorSelector
+          type: TwitterColorSelector
           layout:
             _global: settings_input_layout
           properties:

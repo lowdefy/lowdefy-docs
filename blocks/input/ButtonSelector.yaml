@@ -114,7 +114,7 @@ blocks:
               - solid
               - outline
         - id: block.properties.color
-          type: ColorSelector
+          type: TwitterColorSelector
           layout:
             _global: settings_input_layout
           properties:
