@@ -78,7 +78,7 @@ menus:
             type: MenuLink
             pageId: tutorial-setup
             properties:
-              title: Setup
+              title: Deploy your app
           - id: tutorial-editing-page
             type: MenuLink
             pageId: tutorial-editing-page

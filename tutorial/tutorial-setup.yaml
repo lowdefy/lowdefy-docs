@@ -2,7 +2,7 @@ id: tutorial-setup
 type: PageSiderMenu
 public: true
 properties:
-  title: Setup
+  title: Deploy your app
   header:
     theme: light
   sider:
@@ -18,38 +18,52 @@ areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
-          title: Setup
+          title: Deploy your app
           buttons: true
           previous_page_title: Introduction
           previous_page_id: introduction
           next_page_title: Editing a page
           next_page_id: tutorial-editing-page
           content:
-            - id: video
-              type: Html
-              properties:
-                html: |
-                  <iframe
-                    id="ytplayer-yaml-video"
-                    type="text/html"
-                    width="800"
-                    height="470"
-                    src="https://www.youtube.com//embed/7N7GWdlQJlU?origin=https://docs.lowdefy.com"
-                    allowfullscreen="true"
-
-                    frameborder="0">
-                  </iframe>
             - id: md1
               type: Markdown
               style:
                 '.markdown-body':
                   fontSize: 14px
               properties:
-                content: 
+                content:
                   _ref: tutorial/tutorial-setup-content-1.md
+            - id: alert1
+              type: Alert
+              properties:
+                type: info
+                showIcon: false
+                description: If your repository isn't found, click "Configure Netlify on Github", and give Netlify access to your repository.
+            - id: md2
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-setup-content-2.md
+            - id: alert2
+              type: Alert
+              properties:
+                type: warning
+                showIcon: false
+                description: Your site won't work yet. You first need to configure the Lowdefy backend server in the next step.
+            - id: md3
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-setup-content-3.md
             - id: example1
               type: Box
               blocks:
@@ -60,6 +74,8 @@ areas:
                       minHeight: 300px
                     menu:
                       links: []
+                    userAvatar:
+                      disabled: true
                   blocks:
                     - id: example1_content_card
                       type: Card
@@ -74,9 +90,9 @@ areas:
                                 title: Welcome to your Lowdefy app
                                 subTitle: We are excited to see what you are going to build
                                 status: success
-                                icon: 
+                                icon:
                                   name: HeartTwoTone
-                                  twoToneColor: '#f00'
+                                  color: '#f00'
                               blocks:
                                 - id: example1docs_button
                                   type: Button
@@ -89,7 +105,7 @@ areas:
                                         type: Link
                                         params:
                                           url: https://docs.lowdefy.com
-                                          newWindow: true           
+                                          newWindow: true
                         footer:
                           blocks:
                             - id: example1_footer
@@ -98,81 +114,11 @@ areas:
                                 type: secondary
                                 content: |
                                   Made by a Lowdefy 🤖
-                - id: example1__INSPECTOR
-                  type: Context
-                  blocks:
-                    - id: example1__INSPECTOR_BAR
-                      type: Affix
-                      properties:
-                        offsetBottom: 0
-                      blocks:
-                        - id: example1__INSPECTOR_footer
-                          type: Box
-                          layout:
-                            contentGutter: 8
-                          style:
-                            backgroundColor: '#1890ff'
-                            width: '100%'
-                            padding: '0 10px'
-                            height: 22
-                            alignContent: 'center'
-                          blocks:
-                            - id: example1_link_branch
-                              type: Anchor
-                              layout:
-                                size: auto
-                              properties:
-                                style:
-                                  color: '#fff'
-                                icon: BranchesOutlined
-                                title: Branch
-                            - id: example1_link_page
-                              type: Anchor
-                              layout:
-                                size: auto
-                              properties:
-                                style:
-                                  color: '#fff'
-                                icon: FileOutlined
-                                title: Page
-                            - id: example1_link_user
-                              type: Anchor
-                              layout:
-                                size: auto
-                              properties:
-                                style:
-                                  color: '#fff'
-                                icon: UserOutlined
-                                title: User
-    
-            - id: md2
-              type: Markdown
-              style:
-                '.markdown-body':
-                  fontSize: 14px
-              properties:
-                content: 
-                  _ref: tutorial/tutorial-setup-content-2.md
-            - id: yaml_video
-              type: Html
-              properties:
-                html: |
-                  <iframe
-                    id="ytplayer-yaml-video"
-                    type="text/html"
-                    width="800"
-                    height="470"
-                    src="https://www.youtube.com/embed/cdLNKUoMc6c?origin=https://docs.lowdefy.com"
-                    allowfullscreen="true"
-
-                    frameborder="0">
-                  </iframe>
-
-            - id: md3
-              type: Markdown
-              style:
-                '.markdown-body':
-                  fontSize: 14px
-              properties:
-                content: 
-                  _ref: tutorial/tutorial-setup-content-3.md
+            # - id: md3
+            #   type: Markdown
+            #   style:
+            #     '.markdown-body':
+            #       fontSize: 14px
+            #   properties:
+            #     content:
+            #       _ref: tutorial/tutorial-setup-content-3.md
