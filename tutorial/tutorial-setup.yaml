@@ -13,7 +13,9 @@ properties:
   breadcrumb:
     list:
       - Tutorial
-      - Setup
+      - Deploy your app
+  prefetchPages:
+    - tutorial-editing-page
 areas:
   content:
     justify: center
@@ -72,8 +74,22 @@ areas:
                   properties:
                     style:
                       minHeight: 300px
-                    menu:
-                      links: []
+                    menus:
+                      - id: default
+                        links:
+                          - id: examples
+                            type: MenuLink
+                            url: https://lowdefy.com/examples
+                            properties:
+                              title: Examples
+                              icon: AppstoreOutlined
+                          - id: docs
+                            type: MenuLink
+                            url: https://docs.lowdefy.com
+                            properties:
+                              title: Docs
+                              icon: ReadOutlined
+                     # TODO: remove when updating to new version
                     userAvatar:
                       disabled: true
                   blocks:

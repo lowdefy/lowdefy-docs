@@ -1,35 +1,9 @@
-##### Step 2
-Using your text editor, create a file called `lowdefy.yaml` in your project directory.
+Write a message to describe the changes you have made, choose the option to create a new branch, and click "Propose changes". Then click "Create pull request".
 
-##### Step 3
-Paste the following configuration in the file (we will explain what this means below):
+#### Step 4
 
-```yaml
-pages:
-  - id: welcome
-    type: PageHeaderMenu
-    blocks:
-      - id: content_card
-        type: Card
-        blocks:
-          - id: title
-            type: Title
-            properties:
-              content: Hello World
-```
+You should see Netlify start to run a set of tests on your app. Netlify will create a deploy preview. This is a version of your site where you can preview changes made to the app before you make them live. Wait for the preview deployment to finish.
 
-##### Step 4
-To upload this page to your app, you need to run the Lowdefy CLI. In a terminal or command-line, change directory to your project directory.
+#### Step 5
 
-##### Step 5
-From there run: 
-
-```
-npx @lowdefy/cli
-```
-
-##### Step 6
-The CLI will prompt you for a token. You can get your token by clicking on the inspector bar, and clicking the CLI token button. This will copy a token into your clipboard. Paste this token at the prompt and the CLI will upload your page (You need to right-click to paste into the command-line on Windows).
-
-##### Step 7
-Refresh your browser, and you should see something like this:
+Click on the "Details" link of the deploy/netlify check to go to your deploy preview. You should see something like this:

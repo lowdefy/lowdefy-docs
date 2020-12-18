@@ -14,19 +14,21 @@ properties:
     list:
       - Tutorial
       - Interactive pages
+  prefetchPages:
+    - tutorial-requests
 areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Interactive pages
           buttons: true
           previous_page_title: Making a booking form
           previous_page_id: tutorial-add-blocks
-          next_page_title: Inspector
-          next_page_id: tutorial-inspector
+          next_page_title: Saving data
+          next_page_id: tutorial-requests
           content:
             - id: md1
               type: Markdown
@@ -56,6 +58,9 @@ areas:
                   minHeight: 300px
                 menu:
                   links: []
+                # TODO: remove when updating to new version
+                userAvatar:
+                  disabled: true
               blocks:
                 - id: example2_content_card
                   type: Card
@@ -139,6 +144,8 @@ areas:
                   minHeight: 300px
                 menu:
                   links: []
+                userAvatar:
+                  disabled: true
               blocks:
                 - id: example3_content_card
                   type: Card

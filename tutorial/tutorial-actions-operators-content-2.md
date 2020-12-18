@@ -5,32 +5,32 @@ We can now add a `Validate` action to the submit button. This will validate the 
 ##### Step 2
 Add the validate action like this:
 
+##### `pages/booking.yaml`
 ```yaml
-pages:
-  - id: booking
+id: booking
+# ...
+blocks:
+  - id: content_card
     # ...
     blocks:
-      - id: content_card
+      - id: page_heading
         # ...
-        blocks:
-          - id: page_heading
-            # ...
-            # ...
-            # ...
-          - id: submit_button
-            type: Button
-            layout:
-              span: 12
-            properties:
-              title: Submit
-              block: true
-              type: primary
-              icon: SaveOutlined
+        # ...
+        # ...
+      - id: submit_button
+        type: Button
+        layout:
+          span: 12
+        properties:
+          title: Submit
+          block: true
+          type: primary
+          icon: SaveOutlined
 ################ -------- Copy from here -------- ################
-            actions:
-              onClick:
-                - id: validate
-                  type: Validate
+        actions:
+          onClick:
+            - id: validate
+              type: Validate
 ################ ------- Copy to here ----------- ################
 ```
 

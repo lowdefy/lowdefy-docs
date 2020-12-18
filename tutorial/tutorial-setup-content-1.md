@@ -1,3 +1,5 @@
+In this tutorial we will be creating a app that lets user book a meeting room. We will be hosting this app with [Netlify](https://www.netlify.com). Netlify
+
 ### Requirements
 
 You will need to have the following:

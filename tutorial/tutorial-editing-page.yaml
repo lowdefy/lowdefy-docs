@@ -14,34 +14,23 @@ properties:
     list:
       - Tutorial
       - Editing a page
+  prefetchPages:
+    - tutorial-development-server
+
 areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Editing a page
           buttons: true
           previous_page_title: Setup
           previous_page_id: tutorial-setup
-          next_page_title: Creating a page
-          next_page_id: tutorial-create-page
+          next_page_title: Development server
+          next_page_id: tutorial-development-server
           content:
-            - id: video
-              type: Html
-              properties:
-                html: |
-                  <iframe
-                    id="ytplayer-yaml-video"
-                    type="text/html"
-                    width="800"
-                    height="470"
-                    src="https://www.youtube.com//embed/-laux6pT054?origin=https://docs.lowdefy.com"
-                    allowfullscreen="true"
-
-                    frameborder="0">
-                  </iframe>
             - id: md1
               type: Markdown
               style:
@@ -50,11 +39,6 @@ areas:
               properties:
                 content:
                   _ref: tutorial/tutorial-editing-page-content-1.md
-            - id: alert1
-              type: Alert
-              properties:
-                type: info
-                description: This folder can be a source control repository. We are working on a Github integration that will sync commits on your repository to your app.
             - id: md2
               type: Markdown
               style:
@@ -75,6 +59,9 @@ areas:
                       properties:
                         title: welcome
                       url: ''
+                # TODO: remove when updating to new version
+                userAvatar:
+                  disabled: true
               blocks:
                 - id: example1_content_card
                   type: Card

@@ -18,4 +18,4 @@ The rule has a status of warning. This means it does not stop the action from co
 
 ## Up next
 
-While developing a app, you often need to be able to see what's happening 'behind the scenes'. In the next section we will look at how the [inspector](inspector) can help you do that.
+Our app doesn't save the form data anywhere when the submit button is clicked. In the next section we will set up a Google Sheets connection, and make a request to save the data in the sheet.

@@ -1,11 +1,12 @@
-##### Step 3
+##### Step 4
 
 If you click on the links in the menu, you should see that your browser path (the part after lowdefy.com) changes from `welcome` to `booking`.
 
 ### What happened
 
 - We created a new page with id `booking`.
-- That page can now be found at the url `app-id.lowdefy.com/booking`.
+- We used a `_ref` operator to reference configuration in another file.
+- That page can now be found at the `/booking` route.
 - A link to that page was created in the menu. These links are in the order of the pages.
 
 ## Menus
