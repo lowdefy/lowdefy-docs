@@ -1,3 +1,3 @@
-##### Step 2
+#### Step 3
 
-If you refresh the browser tab in which your app is running, you should see a link in the header menu to the booking page. If you click on that link it should take you to a page that looks like this: 
+Your browser should reload, and you should see a link in the header menu to the booking page. If you click on that link it should take you to a page that looks like this:

@@ -1,6 +1,9 @@
-### `lowdefy.yaml`
+##### `lowdefy.yaml`
 
 ```yaml
+name: lowdefy-project-template
+version: CURRENT_LOWDEFY_VERSION
+
 menus:
   - id: default
     links:
@@ -16,33 +19,31 @@ menus:
           icon: CalendarOutlined
           title: Book a meeting
         pageId: booking
+
 pages:
-  - id: welcome
-    type: PageHeaderMenu
-    blocks:
-      - id: content_card
-        type: Card
-        blocks:
-          - id: title
-            type: Title
-            properties:
-              content: Hello World
-  - id: booking
-    type: PageHeaderMenu
-    properties:
-      title: Book meeting
+  - _ref: pages/welcome.yaml
+  - _ref: pages/booking.yaml
+```
+
+##### `pages/booking.yaml`
+
+```yaml
+id: booking
+type: PageHeaderMenu
+properties:
+  title: Book meeting
+layout:
+  contentJustify: center # Center the contents of the page
+blocks:
+  - id: content_card
+    type: Card
     layout:
-      contentJustify: center # Center the contents of the page
+      size: 800 # Set the size of the card so it does not fill the full screen
+      contentGutter: 16 # Make a 16px gap between all blocks in this card
     blocks:
-      - id: content_card
-        type: Card
-        layout:
-          size: 800 # Set the size of the card so it does not fill the full screen
-          contentGutter: 16 # Make a 16px gap between all blocks in this card
-        blocks:
-          - id: page_heading
-            type: Title
-            properties:
-              content: Book a meeting room # Change the title on the page
-              level: 3 # Make the title a little smaller (an html `<h3>`).
+      - id: page_heading
+        type: Title
+        properties:
+          content: Book a meeting room # Change the title on the page
+          level: 3 # Make the title a little smaller (an html `<h3>`).
 ```

@@ -1,3 +1,5 @@
+version: "3.1.1"
+
 config:
   auth:
     createUsers: 'sign_up'
@@ -78,12 +80,17 @@ menus:
             type: MenuLink
             pageId: tutorial-setup
             properties:
-              title: Setup
+              title: Deploy your app
           - id: tutorial-editing-page
             type: MenuLink
             pageId: tutorial-editing-page
             properties:
               title: Editing a page
+          - id: tutorial-development-server
+            type: MenuLink
+            pageId: tutorial-development-server
+            properties:
+              title: Development server
           - id: tutorial-create-page
             type: MenuLink
             pageId: tutorial-create-page
@@ -99,37 +106,37 @@ menus:
             pageId: tutorial-actions-operators
             properties:
               title: Interactive pages
-          - id: tutorial-inspector
+          - id: tutorial-requests
             type: MenuLink
-            pageId: tutorial-inspector
+            pageId: tutorial-requests
             properties:
-              title: Inspector
-      # - id: start
-      #   type: MenuGroup
-      #   properties:
-      #     title: Getting Started
-      #     icon: RocketOutlined
-      #   links:
-      #     - id: introduction
-      #       type: MenuLink
-      #       pageId: introduction
-      #       properties:
-      #         title: Introduction
-      #     - id: alpha-start
-      #       type: MenuLink
-      #       pageId: alpha-starter
-      #       properties:
-      #         title: Quick Start
-      #     - id: quick-start
-      #       type: MenuLink
-      #       pageId: quick-start
-      #       properties:
-      #         title: Quick Start
-      #     - id: how-it-works
-      #       type: MenuLink
-      #       pageId: how-it-works
-      #       properties:
-      #         title: How It Works
+              title: Saving data
+      - id: start
+        type: MenuGroup
+        properties:
+          title: Getting Started
+          icon: RocketOutlined
+        links:
+          - id: introduction
+            type: MenuLink
+            pageId: introduction
+            properties:
+              title: Introduction
+          - id: alpha-start
+            type: MenuLink
+            pageId: alpha-starter
+            properties:
+              title: Quick Start
+          - id: quick-start
+            type: MenuLink
+            pageId: quick-start
+            properties:
+              title: Quick Start
+          - id: how-it-works
+            type: MenuLink
+            pageId: how-it-works
+            properties:
+              title: How It Works
       - id: concepts
         type: MenuGroup
         properties:
@@ -553,13 +560,14 @@ pages:
   - _ref: start/introduction.yaml
   - _ref: tutorial/tutorial-setup.yaml
   - _ref: tutorial/tutorial-editing-page.yaml
+  - _ref: tutorial/tutorial-development-server.yaml
   - _ref: tutorial/tutorial-create-page.yaml
   - _ref: tutorial/tutorial-create-page-config.yaml
   - _ref: tutorial/tutorial-add-blocks.yaml
   - _ref: tutorial/tutorial-add-blocks-config.yaml
   - _ref: tutorial/tutorial-actions-operators.yaml
   - _ref: tutorial/tutorial-actions-operators-config.yaml
-  - _ref: tutorial/tutorial-inspector.yaml
+  - _ref: tutorial/tutorial-requests.yaml
 
   # - _ref: start/quick-start.yaml
   # - _ref: start/alpha-starter.yaml
@@ -680,3 +688,4 @@ pages:
   - _ref: operators/_user.yaml
 
   - _ref: feedback.yaml
+

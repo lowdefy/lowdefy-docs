@@ -14,34 +14,23 @@ properties:
     list:
       - Tutorial
       - Creating a page
+  prefetchPages:
+    - tutorial-add-blocks
+
 areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Creating a page
           buttons: true
-          previous_page_title: Editing a page
-          previous_page_id: tutorial-editing-page
+          previous_page_title: Development server
+          previous_page_id: tutorial-development-server
           next_page_title: Booking form
           next_page_id: tutorial-add-blocks
           content:
-            - id: video
-              type: Html
-              properties:
-                html: |
-                  <iframe
-                    id="ytplayer-yaml-video"
-                    type="text/html"
-                    width="800"
-                    height="470"
-                    src="https://www.youtube.com//embed/Mx-kCNmxilE?origin=https://docs.lowdefy.com"
-                    allowfullscreen="true"
-
-                    frameborder="0">
-                  </iframe>
             - id: md1
               type: Markdown
               style:
@@ -54,7 +43,7 @@ areas:
               type: Alert
               properties:
                 type: warning
-                description: YAML uses indentation to indicate nesting, so it is important that both pages are at the same indentation level.
+                description: Make sure that the version field is the current latest Lowdefy version. This should be what is was when you created the project.
             - id: md2
               type: Markdown
               style:
@@ -71,7 +60,7 @@ areas:
                 style:
                   minHeight: 300px
                 menu:
-                  links:
+                   links:
                     - id: welcome
                       type: MenuLink
                       properties:
@@ -80,6 +69,9 @@ areas:
                       properties:
                         title: booking
                       type: MenuLink
+                # TODO: remove when updating to new version
+                userAvatar:
+                  disabled: true
               blocks:
                 - id: example1_content_card
                   type: Card
