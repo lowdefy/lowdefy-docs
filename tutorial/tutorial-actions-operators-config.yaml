@@ -1,6 +1,5 @@
 id: tutorial-actions-operators-config
 type: PageSiderMenu
-public: true
 properties:
   title: Interactive pages config
   header:
@@ -18,7 +17,7 @@ areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Interactive pages config

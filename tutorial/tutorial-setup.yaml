@@ -1,6 +1,5 @@
 id: tutorial-setup
 type: PageSiderMenu
-public: true
 properties:
   title: Deploy your app
   header:
@@ -14,8 +13,8 @@ properties:
     list:
       - Tutorial
       - Deploy your app
-  prefetchPages:
-    - tutorial-editing-page
+  # prefetchPages:
+  #   - tutorial-editing-page
 areas:
   content:
     justify: center
@@ -43,7 +42,7 @@ areas:
               properties:
                 type: info
                 showIcon: false
-                description: If your repository isn't found, click "Configure Netlify on Github", and give Netlify access to your repository.
+                message: If your repository isn't found, click "Configure Netlify on Github", and give Netlify access to your repository.
             - id: md2
               type: Markdown
               style:
@@ -57,7 +56,7 @@ areas:
               properties:
                 type: warning
                 showIcon: false
-                description: Your site won't work yet. You first need to configure the Lowdefy backend server in the next step.
+                message: Your site won't work yet. You first need to configure the Lowdefy backend server in the next step.
             - id: md3
               type: Markdown
               style:
@@ -89,9 +88,6 @@ areas:
                             properties:
                               title: Docs
                               icon: ReadOutlined
-                     # TODO: remove when updating to new version
-                    userAvatar:
-                      disabled: true
                   blocks:
                     - id: example1_content_card
                       type: Card
@@ -109,19 +105,21 @@ areas:
                                 icon:
                                   name: HeartTwoTone
                                   color: '#f00'
-                              blocks:
-                                - id: example1docs_button
-                                  type: Button
-                                  properties:
-                                    size: large
-                                    title: Let's build something
-                                  actions:
-                                    onClick:
-                                      - id: example1_link_to_docs
-                                        type: Link
-                                        params:
-                                          url: https://docs.lowdefy.com
-                                          newWindow: true
+                              areas:
+                                extra:
+                                  blocks:
+                                    - id: example1_docs_button
+                                      type: Button
+                                      properties:
+                                        size: large
+                                        title: Let's build something
+                                      actions:
+                                        onClick:
+                                          - id: example1_link_to_docs
+                                            type: Link
+                                            params:
+                                              url: https://docs.lowdefy.com
+                                              newWindow: true
                         footer:
                           blocks:
                             - id: example1_footer

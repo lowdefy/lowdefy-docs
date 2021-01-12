@@ -9,6 +9,8 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
+  # prefetchPages:
+  #   - tutorial-setup
 areas:
   content:
     justify: center

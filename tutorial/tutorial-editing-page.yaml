@@ -1,6 +1,5 @@
 id: tutorial-editing-page
 type: PageSiderMenu
-public: true
 properties:
   title: Editing a page
   header:
@@ -14,8 +13,8 @@ properties:
     list:
       - Tutorial
       - Editing a page
-  prefetchPages:
-    - tutorial-development-server
+  # prefetchPages:
+  #   - tutorial-development-server
 
 areas:
   content:
@@ -59,9 +58,6 @@ areas:
                       properties:
                         title: welcome
                       url: ''
-                # TODO: remove when updating to new version
-                userAvatar:
-                  disabled: true
               blocks:
                 - id: example1_content_card
                   type: Card

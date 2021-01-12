@@ -1,6 +1,5 @@
 id: tutorial-requests
 type: PageSiderMenu
-public: true
 properties:
   title: Saving data
   header:
@@ -41,7 +40,7 @@ areas:
               properties:
                 type: warning
                 showIcon: false
-                description: The .env file contains your credentials. Do not commit this file to git. It should be listed in your .gitignore file if you started from the project template.
+                message: The .env file contains your credentials. Do not commit this file to git. It should be listed in your .gitignore file if you started from the project template.
             - id: md2
               type: Markdown
               style:

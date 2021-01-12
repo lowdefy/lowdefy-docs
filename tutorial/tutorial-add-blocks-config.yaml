@@ -1,6 +1,5 @@
 id: tutorial-add-blocks-config
 type: PageSiderMenu
-public: true
 properties:
   title: Making a booking form config
   header:
@@ -18,7 +17,7 @@ areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Making a booking form config

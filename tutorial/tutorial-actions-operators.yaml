@@ -1,6 +1,5 @@
 id: tutorial-actions-operators
 type: PageSiderMenu
-public: true
 properties:
   title: Interactive pages
   header:
@@ -14,8 +13,8 @@ properties:
     list:
       - Tutorial
       - Interactive pages
-  prefetchPages:
-    - tutorial-requests
+  # prefetchPages:
+  #   - tutorial-requests
 areas:
   content:
     justify: center
@@ -58,9 +57,6 @@ areas:
                   minHeight: 300px
                 menu:
                   links: []
-                # TODO: remove when updating to new version
-                userAvatar:
-                  disabled: true
               blocks:
                 - id: example2_content_card
                   type: Card
@@ -146,6 +142,13 @@ areas:
                   links: []
                 userAvatar:
                   disabled: true
+              actions:
+                onInit:
+                  - id: init
+                    type: SetState
+                    params:
+                      example3_number_of_attendees: 2 - 3
+                      example3_meeting_room: Boardroom
               blocks:
                 - id: example3_content_card
                   type: Card
@@ -165,7 +168,6 @@ areas:
                     - id: example3_number_of_attendees
                       type: ButtonSelector
                       required: true
-                      defaultValue: 2 - 3
                       properties:
                         title: Number of attendees
                         options:
@@ -175,7 +177,6 @@ areas:
                     - id: example3_meeting_room
                       type: Selector
                       required: true
-                      defaultValue: Boardroom
                       properties:
                         title: Meeting room
                         options:

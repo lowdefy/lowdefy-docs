@@ -1,6 +1,5 @@
 id: tutorial-add-blocks
 type: PageSiderMenu
-public: true
 properties:
   title: Making a booking form
   header:
@@ -14,8 +13,8 @@ properties:
     list:
       - Tutorial
       - Making a booking form
-  prefetchPages:
-    - tutorial-actions-operators
+  # prefetchPages:
+  #   - tutorial-actions-operators
 
 areas:
   content:
@@ -48,9 +47,6 @@ areas:
                   minHeight: 300px
                 menu:
                   links: []
-                # TODO: remove when updating to new version
-                userAvatar:
-                  disabled: true
               blocks:
                 - id: example1_content_card
                   type: Card

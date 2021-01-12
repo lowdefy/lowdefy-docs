@@ -1,6 +1,5 @@
 id: tutorial-create-page-config
 type: PageSiderMenu
-public: true
 properties:
   title: Creating a page config
   header:
@@ -18,7 +17,7 @@ areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Creating a page config

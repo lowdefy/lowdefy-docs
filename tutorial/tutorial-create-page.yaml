@@ -1,6 +1,5 @@
 id: tutorial-create-page
 type: PageSiderMenu
-public: true
 properties:
   title: Creating a page
   header:
@@ -14,8 +13,8 @@ properties:
     list:
       - Tutorial
       - Creating a page
-  prefetchPages:
-    - tutorial-add-blocks
+  # prefetchPages:
+  #   - tutorial-add-blocks
 
 areas:
   content:
@@ -70,9 +69,6 @@ areas:
                       properties:
                         title: booking
                       type: MenuLink
-                # TODO: remove when updating to new version
-                userAvatar:
-                  disabled: true
               blocks:
                 - id: example1_content_card
                   type: Card
