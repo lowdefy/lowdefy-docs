@@ -18,7 +18,7 @@ Click on the "Go to APIs overview" button, and the click "ENABLE APIS AND SERVIC
 
 #### Step 5
 
-Search for "sheets" and select the Google Sheets API.
+Search for "Sheets" and select the Google Sheets API.
 
 #### Step 6
 
@@ -35,6 +35,7 @@ Choose the following:
 - **Where will you be calling the API from?** : Web server (e.g. node.js, Tomcat)
 - **What data will you be accessing?**: Application data
 - **Are you planning to use this API with App Engine or Compute Engine?**: No, I'm not using them
+
 Then click "What credentials do I need?"
 
 #### Step 9
@@ -56,8 +57,8 @@ Create a file called `.env` in your project directory with the following:
 
 ##### `.env`
 ```
-LOWDEFY_SECRET_SHEETS_CLIENT_EMAIL="{client_email}"
-LOWDEFY_SECRET_SHEETS_PRIVATE_KEY="{private_key}"
+LOWDEFY_SECRET_SHEETS_CLIENT_EMAIL="__YOUR_CLIENT_EMAIL__"
+LOWDEFY_SECRET_SHEETS_PRIVATE_KEY="__YOUR_PRIVATE_KEY__"
 ```
 
 Fill in the `client_email` and `private_key` values from your credentials JSON file (with the quotes). This will give the development server access to these secrets.

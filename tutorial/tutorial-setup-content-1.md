@@ -1,4 +1,4 @@
-In this tutorial we will be creating a app that lets user book a meeting room. We will be hosting this app with [Netlify](https://www.netlify.com). Netlify
+In this tutorial we will be creating a app that lets user book a meeting room. We will be hosting this app with [Netlify](https://www.netlify.com).
 
 ### Requirements
 
@@ -6,7 +6,7 @@ You will need to have the following:
 - A Github account. You can create one [here](https://github.com/join).
 - A Netlify account. You can create one [here](https://app.netlify.com/signup). It is easiest if you sign up with your Github account.
 
-##### Step 1
+#### Step 1
 
 Create a new Lowdefy project using the Lowdefy project template.
 

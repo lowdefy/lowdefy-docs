@@ -1,7 +1,7 @@
 
 Let's create a page for a form where users can book a meeting room.
 
-##### Step 1
+#### Step 1
 Create a new YAMl file in the pages directory called `booking.yaml`, with the following content:
 
 ```yaml
@@ -24,7 +24,7 @@ blocks:
           content: Book a meeting room # Change the title on the page.
           level: 3 # Make the title a little smaller (an html `<h3>`).
 ```
-##### Step 2
+#### Step 2
 
 Change the `lowdefy.yaml` to look like this:
 ```yaml

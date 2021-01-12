@@ -8,13 +8,9 @@ To be able to use these secrets in our live app, we also need to add them in Net
 
 #### Step 14
 
-To be able to use these secrets in our live app, we also need to add them in Netlify. Go to your project on Netlify. Go to "Site settings", then "Build and deploy" in the left menu. Scroll down and select "Edit variables" in the "Environment" section.
-
-#### Step 15
-
 Add the same variables (`LOWDEFY_SECRET_SHEETS_CLIENT_EMAIL` and `LOWDEFY_SECRET_SHEETS_PRIVATE_KEY`) with their values and save.
 
-#### Step 16
+#### Step 15
 
 We need to give our service account access to our Google Sheet. Go to your Google Sheet and click the "Share" button. Share the sheet with the client email of the service account we just created, with the "Editor" role.
 
