@@ -137,7 +137,7 @@ blocks:
         _state: block.properties
       properties_form:
         - id: block.properties.backgroundColor
-          type: ColorSelector
+          type: TwitterColorSelector
           layout:
             _global: settings_input_layout
           properties:
@@ -150,7 +150,7 @@ blocks:
                 vars:
                   extra: Menu background color.
         - id: block.properties.color
-          type: ColorSelector
+          type: TwitterColorSelector
           layout:
             _global: settings_input_layout
           properties:

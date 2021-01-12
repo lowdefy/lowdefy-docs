@@ -54,6 +54,7 @@ actions:
     - id: set_init
       type: SetState
       params:
+        select_options_type: Primitive
         block.layout:
           _mql_expr:
             $arrayToObject:
@@ -157,7 +158,6 @@ blocks:
           blocks:
             - id: select_options_type
               type: ButtonSelector
-              defaultValue: Primitive
               properties:
                 title: Options Type
                 size: small
@@ -178,7 +178,6 @@ blocks:
           blocks:
             - id: block.properties.options.$.primitive
               type: TextInput
-              defaultValue: Option
               visible:
                 _mql_test:
                   select_options_type: Primitive
@@ -189,7 +188,6 @@ blocks:
                   inline: true
             - id: block.properties.options.$.label
               type: TextInput
-              defaultValue: Label
               layout:
                 _global: settings_input_layout
               visible:
@@ -205,7 +203,6 @@ blocks:
                       extra: Label shown to user.
             - id: block.properties.options.$.value
               type: TextInput
-              defaultValue: Value
               layout:
                 _global: settings_input_layout
               visible:
@@ -221,7 +218,6 @@ blocks:
                       extra: Value selected.
             - id: block.properties.options.$.disabled
               type: Switch
-              defaultValue: false
               layout:
                 _global: settings_input_layout
               visible:
@@ -383,14 +379,13 @@ blocks:
               type: Selector
               layout:
                 span: 12
-              defaultValue: B
               properties:
                 title: Change icons
                 allowClear: true
                 clearIcon: DeleteOutlined
                 suffixIcon: EllipsisOutlined
                 label:
-                  extra: Custom suffix and clear icons and default value.
+                  extra: Custom suffix and clear icons.
                 options:
                   - value: A
                     label: Aragorn
@@ -407,14 +402,13 @@ blocks:
                   ```yaml
                   id: example_3
                   type: Selector
-                  defaultValue: B
                   properties:
                     title: Change icons
                     allowClear: true
                     clearIcon: DeleteOutlined
                     suffixIcon: EllipsisOutlined
                     label:
-                      extra: Custom suffix and clear icons and default value.
+                      extra: Custom suffix and clear icons.
                     options:
                       - value: A
                         label: Aragorn

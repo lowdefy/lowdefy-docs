@@ -72,7 +72,7 @@ blocks:
                 vars:
                   extra: Fit the button's span to its parent container span.
         - id: block.properties.color
-          type: ColorSelector
+          type: TwitterColorSelector
           layout:
             _global: settings_input_layout
           properties:

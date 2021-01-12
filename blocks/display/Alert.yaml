@@ -20,6 +20,8 @@ actions:
             v: false
           - k: closable
             v: false
+          - k: showIcon
+            v: true
         init_properties:
           - k: message
             v: Completed!
@@ -120,6 +122,18 @@ blocks:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Content message of alert.
+        - id: block.properties.showIcon
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: showIcon
+            size: small
+            label:
+              _ref: 
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Show type default icon.
         - id: block.properties.type
           type: ButtonSelector
           layout:

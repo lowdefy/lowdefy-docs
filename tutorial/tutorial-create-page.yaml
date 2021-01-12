@@ -43,7 +43,8 @@ areas:
               type: Alert
               properties:
                 type: warning
-                description: Make sure that the version field is the current latest Lowdefy version. This should be what is was when you created the project.
+                showIcon: false
+                message: Make sure that the version field is the current latest Lowdefy version. This should be what is was when you created the project.
             - id: md2
               type: Markdown
               style:
