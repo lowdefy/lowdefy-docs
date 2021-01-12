@@ -1,6 +1,5 @@
 id: introduction
 type: PageSiderMenu
-public: true
 properties:
   title: Introduction
   header:
