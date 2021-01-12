@@ -47,15 +47,6 @@ global:
     span: 23
     sm:
       span: 23
-connections:
-  - id: feedback_mongodb
-    type: MongoDBCollection
-    properties:
-      databaseUri:
-        _secret: feedback_mongodb
-      collection: feedback
-      read: true
-      write: true
 
 menus:
   - id: default
@@ -541,12 +532,6 @@ menus:
           - id: _user
             type: MenuLink
             pageId: _user
-      - id: feedback
-        type: MenuLink
-        pageId: feedback
-        properties:
-          title: Feedback
-          icon: FormOutlined
 
 pages:
   - id: new
@@ -681,4 +666,3 @@ pages:
   # - _ref: operators/_type.yaml
   # - _ref: operators/_user.yaml
 
-  - _ref: feedback.yaml
