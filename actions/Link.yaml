@@ -1,6 +1,5 @@
 id: Link
 type: PageSiderMenu
-public: true
 properties:
   title: Link
   header:

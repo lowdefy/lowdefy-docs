@@ -1,6 +1,5 @@
 id: SetGlobal
 type: PageSiderMenu
-public: true
 properties:
   title: SetGlobal
   header:

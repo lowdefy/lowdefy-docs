@@ -1,6 +1,5 @@
 id: Validate
 type: PageSiderMenu
-public: true
 properties:
   title: Validate
   header:
@@ -41,11 +40,11 @@ areas:
                 to separate two forms, only the one form will be validated.
 
                 ### Parameters
-                - `blockId`: _String_ - Only validate a specific block. If this fails, other validation errors will still be visible to the user.
+                `Validate` can be called without any parameters to validate all input blocks in the context. It can also be called with a list of blockIds or a single blockId to validate.
 
                 ### Examples
 
-                Fetch all requests by specifying no params:
+                Validate all inputs in the context:
 
                 ```
                 - id: validate
@@ -56,6 +55,14 @@ areas:
                 ```
                 - id: validate_one
                   type: Validate
+                  params: my_text_input
+                ```
+
+                Validate a list of inputs:
+                ```
+                - id: validate_one
+                  type: Validate
                   params:
-                    blockId: my_text_input
+                    - my_text_input_1
+                    - my_text_input_2
                 ```

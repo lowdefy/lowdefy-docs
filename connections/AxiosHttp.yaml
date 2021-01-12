@@ -1,6 +1,5 @@
 id: AxiosHttp
 type: PageSiderMenu
-public: true
 properties:
   title: Axios HTTP
   header:
@@ -10,7 +9,7 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
@@ -34,7 +33,7 @@ areas:
               The `AxiosHTTP` connection is used to connect to APIs and web servers using HTTP or HTTPS.
 
               It uses the [axios](https://github.com/axios/axios) library.
-              
+
               The same properties can be set on both the connection and on axios requests and mutations. The properties will be merged, with the request properties overwriting connection properties. This allows properties like authentication headers and the baseUrl to be set on the connection, with request specific properties like the request.
 
               >Secrets like authentication headers and API keys should be stored using the [`_secret`](operators/secret.md) operator.
@@ -69,7 +68,7 @@ areas:
               - `headers`: _Object_ - An object with custom headers to be sent sent with the request. The object keys should be header names, and the values should be the string header values.
               - `params`: _Object_ - An object with URL parameters to be sent with the request.
               - `data`: _String_ **|** _Object_ - The data to be sent as the request body. Only applicable for request methods `'put'`, `'post'`, and `'patch'`. Can be an object or a string in the format `'Country=Brasil&City=Belo Horizonte'`.
-              - `timeout`: _Integer_ - Default: `0` (no timeout) - The number of milliseconds before the request times out. If the request takes longer than `timeout`, the request will be aborted. Set to `0` for no timeout. 
+              - `timeout`: _Integer_ - Default: `0` (no timeout) - The number of milliseconds before the request times out. If the request takes longer than `timeout`, the request will be aborted. Set to `0` for no timeout.
               - `auth`: _Object_ - Indicates that HTTP Basic authorization should be used, and supplies credentials. This will set an `Authorization` header, overwriting any existing `Authorization` custom headers you have set using `headers`. Only HTTP Basic auth is configurable through this parameter, for Bearer tokens and such, use `Authorization` custom headers instead. The `auth` object should have the following fields:
               - `username`: _String_
               - `password`: _String_

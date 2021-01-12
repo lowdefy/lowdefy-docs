@@ -1,6 +1,5 @@
 id: CallMethod
 type: PageSiderMenu
-public: true
 properties:
   title: CallMethod
   header:

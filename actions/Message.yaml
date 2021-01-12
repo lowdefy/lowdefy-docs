@@ -1,6 +1,5 @@
 id: MessageAction
 type: PageSiderMenu
-public: true
 properties:
   title: Message
   header:

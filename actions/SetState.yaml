@@ -1,6 +1,5 @@
 id: SetState
 type: PageSiderMenu
-public: true
 properties:
   title: SetState
   header:

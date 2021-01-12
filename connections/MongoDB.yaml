@@ -1,6 +1,5 @@
 id: MongoDB
 type: PageSiderMenu
-public: true
 properties:
   title: MongoDB
   header:
@@ -10,7 +9,7 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
@@ -36,7 +35,7 @@ areas:
               ##### ObjectIds
 
               MongoDB uses the _id field as the id for a document. This has to be unique for every document in the collection. If no _id is provided when the document is created, a MongoDB [ObjectId](https://docs.mongodb.com/manual/reference/method/ObjectId/) is created for that document. This id includes a timestamp, a random element and an incrementing counter, to ensure it is unique even if multiple ids are created at the same time.
-              
+
               The _id is often represented as:
 
               ```js
@@ -66,7 +65,7 @@ areas:
               >Since the connection URI contains authentication secrets, it should be stored using the [`_secret`](operators/secret.md) operator.
 
               #### Properties
-              - `databaseUri`: _String_ - **REQUIRED** - Connection uri string for the MongoDb deployment. Should be stored using the [_secret](operators/secret.md) operator. 
+              - `databaseUri`: _String_ - **REQUIRED** - Connection uri string for the MongoDb deployment. Should be stored using the [_secret](operators/secret.md) operator.
               - `databaseName`: _String_ - Default: Database specified in connection string - The name of the database in the MongoDB deployment.
               - `collection`: _String_ - **REQUIRED** - The name of the MongoDB collection.
               - `read`: _Boolean_ - Default: `true` - Allow read operations like find on the collection.
@@ -297,11 +296,11 @@ areas:
                   properties:
                     docs:
                       - _id: 1
-                        value: 4 
+                        value: 4
                       - _id: 2
-                        value: 1 
+                        value: 1
                       - _id: 3
-                        value: 7 
+                        value: 7
 
               ```
 
@@ -345,7 +344,7 @@ areas:
               - `filter`: _Object_ - **REQUIRED** - The filter used to select the document to update.
               - `update`: _Object_ - **REQUIRED** - The update operations to be applied to the document.
               - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#updateOne) for more information. Supported settings are:
-                - `arrayFilters`: _Array_ - Array filters for the [`$[<identifier>]`](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/) array update operator.  
+                - `arrayFilters`: _Array_ - Array filters for the [`$[<identifier>]`](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/) array update operator.
                 - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher.
                 - `checkKeys`: _Boolean_ - Default: `false` - If true, will throw if bson documents start with $ or include a . in any key value.
                 - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
@@ -368,7 +367,7 @@ areas:
                     # Select all documents where the _id is in selected_issues_list in state
                     filter:
                       _id:
-                        $in: 
+                        $in:
                           _state: selected_issues_list
                     update:
                       $set:
@@ -397,7 +396,7 @@ areas:
               - `filter`: _Object_ - **REQUIRED** - The filter used to select the document to update.
               - `update`: _Object_ - **REQUIRED** - The update operations to be applied to the document.
               - `options`: _Object_ - Optional settings. See the [driver docs](https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#updateOne) for more information. Supported settings are:
-                - `arrayFilters`: _Array_ - Array filters for the [`$[<identifier>]`](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/) array update operator.  
+                - `arrayFilters`: _Array_ - Array filters for the [`$[<identifier>]`](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/) array update operator.
                 - `bypassDocumentValidation`: _Boolean_ - Default: `false` - Allow driver to bypass schema validation in MongoDB 3.2 or higher.
                 - `checkKeys`: _Boolean_ - Default: `false` - If true, will throw if bson documents start with $ or include a . in any key value.
                 - `collation`: _Object_ - Specify collation (MongoDB 3.4 or higher) settings for update operation.
@@ -440,7 +439,7 @@ areas:
                         likes: 1
                       $push:
                         liked_by:
-                          _user.id: 
+                          _user.id:
                       $set:
                         last_liked:
                           _date: now

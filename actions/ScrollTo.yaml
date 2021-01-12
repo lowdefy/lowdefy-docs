@@ -1,6 +1,5 @@
 id: ScrollTo
 type: PageSiderMenu
-public: true
 properties:
   title: ScrollTo
   header:

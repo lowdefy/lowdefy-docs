@@ -1,6 +1,5 @@
 id: layout
 type: PageSiderMenu
-public: true
 properties:
   title: Layout
   header:

@@ -1,6 +1,5 @@
 id: NotificationAction
 type: PageSiderMenu
-public: true
 properties:
   title: Notification
   header:

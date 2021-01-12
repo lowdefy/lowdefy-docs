@@ -1,6 +1,5 @@
 id: Reset
 type: PageSiderMenu
-public: true
 properties:
   title: Reset
   header:

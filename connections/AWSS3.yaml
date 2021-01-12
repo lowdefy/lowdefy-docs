@@ -1,6 +1,5 @@
 id: AWSS3
 type: PageSiderMenu
-public: true
 properties:
   title: AWS S3
   header:
