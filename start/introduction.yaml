@@ -1,65 +1,33 @@
-id: introduction
-type: PageSiderMenu
-properties:
-  title: Introduction
-  header:
-    theme: light
-  sider:
-    width: 256px
-  layout:
-    style:
-      background: '#FFFFFF'
-  # prefetchPages:
-  #   - tutorial-setup
-areas:
-  content:
-    justify: center
-    blocks:
-      - id: max_width
-        type: Box
-        layout:
-          size: 800
-          contentGutter: 16
-        blocks:
-          - id: title
-            type: Title
-            properties:
-              content: Introduction
-          - id: markdown
-            type: Markdown
-            style:
-              '.markdown-body':
-                fontSize: 14px
-            properties:
-              content:
-                _ref: start/introduction.md
-
-          - id: nav_buttons
-            type: Box
-            style:
-              paddingTop: 60px
-              paddingBottom: 80px
-            blocks:
-              - id: previous_button_placeholder
-                type: Box
-                layout:
-                  span: 12
-              - id: next_button
-                type: Button
-                properties:
-                  block: true
-                  hideActionLoading: true
-                  icon: RocketOutlined
-                  size: large
-                  title: Start the tutorial
-                  type: primary
-                actions:
-                  onClick:
-                    - id: link_forward
-                      type: Link
-                      params:
-                        pageId: tutorial-setup
-                    - id: scroll_to_top
-                      type: ScrollTo
-                      params:
-                        top: 0
+_ref:
+  path: templates/general.yaml.njk
+  vars:
+    pageId: introduction
+    pageTitle: Introduction
+    content:
+      - id: markdown
+        type: Markdown
+        style:
+          '.markdown-body':
+            fontSize: 14px
+        properties:
+          content:
+            _ref: start/introduction.md
+      - id: start_tutorial_button
+        type: Button
+        properties:
+          block: true
+          hideActionLoading: true
+          icon: RocketOutlined
+          size: large
+          title: Start the tutorial
+          type: primary
+        actions:
+          onClick:
+            - id: link_forward
+              type: Link
+              params:
+                pageId: tutorial-setup
+            - id: scroll_to_top
+              type: ScrollTo
+              params:
+                top: 0
