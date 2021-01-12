@@ -1,7 +1,18 @@
-### Text editor
+#### Step 4
 
-To write Lowdefy configuration files you need a text editor. We recommend [VSCode](https://code.visualstudio.com/download), but feel free to use your favorite.
+Configure the Lowdefy backend server.
+- Click the "Site settings" button.
+- Choose the "Functions" section in the left menu.
+- Edit the settings and set your functions directory to `.lowdefy/functions`.
 
-### Up next
+#### Step 5
 
-In the next section we will make some changes to the welcome page.
+Redeploy your site.
+
+- Go to the "Deploys" tab.
+- Click the "Trigger deploy" button and deploy your site.
+- Wait for you site to finish deploying.
+
+#### Step 6
+
+Go to your shiny new app. On the "Site overview" tab you will find your site url. Go to this url and you should see something like this:

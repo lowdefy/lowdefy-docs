@@ -188,19 +188,141 @@ blocks:
         Triggered when value is changed.
 
       examples:
-        - id: 'properties.inputStyle: CSS style applied'
-          type: AutoComplete
-          properties:
-            options:
-              - Option 1
-              - Option 2
-            inputStyle:
-              border: 1px solid red
-        - id: 'properties.optionsStyle: CSS style applied'
-          type: AutoComplete
-          properties:
-            options:
-              - Option 1
-              - Option 2
-            optionsStyle:
-              color: blue
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: AutoComplete
+              layout:
+                span: 12
+              properties:
+                title: Primitive options
+                options:
+                  - A
+                  - Alice
+                  - Adrian
+                  - B
+                  - Bob
+                  - Ben
+                  - C
+                  - Carl
+                  - Carly
+            - id: example_1_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_1
+                  type: AutoComplete
+                  properties:
+                    title: Primitive options
+                    options:
+                      - A
+                      - Alice
+                      - Adrian
+                      - B
+                      - Bob
+                      - Ben
+                      - C
+                      - Carl
+                      - Carly
+                  ```
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2
+              type: AutoComplete
+              layout:
+                span: 12
+              properties:
+                title: Object options
+                label:
+                  extra: Value-Label object options.
+                options:
+                  - value: A1
+                    label: A
+                  - value: A2
+                    label: Alice
+                  - value: A3
+                    label: Adrian
+                  - value: B1
+                    label: B
+                  - value: B2
+                    label: Bob
+                  - value: B3
+                    label: Ben
+                  - value: C1
+                    label: C
+                  - value: C2
+                    label: Carl
+                  - value: C3
+                    label: Carly
+            - id: example_2_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_2
+                  type: AutoComplete
+                  properties:
+                    title: Object options
+                    label:
+                      extra: Value-Label object options.
+                    options:
+                      - value: A1
+                        label: A
+                      - value: A2
+                        label: Alice
+                      - value: A3
+                        label: Adrian
+                      - value: B1
+                        label: B
+                      - value: B2
+                        label: Bob
+                      - value: B3
+                        label: Ben
+                      - value: C1
+                        label: C
+                      - value: C2
+                        label: Carl
+                      - value: C3
+                        label: Carly
+        - id: example_3_card
+          type: Card
+          blocks:
+            - id: example_3
+              type: AutoComplete
+              layout:
+                span: 12
+              properties:
+                title: Default open
+                defaultOpen: true
+                label:
+                  extra: Open dropdown on load.
+                options:
+                  - A
+                  - B
+                  - C
+            - id: example_3_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_3
+                  type: AutoComplete
+                  properties:
+                    title: Default open
+                    defaultOpen: true
+                    label:
+                      extra: Open dropdown on load.
+                    options:
+                      - A
+                      - B
+                      - C
+                  ```

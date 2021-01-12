@@ -1,0 +1,80 @@
+id: tutorial-development-server
+type: PageSiderMenu
+public: true
+properties:
+  title: Development server
+  header:
+    theme: light
+  sider:
+    width: 256px
+  layout:
+    style:
+      background: '#FFFFFF'
+  breadcrumb:
+    list:
+      - Tutorial
+      - Development server
+  prefetchPages:
+    - tutorial-editing-page
+
+areas:
+  content:
+    justify: center
+    blocks:
+      _ref:
+        path: tutorial/template.yaml
+        vars:
+          title: Running a development server
+          buttons: true
+          previous_page_title: Editing a page
+          previous_page_id: tutorial-editing-page
+          next_page_title: Creating a page
+          next_page_id: tutorial-create-page
+          content:
+            - id: md1
+              type: Markdown
+              style:
+                '.markdown-body':
+                  fontSize: 14px
+              properties:
+                content:
+                  _ref: tutorial/tutorial-development-server-content-1.md
+            # - id: md2
+            #   type: Markdown
+            #   style:
+            #     '.markdown-body':
+            #       fontSize: 14px
+            #   properties:
+            #     content:
+            #       _ref: tutorial/tutorial-editing-page-content-2.md
+            # - id: example1
+            #   type: PageHeaderMenu
+            #   properties:
+            #     style:
+            #       minHeight: 300px
+            #     menu:
+            #       links:
+            #         - id: welcome
+            #           type: MenuLink
+            #           properties:
+            #             title: welcome
+            #           url: ''
+            #     # TODO: remove when updating to new version
+            #     userAvatar:
+            #       disabled: true
+            #   blocks:
+            #     - id: example1_content_card
+            #       type: Card
+            #       blocks:
+            #         - id: example1_title
+            #           type: Title
+            #           properties:
+            #             content: Hello World
+            # - id: md3
+            #   type: Markdown
+            #   style:
+            #     '.markdown-body':
+            #       fontSize: 14px
+            #   properties:
+            #     content:
+            #       _ref: tutorial/tutorial-editing-page-content-3.md
