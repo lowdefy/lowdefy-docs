@@ -5,7 +5,7 @@ properties:
   title: AutoComplete
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -78,7 +78,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -90,7 +90,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear the selected value, sets the value to null.
@@ -102,7 +102,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -114,7 +114,7 @@ blocks:
             title: defaultOpen
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Initial open state of dropdown.
@@ -126,10 +126,22 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disables the block if true.
+        - id: block.properties.backfill
+          type: Switch
+          layout:
+            _global: settings_input_layout
+          properties:
+            title: backfill
+            size: small
+            label:
+              _ref:
+                path: blocks/label_extra.yaml
+                vars:
+                  extra: Backfill selected item when using keyboard.
         - id: block.properties.options
           type: ControlledList
           required: true
@@ -150,7 +162,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user selects input.
@@ -162,7 +174,7 @@ blocks:
             title: size
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Size of the block.
@@ -174,3 +186,143 @@ blocks:
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.
+
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: AutoComplete
+              layout:
+                span: 12
+              properties:
+                title: Primitive options
+                options:
+                  - A
+                  - Alice
+                  - Adrian
+                  - B
+                  - Bob
+                  - Ben
+                  - C
+                  - Carl
+                  - Carly
+            - id: example_1_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_1
+                  type: AutoComplete
+                  properties:
+                    title: Primitive options
+                    options:
+                      - A
+                      - Alice
+                      - Adrian
+                      - B
+                      - Bob
+                      - Ben
+                      - C
+                      - Carl
+                      - Carly
+                  ```
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2
+              type: AutoComplete
+              layout:
+                span: 12
+              properties:
+                title: Object options
+                label:
+                  extra: Value-Label object options.
+                options:
+                  - value: A1
+                    label: A
+                  - value: A2
+                    label: Alice
+                  - value: A3
+                    label: Adrian
+                  - value: B1
+                    label: B
+                  - value: B2
+                    label: Bob
+                  - value: B3
+                    label: Ben
+                  - value: C1
+                    label: C
+                  - value: C2
+                    label: Carl
+                  - value: C3
+                    label: Carly
+            - id: example_2_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_2
+                  type: AutoComplete
+                  properties:
+                    title: Object options
+                    label:
+                      extra: Value-Label object options.
+                    options:
+                      - value: A1
+                        label: A
+                      - value: A2
+                        label: Alice
+                      - value: A3
+                        label: Adrian
+                      - value: B1
+                        label: B
+                      - value: B2
+                        label: Bob
+                      - value: B3
+                        label: Ben
+                      - value: C1
+                        label: C
+                      - value: C2
+                        label: Carl
+                      - value: C3
+                        label: Carly
+        - id: example_3_card
+          type: Card
+          blocks:
+            - id: example_3
+              type: AutoComplete
+              layout:
+                span: 12
+              properties:
+                title: Default open
+                defaultOpen: true
+                label:
+                  extra: Open dropdown on load.
+                options:
+                  - A
+                  - B
+                  - C
+            - id: example_3_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_3
+                  type: AutoComplete
+                  properties:
+                    title: Default open
+                    defaultOpen: true
+                    label:
+                      extra: Open dropdown on load.
+                    options:
+                      - A
+                      - B
+                      - C
+                  ```

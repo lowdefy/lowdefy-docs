@@ -133,4 +133,84 @@ blocks:
         ###### onChange
         Triggered when value is changed.
 
-      examples: []
+      examples:
+        - id: example_1_card
+          type: Card
+          blocks:
+            - id: example_1
+              type: CodeEditor
+              layout:
+                span: 12
+              properties:
+                options:
+                  readOnly: true
+                value:
+                  _dump_yaml:
+                    name: Samwise Gamgee
+                    other_names:
+                      - Sam
+                      - Samwise Gardner
+                      - Samwise the Brave
+                      - Sneaky little hobbitses
+                    bestfriend: Frodo Baggins
+                    employer: Frodo Baggins
+                    titles: Mayor of the Shire
+                    birth: April 6 2980
+                    race: Hobbits
+                    spouse: Rosie Cotton
+                    weapon: Sting
+            - id: example_1_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_1
+                  type: CodeEditor
+                  properties:
+                    options:
+                      readOnly: true
+                  value:
+                    _dump_yaml:
+                      name: Samwise Gamgee
+                      other_names:
+                        - Sam
+                        - Samwise Gardner
+                        - Samwise the Brave
+                        - Sneaky little hobbitses
+                      bestfriend: Frodo Baggins
+                      employer: Frodo Baggins
+                      titles: Mayor of the Shire
+                      birth: April 6 2980
+                      race: Hobbits
+                      spouse: Rosie Cotton
+                      weapon: Sting
+                  ```
+        - id: example_2_card
+          type: Card
+          blocks:
+            - id: example_2
+              type: CodeEditor
+              layout:
+                span: 12
+              properties:
+                title: Show minimap
+                options:
+                  minimap:
+                    enabled: true
+            - id: example_2_code
+              type: Markdown
+              layout:
+                span: 12
+              properties:
+                content: |
+                  ```yaml
+                  id: example_2
+                  type: CodeEditor
+                  properties:
+                    title: Show minimap
+                    options:
+                      minimap:
+                        enabled: true
+                  ```

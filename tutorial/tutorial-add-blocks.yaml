@@ -14,11 +14,14 @@ properties:
     list:
       - Tutorial
       - Making a booking form
+  prefetchPages:
+    - tutorial-actions-operators
+
 areas:
   content:
     justify: center
     blocks:
-      _ref: 
+      _ref:
         path: tutorial/template.yaml
         vars:
           title: Making a booking form
@@ -28,20 +31,6 @@ areas:
           next_page_title: Interactive pages
           next_page_id: tutorial-actions-operators
           content:
-            - id: video
-              type: Html
-              properties:
-                html: |
-                  <iframe
-                    id="ytplayer-yaml-video"
-                    type="text/html"
-                    width="800"
-                    height="470"
-                    src="https://www.youtube.com//embed/Ya9TZnHegfA?origin=https://docs.lowdefy.com"
-                    allowfullscreen="true"
-
-                    frameborder="0">
-                  </iframe>
             - id: md1
               type: Markdown
               style:
@@ -59,6 +48,9 @@ areas:
                   minHeight: 300px
                 menu:
                   links: []
+                # TODO: remove when updating to new version
+                userAvatar:
+                  disabled: true
               blocks:
                 - id: example1_content_card
                   type: Card

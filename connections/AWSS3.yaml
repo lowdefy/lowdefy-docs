@@ -10,7 +10,7 @@ properties:
   layout:
     style:
       background: '#FFFFFF'
-areas:  
+areas:
   content:
     justify: center
     blocks:
@@ -59,16 +59,17 @@ areas:
 
               Read and writes on a bucket:
               ```yaml
-              - id: my_bucket
-                type: AwsS3Bucket
-                properties:
-                  accessKeyId:
-                    _secret: my_bucket_access_key_id
-                  secretAccessKey:
-                    _secret: my_bucket_secret_access_key
-                  region: eu-west-1
-                  bucket: my-bucket-name
-                  write: true
+              connections:
+                - id: my_bucket
+                  type: AwsS3Bucket
+                  properties:
+                    accessKeyId:
+                      _secret: my_bucket_access_key_id
+                    secretAccessKey:
+                      _secret: my_bucket_secret_access_key
+                    region: eu-west-1
+                    bucket: my-bucket-name
+                    write: true
               ```
 
               ## Requests and Mutations
@@ -89,6 +90,7 @@ areas:
               - `expires`: _Number_ - Number of seconds for which the policy should be valid.
               - `key`: _String_ - Key (or filename) under which object will be stored. If another file is saved with the same key, that file will be overwritten, so a random string in this field is probably needed.
               - `responseContentType`: _String_ - Sets the Content-Type header of the response.
+              - `responseContentDisposition`: _String_ - Sets the Content-Disposition header of the response.
 
               ### Examples
 
@@ -96,7 +98,7 @@ areas:
               ```yaml
               requests:
                 - id: my_file_link
-                  type: AwsS3Bucket
+                  type: AwsS3PresignedGetObject
                   connectionId: my_bucket_connection
                   properties:
                     key: pdf-filename-as4dacd.pdf
@@ -139,7 +141,7 @@ areas:
               Upload a file with user filename and random id:
               ```yaml
               - id: my_post_policy
-                type: AwsS3Bucket
+                type: AwsS3PresignedPostPolicy
                 connectionId: my_bucket_connection
                 properties:
                   key:
@@ -150,12 +152,12 @@ areas:
                           _args: filename
                         uid:
                           _args: filename
-              ```    
+              ```
 
               ## Creating a bucket
 
               ###### Step 1 - Create an AWS account
-              
+
               Go to the [AWS homepage](https://aws.amazon.com/) and create an account if you don't already have one. you can find more information [here](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
 
               ###### Step 2 - Create an S3 bucket
@@ -174,19 +176,23 @@ areas:
               1. Click on you bucket.
               2. Click on the 'Permissions' tab.
               3. Click on the 'CORS Configuration' tab.
-              4. Paste this configuration and save (Fill in your own Lowdefy deployment id).
+              4. Paste this configuration and save (Fill in your own Lowdefy domain name).
 
-              ```xml
-              <?xml version="1.0" encoding="UTF-8"?>
-              <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-              <CORSRule>
-                  <AllowedOrigin>https://YOUR_LOWDEFY_ID.lowdefy.com</AllowedOrigin>
-                  <AllowedMethod>PUT</AllowedMethod>
-                  <AllowedMethod>POST</AllowedMethod>
-                  <AllowedMethod>DELETE</AllowedMethod>
-                  <AllowedHeader>*</AllowedHeader>
-              </CORSRule>
-              </CORSConfiguration>
+              ```json
+              [
+                  {
+                      "AllowedHeaders": [
+                          "*"
+                      ],
+                      "AllowedMethods": [
+                          "*"
+                      ],
+                      "AllowedOrigins": [
+                          "https://YOUR_LOWDEFY_DOMAIN_HERE"
+                      ],
+                      "ExposeHeaders": []
+                  },
+              ]
               ```
 
               ###### Step 4 - Create an IAM user
@@ -220,7 +226,7 @@ areas:
                   ]
               }
               ```
-              
+
               9. Choose review policy and save.
               10. In your previous tab, refresh and search for the policy you just created. Attach it to the user.
               11. Click next, review and create the user.

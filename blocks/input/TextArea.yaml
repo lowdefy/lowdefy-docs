@@ -5,7 +5,7 @@ properties:
   title: TextArea
 actions:
   onInit:
-    - id: initialize_state 
+    - id: initialize_state
       type: SetState
       params:
         default_layout:
@@ -61,7 +61,7 @@ blocks:
       category: input
       properties_transform:
         _get:
-          key: "0"
+          key: '0'
           from:
             _mql_aggregate:
               pipeline:
@@ -84,7 +84,7 @@ blocks:
             title: title
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Title to describe the input component, if no title is specified the block id is displayed.
@@ -96,7 +96,7 @@ blocks:
             title: allowClear
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Allow the user to clear their input.
@@ -108,7 +108,7 @@ blocks:
             title: autoFocus
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Autofocus to the block on page load.
@@ -122,7 +122,7 @@ blocks:
                 title: autoSize Type
                 size: small
                 label:
-                  _ref: 
+                  _ref:
                     path: blocks/label_extra.yaml
                     vars:
                       extra: autoSize can either be a boolean value, or an object with minimum and maximum rows.
@@ -140,7 +140,7 @@ blocks:
             title: autoSize
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Automatically extend the block number of rows.
@@ -155,7 +155,7 @@ blocks:
             title: autoSize.minRows
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Minimum number of rows the block can be.
@@ -170,7 +170,7 @@ blocks:
             title: autoSize.maxRows
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Maximum number of rows the block can be.
@@ -182,7 +182,7 @@ blocks:
             title: disabled
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Disable the block if true.
@@ -194,7 +194,7 @@ blocks:
             title: placeholder
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Placeholder text inside the block before user types input.
@@ -206,12 +206,12 @@ blocks:
             title: rows
             size: small
             label:
-              _ref: 
+              _ref:
                 path: blocks/label_extra.yaml
                 vars:
                   extra: Number of rows of text area.
         - _ref: blocks/label.yaml
-        
+
       available_actions_description: |
         ###### onChange
         Triggered when value is changed.

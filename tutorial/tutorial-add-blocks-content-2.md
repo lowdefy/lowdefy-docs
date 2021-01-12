@@ -7,11 +7,11 @@ We also added reset button and submit button. We set a few more properties on th
 
 ### How it works
 
-Lowdefy apps are made from blocks. These blocks can be the page layout with header and menu, a piece of text, a chart or table, tabs or even a popup message or icon. You specify which block is rendered with the `type` field. There are 5 block categories, namely display, input, container, list, and context. 
+Lowdefy apps are made from blocks. These blocks can be the page layout with header and menu, a piece of text, a chart or table, tabs or even a popup message or icon. You specify which block is rendered with the `type` field. There are 5 block categories, namely display, input, container, list, and context.
 
 The first block on a page needs to be a context block. For now, it is enough to understand that this context allows the Lowdefy magic to happen.
 
-All blocks need to have an id that identifies the block. This id should be unique in that block's context.
+All blocks need to have an `id` that identifies the block. This id should be unique in that block's context.
 
 
 ### Up next
