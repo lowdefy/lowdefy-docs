@@ -15,13 +15,12 @@ blocks:
       title: span
       size: small
       label:
-        _ref: 
-          path: blocks/label_extra.yaml
+        _ref:
+          path: templates/blocks/label_extra.yaml
           vars:
             extra: Align label left or right when span is applied.
   - id: block.properties.label.align
     type: ButtonSelector
-    defaultValue: left
     layout:
       _global: settings_input_layout
     properties:
@@ -31,47 +30,44 @@ blocks:
         - left
         - right
       label:
-        _ref: 
-          path: blocks/label_extra.yaml
+        _ref:
+          path: templates/blocks/label_extra.yaml
           vars:
             extra: Align label left or right when span is applied.
   - id: block.properties.label.inline
     type: Switch
-    defaultValue: false
     layout:
       _global: settings_input_layout
     properties:
       title: inline
       size: small
       label:
-        _ref: 
-          path: blocks/label_extra.yaml
+        _ref:
+          path: templates/blocks/label_extra.yaml
           vars:
             extra: Set label inline with input.
   - id: block.properties.label.disabled
     type: Switch
-    defaultValue: false
     layout:
       _global: settings_input_layout
     properties:
       title: disabled
       size: small
       label:
-        _ref: 
-          path: blocks/label_extra.yaml
+        _ref:
+          path: templates/blocks/label_extra.yaml
           vars:
             extra: Remove label wrapper.
   - id: block.properties.label.colon
     type: Switch
-    defaultValue: true
     layout:
       _global: settings_input_layout
     properties:
       title: colon
       size: small
       label:
-        _ref: 
-          path: blocks/label_extra.yaml
+        _ref:
+          path: templates/blocks/label_extra.yaml
           vars:
             extra: Postfix the label with a colon.
   - id: block.properties.label.extra
@@ -82,7 +78,7 @@ blocks:
       title: extra
       size: small
       label:
-        _ref: 
-          path: blocks/label_extra.yaml
+        _ref:
+          path: templates/blocks/label_extra.yaml
           vars:
             extra: Add additional description tag to the label.

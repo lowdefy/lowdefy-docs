@@ -2,9 +2,9 @@ _get:
   key: 0.block
   from:
     _mql_aggregate:
-      on: 
-        - block: 
-            _var: 
+      on:
+        - block:
+            _var:
               name: block
               default: {}
       pipeline:
@@ -15,11 +15,11 @@ _get:
             block.visible: $block.visible
             block.required: $block.required
             block.areas: $block.areas
-            block.layout: 
+            block.layout:
                 $arrayToObject:
                   $filter:
                     input:
-                      $objectToArray: $block.layout  
+                      $objectToArray: $block.layout
                     as: x
                     cond:
                       $and:
@@ -32,14 +32,15 @@ _get:
                               - $in:
                                   - k: $$x.k
                                     v: $$x.v
-                                  - _var: 
-                                      name: block.default_layout
-                                      default: []
-            block.properties: 
+                                  - $objectToArray:
+                                      _var:
+                                        name: block.default_layout
+                                        default: {}
+            block.properties:
                 $arrayToObject:
                   $filter:
                     input:
-                      $objectToArray: $block.properties  
+                      $objectToArray: $block.properties
                     as: x
                     cond:
                       $and:
@@ -48,15 +49,15 @@ _get:
                               - $$x.v
                               - null
                         - $not:
-                            $and:
-                              - $in:
-                                  - k: $$x.k
-                                    v: $$x.v
-                                  - _var: 
-                                      name: block.default_properties
-                                      default: []
-        - $project: 
-            block: 
+                            $in:
+                              - k: $$x.k
+                                v: $$x.v
+                              - $objectToArray:
+                                  _var:
+                                    name: block.default_properties
+                                    default: {}
+        - $project:
+            block:
               $arrayToObject:
                 $filter:
                   input:
@@ -73,6 +74,13 @@ _get:
                             - $in:
                                 - k: $$x.k
                                   v: $$x.v
-                                - _var: 
-                                    name: default_block
-                                    default: []
+                                - - k: properties
+                                    v: {}
+                                  - k: layout
+                                    v: {}
+                                  - k: style
+                                    v: {}
+                                  - k: visible
+                                    v: true
+                                  - k: required
+                                    v: false

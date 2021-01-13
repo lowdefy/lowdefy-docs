@@ -1,8 +1,8 @@
 _ref:
   path: templates/general.yaml.njk
   vars:
-    pageId: Layout
-    pageTitle: Layout
+    pageId: layout
+    pageTitle: layout
     section: Concepts
     content:
       - id: markdown_intro
